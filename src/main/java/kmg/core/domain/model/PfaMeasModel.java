@@ -1,6 +1,6 @@
 package kmg.core.domain.model;
 
-import kmg.im.stock.tssts.infrastructure.types.TimeUnitTypes;
+import kmg.core.infrastructure.types.TimeUnitTypes;
 
 /**
  * 性能測定モデル<br>
