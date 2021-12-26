@@ -1,6 +1,6 @@
 package kmg.core.infrastructure.exception;
 
-import kmg.core.infrastructure.types.LogMessageTypes;
+import kmg.core.infrastructure.types.KmgLogMessageTypes;
 
 /**
  * ＫＭＧシステム例外<br>
@@ -27,7 +27,7 @@ public class KmgSystemException extends KmgException {
      * @param logMsgArgs
      *                    ログメッセージの引数
      */
-    public KmgSystemException(final String errMsg, final LogMessageTypes logMsgTypes, final Object[] logMsgArgs) {
+    public KmgSystemException(final String errMsg, final KmgLogMessageTypes logMsgTypes, final Object[] logMsgArgs) {
         super(errMsg, logMsgTypes, logMsgArgs);
     }
 
@@ -46,7 +46,7 @@ public class KmgSystemException extends KmgException {
      * @param cause
      *                    原因
      */
-    public KmgSystemException(final String errMsg, final LogMessageTypes logMsgTypes, final Object[] logMsgArgs,
+    public KmgSystemException(final String errMsg, final KmgLogMessageTypes logMsgTypes, final Object[] logMsgArgs,
         final Throwable cause) {
         super(errMsg, logMsgTypes, logMsgArgs, cause);
     }

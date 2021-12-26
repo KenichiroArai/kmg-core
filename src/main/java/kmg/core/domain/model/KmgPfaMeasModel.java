@@ -1,15 +1,15 @@
 package kmg.core.domain.model;
 
-import kmg.core.infrastructure.types.TimeUnitTypes;
+import kmg.core.infrastructure.types.KmgTimeUnitTypes;
 
 /**
- * 性能測定モデル<br>
+ * ＫＭＧ性能測定モデル<br>
  *
  * @author KenichiroArai
  * @sine 1.0.0
  * @version 1.0.0
  */
-public class PfaMeasModel {
+public class KmgPfaMeasModel {
 
     /** 開始時間 */
     private long startTime;
@@ -21,7 +21,7 @@ public class PfaMeasModel {
     private double elapsedTime;
 
     /** 時間単位 */
-    private TimeUnitTypes timeUnit;
+    private KmgTimeUnitTypes timeUnit;
 
     /**
      * 開始<br>
@@ -46,18 +46,18 @@ public class PfaMeasModel {
 
         /* 経過時間と時間単位を求める */
         double timeTmp = this.endTime - this.startTime;
-        TimeUnitTypes timeUnitTmp = TimeUnitTypes.NANOSECONDS;
+        KmgTimeUnitTypes timeUnitTmp = KmgTimeUnitTypes.NANOSECONDS;
         if (timeTmp >= 1000.0) {
             timeTmp /= 1000.0;
-            timeUnitTmp = TimeUnitTypes.MICROSECONDS;
+            timeUnitTmp = KmgTimeUnitTypes.MICROSECONDS;
         }
         if (timeTmp >= 1000.0) {
             timeTmp /= 1000.0;
-            timeUnitTmp = TimeUnitTypes.MILLISECOND;
+            timeUnitTmp = KmgTimeUnitTypes.MILLISECOND;
         }
         if (timeTmp >= 1000.0) {
             timeTmp /= 1000.0;
-            timeUnitTmp = TimeUnitTypes.SECONDS;
+            timeUnitTmp = KmgTimeUnitTypes.SECONDS;
         }
 
         this.elapsedTime = timeTmp;
@@ -111,8 +111,8 @@ public class PfaMeasModel {
      * @version 1.0.0
      * @return 時間単位
      */
-    public TimeUnitTypes getTimeUnit() {
-        final TimeUnitTypes result = this.timeUnit;
+    public KmgTimeUnitTypes getTimeUnit() {
+        final KmgTimeUnitTypes result = this.timeUnit;
         return result;
     }
 

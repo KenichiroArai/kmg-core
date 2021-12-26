@@ -1,6 +1,6 @@
 package kmg.core.infrastructure.exception;
 
-import kmg.core.infrastructure.types.LogMessageTypes;
+import kmg.core.infrastructure.types.KmgLogMessageTypes;
 
 /**
  * ＫＭＧ例外<br>
@@ -15,7 +15,7 @@ public class KmgException extends Exception {
     private static final long serialVersionUID = 1L;
 
     /** ログメッセージの種類 */
-    private final LogMessageTypes logMsgTypes;
+    private final KmgLogMessageTypes logMsgTypes;
 
     /** ログメッセージの引数 */
     private final Object[] logMsgArgs;
@@ -33,7 +33,7 @@ public class KmgException extends Exception {
      * @param logMsgArgs
      *                    ログメッセージの引数
      */
-    public KmgException(final String errMsg, final LogMessageTypes logMsgTypes, final Object[] logMsgArgs) {
+    public KmgException(final String errMsg, final KmgLogMessageTypes logMsgTypes, final Object[] logMsgArgs) {
         super(errMsg);
         this.logMsgTypes = logMsgTypes;
         this.logMsgArgs = logMsgArgs;
@@ -52,7 +52,7 @@ public class KmgException extends Exception {
      * @param cause
      *                    原因
      */
-    public KmgException(final String errMsg, final LogMessageTypes logMsgTypes, final Throwable cause) {
+    public KmgException(final String errMsg, final KmgLogMessageTypes logMsgTypes, final Throwable cause) {
         super(errMsg, cause);
         this.logMsgTypes = logMsgTypes;
         this.logMsgArgs = null;
@@ -73,7 +73,7 @@ public class KmgException extends Exception {
      * @param cause
      *                    原因
      */
-    public KmgException(final String errMsg, final LogMessageTypes logMsgTypes, final Object[] logMsgArgs,
+    public KmgException(final String errMsg, final KmgLogMessageTypes logMsgTypes, final Object[] logMsgArgs,
         final Throwable cause) {
         super(errMsg, cause);
         this.logMsgTypes = logMsgTypes;
@@ -88,8 +88,8 @@ public class KmgException extends Exception {
      * @version 1.0.0
      * @return ログメッセージの種類
      */
-    public LogMessageTypes getLogMsgTypes() {
-        final LogMessageTypes result = this.logMsgTypes;
+    public KmgLogMessageTypes getLogMsgTypes() {
+        final KmgLogMessageTypes result = this.logMsgTypes;
         return result;
     }
 

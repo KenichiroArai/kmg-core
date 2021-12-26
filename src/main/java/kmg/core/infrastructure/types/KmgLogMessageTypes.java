@@ -5,14 +5,14 @@ import java.util.Map;
 import java.util.function.Supplier;
 
 /**
- * ログメッセージの種類<br>
+ * ＫＭＧログメッセージの種類<br>
  *
  * @author KenichiroArai
  * @sine 1.0.0
  * @version 1.0.0
  */
 @SuppressWarnings("nls")
-public enum LogMessageTypes implements Supplier<String> {
+public enum KmgLogMessageTypes implements Supplier<String> {
 
     /* 定義：開始 */
 
@@ -33,13 +33,13 @@ public enum LogMessageTypes implements Supplier<String> {
     private String value;
 
     /** 種類のマップ */
-    private static final Map<String, LogMessageTypes> VALUES_MAP = new HashMap<>();
+    private static final Map<String, KmgLogMessageTypes> VALUES_MAP = new HashMap<>();
 
     static {
 
         /* 種類のマップにプット */
-        for (final LogMessageTypes type : LogMessageTypes.values()) {
-            LogMessageTypes.VALUES_MAP.put(type.get(), type);
+        for (final KmgLogMessageTypes type : KmgLogMessageTypes.values()) {
+            KmgLogMessageTypes.VALUES_MAP.put(type.get(), type);
         }
     }
 
@@ -54,7 +54,7 @@ public enum LogMessageTypes implements Supplier<String> {
      * @param value
      *              値
      */
-    LogMessageTypes(final String name, final String value) {
+    KmgLogMessageTypes(final String name, final String value) {
 
         this.name = name;
         this.value = value;
@@ -74,9 +74,9 @@ public enum LogMessageTypes implements Supplier<String> {
      *              値
      * @return 種類。指定無し（NONE）：値が存在しない場合。
      */
-    public static LogMessageTypes getEnum(final String value) {
+    public static KmgLogMessageTypes getEnum(final String value) {
 
-        LogMessageTypes result = LogMessageTypes.VALUES_MAP.get(value);
+        KmgLogMessageTypes result = KmgLogMessageTypes.VALUES_MAP.get(value);
         if (result == null) {
             result = NONE;
             return result;
@@ -92,9 +92,9 @@ public enum LogMessageTypes implements Supplier<String> {
      * @version 1.0.0
      * @return 初期値
      */
-    public static LogMessageTypes getInitValue() {
+    public static KmgLogMessageTypes getInitValue() {
 
-        final LogMessageTypes result = NONE;
+        final KmgLogMessageTypes result = NONE;
         return result;
 
     }
@@ -107,9 +107,9 @@ public enum LogMessageTypes implements Supplier<String> {
      * @version 1.0.0
      * @return デフォルト値
      */
-    public static LogMessageTypes getDefault() {
+    public static KmgLogMessageTypes getDefault() {
 
-        final LogMessageTypes result = NONE;
+        final KmgLogMessageTypes result = NONE;
         return result;
     }
 

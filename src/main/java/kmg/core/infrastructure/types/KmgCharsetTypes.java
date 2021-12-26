@@ -8,14 +8,14 @@ import java.util.function.Supplier;
 import kmg.core.infrastructure.type.KmgString;
 
 /**
- * 文字セットの種類<br>
+ * ＫＭＧ文字セットの種類<br>
  *
  * @author KenichiroArai
  * @sine 1.0.0
  * @version 1.0.0
  */
 @SuppressWarnings("nls")
-public enum CharsetTypes implements Supplier<String> {
+public enum KmgCharsetTypes implements Supplier<String> {
 
     /* 定義：開始 */
 
@@ -41,13 +41,13 @@ public enum CharsetTypes implements Supplier<String> {
     private Charset charset;
 
     /** 種類のマップ */
-    private static final Map<String, CharsetTypes> VALUES_MAP = new HashMap<>();
+    private static final Map<String, KmgCharsetTypes> VALUES_MAP = new HashMap<>();
 
     static {
 
         /* 種類のマップにプット */
-        for (final CharsetTypes type : CharsetTypes.values()) {
-            CharsetTypes.VALUES_MAP.put(type.get(), type);
+        for (final KmgCharsetTypes type : KmgCharsetTypes.values()) {
+            KmgCharsetTypes.VALUES_MAP.put(type.get(), type);
         }
     }
 
@@ -62,7 +62,7 @@ public enum CharsetTypes implements Supplier<String> {
      * @param value
      *              値
      */
-    CharsetTypes(final String name, final String value) {
+    KmgCharsetTypes(final String name, final String value) {
 
         this.name = name;
         this.value = value;
@@ -87,9 +87,9 @@ public enum CharsetTypes implements Supplier<String> {
      *              値
      * @return 種類。指定無し（NONE）：値が存在しない場合。
      */
-    public static CharsetTypes getEnum(final String value) {
+    public static KmgCharsetTypes getEnum(final String value) {
 
-        CharsetTypes result = CharsetTypes.VALUES_MAP.get(value);
+        KmgCharsetTypes result = KmgCharsetTypes.VALUES_MAP.get(value);
         if (result == null) {
             result = NONE;
             return result;
@@ -105,9 +105,9 @@ public enum CharsetTypes implements Supplier<String> {
      * @version 1.0.0
      * @return 初期値
      */
-    public static CharsetTypes getInitValue() {
+    public static KmgCharsetTypes getInitValue() {
 
-        final CharsetTypes result = NONE;
+        final KmgCharsetTypes result = NONE;
         return result;
 
     }
@@ -120,9 +120,9 @@ public enum CharsetTypes implements Supplier<String> {
      * @version 1.0.0
      * @return デフォルト値
      */
-    public static CharsetTypes getDefault() {
+    public static KmgCharsetTypes getDefault() {
 
-        final CharsetTypes result = NONE;
+        final KmgCharsetTypes result = NONE;
         return result;
     }
 

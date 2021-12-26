@@ -1,7 +1,7 @@
 package kmg.core.infrastructure.type;
 
-import kmg.core.infrastructure.types.DelimiterTypes;
-import kmg.core.infrastructure.utils.ArrayUtils;
+import kmg.core.infrastructure.types.KmgDelimiterTypes;
+import kmg.core.infrastructure.utils.KmgArrayUtils;
 
 /**
  * ＫＭＧ文字列
@@ -101,7 +101,7 @@ public class KmgString {
 
         String result = null;
 
-        if (ArrayUtils.isEmpty(target)) {
+        if (KmgArrayUtils.isEmpty(target)) {
             result = KmgString.EMPTY;
             return result;
         }
@@ -247,7 +247,7 @@ public class KmgString {
         final String lowerCase = target.toLowerCase();
 
         // 単語の配列を取得
-        final String[] words = DelimiterTypes.UNDERSCORE.split(lowerCase);
+        final String[] words = KmgDelimiterTypes.UNDERSCORE.split(lowerCase);
 
         // 一つ目の単語
         final String firstWord = KmgString.capitalize(words[0]);

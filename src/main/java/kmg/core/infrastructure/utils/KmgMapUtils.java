@@ -3,13 +3,13 @@ package kmg.core.infrastructure.utils;
 import java.util.Map;
 
 /**
- * マップユーティリティ<br>
+ * ＫＭＧマップユーティリティ<br>
  *
  * @author KenichiroArai
  * @sine 1.0.0
  * @version 1.0.0
  */
-public final class MapUtils {
+public final class KmgMapUtils {
 
     /**
      * デフォルトコンストラクタ<br>
@@ -18,7 +18,7 @@ public final class MapUtils {
      * @sine 1.0.0
      * @version 1.0.0
      */
-    private MapUtils() {
+    private KmgMapUtils() {
         // 処理無し
     }
 
@@ -58,7 +58,7 @@ public final class MapUtils {
      * @return true：空ではない、false：空
      */
     public static boolean isNotEmpty(final Map<?, ?> target) {
-        final boolean result = !MapUtils.isEmpty(target);
+        final boolean result = !KmgMapUtils.isEmpty(target);
         return result;
     }
 }

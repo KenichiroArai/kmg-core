@@ -9,13 +9,13 @@ import org.springframework.util.ObjectUtils;
 import kmg.core.infrastructure.type.KmgString;
 
 /**
- * パスユーティリティ<br>
+ * ＫＭＧパスユーティリティ<br>
  *
  * @author KenichiroArai
  * @sine 1.0.0
  * @version 1.0.0
  */
-public final class PathUtils {
+public final class KmgPathUtils {
 
     /**
      * デフォルトコンストラクタ<br>
@@ -24,7 +24,7 @@ public final class PathUtils {
      * @sine 1.0.0
      * @version 1.0.0
      */
-    private PathUtils() {
+    private KmgPathUtils() {
         // 処理無し
     }
 
@@ -105,7 +105,7 @@ public final class PathUtils {
             return result;
         }
 
-        result = PathUtils.getBinPath(obj.getClass());
+        result = KmgPathUtils.getBinPath(obj.getClass());
 
         return result;
     }
@@ -135,7 +135,7 @@ public final class PathUtils {
             return result;
         }
 
-        result = PathUtils.getClassFullPath(object.getClass(), fileName);
+        result = KmgPathUtils.getClassFullPath(object.getClass(), fileName);
         return result;
     }
 
@@ -164,8 +164,8 @@ public final class PathUtils {
             return result;
         }
 
-        final Path binPath = PathUtils.getBinPath(zlass);
-        result = PathUtils.getClassFullPath(binPath, zlass.getPackageName(), zlass.getSimpleName(), fileName);
+        final Path binPath = KmgPathUtils.getBinPath(zlass);
+        result = KmgPathUtils.getClassFullPath(binPath, zlass.getPackageName(), zlass.getSimpleName(), fileName);
         return result;
     }
 

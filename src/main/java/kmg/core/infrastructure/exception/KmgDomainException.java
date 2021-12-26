@@ -1,6 +1,6 @@
 package kmg.core.infrastructure.exception;
 
-import kmg.core.infrastructure.types.LogMessageTypes;
+import kmg.core.infrastructure.types.KmgLogMessageTypes;
 
 /**
  * ＫＭＧドメイン例外<br>
@@ -27,7 +27,7 @@ public class KmgDomainException extends KmgException {
      * @param logMsgArgs
      *                    ログメッセージの引数
      */
-    public KmgDomainException(final String errMsg, final LogMessageTypes logMsgTypes, final Object[] logMsgArgs) {
+    public KmgDomainException(final String errMsg, final KmgLogMessageTypes logMsgTypes, final Object[] logMsgArgs) {
         super(errMsg, logMsgTypes, logMsgArgs);
     }
 
@@ -44,7 +44,7 @@ public class KmgDomainException extends KmgException {
      * @param cause
      *                    原因
      */
-    public KmgDomainException(final String errMsg, final LogMessageTypes logMsgTypes, final Throwable cause) {
+    public KmgDomainException(final String errMsg, final KmgLogMessageTypes logMsgTypes, final Throwable cause) {
         super(errMsg, logMsgTypes, cause);
     }
 
@@ -63,7 +63,7 @@ public class KmgDomainException extends KmgException {
      * @param cause
      *                    原因
      */
-    public KmgDomainException(final String errMsg, final LogMessageTypes logMsgTypes, final Object[] logMsgArgs,
+    public KmgDomainException(final String errMsg, final KmgLogMessageTypes logMsgTypes, final Object[] logMsgArgs,
         final Throwable cause) {
         super(errMsg, logMsgTypes, logMsgArgs, cause);
     }

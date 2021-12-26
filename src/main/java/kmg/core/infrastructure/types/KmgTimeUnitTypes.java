@@ -6,14 +6,14 @@ import java.util.Map;
 import java.util.function.Supplier;
 
 /**
- * 時間単位の種類<br>
+ * ＫＭＧ時間単位の種類<br>
  *
  * @author KenichiroArai
  * @sine 1.0.0
  * @version 1.0.0
  */
 @SuppressWarnings("nls")
-public enum TimeUnitTypes implements Supplier<String> {
+public enum KmgTimeUnitTypes implements Supplier<String> {
 
     /* 定義：開始 */
 
@@ -48,13 +48,13 @@ public enum TimeUnitTypes implements Supplier<String> {
     private BigDecimal unitValue;
 
     /** 種類のマップ */
-    private static final Map<String, TimeUnitTypes> VALUES_MAP = new HashMap<>();
+    private static final Map<String, KmgTimeUnitTypes> VALUES_MAP = new HashMap<>();
 
     static {
 
         /* 種類のマップにプット */
-        for (final TimeUnitTypes type : TimeUnitTypes.values()) {
-            TimeUnitTypes.VALUES_MAP.put(type.get(), type);
+        for (final KmgTimeUnitTypes type : KmgTimeUnitTypes.values()) {
+            KmgTimeUnitTypes.VALUES_MAP.put(type.get(), type);
         }
     }
 
@@ -73,7 +73,7 @@ public enum TimeUnitTypes implements Supplier<String> {
      * @param unitValue
      *                  単位値
      */
-    TimeUnitTypes(final String name, final String value, final String unitName, final BigDecimal unitValue) {
+    KmgTimeUnitTypes(final String name, final String value, final String unitName, final BigDecimal unitValue) {
 
         this.name = name;
         this.value = value;
@@ -95,9 +95,9 @@ public enum TimeUnitTypes implements Supplier<String> {
      *              値
      * @return 種類。指定無し（NONE）：値が存在しない場合。
      */
-    public static TimeUnitTypes getEnum(final String value) {
+    public static KmgTimeUnitTypes getEnum(final String value) {
 
-        TimeUnitTypes result = TimeUnitTypes.VALUES_MAP.get(value);
+        KmgTimeUnitTypes result = KmgTimeUnitTypes.VALUES_MAP.get(value);
         if (result == null) {
             result = NONE;
             return result;
@@ -113,9 +113,9 @@ public enum TimeUnitTypes implements Supplier<String> {
      * @version 1.0.0
      * @return 初期値
      */
-    public static TimeUnitTypes getInitValue() {
+    public static KmgTimeUnitTypes getInitValue() {
 
-        final TimeUnitTypes result = NONE;
+        final KmgTimeUnitTypes result = NONE;
         return result;
 
     }
@@ -128,9 +128,9 @@ public enum TimeUnitTypes implements Supplier<String> {
      * @version 1.0.0
      * @return デフォルト値
      */
-    public static TimeUnitTypes getDefault() {
+    public static KmgTimeUnitTypes getDefault() {
 
-        final TimeUnitTypes result = NONE;
+        final KmgTimeUnitTypes result = NONE;
         return result;
     }
 

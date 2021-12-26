@@ -8,13 +8,13 @@ import java.util.Date;
 import kmg.core.infrastructure.type.KmgString;
 
 /**
- * ローカル日付ユーティリティ<br>
+ * ＫＭＧローカル日付ユーティリティ<br>
  *
  * @author KenichiroArai
  * @sine 1.0.0
  * @version 1.0.0
  */
-public final class LocalDateUtils {
+public final class KmgLocalDateUtils {
 
     /** フォーマッタパターン（yyyy/MM/dd） */
     private static final String FORMATTER_PATTERN_YYYY_MM_DD = "yyyy/MM/dd"; //$NON-NLS-1$
@@ -26,7 +26,7 @@ public final class LocalDateUtils {
      * @sine 1.0.0
      * @version 1.0.0
      */
-    private LocalDateUtils() {
+    private KmgLocalDateUtils() {
         // 処理無し
     }
 
@@ -48,7 +48,7 @@ public final class LocalDateUtils {
         if (KmgString.isEmpty(dateStr)) {
             return result;
         }
-        result = LocalDate.parse(dateStr, DateTimeFormatter.ofPattern(LocalDateUtils.FORMATTER_PATTERN_YYYY_MM_DD));
+        result = LocalDate.parse(dateStr, DateTimeFormatter.ofPattern(KmgLocalDateUtils.FORMATTER_PATTERN_YYYY_MM_DD));
         return result;
     }
 
@@ -92,7 +92,7 @@ public final class LocalDateUtils {
         if (localDate == null) {
             return result;
         }
-        result = localDate.format(DateTimeFormatter.ofPattern(LocalDateUtils.FORMATTER_PATTERN_YYYY_MM_DD));
+        result = localDate.format(DateTimeFormatter.ofPattern(KmgLocalDateUtils.FORMATTER_PATTERN_YYYY_MM_DD));
         return result;
     }
 
@@ -114,8 +114,8 @@ public final class LocalDateUtils {
         if (date == null) {
             return result;
         }
-        final LocalDate localDate = LocalDateUtils.from(date);
-        result = localDate.format(DateTimeFormatter.ofPattern(LocalDateUtils.FORMATTER_PATTERN_YYYY_MM_DD));
+        final LocalDate localDate = KmgLocalDateUtils.from(date);
+        result = localDate.format(DateTimeFormatter.ofPattern(KmgLocalDateUtils.FORMATTER_PATTERN_YYYY_MM_DD));
         return result;
     }
 }

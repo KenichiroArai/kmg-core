@@ -5,16 +5,16 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.math.BigDecimal;
 
-import kmg.core.domain.model.ReflectionModel;
+import kmg.core.domain.model.KmgReflectionModel;
 
 /**
- * リフレクションモデル<br>
+ * ＫＭＧリフレクションモデル<br>
  *
  * @author KenichiroArai
  * @sine 1.0.0
  * @version 1.0.0
  */
-public class ReflectionModelImpl implements ReflectionModel {
+public class KmgReflectionModelImpl implements KmgReflectionModel {
 
     /** オブジェクト */
     private final Object object;
@@ -34,7 +34,7 @@ public class ReflectionModelImpl implements ReflectionModel {
      * @param object
      *               対象オブジェクト
      */
-    public ReflectionModelImpl(final Object object) {
+    public KmgReflectionModelImpl(final Object object) {
         this.object = object;
         this.clazz = object.getClass();
     }

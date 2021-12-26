@@ -5,20 +5,20 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
-import kmg.core.domain.model.SqlPathModel;
+import kmg.core.domain.model.KmgSqlPathModel;
 import kmg.core.infrastructure.exception.KmgDomainException;
 import kmg.core.infrastructure.type.KmgString;
-import kmg.core.infrastructure.types.LogMessageTypes;
-import kmg.core.infrastructure.utils.PathUtils;
+import kmg.core.infrastructure.types.KmgLogMessageTypes;
+import kmg.core.infrastructure.utils.KmgPathUtils;
 
 /**
- * ＳＱＬパスモデル<br>
+ * ＫＭＧＳＱＬパスモデル<br>
  *
  * @author KenichiroArai
  * @sine 1.0.0
  * @version 1.0.0
  */
-public class SqlPathModelImpl implements SqlPathModel {
+public class KmgSqlPathModelImpl implements KmgSqlPathModel {
 
     /** クラス */
     private final Class<?> zlass;
@@ -40,7 +40,7 @@ public class SqlPathModelImpl implements SqlPathModel {
      * @param sqlFileNamePath
      *                        ＳＱＬファイル名パス
      */
-    public SqlPathModelImpl(final Object object, final Path sqlFileNamePath) {
+    public KmgSqlPathModelImpl(final Object object, final Path sqlFileNamePath) {
         this.zlass = object.getClass();
         this.sqlFileNamePath = sqlFileNamePath;
         this.setSqlFilePath();
@@ -57,7 +57,7 @@ public class SqlPathModelImpl implements SqlPathModel {
      * @param sqlFileNamePath
      *                        ＳＱＬファイル名パス
      */
-    public SqlPathModelImpl(final Class<?> zlass, final Path sqlFileNamePath) {
+    public KmgSqlPathModelImpl(final Class<?> zlass, final Path sqlFileNamePath) {
         this.zlass = zlass;
         this.sqlFileNamePath = sqlFileNamePath;
         this.setSqlFilePath();
@@ -71,7 +71,7 @@ public class SqlPathModelImpl implements SqlPathModel {
      * @version 1.0.0
      */
     private void setSqlFilePath() {
-        this.sqlFilePath = PathUtils.getClassFullPath(this.zlass, this.sqlFileNamePath);
+        this.sqlFilePath = KmgPathUtils.getClassFullPath(this.zlass, this.sqlFileNamePath);
     }
 
     /**
@@ -100,14 +100,14 @@ public class SqlPathModelImpl implements SqlPathModel {
         try (BufferedReader br = Files.newBufferedReader(this.sqlFilePath)) {
             String line = null;
             while ((line = br.readLine()) != null) {
-                final String tmp = SqlPathModelImpl.convertParameters(line);
+                final String tmp = KmgSqlPathModelImpl.convertParameters(line);
                 sqlTmp.append(tmp);
                 sqlTmp.append(System.lineSeparator());
             }
         } catch (final IOException e) {
             // TODO KenichiroArai 2021/06/08 メッセージ
             final String errMsg = String.format("%sがありません。", this.sqlFileNamePath.toAbsolutePath());
-            final LogMessageTypes logMsgTypes = LogMessageTypes.I00001;
+            final KmgLogMessageTypes logMsgTypes = KmgLogMessageTypes.I00001;
             throw new KmgDomainException(errMsg, logMsgTypes, e);
         }
 

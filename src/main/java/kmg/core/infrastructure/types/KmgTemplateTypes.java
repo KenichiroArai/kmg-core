@@ -5,14 +5,14 @@ import java.util.Map;
 import java.util.function.Supplier;
 
 /**
- * テンプレートの種類<br>
+ * ＫＭＧテンプレートの種類<br>
  *
  * @author KenichiroArai
  * @sine 1.0.0
  * @version 1.0.0
  */
 @SuppressWarnings("nls")
-public enum TemplateTypes implements Supplier<String> {
+public enum KmgTemplateTypes implements Supplier<String> {
 
     /* 定義：開始 */
 
@@ -29,13 +29,13 @@ public enum TemplateTypes implements Supplier<String> {
     private String value;
 
     /** 種類のマップ */
-    private static final Map<String, TemplateTypes> VALUES_MAP = new HashMap<>();
+    private static final Map<String, KmgTemplateTypes> VALUES_MAP = new HashMap<>();
 
     static {
 
         /* 種類のマップにプット */
-        for (final TemplateTypes type : TemplateTypes.values()) {
-            TemplateTypes.VALUES_MAP.put(type.get(), type);
+        for (final KmgTemplateTypes type : KmgTemplateTypes.values()) {
+            KmgTemplateTypes.VALUES_MAP.put(type.get(), type);
         }
     }
 
@@ -50,7 +50,7 @@ public enum TemplateTypes implements Supplier<String> {
      * @param value
      *              値
      */
-    TemplateTypes(final String name, final String value) {
+    KmgTemplateTypes(final String name, final String value) {
 
         this.name = name;
         this.value = value;
@@ -70,9 +70,9 @@ public enum TemplateTypes implements Supplier<String> {
      *              値
      * @return 種類。指定無し（NONE）：値が存在しない場合。
      */
-    public static TemplateTypes getEnum(final String value) {
+    public static KmgTemplateTypes getEnum(final String value) {
 
-        TemplateTypes result = TemplateTypes.VALUES_MAP.get(value);
+        KmgTemplateTypes result = KmgTemplateTypes.VALUES_MAP.get(value);
         if (result == null) {
             result = NONE;
             return result;
@@ -88,9 +88,9 @@ public enum TemplateTypes implements Supplier<String> {
      * @version 1.0.0
      * @return 初期値
      */
-    public static TemplateTypes getInitValue() {
+    public static KmgTemplateTypes getInitValue() {
 
-        final TemplateTypes result = NONE;
+        final KmgTemplateTypes result = NONE;
         return result;
 
     }
@@ -103,9 +103,9 @@ public enum TemplateTypes implements Supplier<String> {
      * @version 1.0.0
      * @return デフォルト値
      */
-    public static TemplateTypes getDefault() {
+    public static KmgTemplateTypes getDefault() {
 
-        final TemplateTypes result = NONE;
+        final KmgTemplateTypes result = NONE;
         return result;
     }
 

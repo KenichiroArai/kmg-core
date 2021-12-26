@@ -3,13 +3,13 @@ package kmg.core.domain.model;
 import java.lang.reflect.Field;
 
 /**
- * リフレクションモデルインタフェース<br>
+ * ＫＭＧリフレクションモデルインタフェース<br>
  *
  * @author KenichiroArai
  * @sine 1.0.0
  * @version 1.0.0
  */
-public interface ReflectionModel {
+public interface KmgReflectionModel {
 
     /**
      * 最後に取得したフィールドを返す<br>

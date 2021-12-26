@@ -11,14 +11,14 @@ import java.util.function.Supplier;
 import kmg.core.infrastructure.type.KmgString;
 
 /**
- * ＤＢ型の種類<br>
+ * ＫＭＧＤＢ型の種類<br>
  *
  * @author KenichiroArai
  * @sine 1.0.0
  * @version 1.0.0
  */
 @SuppressWarnings("nls")
-public enum DbDataTypeTypes implements Supplier<String> {
+public enum KmgDbDataTypeTypes implements Supplier<String> {
 
     /* 定義：開始 */
 
@@ -68,13 +68,13 @@ public enum DbDataTypeTypes implements Supplier<String> {
     private Type type;
 
     /** 種類のマップ */
-    private static final Map<String, DbDataTypeTypes> valuesMap = new HashMap<>();
+    private static final Map<String, KmgDbDataTypeTypes> valuesMap = new HashMap<>();
 
     static {
 
         /* 種類のマップにプット */
-        for (final DbDataTypeTypes type : DbDataTypeTypes.values()) {
-            DbDataTypeTypes.valuesMap.put(type.get(), type);
+        for (final KmgDbDataTypeTypes type : KmgDbDataTypeTypes.values()) {
+            KmgDbDataTypeTypes.valuesMap.put(type.get(), type);
         }
     }
 
@@ -91,7 +91,7 @@ public enum DbDataTypeTypes implements Supplier<String> {
      * @param type
      *              型
      */
-    DbDataTypeTypes(final String name, final String value, final Type type) {
+    KmgDbDataTypeTypes(final String name, final String value, final Type type) {
 
         this.name = name;
         this.value = value;
@@ -109,9 +109,9 @@ public enum DbDataTypeTypes implements Supplier<String> {
      *              値
      * @return 種類
      */
-    public static DbDataTypeTypes getEnum(final String value) {
+    public static KmgDbDataTypeTypes getEnum(final String value) {
 
-        final DbDataTypeTypes result = DbDataTypeTypes.valuesMap.get(value);
+        final KmgDbDataTypeTypes result = KmgDbDataTypeTypes.valuesMap.get(value);
         return result;
     }
 

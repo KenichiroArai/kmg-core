@@ -3,13 +3,13 @@ package kmg.core.domain.model;
 import kmg.core.infrastructure.exception.KmgDomainException;
 
 /**
- * ＳＱＬパスモデルインタフェース<br>
+ * ＫＭＧＳＱＬパスモデルインタフェース<br>
  *
  * @author KenichiroArai
  * @sine 1.0.0
  * @version 1.0.0
  */
-public interface SqlPathModel {
+public interface KmgSqlPathModel {
 
     /**
      * ＳＱＬにして返す<br>

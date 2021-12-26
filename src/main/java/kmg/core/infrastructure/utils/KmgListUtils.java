@@ -3,13 +3,13 @@ package kmg.core.infrastructure.utils;
 import java.util.List;
 
 /**
- * リストユーティリティ<br>
+ * ＫＭＧリストユーティリティ<br>
  *
  * @author KenichiroArai
  * @sine 1.0.0
  * @version 1.0.0
  */
-public final class ListUtils {
+public final class KmgListUtils {
 
     /**
      * デフォルトコンストラクタ<br>
@@ -18,7 +18,7 @@ public final class ListUtils {
      * @sine 1.0.0
      * @version 1.0.0
      */
-    private ListUtils() {
+    private KmgListUtils() {
         // 処理無し
     }
 
@@ -58,7 +58,7 @@ public final class ListUtils {
      * @return true：空ではない、false：空
      */
     public static boolean isNotEmpty(final List<?> target) {
-        final boolean result = !ListUtils.isEmpty(target);
+        final boolean result = !KmgListUtils.isEmpty(target);
         return result;
     }
 }

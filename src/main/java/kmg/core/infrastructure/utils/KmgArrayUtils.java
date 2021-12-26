@@ -1,13 +1,13 @@
 package kmg.core.infrastructure.utils;
 
 /**
- * 配列ユーティリティ<br>
+ * ＫＭＧ配列ユーティリティ<br>
  *
  * @author KenichiroArai
  * @sine 1.0.0
  * @version 1.0.0
  */
-public final class ArrayUtils {
+public final class KmgArrayUtils {
 
     /**
      * デフォルトコンストラクタ<br>
@@ -16,7 +16,7 @@ public final class ArrayUtils {
      * @sine 1.0.0
      * @version 1.0.0
      */
-    private ArrayUtils() {
+    private KmgArrayUtils() {
         // 処理無し
     }
 
@@ -56,7 +56,7 @@ public final class ArrayUtils {
      * @return true：空ではない、false：空
      */
     public static boolean isNotEmpty(final Object[] target) {
-        final boolean result = !ArrayUtils.isEmpty(target);
+        final boolean result = !KmgArrayUtils.isEmpty(target);
         return result;
     }
 }

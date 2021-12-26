@@ -10,13 +10,13 @@ import java.util.Date;
 import kmg.core.infrastructure.type.KmgString;
 
 /**
- * ローカル日時ユーティリティ<br>
+ * ＫＭＧローカル日時ユーティリティ<br>
  *
  * @author KenichiroArai
  * @sine 1.0.0
  * @version 1.0.0
  */
-public final class LocalDateTimeUtils {
+public final class KmgLocalDateTimeUtils {
 
     /** フォーマッタパターン（yyyy/MM/dd HH:mm:ss.SSS） */
     private static final String FORMATTER_PATTERN_YYYY_MM_DD_HH_MM_SS_SSS = "yyyy/MM/dd HH:mm:ss.SSS"; //$NON-NLS-1$
@@ -28,7 +28,7 @@ public final class LocalDateTimeUtils {
      * @sine 1.0.0
      * @version 1.0.0
      */
-    private LocalDateTimeUtils() {
+    private KmgLocalDateTimeUtils() {
         // 処理無し
     }
 
@@ -51,7 +51,7 @@ public final class LocalDateTimeUtils {
             return result;
         }
         result = LocalDate.parse(dateTimeStr,
-            DateTimeFormatter.ofPattern(LocalDateTimeUtils.FORMATTER_PATTERN_YYYY_MM_DD_HH_MM_SS_SSS));
+            DateTimeFormatter.ofPattern(KmgLocalDateTimeUtils.FORMATTER_PATTERN_YYYY_MM_DD_HH_MM_SS_SSS));
         return result;
     }
 
@@ -96,7 +96,7 @@ public final class LocalDateTimeUtils {
             return result;
         }
         result = localDateTime
-            .format(DateTimeFormatter.ofPattern(LocalDateTimeUtils.FORMATTER_PATTERN_YYYY_MM_DD_HH_MM_SS_SSS));
+            .format(DateTimeFormatter.ofPattern(KmgLocalDateTimeUtils.FORMATTER_PATTERN_YYYY_MM_DD_HH_MM_SS_SSS));
         return result;
     }
 
@@ -118,9 +118,9 @@ public final class LocalDateTimeUtils {
         if (date == null) {
             return result;
         }
-        final LocalDateTime localDateTime = LocalDateTimeUtils.from(date);
+        final LocalDateTime localDateTime = KmgLocalDateTimeUtils.from(date);
         result = localDateTime
-            .format(DateTimeFormatter.ofPattern(LocalDateTimeUtils.FORMATTER_PATTERN_YYYY_MM_DD_HH_MM_SS_SSS));
+            .format(DateTimeFormatter.ofPattern(KmgLocalDateTimeUtils.FORMATTER_PATTERN_YYYY_MM_DD_HH_MM_SS_SSS));
         return result;
     }
 }
