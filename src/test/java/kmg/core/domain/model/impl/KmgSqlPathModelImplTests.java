@@ -8,20 +8,20 @@ import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 
-import kmg.core.domain.model.ReflectionModel;
-import kmg.core.domain.model.SqlPathModel;
+import kmg.core.domain.model.KmgReflectionModel;
+import kmg.core.domain.model.KmgSqlPathModel;
 import kmg.core.infrastructure.exception.KmgDomainException;
-import kmg.core.infrastructure.utils.PathUtils;
+import kmg.core.infrastructure.utils.KmgPathUtils;
 
 /**
- * ＳＱＬパスモデルテスト<br>
+ * ＫＭＧＳＱＬパスモデルテスト<br>
  *
  * @author KenichiroArai
  * @sine 1.0.0
  * @version 1.0.0
  */
 @TestMethodOrder(MethodOrderer.DisplayName.class)
-public class SqlPathModelImplTests {
+public class KmgSqlPathModelImplTests {
 
     /**
      * テスト００１_コンストラクタ_正常００１_設定<br>
@@ -36,15 +36,15 @@ public class SqlPathModelImplTests {
         /* 期待値 */
         final Class<?> expectedZlass = this.getClass();
         final Path expectedSqlFileNamePath = Paths.get("test.sql");
-        final Path expectedSqlFilePath = Paths.get(PathUtils.getBinPath(this).toAbsolutePath().toString(),
+        final Path expectedSqlFilePath = Paths.get(KmgPathUtils.getBinPath(this).toAbsolutePath().toString(),
             "/kmg/core/domain/model/impl/sql_path_model_impl_tests/test.sql");
 
         /* 準備 */
         final Path sqlFileNamePath = Paths.get("test.sql");
 
         /* テスト対象を呼び出す */
-        final SqlPathModelImpl testTarget = new SqlPathModelImpl(this, sqlFileNamePath);
-        final ReflectionModel rm = new ReflectionModelImpl(testTarget);
+        final KmgSqlPathModelImpl testTarget = new KmgSqlPathModelImpl(this, sqlFileNamePath);
+        final KmgReflectionModel rm = new KmgReflectionModelImpl(testTarget);
         final Class<?> actualZlass = (Class<?>) rm.get("zlass");
         final Path actualSqlFileNamePath = (Path) rm.get("sqlFileNamePath");
         final Path actualSqlFilePath = (Path) rm.get("sqlFilePath");
@@ -75,7 +75,7 @@ public class SqlPathModelImplTests {
         final Path sqlFileNamePath = Paths.get("test.sql");
 
         /* テスト対象を呼び出す */
-        final SqlPathModel testTarget = new SqlPathModelImpl(this, sqlFileNamePath);
+        final KmgSqlPathModel testTarget = new KmgSqlPathModelImpl(this, sqlFileNamePath);
         final String actual = testTarget.toSql();
 
         /* 期待値と比較 */
