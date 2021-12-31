@@ -37,7 +37,7 @@ public class KmgSqlPathModelImplTests {
         final Class<?> expectedZlass = this.getClass();
         final Path expectedSqlFileNamePath = Paths.get("test.sql");
         final Path expectedSqlFilePath = Paths.get(KmgPathUtils.getBinPath(this).toAbsolutePath().toString(),
-            "/kmg/core/domain/model/impl/sql_path_model_impl_tests/test.sql");
+            "/kmg/core/domain/model/impl/kmg_sql_path_model_impl_tests/test.sql");
 
         /* 準備 */
         final Path sqlFileNamePath = Paths.get("test.sql");
