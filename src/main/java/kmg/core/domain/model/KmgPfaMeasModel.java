@@ -32,7 +32,7 @@ public class KmgPfaMeasModel {
      */
     public void start() {
 
-        this.startTime = System.nanoTime();
+        this.startTime = this.getNow();
 
     }
 
@@ -45,7 +45,7 @@ public class KmgPfaMeasModel {
      */
     public void end() {
 
-        this.endTime = System.nanoTime();
+        this.endTime = this.getNow();
 
         /* 経過時間と時間単位を求める */
         double           timeTmp     = this.endTime - this.startTime;
@@ -133,6 +133,20 @@ public class KmgPfaMeasModel {
     public KmgTimeUnitTypes getTimeUnit() {
 
         final KmgTimeUnitTypes result = this.timeUnit;
+        return result;
+
+    }
+
+    /**
+     * 現在時刻を返す<br>
+     *
+     * @return 現在時刻
+     */
+    @SuppressWarnings("static-method")
+    protected long getNow() {
+
+        final long result = System.nanoTime();
+
         return result;
 
     }
