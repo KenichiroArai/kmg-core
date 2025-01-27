@@ -8,7 +8,7 @@ import java.math.BigDecimal;
 import kmg.core.domain.model.KmgReflectionModel;
 
 /**
- * ＫＭＧリフレクションモデル<br>
+ * KMGリフレクションモデル<br>
  *
  * @author KenichiroArai
  * @sine 1.0.0

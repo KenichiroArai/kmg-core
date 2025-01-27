@@ -9,7 +9,7 @@ import org.springframework.util.ObjectUtils;
 import kmg.core.infrastructure.type.KmgString;
 
 /**
- * ＫＭＧパスユーティリティ<br>
+ * KMGパスユーティリティ<br>
  *
  * @author KenichiroArai
  * @sine 1.0.0

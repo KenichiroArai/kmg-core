@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 /**
- * ＫＭＧデシマルテスト<br>
+ * KMGデシマルテスト<br>
  *
  * @author KenichiroArai
  * @sine 1.0.0

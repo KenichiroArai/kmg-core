@@ -3,7 +3,7 @@ package kmg.core.infrastructure.utils;
 import java.util.List;
 
 /**
- * ＫＭＧリストユーティリティ<br>
+ * KMGリストユーティリティ<br>
  *
  * @author KenichiroArai
  * @sine 1.0.0

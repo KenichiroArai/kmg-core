@@ -9,7 +9,7 @@ import kmg.core.infrastructure.type.KmgString;
 import kmg.core.infrastructure.utils.KmgArrayUtils;
 
 /**
- * ＫＭＧＤＢの種類<br>
+ * KMGＤＢの種類<br>
  *
  * @author KenichiroArai
  * @sine 1.0.0

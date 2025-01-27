@@ -14,7 +14,7 @@ import kmg.core.infrastructure.exception.KmgDomainException;
 import kmg.core.infrastructure.utils.KmgPathUtils;
 
 /**
- * ＫＭＧＳＱＬパスモデルテスト<br>
+ * KMGＳＱＬパスモデルテスト<br>
  *
  * @author KenichiroArai
  * @sine 1.0.0
@@ -63,7 +63,7 @@ public class KmgSqlPathModelImplTests {
      * @sine 1.0.0
      * @version 1.0.0
      * @throws KmgDomainException
-     *                            ＫＭＧドメイン例外
+     *                            KMGドメイン例外
      */
     @Test
     public void テスト００２_toSql_正常００１_取得() throws KmgDomainException {

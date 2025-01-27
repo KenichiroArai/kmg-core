@@ -4,7 +4,7 @@ import kmg.core.domain.model.KmgPfaMeasModel;
 import kmg.core.domain.service.KmgPfaMeasService;
 
 /**
- * ＫＭＧ性能測定サービス<br>
+ * KMG性能測定サービス<br>
  *
  * @author KenichiroArai
  * @sine 1.0.0
@@ -15,7 +15,7 @@ public class KmgPfaMeasServiceImpl implements KmgPfaMeasService {
     /** 名称 */
     private final String name;
 
-    /** ＫＭＧ性能測定モデル */
+    /** KMG性能測定モデル */
     private final KmgPfaMeasModel kmgPfaMeasModel;
 
     /**

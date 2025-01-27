@@ -3,7 +3,7 @@ package kmg.core.domain.model;
 import kmg.core.infrastructure.types.KmgTimeUnitTypes;
 
 /**
- * ＫＭＧ性能測定モデル<br>
+ * KMG性能測定モデル<br>
  *
  * @author KenichiroArai
  * @sine 1.0.0

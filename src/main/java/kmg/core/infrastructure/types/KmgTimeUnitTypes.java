@@ -6,7 +6,7 @@ import java.util.Map;
 import java.util.function.Supplier;
 
 /**
- * ＫＭＧ時間単位の種類<br>
+ * KMG時間単位の種類<br>
  *
  * @author KenichiroArai
  * @sine 1.0.0

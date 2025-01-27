@@ -3,7 +3,7 @@ package kmg.core.domain.model;
 import java.lang.reflect.Field;
 
 /**
- * ＫＭＧリフレクションモデルインタフェース<br>
+ * KMGリフレクションモデルインタフェース<br>
  *
  * @author KenichiroArai
  * @sine 1.0.0

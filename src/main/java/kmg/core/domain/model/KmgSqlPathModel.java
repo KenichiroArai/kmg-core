@@ -3,7 +3,7 @@ package kmg.core.domain.model;
 import kmg.core.infrastructure.exception.KmgDomainException;
 
 /**
- * ＫＭＧＳＱＬパスモデルインタフェース<br>
+ * KMGＳＱＬパスモデルインタフェース<br>
  *
  * @author KenichiroArai
  * @sine 1.0.0
@@ -26,7 +26,7 @@ public interface KmgSqlPathModel {
      * @version 1.0.0
      * @return ＳＱＬにして返す
      * @throws KmgDomainException
-     *                            ＫＭＧドメイン例外
+     *                            KMGドメイン例外
      */
     String toSql() throws KmgDomainException;
 

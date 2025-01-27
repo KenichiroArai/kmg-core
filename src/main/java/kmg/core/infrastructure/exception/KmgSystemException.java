@@ -3,7 +3,7 @@ package kmg.core.infrastructure.exception;
 import kmg.core.infrastructure.types.KmgLogMessageTypes;
 
 /**
- * ＫＭＧシステム例外<br>
+ * KMGシステム例外<br>
  *
  * @author KenichiroArai
  * @sine 1.0.0

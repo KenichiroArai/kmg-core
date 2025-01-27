@@ -4,7 +4,7 @@ import kmg.core.infrastructure.types.KmgDelimiterTypes;
 import kmg.core.infrastructure.utils.KmgArrayUtils;
 
 /**
- * ＫＭＧ文字列
+ * KMG文字列
  *
  * @author KenichiroArai
  * @sine 1.0.0

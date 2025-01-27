@@ -8,7 +8,7 @@ import java.util.function.Supplier;
 import kmg.core.infrastructure.type.KmgString;
 
 /**
- * ＫＭＧ区切り文字の種類<br>
+ * KMG区切り文字の種類<br>
  *
  * @author KenichiroArai
  * @sine 1.0.0

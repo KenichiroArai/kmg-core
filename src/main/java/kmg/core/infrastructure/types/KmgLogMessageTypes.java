@@ -5,7 +5,7 @@ import java.util.Map;
 import java.util.function.Supplier;
 
 /**
- * ＫＭＧログメッセージの種類<br>
+ * KMGログメッセージの種類<br>
  *
  * @author KenichiroArai
  * @sine 1.0.0

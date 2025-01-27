@@ -11,7 +11,7 @@ import java.util.function.Supplier;
 import kmg.core.infrastructure.type.KmgString;
 
 /**
- * ＫＭＧＤＢ型の種類<br>
+ * KMGＤＢ型の種類<br>
  *
  * @author KenichiroArai
  * @sine 1.0.0

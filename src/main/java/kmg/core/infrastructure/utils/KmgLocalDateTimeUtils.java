@@ -10,7 +10,7 @@ import java.util.Date;
 import kmg.core.infrastructure.type.KmgString;
 
 /**
- * ＫＭＧローカル日時ユーティリティ<br>
+ * KMGローカル日時ユーティリティ<br>
  *
  * @author KenichiroArai
  * @sine 1.0.0

@@ -1,7 +1,7 @@
 package kmg.core.infrastructure.utils;
 
 /**
- * ＫＭＧ配列ユーティリティ<br>
+ * KMG配列ユーティリティ<br>
  *
  * @author KenichiroArai
  * @sine 1.0.0

@@ -9,7 +9,7 @@ import org.apache.poi.ss.util.CellRangeAddress;
 import kmg.core.infrastructure.type.KmgString;
 
 /**
- * ＫＭＧＰＯＩユーティリティー<br>
+ * KMGＰＯＩユーティリティー<br>
  *
  * @author KenichiroArai
  * @sine 1.0.0

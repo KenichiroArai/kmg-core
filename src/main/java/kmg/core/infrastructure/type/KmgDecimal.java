@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 
 /**
- * ＫＭＧデシマル<br>
+ * KMGデシマル<br>
  *
  * @author KenichiroArai
  * @sine 1.0.0

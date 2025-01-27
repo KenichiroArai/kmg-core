@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 
 /**
- * ＫＭＧ<br>
+ * KMG<br>
  *
  * @author KenichiroArai
  * @sine 1.0.0

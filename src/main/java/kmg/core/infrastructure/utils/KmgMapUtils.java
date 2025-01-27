@@ -3,7 +3,7 @@ package kmg.core.infrastructure.utils;
 import java.util.Map;
 
 /**
- * ＫＭＧマップユーティリティ<br>
+ * KMGマップユーティリティ<br>
  *
  * @author KenichiroArai
  * @sine 1.0.0

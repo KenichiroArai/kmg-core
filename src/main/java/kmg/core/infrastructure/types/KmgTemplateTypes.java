@@ -5,7 +5,7 @@ import java.util.Map;
 import java.util.function.Supplier;
 
 /**
- * ＫＭＧテンプレートの種類<br>
+ * KMGテンプレートの種類<br>
  *
  * @author KenichiroArai
  * @sine 1.0.0

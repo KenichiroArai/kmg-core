@@ -12,7 +12,7 @@ import kmg.core.infrastructure.types.KmgLogMessageTypes;
 import kmg.core.infrastructure.utils.KmgPathUtils;
 
 /**
- * ＫＭＧＳＱＬパスモデル<br>
+ * KMGＳＱＬパスモデル<br>
  *
  * @author KenichiroArai
  * @sine 1.0.0
@@ -96,7 +96,7 @@ public class KmgSqlPathModelImpl implements KmgSqlPathModel {
      * @version 1.0.0
      * @return SQLにして返す
      * @throws KmgDomainException
-     *                            ＫＭＧドメイン例外
+     *                            KMGドメイン例外
      */
     @Override
     public String toSql() throws KmgDomainException {
