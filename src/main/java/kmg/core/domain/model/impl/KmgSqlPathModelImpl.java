@@ -12,7 +12,7 @@ import kmg.core.infrastructure.types.KmgLogMessageTypes;
 import kmg.core.infrastructure.utils.KmgPathUtils;
 
 /**
- * KMGＳＱＬパスモデル<br>
+ * KMGSQLパスモデル<br>
  *
  * @author KenichiroArai
  * @sine 1.0.0
@@ -23,10 +23,10 @@ public class KmgSqlPathModelImpl implements KmgSqlPathModel {
     /** クラス */
     private final Class<?> zlass;
 
-    /** ＳＱＬファイル名パス */
+    /** SQLファイル名パス */
     private final Path sqlFileNamePath;
 
-    /** ＳＱＬファイルパス */
+    /** SQLファイルパス */
     private Path sqlFilePath;
 
     /**
@@ -38,7 +38,7 @@ public class KmgSqlPathModelImpl implements KmgSqlPathModel {
      * @param object
      *                        オブジェクト
      * @param sqlFileNamePath
-     *                        ＳＱＬファイル名パス
+     *                        SQLファイル名パス
      */
     public KmgSqlPathModelImpl(final Object object, final Path sqlFileNamePath) {
 
@@ -57,7 +57,7 @@ public class KmgSqlPathModelImpl implements KmgSqlPathModel {
      * @param zlass
      *                        クラス
      * @param sqlFileNamePath
-     *                        ＳＱＬファイル名パス
+     *                        SQLファイル名パス
      */
     public KmgSqlPathModelImpl(final Class<?> zlass, final Path sqlFileNamePath) {
 
@@ -68,7 +68,7 @@ public class KmgSqlPathModelImpl implements KmgSqlPathModel {
     }
 
     /**
-     * ＳＱＬファイルパスを設定する<br>
+     * SQLファイルパスを設定する<br>
      *
      * @author KenichiroArai
      * @sine 1.0.0
@@ -81,9 +81,9 @@ public class KmgSqlPathModelImpl implements KmgSqlPathModel {
     }
 
     /**
-     * ＳＱＬにして返す<br>
+     * SQLにして返す<br>
      * <p>
-     * ＳＱＬパスで受け取ったファイルの中身をＳＱＬにして返す。<br>
+     * SQLパスで受け取ったファイルの中身をSQLにして返す。<br>
      * 読み込んだファイルの末尾の改行は全て削除して返す。<br>
      * コメントに埋め込まれたパラメータをパラメータに変換する。<br>
      * コメントの後にあるサンプル値を削除する。<br>
