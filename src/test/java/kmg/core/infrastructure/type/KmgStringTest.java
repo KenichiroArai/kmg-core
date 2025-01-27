@@ -347,17 +347,18 @@ public class KmgStringTest {
 
         /* 検証の実施 */
         Assertions.assertEquals(expected, actual, "nullの場合、nullを返すべき");
+
     }
 
     /**
-     * camelCase メソッドのテスト - 1文字の場合
+     * camelCase メソッドのテスト - 小文字の1文字の場合
      */
     @Test
     @SuppressWarnings("static-method")
-    public void testCamelCase_singleChar() {
+    public void testCamelCase_singleLowerChar() {
 
         /* 期待値の定義 */
-        final String expected = null;
+        final String expected = "a";
 
         /* 準備 */
         final String target = "a";
@@ -366,7 +367,29 @@ public class KmgStringTest {
         final String actual = KmgString.camelCase(target);
 
         /* 検証の実施 */
-        Assertions.assertEquals(expected, actual, "1文字の場合、nullを返すべき");
+        Assertions.assertEquals(expected, actual, "1文字の場合、小文字の1文字を返すべき");
+
+    }
+
+    /**
+     * camelCase メソッドのテスト - 大文字の1文字の場合
+     */
+    @Test
+    @SuppressWarnings("static-method")
+    public void testCamelCase_singleBigChar() {
+
+        /* 期待値の定義 */
+        final String expected = "a";
+
+        /* 準備 */
+        final String target = "A";
+
+        /* テスト対象の実行 */
+        final String actual = KmgString.camelCase(target);
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "1文字の場合、小文字の1文字を返すべき");
+
     }
 
     /**
