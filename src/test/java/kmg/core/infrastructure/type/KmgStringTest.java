@@ -13,11 +13,11 @@ import org.junit.jupiter.api.Test;
 public class KmgStringTest {
 
     /**
-     * コンストラクタと getValue メソッドのテスト
+     * getValue メソッドのテスト - 初期値の取得
      */
     @Test
     @SuppressWarnings("static-method")
-    public void testConstructorAndGetValue() {
+    public void testGetValue_initialValue() {
 
         /* 期待値の定義 */
         final String expected = "test";
@@ -34,11 +34,11 @@ public class KmgStringTest {
     }
 
     /**
-     * isEmpty メソッドのテスト - nullの場合
+     * isEmpty メソッドのテスト - 引数がnullの場合
      */
     @Test
     @SuppressWarnings("static-method")
-    public void testIsEmpty_Null() {
+    public void testIsEmpty_null() {
 
         /* 期待値の定義 */
         final boolean expected = true;
@@ -55,11 +55,11 @@ public class KmgStringTest {
     }
 
     /**
-     * isEmpty メソッドのテスト - 空文字の場合
+     * isEmpty メソッドのテスト - 引数が空文字の場合
      */
     @Test
     @SuppressWarnings("static-method")
-    public void testIsEmpty_EmptyString() {
+    public void testIsEmpty_emptyString() {
 
         /* 期待値の定義 */
         final boolean expected = true;
@@ -76,11 +76,11 @@ public class KmgStringTest {
     }
 
     /**
-     * isEmpty メソッドのテスト - 文字列がある場合
+     * isEmpty メソッドのテスト - 引数が文字列の場合
      */
     @Test
     @SuppressWarnings("static-method")
-    public void testIsEmpty_NonEmptyString() {
+    public void testIsEmpty_nonEmptyString() {
 
         /* 期待値の定義 */
         final boolean expected = false;
@@ -97,11 +97,11 @@ public class KmgStringTest {
     }
 
     /**
-     * isNotEmpty メソッドのテスト - nullの場合
+     * isNotEmpty メソッドのテスト - 引数がnullの場合
      */
     @Test
     @SuppressWarnings("static-method")
-    public void testIsNotEmpty_Null() {
+    public void testIsNotEmpty_null() {
 
         /* 期待値の定義 */
         final boolean expected = false;
@@ -118,11 +118,11 @@ public class KmgStringTest {
     }
 
     /**
-     * isNotEmpty メソッドのテスト - 空文字の場合
+     * isNotEmpty メソッドのテスト - 引数が空文字の場合
      */
     @Test
     @SuppressWarnings("static-method")
-    public void testIsNotEmpty_EmptyString() {
+    public void testIsNotEmpty_emptyString() {
 
         /* 期待値の定義 */
         final boolean expected = false;
@@ -139,11 +139,11 @@ public class KmgStringTest {
     }
 
     /**
-     * isNotEmpty メソッドのテスト - 文字列がある場合
+     * isNotEmpty メソッドのテスト - 引数が文字列の場合
      */
     @Test
     @SuppressWarnings("static-method")
-    public void testIsNotEmpty_NonEmptyString() {
+    public void testIsNotEmpty_nonEmptyString() {
 
         /* 期待値の定義 */
         final boolean expected = true;
@@ -164,7 +164,7 @@ public class KmgStringTest {
      */
     @Test
     @SuppressWarnings("static-method")
-    public void testConcat_EmptyArray() {
+    public void testConcat_emptyArray() {
 
         /* 期待値の定義 */
         final String expected = "";
@@ -185,7 +185,7 @@ public class KmgStringTest {
      */
     @Test
     @SuppressWarnings("static-method")
-    public void testConcat_MultipleStrings() {
+    public void testConcat_multipleStrings() {
 
         /* 期待値の定義 */
         final String expected = "abc123";
@@ -208,7 +208,7 @@ public class KmgStringTest {
      */
     @Test
     @SuppressWarnings("static-method")
-    public void testCapitalize_EmptyString() {
+    public void testCapitalize_emptyString() {
 
         /* 期待値の定義 */
         final String expected = "";
@@ -229,7 +229,7 @@ public class KmgStringTest {
      */
     @Test
     @SuppressWarnings("static-method")
-    public void testCapitalize_NormalString() {
+    public void testCapitalize_normalString() {
 
         /* 期待値の定義 */
         final String expected = "Test";
@@ -250,7 +250,7 @@ public class KmgStringTest {
      */
     @Test
     @SuppressWarnings("static-method")
-    public void testSnakeCase_EmptyString() {
+    public void testSnakeCase_emptyString() {
 
         /* 期待値の定義 */
         final String expected = null;
@@ -271,7 +271,7 @@ public class KmgStringTest {
      */
     @Test
     @SuppressWarnings("static-method")
-    public void testSnakeCase_SingleChar() {
+    public void testSnakeCase_singleChar() {
 
         /* 期待値の定義 */
         final String expected = null;
@@ -292,7 +292,7 @@ public class KmgStringTest {
      */
     @Test
     @SuppressWarnings("static-method")
-    public void testSnakeCase_FromCamelCase() {
+    public void testSnakeCase_fromCamelCase() {
 
         /* 期待値の定義 */
         final String expected = "aaa_bbb_ccc";
@@ -313,7 +313,7 @@ public class KmgStringTest {
      */
     @Test
     @SuppressWarnings("static-method")
-    public void testCamelCase_FromSnakeCase() {
+    public void testCamelCase_fromSnakeCase() {
 
         /* 期待値の定義 */
         final String expected = "aaaBbbCcc";
@@ -334,7 +334,7 @@ public class KmgStringTest {
      */
     @Test
     @SuppressWarnings("static-method")
-    public void testCamelCase_Null() {
+    public void testCamelCase_null() {
 
         /* 期待値の定義 */
         final String expected = null;
@@ -354,7 +354,7 @@ public class KmgStringTest {
      */
     @Test
     @SuppressWarnings("static-method")
-    public void testCamelCase_SingleChar() {
+    public void testCamelCase_singleChar() {
 
         /* 期待値の定義 */
         final String expected = null;
@@ -374,7 +374,7 @@ public class KmgStringTest {
      */
     @Test
     @SuppressWarnings("static-method")
-    public void testEquals_SameStrings() {
+    public void testEquals_sameStrings() {
 
         /* 期待値の定義 */
         final boolean expected = true;
@@ -396,7 +396,7 @@ public class KmgStringTest {
      */
     @Test
     @SuppressWarnings("static-method")
-    public void testEquals_DifferentStrings() {
+    public void testEquals_differentStrings() {
 
         /* 期待値の定義 */
         final boolean expected = false;
@@ -462,7 +462,7 @@ public class KmgStringTest {
      */
     @Test
     @SuppressWarnings("static-method")
-    public void testEqualsIgnoreCase_DifferentCase() {
+    public void testEqualsIgnoreCase_differentCase() {
 
         /* 期待値の定義 */
         final boolean expected = true;
@@ -528,7 +528,7 @@ public class KmgStringTest {
      */
     @Test
     @SuppressWarnings("static-method")
-    public void testEqualsIgnoreCase_SameStrings() {
+    public void testEqualsIgnoreCase_sameStrings() {
 
         /* 期待値の定義 */
         final boolean expected = true;
@@ -550,7 +550,7 @@ public class KmgStringTest {
      */
     @Test
     @SuppressWarnings("static-method")
-    public void testEqualsIgnoreCase_DifferentStrings() {
+    public void testEqualsIgnoreCase_differentStrings() {
 
         /* 期待値の定義 */
         final boolean expected = false;
@@ -572,7 +572,7 @@ public class KmgStringTest {
      */
     @Test
     @SuppressWarnings("static-method")
-    public void testEqualsIgnoreCase_BothNull() {
+    public void testEqualsIgnoreCase_bothNull() {
 
         /* 期待値の定義 */
         final boolean expected = false;
