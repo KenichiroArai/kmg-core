@@ -25,6 +25,7 @@ public final class KmgPoiUtils {
      * @version 1.0.0
      */
     private KmgPoiUtils() {
+
         // 処理無し
     }
 
@@ -43,30 +44,41 @@ public final class KmgPoiUtils {
         String result = null;
 
         if (cell == null) {
+
             return result;
+
         }
+
         switch (cell.getCellType()) {
-        case STRING:
-            result = cell.getStringCellValue();
-            break;
-        case NUMERIC:
-            result = Double.toString(cell.getNumericCellValue());
-            break;
-        case BOOLEAN:
-            result = Boolean.toString(cell.getBooleanCellValue());
-            break;
-        case FORMULA:
-            result = KmgPoiUtils.getStringFormulaValue(cell);
-            break;
-        case BLANK:
-            result = KmgPoiUtils.getStringRangeValue(cell);
-            break;
-        case ERROR:
-        case _NONE:
-        default:
-            break;
+
+            case STRING:
+                result = cell.getStringCellValue();
+                break;
+
+            case NUMERIC:
+                result = Double.toString(cell.getNumericCellValue());
+                break;
+
+            case BOOLEAN:
+                result = Boolean.toString(cell.getBooleanCellValue());
+                break;
+
+            case FORMULA:
+                result = KmgPoiUtils.getStringFormulaValue(cell);
+                break;
+
+            case BLANK:
+                result = KmgPoiUtils.getStringRangeValue(cell);
+                break;
+
+            case ERROR:
+            case _NONE:
+            default:
+                break;
+
         }
         return result;
+
     }
 
     /**
@@ -86,23 +98,29 @@ public final class KmgPoiUtils {
         assert cell.getCellType() == CellType.FORMULA;
 
         switch (cell.getCachedFormulaResultType()) {
-        case STRING:
-            result = cell.getStringCellValue();
-            break;
-        case NUMERIC:
-            result = Double.toString(cell.getNumericCellValue());
-            break;
-        case BOOLEAN:
-            result = Boolean.toString(cell.getBooleanCellValue());
-            break;
-        case BLANK:
-        case ERROR:
-        case FORMULA:
-        case _NONE:
-        default:
-            break;
+
+            case STRING:
+                result = cell.getStringCellValue();
+                break;
+
+            case NUMERIC:
+                result = Double.toString(cell.getNumericCellValue());
+                break;
+
+            case BOOLEAN:
+                result = Boolean.toString(cell.getBooleanCellValue());
+                break;
+
+            case BLANK:
+            case ERROR:
+            case FORMULA:
+            case _NONE:
+            default:
+                break;
+
         }
         return result;
+
     }
 
     /**
@@ -119,21 +137,28 @@ public final class KmgPoiUtils {
 
         String result = null;
 
-        final int rowIndex = cell.getRowIndex();
+        final int rowIndex    = cell.getRowIndex();
         final int columnIndex = cell.getColumnIndex();
 
         final Sheet sheet = cell.getSheet();
-        final int size = sheet.getNumMergedRegions();
+        final int   size  = sheet.getNumMergedRegions();
+
         for (int i = 0; i < size; i++) {
+
             final CellRangeAddress range = sheet.getMergedRegion(i);
+
             if (!range.isInRange(rowIndex, columnIndex)) {
+
                 continue;
+
             }
             final Cell firstCell = KmgPoiUtils.getCell(sheet, range.getFirstRow(), range.getFirstColumn()); // 左上のセルを取得
             result = KmgPoiUtils.getStringValue(firstCell);
             break;
+
         }
         return result;
+
     }
 
     /**
@@ -155,12 +180,16 @@ public final class KmgPoiUtils {
         Cell result = null;
 
         final Row row = sheet.getRow(rowIndex);
+
         if (row == null) {
+
             return result;
+
         }
 
         result = row.getCell(columnIndex);
         return result;
+
     }
 
     /**
@@ -174,14 +203,19 @@ public final class KmgPoiUtils {
      * @return true：空、false：空ではない
      */
     public static boolean isEmptyCell(final Cell cell) {
+
         boolean result = true;
 
         if (cell == null) {
+
             return result;
+
         }
 
         if (KmgString.isEmpty(KmgPoiUtils.getStringValue(cell))) {
+
             return result;
+
         }
 
         result = false;

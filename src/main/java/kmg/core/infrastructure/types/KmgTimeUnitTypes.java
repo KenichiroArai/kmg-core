@@ -36,16 +36,16 @@ public enum KmgTimeUnitTypes implements Supplier<String> {
     ;
 
     /** 名称 */
-    private String name;
+    private final String name;
 
     /** 値 */
-    private String value;
+    private final String value;
 
     /** 単位名 */
-    private String unitName;
+    private final String unitName;
 
     /** 単位値 */
-    private BigDecimal unitValue;
+    private final BigDecimal unitValue;
 
     /** 種類のマップ */
     private static final Map<String, KmgTimeUnitTypes> VALUES_MAP = new HashMap<>();
@@ -54,8 +54,11 @@ public enum KmgTimeUnitTypes implements Supplier<String> {
 
         /* 種類のマップにプット */
         for (final KmgTimeUnitTypes type : KmgTimeUnitTypes.values()) {
+
             KmgTimeUnitTypes.VALUES_MAP.put(type.get(), type);
+
         }
+
     }
 
     /**
@@ -79,6 +82,7 @@ public enum KmgTimeUnitTypes implements Supplier<String> {
         this.value = value;
         this.unitName = unitName;
         this.unitValue = unitValue;
+
     }
 
     /**
@@ -98,11 +102,14 @@ public enum KmgTimeUnitTypes implements Supplier<String> {
     public static KmgTimeUnitTypes getEnum(final String value) {
 
         KmgTimeUnitTypes result = KmgTimeUnitTypes.VALUES_MAP.get(value);
+
         if (result == null) {
+
             result = NONE;
-            return result;
+
         }
         return result;
+
     }
 
     /**
@@ -132,6 +139,7 @@ public enum KmgTimeUnitTypes implements Supplier<String> {
 
         final KmgTimeUnitTypes result = NONE;
         return result;
+
     }
 
     /**
@@ -144,8 +152,10 @@ public enum KmgTimeUnitTypes implements Supplier<String> {
      */
     @Override
     public String toString() {
+
         final String result = this.value;
         return result;
+
     }
 
     /**
@@ -157,8 +167,10 @@ public enum KmgTimeUnitTypes implements Supplier<String> {
      * @return 名称
      */
     public String getName() {
+
         final String result = this.name;
         return result;
+
     }
 
     /**
@@ -170,8 +182,10 @@ public enum KmgTimeUnitTypes implements Supplier<String> {
      * @return 値
      */
     public String getValue() {
+
         final String result = this.value;
         return result;
+
     }
 
     /**
@@ -183,8 +197,10 @@ public enum KmgTimeUnitTypes implements Supplier<String> {
      * @return 単位名
      */
     public String getUnitName() {
+
         final String result = this.unitName;
         return result;
+
     }
 
     /**
@@ -196,8 +212,10 @@ public enum KmgTimeUnitTypes implements Supplier<String> {
      * @return 単位値
      */
     public BigDecimal getUnitValue() {
+
         final BigDecimal result = this.unitValue;
         return result;
+
     }
 
     /**
@@ -210,7 +228,9 @@ public enum KmgTimeUnitTypes implements Supplier<String> {
      */
     @Override
     public String get() {
+
         final String result = this.value;
         return result;
+
     }
 }

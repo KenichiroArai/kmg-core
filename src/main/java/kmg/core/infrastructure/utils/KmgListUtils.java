@@ -19,6 +19,7 @@ public final class KmgListUtils {
      * @version 1.0.0
      */
     private KmgListUtils() {
+
         // 処理無し
     }
 
@@ -33,18 +34,24 @@ public final class KmgListUtils {
      * @return true：空、false：空ではない
      */
     public static boolean isEmpty(final List<?> target) {
+
         boolean result = true;
 
         if (target == null) {
+
             return result;
+
         }
 
         if (target.isEmpty()) {
+
             return result;
+
         }
 
         result = false;
         return result;
+
     }
 
     /**
@@ -58,7 +65,9 @@ public final class KmgListUtils {
      * @return true：空ではない、false：空
      */
     public static boolean isNotEmpty(final List<?> target) {
+
         final boolean result = !KmgListUtils.isEmpty(target);
         return result;
+
     }
 }

@@ -34,20 +34,20 @@ public class KmgSqlPathModelImplTests {
     public void テスト００１_コンストラクタ_正常００１_設定() {
 
         /* 期待値 */
-        final Class<?> expectedZlass = this.getClass();
-        final Path expectedSqlFileNamePath = Paths.get("test.sql");
-        final Path expectedSqlFilePath = Paths.get(KmgPathUtils.getBinPath(this).toAbsolutePath().toString(),
-            "/kmg/core/domain/model/impl/kmg_sql_path_model_impl_tests/test.sql");
+        final Class<?> expectedZlass           = this.getClass();
+        final Path     expectedSqlFileNamePath = Paths.get("test.sql");
+        final Path     expectedSqlFilePath     = Paths.get(KmgPathUtils.getBinPath(this).toAbsolutePath().toString(),
+                "/kmg/core/domain/model/impl/kmg_sql_path_model_impl_tests/test.sql");
 
         /* 準備 */
         final Path sqlFileNamePath = Paths.get("test.sql");
 
         /* テスト対象を呼び出す */
-        final KmgSqlPathModelImpl testTarget = new KmgSqlPathModelImpl(this, sqlFileNamePath);
-        final KmgReflectionModel rm = new KmgReflectionModelImpl(testTarget);
-        final Class<?> actualZlass = (Class<?>) rm.get("zlass");
-        final Path actualSqlFileNamePath = (Path) rm.get("sqlFileNamePath");
-        final Path actualSqlFilePath = (Path) rm.get("sqlFilePath");
+        final KmgSqlPathModelImpl testTarget            = new KmgSqlPathModelImpl(this, sqlFileNamePath);
+        final KmgReflectionModel  rm                    = new KmgReflectionModelImpl(testTarget);
+        final Class<?>            actualZlass           = (Class<?>) rm.get("zlass");
+        final Path                actualSqlFileNamePath = (Path) rm.get("sqlFileNamePath");
+        final Path                actualSqlFilePath     = (Path) rm.get("sqlFilePath");
 
         /* 期待値と比較 */
         Assertions.assertEquals(expectedZlass, actualZlass);
@@ -76,7 +76,7 @@ public class KmgSqlPathModelImplTests {
 
         /* テスト対象を呼び出す */
         final KmgSqlPathModel testTarget = new KmgSqlPathModelImpl(this, sqlFileNamePath);
-        final String actual = testTarget.toSql();
+        final String          actual     = testTarget.toSql();
 
         /* 期待値と比較 */
         Assertions.assertEquals(expected, actual);

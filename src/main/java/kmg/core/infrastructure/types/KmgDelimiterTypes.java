@@ -65,10 +65,10 @@ public enum KmgDelimiterTypes implements Supplier<String> {
     ;
 
     /** 名称 */
-    private String name;
+    private final String name;
 
     /** 値 */
-    private String value;
+    private final String value;
 
     /** 種類のマップ */
     private static final Map<String, KmgDelimiterTypes> valuesMap = new HashMap<>();
@@ -77,9 +77,11 @@ public enum KmgDelimiterTypes implements Supplier<String> {
 
         /* 種類のマップにプット */
         for (final KmgDelimiterTypes type : KmgDelimiterTypes.values()) {
+
             KmgDelimiterTypes.valuesMap.put(type.get(), type);
 
         }
+
     }
 
     /**
@@ -94,8 +96,10 @@ public enum KmgDelimiterTypes implements Supplier<String> {
      *              値
      */
     KmgDelimiterTypes(final String name, final String value) {
+
         this.name = name;
         this.value = value;
+
     }
 
     /**
@@ -114,12 +118,15 @@ public enum KmgDelimiterTypes implements Supplier<String> {
     public static KmgDelimiterTypes getEnum(final String value) {
 
         KmgDelimiterTypes result = KmgDelimiterTypes.valuesMap.get(value);
+
         if (result == null) {
+
             result = NONE;
-            return result;
+
         }
 
         return result;
+
     }
 
     /**
@@ -161,8 +168,10 @@ public enum KmgDelimiterTypes implements Supplier<String> {
      * @return 名称
      */
     public String getName() {
+
         final String result = this.name;
         return result;
+
     }
 
     /**
@@ -174,8 +183,10 @@ public enum KmgDelimiterTypes implements Supplier<String> {
      * @return 値
      */
     public String getValue() {
+
         final String result = this.value;
         return result;
+
     }
 
     /**
@@ -188,8 +199,10 @@ public enum KmgDelimiterTypes implements Supplier<String> {
      */
     @Override
     public String toString() {
+
         final String result = this.value;
         return result;
+
     }
 
     /**
@@ -208,8 +221,10 @@ public enum KmgDelimiterTypes implements Supplier<String> {
      * @return 結合する文字列リストにデリミタを付加した文字列
      */
     public <T> String join(final List<T> targetList) {
+
         final String result = this.join(targetList.toArray(new Object[0]));
         return result;
+
     }
 
     /**
@@ -232,23 +247,34 @@ public enum KmgDelimiterTypes implements Supplier<String> {
         String result = null;
 
         final StringBuilder sb = new StringBuilder();
+
         for (final Object target : targets) {
+
             if (target == null) {
+
                 continue;
+
             }
+
             if (KmgString.isEmpty(target.toString())) {
+
                 continue;
+
             }
 
             sb.append(target.toString());
             sb.append(this.value);
+
         }
 
         if (sb.length() > 0) {
+
             result = sb.substring(0, sb.length() - 1).toString();
+
         }
 
         return result;
+
     }
 
     /**
@@ -267,8 +293,10 @@ public enum KmgDelimiterTypes implements Supplier<String> {
      * @return 結合する文字列リストにデリミタを付加した文字列
      */
     public <T> String joinAll(final List<T> targetList) {
+
         final String result = this.joinAll(targetList.toArray(new Object[0]));
         return result;
+
     }
 
     /**
@@ -291,20 +319,30 @@ public enum KmgDelimiterTypes implements Supplier<String> {
         String result = null;
 
         final StringBuilder sb = new StringBuilder();
+
         for (final Object target : targets) {
+
             if (target == null) {
+
                 sb.append(target);
+
             } else {
+
                 sb.append(target.toString());
+
             }
             sb.append(this.value);
+
         }
 
         if (sb.length() > 0) {
+
             result = sb.substring(0, sb.length() - 1).toString();
+
         }
 
         return result;
+
     }
 
     /**
@@ -320,13 +358,17 @@ public enum KmgDelimiterTypes implements Supplier<String> {
     public String[] split(final String target) {
 
         String[] result = null;
+
         if (KmgString.isEmpty(target)) {
+
             return result;
+
         }
 
         result = target.split(this.value);
 
         return result;
+
     }
 
     /**
@@ -339,7 +381,9 @@ public enum KmgDelimiterTypes implements Supplier<String> {
      */
     @Override
     public String get() {
+
         final String result = this.value;
         return result;
+
     }
 }

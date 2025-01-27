@@ -41,9 +41,11 @@ public class KmgSqlPathModelImpl implements KmgSqlPathModel {
      *                        ＳＱＬファイル名パス
      */
     public KmgSqlPathModelImpl(final Object object, final Path sqlFileNamePath) {
+
         this.zlass = object.getClass();
         this.sqlFileNamePath = sqlFileNamePath;
         this.setSqlFilePath();
+
     }
 
     /**
@@ -58,9 +60,11 @@ public class KmgSqlPathModelImpl implements KmgSqlPathModel {
      *                        ＳＱＬファイル名パス
      */
     public KmgSqlPathModelImpl(final Class<?> zlass, final Path sqlFileNamePath) {
+
         this.zlass = zlass;
         this.sqlFileNamePath = sqlFileNamePath;
         this.setSqlFilePath();
+
     }
 
     /**
@@ -71,7 +75,9 @@ public class KmgSqlPathModelImpl implements KmgSqlPathModel {
      * @version 1.0.0
      */
     private void setSqlFilePath() {
+
         this.sqlFilePath = KmgPathUtils.getClassFullPath(this.zlass, this.sqlFileNamePath);
+
     }
 
     /**
@@ -94,26 +100,36 @@ public class KmgSqlPathModelImpl implements KmgSqlPathModel {
      */
     @Override
     public String toSql() throws KmgDomainException {
+
         String result = null;
 
         final StringBuilder sqlTmp = new StringBuilder();
+
         try (BufferedReader br = Files.newBufferedReader(this.sqlFilePath)) {
+
             String line = null;
+
             while ((line = br.readLine()) != null) {
+
                 final String tmp = KmgSqlPathModelImpl.convertParameters(line);
                 sqlTmp.append(tmp);
                 sqlTmp.append(System.lineSeparator());
+
             }
+
         } catch (final IOException e) {
+
             // TODO KenichiroArai 2021/06/08 メッセージ
-            final String errMsg = String.format("%sがありません。", this.sqlFileNamePath.toAbsolutePath());
+            final String             errMsg      = String.format("%sがありません。", this.sqlFileNamePath.toAbsolutePath());
             final KmgLogMessageTypes logMsgTypes = KmgLogMessageTypes.I00001;
             throw new KmgDomainException(errMsg, logMsgTypes, e);
+
         }
 
         result = sqlTmp.toString().replaceAll("\\R+$", KmgString.EMPTY);
 
         return result;
+
     }
 
     /**
@@ -133,9 +149,12 @@ public class KmgSqlPathModelImpl implements KmgSqlPathModel {
     private static String convertParameters(final String str) {
 
         String result = null;
+
         if (KmgString.isEmpty(str)) {
+
             result = str;
             return result;
+
         }
 
         result = str.replaceAll("/\\*(.+)\\*/.*", "$1");

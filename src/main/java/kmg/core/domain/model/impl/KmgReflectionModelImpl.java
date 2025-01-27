@@ -35,8 +35,10 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
      *               対象オブジェクト
      */
     public KmgReflectionModelImpl(final Object object) {
+
         this.object = object;
         this.clazz = object.getClass();
+
     }
 
     /**
@@ -49,8 +51,10 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
      */
     @Override
     public Field getLastGetField() {
+
         final Field result = this.lastGetField;
         return result;
+
     }
 
     /**
@@ -69,69 +73,117 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
 
         this.lastGetField = null;
         Class<?> targetClazz = this.clazz;
+
         try {
+
             while (targetClazz != Object.class) {
+
                 try {
+
                     try {
+
                         this.lastGetField = targetClazz.getField(fieldName);
+
                     } catch (@SuppressWarnings("unused") final NoSuchFieldException e) {
+
                         this.lastGetField = targetClazz.getDeclaredField(fieldName);
+
                     }
+
                     if (this.lastGetField != null) {
+
                         this.lastGetField.setAccessible(true);
 
                         try {
+
                             Object fieldValue = value;
+
                             if (value != null) {
+
                                 if (this.lastGetField.getType() == BigDecimal.class) {
+
                                     try {
+
                                         fieldValue = new BigDecimal(value.toString());
+
                                     } catch (@SuppressWarnings("unused") final NumberFormatException e) {
+
                                         fieldValue = null;
+
                                     }
+
                                 }
+
                             }
                             this.lastGetField.set(this.object, fieldValue);
+
                         } catch (final IllegalAccessException e) {
+
                             // TODO 2021/06/06 KenichiroArai KMGの例外にする
                             e.printStackTrace();
+
                         }
 
                         targetClazz = targetClazz.getSuperclass();
+
                     }
+
                 } catch (@SuppressWarnings("unused") final NoSuchFieldException e) {
+
                     targetClazz = targetClazz.getSuperclass();
+
                 }
+
             }
+
         } catch (final SecurityException e) {
+
             // TODO 2021/06/06 KenichiroArai KMGの例外にする
             e.printStackTrace();
+
         } catch (final IllegalArgumentException e) {
+
             // TODO 2021/06/06 KenichiroArai KMGの例外にする
             e.printStackTrace();
+
         }
 
         if (this.lastGetField == null) {
+
             return;
+
         }
 
         this.lastGetField.setAccessible(true);
 
         try {
+
             Object fieldValue = value;
+
             if (value != null) {
+
                 if (this.lastGetField.getType() == BigDecimal.class) {
+
                     try {
+
                         fieldValue = new BigDecimal(value.toString());
+
                     } catch (@SuppressWarnings("unused") final NumberFormatException e) {
+
                         fieldValue = null;
+
                     }
+
                 }
+
             }
             this.lastGetField.set(this.object, fieldValue);
+
         } catch (final IllegalAccessException e) {
+
             // TODO 2021/06/06 KenichiroArai KMGの例外にする
             e.printStackTrace();
+
         }
 
     }
@@ -155,45 +207,74 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
         Class<?> targetClazz = this.clazz;
 
         try {
+
             while (targetClazz != Object.class) {
+
                 try {
+
                     try {
+
                         this.lastGetField = targetClazz.getField(fieldName);
+
                     } catch (@SuppressWarnings("unused") final NoSuchFieldException e) {
+
                         this.lastGetField = targetClazz.getDeclaredField(fieldName);
+
                     }
+
                     if (this.lastGetField != null) {
+
                         break;
+
                     }
+
                 } catch (@SuppressWarnings("unused") final NoSuchFieldException e) {
+
                     targetClazz = targetClazz.getSuperclass();
+
                 }
+
             }
+
         } catch (final SecurityException e) {
+
             // TODO 2021/06/06 KenichiroArai KMGの例外にする
             e.printStackTrace();
+
         } catch (final IllegalArgumentException e) {
+
             // TODO 2021/06/06 KenichiroArai KMGの例外にする
             e.printStackTrace();
+
         }
 
         if (this.lastGetField == null) {
+
             return result;
+
         }
 
         this.lastGetField.setAccessible(true);
 
         try {
+
             result = this.lastGetField.get(this.object);
+
         } catch (final SecurityException e) {
+
             // TODO 2021/06/06 KenichiroArai KMGの例外にする
             e.printStackTrace();
+
         } catch (final IllegalArgumentException e) {
+
             // TODO 2021/06/06 KenichiroArai KMGの例外にする
             e.printStackTrace();
+
         } catch (final IllegalAccessException e) {
+
             // TODO 2021/06/06 KenichiroArai KMGの例外にする
             e.printStackTrace();
+
         }
 
         return result;
@@ -219,39 +300,65 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
 
         /* パラメータクラスの設定 */
         final Class<?>[] parameterTypes = new Class[parameters.length];
-        int i = 0;
+        int              i              = 0;
+
         for (final Object param : parameters) {
+
             parameterTypes[i] = param.getClass();
             i++;
+
         }
 
         /* メソッドの取得 */
-        Method method = null;
+        Method   method      = null;
         Class<?> targetClazz = this.clazz;
+
         try {
+
             while (targetClazz != Object.class) {
+
                 try {
+
                     try {
+
                         method = targetClazz.getMethod(methodName, parameterTypes);
+
                     } catch (@SuppressWarnings("unused") final NoSuchMethodException e) {
+
                         method = targetClazz.getDeclaredMethod(methodName, parameterTypes);
+
                     }
+
                     if (method != null) {
+
                         break;
+
                     }
+
                 } catch (@SuppressWarnings("unused") final NoSuchMethodException e) {
+
                     targetClazz = targetClazz.getSuperclass();
+
                 }
+
             }
+
         } catch (final SecurityException e) {
+
             // TODO 2021/06/06 KenichiroArai KMGの例外にする
             e.printStackTrace();
+
         } catch (final IllegalArgumentException e) {
+
             // TODO 2021/06/06 KenichiroArai KMGの例外にする
             e.printStackTrace();
+
         }
+
         if (method == null) {
+
             return result;
+
         }
 
         /* privateメソッドのアクセス許可の設定 */
@@ -259,19 +366,29 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
 
         /* メソッドの呼び出し */
         try {
+
             result = method.invoke(this.object, parameters);
+
         } catch (final SecurityException e) {
+
             // TODO 2021/06/06 KenichiroArai KMGの例外にする
             e.printStackTrace();
+
         } catch (final IllegalAccessException e) {
+
             // TODO 2021/06/06 KenichiroArai KMGの例外にする
             e.printStackTrace();
+
         } catch (final IllegalArgumentException e) {
+
             // TODO 2021/06/06 KenichiroArai KMGの例外にする
             e.printStackTrace();
+
         } catch (final InvocationTargetException e) {
+
             // TODO 2021/06/06 KenichiroArai KMGの例外にする
             e.printStackTrace();
+
         }
 
         return result;
@@ -294,37 +411,60 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
      */
     @Override
     public Object getMethodInvoke(final String methodName, final Class<?>[] parameterTypes,
-        final Object... parameters) {
+            final Object... parameters) {
 
         Object result = null;
 
         /* メソッドの取得 */
-        Method method = null;
+        Method   method      = null;
         Class<?> targetClazz = this.clazz;
+
         try {
+
             while (targetClazz != Object.class) {
+
                 try {
+
                     try {
+
                         method = targetClazz.getMethod(methodName, parameterTypes);
+
                     } catch (@SuppressWarnings("unused") final NoSuchMethodException e) {
+
                         method = targetClazz.getDeclaredMethod(methodName, parameterTypes);
+
                     }
+
                     if (method != null) {
+
                         break;
+
                     }
+
                 } catch (@SuppressWarnings("unused") final NoSuchMethodException e) {
+
                     targetClazz = targetClazz.getSuperclass();
+
                 }
+
             }
+
         } catch (final SecurityException e) {
+
             // TODO 2021/06/06 KenichiroArai KMGの例外にする
             e.printStackTrace();
+
         } catch (final IllegalArgumentException e) {
+
             // TODO 2021/06/06 KenichiroArai KMGの例外にする
             e.printStackTrace();
+
         }
+
         if (method == null) {
+
             return result;
+
         }
 
         /* privateメソッドのアクセス許可の設定 */
@@ -332,19 +472,29 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
 
         /* メソッドの呼び出し */
         try {
+
             result = method.invoke(this.object, parameters);
+
         } catch (final SecurityException e) {
+
             // TODO 2021/06/06 KenichiroArai KMGの例外にする
             e.printStackTrace();
+
         } catch (final IllegalAccessException e) {
+
             // TODO 2021/06/06 KenichiroArai KMGの例外にする
             e.printStackTrace();
+
         } catch (final IllegalArgumentException e) {
+
             // TODO 2021/06/06 KenichiroArai KMGの例外にする
             e.printStackTrace();
+
         } catch (final InvocationTargetException e) {
+
             // TODO 2021/06/06 KenichiroArai KMGの例外にする
             e.printStackTrace();
+
         }
 
         return result;
@@ -370,39 +520,65 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
 
         /* パラメータクラスの設定 */
         final Class<?>[] parameterTypes = new Class[parameters.length];
-        int i = 0;
+        int              i              = 0;
+
         for (final Object param : parameters) {
+
             parameterTypes[i] = param.getClass();
             i++;
+
         }
 
         /* メソッドの取得 */
-        Method method = null;
+        Method   method      = null;
         Class<?> targetClazz = this.clazz;
+
         try {
+
             while (targetClazz != Object.class) {
+
                 try {
+
                     try {
+
                         method = targetClazz.getMethod(methodName, parameterTypes);
+
                     } catch (@SuppressWarnings("unused") final NoSuchMethodException e) {
+
                         method = targetClazz.getDeclaredMethod(methodName, parameterTypes);
+
                     }
+
                     if (method != null) {
+
                         break;
+
                     }
+
                 } catch (@SuppressWarnings("unused") final NoSuchMethodException e) {
+
                     targetClazz = targetClazz.getSuperclass();
+
                 }
+
             }
+
         } catch (final SecurityException e) {
+
             // TODO 2021/06/06 KenichiroArai KMGの例外にする
             e.printStackTrace();
+
         } catch (final IllegalArgumentException e) {
+
             // TODO 2021/06/06 KenichiroArai KMGの例外にする
             e.printStackTrace();
+
         }
+
         if (method == null) {
+
             return result;
+
         }
 
         /* privateメソッドのアクセス許可の設定 */
@@ -410,21 +586,32 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
 
         /* メソッドの呼び出し */
         try {
+
             result = method.invoke(this.object, parameters);
+
         } catch (final SecurityException e) {
+
             // TODO 2021/06/06 KenichiroArai KMGの例外にする
             e.printStackTrace();
+
         } catch (final IllegalAccessException e) {
+
             // TODO 2021/06/06 KenichiroArai KMGの例外にする
             e.printStackTrace();
+
         } catch (final IllegalArgumentException e) {
+
             // TODO 2021/06/06 KenichiroArai KMGの例外にする
             e.printStackTrace();
+
         } catch (final InvocationTargetException e) {
+
             // TODO 2021/06/06 KenichiroArai KMGの例外にする
             e.printStackTrace();
+
         }
 
         return result;
+
     }
 }

@@ -23,10 +23,10 @@ public enum KmgTemplateTypes implements Supplier<String> {
     ;
 
     /** 名称 */
-    private String name;
+    private final String name;
 
     /** 値 */
-    private String value;
+    private final String value;
 
     /** 種類のマップ */
     private static final Map<String, KmgTemplateTypes> VALUES_MAP = new HashMap<>();
@@ -35,8 +35,11 @@ public enum KmgTemplateTypes implements Supplier<String> {
 
         /* 種類のマップにプット */
         for (final KmgTemplateTypes type : KmgTemplateTypes.values()) {
+
             KmgTemplateTypes.VALUES_MAP.put(type.get(), type);
+
         }
+
     }
 
     /**
@@ -73,11 +76,14 @@ public enum KmgTemplateTypes implements Supplier<String> {
     public static KmgTemplateTypes getEnum(final String value) {
 
         KmgTemplateTypes result = KmgTemplateTypes.VALUES_MAP.get(value);
+
         if (result == null) {
+
             result = NONE;
-            return result;
+
         }
         return result;
+
     }
 
     /**
@@ -107,6 +113,7 @@ public enum KmgTemplateTypes implements Supplier<String> {
 
         final KmgTemplateTypes result = NONE;
         return result;
+
     }
 
     /**
@@ -119,8 +126,10 @@ public enum KmgTemplateTypes implements Supplier<String> {
      */
     @Override
     public String toString() {
+
         final String result = this.value;
         return result;
+
     }
 
     /**
@@ -132,8 +141,10 @@ public enum KmgTemplateTypes implements Supplier<String> {
      * @return 名称
      */
     public String getName() {
+
         final String result = this.name;
         return result;
+
     }
 
     /**
@@ -145,8 +156,10 @@ public enum KmgTemplateTypes implements Supplier<String> {
      * @return 値
      */
     public String getValue() {
+
         final String result = this.value;
         return result;
+
     }
 
     /**
@@ -159,7 +172,9 @@ public enum KmgTemplateTypes implements Supplier<String> {
      */
     @Override
     public String get() {
+
         final String result = this.value;
         return result;
+
     }
 }
