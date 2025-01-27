@@ -29,9 +29,11 @@ public class KmgSqlPathModelImplTests {
      * @author KenichiroArai
      * @sine 1.0.0
      * @version 1.0.0
+     * @throws KmgDomainException
+     *                            KMGドメイン例外
      */
     @Test
-    public void テスト００１_コンストラクタ_正常００１_設定() {
+    public void テスト００１_コンストラクタ_正常００１_設定() throws KmgDomainException {
 
         /* 期待値 */
         final Class<?> expectedZlass           = this.getClass();

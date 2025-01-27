@@ -6,6 +6,8 @@ import java.lang.reflect.Method;
 import java.math.BigDecimal;
 
 import kmg.core.domain.model.KmgReflectionModel;
+import kmg.core.infrastructure.exception.KmgDomainException;
+import kmg.core.infrastructure.types.KmgLogMessageTypes;
 
 /**
  * KMGリフレクションモデル<br>
@@ -67,9 +69,11 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
      *                  フィールド名
      * @param value
      *                  値
+     * @throws KmgDomainException
+     *                            KMGドメイン例外
      */
     @Override
-    public void set(final String fieldName, final Object value) {
+    public void set(final String fieldName, final Object value) throws KmgDomainException {
 
         this.lastGetField = null;
         Class<?> targetClazz = this.clazz;
@@ -98,19 +102,15 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
 
                             Object fieldValue = value;
 
-                            if (value != null) {
+                            if ((value != null) && (this.lastGetField.getType() == BigDecimal.class)) {
 
-                                if (this.lastGetField.getType() == BigDecimal.class) {
+                                try {
 
-                                    try {
+                                    fieldValue = new BigDecimal(value.toString());
 
-                                        fieldValue = new BigDecimal(value.toString());
+                                } catch (@SuppressWarnings("unused") final NumberFormatException e) {
 
-                                    } catch (@SuppressWarnings("unused") final NumberFormatException e) {
-
-                                        fieldValue = null;
-
-                                    }
+                                    fieldValue = null;
 
                                 }
 
@@ -120,7 +120,7 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
                         } catch (final IllegalAccessException e) {
 
                             // TODO 2021/06/06 KenichiroArai KMGの例外にする
-                            e.printStackTrace();
+                            throw new KmgDomainException(e.getMessage(), KmgLogMessageTypes.NONE, e);
 
                         }
 
@@ -136,15 +136,10 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
 
             }
 
-        } catch (final SecurityException e) {
+        } catch (final SecurityException | IllegalArgumentException e) {
 
             // TODO 2021/06/06 KenichiroArai KMGの例外にする
-            e.printStackTrace();
-
-        } catch (final IllegalArgumentException e) {
-
-            // TODO 2021/06/06 KenichiroArai KMGの例外にする
-            e.printStackTrace();
+            throw new KmgDomainException(e.getMessage(), KmgLogMessageTypes.NONE, e);
 
         }
 
@@ -160,19 +155,15 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
 
             Object fieldValue = value;
 
-            if (value != null) {
+            if ((value != null) && (this.lastGetField.getType() == BigDecimal.class)) {
 
-                if (this.lastGetField.getType() == BigDecimal.class) {
+                try {
 
-                    try {
+                    fieldValue = new BigDecimal(value.toString());
 
-                        fieldValue = new BigDecimal(value.toString());
+                } catch (@SuppressWarnings("unused") final NumberFormatException e) {
 
-                    } catch (@SuppressWarnings("unused") final NumberFormatException e) {
-
-                        fieldValue = null;
-
-                    }
+                    fieldValue = null;
 
                 }
 
@@ -182,7 +173,7 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
         } catch (final IllegalAccessException e) {
 
             // TODO 2021/06/06 KenichiroArai KMGの例外にする
-            e.printStackTrace();
+            throw new KmgDomainException(e.getMessage(), KmgLogMessageTypes.NONE, e);
 
         }
 
@@ -197,9 +188,11 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
      * @param fieldName
      *                  フィールド名
      * @return 値
+     * @throws KmgDomainException
+     *                            KMGドメイン例外
      */
     @Override
-    public Object get(final String fieldName) {
+    public Object get(final String fieldName) throws KmgDomainException {
 
         Object result = null;
 
@@ -236,15 +229,10 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
 
             }
 
-        } catch (final SecurityException e) {
+        } catch (final SecurityException | IllegalArgumentException e) {
 
             // TODO 2021/06/06 KenichiroArai KMGの例外にする
-            e.printStackTrace();
-
-        } catch (final IllegalArgumentException e) {
-
-            // TODO 2021/06/06 KenichiroArai KMGの例外にする
-            e.printStackTrace();
+            throw new KmgDomainException(e.getMessage(), KmgLogMessageTypes.NONE, e);
 
         }
 
@@ -260,20 +248,10 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
 
             result = this.lastGetField.get(this.object);
 
-        } catch (final SecurityException e) {
+        } catch (final SecurityException | IllegalArgumentException | IllegalAccessException e) {
 
             // TODO 2021/06/06 KenichiroArai KMGの例外にする
-            e.printStackTrace();
-
-        } catch (final IllegalArgumentException e) {
-
-            // TODO 2021/06/06 KenichiroArai KMGの例外にする
-            e.printStackTrace();
-
-        } catch (final IllegalAccessException e) {
-
-            // TODO 2021/06/06 KenichiroArai KMGの例外にする
-            e.printStackTrace();
+            throw new KmgDomainException(e.getMessage(), KmgLogMessageTypes.NONE, e);
 
         }
 
@@ -292,9 +270,11 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
      * @param parameters
      *                   パラメータ
      * @return 返却値
+     * @throws KmgDomainException
+     *                            KMGドメイン例外
      */
     @Override
-    public Object getMethodInvoke(final String methodName, final Object... parameters) {
+    public Object getMethodInvoke(final String methodName, final Object... parameters) throws KmgDomainException {
 
         Object result = null;
 
@@ -343,15 +323,10 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
 
             }
 
-        } catch (final SecurityException e) {
+        } catch (final SecurityException | IllegalArgumentException e) {
 
             // TODO 2021/06/06 KenichiroArai KMGの例外にする
-            e.printStackTrace();
-
-        } catch (final IllegalArgumentException e) {
-
-            // TODO 2021/06/06 KenichiroArai KMGの例外にする
-            e.printStackTrace();
+            throw new KmgDomainException(e.getMessage(), KmgLogMessageTypes.NONE, e);
 
         }
 
@@ -369,25 +344,11 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
 
             result = method.invoke(this.object, parameters);
 
-        } catch (final SecurityException e) {
+        } catch (final SecurityException | IllegalAccessException | IllegalArgumentException
+                | InvocationTargetException e) {
 
             // TODO 2021/06/06 KenichiroArai KMGの例外にする
-            e.printStackTrace();
-
-        } catch (final IllegalAccessException e) {
-
-            // TODO 2021/06/06 KenichiroArai KMGの例外にする
-            e.printStackTrace();
-
-        } catch (final IllegalArgumentException e) {
-
-            // TODO 2021/06/06 KenichiroArai KMGの例外にする
-            e.printStackTrace();
-
-        } catch (final InvocationTargetException e) {
-
-            // TODO 2021/06/06 KenichiroArai KMGの例外にする
-            e.printStackTrace();
+            throw new KmgDomainException(e.getMessage(), KmgLogMessageTypes.NONE, e);
 
         }
 
@@ -408,10 +369,12 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
      * @param parameters
      *                       パラメータ
      * @return 返却値
+     * @throws KmgDomainException
+     *                            KMGドメイン例外
      */
     @Override
-    public Object getMethodInvoke(final String methodName, final Class<?>[] parameterTypes,
-            final Object... parameters) {
+    public Object getMethodInvoke(final String methodName, final Class<?>[] parameterTypes, final Object... parameters)
+            throws KmgDomainException {
 
         Object result = null;
 
@@ -449,15 +412,10 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
 
             }
 
-        } catch (final SecurityException e) {
+        } catch (final SecurityException | IllegalArgumentException e) {
 
             // TODO 2021/06/06 KenichiroArai KMGの例外にする
-            e.printStackTrace();
-
-        } catch (final IllegalArgumentException e) {
-
-            // TODO 2021/06/06 KenichiroArai KMGの例外にする
-            e.printStackTrace();
+            throw new KmgDomainException(e.getMessage(), KmgLogMessageTypes.NONE, e);
 
         }
 
@@ -475,25 +433,11 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
 
             result = method.invoke(this.object, parameters);
 
-        } catch (final SecurityException e) {
+        } catch (final SecurityException | IllegalAccessException | IllegalArgumentException
+                | InvocationTargetException e) {
 
             // TODO 2021/06/06 KenichiroArai KMGの例外にする
-            e.printStackTrace();
-
-        } catch (final IllegalAccessException e) {
-
-            // TODO 2021/06/06 KenichiroArai KMGの例外にする
-            e.printStackTrace();
-
-        } catch (final IllegalArgumentException e) {
-
-            // TODO 2021/06/06 KenichiroArai KMGの例外にする
-            e.printStackTrace();
-
-        } catch (final InvocationTargetException e) {
-
-            // TODO 2021/06/06 KenichiroArai KMGの例外にする
-            e.printStackTrace();
+            throw new KmgDomainException(e.getMessage(), KmgLogMessageTypes.NONE, e);
 
         }
 
@@ -512,9 +456,11 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
      * @param parameters
      *                   パラメータ
      * @return 返却値
+     * @throws KmgDomainException
+     *                            KMGドメイン例外
      */
     @Override
-    public Object getMethod(final String methodName, final Object... parameters) {
+    public Object getMethod(final String methodName, final Object... parameters) throws KmgDomainException {
 
         Object result = null;
 
@@ -563,15 +509,10 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
 
             }
 
-        } catch (final SecurityException e) {
+        } catch (final SecurityException | IllegalArgumentException e) {
 
             // TODO 2021/06/06 KenichiroArai KMGの例外にする
-            e.printStackTrace();
-
-        } catch (final IllegalArgumentException e) {
-
-            // TODO 2021/06/06 KenichiroArai KMGの例外にする
-            e.printStackTrace();
+            throw new KmgDomainException(e.getMessage(), KmgLogMessageTypes.NONE, e);
 
         }
 
@@ -589,25 +530,11 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
 
             result = method.invoke(this.object, parameters);
 
-        } catch (final SecurityException e) {
+        } catch (final SecurityException | IllegalAccessException | IllegalArgumentException
+                | InvocationTargetException e) {
 
             // TODO 2021/06/06 KenichiroArai KMGの例外にする
-            e.printStackTrace();
-
-        } catch (final IllegalAccessException e) {
-
-            // TODO 2021/06/06 KenichiroArai KMGの例外にする
-            e.printStackTrace();
-
-        } catch (final IllegalArgumentException e) {
-
-            // TODO 2021/06/06 KenichiroArai KMGの例外にする
-            e.printStackTrace();
-
-        } catch (final InvocationTargetException e) {
-
-            // TODO 2021/06/06 KenichiroArai KMGの例外にする
-            e.printStackTrace();
+            throw new KmgDomainException(e.getMessage(), KmgLogMessageTypes.NONE, e);
 
         }
 
