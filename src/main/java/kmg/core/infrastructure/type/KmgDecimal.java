@@ -123,6 +123,7 @@ public class KmgDecimal {
      *              値
      */
     public KmgDecimal(final BigDecimal value) {
+        this.value = value;
         this.setCalcScale();
     }
 
