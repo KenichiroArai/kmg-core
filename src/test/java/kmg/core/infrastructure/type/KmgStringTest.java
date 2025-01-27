@@ -374,11 +374,11 @@ public class KmgStringTest {
     }
 
     /**
-     * equals メソッドのテスト - null文字列の場合
+     * equals メソッドのテスト - str1がnull文字列の場合
      */
     @Test
     @SuppressWarnings("static-method")
-    public void testEquals_NullStrings() {
+    public void testEquals_str1NullStrings() {
 
         /* 期待値の定義 */
         final boolean expected = false;
@@ -386,6 +386,28 @@ public class KmgStringTest {
         /* 準備 */
         final String str1 = null;
         final String str2 = "test";
+
+        /* テスト対象の実行 */
+        final boolean actual = KmgString.equals(str1, str2);
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "nullを含む場合、falseを返すべき");
+
+    }
+
+    /**
+     * equals メソッドのテスト - str2がnull文字列の場合
+     */
+    @Test
+    @SuppressWarnings("static-method")
+    public void testEquals_str2NullStrings() {
+
+        /* 期待値の定義 */
+        final boolean expected = false;
+
+        /* 準備 */
+        final String str1 = "test";
+        final String str2 = null;
 
         /* テスト対象の実行 */
         final boolean actual = KmgString.equals(str1, str2);
@@ -418,11 +440,11 @@ public class KmgStringTest {
     }
 
     /**
-     * equalsIgnoreCase メソッドのテスト - null文字列の場合
+     * equalsIgnoreCase メソッドのテスト - str1がnull文字列の場合
      */
     @Test
     @SuppressWarnings("static-method")
-    public void testEqualsIgnoreCase_NullStrings() {
+    public void testEqualsIgnoreCase_str1NullStrings() {
 
         /* 期待値の定義 */
         final boolean expected = false;
@@ -430,6 +452,28 @@ public class KmgStringTest {
         /* 準備 */
         final String str1 = null;
         final String str2 = "test";
+
+        /* テスト対象の実行 */
+        final boolean actual = KmgString.equalsIgnoreCase(str1, str2);
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "nullを含む場合、falseを返すべき");
+
+    }
+
+    /**
+     * equalsIgnoreCase メソッドのテスト - str2がnull文字列の場合
+     */
+    @Test
+    @SuppressWarnings("static-method")
+    public void testEqualsIgnoreCase_str2NullStrings() {
+
+        /* 期待値の定義 */
+        final boolean expected = false;
+
+        /* 準備 */
+        final String str1 = "test";
+        final String str2 = null;
 
         /* テスト対象の実行 */
         final boolean actual = KmgString.equalsIgnoreCase(str1, str2);
