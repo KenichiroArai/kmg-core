@@ -330,6 +330,46 @@ public class KmgStringTest {
     }
 
     /**
+     * camelCase メソッドのテスト - 引数がnullの場合
+     */
+    @Test
+    @SuppressWarnings("static-method")
+    public void testCamelCase_Null() {
+
+        /* 期待値の定義 */
+        final String expected = null;
+
+        /* 準備 */
+        final String target = null;
+
+        /* テスト対象の実行 */
+        final String actual = KmgString.camelCase(target);
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "nullの場合、nullを返すべき");
+    }
+
+    /**
+     * camelCase メソッドのテスト - 1文字の場合
+     */
+    @Test
+    @SuppressWarnings("static-method")
+    public void testCamelCase_SingleChar() {
+
+        /* 期待値の定義 */
+        final String expected = null;
+
+        /* 準備 */
+        final String target = "a";
+
+        /* テスト対象の実行 */
+        final String actual = KmgString.camelCase(target);
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "1文字の場合、nullを返すべき");
+    }
+
+    /**
      * equals メソッドのテスト - 同じ文字列の場合
      */
     @Test
