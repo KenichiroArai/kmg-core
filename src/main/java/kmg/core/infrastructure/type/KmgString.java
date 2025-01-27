@@ -70,7 +70,7 @@ public class KmgString {
     public static boolean isEmpty(final String target) {
 
         final KmgString kmgString = new KmgString(target);
-        boolean result = kmgString.isEmpty();
+        final boolean   result    = kmgString.isEmpty();
         return result;
 
     }
@@ -413,8 +413,7 @@ public class KmgString {
      */
     public boolean isNotEmpty() {
 
-        boolean result = !this.isEmpty();
-        result = false;
+        final boolean result = !this.isEmpty();
         return result;
 
     }

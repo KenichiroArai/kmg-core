@@ -170,7 +170,7 @@ public class KmgStringTest {
         final String expected = "";
 
         /* 準備 */
-        final String[] target = new String[0];
+        final String[] target = {};
 
         /* テスト対象の実行 */
         final String actual = KmgString.concat(target);
@@ -436,6 +436,72 @@ public class KmgStringTest {
 
         /* 検証の実施 */
         Assertions.assertEquals(expected, actual, "nullを含む場合、falseを返すべき");
+
+    }
+
+    /**
+     * equalsIgnoreCase メソッドのテスト - 同一文字列の場合
+     */
+    @Test
+    @SuppressWarnings("static-method")
+    public void testEqualsIgnoreCase_SameStrings() {
+
+        /* 期待値の定義 */
+        final boolean expected = true;
+
+        /* 準備 */
+        final String str1 = "test";
+        final String str2 = "test";
+
+        /* テスト対象の実行 */
+        final boolean actual = KmgString.equalsIgnoreCase(str1, str2);
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "同一文字列の場合、trueを返すべき");
+
+    }
+
+    /**
+     * equalsIgnoreCase メソッドのテスト - 異なる文字列の場合
+     */
+    @Test
+    @SuppressWarnings("static-method")
+    public void testEqualsIgnoreCase_DifferentStrings() {
+
+        /* 期待値の定義 */
+        final boolean expected = false;
+
+        /* 準備 */
+        final String str1 = "test1";
+        final String str2 = "test2";
+
+        /* テスト対象の実行 */
+        final boolean actual = KmgString.equalsIgnoreCase(str1, str2);
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "異なる文字列の場合、falseを返すべき");
+
+    }
+
+    /**
+     * equalsIgnoreCase メソッドのテスト - 両方nullの場合
+     */
+    @Test
+    @SuppressWarnings("static-method")
+    public void testEqualsIgnoreCase_BothNull() {
+
+        /* 期待値の定義 */
+        final boolean expected = false;
+
+        /* 準備 */
+        final String str1 = null;
+        final String str2 = null;
+
+        /* テスト対象の実行 */
+        final boolean actual = KmgString.equalsIgnoreCase(str1, str2);
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "両方nullの場合、falseを返すべき");
 
     }
 
