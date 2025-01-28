@@ -214,6 +214,118 @@ public class KmgReflectionModelImplTest {
     }
 
     /**
+     * get メソッドのテスト - プライベートフィールドの値を取得<br>
+     *
+     * @throws KmgDomainException
+     *                            KMGドメイン例外
+     */
+    @Test
+    @SuppressWarnings("static-method")
+    public void testGet_privateField() throws KmgDomainException {
+
+        /* 期待値の定義 */
+        final String expectedValue = "test value";
+
+        /* 準備 */
+        final TestClass testObject = new TestClass();
+        testObject.setPrivateField(expectedValue);
+        final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(testObject);
+
+        /* テスト対象の実行 */
+        final Object testResult = testReflection.get("privateField");
+
+        /* 検証の準備 */
+        final String actualValue = (String) testResult;
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expectedValue, actualValue, "プライベートフィールドから値が取得できること");
+
+    }
+
+    /**
+     * get メソッドのテスト - 存在しないフィールドへのアクセス<br>
+     *
+     * @throws KmgDomainException
+     *                            KMGドメイン例外
+     */
+    @Test
+    @SuppressWarnings("static-method")
+    public void testGet_nonExistentField() throws KmgDomainException {
+
+        /* 準備 */
+        final TestClass              testObject     = new TestClass();
+        final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(testObject);
+
+        /* 検証の実施 */
+        Assertions.assertThrows(KmgDomainException.class, () -> {
+
+            testReflection.get("nonExistentField");
+
+        }, "存在しないフィールドへのアクセスで例外が発生すること");
+
+    }
+
+    /**
+     * set メソッドのテスト - 存在しないフィールドへの設定<br>
+     */
+    @Test
+    @SuppressWarnings("static-method")
+    public void testSet_nonExistentField() {
+
+        /* 準備 */
+        final TestClass              testObject     = new TestClass();
+        final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(testObject);
+
+        /* 検証の実施 */
+        Assertions.assertThrows(KmgDomainException.class, () -> {
+
+            testReflection.set("nonExistentField", "value");
+
+        }, "存在しないフィールドへの設定で例外が発生すること");
+
+    }
+
+    /**
+     * getMethodInvoke メソッドのテスト - 存在しないメソッドの呼び出し<br>
+     */
+    @Test
+    @SuppressWarnings("static-method")
+    public void testGetMethodInvoke_nonExistentMethod() {
+
+        /* 準備 */
+        final TestClass              testObject     = new TestClass();
+        final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(testObject);
+
+        /* 検証の実施 */
+        Assertions.assertThrows(KmgDomainException.class, () -> {
+
+            testReflection.getMethodInvoke("nonExistentMethod", "param");
+
+        }, "存在しないメソッドの呼び出しで例外が発生すること");
+
+    }
+
+    /**
+     * set メソッドのテスト - 型変換エラー<br>
+     */
+    @Test
+    @SuppressWarnings("static-method")
+    public void testSet_typeConversionError() {
+
+        /* 準備 */
+        final TestClass              testObject     = new TestClass();
+        final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(testObject);
+
+        /* 検証の実施 */
+        Assertions.assertThrows(KmgDomainException.class, () -> {
+
+            testReflection.set("decimalField", "invalid number");
+
+        }, "不正な数値形式で例外が発生すること");
+
+    }
+
+    /**
      * getMethodInvoke メソッドのテスト - メソッドを呼び出し<br>
      *
      * @throws KmgDomainException
