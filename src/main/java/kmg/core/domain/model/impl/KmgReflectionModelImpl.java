@@ -252,7 +252,7 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
 
         try {
 
-            result = this.lastGetField.get(this.object);
+            result = this.getValue(this.lastGetField, this.object);
 
         } catch (final SecurityException e) {
 
@@ -571,6 +571,30 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
         throws NoSuchFieldException, SecurityException {
 
         final Field result = targetClazz.getField(name);
+        return result;
+
+    }
+
+    /**
+     * フィールドから値を取得する<br>
+     *
+     * @author KenichiroArai
+     * @sine 1.0.0
+     * @version 1.0.0
+     * @param field
+     *               フィールド
+     * @param targetObject
+     *               オブジェクト
+     * @return 値
+     * @throws SecurityException
+     *                                セキュリティ例外
+     * @throws IllegalAccessException
+     *                                不正アクセス例外
+     */
+    @SuppressWarnings("static-method")
+    protected Object getValue(final Field field, final Object targetObject) throws SecurityException, IllegalAccessException {
+
+        final Object result = field.get(targetObject);
         return result;
 
     }
