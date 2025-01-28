@@ -465,11 +465,15 @@ public class KmgReflectionModelImplTest {
      * get メソッドのテスト - 連続呼び出し時のlastGetFieldの状態確認<br>
      *
      * @throws KmgDomainException
-     *                            KMGドメイン例外
+     *                                  KMGドメイン例外
+     * @throws IllegalAccessException
+     *                                  イリーガルアクセス例外
+     * @throws IllegalArgumentException
+     *                                  引数例外
      */
     @Test
     @SuppressWarnings("static-method")
-    public void testGet_consecutiveCalls() throws KmgDomainException {
+    public void testGet_consecutiveCalls() throws KmgDomainException, IllegalArgumentException, IllegalAccessException {
 
         /* 準備 */
         final TestClass testObject = new TestClass();
@@ -481,12 +485,14 @@ public class KmgReflectionModelImplTest {
         // 1回目の呼び出し
         final Object firstResult = testReflection.get("publicField");
         Assertions.assertEquals("test1", firstResult, "1回目のget呼び出しで正しい値が取得できること");
-        Assertions.assertEquals("test1", testReflection.getLastGetField(), "1回目のget呼び出し後のlastGetFieldが正しいこと");
+        Assertions.assertEquals("test1", testReflection.getLastGetField().get(testObject),
+                "1回目のget呼び出し後のlastGetFieldが正しいこと");
 
         // 2回目の呼び出し
         final Object secondResult = testReflection.get("privateField");
         Assertions.assertEquals("test2", secondResult, "2回目のget呼び出しで正しい値が取得できること");
-        Assertions.assertEquals("test2", testReflection.getLastGetField(), "2回目のget呼び出し後のlastGetFieldが更新されていること");
+        Assertions.assertEquals("test2", testReflection.getLastGetField().get(testObject),
+                "2回目のget呼び出し後のlastGetFieldが更新されていること");
 
         // 存在しないフィールドの呼び出し
         final Object thirdResult = testReflection.get("nonExistentField");

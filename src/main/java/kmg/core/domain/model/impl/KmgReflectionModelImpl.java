@@ -215,14 +215,14 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
 
                         this.lastGetField = targetClazz.getField(fieldName);
 
+                        // フィールドが見つかった
+                        break;
+
                     } catch (@SuppressWarnings("unused") final NoSuchFieldException e) {
 
                         this.lastGetField = targetClazz.getDeclaredField(fieldName);
 
-                    }
-
-                    if (this.lastGetField != null) {
-
+                        // フィールドが見つかった
                         break;
 
                     }
