@@ -196,6 +196,12 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
 
         Object result = null;
 
+        if (fieldName == null) {
+
+            return result;
+
+        }
+
         this.lastGetField = null;
         Class<?> targetClazz = this.clazz;
 

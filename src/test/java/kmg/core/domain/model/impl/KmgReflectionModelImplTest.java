@@ -244,6 +244,57 @@ public class KmgReflectionModelImplTest {
     }
 
     /**
+     * get メソッドのテスト - nullフィールド名を指定<br>
+     *
+     * @throws KmgDomainException
+     *                            KMGドメイン例外
+     */
+    @Test
+    @SuppressWarnings("static-method")
+    public void testGet_nullFieldName() throws KmgDomainException {
+
+        /* 準備 */
+        final TestClass              testObject     = new TestClass();
+        final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(testObject);
+
+        /* テスト対象の実行 */
+        final Object actualValue = testReflection.get(null);
+
+        /* 検証の実施 */
+        Assertions.assertNull(actualValue, "nullフィールド名を指定した場合、nullが返されること");
+
+    }
+
+    /**
+     * get メソッドのテスト - BigDecimalフィールドの値を取得<br>
+     *
+     * @throws KmgDomainException
+     *                            KMGドメイン例外
+     */
+    @Test
+    @SuppressWarnings("static-method")
+    public void testGet_bigDecimalField() throws KmgDomainException {
+
+        /* 期待値の定義 */
+        final BigDecimal expectedValue = new BigDecimal("123.45");
+
+        /* 準備 */
+        final TestClass              testObject     = new TestClass();
+        final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(testObject);
+        testReflection.set("decimalField", expectedValue);
+
+        /* テスト対象の実行 */
+        final Object testResult = testReflection.get("decimalField");
+
+        /* 検証の準備 */
+        final BigDecimal actualValue = (BigDecimal) testResult;
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expectedValue, actualValue, "BigDecimalフィールドから値が正しく取得できること");
+
+    }
+
+    /**
      * get メソッドのテスト - 存在しないフィールドへのアクセス<br>
      *
      * @throws KmgDomainException
@@ -407,6 +458,40 @@ public class KmgReflectionModelImplTest {
 
         /* 検証の実施 */
         Assertions.assertEquals(expectedValue, actualValue, "メソッドが正しく呼び出され、結果が返されること");
+
+    }
+
+    /**
+     * get メソッドのテスト - 連続呼び出し時のlastGetFieldの状態確認<br>
+     *
+     * @throws KmgDomainException
+     *                            KMGドメイン例外
+     */
+    @Test
+    @SuppressWarnings("static-method")
+    public void testGet_consecutiveCalls() throws KmgDomainException {
+
+        /* 準備 */
+        final TestClass testObject = new TestClass();
+        testObject.publicField = "test1";
+        testObject.setPrivateField("test2");
+        final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(testObject);
+
+        /* テスト対象の実行と検証 */
+        // 1回目の呼び出し
+        final Object firstResult = testReflection.get("publicField");
+        Assertions.assertEquals("test1", firstResult, "1回目のget呼び出しで正しい値が取得できること");
+        Assertions.assertEquals("test1", testReflection.getLastGetField(), "1回目のget呼び出し後のlastGetFieldが正しいこと");
+
+        // 2回目の呼び出し
+        final Object secondResult = testReflection.get("privateField");
+        Assertions.assertEquals("test2", secondResult, "2回目のget呼び出しで正しい値が取得できること");
+        Assertions.assertEquals("test2", testReflection.getLastGetField(), "2回目のget呼び出し後のlastGetFieldが更新されていること");
+
+        // 存在しないフィールドの呼び出し
+        final Object thirdResult = testReflection.get("nonExistentField");
+        Assertions.assertNull(thirdResult, "存在しないフィールドの呼び出しでnullが返されること");
+        Assertions.assertNull(testReflection.getLastGetField(), "存在しないフィールドの呼び出し後のlastGetFieldがnullになること");
 
     }
 }
