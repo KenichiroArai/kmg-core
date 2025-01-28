@@ -86,11 +86,11 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
 
                     try {
 
-                        this.lastGetField = targetClazz.getField(fieldName);
+                        this.lastGetField = this.getField(targetClazz, fieldName);
 
                     } catch (@SuppressWarnings("unused") final NoSuchFieldException e) {
 
-                        this.lastGetField = targetClazz.getDeclaredField(fieldName);
+                        this.lastGetField = this.getDeclaredField(targetClazz, fieldName);
 
                     }
 
@@ -115,7 +115,7 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
                                 }
 
                             }
-                            this.lastGetField.set(this.object, fieldValue);
+                            this.setValue(this.lastGetField, this.object, fieldValue);
 
                         } catch (final IllegalAccessException e) {
 
@@ -168,7 +168,7 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
                 }
 
             }
-            this.lastGetField.set(this.object, fieldValue);
+            this.setValue(this.lastGetField, this.object, fieldValue);
 
         } catch (final IllegalAccessException e) {
 
@@ -220,7 +220,7 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
 
                     } catch (@SuppressWarnings("unused") final NoSuchFieldException e) {
 
-                        this.lastGetField = targetClazz.getDeclaredField(fieldName);
+                        this.lastGetField = this.getDeclaredField(targetClazz, fieldName);
 
                         // フィールドが見つかった
                         break;
@@ -582,9 +582,9 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
      * @sine 1.0.0
      * @version 1.0.0
      * @param field
-     *               フィールド
+     *                     フィールド
      * @param targetObject
-     *               オブジェクト
+     *                     オブジェクト
      * @return 値
      * @throws SecurityException
      *                                セキュリティ例外
@@ -592,9 +592,55 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
      *                                不正アクセス例外
      */
     @SuppressWarnings("static-method")
-    protected Object getValue(final Field field, final Object targetObject) throws SecurityException, IllegalAccessException {
+    protected Object getValue(final Field field, final Object targetObject)
+        throws SecurityException, IllegalAccessException {
 
         final Object result = field.get(targetObject);
+        return result;
+
+    }
+
+    /**
+     * フィールドに値を設定する<br>
+     *
+     * @author KenichiroArai
+     * @sine 1.0.0
+     * @version 1.0.0
+     * @param field
+     *                     フィールド
+     * @param targetObject
+     *                     対象オブジェクト
+     * @param value
+     *                     設定値
+     * @throws SecurityException
+     *                                セキュリティ例外
+     * @throws IllegalAccessException
+     *                                不正アクセス例外
+     */
+    @SuppressWarnings("static-method")
+    protected void setValue(final Field field, final Object targetObject, final Object value)
+        throws SecurityException, IllegalAccessException {
+        field.set(targetObject, value);
+    }
+
+    /**
+     * フィールド名に該当するフィールドを宣言したフィールドとして返す<br>
+     *
+     * @param targetClazz
+     *                    クラス
+     * @param name
+     *                    フィールド名
+     * @return 宣言フィールド
+     * @throws SecurityException
+     *                              セキュリティ例外
+     * @throws NoSuchFieldException
+     *                              フィールドが存在しない例外
+     */
+    @SuppressWarnings("static-method")
+    protected Field getDeclaredField(final Class<?> targetClazz, final String name)
+        throws NoSuchFieldException, SecurityException {
+
+        final Field result = targetClazz.getDeclaredField(name);
         return result;
 
     }
