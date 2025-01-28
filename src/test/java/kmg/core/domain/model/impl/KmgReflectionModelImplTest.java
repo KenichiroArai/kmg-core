@@ -1,5 +1,6 @@
 package kmg.core.domain.model.impl;
 
+import java.lang.reflect.Field;
 import java.math.BigDecimal;
 
 import org.junit.jupiter.api.Assertions;
@@ -447,7 +448,7 @@ public class KmgReflectionModelImplTest {
         final TestClass              testObject     = new TestClass();
         final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(testObject);
         final Class<?>[]             parameterTypes = {
-                String.class
+            String.class
         };
 
         /* テスト対象の実行 */
@@ -486,13 +487,13 @@ public class KmgReflectionModelImplTest {
         final Object firstResult = testReflection.get("publicField");
         Assertions.assertEquals("test1", firstResult, "1回目のget呼び出しで正しい値が取得できること");
         Assertions.assertEquals("test1", testReflection.getLastGetField().get(testObject),
-                "1回目のget呼び出し後のlastGetFieldが正しいこと");
+            "1回目のget呼び出し後のlastGetFieldが正しいこと");
 
         // 2回目の呼び出し
         final Object secondResult = testReflection.get("privateField");
         Assertions.assertEquals("test2", secondResult, "2回目のget呼び出しで正しい値が取得できること");
         Assertions.assertEquals("test2", testReflection.getLastGetField().get(testObject),
-                "2回目のget呼び出し後のlastGetFieldが更新されていること");
+            "2回目のget呼び出し後のlastGetFieldが更新されていること");
 
         // 存在しないフィールドの呼び出し
         final Object thirdResult = testReflection.get("nonExistentField");
@@ -500,4 +501,46 @@ public class KmgReflectionModelImplTest {
         Assertions.assertNull(testReflection.getLastGetField(), "存在しないフィールドの呼び出し後のlastGetFieldがnullになること");
 
     }
+
+    /**
+     * get メソッドのテスト - SecurityException発生時<br>
+     *
+     * @throws KmgDomainException
+     *                            KMGドメイン例外
+     */
+    @Test
+    @SuppressWarnings("static-method")
+    public void testGet_securityException() throws KmgDomainException {
+
+        /* 期待値の定義 */
+        final String expectedMessage = "Test security exception";
+
+        /* 準備 */
+        final TestClass testObject = new TestClass();
+
+        final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(testObject) {
+
+            @Override
+            protected Field getField(final Class<?> targetClazz, final String name)
+                throws NoSuchFieldException, SecurityException {
+
+                throw new SecurityException(expectedMessage);
+
+            }
+        };
+
+        /* テスト対象の実行 */
+        final KmgDomainException actualException
+            = Assertions.assertThrows(KmgDomainException.class, () -> testReflection.get("publicField"));
+
+        /* 検証の準備 */
+        final Throwable actualCause   = actualException.getCause();
+        final String    actualMessage = actualCause.getMessage();
+
+        /* 検証の実施 */
+        Assertions.assertTrue(actualCause instanceof SecurityException, "KmgDomainExceptionの原因がSecurityExceptionであること");
+        Assertions.assertEquals(expectedMessage, actualMessage, "SecurityExceptionのメッセージが正しいこと");
+
+    }
+
 }

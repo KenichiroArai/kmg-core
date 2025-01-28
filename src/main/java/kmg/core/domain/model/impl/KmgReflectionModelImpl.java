@@ -213,7 +213,7 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
 
                     try {
 
-                        this.lastGetField = targetClazz.getField(fieldName);
+                        this.lastGetField = this.getField(targetClazz, fieldName);
 
                         // フィールドが見つかった
                         break;
@@ -240,11 +240,6 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
             // TODO 2021/06/06 KenichiroArai KMGの例外にする
             throw new KmgDomainException(e.getMessage(), KmgLogMessageTypes.NONE, e);
 
-        } catch (final IllegalArgumentException e) {
-
-            // TODO 2021/06/06 KenichiroArai KMGの例外にする
-            throw new KmgDomainException(e.getMessage(), KmgLogMessageTypes.NONE, e);
-
         }
 
         if (this.lastGetField == null) {
@@ -260,11 +255,6 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
             result = this.lastGetField.get(this.object);
 
         } catch (final SecurityException e) {
-
-            // TODO 2021/06/06 KenichiroArai KMGの例外にする
-            throw new KmgDomainException(e.getMessage(), KmgLogMessageTypes.NONE, e);
-
-        } catch (final IllegalArgumentException e) {
 
             // TODO 2021/06/06 KenichiroArai KMGの例外にする
             throw new KmgDomainException(e.getMessage(), KmgLogMessageTypes.NONE, e);
@@ -366,7 +356,7 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
             result = method.invoke(this.object, parameters);
 
         } catch (final SecurityException | IllegalAccessException | IllegalArgumentException
-                | InvocationTargetException e) {
+            | InvocationTargetException e) {
 
             // TODO 2021/06/06 KenichiroArai KMGの例外にする
             throw new KmgDomainException(e.getMessage(), KmgLogMessageTypes.NONE, e);
@@ -395,7 +385,7 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
      */
     @Override
     public Object getMethodInvoke(final String methodName, final Class<?>[] parameterTypes, final Object... parameters)
-            throws KmgDomainException {
+        throws KmgDomainException {
 
         Object result = null;
 
@@ -455,7 +445,7 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
             result = method.invoke(this.object, parameters);
 
         } catch (final SecurityException | IllegalAccessException | IllegalArgumentException
-                | InvocationTargetException e) {
+            | InvocationTargetException e) {
 
             // TODO 2021/06/06 KenichiroArai KMGの例外にする
             throw new KmgDomainException(e.getMessage(), KmgLogMessageTypes.NONE, e);
@@ -552,13 +542,35 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
             result = method.invoke(this.object, parameters);
 
         } catch (final SecurityException | IllegalAccessException | IllegalArgumentException
-                | InvocationTargetException e) {
+            | InvocationTargetException e) {
 
             // TODO 2021/06/06 KenichiroArai KMGの例外にする
             throw new KmgDomainException(e.getMessage(), KmgLogMessageTypes.NONE, e);
 
         }
 
+        return result;
+
+    }
+
+    /**
+     * フィールド名に該当するフィールドを返す<br>
+     *
+     * @param targetClazz
+     *                    クラス
+     * @param name
+     *                    フィールド名
+     * @return フィールド
+     * @throws SecurityException
+     *                              セキュリティ例外
+     * @throws NoSuchFieldException
+     *                              フィールドが存在しない例外
+     */
+    @SuppressWarnings("static-method")
+    protected Field getField(final Class<?> targetClazz, final String name)
+        throws NoSuchFieldException, SecurityException {
+
+        final Field result = targetClazz.getField(name);
         return result;
 
     }
