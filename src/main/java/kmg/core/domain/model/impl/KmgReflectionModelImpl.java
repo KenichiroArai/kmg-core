@@ -235,7 +235,12 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
 
             }
 
-        } catch (final SecurityException | IllegalArgumentException e) {
+        } catch (final SecurityException e) {
+
+            // TODO 2021/06/06 KenichiroArai KMGの例外にする
+            throw new KmgDomainException(e.getMessage(), KmgLogMessageTypes.NONE, e);
+
+        } catch (final IllegalArgumentException e) {
 
             // TODO 2021/06/06 KenichiroArai KMGの例外にする
             throw new KmgDomainException(e.getMessage(), KmgLogMessageTypes.NONE, e);
@@ -254,7 +259,17 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
 
             result = this.lastGetField.get(this.object);
 
-        } catch (final SecurityException | IllegalArgumentException | IllegalAccessException e) {
+        } catch (final SecurityException e) {
+
+            // TODO 2021/06/06 KenichiroArai KMGの例外にする
+            throw new KmgDomainException(e.getMessage(), KmgLogMessageTypes.NONE, e);
+
+        } catch (final IllegalArgumentException e) {
+
+            // TODO 2021/06/06 KenichiroArai KMGの例外にする
+            throw new KmgDomainException(e.getMessage(), KmgLogMessageTypes.NONE, e);
+
+        } catch (final IllegalAccessException e) {
 
             // TODO 2021/06/06 KenichiroArai KMGの例外にする
             throw new KmgDomainException(e.getMessage(), KmgLogMessageTypes.NONE, e);
