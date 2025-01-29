@@ -285,103 +285,6 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
      *                            KMGドメイン例外
      */
     @Override
-    public Object getMethodInvoke(final String methodName, final Object... parameters) throws KmgDomainException {
-
-        Object result = null;
-
-        /* パラメータクラスの設定 */
-        final Class<?>[] parameterTypes = new Class[parameters.length];
-        int              i              = 0;
-
-        for (final Object param : parameters) {
-
-            parameterTypes[i] = param.getClass();
-            i++;
-
-        }
-
-        /* メソッドの取得 */
-        Method   method      = null;
-        Class<?> targetClazz = this.clazz;
-
-        try {
-
-            while (targetClazz != Object.class) {
-
-                try {
-
-                    try {
-
-                        method = targetClazz.getMethod(methodName, parameterTypes);
-
-                    } catch (@SuppressWarnings("unused") final NoSuchMethodException e) {
-
-                        method = targetClazz.getDeclaredMethod(methodName, parameterTypes);
-
-                    }
-
-                    if (method != null) {
-
-                        break;
-
-                    }
-
-                } catch (@SuppressWarnings("unused") final NoSuchMethodException e) {
-
-                    targetClazz = targetClazz.getSuperclass();
-
-                }
-
-            }
-
-        } catch (final SecurityException | IllegalArgumentException e) {
-
-            // TODO 2021/06/06 KenichiroArai KMGの例外にする
-            throw new KmgDomainException(e.getMessage(), KmgLogMessageTypes.NONE, e);
-
-        }
-
-        if (method == null) {
-
-            return result;
-
-        }
-
-        /* privateメソッドのアクセス許可の設定 */
-        method.setAccessible(true);
-
-        /* メソッドの呼び出し */
-        try {
-
-            result = method.invoke(this.object, parameters);
-
-        } catch (final SecurityException | IllegalAccessException | IllegalArgumentException
-            | InvocationTargetException e) {
-
-            // TODO 2021/06/06 KenichiroArai KMGの例外にする
-            throw new KmgDomainException(e.getMessage(), KmgLogMessageTypes.NONE, e);
-
-        }
-
-        return result;
-
-    }
-
-    /**
-     * メソッド名に該当するメソッドを呼び出す<br>
-     *
-     * @author KenichiroArai
-     * @sine 1.0.0
-     * @version 1.0.0
-     * @param methodName
-     *                   メソッド名
-     * @param parameters
-     *                   パラメータ
-     * @return 返却値
-     * @throws KmgDomainException
-     *                            KMGドメイン例外
-     */
-    @Override
     public Object getMethod(final String methodName, final Object... parameters) throws KmgDomainException {
 
         Object result = null;
@@ -415,7 +318,7 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
 
                     try {
 
-                        method = targetClazz.getMethod(methodName, parameterTypes);
+                        method = this.getMethod(targetClazz, methodName, parameterTypes);
 
                         // メソッドが見つかった
                         break;
@@ -456,7 +359,7 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
         /* メソッドの呼び出し */
         try {
 
-            result = method.invoke(this.object, parameters);
+            result = this.invoke(method, this.object, parameters);
 
         } catch (final SecurityException | IllegalAccessException | IllegalArgumentException
             | InvocationTargetException e) {
@@ -560,6 +463,159 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
         throws NoSuchFieldException, SecurityException {
 
         final Field result = targetClazz.getDeclaredField(name);
+        return result;
+
+    }
+
+    /**
+     * メソッドを取得する<br>
+     *
+     * @author KenichiroArai
+     * @sine 1.0.0
+     * @version 1.0.0
+     * @param targetClazz
+     *                       クラス
+     * @param name
+     *                       メソッド名
+     * @param parameterTypes
+     *                       パラメータ型
+     * @return メソッド
+     * @throws NoSuchMethodException
+     *                               メソッドが存在しない例外
+     * @throws SecurityException
+     *                               セキュリティ例外
+     */
+    @SuppressWarnings("static-method")
+    protected Method getMethod(final Class<?> targetClazz, final String name, final Class<?>[] parameterTypes)
+        throws NoSuchMethodException, SecurityException {
+
+        final Method result = targetClazz.getMethod(name, parameterTypes);
+        return result;
+
+    }
+
+    /**
+     * メソッドを呼び出す<br>
+     *
+     * @author KenichiroArai
+     * @sine 1.0.0
+     * @version 1.0.0
+     * @param method
+     *                     メソッド
+     * @param targetObject
+     *                     対象オブジェクト
+     * @param parameters
+     *                     パラメータ
+     * @return 呼び出し結果
+     * @throws IllegalAccessException
+     *                                   不正アクセス例外
+     * @throws IllegalArgumentException
+     *                                   不正な引数例外
+     * @throws InvocationTargetException
+     *                                   呼び出し対象例外
+     */
+    @SuppressWarnings("static-method")
+    protected Object invoke(final Method method, final Object targetObject, final Object... parameters)
+        throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+
+        final Object result = method.invoke(targetObject, parameters);
+        return result;
+
+    }
+
+    /**
+     * メソッド名に該当するメソッドを呼び出す<br>
+     *
+     * @author KenichiroArai
+     * @sine 1.0.0
+     * @version 1.0.0
+     * @param methodName
+     *                   メソッド名
+     * @param parameters
+     *                   パラメータ
+     * @return 返却値
+     * @throws KmgDomainException
+     *                            KMGドメイン例外
+     */
+    @Override
+    public Object getMethodInvoke(final String methodName, final Object... parameters) throws KmgDomainException {
+
+        Object result = null;
+
+        /* パラメータクラスの設定 */
+        final Class<?>[] parameterTypes = new Class[parameters.length];
+        int              i              = 0;
+
+        for (final Object param : parameters) {
+
+            parameterTypes[i] = param.getClass();
+            i++;
+
+        }
+
+        /* メソッドの取得 */
+        Method   method      = null;
+        Class<?> targetClazz = this.clazz;
+
+        try {
+
+            while (targetClazz != Object.class) {
+
+                try {
+
+                    try {
+
+                        method = this.getMethod(targetClazz, methodName, parameterTypes);
+
+                        // メソッドが見つかった
+                        break;
+
+                    } catch (@SuppressWarnings("unused") final NoSuchMethodException e) {
+
+                        method = targetClazz.getDeclaredMethod(methodName, parameterTypes);
+
+                        // メソッドが見つかった
+                        break;
+
+                    }
+
+                } catch (@SuppressWarnings("unused") final NoSuchMethodException e) {
+
+                    targetClazz = targetClazz.getSuperclass();
+
+                }
+
+            }
+
+        } catch (final SecurityException | IllegalArgumentException e) {
+
+            // TODO 2021/06/06 KenichiroArai KMGの例外にする
+            throw new KmgDomainException(e.getMessage(), KmgLogMessageTypes.NONE, e);
+
+        }
+
+        if (method == null) {
+
+            return result;
+
+        }
+
+        /* privateメソッドのアクセス許可の設定 */
+        method.setAccessible(true);
+
+        /* メソッドの呼び出し */
+        try {
+
+            result = this.invoke(method, this.object, parameters);
+
+        } catch (final SecurityException | IllegalAccessException | IllegalArgumentException
+            | InvocationTargetException e) {
+
+            // TODO 2021/06/06 KenichiroArai KMGの例外にする
+            throw new KmgDomainException(e.getMessage(), KmgLogMessageTypes.NONE, e);
+
+        }
+
         return result;
 
     }

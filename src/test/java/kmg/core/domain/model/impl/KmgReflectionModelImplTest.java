@@ -1,7 +1,9 @@
 package kmg.core.domain.model.impl;
 
 import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 import java.math.BigDecimal;
+import java.lang.reflect.InvocationTargetException;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -614,6 +616,173 @@ public class KmgReflectionModelImplTest {
         /* テスト対象の実行 */
         final KmgDomainException actualException
             = Assertions.assertThrows(KmgDomainException.class, () -> testReflection.get("publicField"));
+
+        /* 検証の準備 */
+        final Throwable actualCause   = actualException.getCause();
+        final String    actualMessage = actualCause.getMessage();
+
+        /* 検証の実施 */
+        Assertions.assertTrue(actualCause instanceof IllegalAccessException,
+            "KmgDomainExceptionの原因がIllegalAccessExceptionであること");
+        Assertions.assertEquals(expectedMessage, actualMessage, "IllegalAccessExceptionのメッセージが正しいこと");
+
+    }
+
+    /**
+     * getMethod メソッドのテスト - メソッド名がnullの場合<br>
+     *
+     * @throws KmgDomainException
+     *                            KMGドメイン例外
+     */
+    @Test
+    @SuppressWarnings("static-method")
+    public void testGetMethod_nullMethodName() throws KmgDomainException {
+
+        /* 期待値の定義 */
+        final Object expectedValue = null;
+
+        /* 準備 */
+        final TestClass              testObject     = new TestClass();
+        final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(testObject);
+
+        /* テスト対象の実行 */
+        final Object testResult = testReflection.getMethod(null, "Hello");
+
+        /* 検証の準備 */
+        final Object actualValue = testResult;
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expectedValue, actualValue, "メソッド名がnullの場合、nullが返されること");
+
+    }
+
+    /**
+     * getMethod メソッドのテスト - 存在しないメソッドへのアクセス<br>
+     *
+     * @throws KmgDomainException
+     *                            KMGドメイン例外
+     */
+    @Test
+    @SuppressWarnings("static-method")
+    public void testGetMethod_nonExistentMethod() throws KmgDomainException {
+
+        /* 期待値の定義 */
+        final Object expectedValue = null;
+
+        /* 準備 */
+        final TestClass              testObject     = new TestClass();
+        final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(testObject);
+
+        /* テスト対象の実行 */
+        final Object testResult = testReflection.getMethod("nonExistentMethod", "param");
+
+        /* 検証の準備 */
+        final Object actualValue = testResult;
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expectedValue, actualValue, "存在しないメソッドへのアクセスでnullが返されること");
+
+    }
+
+    /**
+     * getMethod メソッドのテスト - 正常系（パラメータありのメソッド呼び出し）<br>
+     *
+     * @throws KmgDomainException
+     *                            KMGドメイン例外
+     */
+    @Test
+    @SuppressWarnings("static-method")
+    public void testGetMethod_withParameters() throws KmgDomainException {
+
+        /* 期待値の定義 */
+        final String expectedValue = "HelloTest";
+
+        /* 準備 */
+        final TestClass              testObject     = new TestClass();
+        final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(testObject);
+
+        /* テスト対象の実行 */
+        final Object testResult = testReflection.getMethod("testMethod", "Hello");
+
+        /* 検証の準備 */
+        final String actualValue = (String) testResult;
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expectedValue, actualValue, "メソッドが正しく呼び出され、結果が返されること");
+
+    }
+
+    /**
+     * getMethod メソッドのテスト - SecurityException発生時<br>
+     *
+     * @throws KmgDomainException
+     *                            KMGドメイン例外
+     */
+    @Test
+    @SuppressWarnings("static-method")
+    public void testGetMethod_securityException() throws KmgDomainException {
+
+        /* 期待値の定義 */
+        final String expectedMessage = "Test security exception";
+
+        /* 準備 */
+        final TestClass testObject = new TestClass();
+
+        final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(testObject) {
+
+            @Override
+            protected Method getMethod(final Class<?> targetClazz, final String name, final Class<?>[] parameterTypes)
+                throws NoSuchMethodException, SecurityException {
+
+                throw new SecurityException(expectedMessage);
+
+            }
+        };
+
+        /* テスト対象の実行 */
+        final KmgDomainException actualException
+            = Assertions.assertThrows(KmgDomainException.class, () -> testReflection.getMethod("testMethod", "Hello"));
+
+        /* 検証の準備 */
+        final Throwable actualCause   = actualException.getCause();
+        final String    actualMessage = actualCause.getMessage();
+
+        /* 検証の実施 */
+        Assertions.assertTrue(actualCause instanceof SecurityException, "KmgDomainExceptionの原因がSecurityExceptionであること");
+        Assertions.assertEquals(expectedMessage, actualMessage, "SecurityExceptionのメッセージが正しいこと");
+
+    }
+
+    /**
+     * getMethod メソッドのテスト - IllegalAccessException発生時<br>
+     *
+     * @throws KmgDomainException
+     *                            KMGドメイン例外
+     */
+    @Test
+    @SuppressWarnings("static-method")
+    public void testGetMethod_illegalAccessException() throws KmgDomainException {
+
+        /* 期待値の定義 */
+        final String expectedMessage = "Test illegal access exception";
+
+        /* 準備 */
+        final TestClass testObject = new TestClass();
+
+        final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(testObject) {
+
+            @Override
+            protected Object invoke(final Method method, final Object targetObject, final Object... parameters)
+                throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+
+                throw new IllegalAccessException(expectedMessage);
+
+            }
+        };
+
+        /* テスト対象の実行 */
+        final KmgDomainException actualException
+            = Assertions.assertThrows(KmgDomainException.class, () -> testReflection.getMethod("testMethod", "Hello"));
 
         /* 検証の準備 */
         final Throwable actualCause   = actualException.getCause();
