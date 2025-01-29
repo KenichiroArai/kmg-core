@@ -834,4 +834,121 @@ public class KmgReflectionModelImplTest {
 
     }
 
+    /**
+     * getMethodInvoke メソッドのテスト - メソッド名がnullの場合<br>
+     *
+     * @throws KmgDomainException
+     *                            KMGドメイン例外
+     */
+    @Test
+    @SuppressWarnings("static-method")
+    public void testGetMethodInvoke_nullMethodName() throws KmgDomainException {
+
+        /* 期待値の定義 */
+        final Object expectedValue = null;
+
+        /* 準備 */
+        final TestClass              testObject     = new TestClass();
+        final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(testObject);
+        final Class<?>[]             parameterTypes = {
+            String.class
+        };
+
+        /* テスト対象の実行 */
+        final Object testResult = testReflection.getMethodInvoke(null, parameterTypes, "test");
+
+        /* 検証の準備 */
+        final Object actualValue = testResult;
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expectedValue, actualValue, "メソッド名がnullの場合、nullが返されること");
+
+    }
+
+    /**
+     * getMethodInvoke メソッドのテスト - getDeclaredMethodで取得できる場合<br>
+     *
+     * @throws KmgDomainException
+     *                            KMGドメイン例外
+     */
+    @Test
+    @SuppressWarnings("static-method")
+    public void testGetMethodInvoke_getDeclaredMethod() throws KmgDomainException {
+
+        /* 期待値の定義 */
+        final String expectedValue = "PrivateTest";
+
+        /* 準備 */
+        final TestClass testObject = new TestClass() {
+
+            @SuppressWarnings("unused")
+            private String privateTestMethod(final String param) {
+
+                return param + "Test";
+
+            }
+        };
+
+        final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(testObject);
+        final Class<?>[]             parameterTypes = {
+            String.class
+        };
+
+        /* テスト対象の実行 */
+        final Object testResult = testReflection.getMethodInvoke("privateTestMethod", parameterTypes, "Private");
+
+        /* 検証の準備 */
+        final String actualValue = (String) testResult;
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expectedValue, actualValue, "getDeclaredMethodで取得したprivateメソッドが正しく呼び出されること");
+
+    }
+
+    /**
+     * getMethodInvoke メソッドのテスト - スーパークラスのメソッドを検索する場合<br>
+     *
+     * @throws KmgDomainException
+     *                            KMGドメイン例外
+     */
+    @Test
+    @SuppressWarnings("static-method")
+    public void testGetMethodInvoke_searchSuperClass() throws KmgDomainException {
+
+        /* 期待値の定義 */
+        final String expectedValue = "SuperTest";
+
+        /* 準備 */
+        class SuperClass {
+
+            @SuppressWarnings("unused")
+            public String superMethod(final String param) {
+
+                final String result = param + "Test";
+
+                return result;
+
+            }
+        }
+        class SubClass extends SuperClass {
+            /** スーパークラスのメソッドのみを使用するサブクラス */
+        }
+
+        final SubClass               testObject     = new SubClass();
+        final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(testObject);
+        final Class<?>[]             parameterTypes = {
+            String.class
+        };
+
+        /* テスト対象の実行 */
+        final Object testResult = testReflection.getMethodInvoke("superMethod", parameterTypes, "Super");
+
+        /* 検証の準備 */
+        final String actualValue = (String) testResult;
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expectedValue, actualValue, "スーパークラスのメソッドが正しく呼び出されること");
+
+    }
+
 }

@@ -682,7 +682,12 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
 
             }
 
-        } catch (final SecurityException | IllegalArgumentException e) {
+        } catch (final SecurityException e) {
+
+            // TODO 2021/06/06 KenichiroArai KMGの例外にする
+            throw new KmgDomainException(e.getMessage(), KmgLogMessageTypes.NONE, e);
+
+        } catch (final IllegalArgumentException e) {
 
             // TODO 2021/06/06 KenichiroArai KMGの例外にする
             throw new KmgDomainException(e.getMessage(), KmgLogMessageTypes.NONE, e);
