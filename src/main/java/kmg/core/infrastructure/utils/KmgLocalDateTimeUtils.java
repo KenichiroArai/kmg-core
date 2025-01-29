@@ -10,7 +10,7 @@ import java.util.Date;
 import kmg.core.infrastructure.type.KmgString;
 
 /**
- * ＫＭＧローカル日時ユーティリティ<br>
+ * KMGローカル日時ユーティリティ<br>
  *
  * @author KenichiroArai
  * @sine 1.0.0
@@ -29,6 +29,7 @@ public final class KmgLocalDateTimeUtils {
      * @version 1.0.0
      */
     private KmgLocalDateTimeUtils() {
+
         // 処理無し
     }
 
@@ -46,13 +47,18 @@ public final class KmgLocalDateTimeUtils {
      * @return ローカル日付
      */
     public static LocalDate parseYyyyMmDdHhMmSsSss(final String dateTimeStr) {
+
         LocalDate result = null;
+
         if (KmgString.isEmpty(dateTimeStr)) {
+
             return result;
+
         }
         result = LocalDate.parse(dateTimeStr,
-            DateTimeFormatter.ofPattern(KmgLocalDateTimeUtils.FORMATTER_PATTERN_YYYY_MM_DD_HH_MM_SS_SSS));
+                DateTimeFormatter.ofPattern(KmgLocalDateTimeUtils.FORMATTER_PATTERN_YYYY_MM_DD_HH_MM_SS_SSS));
         return result;
+
     }
 
     /**
@@ -69,12 +75,17 @@ public final class KmgLocalDateTimeUtils {
      * @return ローカル日時
      */
     public static LocalDateTime from(final Date date) {
+
         LocalDateTime result = null;
+
         if (date == null) {
+
             return result;
+
         }
         result = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();
         return result;
+
     }
 
     /**
@@ -91,13 +102,18 @@ public final class KmgLocalDateTimeUtils {
      * @return 日時文字列（yyyy/MM/dd HH:mm:ss.SSS）
      */
     public static String formatYyyyMmDdHhMmSsSss(final LocalDateTime localDateTime) {
+
         String result = null;
+
         if (localDateTime == null) {
+
             return result;
+
         }
         result = localDateTime
-            .format(DateTimeFormatter.ofPattern(KmgLocalDateTimeUtils.FORMATTER_PATTERN_YYYY_MM_DD_HH_MM_SS_SSS));
+                .format(DateTimeFormatter.ofPattern(KmgLocalDateTimeUtils.FORMATTER_PATTERN_YYYY_MM_DD_HH_MM_SS_SSS));
         return result;
+
     }
 
     /**
@@ -114,13 +130,18 @@ public final class KmgLocalDateTimeUtils {
      * @return 日時文字列（yyyy/MM/dd HH:mm:ss.SSS）
      */
     public static String formatYyyyMmDdHhMmSsSss(final Date date) {
+
         String result = null;
+
         if (date == null) {
+
             return result;
+
         }
         final LocalDateTime localDateTime = KmgLocalDateTimeUtils.from(date);
         result = localDateTime
-            .format(DateTimeFormatter.ofPattern(KmgLocalDateTimeUtils.FORMATTER_PATTERN_YYYY_MM_DD_HH_MM_SS_SSS));
+                .format(DateTimeFormatter.ofPattern(KmgLocalDateTimeUtils.FORMATTER_PATTERN_YYYY_MM_DD_HH_MM_SS_SSS));
         return result;
+
     }
 }

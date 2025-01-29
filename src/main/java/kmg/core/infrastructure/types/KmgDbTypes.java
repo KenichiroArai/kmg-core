@@ -9,7 +9,7 @@ import kmg.core.infrastructure.type.KmgString;
 import kmg.core.infrastructure.utils.KmgArrayUtils;
 
 /**
- * ＫＭＧＤＢの種類<br>
+ * KMGＤＢの種類<br>
  *
  * @author KenichiroArai
  * @sine 1.0.0
@@ -25,7 +25,7 @@ public enum KmgDbTypes implements Supplier<String> {
 
     /** PostgreSQL */
     POSTGRE_SQL("PostgreSQL", "PostgreSQL", new String[] {
-        "Postgres"
+            "Postgres"
     }),
 
     /** MySQL */
@@ -36,20 +36,20 @@ public enum KmgDbTypes implements Supplier<String> {
 
     /** SQL Server */
     SQL_SERVER("SQL Server", "SQL Server", new String[] {
-        "MS SQL"
+            "MS SQL"
     }),
 
     /* 定義：終了 */
     ;
 
     /** 名称 */
-    private String name;
+    private final String name;
 
     /** 値 */
-    private String value;
+    private final String value;
 
     /** 別名の配列 */
-    private String[] aliasArray;
+    private final String[] aliasArray;
 
     /** 種類のマップ */
     private static final Map<String, KmgDbTypes> valuesMap = new HashMap<>();
@@ -58,9 +58,11 @@ public enum KmgDbTypes implements Supplier<String> {
 
         /* 種類のマップにプット */
         for (final KmgDbTypes type : KmgDbTypes.values()) {
+
             KmgDbTypes.valuesMap.put(type.get(), type);
 
         }
+
     }
 
     /**
@@ -77,9 +79,11 @@ public enum KmgDbTypes implements Supplier<String> {
      *                   別名の配列
      */
     KmgDbTypes(final String name, final String value, final String[] aliasArray) {
+
         this.name = name;
         this.value = value;
         this.aliasArray = aliasArray;
+
     }
 
     /**
@@ -98,13 +102,15 @@ public enum KmgDbTypes implements Supplier<String> {
     public static KmgDbTypes getEnum(final String value) {
 
         KmgDbTypes result = KmgDbTypes.valuesMap.get(value);
+
         if (result == null) {
 
             result = NONE;
-            return result;
+
         }
 
         return result;
+
     }
 
     /**
@@ -124,30 +130,46 @@ public enum KmgDbTypes implements Supplier<String> {
     public static KmgDbTypes getEnumByTarget(final String target) {
 
         KmgDbTypes result = KmgDbTypes.valuesMap.get(target);
+
         if (result != null) {
+
             return result;
+
         }
 
         for (final KmgDbTypes type : KmgDbTypes.values()) {
+
             if (KmgString.equalsIgnoreCase(type.value, target)) {
+
                 result = type;
                 return result;
+
             }
+
             if (KmgArrayUtils.isEmpty(type.aliasArray)) {
+
                 result = NONE;
                 return result;
+
             }
+
             for (final String alias : type.aliasArray) {
+
                 if (!KmgString.equalsIgnoreCase(alias, target)) {
+
                     continue;
+
                 }
                 result = type;
                 return result;
+
             }
+
         }
 
         result = NONE;
         return result;
+
     }
 
     /**
@@ -189,8 +211,10 @@ public enum KmgDbTypes implements Supplier<String> {
      * @return 名称
      */
     public String getName() {
+
         final String result = this.name;
         return result;
+
     }
 
     /**
@@ -202,8 +226,10 @@ public enum KmgDbTypes implements Supplier<String> {
      * @return 値
      */
     public String getValue() {
+
         final String result = this.value;
         return result;
+
     }
 
     /**
@@ -216,8 +242,10 @@ public enum KmgDbTypes implements Supplier<String> {
      */
     @Override
     public String toString() {
+
         final String result = this.value;
         return result;
+
     }
 
     /**
@@ -233,8 +261,10 @@ public enum KmgDbTypes implements Supplier<String> {
      * @return 結合する文字列リストにデリミタを付加した文字列
      */
     public <T> String join(final List<T> targetList) {
+
         final String result = this.join(targetList.toArray(new Object[0]));
         return result;
+
     }
 
     /**
@@ -257,23 +287,34 @@ public enum KmgDbTypes implements Supplier<String> {
         String result = null;
 
         final StringBuilder sb = new StringBuilder();
+
         for (final Object target : targets) {
+
             if (target == null) {
+
                 continue;
+
             }
+
             if (KmgString.isEmpty(target.toString())) {
+
                 continue;
+
             }
 
             sb.append(target.toString());
             sb.append(this.value);
+
         }
 
         if (sb.length() > 0) {
+
             result = sb.substring(0, sb.length() - 1).toString();
+
         }
 
         return result;
+
     }
 
     /**
@@ -289,13 +330,17 @@ public enum KmgDbTypes implements Supplier<String> {
     public String[] split(final String target) {
 
         String[] result = null;
+
         if (KmgString.isEmpty(target)) {
+
             return result;
+
         }
 
         result = target.split(this.value);
 
         return result;
+
     }
 
     /**
@@ -308,8 +353,10 @@ public enum KmgDbTypes implements Supplier<String> {
      */
     @Override
     public String get() {
+
         final String result = this.value;
         return result;
+
     }
 
     /**
@@ -321,8 +368,10 @@ public enum KmgDbTypes implements Supplier<String> {
      * @return 別名の配列
      */
     public String[] getAliasArray() {
+
         final String[] result = this.aliasArray;
         return result;
+
     }
 
 }

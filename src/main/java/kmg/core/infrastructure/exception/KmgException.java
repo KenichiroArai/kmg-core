@@ -3,7 +3,7 @@ package kmg.core.infrastructure.exception;
 import kmg.core.infrastructure.types.KmgLogMessageTypes;
 
 /**
- * ＫＭＧ例外<br>
+ * KMG例外<br>
  *
  * @author KenichiroArai
  * @sine 1.0.0
@@ -34,9 +34,11 @@ public class KmgException extends Exception {
      *                    ログメッセージの引数
      */
     public KmgException(final String errMsg, final KmgLogMessageTypes logMsgTypes, final Object[] logMsgArgs) {
+
         super(errMsg);
         this.logMsgTypes = logMsgTypes;
         this.logMsgArgs = logMsgArgs;
+
     }
 
     /**
@@ -53,9 +55,11 @@ public class KmgException extends Exception {
      *                    原因
      */
     public KmgException(final String errMsg, final KmgLogMessageTypes logMsgTypes, final Throwable cause) {
+
         super(errMsg, cause);
         this.logMsgTypes = logMsgTypes;
         this.logMsgArgs = null;
+
     }
 
     /**
@@ -74,10 +78,12 @@ public class KmgException extends Exception {
      *                    原因
      */
     public KmgException(final String errMsg, final KmgLogMessageTypes logMsgTypes, final Object[] logMsgArgs,
-        final Throwable cause) {
+            final Throwable cause) {
+
         super(errMsg, cause);
         this.logMsgTypes = logMsgTypes;
         this.logMsgArgs = logMsgArgs;
+
     }
 
     /**
@@ -89,8 +95,10 @@ public class KmgException extends Exception {
      * @return ログメッセージの種類
      */
     public KmgLogMessageTypes getLogMsgTypes() {
+
         final KmgLogMessageTypes result = this.logMsgTypes;
         return result;
+
     }
 
     /**
@@ -102,8 +110,10 @@ public class KmgException extends Exception {
      * @return ログメッセージの引数
      */
     public Object[] getLogMsgArgs() {
+
         final Object[] result = this.logMsgArgs;
         return result;
+
     }
 
 }

@@ -8,7 +8,7 @@ import java.util.function.Supplier;
 import kmg.core.infrastructure.type.KmgString;
 
 /**
- * ＫＭＧ文字セットの種類<br>
+ * KMG文字セットの種類<br>
  *
  * @author KenichiroArai
  * @sine 1.0.0
@@ -32,10 +32,10 @@ public enum KmgCharsetTypes implements Supplier<String> {
     ;
 
     /** 名称 */
-    private String name;
+    private final String name;
 
     /** 値 */
-    private String value;
+    private final String value;
 
     /** 文字セット */
     private Charset charset;
@@ -47,8 +47,11 @@ public enum KmgCharsetTypes implements Supplier<String> {
 
         /* 種類のマップにプット */
         for (final KmgCharsetTypes type : KmgCharsetTypes.values()) {
+
             KmgCharsetTypes.VALUES_MAP.put(type.get(), type);
+
         }
+
     }
 
     /**
@@ -68,10 +71,15 @@ public enum KmgCharsetTypes implements Supplier<String> {
         this.value = value;
 
         if (KmgString.isEmpty(this.value)) {
+
             this.charset = null;
+
         } else {
+
             this.charset = Charset.forName(this.value);
+
         }
+
     }
 
     /**
@@ -90,11 +98,14 @@ public enum KmgCharsetTypes implements Supplier<String> {
     public static KmgCharsetTypes getEnum(final String value) {
 
         KmgCharsetTypes result = KmgCharsetTypes.VALUES_MAP.get(value);
+
         if (result == null) {
+
             result = NONE;
-            return result;
+
         }
         return result;
+
     }
 
     /**
@@ -124,6 +135,7 @@ public enum KmgCharsetTypes implements Supplier<String> {
 
         final KmgCharsetTypes result = NONE;
         return result;
+
     }
 
     /**
@@ -136,8 +148,10 @@ public enum KmgCharsetTypes implements Supplier<String> {
      */
     @Override
     public String toString() {
+
         final String result = this.value;
         return result;
+
     }
 
     /**
@@ -149,8 +163,10 @@ public enum KmgCharsetTypes implements Supplier<String> {
      * @return 名称
      */
     public String getName() {
+
         final String result = this.name;
         return result;
+
     }
 
     /**
@@ -162,8 +178,10 @@ public enum KmgCharsetTypes implements Supplier<String> {
      * @return 値
      */
     public String getValue() {
+
         final String result = this.value;
         return result;
+
     }
 
     /**
@@ -178,8 +196,10 @@ public enum KmgCharsetTypes implements Supplier<String> {
      * @return 文字セット
      */
     public Charset toCharset() {
+
         final Charset result = this.charset;
         return result;
+
     }
 
     /**
@@ -192,8 +212,10 @@ public enum KmgCharsetTypes implements Supplier<String> {
      */
     @Override
     public String get() {
+
         final String result = this.value;
         return result;
+
     }
 
 }

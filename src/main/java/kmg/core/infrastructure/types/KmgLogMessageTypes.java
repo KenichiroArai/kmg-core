@@ -5,7 +5,7 @@ import java.util.Map;
 import java.util.function.Supplier;
 
 /**
- * ＫＭＧログメッセージの種類<br>
+ * KMGログメッセージの種類<br>
  *
  * @author KenichiroArai
  * @sine 1.0.0
@@ -27,10 +27,10 @@ public enum KmgLogMessageTypes implements Supplier<String> {
     ;
 
     /** 名称 */
-    private String name;
+    private final String name;
 
     /** 値 */
-    private String value;
+    private final String value;
 
     /** 種類のマップ */
     private static final Map<String, KmgLogMessageTypes> VALUES_MAP = new HashMap<>();
@@ -39,8 +39,11 @@ public enum KmgLogMessageTypes implements Supplier<String> {
 
         /* 種類のマップにプット */
         for (final KmgLogMessageTypes type : KmgLogMessageTypes.values()) {
+
             KmgLogMessageTypes.VALUES_MAP.put(type.get(), type);
+
         }
+
     }
 
     /**
@@ -77,11 +80,14 @@ public enum KmgLogMessageTypes implements Supplier<String> {
     public static KmgLogMessageTypes getEnum(final String value) {
 
         KmgLogMessageTypes result = KmgLogMessageTypes.VALUES_MAP.get(value);
+
         if (result == null) {
+
             result = NONE;
-            return result;
+
         }
         return result;
+
     }
 
     /**
@@ -111,6 +117,7 @@ public enum KmgLogMessageTypes implements Supplier<String> {
 
         final KmgLogMessageTypes result = NONE;
         return result;
+
     }
 
     /**
@@ -123,8 +130,10 @@ public enum KmgLogMessageTypes implements Supplier<String> {
      */
     @Override
     public String toString() {
+
         final String result = this.value;
         return result;
+
     }
 
     /**
@@ -136,8 +145,10 @@ public enum KmgLogMessageTypes implements Supplier<String> {
      * @return 名称
      */
     public String getName() {
+
         final String result = this.name;
         return result;
+
     }
 
     /**
@@ -149,8 +160,10 @@ public enum KmgLogMessageTypes implements Supplier<String> {
      * @return 値
      */
     public String getValue() {
+
         final String result = this.value;
         return result;
+
     }
 
     /**
@@ -163,7 +176,9 @@ public enum KmgLogMessageTypes implements Supplier<String> {
      */
     @Override
     public String get() {
+
         final String result = this.value;
         return result;
+
     }
 }

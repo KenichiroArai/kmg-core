@@ -1,7 +1,7 @@
 package kmg.core.domain.service;
 
 /**
- * ＫＭＧ性能測定サービスインタフェース<br>
+ * KMG性能測定サービスインタフェース<br>
  *
  * @author KenichiroArai
  * @sine 1.0.0

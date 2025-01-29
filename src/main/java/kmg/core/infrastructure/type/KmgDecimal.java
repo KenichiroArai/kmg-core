@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 
 /**
- * ＫＭＧデシマル<br>
+ * KMGデシマル<br>
  *
  * @author KenichiroArai
  * @sine 1.0.0
@@ -44,8 +44,10 @@ public class KmgDecimal {
      * @return スケール設定後の巨大デシマル
      */
     public static BigDecimal setCalcScale(final BigDecimal value) {
+
         final BigDecimal result = value.setScale(KmgDecimal.CALC_SCALE, KmgDecimal.CALC_ROUNDING_MODE);
         return result;
+
     }
 
     /**
@@ -59,8 +61,10 @@ public class KmgDecimal {
      * @return スケール設定後の巨大デシマル
      */
     public static BigDecimal setCalcScale(final double value) {
+
         final BigDecimal result = KmgDecimal.setCalcScale(new BigDecimal(value));
         return result;
+
     }
 
     /**
@@ -74,8 +78,10 @@ public class KmgDecimal {
      * @return スケール設定後の巨大デシマル
      */
     public static BigDecimal setResultScale(final BigDecimal value) {
+
         final BigDecimal result = value.setScale(KmgDecimal.RESULT_SCALE, KmgDecimal.RESULT_ROUNDING_MODE);
         return result;
+
     }
 
     /**
@@ -89,8 +95,10 @@ public class KmgDecimal {
      * @return スケール設定後の巨大デシマル
      */
     public static BigDecimal setResultScale(final double value) {
+
         final BigDecimal result = KmgDecimal.setResultScale(new BigDecimal(value));
         return result;
+
     }
 
     /**
@@ -109,8 +117,10 @@ public class KmgDecimal {
      * @return 除算結果
      */
     public static BigDecimal divide(final BigDecimal num1, final BigDecimal num2) {
+
         final BigDecimal result = num1.divide(num2, KmgDecimal.CALC_SCALE, KmgDecimal.CALC_ROUNDING_MODE);
         return result;
+
     }
 
     /**
@@ -123,7 +133,10 @@ public class KmgDecimal {
      *              値
      */
     public KmgDecimal(final BigDecimal value) {
+
+        this.value = value;
         this.setCalcScale();
+
     }
 
     /**
@@ -136,9 +149,11 @@ public class KmgDecimal {
      *              値
      */
     public KmgDecimal(final double value) {
+
         final String strVal = String.valueOf(value);
         this.value = new BigDecimal(strVal);
         this.setCalcScale();
+
     }
 
     /**
@@ -150,8 +165,10 @@ public class KmgDecimal {
      * @return 値
      */
     public BigDecimal getValue() {
+
         final BigDecimal result = this.value;
         return result;
+
     }
 
     /**
@@ -162,7 +179,9 @@ public class KmgDecimal {
      * @version 1.0.0
      */
     private void setCalcScale() {
+
         this.value = KmgDecimal.setCalcScale(this.value);
+
     }
 
 }
