@@ -1,9 +1,9 @@
 package kmg.core.domain.model.impl;
 
 import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.math.BigDecimal;
-import java.lang.reflect.InvocationTargetException;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -792,6 +792,45 @@ public class KmgReflectionModelImplTest {
         Assertions.assertTrue(actualCause instanceof IllegalAccessException,
             "KmgDomainExceptionの原因がIllegalAccessExceptionであること");
         Assertions.assertEquals(expectedMessage, actualMessage, "IllegalAccessExceptionのメッセージが正しいこと");
+
+    }
+
+    /**
+     * getMethod メソッドのテスト - privateメソッドへのアクセス<br>
+     *
+     * @throws KmgDomainException
+     *                            KMGドメイン例外
+     */
+    @Test
+    @SuppressWarnings("static-method")
+    public void testGetMethod_privateMethod() throws KmgDomainException {
+
+        /* 期待値の定義 */
+        final String expectedValue = "PrivateTest";
+
+        /* 準備 */
+        final TestClass testObject = new TestClass() {
+
+            @SuppressWarnings("unused")
+            private String privateTestMethod(final String param) {
+
+                final String result = KmgString.concat(param, "Test");
+
+                return result;
+
+            }
+        };
+
+        final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(testObject);
+
+        /* テスト対象の実行 */
+        final Object testResult = testReflection.getMethod("privateTestMethod", "Private");
+
+        /* 検証の準備 */
+        final String actualValue = (String) testResult;
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expectedValue, actualValue, "privateメソッドが正しく呼び出され、結果が返されること");
 
     }
 
