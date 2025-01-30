@@ -44,15 +44,7 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
 
         try {
 
-            final Class<?>[] parameterTypes = new Class<?>[constructorArgs.length];
-
-            for (int i = 0; i < constructorArgs.length; i++) {
-
-                parameterTypes[i] = constructorArgs[i].getClass();
-
-            }
-
-            this.object = this.getNewInstance(clazz, parameterTypes, constructorArgs);
+            this.object = clazz.getDeclaredConstructor().newInstance();
 
         } catch (final InstantiationException e) {
 
