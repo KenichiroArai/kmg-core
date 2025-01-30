@@ -88,43 +88,15 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
 
                         this.lastGetField = this.getField(targetClazz, fieldName);
 
+                        // フィールドが見つかった
+                        break;
+
                     } catch (@SuppressWarnings("unused") final NoSuchFieldException e) {
 
                         this.lastGetField = this.getDeclaredField(targetClazz, fieldName);
 
-                    }
-
-                    if (this.lastGetField != null) {
-
-                        this.lastGetField.setAccessible(true);
-
-                        try {
-
-                            Object fieldValue = value;
-
-                            if ((value != null) && (this.lastGetField.getType() == BigDecimal.class)) {
-
-                                try {
-
-                                    fieldValue = new BigDecimal(value.toString());
-
-                                } catch (@SuppressWarnings("unused") final NumberFormatException e) {
-
-                                    fieldValue = null;
-
-                                }
-
-                            }
-                            this.setValue(this.lastGetField, this.object, fieldValue);
-
-                        } catch (final IllegalAccessException e) {
-
-                            // TODO 2021/06/06 KenichiroArai KMGの例外にする
-                            throw new KmgDomainException(e.getMessage(), KmgLogMessageTypes.NONE, e);
-
-                        }
-
-                        targetClazz = targetClazz.getSuperclass();
+                        // フィールドが見つかった
+                        break;
 
                     }
 
@@ -136,16 +108,16 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
 
             }
 
-        } catch (final SecurityException | IllegalArgumentException e) {
+            if (this.lastGetField == null) {
+
+                return;
+
+            }
+
+        } catch (final SecurityException e) {
 
             // TODO 2021/06/06 KenichiroArai KMGの例外にする
             throw new KmgDomainException(e.getMessage(), KmgLogMessageTypes.NONE, e);
-
-        }
-
-        if (this.lastGetField == null) {
-
-            return;
 
         }
 
