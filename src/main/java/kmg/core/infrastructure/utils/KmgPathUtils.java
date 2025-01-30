@@ -89,7 +89,7 @@ public final class KmgPathUtils {
 
         try {
 
-            result = Paths.get(zlass.getProtectionDomain().getCodeSource().getLocation().toURI());
+            result = getCodeSourceLocation(zlass);
 
         } catch (final URISyntaxException e) {
 
@@ -97,6 +97,31 @@ public final class KmgPathUtils {
             throw new KmgDomainException(e.getMessage(), KmgLogMessageTypes.NONE, e);
 
         }
+
+        return result;
+
+    }
+
+    /**
+     * クラスのコードソースの場所を取得する<br>
+     * <p>
+     * クラスのコードソースの場所をパスとして返す。<br>
+     * </p>
+     *
+     * @author KenichiroArai
+     * @sine 1.0.0
+     * @version 1.0.0
+     * @param zlass
+     *              クラス
+     * @return コードソースの場所
+     * @throws URISyntaxException
+     *                            URI構文例外
+     */
+    protected static Path getCodeSourceLocation(final Class<?> zlass) throws URISyntaxException {
+
+        Path result = null;
+
+        result = Paths.get(zlass.getProtectionDomain().getCodeSource().getLocation().toURI());
 
         return result;
 

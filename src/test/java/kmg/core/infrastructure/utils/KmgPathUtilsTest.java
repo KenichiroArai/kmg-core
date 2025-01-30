@@ -2,6 +2,7 @@ package kmg.core.infrastructure.utils;
 
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.net.URISyntaxException;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -246,6 +247,50 @@ public class KmgPathUtilsTest {
 
         /* 検証の実施 */
         Assertions.assertEquals(expected, actual, "拡張子を除いたファイル名が返されるべき");
+
+    }
+
+    /**
+     * getCodeSourceLocation メソッドのテスト - nullの場合
+     *
+     * @throws URISyntaxException
+     *                            URI構文例外
+     */
+    @Test
+    public void testGetCodeSourceLocation_null() throws URISyntaxException {
+
+        /* 期待値の定義 */
+        final Path expected = null;
+
+        /* 準備 */
+        final Class<?> testTarget = null;
+
+        /* テスト対象の実行 */
+        final Path actual = KmgPathUtils.getCodeSourceLocation(testTarget);
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "nullの場合はnullを返すべき");
+
+    }
+
+    /**
+     * getCodeSourceLocation メソッドのテスト - 正常なクラスの場合
+     *
+     * @throws URISyntaxException
+     *                            URI構文例外
+     */
+    @Test
+    public void testGetCodeSourceLocation_validClass() throws URISyntaxException {
+
+        /* 準備 */
+        final Class<?> testTarget = KmgPathUtilsTest.class;
+
+        /* テスト対象の実行 */
+        final Path actual = KmgPathUtils.getCodeSourceLocation(testTarget);
+
+        /* 検証の実施 */
+        Assertions.assertNotNull(actual, "ビルドパスが返されるべき");
+        Assertions.assertTrue(actual.toString().endsWith("test-classes"), "test-classesディレクトリを指すべき");
 
     }
 }
