@@ -34,44 +34,48 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
      * @since 1.0.0
      * @version 1.0.0
      * @param clazz
-     *              対象クラス
+     *                        対象クラス
+     * @param constructorArgs
+     *                        コンストラクタに渡す引数
      * @throws KmgDomainException
      *                            KMGドメイン例外
      */
-    public KmgReflectionModelImpl(final Class<?> clazz) throws KmgDomainException {
+    public KmgReflectionModelImpl(final Class<?> clazz, final Object... constructorArgs) throws KmgDomainException {
 
         try {
 
-            this.object = clazz.getDeclaredConstructor().newInstance();
+            final Class<?>[] parameterTypes = new Class<?>[constructorArgs.length];
+
+            for (int i = 0; i < constructorArgs.length; i++) {
+
+                parameterTypes[i] = constructorArgs[i].getClass();
+
+            }
+
+            this.object = clazz.getDeclaredConstructor(parameterTypes).newInstance(constructorArgs);
 
         } catch (final InstantiationException e) {
 
-            // TODO 2025/01/30 KenichiroArai KMGの例外にする
             throw new KmgDomainException(e.getMessage(), KmgLogMessageTypes.NONE, e);
 
         } catch (final IllegalAccessException e) {
 
-            // TODO 2025/01/30 KenichiroArai KMGの例外にする
             throw new KmgDomainException(e.getMessage(), KmgLogMessageTypes.NONE, e);
 
         } catch (final IllegalArgumentException e) {
 
-            // TODO 2025/01/30 KenichiroArai KMGの例外にする
             throw new KmgDomainException(e.getMessage(), KmgLogMessageTypes.NONE, e);
 
         } catch (final InvocationTargetException e) {
 
-            // TODO 2025/01/30 KenichiroArai KMGの例外にする
             throw new KmgDomainException(e.getMessage(), KmgLogMessageTypes.NONE, e);
 
         } catch (final NoSuchMethodException e) {
 
-            // TODO 2025/01/30 KenichiroArai KMGの例外にする
             throw new KmgDomainException(e.getMessage(), KmgLogMessageTypes.NONE, e);
 
         } catch (final SecurityException e) {
 
-            // TODO 2025/01/30 KenichiroArai KMGの例外にする
             throw new KmgDomainException(e.getMessage(), KmgLogMessageTypes.NONE, e);
 
         }
