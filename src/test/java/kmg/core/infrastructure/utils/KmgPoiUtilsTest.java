@@ -79,6 +79,166 @@ public class KmgPoiUtilsTest {
     }
 
     /**
+     * getStringFormulaValue メソッドのテスト - 数値を返す数式の場合
+     *
+     * @throws Exception
+     *                   例外が発生した場合
+     */
+    @Test
+    @SuppressWarnings("static-method")
+    public void testGetStringFormulaValue_numericFormula() throws Exception {
+
+        /* 期待値の定義 */
+        final String expected = "123.0";
+
+        /* 準備 */
+        try (Workbook workbook = WorkbookFactory.create(true)) {
+
+            final Sheet sheet      = workbook.createSheet();
+            final Row   row        = sheet.createRow(0);
+            final Cell  testTarget = row.createCell(0);
+            testTarget.setCellFormula("123.0");
+            workbook.getCreationHelper().createFormulaEvaluator().evaluateFormulaCell(testTarget);
+
+            /* テスト対象の実行 */
+            final String actual = KmgPoiUtils.getStringFormulaValue(testTarget);
+
+            /* 検証の実施 */
+            Assertions.assertEquals(expected, actual, "数式の計算結果（数値）が返されるべき");
+
+        }
+
+    }
+
+    /**
+     * getStringFormulaValue メソッドのテスト - 真偽値を返す数式の場合
+     *
+     * @throws Exception
+     *                   例外が発生した場合
+     */
+    @Test
+    @SuppressWarnings("static-method")
+    public void testGetStringFormulaValue_booleanFormula() throws Exception {
+
+        /* 期待値の定義 */
+        final String expected = "true";
+
+        /* 準備 */
+        try (Workbook workbook = WorkbookFactory.create(true)) {
+
+            final Sheet sheet      = workbook.createSheet();
+            final Row   row        = sheet.createRow(0);
+            final Cell  testTarget = row.createCell(0);
+            testTarget.setCellFormula("TRUE");
+            workbook.getCreationHelper().createFormulaEvaluator().evaluateFormulaCell(testTarget);
+
+            /* テスト対象の実行 */
+            final String actual = KmgPoiUtils.getStringFormulaValue(testTarget);
+
+            /* 検証の実施 */
+            Assertions.assertEquals(expected, actual, "数式の計算結果（真偽値）が返されるべき");
+
+        }
+
+    }
+
+    /**
+     * getStringFormulaValue メソッドのテスト - 空白を返す数式の場合
+     *
+     * @throws Exception
+     *                   例外が発生した場合
+     */
+    @Test
+    @SuppressWarnings("static-method")
+    public void testGetStringFormulaValue_blankFormula() throws Exception {
+
+        /* 期待値の定義 */
+        final String expected = null;
+
+        /* 準備 */
+        try (Workbook workbook = WorkbookFactory.create(true)) {
+
+            final Sheet sheet      = workbook.createSheet();
+            final Row   row        = sheet.createRow(0);
+            final Cell  testTarget = row.createCell(0);
+            testTarget.setCellFormula("INDIRECT(\"\"&\"\")");  // BLANKを返す数式
+            workbook.getCreationHelper().createFormulaEvaluator().evaluateFormulaCell(testTarget);
+
+            /* テスト対象の実行 */
+            final String actual = KmgPoiUtils.getStringFormulaValue(testTarget);
+
+            /* 検証の実施 */
+            Assertions.assertEquals(expected, actual, "数式の計算結果（空白）が返されるべき");
+
+        }
+
+    }
+
+    /**
+     * getStringFormulaValue メソッドのテスト - エラーを返す数式の場合
+     *
+     * @throws Exception
+     *                   例外が発生した場合
+     */
+    @Test
+    @SuppressWarnings("static-method")
+    public void testGetStringFormulaValue_errorFormula() throws Exception {
+
+        /* 期待値の定義 */
+        final String expected = null;
+
+        /* 準備 */
+        try (Workbook workbook = WorkbookFactory.create(true)) {
+
+            final Sheet sheet      = workbook.createSheet();
+            final Row   row        = sheet.createRow(0);
+            final Cell  testTarget = row.createCell(0);
+            testTarget.setCellFormula("1/0");  // エラーを発生させる数式
+            workbook.getCreationHelper().createFormulaEvaluator().evaluateFormulaCell(testTarget);
+
+            /* テスト対象の実行 */
+            final String actual = KmgPoiUtils.getStringFormulaValue(testTarget);
+
+            /* 検証の実施 */
+            Assertions.assertEquals(expected, actual, "数式の計算結果（エラー）が返されるべき");
+
+        }
+
+    }
+
+    /**
+     * getStringFormulaValue メソッドのテスト - _NONEを返す数式の場合
+     *
+     * @throws Exception
+     *                   例外が発生した場合
+     */
+    @Test
+    @SuppressWarnings("static-method")
+    public void testGetStringFormulaValue_noneFormula() throws Exception {
+
+        /* 期待値の定義 */
+        final String expected = null;
+
+        /* 準備 */
+        try (Workbook workbook = WorkbookFactory.create(true)) {
+
+            final Sheet sheet      = workbook.createSheet();
+            final Row   row        = sheet.createRow(0);
+            final Cell  testTarget = row.createCell(0);
+            testTarget.setCellFormula("NA()");  // _NONEを返す数式
+            workbook.getCreationHelper().createFormulaEvaluator().evaluateFormulaCell(testTarget);
+
+            /* テスト対象の実行 */
+            final String actual = KmgPoiUtils.getStringFormulaValue(testTarget);
+
+            /* 検証の実施 */
+            Assertions.assertEquals(expected, actual, "数式の計算結果（_NONE）が返されるべき");
+
+        }
+
+    }
+
+    /**
      * getStringRangeValue メソッドのテスト - 結合セルの場合
      *
      * @throws Exception
