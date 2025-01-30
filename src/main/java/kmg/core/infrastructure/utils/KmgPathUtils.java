@@ -130,8 +130,8 @@ public final class KmgPathUtils {
     /**
      * オブジェクトとファイル名からクラスのフルパスを返す<br>
      * <p>
-     * 例：クラスに「com.sample.SampleDao」、ファイル名に「sample.sql」の場合、 「com/sample/sample_dao/sample.sql」を返す。<br>
-     * オブジェクトが空の場合は、空を返す。<br>
+     * 例：パッケージ名に「com.sample」、クラス名に「SampleDao」、ファイル名に「sample.sql」の場合、 「ビルドパス/com/sample/sample_dao/sample.sql」を返す。<br>
+     * クラス名が空の場合は、空を返す。<br>
      * </p>
      *
      * @author KenichiroArai
@@ -161,8 +161,8 @@ public final class KmgPathUtils {
     /**
      * クラスとファイル名からクラスのフルパスを返す<br>
      * <p>
-     * 例：クラスに「com.sample.SampleDao」、ファイル名に「sample.sql」の場合、 「com/sample/sample_dao/sample.sql」を返す。<br>
-     * クラスが空の場合は、空を返す。<br>
+     * 例：パッケージ名に「com.sample」、クラス名に「SampleDao」、ファイル名に「sample.sql」の場合、 「ビルドパス/com/sample/sample_dao/sample.sql」を返す。<br>
+     * クラス名が空の場合は、空を返す。<br>
      * </p>
      *
      * @author KenichiroArai
@@ -211,7 +211,7 @@ public final class KmgPathUtils {
      * @return クラスのフルパス
      */
     private static Path getClassFullPath(final Path binPath, final String packageName, final String className,
-            final Path fileName) {
+        final Path fileName) {
 
         Path result = null;
 

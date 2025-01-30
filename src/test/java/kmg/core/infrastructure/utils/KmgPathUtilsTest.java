@@ -146,6 +146,12 @@ public class KmgPathUtilsTest {
     @SuppressWarnings("static-method")
     public void testGetClassFullPath_validClass() {
 
+        /* テスト対象のクラスのビルドパスを取得 */
+        final Path binPath = KmgPathUtils.getBinPath(KmgPathUtilsTest.class);
+
+        /* 期待値の定義：ビルドパス + 相対パス */
+        final Path expected = binPath.resolve("kmg/core/infrastructure/utils/kmg_path_utils_test/test.txt");
+
         /* 準備 */
         final Class<?> testTarget = KmgPathUtilsTest.class;
         final Path     fileName   = Paths.get("test.txt");
@@ -153,10 +159,9 @@ public class KmgPathUtilsTest {
         /* テスト対象の実行 */
         final Path actual = KmgPathUtils.getClassFullPath(testTarget, fileName);
 
-        /* 検証の実施 */
-        Assertions.assertNotNull(actual, "クラスのフルパスが返されるべき");
-        Assertions.assertTrue(actual.toString().contains("kmg/core/infrastructure/utils/kmg_path_utils_test"),
-            "正しいパス形式で返されるべき");
+        /* 検証の実施：完全一致 */
+        Assertions.assertNotNull(actual, "ビルドパスが返されるべき");
+        Assertions.assertEquals(expected, actual, "返されたパスが期待する絶対パスと一致するべき");
 
     }
 
