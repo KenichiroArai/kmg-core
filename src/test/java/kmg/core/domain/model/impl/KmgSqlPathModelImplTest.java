@@ -42,37 +42,6 @@ public class KmgSqlPathModelImplTest {
     }
 
     /**
-     * toSql メソッドのテスト - 正常系：パラメータ変換<br>
-     *
-     * @author KenichiroArai
-     * @sine 1.0.0
-     * @version 1.0.0
-     * @throws Exception
-     *                   例外
-     */
-    @Test
-    public void testToSql_normalParameterConversion() throws Exception {
-
-        /* 期待値の定義 */
-        final String expectedSql = ":sampleId";
-
-        /* 準備 */
-        final Path testFile = this.tempDir.resolve("test.sql");
-        Files.writeString(testFile, "/*:sampleId*/'サンプル'");
-
-        /* テスト対象の実行 */
-        this.testTarget = new KmgSqlPathModelImpl(this, testFile);
-        final String testResult = this.testTarget.toSql();
-
-        /* 検証の準備 */
-        final String actualSql = testResult;
-
-        /* 検証の実施 */
-        Assertions.assertEquals(expectedSql, actualSql, "SQLが一致しません");
-
-    }
-
-    /**
      * toSql メソッドのテスト - 異常系：ファイルが存在しない<br>
      *
      * @author KenichiroArai
@@ -112,6 +81,37 @@ public class KmgSqlPathModelImplTest {
         /* 準備 */
         final Path testFile = this.tempDir.resolve("empty.sql");
         Files.writeString(testFile, "");
+
+        /* テスト対象の実行 */
+        this.testTarget = new KmgSqlPathModelImpl(this, testFile);
+        final String testResult = this.testTarget.toSql();
+
+        /* 検証の準備 */
+        final String actualSql = testResult;
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expectedSql, actualSql, "SQLが一致しません");
+
+    }
+
+    /**
+     * toSql メソッドのテスト - 正常系：パラメータ変換<br>
+     *
+     * @author KenichiroArai
+     * @sine 1.0.0
+     * @version 1.0.0
+     * @throws Exception
+     *                   例外
+     */
+    @Test
+    public void testToSql_normalParameterConversion() throws Exception {
+
+        /* 期待値の定義 */
+        final String expectedSql = ":sampleId";
+
+        /* 準備 */
+        final Path testFile = this.tempDir.resolve("test.sql");
+        Files.writeString(testFile, "/*:sampleId*/'サンプル'");
 
         /* テスト対象の実行 */
         this.testTarget = new KmgSqlPathModelImpl(this, testFile);

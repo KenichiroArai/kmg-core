@@ -23,19 +23,32 @@ public class KmgSqlPathModelImpl implements KmgSqlPathModel {
     private final Path sqlFilePath;
 
     /**
-     * コンストラクタ<br>
+     * パラメータをは変換する<br>
+     * <p>
+     * 変換する文字列が空の場合は、変換する文字列をそのまま返す。
+     * </p>
      *
      * @author KenichiroArai
      * @sine 1.0.0
      * @version 1.0.0
-     * @param object
-     *                        オブジェクト
-     * @param sqlFileNamePath
-     *                        SQLファイル名パス
+     * @param str
+     *            変換する文字列
+     * @return 返還後の文字列
      */
-    public KmgSqlPathModelImpl(final Object object, final Path sqlFileNamePath) {
+    private static String convertParameters(final String str) {
 
-        this.sqlFilePath = sqlFileNamePath;
+        String result = null;
+
+        if (KmgString.isEmpty(str)) {
+
+            result = str;
+            return result;
+
+        }
+
+        result = str.replaceAll("/\\*(.+)\\*/.*", "$1");
+
+        return result;
 
     }
 
@@ -51,6 +64,23 @@ public class KmgSqlPathModelImpl implements KmgSqlPathModel {
      *                        SQLファイル名パス
      */
     public KmgSqlPathModelImpl(final Class<?> zlass, final Path sqlFileNamePath) {
+
+        this.sqlFilePath = sqlFileNamePath;
+
+    }
+
+    /**
+     * コンストラクタ<br>
+     *
+     * @author KenichiroArai
+     * @sine 1.0.0
+     * @version 1.0.0
+     * @param object
+     *                        オブジェクト
+     * @param sqlFileNamePath
+     *                        SQLファイル名パス
+     */
+    public KmgSqlPathModelImpl(final Object object, final Path sqlFileNamePath) {
 
         this.sqlFilePath = sqlFileNamePath;
 
@@ -101,36 +131,6 @@ public class KmgSqlPathModelImpl implements KmgSqlPathModel {
         }
 
         String result = sqlTmp.toString().replaceAll("\\R+$", KmgString.EMPTY);
-
-        return result;
-
-    }
-
-    /**
-     * パラメータをは変換する<br>
-     * <p>
-     * 変換する文字列が空の場合は、変換する文字列をそのまま返す。
-     * </p>
-     *
-     * @author KenichiroArai
-     * @sine 1.0.0
-     * @version 1.0.0
-     * @param str
-     *            変換する文字列
-     * @return 返還後の文字列
-     */
-    private static String convertParameters(final String str) {
-
-        String result = null;
-
-        if (KmgString.isEmpty(str)) {
-
-            result = str;
-            return result;
-
-        }
-
-        result = str.replaceAll("/\\*(.+)\\*/.*", "$1");
 
         return result;
 
