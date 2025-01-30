@@ -18,6 +18,43 @@ import org.junit.jupiter.api.Test;
 public class KmgTimeUnitTypesTest {
 
     /**
+     * get メソッドのテスト
+     */
+    @Test
+    public void testGet() {
+
+        /* 期待値の定義 */
+        final String expected = "seconds";
+
+        /* 準備 */
+        final KmgTimeUnitTypes testType = KmgTimeUnitTypes.SECONDS;
+
+        /* テスト対象の実行 */
+        final String actual = testType.get();
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "取得値が一致しません");
+
+    }
+
+    /**
+     * getDefault メソッドのテスト
+     */
+    @Test
+    public void testGetDefault() {
+
+        /* 期待値の定義 */
+        final KmgTimeUnitTypes expected = KmgTimeUnitTypes.NONE;
+
+        /* テスト対象の実行 */
+        final KmgTimeUnitTypes actual = KmgTimeUnitTypes.getDefault();
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "デフォルト値が一致しません");
+
+    }
+
+    /**
      * getEnum メソッドのテスト - 存在する値の場合
      */
     @Test
@@ -75,23 +112,6 @@ public class KmgTimeUnitTypesTest {
     }
 
     /**
-     * getDefault メソッドのテスト
-     */
-    @Test
-    public void testGetDefault() {
-
-        /* 期待値の定義 */
-        final KmgTimeUnitTypes expected = KmgTimeUnitTypes.NONE;
-
-        /* テスト対象の実行 */
-        final KmgTimeUnitTypes actual = KmgTimeUnitTypes.getDefault();
-
-        /* 検証の実施 */
-        Assertions.assertEquals(expected, actual, "デフォルト値が一致しません");
-
-    }
-
-    /**
      * getName メソッドのテスト
      */
     @Test
@@ -108,26 +128,6 @@ public class KmgTimeUnitTypesTest {
 
         /* 検証の実施 */
         Assertions.assertEquals(expected, actual, "名称が一致しません");
-
-    }
-
-    /**
-     * getValue メソッドのテスト
-     */
-    @Test
-    public void testGetValue() {
-
-        /* 期待値の定義 */
-        final String expected = "seconds";
-
-        /* 準備 */
-        final KmgTimeUnitTypes testType = KmgTimeUnitTypes.SECONDS;
-
-        /* テスト対象の実行 */
-        final String actual = testType.getValue();
-
-        /* 検証の実施 */
-        Assertions.assertEquals(expected, actual, "値が一致しません");
 
     }
 
@@ -152,26 +152,6 @@ public class KmgTimeUnitTypesTest {
     }
 
     /**
-     * getUnitValue メソッドのテスト - 秒の場合
-     */
-    @Test
-    public void testGetUnitValue_seconds() {
-
-        /* 期待値の定義 */
-        final BigDecimal expected = BigDecimal.ONE;
-
-        /* 準備 */
-        final KmgTimeUnitTypes testType = KmgTimeUnitTypes.SECONDS;
-
-        /* テスト対象の実行 */
-        final BigDecimal actual = testType.getUnitValue();
-
-        /* 検証の実施 */
-        Assertions.assertEquals(expected, actual, "単位値が一致しません");
-
-    }
-
-    /**
      * getUnitValue メソッドのテスト - ミリ秒の場合
      */
     @Test
@@ -192,10 +172,30 @@ public class KmgTimeUnitTypesTest {
     }
 
     /**
-     * get メソッドのテスト
+     * getUnitValue メソッドのテスト - 秒の場合
      */
     @Test
-    public void testGet() {
+    public void testGetUnitValue_seconds() {
+
+        /* 期待値の定義 */
+        final BigDecimal expected = BigDecimal.ONE;
+
+        /* 準備 */
+        final KmgTimeUnitTypes testType = KmgTimeUnitTypes.SECONDS;
+
+        /* テスト対象の実行 */
+        final BigDecimal actual = testType.getUnitValue();
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "単位値が一致しません");
+
+    }
+
+    /**
+     * getValue メソッドのテスト
+     */
+    @Test
+    public void testGetValue() {
 
         /* 期待値の定義 */
         final String expected = "seconds";
@@ -204,10 +204,10 @@ public class KmgTimeUnitTypesTest {
         final KmgTimeUnitTypes testType = KmgTimeUnitTypes.SECONDS;
 
         /* テスト対象の実行 */
-        final String actual = testType.get();
+        final String actual = testType.getValue();
 
         /* 検証の実施 */
-        Assertions.assertEquals(expected, actual, "取得値が一致しません");
+        Assertions.assertEquals(expected, actual, "値が一致しません");
 
     }
 }

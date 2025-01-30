@@ -10,8 +10,47 @@ import org.junit.jupiter.api.Test;
  * @sine 1.0.0
  * @version 1.0.0
  */
-@SuppressWarnings({ "nls", "static-method" })
+@SuppressWarnings({
+    "nls", "static-method"
+})
 public class KmgTemplateTypesTest {
+
+    /**
+     * get メソッドのテスト
+     */
+    @Test
+    public void testGet() {
+
+        /* 期待値の定義 */
+        final String expected = null;
+
+        /* 準備 */
+        final KmgTemplateTypes testType = KmgTemplateTypes.NONE;
+
+        /* テスト対象の実行 */
+        final String actual = testType.get();
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "取得値が一致しません");
+
+    }
+
+    /**
+     * getDefault メソッドのテスト
+     */
+    @Test
+    public void testGetDefault() {
+
+        /* 期待値の定義 */
+        final KmgTemplateTypes expected = KmgTemplateTypes.NONE;
+
+        /* テスト対象の実行 */
+        final KmgTemplateTypes actual = KmgTemplateTypes.getDefault();
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "デフォルト値が一致しません");
+
+    }
 
     /**
      * getEnum メソッドのテスト - 存在しない値の場合
@@ -30,6 +69,7 @@ public class KmgTemplateTypesTest {
 
         /* 検証の実施 */
         Assertions.assertEquals(expected, actual, "値が一致しません");
+
     }
 
     /**
@@ -46,22 +86,7 @@ public class KmgTemplateTypesTest {
 
         /* 検証の実施 */
         Assertions.assertEquals(expected, actual, "初期値が一致しません");
-    }
 
-    /**
-     * getDefault メソッドのテスト
-     */
-    @Test
-    public void testGetDefault() {
-
-        /* 期待値の定義 */
-        final KmgTemplateTypes expected = KmgTemplateTypes.NONE;
-
-        /* テスト対象の実行 */
-        final KmgTemplateTypes actual = KmgTemplateTypes.getDefault();
-
-        /* 検証の実施 */
-        Assertions.assertEquals(expected, actual, "デフォルト値が一致しません");
     }
 
     /**
@@ -81,6 +106,7 @@ public class KmgTemplateTypesTest {
 
         /* 検証の実施 */
         Assertions.assertEquals(expected, actual, "名称が一致しません");
+
     }
 
     /**
@@ -100,24 +126,6 @@ public class KmgTemplateTypesTest {
 
         /* 検証の実施 */
         Assertions.assertEquals(expected, actual, "値が一致しません");
-    }
 
-    /**
-     * get メソッドのテスト
-     */
-    @Test
-    public void testGet() {
-
-        /* 期待値の定義 */
-        final String expected = null;
-
-        /* 準備 */
-        final KmgTemplateTypes testType = KmgTemplateTypes.NONE;
-
-        /* テスト対象の実行 */
-        final String actual = testType.get();
-
-        /* 検証の実施 */
-        Assertions.assertEquals(expected, actual, "取得値が一致しません");
     }
 }

@@ -21,6 +21,43 @@ import kmg.core.infrastructure.type.KmgString;
 public class KmgDelimiterTypesTest {
 
     /**
+     * get メソッドのテスト
+     */
+    @Test
+    public void testGet() {
+
+        /* 期待値の定義 */
+        final String expected = ",";
+
+        /* 準備 */
+        final KmgDelimiterTypes testType = KmgDelimiterTypes.COMMA;
+
+        /* テスト対象の実行 */
+        final String actual = testType.get();
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "取得値が一致しません");
+
+    }
+
+    /**
+     * getDefault メソッドのテスト
+     */
+    @Test
+    public void testGetDefault() {
+
+        /* 期待値の定義 */
+        final KmgDelimiterTypes expected = KmgDelimiterTypes.NONE;
+
+        /* テスト対象の実行 */
+        final KmgDelimiterTypes actual = KmgDelimiterTypes.getDefault();
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "デフォルト値が一致しません");
+
+    }
+
+    /**
      * getEnum メソッドのテスト - 存在する値の場合
      */
     @Test
@@ -74,23 +111,6 @@ public class KmgDelimiterTypesTest {
 
         /* 検証の実施 */
         Assertions.assertEquals(expected, actual, "初期値が一致しません");
-
-    }
-
-    /**
-     * getDefault メソッドのテスト
-     */
-    @Test
-    public void testGetDefault() {
-
-        /* 期待値の定義 */
-        final KmgDelimiterTypes expected = KmgDelimiterTypes.NONE;
-
-        /* テスト対象の実行 */
-        final KmgDelimiterTypes actual = KmgDelimiterTypes.getDefault();
-
-        /* 検証の実施 */
-        Assertions.assertEquals(expected, actual, "デフォルト値が一致しません");
 
     }
 
@@ -217,29 +237,6 @@ public class KmgDelimiterTypesTest {
     }
 
     /**
-     * split メソッドのテスト - 通常の場合
-     */
-    @Test
-    public void testSplit_normal() {
-
-        /* 期待値の定義 */
-        final String[] expected = {
-            "test1", "test2", "test3"
-        };
-
-        /* 準備 */
-        final KmgDelimiterTypes testType   = KmgDelimiterTypes.COMMA;
-        final String            testString = "test1,test2,test3";
-
-        /* テスト対象の実行 */
-        final String[] actual = testType.split(testString);
-
-        /* 検証の実施 */
-        Assertions.assertArrayEquals(expected, actual, "分割結果が一致しません");
-
-    }
-
-    /**
      * split メソッドのテスト - 空文字の場合
      */
     @Test
@@ -261,22 +258,25 @@ public class KmgDelimiterTypesTest {
     }
 
     /**
-     * get メソッドのテスト
+     * split メソッドのテスト - 通常の場合
      */
     @Test
-    public void testGet() {
+    public void testSplit_normal() {
 
         /* 期待値の定義 */
-        final String expected = ",";
+        final String[] expected = {
+            "test1", "test2", "test3"
+        };
 
         /* 準備 */
-        final KmgDelimiterTypes testType = KmgDelimiterTypes.COMMA;
+        final KmgDelimiterTypes testType   = KmgDelimiterTypes.COMMA;
+        final String            testString = "test1,test2,test3";
 
         /* テスト対象の実行 */
-        final String actual = testType.get();
+        final String[] actual = testType.split(testString);
 
         /* 検証の実施 */
-        Assertions.assertEquals(expected, actual, "取得値が一致しません");
+        Assertions.assertArrayEquals(expected, actual, "分割結果が一致しません");
 
     }
 }

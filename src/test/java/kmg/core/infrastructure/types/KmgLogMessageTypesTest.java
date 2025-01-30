@@ -16,6 +16,43 @@ import org.junit.jupiter.api.Test;
 public class KmgLogMessageTypesTest {
 
     /**
+     * get メソッドのテスト
+     */
+    @Test
+    public void testGet() {
+
+        /* 期待値の定義 */
+        final String expected = "I00001";
+
+        /* 準備 */
+        final KmgLogMessageTypes testType = KmgLogMessageTypes.I00001;
+
+        /* テスト対象の実行 */
+        final String actual = testType.get();
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "取得値が一致しません");
+
+    }
+
+    /**
+     * getDefault メソッドのテスト
+     */
+    @Test
+    public void testGetDefault() {
+
+        /* 期待値の定義 */
+        final KmgLogMessageTypes expected = KmgLogMessageTypes.NONE;
+
+        /* テスト対象の実行 */
+        final KmgLogMessageTypes actual = KmgLogMessageTypes.getDefault();
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "デフォルト値が一致しません");
+
+    }
+
+    /**
      * getEnum メソッドのテスト - 存在する値の場合
      */
     @Test
@@ -73,23 +110,6 @@ public class KmgLogMessageTypesTest {
     }
 
     /**
-     * getDefault メソッドのテスト
-     */
-    @Test
-    public void testGetDefault() {
-
-        /* 期待値の定義 */
-        final KmgLogMessageTypes expected = KmgLogMessageTypes.NONE;
-
-        /* テスト対象の実行 */
-        final KmgLogMessageTypes actual = KmgLogMessageTypes.getDefault();
-
-        /* 検証の実施 */
-        Assertions.assertEquals(expected, actual, "デフォルト値が一致しません");
-
-    }
-
-    /**
      * getName メソッドのテスト
      */
     @Test
@@ -126,26 +146,6 @@ public class KmgLogMessageTypesTest {
 
         /* 検証の実施 */
         Assertions.assertEquals(expected, actual, "値が一致しません");
-
-    }
-
-    /**
-     * get メソッドのテスト
-     */
-    @Test
-    public void testGet() {
-
-        /* 期待値の定義 */
-        final String expected = "I00001";
-
-        /* 準備 */
-        final KmgLogMessageTypes testType = KmgLogMessageTypes.I00001;
-
-        /* テスト対象の実行 */
-        final String actual = testType.get();
-
-        /* 検証の実施 */
-        Assertions.assertEquals(expected, actual, "取得値が一致しません");
 
     }
 }

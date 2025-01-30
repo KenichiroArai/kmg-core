@@ -18,6 +18,43 @@ import org.junit.jupiter.api.Test;
 public class KmgCharsetTypesTest {
 
     /**
+     * get メソッドのテスト
+     */
+    @Test
+    public void testGet() {
+
+        /* 期待値の定義 */
+        final String expected = "UTF-8";
+
+        /* 準備 */
+        final KmgCharsetTypes testType = KmgCharsetTypes.UTF8;
+
+        /* テスト対象の実行 */
+        final String actual = testType.get();
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "取得値が一致しません");
+
+    }
+
+    /**
+     * getDefault メソッドのテスト
+     */
+    @Test
+    public void testGetDefault() {
+
+        /* 期待値の定義 */
+        final KmgCharsetTypes expected = KmgCharsetTypes.NONE;
+
+        /* テスト対象の実行 */
+        final KmgCharsetTypes actual = KmgCharsetTypes.getDefault();
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "デフォルト値が一致しません");
+
+    }
+
+    /**
      * getEnum メソッドのテスト - 存在する値の場合
      */
     @Test
@@ -75,23 +112,6 @@ public class KmgCharsetTypesTest {
     }
 
     /**
-     * getDefault メソッドのテスト
-     */
-    @Test
-    public void testGetDefault() {
-
-        /* 期待値の定義 */
-        final KmgCharsetTypes expected = KmgCharsetTypes.NONE;
-
-        /* テスト対象の実行 */
-        final KmgCharsetTypes actual = KmgCharsetTypes.getDefault();
-
-        /* 検証の実施 */
-        Assertions.assertEquals(expected, actual, "デフォルト値が一致しません");
-
-    }
-
-    /**
      * getName メソッドのテスト
      */
     @Test
@@ -132,26 +152,6 @@ public class KmgCharsetTypesTest {
     }
 
     /**
-     * toCharset メソッドのテスト - 有効な文字セットの場合
-     */
-    @Test
-    public void testToCharset_validCharset() {
-
-        /* 期待値の定義 */
-        final Charset expected = Charset.forName("UTF-8");
-
-        /* 準備 */
-        final KmgCharsetTypes testType = KmgCharsetTypes.UTF8;
-
-        /* テスト対象の実行 */
-        final Charset actual = testType.toCharset();
-
-        /* 検証の実施 */
-        Assertions.assertEquals(expected, actual, "文字セットが一致しません");
-
-    }
-
-    /**
      * toCharset メソッドのテスト - NONEの場合
      */
     @Test
@@ -172,22 +172,22 @@ public class KmgCharsetTypesTest {
     }
 
     /**
-     * get メソッドのテスト
+     * toCharset メソッドのテスト - 有効な文字セットの場合
      */
     @Test
-    public void testGet() {
+    public void testToCharset_validCharset() {
 
         /* 期待値の定義 */
-        final String expected = "UTF-8";
+        final Charset expected = Charset.forName("UTF-8");
 
         /* 準備 */
         final KmgCharsetTypes testType = KmgCharsetTypes.UTF8;
 
         /* テスト対象の実行 */
-        final String actual = testType.get();
+        final Charset actual = testType.toCharset();
 
         /* 検証の実施 */
-        Assertions.assertEquals(expected, actual, "取得値が一致しません");
+        Assertions.assertEquals(expected, actual, "文字セットが一致しません");
 
     }
 }

@@ -21,6 +21,26 @@ import org.junit.jupiter.api.Test;
 public class KmgDbDataTypeTypesTest {
 
     /**
+     * get メソッドのテスト
+     */
+    @Test
+    public void testGet() {
+
+        /* 期待値の定義 */
+        final String expected = "4バイト整数";
+
+        /* 準備 */
+        final KmgDbDataTypeTypes testType = KmgDbDataTypeTypes.INTEGER;
+
+        /* テスト対象の実行 */
+        final String actual = testType.get();
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "取得値が一致しません");
+
+    }
+
+    /**
      * getEnum メソッドのテスト - 存在する値の場合
      */
     @Test
@@ -61,36 +81,16 @@ public class KmgDbDataTypeTypesTest {
     }
 
     /**
-     * getValue メソッドのテスト
+     * getType メソッドのテスト - BigDecimal型の場合
      */
     @Test
-    public void testGetValue() {
+    public void testGetType_bigDecimal() {
 
         /* 期待値の定義 */
-        final String expected = "4バイト整数";
+        final Type expected = BigDecimal.class;
 
         /* 準備 */
-        final KmgDbDataTypeTypes testType = KmgDbDataTypeTypes.INTEGER;
-
-        /* テスト対象の実行 */
-        final String actual = testType.getValue();
-
-        /* 検証の実施 */
-        Assertions.assertEquals(expected, actual, "値が一致しません");
-
-    }
-
-    /**
-     * getType メソッドのテスト - Integer型の場合
-     */
-    @Test
-    public void testGetType_integer() {
-
-        /* 期待値の定義 */
-        final Type expected = Integer.class;
-
-        /* 準備 */
-        final KmgDbDataTypeTypes testType = KmgDbDataTypeTypes.INTEGER;
+        final KmgDbDataTypeTypes testType = KmgDbDataTypeTypes.BIG_DECIMAL;
 
         /* テスト対象の実行 */
         final Type actual = testType.getType();
@@ -121,6 +121,26 @@ public class KmgDbDataTypeTypesTest {
     }
 
     /**
+     * getType メソッドのテスト - Integer型の場合
+     */
+    @Test
+    public void testGetType_integer() {
+
+        /* 期待値の定義 */
+        final Type expected = Integer.class;
+
+        /* 準備 */
+        final KmgDbDataTypeTypes testType = KmgDbDataTypeTypes.INTEGER;
+
+        /* テスト対象の実行 */
+        final Type actual = testType.getType();
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "型が一致しません");
+
+    }
+
+    /**
      * getType メソッドのテスト - LocalDateTime型の場合
      */
     @Test
@@ -141,30 +161,10 @@ public class KmgDbDataTypeTypesTest {
     }
 
     /**
-     * getType メソッドのテスト - BigDecimal型の場合
+     * getValue メソッドのテスト
      */
     @Test
-    public void testGetType_bigDecimal() {
-
-        /* 期待値の定義 */
-        final Type expected = BigDecimal.class;
-
-        /* 準備 */
-        final KmgDbDataTypeTypes testType = KmgDbDataTypeTypes.BIG_DECIMAL;
-
-        /* テスト対象の実行 */
-        final Type actual = testType.getType();
-
-        /* 検証の実施 */
-        Assertions.assertEquals(expected, actual, "型が一致しません");
-
-    }
-
-    /**
-     * get メソッドのテスト
-     */
-    @Test
-    public void testGet() {
+    public void testGetValue() {
 
         /* 期待値の定義 */
         final String expected = "4バイト整数";
@@ -173,10 +173,10 @@ public class KmgDbDataTypeTypesTest {
         final KmgDbDataTypeTypes testType = KmgDbDataTypeTypes.INTEGER;
 
         /* テスト対象の実行 */
-        final String actual = testType.get();
+        final String actual = testType.getValue();
 
         /* 検証の実施 */
-        Assertions.assertEquals(expected, actual, "取得値が一致しません");
+        Assertions.assertEquals(expected, actual, "値が一致しません");
 
     }
 }
