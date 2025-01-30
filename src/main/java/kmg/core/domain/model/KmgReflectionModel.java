@@ -66,41 +66,6 @@ public interface KmgReflectionModel {
      * @throws KmgDomainException
      *                            KMGドメイン例外
      */
-    Object getMethodInvoke(final String methodName, final Object... parameters) throws KmgDomainException;
-
-    /**
-     * メソッド名に該当するメソッドを呼び出す<br>
-     *
-     * @author KenichiroArai
-     * @sine 1.0.0
-     * @version 1.0.0
-     * @param methodName
-     *                       メソッド名
-     * @param parameterTypes
-     *                       パラメータ型
-     * @param parameters
-     *                       パラメータ
-     * @return 返却値
-     * @throws KmgDomainException
-     *                            KMGドメイン例外
-     */
-    Object getMethodInvoke(final String methodName, final Class<?>[] parameterTypes, final Object... parameters)
-            throws KmgDomainException;
-
-    /**
-     * メソッド名に該当するメソッドを呼び出す<br>
-     *
-     * @author KenichiroArai
-     * @sine 1.0.0
-     * @version 1.0.0
-     * @param methodName
-     *                   メソッド名
-     * @param parameters
-     *                   パラメータ
-     * @return 返却値
-     * @throws KmgDomainException
-     *                            KMGドメイン例外
-     */
     Object getMethod(final String methodName, final Object... parameters) throws KmgDomainException;
 
 }
