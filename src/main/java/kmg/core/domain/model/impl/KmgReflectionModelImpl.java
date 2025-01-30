@@ -507,20 +507,4 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
         field.set(targetObject, value);
 
     }
-
-    /**
-     * hoge
-     *
-     * @param flag
-     *             フラグ
-     */
-    public static void hoge(final boolean flag) {
-
-        if (flag) {
-
-            System.out.println(flag);
-
-        }
-
-    }
 }
