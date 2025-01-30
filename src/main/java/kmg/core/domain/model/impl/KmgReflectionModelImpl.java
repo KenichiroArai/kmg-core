@@ -44,114 +44,6 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
     }
 
     /**
-     * 最後に取得したフィールドを返す<br>
-     *
-     * @author KenichiroArai
-     * @sine 1.0.0
-     * @version 1.0.0
-     * @return 最後に取得したフィールド
-     */
-    @Override
-    public Field getLastGetField() {
-
-        final Field result = this.lastGetField;
-        return result;
-
-    }
-
-    /**
-     * フィールド名に該当するフィールドに値を設定する<br>
-     *
-     * @author KenichiroArai
-     * @sine 1.0.0
-     * @version 1.0.0
-     * @param fieldName
-     *                  フィールド名
-     * @param value
-     *                  値
-     * @throws KmgDomainException
-     *                            KMGドメイン例外
-     */
-    @Override
-    public void set(final String fieldName, final Object value) throws KmgDomainException {
-
-        this.lastGetField = null;
-        Class<?> targetClazz = this.clazz;
-
-        try {
-
-            while (targetClazz != Object.class) {
-
-                try {
-
-                    try {
-
-                        this.lastGetField = this.getField(targetClazz, fieldName);
-
-                        // フィールドが見つかった
-                        break;
-
-                    } catch (@SuppressWarnings("unused") final NoSuchFieldException e) {
-
-                        this.lastGetField = this.getDeclaredField(targetClazz, fieldName);
-
-                        // フィールドが見つかった
-                        break;
-
-                    }
-
-                } catch (@SuppressWarnings("unused") final NoSuchFieldException e) {
-
-                    targetClazz = targetClazz.getSuperclass();
-
-                }
-
-            }
-
-            if (this.lastGetField == null) {
-
-                return;
-
-            }
-
-        } catch (final SecurityException e) {
-
-            // TODO 2021/06/06 KenichiroArai KMGの例外にする
-            throw new KmgDomainException(e.getMessage(), KmgLogMessageTypes.NONE, e);
-
-        }
-
-        this.lastGetField.setAccessible(true);
-
-        try {
-
-            Object fieldValue = value;
-
-            if ((value != null) && (this.lastGetField.getType() == BigDecimal.class)) {
-
-                try {
-
-                    fieldValue = new BigDecimal(value.toString());
-
-                } catch (@SuppressWarnings("unused") final NumberFormatException e) {
-
-                    fieldValue = null;
-
-                }
-
-            }
-            this.setValue(this.lastGetField, this.object, fieldValue);
-
-        } catch (final IllegalAccessException e) {
-
-            // TODO 2021/06/06 KenichiroArai KMGの例外にする
-            throw new KmgDomainException(e.getMessage(), KmgLogMessageTypes.NONE, e);
-
-        }
-
-    }
-
-    /**
      * フィールド名に該当するフィールドに値を返す<br>
      *
      * @author KenichiroArai
@@ -238,6 +130,22 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
 
         }
 
+        return result;
+
+    }
+
+    /**
+     * 最後に取得したフィールドを返す<br>
+     *
+     * @author KenichiroArai
+     * @sine 1.0.0
+     * @version 1.0.0
+     * @return 最後に取得したフィールド
+     */
+    @Override
+    public Field getLastGetField() {
+
+        final Field result = this.lastGetField;
         return result;
 
     }
@@ -346,74 +254,107 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
     }
 
     /**
-     * フィールド名に該当するフィールドを返す<br>
-     *
-     * @param targetClazz
-     *                    クラス
-     * @param name
-     *                    フィールド名
-     * @return フィールド
-     * @throws SecurityException
-     *                              セキュリティ例外
-     * @throws NoSuchFieldException
-     *                              フィールドが存在しない例外
-     */
-    @SuppressWarnings("static-method")
-    protected Field getField(final Class<?> targetClazz, final String name)
-        throws NoSuchFieldException, SecurityException {
-
-        final Field result = targetClazz.getField(name);
-        return result;
-
-    }
-
-    /**
-     * フィールドから値を取得する<br>
+     * フィールド名に該当するフィールドに値を設定する<br>
      *
      * @author KenichiroArai
      * @sine 1.0.0
      * @version 1.0.0
-     * @param field
-     *                     フィールド
-     * @param targetObject
-     *                     オブジェクト
-     * @return 値
-     * @throws SecurityException
-     *                                セキュリティ例外
-     * @throws IllegalAccessException
-     *                                不正アクセス例外
-     */
-    @SuppressWarnings("static-method")
-    protected Object getValue(final Field field, final Object targetObject)
-        throws SecurityException, IllegalAccessException {
-
-        final Object result = field.get(targetObject);
-        return result;
-
-    }
-
-    /**
-     * フィールドに値を設定する<br>
-     *
-     * @author KenichiroArai
-     * @sine 1.0.0
-     * @version 1.0.0
-     * @param field
-     *                     フィールド
-     * @param targetObject
-     *                     対象オブジェクト
+     * @param fieldName
+     *                  フィールド名
      * @param value
-     *                     設定値
-     * @throws SecurityException
-     *                                セキュリティ例外
-     * @throws IllegalAccessException
-     *                                不正アクセス例外
+     *                  値
+     * @throws KmgDomainException
+     *                            KMGドメイン例外
      */
-    @SuppressWarnings("static-method")
-    protected void setValue(final Field field, final Object targetObject, final Object value)
-        throws SecurityException, IllegalAccessException {
+    @Override
+    public void set(final String fieldName, final Object value) throws KmgDomainException {
 
-        field.set(targetObject, value);
+        if (fieldName == null) {
+
+            return;
+
+        }
+
+        this.lastGetField = null;
+        Class<?> targetClazz = this.clazz;
+
+        try {
+
+            while (targetClazz != Object.class) {
+
+                try {
+
+                    try {
+
+                        this.lastGetField = this.getField(targetClazz, fieldName);
+
+                        // フィールドが見つかった
+                        break;
+
+                    } catch (@SuppressWarnings("unused") final NoSuchFieldException e) {
+
+                        this.lastGetField = this.getDeclaredField(targetClazz, fieldName);
+
+                        // フィールドが見つかった
+                        break;
+
+                    }
+
+                } catch (@SuppressWarnings("unused") final NoSuchFieldException e) {
+
+                    targetClazz = targetClazz.getSuperclass();
+
+                }
+
+            }
+
+            if (this.lastGetField == null) {
+
+                return;
+
+            }
+
+        } catch (final SecurityException e) {
+
+            // TODO 2021/06/06 KenichiroArai KMGの例外にする
+            throw new KmgDomainException(e.getMessage(), KmgLogMessageTypes.NONE, e);
+
+        }
+
+        this.lastGetField.setAccessible(true);
+
+        try {
+
+            if (value == null) {
+
+                this.setValue(this.lastGetField, this.object, null);
+                return;
+
+            }
+
+            Object fieldValue = value;
+
+            if (this.lastGetField.getType() == BigDecimal.class) {
+
+                try {
+
+                    fieldValue = new BigDecimal(value.toString());
+
+                } catch (@SuppressWarnings("unused") final NumberFormatException e) {
+
+                    fieldValue = null;
+
+                }
+
+            }
+            this.setValue(this.lastGetField, this.object, fieldValue);
+
+        } catch (final IllegalAccessException e) {
+
+            // TODO 2021/06/06 KenichiroArai KMGの例外にする
+            throw new KmgDomainException(e.getMessage(), KmgLogMessageTypes.NONE, e);
+
+        }
 
     }
 
@@ -435,6 +376,28 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
         throws NoSuchFieldException, SecurityException {
 
         final Field result = targetClazz.getDeclaredField(name);
+        return result;
+
+    }
+
+    /**
+     * フィールド名に該当するフィールドを返す<br>
+     *
+     * @param targetClazz
+     *                    クラス
+     * @param name
+     *                    フィールド名
+     * @return フィールド
+     * @throws SecurityException
+     *                              セキュリティ例外
+     * @throws NoSuchFieldException
+     *                              フィールドが存在しない例外
+     */
+    @SuppressWarnings("static-method")
+    protected Field getField(final Class<?> targetClazz, final String name)
+        throws NoSuchFieldException, SecurityException {
+
+        final Field result = targetClazz.getField(name);
         return result;
 
     }
@@ -467,6 +430,31 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
     }
 
     /**
+     * フィールドから値を取得する<br>
+     *
+     * @author KenichiroArai
+     * @sine 1.0.0
+     * @version 1.0.0
+     * @param field
+     *                     フィールド
+     * @param targetObject
+     *                     オブジェクト
+     * @return 値
+     * @throws SecurityException
+     *                                セキュリティ例外
+     * @throws IllegalAccessException
+     *                                不正アクセス例外
+     */
+    @SuppressWarnings("static-method")
+    protected Object getValue(final Field field, final Object targetObject)
+        throws SecurityException, IllegalAccessException {
+
+        final Object result = field.get(targetObject);
+        return result;
+
+    }
+
+    /**
      * メソッドを呼び出す<br>
      *
      * @author KenichiroArai
@@ -492,6 +480,47 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
 
         final Object result = method.invoke(targetObject, parameters);
         return result;
+
+    }
+
+    /**
+     * フィールドに値を設定する<br>
+     *
+     * @author KenichiroArai
+     * @sine 1.0.0
+     * @version 1.0.0
+     * @param field
+     *                     フィールド
+     * @param targetObject
+     *                     対象オブジェクト
+     * @param value
+     *                     設定値
+     * @throws SecurityException
+     *                                セキュリティ例外
+     * @throws IllegalAccessException
+     *                                不正アクセス例外
+     */
+    @SuppressWarnings("static-method")
+    protected void setValue(final Field field, final Object targetObject, final Object value)
+        throws SecurityException, IllegalAccessException {
+
+        field.set(targetObject, value);
+
+    }
+
+    /**
+     * hoge
+     *
+     * @param flag
+     *             フラグ
+     */
+    public static void hoge(final boolean flag) {
+
+        if (flag) {
+
+            System.out.println(flag);
+
+        }
 
     }
 }
