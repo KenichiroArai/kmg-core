@@ -153,7 +153,7 @@ public final class KmgPathUtils {
 
         }
 
-        result = KmgPathUtils.getClassFullPath(object.getClass(), fileName);
+        result = KmgPathUtils.getClassFullPath(object.getClass(), Paths.get(fileName));
         return result;
 
     }
