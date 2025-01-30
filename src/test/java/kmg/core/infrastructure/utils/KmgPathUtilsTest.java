@@ -6,6 +6,8 @@ import java.nio.file.Paths;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import kmg.core.infrastructure.exception.KmgDomainException;
+
 /**
  * KMGパスユーティリティテスト<br>
  *
@@ -18,9 +20,12 @@ public class KmgPathUtilsTest {
 
     /**
      * getBinPath メソッドのテスト - nullの場合（Class）
+     *
+     * @throws Exception
+     *                   失敗
      */
     @Test
-    public void testGetBinPath_nullClass() {
+    public void testGetBinPath_nullClass() throws Exception {
 
         /* 期待値の定義 */
         final Path expected = null;
@@ -38,9 +43,12 @@ public class KmgPathUtilsTest {
 
     /**
      * getBinPath メソッドのテスト - nullの場合（Object）
+     *
+     * @throws KmgDomainException
+     *                            失敗
      */
     @Test
-    public void testGetBinPath_nullObject() {
+    public void testGetBinPath_nullObject() throws KmgDomainException {
 
         /* 期待値の定義 */
         final Path expected = null;
@@ -58,9 +66,12 @@ public class KmgPathUtilsTest {
 
     /**
      * getBinPath メソッドのテスト - 正常なクラスの場合
+     *
+     * @throws KmgDomainException
+     *                            失敗
      */
     @Test
-    public void testGetBinPath_validClass() {
+    public void testGetBinPath_validClass() throws KmgDomainException {
 
         /* 準備 */
         final Class<?> testTarget = KmgPathUtilsTest.class;
@@ -76,9 +87,12 @@ public class KmgPathUtilsTest {
 
     /**
      * getBinPath メソッドのテスト - 正常なオブジェクトの場合
+     *
+     * @throws KmgDomainException
+     *                            失敗
      */
     @Test
-    public void testGetBinPath_validObject() {
+    public void testGetBinPath_validObject() throws KmgDomainException {
 
         /* 準備 */
         final Object testTarget = new KmgPathUtilsTest();
@@ -94,9 +108,12 @@ public class KmgPathUtilsTest {
 
     /**
      * getClassFullPath メソッドのテスト - nullの場合（Class）
+     *
+     * @throws KmgDomainException
+     *                            失敗
      */
     @Test
-    public void testGetClassFullPath_nullClass() {
+    public void testGetClassFullPath_nullClass() throws KmgDomainException {
 
         /* 期待値の定義 */
         final Path expected = null;
@@ -115,9 +132,12 @@ public class KmgPathUtilsTest {
 
     /**
      * getClassFullPath メソッドのテスト - nullの場合（Object）
+     *
+     * @throws KmgDomainException
+     *                            失敗
      */
     @Test
-    public void testGetClassFullPath_nullObject() {
+    public void testGetClassFullPath_nullObject() throws KmgDomainException {
 
         /* 期待値の定義 */
         final Path expected = null;
@@ -163,9 +183,12 @@ public class KmgPathUtilsTest {
 
     /**
      * getClassFullPath メソッドのテスト - 正常なオブジェクトの場合
+     *
+     * @throws KmgDomainException
+     *                            失敗
      */
     @Test
-    public void testGetClassFullPath_validObject() {
+    public void testGetClassFullPath_validObject() throws KmgDomainException {
 
         /* テスト対象のクラスのビルドパスを取得 */
         final Path binPath = KmgPathUtils.getBinPath(KmgPathUtilsTest.class);

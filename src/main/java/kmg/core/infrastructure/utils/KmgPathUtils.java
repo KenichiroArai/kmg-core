@@ -6,7 +6,9 @@ import java.nio.file.Paths;
 
 import org.springframework.util.ObjectUtils;
 
+import kmg.core.infrastructure.exception.KmgDomainException;
 import kmg.core.infrastructure.type.KmgString;
+import kmg.core.infrastructure.types.KmgLogMessageTypes;
 
 /**
  * KMGパスユーティリティ<br>
@@ -72,8 +74,10 @@ public final class KmgPathUtils {
      * @param zlass
      *              クラス
      * @return ビルドパス
+     * @throws KmgDomainException
+     *                            KMGドメイン例外
      */
-    public static Path getBinPath(final Class<?> zlass) {
+    public static Path getBinPath(final Class<?> zlass) throws KmgDomainException {
 
         Path result = null;
 
@@ -89,8 +93,8 @@ public final class KmgPathUtils {
 
         } catch (final URISyntaxException e) {
 
-            // TODO KenichiroArai 2021/06/08 KMGの例外処でスローする。
-            e.printStackTrace();
+            // TODO KenichiroArai 2025/01/30 KMGの例外処でスローする。
+            throw new KmgDomainException(e.getMessage(), KmgLogMessageTypes.NONE, e);
 
         }
 
@@ -110,8 +114,10 @@ public final class KmgPathUtils {
      * @param obj
      *            オブジェクト
      * @return ビルドパス
+     * @throws KmgDomainException
+     *                            KMGドメイン例外
      */
-    public static Path getBinPath(final Object obj) {
+    public static Path getBinPath(final Object obj) throws KmgDomainException {
 
         Path result = null;
 
@@ -142,8 +148,10 @@ public final class KmgPathUtils {
      * @param fileName
      *                 ファイル名
      * @return クラスのフルパス
+     * @throws KmgDomainException
+     *                            KMGドメイン例外
      */
-    public static Path getClassFullPath(final Object object, final String fileName) {
+    public static Path getClassFullPath(final Object object, final String fileName) throws KmgDomainException {
 
         Path result = null;
 
@@ -173,8 +181,10 @@ public final class KmgPathUtils {
      * @param fileName
      *                 ファイル名
      * @return クラスのフルパス
+     * @throws KmgDomainException
+     *                            KMGドメイン例外
      */
-    public static Path getClassFullPath(final Class<?> zlass, final Path fileName) {
+    public static Path getClassFullPath(final Class<?> zlass, final Path fileName) throws KmgDomainException {
 
         Path result = null;
 
