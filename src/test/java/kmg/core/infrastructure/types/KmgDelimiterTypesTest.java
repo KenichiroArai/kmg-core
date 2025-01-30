@@ -196,7 +196,47 @@ public class KmgDelimiterTypesTest {
     }
 
     /**
-     * joinAll メソッドのテスト - リストを結合する場合
+     * join メソッドのテスト - 空文字を含む可変長引数を結合する場合
+     */
+    @Test
+    public void testJoin_varargs_withEmpty() {
+
+        /* 期待値の定義 */
+        final String expected = "test1,test3";
+
+        /* 準備 */
+        final KmgDelimiterTypes testType = KmgDelimiterTypes.COMMA;
+
+        /* テスト対象の実行 */
+        final String actual = testType.join("test1", "", "test3");
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "空文字を含む可変長引数の結合結果が一致しません");
+
+    }
+
+    /**
+     * join メソッドのテスト - nullを含む可変長引数を結合する場合
+     */
+    @Test
+    public void testJoin_varargs_withNull() {
+
+        /* 期待値の定義 */
+        final String expected = "test1,test3";
+
+        /* 準備 */
+        final KmgDelimiterTypes testType = KmgDelimiterTypes.COMMA;
+
+        /* テスト対象の実行 */
+        final String actual = testType.join("test1", null, "test3");
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "nullを含む可変長引数の結合結果が一致しません");
+
+    }
+
+    /**
+     * join メソッドのテスト - リストを結合する場合
      */
     @Test
     public void testJoinAll_list() {
@@ -217,7 +257,7 @@ public class KmgDelimiterTypesTest {
     }
 
     /**
-     * joinAll メソッドのテスト - 可変長引数を結合する場合
+     * join メソッドのテスト - 可変長引数を結合する場合
      */
     @Test
     public void testJoinAll_varargs() {
