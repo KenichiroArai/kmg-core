@@ -8,6 +8,8 @@ import java.time.LocalDateTime;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import kmg.core.infrastructure.type.KmgString;
+
 /**
  * KMGＤＢ型の種類のテスト<br>
  *
@@ -177,6 +179,66 @@ public class KmgDbDataTypeTypesTest {
 
         /* 検証の実施 */
         Assertions.assertEquals(expected, actual, "値が一致しません");
+
+    }
+
+    /**
+     * toString メソッドのテスト - INTEGERの場合
+     */
+    @Test
+    public void testToString_integer() {
+
+        /* 期待値の定義 */
+        final String expected = "4バイト整数";
+
+        /* 準備 */
+        final KmgDbDataTypeTypes testType = KmgDbDataTypeTypes.INTEGER;
+
+        /* テスト対象の実行 */
+        final String actual = testType.toString();
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "INTEGERの場合、'4バイト整数'が返されること");
+
+    }
+
+    /**
+     * toString メソッドのテスト - LONGの場合
+     */
+    @Test
+    public void testToString_long() {
+
+        /* 期待値の定義 */
+        final String expected = "8バイト整数";
+
+        /* 準備 */
+        final KmgDbDataTypeTypes testType = KmgDbDataTypeTypes.LONG;
+
+        /* テスト対象の実行 */
+        final String actual = testType.toString();
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "LONGの場合、'8バイト整数'が返されること");
+
+    }
+
+    /**
+     * toString メソッドのテスト - NONEの場合
+     */
+    @Test
+    public void testToString_none() {
+
+        /* 期待値の定義 */
+        final String expected = KmgString.EMPTY;
+
+        /* 準備 */
+        final KmgDbDataTypeTypes testType = KmgDbDataTypeTypes.NONE;
+
+        /* テスト対象の実行 */
+        final String actual = testType.toString();
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "NONEの場合、空文字が返されること");
 
     }
 }

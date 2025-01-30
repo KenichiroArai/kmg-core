@@ -128,4 +128,24 @@ public class KmgTemplateTypesTest {
         Assertions.assertEquals(expected, actual, "値が一致しません");
 
     }
+
+    /**
+     * toString メソッドのテスト - NONEの場合
+     */
+    @Test
+    public void testToString_none() {
+
+        /* 期待値の定義 */
+        final String expected = null;
+
+        /* 準備 */
+        final KmgTemplateTypes testType = KmgTemplateTypes.NONE;
+
+        /* テスト対象の実行 */
+        final String actual = testType.toString();
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "NONEの場合、nullが返されること");
+
+    }
 }

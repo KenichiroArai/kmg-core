@@ -190,4 +190,64 @@ public class KmgCharsetTypesTest {
         Assertions.assertEquals(expected, actual, "文字セットが一致しません");
 
     }
+
+    /**
+     * toString メソッドのテスト - MS932の場合
+     */
+    @Test
+    public void testToString_ms932() {
+
+        /* 期待値の定義 */
+        final String expected = "MS932";
+
+        /* 準備 */
+        final KmgCharsetTypes testType = KmgCharsetTypes.MS932;
+
+        /* テスト対象の実行 */
+        final String actual = testType.toString();
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "MS932の場合、'MS932'が返されること");
+
+    }
+
+    /**
+     * toString メソッドのテスト - NONEの場合
+     */
+    @Test
+    public void testToString_none() {
+
+        /* 期待値の定義 */
+        final String expected = null;
+
+        /* 準備 */
+        final KmgCharsetTypes testType = KmgCharsetTypes.NONE;
+
+        /* テスト対象の実行 */
+        final String actual = testType.toString();
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "NONEの場合、nullが返されること");
+
+    }
+
+    /**
+     * toString メソッドのテスト - UTF8の場合
+     */
+    @Test
+    public void testToString_utf8() {
+
+        /* 期待値の定義 */
+        final String expected = "UTF-8";
+
+        /* 準備 */
+        final KmgCharsetTypes testType = KmgCharsetTypes.UTF8;
+
+        /* テスト対象の実行 */
+        final String actual = testType.toString();
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "UTF8の場合、'UTF-8'が返されること");
+
+    }
 }

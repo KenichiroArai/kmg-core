@@ -279,4 +279,64 @@ public class KmgDelimiterTypesTest {
         Assertions.assertArrayEquals(expected, actual, "分割結果が一致しません");
 
     }
+
+    /**
+     * toString メソッドのテスト - HALF_SPACEの場合
+     */
+    @Test
+    public void testToString_halfSpace() {
+
+        /* 期待値の定義 */
+        final String expected = KmgString.HALF_SPACE;
+
+        /* 準備 */
+        final KmgDelimiterTypes testType = KmgDelimiterTypes.HALF_SPACE;
+
+        /* テスト対象の実行 */
+        final String actual = testType.toString();
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "HALF_SPACEの場合、半角スペースが返されること");
+
+    }
+
+    /**
+     * toString メソッドのテスト - NONEの場合
+     */
+    @Test
+    public void testToString_none() {
+
+        /* 期待値の定義 */
+        final String expected = null;
+
+        /* 準備 */
+        final KmgDelimiterTypes testType = KmgDelimiterTypes.NONE;
+
+        /* テスト対象の実行 */
+        final String actual = testType.toString();
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "NONEの場合、nullが返されること");
+
+    }
+
+    /**
+     * toString メソッドのテスト - PERIODの場合
+     */
+    @Test
+    public void testToString_period() {
+
+        /* 期待値の定義 */
+        final String expected = ".";
+
+        /* 準備 */
+        final KmgDelimiterTypes testType = KmgDelimiterTypes.PERIOD;
+
+        /* テスト対象の実行 */
+        final String actual = testType.toString();
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "PERIODの場合、'.'が返されること");
+
+    }
 }

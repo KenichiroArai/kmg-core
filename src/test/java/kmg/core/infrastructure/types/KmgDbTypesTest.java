@@ -210,4 +210,64 @@ public class KmgDbTypesTest {
         Assertions.assertEquals(expected, actual, "値が一致しません");
 
     }
+
+    /**
+     * toString メソッドのテスト - MySQLの場合
+     */
+    @Test
+    public void testToString_mysql() {
+
+        /* 期待値の定義 */
+        final String expected = "MySQL";
+
+        /* 準備 */
+        final KmgDbTypes testType = KmgDbTypes.MYSQL;
+
+        /* テスト対象の実行 */
+        final String actual = testType.toString();
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "MySQLの場合、'MySQL'が返されること");
+
+    }
+
+    /**
+     * toString メソッドのテスト - NONEの場合
+     */
+    @Test
+    public void testToString_none() {
+
+        /* 期待値の定義 */
+        final String expected = null;
+
+        /* 準備 */
+        final KmgDbTypes testType = KmgDbTypes.NONE;
+
+        /* テスト対象の実行 */
+        final String actual = testType.toString();
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "NONEの場合、nullが返されること");
+
+    }
+
+    /**
+     * toString メソッドのテスト - PostgreSQLの場合
+     */
+    @Test
+    public void testToString_postgresql() {
+
+        /* 期待値の定義 */
+        final String expected = "PostgreSQL";
+
+        /* 準備 */
+        final KmgDbTypes testType = KmgDbTypes.POSTGRE_SQL;
+
+        /* テスト対象の実行 */
+        final String actual = testType.toString();
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "PostgreSQLの場合、'PostgreSQL'が返されること");
+
+    }
 }

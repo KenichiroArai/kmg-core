@@ -210,4 +210,64 @@ public class KmgTimeUnitTypesTest {
         Assertions.assertEquals(expected, actual, "値が一致しません");
 
     }
+
+    /**
+     * toString メソッドのテスト - MILLISECONDの場合
+     */
+    @Test
+    public void testToString_millisecond() {
+
+        /* 期待値の定義 */
+        final String expected = "millisecond,";
+
+        /* 準備 */
+        final KmgTimeUnitTypes testType = KmgTimeUnitTypes.MILLISECOND;
+
+        /* テスト対象の実行 */
+        final String actual = testType.toString();
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "MILLISECONDの場合、'millisecond,'が返されること");
+
+    }
+
+    /**
+     * toString メソッドのテスト - NONEの場合
+     */
+    @Test
+    public void testToString_none() {
+
+        /* 期待値の定義 */
+        final String expected = null;
+
+        /* 準備 */
+        final KmgTimeUnitTypes testType = KmgTimeUnitTypes.NONE;
+
+        /* テスト対象の実行 */
+        final String actual = testType.toString();
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "NONEの場合、nullが返されること");
+
+    }
+
+    /**
+     * toString メソッドのテスト - SECONDSの場合
+     */
+    @Test
+    public void testToString_seconds() {
+
+        /* 期待値の定義 */
+        final String expected = "seconds";
+
+        /* 準備 */
+        final KmgTimeUnitTypes testType = KmgTimeUnitTypes.SECONDS;
+
+        /* テスト対象の実行 */
+        final String actual = testType.toString();
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "SECONDSの場合、'seconds'が返されること");
+
+    }
 }

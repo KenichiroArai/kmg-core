@@ -148,4 +148,44 @@ public class KmgLogMessageTypesTest {
         Assertions.assertEquals(expected, actual, "値が一致しません");
 
     }
+
+    /**
+     * toString メソッドのテスト - I00001の場合
+     */
+    @Test
+    public void testToString_i00001() {
+
+        /* 期待値の定義 */
+        final String expected = "I00001";
+
+        /* 準備 */
+        final KmgLogMessageTypes testType = KmgLogMessageTypes.I00001;
+
+        /* テスト対象の実行 */
+        final String actual = testType.toString();
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "I00001の場合、'I00001'が返されること");
+
+    }
+
+    /**
+     * toString メソッドのテスト - NONEの場合
+     */
+    @Test
+    public void testToString_none() {
+
+        /* 期待値の定義 */
+        final String expected = null;
+
+        /* 準備 */
+        final KmgLogMessageTypes testType = KmgLogMessageTypes.NONE;
+
+        /* テスト対象の実行 */
+        final String actual = testType.toString();
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "NONEの場合、nullが返されること");
+
+    }
 }
