@@ -28,18 +28,70 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
     private Field lastGetField;
 
     /**
-     * コンストラクタ<br>
+     * オブジェクト用コンストラクタ<br>
      *
      * @author KenichiroArai
-     * @sine 1.0.0
+     * @since 1.0.0
      * @version 1.0.0
      * @param object
-     *               対象オブジェクト
+     *               対象オブジェクトのインスタンス
      */
     public KmgReflectionModelImpl(final Object object) {
 
         this.object = object;
         this.clazz = object.getClass();
+
+    }
+
+    /**
+     * クラス用コンストラクタ<br>
+     *
+     * @author KenichiroArai
+     * @since 1.0.0
+     * @version 1.0.0
+     * @param clazz
+     *              対象クラス
+     * @throws KmgDomainException
+     *                            KMGドメイン例外
+     */
+    public KmgReflectionModelImpl(final Class<?> clazz) throws KmgDomainException {
+
+        try {
+
+            this.object = clazz.getDeclaredConstructor().newInstance();
+
+        } catch (final InstantiationException e) {
+
+            // TODO 2025/01/30 KenichiroArai KMGの例外にする
+            throw new KmgDomainException(e.getMessage(), KmgLogMessageTypes.NONE, e);
+
+        } catch (final IllegalAccessException e) {
+
+            // TODO 2025/01/30 KenichiroArai KMGの例外にする
+            throw new KmgDomainException(e.getMessage(), KmgLogMessageTypes.NONE, e);
+
+        } catch (final IllegalArgumentException e) {
+
+            // TODO 2025/01/30 KenichiroArai KMGの例外にする
+            throw new KmgDomainException(e.getMessage(), KmgLogMessageTypes.NONE, e);
+
+        } catch (final InvocationTargetException e) {
+
+            // TODO 2025/01/30 KenichiroArai KMGの例外にする
+            throw new KmgDomainException(e.getMessage(), KmgLogMessageTypes.NONE, e);
+
+        } catch (final NoSuchMethodException e) {
+
+            // TODO 2025/01/30 KenichiroArai KMGの例外にする
+            throw new KmgDomainException(e.getMessage(), KmgLogMessageTypes.NONE, e);
+
+        } catch (final SecurityException e) {
+
+            // TODO 2025/01/30 KenichiroArai KMGの例外にする
+            throw new KmgDomainException(e.getMessage(), KmgLogMessageTypes.NONE, e);
+
+        }
+        this.clazz = clazz;
 
     }
 
