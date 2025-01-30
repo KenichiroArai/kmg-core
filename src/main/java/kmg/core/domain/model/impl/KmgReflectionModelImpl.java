@@ -340,9 +340,10 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
 
                     fieldValue = new BigDecimal(value.toString());
 
-                } catch (@SuppressWarnings("unused") final NumberFormatException e) {
+                } catch (final NumberFormatException e) {
 
-                    fieldValue = null;
+                    // TODO 2021/06/06 KenichiroArai KMGの例外にする
+                    throw new KmgDomainException(e.getMessage(), KmgLogMessageTypes.NONE, e);
 
                 }
 
