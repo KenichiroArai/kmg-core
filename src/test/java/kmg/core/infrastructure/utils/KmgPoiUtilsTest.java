@@ -1,0 +1,310 @@
+package kmg.core.infrastructure.utils;
+
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
+import org.apache.poi.ss.util.CellRangeAddress;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+
+/**
+ * KMGＰＯＩユーティリティテスト<br>
+ *
+ * @author KenichiroArai
+ * @sine 1.0.0
+ * @version 1.0.0
+ */
+public class KmgPoiUtilsTest {
+
+    /**
+     * getCell メソッドのテスト - 行が存在しない場合
+     *
+     * @throws Exception
+     *                   例外が発生した場合
+     */
+    @Test
+    @SuppressWarnings("static-method")
+    public void testGetCell_noRow() throws Exception {
+
+        /* 期待値の定義 */
+        final Cell expected = null;
+
+        /* 準備 */
+        try (Workbook workbook = WorkbookFactory.create(true)) {
+
+            final Sheet sheet = workbook.createSheet();
+
+            /* テスト対象の実行 */
+            final Cell actual = KmgPoiUtils.getCell(sheet, 0, 0);
+
+            /* 検証の実施 */
+            Assertions.assertEquals(expected, actual, "行が存在しない場合はnullを返すべき");
+
+        }
+
+    }
+
+    /**
+     * getStringFormulaValue メソッドのテスト - 文字列を返す数式の場合
+     *
+     * @throws Exception
+     *                   例外が発生した場合
+     */
+    @Test
+    @SuppressWarnings("static-method")
+    public void testGetStringFormulaValue_stringFormula() throws Exception {
+
+        /* 期待値の定義 */
+        final String expected = "test";
+
+        /* 準備 */
+        try (Workbook workbook = WorkbookFactory.create(true)) {
+
+            final Sheet sheet      = workbook.createSheet();
+            final Row   row        = sheet.createRow(0);
+            final Cell  testTarget = row.createCell(0);
+            testTarget.setCellFormula("\"test\"");
+            workbook.getCreationHelper().createFormulaEvaluator().evaluateFormulaCell(testTarget);
+
+            /* テスト対象の実行 */
+            final String actual = KmgPoiUtils.getStringFormulaValue(testTarget);
+
+            /* 検証の実施 */
+            Assertions.assertEquals(expected, actual, "数式の計算結果（文字列）が返されるべき");
+
+        }
+
+    }
+
+    /**
+     * getStringRangeValue メソッドのテスト - 結合セルの場合
+     *
+     * @throws Exception
+     *                   例外が発生した場合
+     */
+    @Test
+    @SuppressWarnings("static-method")
+    public void testGetStringRangeValue_mergedCell() throws Exception {
+
+        /* 期待値の定義 */
+        final String expected = "test";
+
+        /* 準備 */
+        try (Workbook workbook = WorkbookFactory.create(true)) {
+
+            final Sheet sheet     = workbook.createSheet();
+            final Row   row       = sheet.createRow(0);
+            final Cell  firstCell = row.createCell(0);
+            firstCell.setCellValue("test");
+            sheet.addMergedRegion(new CellRangeAddress(0, 1, 0, 1));
+            final Cell testTarget = sheet.getRow(0).createCell(1);
+
+            /* テスト対象の実行 */
+            final String actual = KmgPoiUtils.getStringRangeValue(testTarget);
+
+            /* 検証の実施 */
+            Assertions.assertEquals(expected, actual, "結合セルの左上のセルの値が返されるべき");
+
+        }
+
+    }
+
+    /**
+     * getStringValue メソッドのテスト - 真偽値セルの場合
+     *
+     * @throws Exception
+     *                   例外が発生した場合
+     */
+    @Test
+    @SuppressWarnings("static-method")
+    public void testGetStringValue_booleanCell() throws Exception {
+
+        /* 期待値の定義 */
+        final String expected = "true";
+
+        /* 準備 */
+        try (Workbook workbook = WorkbookFactory.create(true)) {
+
+            final Sheet sheet      = workbook.createSheet();
+            final Row   row        = sheet.createRow(0);
+            final Cell  testTarget = row.createCell(0);
+            testTarget.setCellValue(true);
+
+            /* テスト対象の実行 */
+            final String actual = KmgPoiUtils.getStringValue(testTarget);
+
+            /* 検証の実施 */
+            Assertions.assertEquals(expected, actual, "セルの真偽値が文字列として返されるべき");
+
+        }
+
+    }
+
+    /**
+     * getStringValue メソッドのテスト - nullの場合
+     */
+    @Test
+    @SuppressWarnings("static-method")
+    public void testGetStringValue_null() {
+
+        /* 期待値の定義 */
+        final String expected = null;
+
+        /* 準備 */
+        final Cell testTarget = null;
+
+        /* テスト対象の実行 */
+        final String actual = KmgPoiUtils.getStringValue(testTarget);
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "nullの場合はnullを返すべき");
+
+    }
+
+    /**
+     * getStringValue メソッドのテスト - 数値セルの場合
+     *
+     * @throws Exception
+     *                   例外が発生した場合
+     */
+    @Test
+    @SuppressWarnings("static-method")
+    public void testGetStringValue_numericCell() throws Exception {
+
+        /* 期待値の定義 */
+        final String expected = "123.0";
+
+        /* 準備 */
+        try (Workbook workbook = WorkbookFactory.create(true)) {
+
+            final Sheet sheet      = workbook.createSheet();
+            final Row   row        = sheet.createRow(0);
+            final Cell  testTarget = row.createCell(0);
+            testTarget.setCellValue(123.0);
+
+            /* テスト対象の実行 */
+            final String actual = KmgPoiUtils.getStringValue(testTarget);
+
+            /* 検証の実施 */
+            Assertions.assertEquals(expected, actual, "セルの数値が文字列として返されるべき");
+
+        }
+
+    }
+
+    /**
+     * getStringValue メソッドのテスト - 文字列セルの場合
+     *
+     * @throws Exception
+     *                   例外が発生した場合
+     */
+    @Test
+    @SuppressWarnings("static-method")
+    public void testGetStringValue_stringCell() throws Exception {
+
+        /* 期待値の定義 */
+        final String expected = "test";
+
+        /* 準備 */
+        try (Workbook workbook = WorkbookFactory.create(true)) {
+
+            final Sheet sheet      = workbook.createSheet();
+            final Row   row        = sheet.createRow(0);
+            final Cell  testTarget = row.createCell(0);
+            testTarget.setCellValue("test");
+
+            /* テスト対象の実行 */
+            final String actual = KmgPoiUtils.getStringValue(testTarget);
+
+            /* 検証の実施 */
+            Assertions.assertEquals(expected, actual, "セルの文字列値が返されるべき");
+
+        }
+
+    }
+
+    /**
+     * isEmptyCell メソッドのテスト - 空のセルの場合
+     *
+     * @throws Exception
+     *                   例外が発生した場合
+     */
+    @Test
+    @SuppressWarnings("static-method")
+    public void testIsEmptyCell_emptyCell() throws Exception {
+
+        /* 期待値の定義 */
+        final boolean expected = true;
+
+        /* 準備 */
+        try (Workbook workbook = WorkbookFactory.create(true)) {
+
+            final Sheet sheet      = workbook.createSheet();
+            final Row   row        = sheet.createRow(0);
+            final Cell  testTarget = row.createCell(0);
+            testTarget.setBlank();
+
+            /* テスト対象の実行 */
+            final boolean actual = KmgPoiUtils.isEmptyCell(testTarget);
+
+            /* 検証の実施 */
+            Assertions.assertEquals(expected, actual, "空のセルの場合はtrueを返すべき");
+
+        }
+
+    }
+
+    /**
+     * isEmptyCell メソッドのテスト - 値が入っているセルの場合
+     *
+     * @throws Exception
+     *                   例外が発生した場合
+     */
+    @Test
+    @SuppressWarnings("static-method")
+    public void testIsEmptyCell_nonEmptyCell() throws Exception {
+
+        /* 期待値の定義 */
+        final boolean expected = false;
+
+        /* 準備 */
+        try (Workbook workbook = WorkbookFactory.create(true)) {
+
+            final Sheet sheet      = workbook.createSheet();
+            final Row   row        = sheet.createRow(0);
+            final Cell  testTarget = row.createCell(0);
+            testTarget.setCellValue("test");
+
+            /* テスト対象の実行 */
+            final boolean actual = KmgPoiUtils.isEmptyCell(testTarget);
+
+            /* 検証の実施 */
+            Assertions.assertEquals(expected, actual, "値が入っているセルの場合はfalseを返すべき");
+
+        }
+
+    }
+
+    /**
+     * isEmptyCell メソッドのテスト - nullの場合
+     */
+    @Test
+    @SuppressWarnings("static-method")
+    public void testIsEmptyCell_null() {
+
+        /* 期待値の定義 */
+        final boolean expected = true;
+
+        /* 準備 */
+        final Cell testTarget = null;
+
+        /* テスト対象の実行 */
+        final boolean actual = KmgPoiUtils.isEmptyCell(testTarget);
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "nullの場合はtrueを返すべき");
+
+    }
+}
