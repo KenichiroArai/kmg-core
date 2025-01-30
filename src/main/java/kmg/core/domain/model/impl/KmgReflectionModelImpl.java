@@ -34,44 +34,48 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
      * @since 1.0.0
      * @version 1.0.0
      * @param clazz
-     *              対象クラス
+     *                        対象クラス
+     * @param constructorArgs
+     *                        コンストラクタに渡す引数
      * @throws KmgDomainException
      *                            KMGドメイン例外
      */
-    public KmgReflectionModelImpl(final Class<?> clazz) throws KmgDomainException {
+    public KmgReflectionModelImpl(final Class<?> clazz, final Object... constructorArgs) throws KmgDomainException {
 
         try {
 
-            this.object = clazz.getDeclaredConstructor().newInstance();
+            final Class<?>[] parameterTypes = new Class<?>[constructorArgs.length];
+
+            for (int i = 0; i < constructorArgs.length; i++) {
+
+                parameterTypes[i] = constructorArgs[i].getClass();
+
+            }
+
+            this.object = this.getNewInstance(clazz, parameterTypes, constructorArgs);
 
         } catch (final InstantiationException e) {
 
-            // TODO 2025/01/30 KenichiroArai KMGの例外にする
             throw new KmgDomainException(e.getMessage(), KmgLogMessageTypes.NONE, e);
 
         } catch (final IllegalAccessException e) {
 
-            // TODO 2025/01/30 KenichiroArai KMGの例外にする
             throw new KmgDomainException(e.getMessage(), KmgLogMessageTypes.NONE, e);
 
         } catch (final IllegalArgumentException e) {
 
-            // TODO 2025/01/30 KenichiroArai KMGの例外にする
             throw new KmgDomainException(e.getMessage(), KmgLogMessageTypes.NONE, e);
 
         } catch (final InvocationTargetException e) {
 
-            // TODO 2025/01/30 KenichiroArai KMGの例外にする
             throw new KmgDomainException(e.getMessage(), KmgLogMessageTypes.NONE, e);
 
         } catch (final NoSuchMethodException e) {
 
-            // TODO 2025/01/30 KenichiroArai KMGの例外にする
             throw new KmgDomainException(e.getMessage(), KmgLogMessageTypes.NONE, e);
 
         } catch (final SecurityException e) {
 
-            // TODO 2025/01/30 KenichiroArai KMGの例外にする
             throw new KmgDomainException(e.getMessage(), KmgLogMessageTypes.NONE, e);
 
         }
@@ -478,6 +482,42 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
         throws NoSuchMethodException, SecurityException {
 
         final Method result = targetClazz.getMethod(name, parameterTypes);
+        return result;
+
+    }
+
+    /**
+     * クラスのコンストラクタを取得し、インスタンスを生成する<br>
+     *
+     * @author KenichiroArai
+     * @sine 1.0.0
+     * @version 1.0.0
+     * @param targetClazz
+     *                        対象クラス
+     * @param parameterTypes
+     *                        パラメータ型
+     * @param constructorArgs
+     *                        コンストラクタ引数
+     * @return インスタンス
+     * @throws NoSuchMethodException
+     *                                   メソッドが存在しない例外
+     * @throws SecurityException
+     *                                   セキュリティ例外
+     * @throws InstantiationException
+     *                                   インスタンス化例外
+     * @throws IllegalAccessException
+     *                                   不正アクセス例外
+     * @throws IllegalArgumentException
+     *                                   不正な引数例外
+     * @throws InvocationTargetException
+     *                                   呼び出し対象例外
+     */
+    @SuppressWarnings("static-method")
+    protected Object getNewInstance(final Class<?> targetClazz, final Class<?>[] parameterTypes,
+        final Object... constructorArgs) throws NoSuchMethodException, SecurityException, InstantiationException,
+        IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+
+        final Object result = targetClazz.getDeclaredConstructor(parameterTypes).newInstance(constructorArgs);
         return result;
 
     }
