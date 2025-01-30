@@ -30,7 +30,23 @@ public class KmgPfaMeasServiceImpl implements KmgPfaMeasService {
     public KmgPfaMeasServiceImpl(final String name) {
 
         this.name = name;
-        this.kmgPfaMeasModel = new KmgPfaMeasModel();
+        this.kmgPfaMeasModel = this.createKmgPfaMeasModel();
+
+    }
+
+    /**
+     * 終了<br>
+     *
+     * @author KenichiroArai
+     * @sine 1.0.0
+     * @version 1.0.0
+     */
+    @Override
+    public void end() {
+
+        this.kmgPfaMeasModel.end();
+        System.out.println(String.format("%s：終了。経過時間=[%f%s]", this.name, this.kmgPfaMeasModel.getElapsedTime(), //$NON-NLS-1$
+            this.kmgPfaMeasModel.getTimeUnit().getUnitName()));
 
     }
 
@@ -50,18 +66,18 @@ public class KmgPfaMeasServiceImpl implements KmgPfaMeasService {
     }
 
     /**
-     * 終了<br>
+     * KMG性能測定モデルを生成する<br>
      *
      * @author KenichiroArai
      * @sine 1.0.0
      * @version 1.0.0
+     * @return KMG性能測定モデル
      */
-    @Override
-    public void end() {
+    @SuppressWarnings("static-method")
+    protected KmgPfaMeasModel createKmgPfaMeasModel() {
 
-        this.kmgPfaMeasModel.end();
-        System.out.println(String.format("%s：終了。経過時間=[%f%s]", this.name, this.kmgPfaMeasModel.getElapsedTime(), //$NON-NLS-1$
-                this.kmgPfaMeasModel.getTimeUnit().getUnitName()));
+        final KmgPfaMeasModel result = new KmgPfaMeasModel();
+        return result;
 
     }
 
