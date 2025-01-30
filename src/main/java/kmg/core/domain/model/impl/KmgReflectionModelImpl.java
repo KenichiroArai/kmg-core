@@ -28,22 +28,6 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
     private Field lastGetField;
 
     /**
-     * オブジェクト用コンストラクタ<br>
-     *
-     * @author KenichiroArai
-     * @since 1.0.0
-     * @version 1.0.0
-     * @param object
-     *               対象オブジェクトのインスタンス
-     */
-    public KmgReflectionModelImpl(final Object object) {
-
-        this.object = object;
-        this.clazz = object.getClass();
-
-    }
-
-    /**
      * クラス用コンストラクタ<br>
      *
      * @author KenichiroArai
@@ -92,6 +76,22 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
 
         }
         this.clazz = clazz;
+
+    }
+
+    /**
+     * オブジェクト用コンストラクタ<br>
+     *
+     * @author KenichiroArai
+     * @since 1.0.0
+     * @version 1.0.0
+     * @param object
+     *               対象オブジェクトのインスタンス
+     */
+    public KmgReflectionModelImpl(final Object object) {
+
+        this.object = object;
+        this.clazz = object.getClass();
 
     }
 

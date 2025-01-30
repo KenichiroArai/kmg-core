@@ -130,7 +130,7 @@ public class KmgSqlPathModelImpl implements KmgSqlPathModel {
 
         }
 
-        String result = sqlTmp.toString().replaceAll("\\R+$", KmgString.EMPTY);
+        final String result = sqlTmp.toString().replaceAll("\\R+$", KmgString.EMPTY);
 
         return result;
 

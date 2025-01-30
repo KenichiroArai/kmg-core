@@ -74,6 +74,38 @@ public class KmgSqlPathModelImplTest {
     }
 
     /**
+     * convertParameters メソッドのテスト - 正常系：空文字列<br>
+     *
+     * @author KenichiroArai
+     * @sine 1.0.0
+     * @version 1.0.0
+     * @throws Exception
+     *                   例外
+     */
+    @SuppressWarnings("static-method")
+    @Test
+    public void testConvertParameters_normalEmptyString() throws Exception {
+
+        /* 期待値の定義 */
+        final String expectedResult = KmgString.EMPTY;
+
+        /* 準備 */
+        final Path                testFile       = Files.createTempFile("test", ".sql");
+        final KmgSqlPathModelImpl testInstance   = new KmgSqlPathModelImpl(KmgSqlPathModelImplTest.class, testFile);
+        final KmgReflectionModel  testReflection = new KmgReflectionModelImpl(testInstance);
+
+        /* テスト対象の実行 */
+        final String testResult = (String) testReflection.getMethod("convertParameters", KmgString.EMPTY);
+
+        /* 検証の準備 */
+        final String actualResult = testResult;
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expectedResult, actualResult, "空文字列が返されていません");
+
+    }
+
+    /**
      * toSql メソッドのテスト - 異常系：ファイルが存在しない<br>
      *
      * @author KenichiroArai
@@ -154,36 +186,6 @@ public class KmgSqlPathModelImplTest {
 
         /* 検証の実施 */
         Assertions.assertEquals(expectedSql, actualSql, "SQLが一致しません");
-
-    }
-
-    /**
-     * convertParameters メソッドのテスト - 正常系：空文字列<br>
-     *
-     * @author KenichiroArai
-     * @sine 1.0.0
-     * @version 1.0.0
-     * @throws Exception
-     *                   例外
-     */
-    @SuppressWarnings("static-method")
-    @Test
-    public void testConvertParameters_normalEmptyString() throws Exception {
-
-        /* 期待値の定義 */
-        final String expectedResult = KmgString.EMPTY;
-
-        /* 準備 */
-        final KmgReflectionModel testReflection = new KmgReflectionModelImpl(KmgSqlPathModelImpl.class);
-
-        /* テスト対象の実行 */
-        final String testResult = (String) testReflection.getMethod("convertParameters", KmgString.EMPTY);
-
-        /* 検証の準備 */
-        final String actualResult = testResult;
-
-        /* 検証の実施 */
-        Assertions.assertEquals(expectedResult, actualResult, "空文字列が返されていません");
 
     }
 }
