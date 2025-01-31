@@ -1,11 +1,13 @@
 package kmg.core.infrastructure.utils;
 
+import java.net.URISyntaxException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.net.URISyntaxException;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.mockito.MockedStatic;
+import org.mockito.Mockito;
 
 import kmg.core.infrastructure.exception.KmgDomainException;
 
@@ -62,6 +64,40 @@ public class KmgPathUtilsTest {
 
         /* 検証の実施 */
         Assertions.assertEquals(expected, actual, "nullの場合はnullを返すべき");
+
+    }
+
+    /**
+     * getBinPath メソッドのテスト - URISyntaxExceptionが発生する場合
+     *
+     * @throws Exception
+     *                   失敗
+     */
+    @Test
+    public void testGetBinPath_throwsURISyntaxException() throws Exception {
+
+        /* 期待値の定義 */
+        final String expectedMessage = "Test URI Syntax Exception";
+
+        /* 準備 */
+        final Class<?>           testTarget    = KmgPathUtilsTest.class;
+        final URISyntaxException testException = new URISyntaxException("test", expectedMessage);
+
+        try (MockedStatic<KmgPathUtils> mockedStatic = Mockito.mockStatic(KmgPathUtils.class)) {
+
+            /* テスト対象の実行 */
+            mockedStatic.when(() -> KmgPathUtils.getCodeSourceLocation(testTarget)).thenThrow(testException);
+
+            mockedStatic.when(() -> KmgPathUtils.getBinPath(testTarget)).thenCallRealMethod();
+
+            /* 検証の実施 */
+            final KmgDomainException actualException = Assertions.assertThrows(KmgDomainException.class,
+                () -> KmgPathUtils.getBinPath(testTarget), "URISyntaxExceptionが発生した場合、KmgDomainExceptionがスローされるべき");
+
+            Assertions.assertEquals(expectedMessage, actualException.getMessage(), "例外メッセージが一致するべき");
+            Assertions.assertEquals(testException, actualException.getCause(), "原因となる例外が設定されているべき");
+
+        }
 
     }
 
@@ -211,46 +247,6 @@ public class KmgPathUtilsTest {
     }
 
     /**
-     * getFileNameOnly メソッドのテスト - nullの場合
-     */
-    @Test
-    public void testGetFileNameOnly_null() {
-
-        /* 期待値の定義 */
-        final String expected = null;
-
-        /* 準備 */
-        final Path testTarget = null;
-
-        /* テスト対象の実行 */
-        final String actual = KmgPathUtils.getFileNameOnly(testTarget);
-
-        /* 検証の実施 */
-        Assertions.assertEquals(expected, actual, "nullの場合はnullを返すべき");
-
-    }
-
-    /**
-     * getFileNameOnly メソッドのテスト - 正常なファイルパスの場合
-     */
-    @Test
-    public void testGetFileNameOnly_validPath() {
-
-        /* 期待値の定義 */
-        final String expected = "test";
-
-        /* 準備 */
-        final Path testTarget = Paths.get("path/to/test.txt");
-
-        /* テスト対象の実行 */
-        final String actual = KmgPathUtils.getFileNameOnly(testTarget);
-
-        /* 検証の実施 */
-        Assertions.assertEquals(expected, actual, "拡張子を除いたファイル名が返されるべき");
-
-    }
-
-    /**
      * getCodeSourceLocation メソッドのテスト - nullの場合
      *
      * @throws URISyntaxException
@@ -291,6 +287,46 @@ public class KmgPathUtilsTest {
         /* 検証の実施 */
         Assertions.assertNotNull(actual, "ビルドパスが返されるべき");
         Assertions.assertTrue(actual.toString().endsWith("test-classes"), "test-classesディレクトリを指すべき");
+
+    }
+
+    /**
+     * getFileNameOnly メソッドのテスト - nullの場合
+     */
+    @Test
+    public void testGetFileNameOnly_null() {
+
+        /* 期待値の定義 */
+        final String expected = null;
+
+        /* 準備 */
+        final Path testTarget = null;
+
+        /* テスト対象の実行 */
+        final String actual = KmgPathUtils.getFileNameOnly(testTarget);
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "nullの場合はnullを返すべき");
+
+    }
+
+    /**
+     * getFileNameOnly メソッドのテスト - 正常なファイルパスの場合
+     */
+    @Test
+    public void testGetFileNameOnly_validPath() {
+
+        /* 期待値の定義 */
+        final String expected = "test";
+
+        /* 準備 */
+        final Path testTarget = Paths.get("path/to/test.txt");
+
+        /* テスト対象の実行 */
+        final String actual = KmgPathUtils.getFileNameOnly(testTarget);
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "拡張子を除いたファイル名が返されるべき");
 
     }
 }
