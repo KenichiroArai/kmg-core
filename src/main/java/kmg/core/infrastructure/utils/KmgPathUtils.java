@@ -121,6 +121,12 @@ public final class KmgPathUtils {
 
         Path result = null;
 
+        if (zlass == null) {
+
+            return result;
+
+        }
+
         result = Paths.get(zlass.getProtectionDomain().getCodeSource().getLocation().toURI());
 
         return result;
