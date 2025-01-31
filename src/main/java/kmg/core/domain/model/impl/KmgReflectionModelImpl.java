@@ -39,7 +39,17 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
     public KmgReflectionModelImpl(final Object object) {
 
         this.object = object;
-        this.clazz = object.getClass();
+
+        // objectがクラスならインスタンスを生成する
+        if (object instanceof Class<?>) {
+
+            this.clazz = (Class<?>) object;
+
+        } else {
+
+            this.clazz = object.getClass();
+
+        }
 
     }
 
@@ -175,17 +185,6 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
 
         }
 
-        /* パラメータクラスの設定 */
-        final Class<?>[] parameterTypes = new Class[parameters.length];
-        int              i              = 0;
-
-        for (final Object param : parameters) {
-
-            parameterTypes[i] = param.getClass();
-            i++;
-
-        }
-
         /* メソッドの取得 */
         Method   method      = null;
         Class<?> targetClazz = this.clazz;
@@ -194,42 +193,58 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
 
             while (targetClazz != Object.class) {
 
-                try {
+                /* 宣言されているメソッドを取得 */
+                final Method[] methods = targetClazz.getDeclaredMethods();
 
-                    try {
+                for (final Method m : methods) {
 
-                        method = this.getMethod(targetClazz, methodName, parameterTypes);
+                    /* メソッド名とパラメータ数が一致するか確認 */
+                    if (m.getName().equals(methodName) && (m.getParameterCount() == parameters.length)) {
 
-                        // メソッドが見つかった
-                        break;
+                        /* パラメータの型チェック */
+                        final Class<?>[] paramTypes = m.getParameterTypes();
+                        boolean          match      = true;
 
-                    } catch (@SuppressWarnings("unused") final NoSuchMethodException e) {
+                        for (int i = 0; i < paramTypes.length; i++) {
 
-                        method = targetClazz.getDeclaredMethod(methodName, parameterTypes);
+                            if ((parameters[i] != null) && !paramTypes[i].isAssignableFrom(parameters[i].getClass())) {
 
-                        // メソッドが見つかった
-                        break;
+                                match = false;
+                                break;
+
+                            }
+
+                        }
+
+                        if (match) {
+
+                            method = m;
+                            break;
+
+                        }
 
                     }
 
-                } catch (@SuppressWarnings("unused") final NoSuchMethodException e) {
+                }
 
-                    targetClazz = targetClazz.getSuperclass();
+                if (method != null) {
+
+                    break;
 
                 }
+                targetClazz = targetClazz.getSuperclass();
 
             }
 
-        } catch (final SecurityException | IllegalArgumentException e) {
+            if (method == null) {
 
-            // TODO 2021/06/06 KenichiroArai KMGの例外にする
+                return result;
+
+            }
+
+        } catch (final SecurityException e) {
+
             throw new KmgDomainException(e.getMessage(), KmgLogMessageTypes.NONE, e);
-
-        }
-
-        if (method == null) {
-
-            return result;
 
         }
 
@@ -244,7 +259,6 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
         } catch (final SecurityException | IllegalAccessException | IllegalArgumentException
             | InvocationTargetException e) {
 
-            // TODO 2021/06/06 KenichiroArai KMGの例外にする
             throw new KmgDomainException(e.getMessage(), KmgLogMessageTypes.NONE, e);
 
         }
