@@ -13,193 +13,86 @@ import org.junit.jupiter.api.Test;
 public class KmgStringTest {
 
     /**
-     * getValue メソッドのテスト - 初期値の取得
+     * camelCase メソッドのテスト - スネークケースからキャメルケースへの変換
      */
     @Test
     @SuppressWarnings("static-method")
-    public void testGetValue_initialValue() {
+    public void testCamelCase_fromSnakeCase() {
 
         /* 期待値の定義 */
-        final String expected = "test";
+        final String expected = "aaaBbbCcc";
 
         /* 準備 */
-        final KmgString kmgString = new KmgString(expected);
+        final String target = "aaa_bbb_ccc";
 
         /* テスト対象の実行 */
-        final String actual = kmgString.getValue();
+        final String actual = KmgString.camelCase(target);
 
         /* 検証の実施 */
-        Assertions.assertEquals(expected, actual, "コンストラクタで設定した値がgetValueで取得できること");
+        Assertions.assertEquals(expected, actual, "スネークケースからキャメルケースへの変換が正しくないです");
 
     }
 
     /**
-     * isEmpty メソッドのテスト - 引数がnullの場合
+     * camelCase メソッドのテスト - 引数がnullの場合
      */
     @Test
     @SuppressWarnings("static-method")
-    public void testIsEmpty_null() {
+    public void testCamelCase_null() {
 
         /* 期待値の定義 */
-        final boolean expected = true;
+        final String expected = null;
 
         /* 準備 */
         final String target = null;
 
         /* テスト対象の実行 */
-        final boolean actual = KmgString.isEmpty(target);
+        final String actual = KmgString.camelCase(target);
 
         /* 検証の実施 */
-        Assertions.assertEquals(expected, actual, "nullの場合、trueを返すべき");
+        Assertions.assertEquals(expected, actual, "nullの場合、nullを返すべき");
 
     }
 
     /**
-     * isEmpty メソッドのテスト - 引数が空文字の場合
+     * camelCase メソッドのテスト - 大文字の1文字の場合
      */
     @Test
     @SuppressWarnings("static-method")
-    public void testIsEmpty_emptyString() {
+    public void testCamelCase_singleBigChar() {
 
         /* 期待値の定義 */
-        final boolean expected = true;
+        final String expected = "a";
 
         /* 準備 */
-        final String target = "";
+        final String target = "A";
 
         /* テスト対象の実行 */
-        final boolean actual = KmgString.isEmpty(target);
+        final String actual = KmgString.camelCase(target);
 
         /* 検証の実施 */
-        Assertions.assertEquals(expected, actual, "空文字の場合、trueを返すべき");
+        Assertions.assertEquals(expected, actual, "1文字の場合、小文字の1文字を返すべき");
 
     }
 
     /**
-     * isEmpty メソッドのテスト - 引数が文字列の場合
+     * camelCase メソッドのテスト - 小文字の1文字の場合
      */
     @Test
     @SuppressWarnings("static-method")
-    public void testIsEmpty_nonEmptyString() {
+    public void testCamelCase_singleLowerChar() {
 
         /* 期待値の定義 */
-        final boolean expected = false;
+        final String expected = "a";
 
         /* 準備 */
-        final String target = "test";
+        final String target = "a";
 
         /* テスト対象の実行 */
-        final boolean actual = KmgString.isEmpty(target);
+        final String actual = KmgString.camelCase(target);
 
         /* 検証の実施 */
-        Assertions.assertEquals(expected, actual, "文字列がある場合、falseを返すべき");
-
-    }
-
-    /**
-     * isNotEmpty メソッドのテスト - 引数がnullの場合
-     */
-    @Test
-    @SuppressWarnings("static-method")
-    public void testIsNotEmpty_null() {
-
-        /* 期待値の定義 */
-        final boolean expected = false;
-
-        /* 準備 */
-        final String target = null;
-
-        /* テスト対象の実行 */
-        final boolean actual = KmgString.isNotEmpty(target);
-
-        /* 検証の実施 */
-        Assertions.assertEquals(expected, actual, "nullの場合、falseを返すべき");
-
-    }
-
-    /**
-     * isNotEmpty メソッドのテスト - 引数が空文字の場合
-     */
-    @Test
-    @SuppressWarnings("static-method")
-    public void testIsNotEmpty_emptyString() {
-
-        /* 期待値の定義 */
-        final boolean expected = false;
-
-        /* 準備 */
-        final String target = "";
-
-        /* テスト対象の実行 */
-        final boolean actual = KmgString.isNotEmpty(target);
-
-        /* 検証の実施 */
-        Assertions.assertEquals(expected, actual, "空文字の場合、falseを返すべき");
-
-    }
-
-    /**
-     * isNotEmpty メソッドのテスト - 引数が文字列の場合
-     */
-    @Test
-    @SuppressWarnings("static-method")
-    public void testIsNotEmpty_nonEmptyString() {
-
-        /* 期待値の定義 */
-        final boolean expected = true;
-
-        /* 準備 */
-        final String target = "test";
-
-        /* テスト対象の実行 */
-        final boolean actual = KmgString.isNotEmpty(target);
-
-        /* 検証の実施 */
-        Assertions.assertEquals(expected, actual, "文字列がある場合、trueを返すべき");
-
-    }
-
-    /**
-     * concat メソッドのテスト - 空の配列の場合
-     */
-    @Test
-    @SuppressWarnings("static-method")
-    public void testConcat_emptyArray() {
-
-        /* 期待値の定義 */
-        final String expected = "";
-
-        /* 準備 */
-        final String[] target = {};
-
-        /* テスト対象の実行 */
-        final String actual = KmgString.concat(target);
-
-        /* 検証の実施 */
-        Assertions.assertEquals(expected, actual, "空の配列の場合、空文字を返すべき");
-
-    }
-
-    /**
-     * concat メソッドのテスト - 複数の文字列を結合する場合
-     */
-    @Test
-    @SuppressWarnings("static-method")
-    public void testConcat_multipleStrings() {
-
-        /* 期待値の定義 */
-        final String expected = "abc123";
-
-        /* 準備 */
-        final String[] target = {
-                "abc", "123"
-        };
-
-        /* テスト対象の実行 */
-        final String actual = KmgString.concat(target);
-
-        /* 検証の実施 */
-        Assertions.assertEquals(expected, actual, "複数の文字列が正しく結合されること");
+        Assertions.assertEquals(expected, actual, "1文字の場合、小文字の1文字を返すべき");
 
     }
 
@@ -246,171 +139,46 @@ public class KmgStringTest {
     }
 
     /**
-     * snakeCase メソッドのテスト - 空文字の場合
+     * concat メソッドのテスト - 空の配列の場合
      */
     @Test
     @SuppressWarnings("static-method")
-    public void testSnakeCase_emptyString() {
+    public void testConcat_emptyArray() {
 
         /* 期待値の定義 */
-        final String expected = null;
+        final String expected = "";
 
         /* 準備 */
-        final String target = "";
+        final String[] target = {};
 
         /* テスト対象の実行 */
-        final String actual = KmgString.snakeCase(target);
+        final String actual = KmgString.concat(target);
 
         /* 検証の実施 */
-        Assertions.assertEquals(expected, actual, "空文字の場合、nullを返すべき");
+        Assertions.assertEquals(expected, actual, "空の配列の場合、空文字を返すべき");
 
     }
 
     /**
-     * snakeCase メソッドのテスト - 1文字の場合
+     * concat メソッドのテスト - 複数の文字列を結合する場合
      */
     @Test
     @SuppressWarnings("static-method")
-    public void testSnakeCase_singleChar() {
+    public void testConcat_multipleStrings() {
 
         /* 期待値の定義 */
-        final String expected = null;
+        final String expected = "abc123";
 
         /* 準備 */
-        final String target = "a";
+        final String[] target = {
+            "abc", "123"
+        };
 
         /* テスト対象の実行 */
-        final String actual = KmgString.snakeCase(target);
+        final String actual = KmgString.concat(target);
 
         /* 検証の実施 */
-        Assertions.assertEquals(expected, actual, "1文字の場合、nullを返すべき");
-
-    }
-
-    /**
-     * snakeCase メソッドのテスト - キャメルケースからスネークケースへの変換
-     */
-    @Test
-    @SuppressWarnings("static-method")
-    public void testSnakeCase_fromCamelCase() {
-
-        /* 期待値の定義 */
-        final String expected = "aaa_bbb_ccc";
-
-        /* 準備 */
-        final String target = "aaaBbbCcc";
-
-        /* テスト対象の実行 */
-        final String actual = KmgString.snakeCase(target);
-
-        /* 検証の実施 */
-        Assertions.assertEquals(expected, actual, "キャメルケースからスネークケースへの変換が正しくないです");
-
-    }
-
-    /**
-     * camelCase メソッドのテスト - スネークケースからキャメルケースへの変換
-     */
-    @Test
-    @SuppressWarnings("static-method")
-    public void testCamelCase_fromSnakeCase() {
-
-        /* 期待値の定義 */
-        final String expected = "aaaBbbCcc";
-
-        /* 準備 */
-        final String target = "aaa_bbb_ccc";
-
-        /* テスト対象の実行 */
-        final String actual = KmgString.camelCase(target);
-
-        /* 検証の実施 */
-        Assertions.assertEquals(expected, actual, "スネークケースからキャメルケースへの変換が正しくないです");
-
-    }
-
-    /**
-     * camelCase メソッドのテスト - 引数がnullの場合
-     */
-    @Test
-    @SuppressWarnings("static-method")
-    public void testCamelCase_null() {
-
-        /* 期待値の定義 */
-        final String expected = null;
-
-        /* 準備 */
-        final String target = null;
-
-        /* テスト対象の実行 */
-        final String actual = KmgString.camelCase(target);
-
-        /* 検証の実施 */
-        Assertions.assertEquals(expected, actual, "nullの場合、nullを返すべき");
-
-    }
-
-    /**
-     * camelCase メソッドのテスト - 小文字の1文字の場合
-     */
-    @Test
-    @SuppressWarnings("static-method")
-    public void testCamelCase_singleLowerChar() {
-
-        /* 期待値の定義 */
-        final String expected = "a";
-
-        /* 準備 */
-        final String target = "a";
-
-        /* テスト対象の実行 */
-        final String actual = KmgString.camelCase(target);
-
-        /* 検証の実施 */
-        Assertions.assertEquals(expected, actual, "1文字の場合、小文字の1文字を返すべき");
-
-    }
-
-    /**
-     * camelCase メソッドのテスト - 大文字の1文字の場合
-     */
-    @Test
-    @SuppressWarnings("static-method")
-    public void testCamelCase_singleBigChar() {
-
-        /* 期待値の定義 */
-        final String expected = "a";
-
-        /* 準備 */
-        final String target = "A";
-
-        /* テスト対象の実行 */
-        final String actual = KmgString.camelCase(target);
-
-        /* 検証の実施 */
-        Assertions.assertEquals(expected, actual, "1文字の場合、小文字の1文字を返すべき");
-
-    }
-
-    /**
-     * equals メソッドのテスト - 同じ文字列の場合
-     */
-    @Test
-    @SuppressWarnings("static-method")
-    public void testEquals_sameStrings() {
-
-        /* 期待値の定義 */
-        final boolean expected = true;
-
-        /* 準備 */
-        final String str1 = "test";
-        final String str2 = "test";
-
-        /* テスト対象の実行 */
-        final boolean actual = KmgString.equals(str1, str2);
-
-        /* 検証の実施 */
-        Assertions.assertEquals(expected, actual, "同じ文字列の場合、trueを返すべき");
+        Assertions.assertEquals(expected, actual, "複数の文字列が正しく結合されること");
 
     }
 
@@ -433,6 +201,28 @@ public class KmgStringTest {
 
         /* 検証の実施 */
         Assertions.assertEquals(expected, actual, "異なる文字列の場合、falseを返すべき");
+
+    }
+
+    /**
+     * equals メソッドのテスト - 同じ文字列の場合
+     */
+    @Test
+    @SuppressWarnings("static-method")
+    public void testEquals_sameStrings() {
+
+        /* 期待値の定義 */
+        final boolean expected = true;
+
+        /* 準備 */
+        final String str1 = "test";
+        final String str2 = "test";
+
+        /* テスト対象の実行 */
+        final boolean actual = KmgString.equals(str1, str2);
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "同じ文字列の場合、trueを返すべき");
 
     }
 
@@ -481,6 +271,28 @@ public class KmgStringTest {
     }
 
     /**
+     * equalsIgnoreCase メソッドのテスト - 両方nullの場合
+     */
+    @Test
+    @SuppressWarnings("static-method")
+    public void testEqualsIgnoreCase_bothNull() {
+
+        /* 期待値の定義 */
+        final boolean expected = false;
+
+        /* 準備 */
+        final String str1 = null;
+        final String str2 = null;
+
+        /* テスト対象の実行 */
+        final boolean actual = KmgString.equalsIgnoreCase(str1, str2);
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "両方nullの場合、falseを返すべき");
+
+    }
+
+    /**
      * equalsIgnoreCase メソッドのテスト - 大文字小文字が異なる場合
      */
     @Test
@@ -499,6 +311,50 @@ public class KmgStringTest {
 
         /* 検証の実施 */
         Assertions.assertEquals(expected, actual, "大文字小文字が異なる場合でも、trueを返すべき");
+
+    }
+
+    /**
+     * equalsIgnoreCase メソッドのテスト - 異なる文字列の場合
+     */
+    @Test
+    @SuppressWarnings("static-method")
+    public void testEqualsIgnoreCase_differentStrings() {
+
+        /* 期待値の定義 */
+        final boolean expected = false;
+
+        /* 準備 */
+        final String str1 = "test1";
+        final String str2 = "test2";
+
+        /* テスト対象の実行 */
+        final boolean actual = KmgString.equalsIgnoreCase(str1, str2);
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "異なる文字列の場合、falseを返すべき");
+
+    }
+
+    /**
+     * equalsIgnoreCase メソッドのテスト - 同一文字列の場合
+     */
+    @Test
+    @SuppressWarnings("static-method")
+    public void testEqualsIgnoreCase_sameStrings() {
+
+        /* 期待値の定義 */
+        final boolean expected = true;
+
+        /* 準備 */
+        final String str1 = "test";
+        final String str2 = "test";
+
+        /* テスト対象の実行 */
+        final boolean actual = KmgString.equalsIgnoreCase(str1, str2);
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "同一文字列の場合、trueを返すべき");
 
     }
 
@@ -547,68 +403,65 @@ public class KmgStringTest {
     }
 
     /**
-     * equalsIgnoreCase メソッドのテスト - 同一文字列の場合
+     * fromCamelCaseメソッドのテスト
      */
     @Test
     @SuppressWarnings("static-method")
-    public void testEqualsIgnoreCase_sameStrings() {
+    public void testFromCamelCase() {
 
         /* 期待値の定義 */
-        final boolean expected = true;
+        final String expected = "aaaBbbCcc";
 
         /* 準備 */
-        final String str1 = "test";
-        final String str2 = "test";
+        final KmgString kmgString = new KmgString("aaa_bbb_ccc");
 
         /* テスト対象の実行 */
-        final boolean actual = KmgString.equalsIgnoreCase(str1, str2);
+        kmgString.fromCamelCase();
 
         /* 検証の実施 */
-        Assertions.assertEquals(expected, actual, "同一文字列の場合、trueを返すべき");
+        Assertions.assertEquals(expected, kmgString.getValue(), "キャメルケースへの変換が正しくないです");
 
     }
 
     /**
-     * equalsIgnoreCase メソッドのテスト - 異なる文字列の場合
+     * fromSnakeCaseメソッドのテスト
      */
     @Test
     @SuppressWarnings("static-method")
-    public void testEqualsIgnoreCase_differentStrings() {
+    public void testFromSnakeCase() {
 
         /* 期待値の定義 */
-        final boolean expected = false;
+        final String expected = "aaa_bbb_ccc";
 
         /* 準備 */
-        final String str1 = "test1";
-        final String str2 = "test2";
+        final KmgString kmgString = new KmgString("aaaBbbCcc");
 
         /* テスト対象の実行 */
-        final boolean actual = KmgString.equalsIgnoreCase(str1, str2);
+        kmgString.fromSnakeCase();
 
         /* 検証の実施 */
-        Assertions.assertEquals(expected, actual, "異なる文字列の場合、falseを返すべき");
+        Assertions.assertEquals(expected, kmgString.getValue(), "スネークケースへの変換が正しくないです");
 
     }
 
     /**
-     * equalsIgnoreCase メソッドのテスト - 両方nullの場合
+     * getValue メソッドのテスト - 初期値の取得
      */
     @Test
     @SuppressWarnings("static-method")
-    public void testEqualsIgnoreCase_bothNull() {
+    public void testGetValue_initialValue() {
 
         /* 期待値の定義 */
-        final boolean expected = false;
+        final String expected = "test";
 
         /* 準備 */
-        final String str1 = null;
-        final String str2 = null;
+        final KmgString kmgString = new KmgString(expected);
 
         /* テスト対象の実行 */
-        final boolean actual = KmgString.equalsIgnoreCase(str1, str2);
+        final String actual = kmgString.getValue();
 
         /* 検証の実施 */
-        Assertions.assertEquals(expected, actual, "両方nullの場合、falseを返すべき");
+        Assertions.assertEquals(expected, actual, "コンストラクタで設定した値がgetValueで取得できること");
 
     }
 
@@ -655,20 +508,188 @@ public class KmgStringTest {
     }
 
     /**
-     * toSnakeCaseメソッドのテスト
+     * isEmpty メソッドのテスト - 引数が空文字の場合
      */
     @Test
     @SuppressWarnings("static-method")
-    public void testToSnakeCase() {
+    public void testIsEmpty_emptyString() {
+
+        /* 期待値の定義 */
+        final boolean expected = true;
+
+        /* 準備 */
+        final String target = "";
+
+        /* テスト対象の実行 */
+        final boolean actual = KmgString.isEmpty(target);
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "空文字の場合、trueを返すべき");
+
+    }
+
+    /**
+     * isEmpty メソッドのテスト - 引数が文字列の場合
+     */
+    @Test
+    @SuppressWarnings("static-method")
+    public void testIsEmpty_nonEmptyString() {
+
+        /* 期待値の定義 */
+        final boolean expected = false;
+
+        /* 準備 */
+        final String target = "test";
+
+        /* テスト対象の実行 */
+        final boolean actual = KmgString.isEmpty(target);
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "文字列がある場合、falseを返すべき");
+
+    }
+
+    /**
+     * isEmpty メソッドのテスト - 引数がnullの場合
+     */
+    @Test
+    @SuppressWarnings("static-method")
+    public void testIsEmpty_null() {
+
+        /* 期待値の定義 */
+        final boolean expected = true;
+
+        /* 準備 */
+        final String target = null;
+
+        /* テスト対象の実行 */
+        final boolean actual = KmgString.isEmpty(target);
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "nullの場合、trueを返すべき");
+
+    }
+
+    /**
+     * isNotEmpty メソッドのテスト - 引数が空文字の場合
+     */
+    @Test
+    @SuppressWarnings("static-method")
+    public void testIsNotEmpty_emptyString() {
+
+        /* 期待値の定義 */
+        final boolean expected = false;
+
+        /* 準備 */
+        final String target = "";
+
+        /* テスト対象の実行 */
+        final boolean actual = KmgString.isNotEmpty(target);
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "空文字の場合、falseを返すべき");
+
+    }
+
+    /**
+     * isNotEmpty メソッドのテスト - 引数が文字列の場合
+     */
+    @Test
+    @SuppressWarnings("static-method")
+    public void testIsNotEmpty_nonEmptyString() {
+
+        /* 期待値の定義 */
+        final boolean expected = true;
+
+        /* 準備 */
+        final String target = "test";
+
+        /* テスト対象の実行 */
+        final boolean actual = KmgString.isNotEmpty(target);
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "文字列がある場合、trueを返すべき");
+
+    }
+
+    /**
+     * isNotEmpty メソッドのテスト - 引数がnullの場合
+     */
+    @Test
+    @SuppressWarnings("static-method")
+    public void testIsNotEmpty_null() {
+
+        /* 期待値の定義 */
+        final boolean expected = false;
+
+        /* 準備 */
+        final String target = null;
+
+        /* テスト対象の実行 */
+        final boolean actual = KmgString.isNotEmpty(target);
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "nullの場合、falseを返すべき");
+
+    }
+
+    /**
+     * replaceメソッドのテスト
+     */
+    @Test
+    @SuppressWarnings("static-method")
+    public void testReplace() {
+
+        /* 期待値の定義 */
+        final String expected = "Hello World";
+
+        /* 準備 */
+        final KmgString kmgString = new KmgString("Hello Test");
+
+        /* テスト対象の実行 */
+        kmgString.replace("Test", "World");
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, kmgString.getValue(), "文字列の置換が正しくないです");
+
+    }
+
+    /**
+     * snakeCase メソッドのテスト - 空文字の場合
+     */
+    @Test
+    @SuppressWarnings("static-method")
+    public void testSnakeCase_emptyString() {
+
+        /* 期待値の定義 */
+        final String expected = null;
+
+        /* 準備 */
+        final String target = "";
+
+        /* テスト対象の実行 */
+        final String actual = KmgString.snakeCase(target);
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "空文字の場合、nullを返すべき");
+
+    }
+
+    /**
+     * snakeCase メソッドのテスト - キャメルケースからスネークケースへの変換
+     */
+    @Test
+    @SuppressWarnings("static-method")
+    public void testSnakeCase_fromCamelCase() {
 
         /* 期待値の定義 */
         final String expected = "aaa_bbb_ccc";
 
         /* 準備 */
-        final KmgString kmgString = new KmgString("aaaBbbCcc");
+        final String target = "aaaBbbCcc";
 
         /* テスト対象の実行 */
-        final String actual = kmgString.toSnakeCase();
+        final String actual = KmgString.snakeCase(target);
 
         /* 検証の実施 */
         Assertions.assertEquals(expected, actual, "キャメルケースからスネークケースへの変換が正しくないです");
@@ -676,23 +697,23 @@ public class KmgStringTest {
     }
 
     /**
-     * fromSnakeCaseメソッドのテスト
+     * snakeCase メソッドのテスト - 1文字の場合
      */
     @Test
     @SuppressWarnings("static-method")
-    public void testFromSnakeCase() {
+    public void testSnakeCase_singleChar() {
 
         /* 期待値の定義 */
-        final String expected = "aaa_bbb_ccc";
+        final String expected = null;
 
         /* 準備 */
-        final KmgString kmgString = new KmgString("aaaBbbCcc");
+        final String target = "a";
 
         /* テスト対象の実行 */
-        kmgString.fromSnakeCase();
+        final String actual = KmgString.snakeCase(target);
 
         /* 検証の実施 */
-        Assertions.assertEquals(expected, kmgString.getValue(), "スネークケースへの変換が正しくないです");
+        Assertions.assertEquals(expected, actual, "1文字の場合、nullを返すべき");
 
     }
 
@@ -718,44 +739,23 @@ public class KmgStringTest {
     }
 
     /**
-     * fromCamelCaseメソッドのテスト
+     * toSnakeCaseメソッドのテスト
      */
     @Test
     @SuppressWarnings("static-method")
-    public void testFromCamelCase() {
+    public void testToSnakeCase() {
 
         /* 期待値の定義 */
-        final String expected = "aaaBbbCcc";
+        final String expected = "aaa_bbb_ccc";
 
         /* 準備 */
-        final KmgString kmgString = new KmgString("aaa_bbb_ccc");
+        final KmgString kmgString = new KmgString("aaaBbbCcc");
 
         /* テスト対象の実行 */
-        kmgString.fromCamelCase();
+        final String actual = kmgString.toSnakeCase();
 
         /* 検証の実施 */
-        Assertions.assertEquals(expected, kmgString.getValue(), "キャメルケースへの変換が正しくないです");
-
-    }
-
-    /**
-     * replaceメソッドのテスト
-     */
-    @Test
-    @SuppressWarnings("static-method")
-    public void testReplace() {
-
-        /* 期待値の定義 */
-        final String expected = "Hello World";
-
-        /* 準備 */
-        final KmgString kmgString = new KmgString("Hello Test");
-
-        /* テスト対象の実行 */
-        kmgString.replace("Test", "World");
-
-        /* 検証の実施 */
-        Assertions.assertEquals(expected, kmgString.getValue(), "文字列の置換が正しくないです");
+        Assertions.assertEquals(expected, actual, "キャメルケースからスネークケースへの変換が正しくないです");
 
     }
 

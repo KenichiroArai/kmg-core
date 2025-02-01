@@ -9,7 +9,6 @@ import kmg.core.domain.model.KmgSqlPathModel;
 import kmg.core.infrastructure.exception.KmgDomainException;
 import kmg.core.infrastructure.type.KmgString;
 import kmg.core.infrastructure.types.KmgLogMessageTypes;
-import kmg.core.infrastructure.utils.KmgPathUtils;
 
 /**
  * KMGSQLパスモデル<br>
@@ -20,31 +19,36 @@ import kmg.core.infrastructure.utils.KmgPathUtils;
  */
 public class KmgSqlPathModelImpl implements KmgSqlPathModel {
 
-    /** クラス */
-    private final Class<?> zlass;
-
-    /** SQLファイル名パス */
-    private final Path sqlFileNamePath;
-
     /** SQLファイルパス */
-    private Path sqlFilePath;
+    private final Path sqlFilePath;
 
     /**
-     * コンストラクタ<br>
+     * パラメータをは変換する<br>
+     * <p>
+     * 変換する文字列が空の場合は、変換する文字列をそのまま返す。
+     * </p>
      *
      * @author KenichiroArai
      * @sine 1.0.0
      * @version 1.0.0
-     * @param object
-     *                        オブジェクト
-     * @param sqlFileNamePath
-     *                        SQLファイル名パス
+     * @param str
+     *            変換する文字列
+     * @return 返還後の文字列
      */
-    public KmgSqlPathModelImpl(final Object object, final Path sqlFileNamePath) {
+    private static String convertParameters(final String str) {
 
-        this.zlass = object.getClass();
-        this.sqlFileNamePath = sqlFileNamePath;
-        this.setSqlFilePath();
+        String result = null;
+
+        if (KmgString.isEmpty(str)) {
+
+            result = str;
+            return result;
+
+        }
+
+        result = str.replaceAll("/\\*(.+)\\*/.*", "$1");
+
+        return result;
 
     }
 
@@ -61,22 +65,24 @@ public class KmgSqlPathModelImpl implements KmgSqlPathModel {
      */
     public KmgSqlPathModelImpl(final Class<?> zlass, final Path sqlFileNamePath) {
 
-        this.zlass = zlass;
-        this.sqlFileNamePath = sqlFileNamePath;
-        this.setSqlFilePath();
+        this.sqlFilePath = sqlFileNamePath;
 
     }
 
     /**
-     * SQLファイルパスを設定する<br>
+     * コンストラクタ<br>
      *
      * @author KenichiroArai
      * @sine 1.0.0
      * @version 1.0.0
+     * @param object
+     *                        オブジェクト
+     * @param sqlFileNamePath
+     *                        SQLファイル名パス
      */
-    private void setSqlFilePath() {
+    public KmgSqlPathModelImpl(final Object object, final Path sqlFileNamePath) {
 
-        this.sqlFilePath = KmgPathUtils.getClassFullPath(this.zlass, this.sqlFileNamePath);
+        this.sqlFilePath = sqlFileNamePath;
 
     }
 
@@ -101,8 +107,6 @@ public class KmgSqlPathModelImpl implements KmgSqlPathModel {
     @Override
     public String toSql() throws KmgDomainException {
 
-        String result = null;
-
         final StringBuilder sqlTmp = new StringBuilder();
 
         try (BufferedReader br = Files.newBufferedReader(this.sqlFilePath)) {
@@ -120,44 +124,13 @@ public class KmgSqlPathModelImpl implements KmgSqlPathModel {
         } catch (final IOException e) {
 
             // TODO KenichiroArai 2021/06/08 メッセージ
-            final String             errMsg      = String.format("%sがありません。", this.sqlFileNamePath.toAbsolutePath());
+            final String             errMsg      = String.format("%sがありません。", this.sqlFilePath.toAbsolutePath());
             final KmgLogMessageTypes logMsgTypes = KmgLogMessageTypes.I00001;
             throw new KmgDomainException(errMsg, logMsgTypes, e);
 
         }
 
-        result = sqlTmp.toString().replaceAll("\\R+$", KmgString.EMPTY);
-
-        return result;
-
-    }
-
-    /**
-     * パラメータをは変換する<br>
-     * <p>
-     * 変換する文字列が空の場合は、変換する文字列をそのまま返す。
-     * </p>
-     *
-     * @author KenichiroArai
-     * @sine 1.0.0
-     * @version 1.0.0
-     * @param str
-     *            変換する文字列
-     * @return 返還後の文字列
-     */
-    @SuppressWarnings("nls")
-    private static String convertParameters(final String str) {
-
-        String result = null;
-
-        if (KmgString.isEmpty(str)) {
-
-            result = str;
-            return result;
-
-        }
-
-        result = str.replaceAll("/\\*(.+)\\*/.*", "$1");
+        final String result = sqlTmp.toString().replaceAll("\\R+$", KmgString.EMPTY);
 
         return result;
 
