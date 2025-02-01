@@ -73,7 +73,6 @@ public final class KmgPoiUtils {
 
             case ERROR:
             case _NONE:
-            default:
                 break;
 
         }
@@ -115,7 +114,6 @@ public final class KmgPoiUtils {
             case ERROR:
             case FORMULA:
             case _NONE:
-            default:
                 break;
 
         }

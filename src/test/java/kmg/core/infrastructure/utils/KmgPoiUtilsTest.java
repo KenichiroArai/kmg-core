@@ -5,6 +5,7 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
+import org.apache.poi.ss.usermodel.FormulaError;
 import org.apache.poi.ss.util.CellRangeAddress;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -297,6 +298,102 @@ public class KmgPoiUtilsTest {
 
             /* 検証の実施 */
             Assertions.assertEquals(expected, actual, "セルの真偽値が文字列として返されるべき");
+
+        }
+
+    }
+
+    /**
+     * getStringValue メソッドのテスト - エラーセルの場合
+     *
+     * @throws Exception
+     *                   例外が発生した場合
+     */
+    @Test
+    @SuppressWarnings("static-method")
+    public void testGetStringValue_errorCell() throws Exception {
+
+        /* 期待値の定義 */
+        final String expected = null;
+
+        /* 準備 */
+        try (Workbook workbook = WorkbookFactory.create(true)) {
+
+            final Sheet sheet      = workbook.createSheet();
+            final Row   row        = sheet.createRow(0);
+            final Cell  testTarget = row.createCell(0);
+            testTarget.setCellErrorValue(FormulaError.DIV0.getCode());
+
+            /* テスト対象の実行 */
+            final String actual = KmgPoiUtils.getStringValue(testTarget);
+
+            /* 検証の実施 */
+            Assertions.assertEquals(expected, actual, "エラーセルの場合はnullを返すべき");
+
+        }
+
+    }
+
+    /**
+     * getStringValue メソッドのテスト - 数式セルの場合
+     *
+     * @throws Exception
+     *                   例外が発生した場合
+     */
+    @Test
+    @SuppressWarnings("static-method")
+    public void testGetStringValue_formulaCell() throws Exception {
+
+        /* 期待値の定義 */
+        final String expected = "123.0";
+
+        /* 準備 */
+        try (Workbook workbook = WorkbookFactory.create(true)) {
+
+            final Sheet sheet      = workbook.createSheet();
+            final Row   row        = sheet.createRow(0);
+            final Cell  testTarget = row.createCell(0);
+            testTarget.setCellFormula("123.0");
+            workbook.getCreationHelper().createFormulaEvaluator().evaluateFormulaCell(testTarget);
+
+            /* テスト対象の実行 */
+            final String actual = KmgPoiUtils.getStringValue(testTarget);
+
+            /* 検証の実施 */
+            Assertions.assertEquals(expected, actual, "数式セルの場合は計算結果が文字列として返されるべき");
+
+        }
+
+    }
+
+    /**
+     * getStringValue メソッドのテスト - _NONEセルの場合
+     *
+     * @throws Exception
+     *                   例外が発生した場合
+     */
+    @Test
+    @SuppressWarnings("static-method")
+    public void testGetStringValue_noneCell() throws Exception {
+
+        /* 期待値の定義 */
+        final String expected = null;
+
+        /* 準備 */
+        try (Workbook workbook = WorkbookFactory.create(true)) {
+
+            final Sheet sheet      = workbook.createSheet();
+            final Row   row        = sheet.createRow(0);
+            final Cell  testTarget = row.createCell(0);
+            // _NONEタイプのセルを作成（通常は直接作成できないため、この方法で代用）
+            testTarget.setBlank();
+            testTarget.removeCellComment();
+
+            /* テスト対象の実行 */
+            final String actual = KmgPoiUtils.getStringValue(testTarget);
+
+            /* 検証の実施 */
+            Assertions.assertEquals(expected, actual, "_NONEタイプのセルの場合はnullを返すべき");
 
         }
 
