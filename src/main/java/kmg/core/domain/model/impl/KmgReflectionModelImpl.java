@@ -199,29 +199,43 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
                 for (final Method m : methods) {
 
                     /* メソッド名とパラメータ数が一致するか確認 */
-                    if (m.getName().equals(methodName) && (m.getParameterCount() == parameters.length)) {
+                    if (!m.getName().equals(methodName)) {
 
-                        /* パラメータの型チェック */
-                        final Class<?>[] paramTypes = m.getParameterTypes();
-                        boolean          match      = true;
+                        continue;
 
-                        for (int i = 0; i < paramTypes.length; i++) {
+                    }
 
-                            if ((parameters[i] != null) && !paramTypes[i].isAssignableFrom(parameters[i].getClass())) {
+                    if (m.getParameterCount() != parameters.length) {
 
-                                match = false;
-                                break;
+                        continue;
 
-                            }
+                    }
+
+                    /* パラメータの型チェック */
+                    final Class<?>[] paramTypes = m.getParameterTypes();
+                    boolean          match      = true;
+
+                    for (int i = 0; i < paramTypes.length; i++) {
+
+                        if (parameters[i] == null) {
+
+                            continue;
 
                         }
 
-                        if (match) {
+                        if (!paramTypes[i].isAssignableFrom(parameters[i].getClass())) {
 
-                            method = m;
+                            match = false;
                             break;
 
                         }
+
+                    }
+
+                    if (match) {
+
+                        method = m;
+                        break;
 
                     }
 
