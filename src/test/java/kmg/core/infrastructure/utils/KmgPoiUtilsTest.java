@@ -273,6 +273,42 @@ public class KmgPoiUtilsTest {
     }
 
     /**
+     * getStringRangeValue メソッドのテスト - 結合範囲外のセルの場合
+     *
+     * @throws Exception
+     *                   例外が発生した場合
+     */
+    @Test
+    @SuppressWarnings("static-method")
+    public void testGetStringRangeValue_outsideMergedRegion() throws Exception {
+
+        /* 期待値の定義 */
+        final String expected = null;
+
+        /* 準備 */
+        try (Workbook workbook = WorkbookFactory.create(true)) {
+
+            final Sheet sheet     = workbook.createSheet();
+            final Row   row       = sheet.createRow(0);
+            final Cell  firstCell = row.createCell(0);
+            firstCell.setCellValue("test");
+            sheet.addMergedRegion(new CellRangeAddress(0, 1, 0, 1));  // (0,0)-(1,1)の範囲を結合
+
+            // 結合範囲外のセル(2,2)を作成
+            final Row  outsideRow = sheet.createRow(2);
+            final Cell testTarget = outsideRow.createCell(2);
+
+            /* テスト対象の実行 */
+            final String actual = KmgPoiUtils.getStringRangeValue(testTarget);
+
+            /* 検証の実施 */
+            Assertions.assertEquals(expected, actual, "結合範囲外のセルの場合はnullを返すべき");
+
+        }
+
+    }
+
+    /**
      * getStringValue メソッドのテスト - 真偽値セルの場合
      *
      * @throws Exception

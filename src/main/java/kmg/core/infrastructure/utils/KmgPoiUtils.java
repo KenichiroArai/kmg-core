@@ -1,7 +1,6 @@
 package kmg.core.infrastructure.utils;
 
 import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.util.CellRangeAddress;
@@ -93,8 +92,6 @@ public final class KmgPoiUtils {
     public static String getStringFormulaValue(final Cell cell) {
 
         String result = null;
-
-        assert cell.getCellType() == CellType.FORMULA;
 
         switch (cell.getCachedFormulaResultType()) {
 
