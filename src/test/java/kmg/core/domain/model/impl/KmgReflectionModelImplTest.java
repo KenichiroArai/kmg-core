@@ -445,6 +445,146 @@ public class KmgReflectionModelImplTest {
     }
 
     /**
+     * getMethod メソッドのテスト - IllegalArgumentException発生時<br>
+     *
+     * @throws KmgDomainException
+     *                            KMGドメイン例外
+     */
+    @Test
+    @SuppressWarnings("static-method")
+    public void testGetMethod_illegalArgumentException() throws KmgDomainException {
+
+        /* 期待値の定義 */
+        final String expectedMessage = "Test illegal argument exception";
+
+        /* 準備 */
+        final TestClass testObject = new TestClass();
+
+        final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(testObject) {
+
+            @Override
+            protected Object invoke(final Method method, final Object targetObject, final Object... parameters)
+                throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+
+                throw new IllegalArgumentException(expectedMessage);
+
+            }
+        };
+
+        /* テスト対象の実行 */
+        final KmgDomainException actualException
+            = Assertions.assertThrows(KmgDomainException.class, () -> testReflection.getMethod("testMethod", "Hello"));
+
+        /* 検証の準備 */
+        final Throwable actualCause   = actualException.getCause();
+        final String    actualMessage = actualCause.getMessage();
+
+        /* 検証の実施 */
+        Assertions.assertTrue(actualCause instanceof IllegalArgumentException,
+            "KmgDomainExceptionの原因がIllegalArgumentExceptionであること");
+        Assertions.assertEquals(expectedMessage, actualMessage, "IllegalArgumentExceptionのメッセージが正しいこと");
+
+    }
+
+    /**
+     * getMethod メソッドのテスト - InvocationTargetException発生時<br>
+     *
+     * @throws KmgDomainException
+     *                            KMGドメイン例外
+     */
+    @Test
+    @SuppressWarnings("static-method")
+    public void testGetMethod_invocationTargetException() throws KmgDomainException {
+
+        /* 期待値の定義 */
+        final String expectedMessage = "Test invocation target exception";
+
+        /* 準備 */
+        final TestClass testObject = new TestClass();
+
+        final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(testObject) {
+
+            @Override
+            protected Object invoke(final Method method, final Object targetObject, final Object... parameters)
+                throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+
+                throw new InvocationTargetException(new RuntimeException(expectedMessage));
+
+            }
+        };
+
+        /* テスト対象の実行 */
+        final KmgDomainException actualException
+            = Assertions.assertThrows(KmgDomainException.class, () -> testReflection.getMethod("testMethod", "Hello"));
+
+        /* 検証の準備 */
+        final Throwable actualCause   = actualException.getCause();
+        final String    actualMessage = actualCause.getCause().getMessage();
+
+        /* 検証の実施 */
+        Assertions.assertEquals(InvocationTargetException.class, actualCause.getClass(),
+            "KmgDomainExceptionの原因がInvocationTargetExceptionであること");
+        Assertions.assertEquals(expectedMessage, actualMessage, "InvocationTargetExceptionの原因の例外のメッセージが正しいこと");
+
+    }
+
+    /**
+     * getMethod メソッドのテスト - パラメータ数が一致しない場合<br>
+     *
+     * @throws KmgDomainException
+     *                            KMGドメイン例外
+     */
+    @Test
+    @SuppressWarnings("static-method")
+    public void testGetMethod_mismatchParameterCount() throws KmgDomainException {
+
+        /* 期待値の定義 */
+        final Object expectedValue = null;
+
+        /* 準備 */
+        final TestClass              testObject     = new TestClass();
+        final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(testObject);
+
+        /* テスト対象の実行 */
+        final Object testResult = testReflection.getMethod("testMethod", "Hello", "World");
+
+        /* 検証の準備 */
+        final Object actualValue = testResult;
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expectedValue, actualValue, "パラメータ数が一致しない場合、nullが返されること");
+
+    }
+
+    /**
+     * getMethod メソッドのテスト - パラメータの型が一致しない場合<br>
+     *
+     * @throws KmgDomainException
+     *                            KMGドメイン例外
+     */
+    @Test
+    @SuppressWarnings("static-method")
+    public void testGetMethod_mismatchParameterType() throws KmgDomainException {
+
+        /* 期待値の定義 */
+        final Object expectedValue = null;
+
+        /* 準備 */
+        final TestClass              testObject     = new TestClass();
+        final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(testObject);
+
+        /* テスト対象の実行 */
+        final Object testResult = testReflection.getMethod("testMethod", Integer.valueOf(123));
+
+        /* 検証の準備 */
+        final Object actualValue = testResult;
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expectedValue, actualValue, "パラメータの型が一致しない場合、nullが返されること");
+
+    }
+
+    /**
      * getMethod メソッドのテスト - 存在しないメソッドへのアクセス<br>
      *
      * @throws KmgDomainException
