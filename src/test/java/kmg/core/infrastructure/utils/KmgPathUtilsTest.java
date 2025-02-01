@@ -92,11 +92,11 @@ public class KmgPathUtilsTest {
     public void testGetBinPath_throwsURISyntaxException() throws Exception {
 
         /* 期待値の定義 */
-        final String expectedMessage = "Test URI Syntax Exception";
+        final String expectedMessage = "Test URI Syntax Exception: test";
 
         /* 準備 */
         final Class<?>           testTarget    = KmgPathUtilsTest.class;
-        final URISyntaxException testException = new URISyntaxException("test", expectedMessage);
+        final URISyntaxException testException = new URISyntaxException("test", "Test URI Syntax Exception");
 
         try (MockedStatic<KmgPathUtils> mockedStatic = Mockito.mockStatic(KmgPathUtils.class)) {
 
@@ -382,10 +382,11 @@ public class KmgPathUtilsTest {
     public void testGetClassFullPath_classNameWithDollar() throws KmgDomainException {
 
         /* 期待値の定義 */
-        final Path expected = Paths.get("test-classes/kmg/core/infrastructure/utils/test_class/test.txt");
+        final Path binPath  = Paths.get("test-classes");
+        final Path expected = Paths.get(binPath.toAbsolutePath().toString(),
+            "kmg/core/infrastructure/utils/test_class/test.txt");
 
         /* 準備 */
-        final Path   binPath     = Paths.get("test-classes");
         final String packageName = "kmg.core.infrastructure.utils";
         final String className   = "TestClass$InnerClass";
         final Path   fileName    = Paths.get("test.txt");
@@ -409,10 +410,10 @@ public class KmgPathUtilsTest {
     public void testGetClassFullPath_packageNameConversion() throws KmgDomainException {
 
         /* 期待値の定義 */
-        final Path expected = Paths.get("test-classes/com/example/test/test_class/test.txt");
+        final Path binPath  = Paths.get("test-classes");
+        final Path expected = Paths.get(binPath.toAbsolutePath().toString(), "com/example/test/test_class/test.txt");
 
         /* 準備 */
-        final Path   binPath     = Paths.get("test-classes");
         final String packageName = "com.example.test";
         final String className   = "TestClass";
         final Path   fileName    = Paths.get("test.txt");
@@ -463,10 +464,11 @@ public class KmgPathUtilsTest {
     public void testGetClassFullPath_fullPathCombination() throws KmgDomainException {
 
         /* 期待値の定義 */
-        final Path expected = Paths.get("build/classes/kmg/core/infrastructure/utils/test_class/data.json");
+        final Path binPath  = Paths.get("build/classes");
+        final Path expected = Paths.get(binPath.toAbsolutePath().toString(),
+            "kmg/core/infrastructure/utils/test_class/data.json");
 
         /* 準備 */
-        final Path   binPath     = Paths.get("build/classes");
         final String packageName = "kmg.core.infrastructure.utils";
         final String className   = "TestClass";
         final Path   fileName    = Paths.get("data.json");
