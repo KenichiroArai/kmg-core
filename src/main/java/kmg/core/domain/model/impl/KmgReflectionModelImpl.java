@@ -198,7 +198,7 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
 
             try {
 
-                searchMethods = targetClazz.getDeclaredMethods();
+                searchMethods = this.getDeclaredMethods(targetClazz);
 
             } catch (final SecurityException e) {
 
@@ -530,6 +530,26 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
         throws SecurityException, IllegalAccessException {
 
         field.set(targetObject, value);
+
+    }
+
+    /**
+     * 宣言されているメソッドを返す<br>
+     *
+     * @author KenichiroArai
+     * @sine 1.0.0
+     * @version 1.0.0
+     * @param targetClazz
+     *                    クラス
+     * @return 宣言されているメソッド
+     * @throws SecurityException
+     *                           セキュリティ例外
+     */
+    @SuppressWarnings("static-method")
+    protected Method[] getDeclaredMethods(final Class<?> targetClazz) throws SecurityException {
+
+        final Method[] result = targetClazz.getDeclaredMethods();
+        return result;
 
     }
 }
