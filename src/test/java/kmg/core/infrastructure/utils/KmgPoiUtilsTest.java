@@ -1,11 +1,11 @@
 package kmg.core.infrastructure.utils;
 
 import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.FormulaError;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
-import org.apache.poi.ss.usermodel.FormulaError;
 import org.apache.poi.ss.util.CellRangeAddress;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -94,21 +94,24 @@ public class KmgPoiUtilsTest {
         final String expected = "true";
 
         /* 準備 */
+        Cell   testCell;
+        String actual;
+
         try (Workbook workbook = WorkbookFactory.create(true)) {
 
-            final Sheet sheet      = workbook.createSheet();
-            final Row   row        = sheet.createRow(0);
-            final Cell  testTarget = row.createCell(0);
-            testTarget.setCellFormula("TRUE");
-            workbook.getCreationHelper().createFormulaEvaluator().evaluateFormulaCell(testTarget);
+            final Sheet sheet = workbook.createSheet();
+            final Row   row   = sheet.createRow(0);
+            testCell = row.createCell(0);
+            testCell.setCellFormula("TRUE");
+            workbook.getCreationHelper().createFormulaEvaluator().evaluateFormulaCell(testCell);
 
             /* テスト対象の実行 */
-            final String actual = KmgPoiUtils.getStringFormulaValue(testTarget);
-
-            /* 検証の実施 */
-            Assertions.assertEquals(expected, actual, "数式の計算結果（真偽値）が返されるべき");
+            actual = KmgPoiUtils.getStringFormulaValue(testCell);
 
         }
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "数式の計算結果（真偽値）が返されるべき");
 
     }
 
@@ -126,21 +129,24 @@ public class KmgPoiUtilsTest {
         final String expected = null;
 
         /* 準備 */
+        Cell   testCell;
+        String actual;
+
         try (Workbook workbook = WorkbookFactory.create(true)) {
 
-            final Sheet sheet      = workbook.createSheet();
-            final Row   row        = sheet.createRow(0);
-            final Cell  testTarget = row.createCell(0);
-            testTarget.setCellFormula("1/0");  // エラーを発生させる数式
-            workbook.getCreationHelper().createFormulaEvaluator().evaluateFormulaCell(testTarget);
+            final Sheet sheet = workbook.createSheet();
+            final Row   row   = sheet.createRow(0);
+            testCell = row.createCell(0);
+            testCell.setCellFormula("1/0");  // エラーを発生させる数式
+            workbook.getCreationHelper().createFormulaEvaluator().evaluateFormulaCell(testCell);
 
             /* テスト対象の実行 */
-            final String actual = KmgPoiUtils.getStringFormulaValue(testTarget);
-
-            /* 検証の実施 */
-            Assertions.assertEquals(expected, actual, "数式の計算結果（エラー）が返されるべき");
+            actual = KmgPoiUtils.getStringFormulaValue(testCell);
 
         }
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "数式の計算結果（エラー）が返されるべき");
 
     }
 
@@ -158,21 +164,24 @@ public class KmgPoiUtilsTest {
         final String expected = null;
 
         /* 準備 */
+        Cell   testCell;
+        String actual;
+
         try (Workbook workbook = WorkbookFactory.create(true)) {
 
-            final Sheet sheet      = workbook.createSheet();
-            final Row   row        = sheet.createRow(0);
-            final Cell  testTarget = row.createCell(0);
-            testTarget.setCellFormula("NA()");  // _NONEを返す数式
-            workbook.getCreationHelper().createFormulaEvaluator().evaluateFormulaCell(testTarget);
+            final Sheet sheet = workbook.createSheet();
+            final Row   row   = sheet.createRow(0);
+            testCell = row.createCell(0);
+            testCell.setCellFormula("NA()");  // _NONEを返す数式
+            workbook.getCreationHelper().createFormulaEvaluator().evaluateFormulaCell(testCell);
 
             /* テスト対象の実行 */
-            final String actual = KmgPoiUtils.getStringFormulaValue(testTarget);
-
-            /* 検証の実施 */
-            Assertions.assertEquals(expected, actual, "数式の計算結果（_NONE）が返されるべき");
+            actual = KmgPoiUtils.getStringFormulaValue(testCell);
 
         }
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "数式の計算結果（_NONE）が返されるべき");
 
     }
 
@@ -190,21 +199,24 @@ public class KmgPoiUtilsTest {
         final String expected = "123.0";
 
         /* 準備 */
+        Cell   testCell;
+        String actual;
+
         try (Workbook workbook = WorkbookFactory.create(true)) {
 
-            final Sheet sheet      = workbook.createSheet();
-            final Row   row        = sheet.createRow(0);
-            final Cell  testTarget = row.createCell(0);
-            testTarget.setCellFormula("123.0");
-            workbook.getCreationHelper().createFormulaEvaluator().evaluateFormulaCell(testTarget);
+            final Sheet sheet = workbook.createSheet();
+            final Row   row   = sheet.createRow(0);
+            testCell = row.createCell(0);
+            testCell.setCellFormula("123.0");
+            workbook.getCreationHelper().createFormulaEvaluator().evaluateFormulaCell(testCell);
 
             /* テスト対象の実行 */
-            final String actual = KmgPoiUtils.getStringFormulaValue(testTarget);
-
-            /* 検証の実施 */
-            Assertions.assertEquals(expected, actual, "数式の計算結果（数値）が返されるべき");
+            actual = KmgPoiUtils.getStringFormulaValue(testCell);
 
         }
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "数式の計算結果（数値）が返されるべき");
 
     }
 
@@ -222,21 +234,24 @@ public class KmgPoiUtilsTest {
         final String expected = "test";
 
         /* 準備 */
+        Cell   testCell;
+        String actual;
+
         try (Workbook workbook = WorkbookFactory.create(true)) {
 
-            final Sheet sheet      = workbook.createSheet();
-            final Row   row        = sheet.createRow(0);
-            final Cell  testTarget = row.createCell(0);
-            testTarget.setCellFormula("\"test\"");
-            workbook.getCreationHelper().createFormulaEvaluator().evaluateFormulaCell(testTarget);
+            final Sheet sheet = workbook.createSheet();
+            final Row   row   = sheet.createRow(0);
+            testCell = row.createCell(0);
+            testCell.setCellFormula("\"test\"");
+            workbook.getCreationHelper().createFormulaEvaluator().evaluateFormulaCell(testCell);
 
             /* テスト対象の実行 */
-            final String actual = KmgPoiUtils.getStringFormulaValue(testTarget);
-
-            /* 検証の実施 */
-            Assertions.assertEquals(expected, actual, "数式の計算結果（文字列）が返されるべき");
+            actual = KmgPoiUtils.getStringFormulaValue(testCell);
 
         }
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "数式の計算結果（文字列）が返されるべき");
 
     }
 
@@ -254,6 +269,9 @@ public class KmgPoiUtilsTest {
         final String expected = "test";
 
         /* 準備 */
+        Cell   testCell;
+        String actual;
+
         try (Workbook workbook = WorkbookFactory.create(true)) {
 
             final Sheet sheet     = workbook.createSheet();
@@ -261,15 +279,15 @@ public class KmgPoiUtilsTest {
             final Cell  firstCell = row.createCell(0);
             firstCell.setCellValue("test");
             sheet.addMergedRegion(new CellRangeAddress(0, 1, 0, 1));
-            final Cell testTarget = sheet.getRow(0).createCell(1);
+            testCell = sheet.getRow(0).createCell(1);
 
             /* テスト対象の実行 */
-            final String actual = KmgPoiUtils.getStringRangeValue(testTarget);
-
-            /* 検証の実施 */
-            Assertions.assertEquals(expected, actual, "結合セルの左上のセルの値が返されるべき");
+            actual = KmgPoiUtils.getStringRangeValue(testCell);
 
         }
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "結合セルの左上のセルの値が返されるべき");
 
     }
 
@@ -287,6 +305,9 @@ public class KmgPoiUtilsTest {
         final String expected = null;
 
         /* 準備 */
+        Cell   testCell;
+        String actual;
+
         try (Workbook workbook = WorkbookFactory.create(true)) {
 
             final Sheet sheet     = workbook.createSheet();
@@ -296,16 +317,16 @@ public class KmgPoiUtilsTest {
             sheet.addMergedRegion(new CellRangeAddress(0, 1, 0, 1));  // (0,0)-(1,1)の範囲を結合
 
             // 結合範囲外のセル(2,2)を作成
-            final Row  outsideRow = sheet.createRow(2);
-            final Cell testTarget = outsideRow.createCell(2);
+            final Row outsideRow = sheet.createRow(2);
+            testCell = outsideRow.createCell(2);
 
             /* テスト対象の実行 */
-            final String actual = KmgPoiUtils.getStringRangeValue(testTarget);
-
-            /* 検証の実施 */
-            Assertions.assertEquals(expected, actual, "結合範囲外のセルの場合はnullを返すべき");
+            actual = KmgPoiUtils.getStringRangeValue(testCell);
 
         }
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "結合範囲外のセルの場合はnullを返すべき");
 
     }
 
@@ -417,22 +438,25 @@ public class KmgPoiUtilsTest {
         final String expected = null;
 
         /* 準備 */
+        Cell   testCell;
+        String actual;
+
         try (Workbook workbook = WorkbookFactory.create(true)) {
 
-            final Sheet sheet      = workbook.createSheet();
-            final Row   row        = sheet.createRow(0);
-            final Cell  testTarget = row.createCell(0);
+            final Sheet sheet = workbook.createSheet();
+            final Row   row   = sheet.createRow(0);
+            testCell = row.createCell(0);
             // _NONEタイプのセルを作成（通常は直接作成できないため、この方法で代用）
-            testTarget.setBlank();
-            testTarget.removeCellComment();
+            testCell.setBlank();
+            testCell.removeCellComment();
 
             /* テスト対象の実行 */
-            final String actual = KmgPoiUtils.getStringValue(testTarget);
-
-            /* 検証の実施 */
-            Assertions.assertEquals(expected, actual, "_NONEタイプのセルの場合はnullを返すべき");
+            actual = KmgPoiUtils.getStringValue(testCell);
 
         }
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "_NONEタイプのセルの場合はnullを返すべき");
 
     }
 
