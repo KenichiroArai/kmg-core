@@ -376,6 +376,69 @@ public class KmgReflectionModelImplTest {
     }
 
     /**
+     * getDeclaredMethods メソッドのテスト - 正常系<br>
+     *
+     * @throws KmgDomainException
+     *                            KMGドメイン例外
+     */
+    @Test
+    @SuppressWarnings("static-method")
+    public void testGetDeclaredMethods_normal() throws KmgDomainException {
+
+        /* 準備 */
+        final TestClass              testObject     = new TestClass();
+        final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(testObject);
+
+        /* テスト対象の実行 */
+        final Object testResult = testReflection.getMethod("testMethod", "Hello");
+
+        /* 検証の実施 */
+        Assertions.assertNotNull(testResult, "宣言されたメソッドが正しく取得できること");
+        Assertions.assertEquals("HelloTest", testResult, "メソッドの実行結果が正しいこと");
+
+    }
+
+    /**
+     * getDeclaredMethods メソッドのテスト - SecurityException発生時<br>
+     *
+     * @throws KmgDomainException
+     *                            KMGドメイン例外
+     */
+    @Test
+    @SuppressWarnings("static-method")
+    public void testGetDeclaredMethods_securityException() throws KmgDomainException {
+
+        /* 期待値の定義 */
+        final String expectedMessage = "Test security exception from getDeclaredMethods";
+
+        /* 準備 */
+        final TestClass testObject = new TestClass();
+
+        final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(testObject) {
+
+            @Override
+            protected Method[] getDeclaredMethods(final Class<?> targetClazz) throws SecurityException {
+
+                throw new SecurityException(expectedMessage);
+
+            }
+        };
+
+        /* テスト対象の実行 */
+        final KmgDomainException actualException
+            = Assertions.assertThrows(KmgDomainException.class, () -> testReflection.getMethod("testMethod", "Hello"));
+
+        /* 検証の準備 */
+        final Throwable actualCause   = actualException.getCause();
+        final String    actualMessage = actualCause.getMessage();
+
+        /* 検証の実施 */
+        Assertions.assertTrue(actualCause instanceof SecurityException, "KmgDomainExceptionの原因がSecurityExceptionであること");
+        Assertions.assertEquals(expectedMessage, actualMessage, "SecurityExceptionのメッセージが正しいこと");
+
+    }
+
+    /**
      * getLastGetField メソッドのテスト - フィールド取得前<br>
      *
      * @throws KmgDomainException
@@ -704,6 +767,75 @@ public class KmgReflectionModelImplTest {
 
         /* 検証の実施 */
         Assertions.assertEquals(expectedValue, actualValue, "メソッドが正しく呼び出され、結果が返されること");
+
+    }
+
+    /**
+     * invoke メソッドのテスト - 正常系<br>
+     *
+     * @throws KmgDomainException
+     *                            KMGドメイン例外
+     */
+    @Test
+    @SuppressWarnings("static-method")
+    public void testInvoke_normal() throws KmgDomainException {
+
+        /* 期待値の定義 */
+        final String expectedValue = "HelloTest";
+
+        /* 準備 */
+        final TestClass              testObject     = new TestClass();
+        final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(testObject);
+
+        /* テスト対象の実行 */
+        final Object testResult = testReflection.getMethod("testMethod", "Hello");
+
+        /* 検証の準備 */
+        final String actualValue = (String) testResult;
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expectedValue, actualValue, "メソッドが正しく呼び出され、結果が返されること");
+
+    }
+
+    /**
+     * invoke メソッドのテスト - SecurityException発生時<br>
+     *
+     * @throws KmgDomainException
+     *                            KMGドメイン例外
+     */
+    @Test
+    @SuppressWarnings("static-method")
+    public void testInvoke_securityException() throws KmgDomainException {
+
+        /* 期待値の定義 */
+        final String expectedMessage = "Test security exception from invoke";
+
+        /* 準備 */
+        final TestClass testObject = new TestClass();
+
+        final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(testObject) {
+
+            @Override
+            protected Object invoke(final Method method, final Object targetObject, final Object... parameters)
+                throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+
+                throw new SecurityException(expectedMessage);
+
+            }
+        };
+
+        /* テスト対象の実行 */
+        final KmgDomainException actualException
+            = Assertions.assertThrows(KmgDomainException.class, () -> testReflection.getMethod("testMethod", "Hello"));
+
+        /* 検証の準備 */
+        final Throwable actualCause   = actualException.getCause();
+        final String    actualMessage = actualCause.getMessage();
+
+        /* 検証の実施 */
+        Assertions.assertTrue(actualCause instanceof SecurityException, "KmgDomainExceptionの原因がSecurityExceptionであること");
+        Assertions.assertEquals(expectedMessage, actualMessage, "SecurityExceptionのメッセージが正しいこと");
 
     }
 
