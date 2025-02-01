@@ -159,6 +159,116 @@ public class KmgPathUtilsTest {
     }
 
     /**
+     * getClassFullPath メソッドのテスト - クラス名に$が含まれている場合
+     *
+     * @throws KmgDomainException
+     *                            KMGドメイン例外
+     */
+    @Test
+    public void testGetClassFullPath_classNameWithDollar() throws KmgDomainException {
+
+        /* 期待値の定義 */
+        final Path binPath  = Paths.get("test-classes");
+        final Path expected = Paths.get(binPath.toAbsolutePath().toString(),
+            "kmg/core/infrastructure/utils/test_class/test.txt");
+
+        /* 準備 */
+        final String packageName = "kmg.core.infrastructure.utils";
+        final String className   = "TestClass$InnerClass";
+        final Path   fileName    = Paths.get("test.txt");
+
+        /* テスト対象の実行 */
+        final Path actual = (Path) KmgPathUtilsTest.kmgReflectionModel.getMethod("getClassFullPath", binPath,
+            packageName, className, fileName);
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "$以前の部分がクラス名として扱われるべき");
+
+    }
+
+    /**
+     * getClassFullPath メソッドのテスト - クラス名が空の場合
+     *
+     * @throws KmgDomainException
+     *                            KMGドメイン例外
+     */
+    @Test
+    public void testGetClassFullPath_emptyClassName() throws KmgDomainException {
+
+        /* 期待値の定義 */
+        final Path expected = null;
+
+        /* 準備 */
+        final Path   binPath     = Paths.get("test-classes");
+        final String packageName = "kmg.core.infrastructure.utils";
+        final String className   = "";
+        final Path   fileName    = Paths.get("test.txt");
+
+        /* テスト対象の実行 */
+        final Path actual = (Path) KmgPathUtilsTest.kmgReflectionModel.getMethod("getClassFullPath", binPath,
+            packageName, className, fileName);
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "クラス名が空の場合はnullを返すべき");
+
+    }
+
+    /**
+     * getClassFullPath メソッドのテスト - 全ての要素が正しく結合される場合
+     *
+     * @throws KmgDomainException
+     *                            KMGドメイン例外
+     */
+    @Test
+    public void testGetClassFullPath_fullPathCombination() throws KmgDomainException {
+
+        /* 期待値の定義 */
+        final Path binPath  = Paths.get("build/classes");
+        final Path expected = Paths.get(binPath.toAbsolutePath().toString(),
+            "kmg/core/infrastructure/utils/test_class/data.json");
+
+        /* 準備 */
+        final String packageName = "kmg.core.infrastructure.utils";
+        final String className   = "TestClass";
+        final Path   fileName    = Paths.get("data.json");
+
+        /* テスト対象の実行 */
+        final Path actual = (Path) KmgPathUtilsTest.kmgReflectionModel.getMethod("getClassFullPath", binPath,
+            packageName, className, fileName);
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "全ての要素が正しく結合されるべき");
+
+    }
+
+    /**
+     * getClassFullPath メソッドのテスト - ビルドパスがnullの場合
+     *
+     * @throws KmgDomainException
+     *                            KMGドメイン例外
+     */
+    @Test
+    public void testGetClassFullPath_nullBinPath() throws KmgDomainException {
+
+        /* 期待値の定義 */
+        final Path expected = Paths.get("/kmg/core/infrastructure/utils/test_class/test.txt");
+
+        /* 準備 */
+        final Path   binPath     = null;
+        final String packageName = "kmg.core.infrastructure.utils";
+        final String className   = "TestClass";
+        final Path   fileName    = Paths.get("test.txt");
+
+        /* テスト対象の実行 */
+        final Path actual = (Path) KmgPathUtilsTest.kmgReflectionModel.getMethod("getClassFullPath", binPath,
+            packageName, className, fileName);
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "ビルドパスがnullの場合は空文字として扱われるべき");
+
+    }
+
+    /**
      * getClassFullPath メソッドのテスト - nullの場合（Class）
      *
      * @throws KmgDomainException
@@ -203,6 +313,33 @@ public class KmgPathUtilsTest {
 
         /* 検証の実施 */
         Assertions.assertEquals(expected, actual, "nullの場合はnullを返すべき");
+
+    }
+
+    /**
+     * getClassFullPath メソッドのテスト - パッケージ名のドットがスラッシュに変換される場合
+     *
+     * @throws KmgDomainException
+     *                            KMGドメイン例外
+     */
+    @Test
+    public void testGetClassFullPath_packageNameConversion() throws KmgDomainException {
+
+        /* 期待値の定義 */
+        final Path binPath  = Paths.get("test-classes");
+        final Path expected = Paths.get(binPath.toAbsolutePath().toString(), "com/example/test/test_class/test.txt");
+
+        /* 準備 */
+        final String packageName = "com.example.test";
+        final String className   = "TestClass";
+        final Path   fileName    = Paths.get("test.txt");
+
+        /* テスト対象の実行 */
+        final Path actual = (Path) KmgPathUtilsTest.kmgReflectionModel.getMethod("getClassFullPath", binPath,
+            packageName, className, fileName);
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "パッケージ名のドットがスラッシュに変換されるべき");
 
     }
 
@@ -342,143 +479,6 @@ public class KmgPathUtilsTest {
 
         /* 検証の実施 */
         Assertions.assertEquals(expected, actual, "拡張子を除いたファイル名が返されるべき");
-
-    }
-
-    /**
-     * getClassFullPath メソッドのテスト - クラス名が空の場合
-     *
-     * @throws KmgDomainException
-     *                            KMGドメイン例外
-     */
-    @Test
-    public void testGetClassFullPath_emptyClassName() throws KmgDomainException {
-
-        /* 期待値の定義 */
-        final Path expected = null;
-
-        /* 準備 */
-        final Path   binPath     = Paths.get("test-classes");
-        final String packageName = "kmg.core.infrastructure.utils";
-        final String className   = "";
-        final Path   fileName    = Paths.get("test.txt");
-
-        /* テスト対象の実行 */
-        final Path actual = (Path) KmgPathUtilsTest.kmgReflectionModel.getMethod("getClassFullPath", binPath,
-            packageName, className, fileName);
-
-        /* 検証の実施 */
-        Assertions.assertEquals(expected, actual, "クラス名が空の場合はnullを返すべき");
-
-    }
-
-    /**
-     * getClassFullPath メソッドのテスト - クラス名に$が含まれている場合
-     *
-     * @throws KmgDomainException
-     *                            KMGドメイン例外
-     */
-    @Test
-    public void testGetClassFullPath_classNameWithDollar() throws KmgDomainException {
-
-        /* 期待値の定義 */
-        final Path binPath  = Paths.get("test-classes");
-        final Path expected = Paths.get(binPath.toAbsolutePath().toString(),
-            "kmg/core/infrastructure/utils/test_class/test.txt");
-
-        /* 準備 */
-        final String packageName = "kmg.core.infrastructure.utils";
-        final String className   = "TestClass$InnerClass";
-        final Path   fileName    = Paths.get("test.txt");
-
-        /* テスト対象の実行 */
-        final Path actual = (Path) KmgPathUtilsTest.kmgReflectionModel.getMethod("getClassFullPath", binPath,
-            packageName, className, fileName);
-
-        /* 検証の実施 */
-        Assertions.assertEquals(expected, actual, "$以前の部分がクラス名として扱われるべき");
-
-    }
-
-    /**
-     * getClassFullPath メソッドのテスト - パッケージ名のドットがスラッシュに変換される場合
-     *
-     * @throws KmgDomainException
-     *                            KMGドメイン例外
-     */
-    @Test
-    public void testGetClassFullPath_packageNameConversion() throws KmgDomainException {
-
-        /* 期待値の定義 */
-        final Path binPath  = Paths.get("test-classes");
-        final Path expected = Paths.get(binPath.toAbsolutePath().toString(), "com/example/test/test_class/test.txt");
-
-        /* 準備 */
-        final String packageName = "com.example.test";
-        final String className   = "TestClass";
-        final Path   fileName    = Paths.get("test.txt");
-
-        /* テスト対象の実行 */
-        final Path actual = (Path) KmgPathUtilsTest.kmgReflectionModel.getMethod("getClassFullPath", binPath,
-            packageName, className, fileName);
-
-        /* 検証の実施 */
-        Assertions.assertEquals(expected, actual, "パッケージ名のドットがスラッシュに変換されるべき");
-
-    }
-
-    /**
-     * getClassFullPath メソッドのテスト - ビルドパスがnullの場合
-     *
-     * @throws KmgDomainException
-     *                            KMGドメイン例外
-     */
-    @Test
-    public void testGetClassFullPath_nullBinPath() throws KmgDomainException {
-
-        /* 期待値の定義 */
-        final Path expected = Paths.get("/kmg/core/infrastructure/utils/test_class/test.txt");
-
-        /* 準備 */
-        final Path   binPath     = null;
-        final String packageName = "kmg.core.infrastructure.utils";
-        final String className   = "TestClass";
-        final Path   fileName    = Paths.get("test.txt");
-
-        /* テスト対象の実行 */
-        final Path actual = (Path) KmgPathUtilsTest.kmgReflectionModel.getMethod("getClassFullPath", binPath,
-            packageName, className, fileName);
-
-        /* 検証の実施 */
-        Assertions.assertEquals(expected, actual, "ビルドパスがnullの場合は空文字として扱われるべき");
-
-    }
-
-    /**
-     * getClassFullPath メソッドのテスト - 全ての要素が正しく結合される場合
-     *
-     * @throws KmgDomainException
-     *                            KMGドメイン例外
-     */
-    @Test
-    public void testGetClassFullPath_fullPathCombination() throws KmgDomainException {
-
-        /* 期待値の定義 */
-        final Path binPath  = Paths.get("build/classes");
-        final Path expected = Paths.get(binPath.toAbsolutePath().toString(),
-            "kmg/core/infrastructure/utils/test_class/data.json");
-
-        /* 準備 */
-        final String packageName = "kmg.core.infrastructure.utils";
-        final String className   = "TestClass";
-        final Path   fileName    = Paths.get("data.json");
-
-        /* テスト対象の実行 */
-        final Path actual = (Path) KmgPathUtilsTest.kmgReflectionModel.getMethod("getClassFullPath", binPath,
-            packageName, className, fileName);
-
-        /* 検証の実施 */
-        Assertions.assertEquals(expected, actual, "全ての要素が正しく結合されるべき");
 
     }
 }

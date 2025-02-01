@@ -235,6 +235,26 @@ public class KmgDbTypesTest {
     }
 
     /**
+     * getEnumByTarget メソッドのテスト - 値の大文字小文字を区別しない比較で一致する場合
+     */
+    @Test
+    public void testGetEnumByTarget_valueIgnoreCase() {
+
+        /* 期待値の定義 */
+        final KmgDbTypes expected = KmgDbTypes.POSTGRE_SQL;
+
+        /* 準備 */
+        final String testTarget = "postgresql";
+
+        /* テスト対象の実行 */
+        final KmgDbTypes actual = KmgDbTypes.getEnumByTarget(testTarget);
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "値の大文字小文字を区別しない比較での検索結果が一致しません");
+
+    }
+
+    /**
      * getInitValue メソッドのテスト
      */
     @Test
@@ -348,26 +368,6 @@ public class KmgDbTypesTest {
 
         /* 検証の実施 */
         Assertions.assertEquals(expected, actual, "PostgreSQLの場合、'PostgreSQL'が返されること");
-
-    }
-
-    /**
-     * getEnumByTarget メソッドのテスト - 値の大文字小文字を区別しない比較で一致する場合
-     */
-    @Test
-    public void testGetEnumByTarget_valueIgnoreCase() {
-
-        /* 期待値の定義 */
-        final KmgDbTypes expected = KmgDbTypes.POSTGRE_SQL;
-
-        /* 準備 */
-        final String testTarget = "postgresql";
-
-        /* テスト対象の実行 */
-        final KmgDbTypes actual = KmgDbTypes.getEnumByTarget(testTarget);
-
-        /* 検証の実施 */
-        Assertions.assertEquals(expected, actual, "値の大文字小文字を区別しない比較での検索結果が一致しません");
 
     }
 }
