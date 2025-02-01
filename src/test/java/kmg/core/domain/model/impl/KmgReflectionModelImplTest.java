@@ -540,47 +540,6 @@ public class KmgReflectionModelImplTest {
     }
 
     /**
-     * getMethod メソッドのテスト - SecurityException発生時<br>
-     *
-     * @throws KmgDomainException
-     *                            KMGドメイン例外
-     */
-    @Test
-    @SuppressWarnings("static-method")
-    public void testGetMethod_securityException() throws KmgDomainException {
-
-        /* 期待値の定義 */
-        final String expectedMessage = "Test security exception";
-
-        /* 準備 */
-        final TestClass testObject = new TestClass();
-
-        final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(testObject) {
-
-            @Override
-            protected Method getMethod(final Class<?> targetClazz, final String name, final Class<?>[] parameterTypes)
-                throws NoSuchMethodException, SecurityException {
-
-                throw new SecurityException(expectedMessage);
-
-            }
-        };
-
-        /* テスト対象の実行 */
-        final KmgDomainException actualException
-            = Assertions.assertThrows(KmgDomainException.class, () -> testReflection.getMethod("testMethod", "Hello"));
-
-        /* 検証の準備 */
-        final Throwable actualCause   = actualException.getCause();
-        final String    actualMessage = actualCause.getMessage();
-
-        /* 検証の実施 */
-        Assertions.assertTrue(actualCause instanceof SecurityException, "KmgDomainExceptionの原因がSecurityExceptionであること");
-        Assertions.assertEquals(expectedMessage, actualMessage, "SecurityExceptionのメッセージが正しいこと");
-
-    }
-
-    /**
      * getMethod メソッドのテスト - 正常系（パラメータありのメソッド呼び出し）<br>
      *
      * @throws KmgDomainException

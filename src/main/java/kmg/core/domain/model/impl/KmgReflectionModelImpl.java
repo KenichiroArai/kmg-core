@@ -418,33 +418,6 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
     }
 
     /**
-     * メソッドを取得する<br>
-     *
-     * @author KenichiroArai
-     * @sine 1.0.0
-     * @version 1.0.0
-     * @param targetClazz
-     *                       クラス
-     * @param name
-     *                       メソッド名
-     * @param parameterTypes
-     *                       パラメータ型
-     * @return メソッド
-     * @throws NoSuchMethodException
-     *                               メソッドが存在しない例外
-     * @throws SecurityException
-     *                               セキュリティ例外
-     */
-    @SuppressWarnings("static-method")
-    protected Method getMethod(final Class<?> targetClazz, final String name, final Class<?>[] parameterTypes)
-        throws NoSuchMethodException, SecurityException {
-
-        final Method result = targetClazz.getMethod(name, parameterTypes);
-        return result;
-
-    }
-
-    /**
      * フィールドから値を取得する<br>
      *
      * @author KenichiroArai
