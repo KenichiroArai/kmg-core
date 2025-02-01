@@ -179,100 +179,123 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
 
         Object result = null;
 
+        /* 引数のチェック */
+
         if (methodName == null) {
 
             return result;
 
         }
 
-        /* メソッドの取得 */
-        Method   method      = null;
-        Class<?> targetClazz = this.clazz;
+        /* 対象のメソッドを取得 */
+        Method   targetMethod = null;
+        Class<?> targetClazz  = this.clazz;
 
-        try {
+        while (targetClazz != Object.class) {
 
-            while (targetClazz != Object.class) {
+            /* 宣言されているメソッドを取得 */
+            Method[] searchMethods = null;
 
-                /* 宣言されているメソッドを取得 */
-                final Method[] methods = targetClazz.getDeclaredMethods();
+            try {
 
-                for (final Method m : methods) {
+                searchMethods = targetClazz.getDeclaredMethods();
 
-                    /* メソッド名とパラメータ数が一致するか確認 */
-                    if (!m.getName().equals(methodName)) {
+            } catch (final SecurityException e) {
+
+                // TODO 2025/02/01 KenichiroArai KMGの例外にする
+                throw new KmgDomainException(e.getMessage(), KmgLogMessageTypes.NONE, e);
+
+            }
+
+            /* 一致するメソッドを探索する */
+            for (final Method searchMethod : searchMethods) {
+
+                // メソッド名が一致するか
+                if (!searchMethod.getName().equals(methodName)) {
+
+                    continue;
+
+                }
+
+                // パラメータ数が一致するか
+                if (searchMethod.getParameterCount() != parameters.length) {
+
+                    continue;
+
+                }
+
+                // パラメータの型チェック
+                final Class<?>[] paramTypes = searchMethod.getParameterTypes();
+                boolean          match      = true;
+
+                for (int i = 0; i < paramTypes.length; i++) {
+
+                    if (parameters[i] == null) {
 
                         continue;
 
                     }
 
-                    if (m.getParameterCount() != parameters.length) {
+                    if (!paramTypes[i].isAssignableFrom(parameters[i].getClass())) {
 
-                        continue;
-
-                    }
-
-                    /* パラメータの型チェック */
-                    final Class<?>[] paramTypes = m.getParameterTypes();
-                    boolean          match      = true;
-
-                    for (int i = 0; i < paramTypes.length; i++) {
-
-                        if (parameters[i] == null) {
-
-                            continue;
-
-                        }
-
-                        if (!paramTypes[i].isAssignableFrom(parameters[i].getClass())) {
-
-                            match = false;
-                            break;
-
-                        }
-
-                    }
-
-                    if (match) {
-
-                        method = m;
+                        match = false;
                         break;
 
                     }
 
                 }
 
-                if (method != null) {
+                if (match) {
 
+                    targetMethod = searchMethod;
                     break;
 
                 }
-                targetClazz = targetClazz.getSuperclass();
 
             }
 
-            if (method == null) {
+            if (targetMethod != null) {
 
-                return result;
+                break;
 
             }
-
-        } catch (final SecurityException e) {
-
-            throw new KmgDomainException(e.getMessage(), KmgLogMessageTypes.NONE, e);
+            targetClazz = targetClazz.getSuperclass();
 
         }
 
-        /* privateメソッドのアクセス許可の設定 */
-        method.setAccessible(true);
+        if (targetMethod == null) {
+
+            return result;
+
+        }
 
         /* メソッドの呼び出し */
+
+        // privateメソッドのアクセス許可の設定
+        targetMethod.setAccessible(true);
+
         try {
 
-            result = this.invoke(method, this.object, parameters);
+            result = this.invoke(targetMethod, this.object, parameters);
 
-        } catch (final SecurityException | IllegalAccessException | IllegalArgumentException
-            | InvocationTargetException e) {
+        } catch (final SecurityException e) {
 
+            // TODO 2025/02/01 KenichiroArai KMGの例外にする
+            throw new KmgDomainException(e.getMessage(), KmgLogMessageTypes.NONE, e);
+
+        } catch (final IllegalAccessException e) {
+
+            // TODO 2025/02/01 KenichiroArai KMGの例外にする
+            throw new KmgDomainException(e.getMessage(), KmgLogMessageTypes.NONE, e);
+
+        } catch (final IllegalArgumentException e) {
+
+            // TODO 2025/02/01 KenichiroArai KMGの例外にする
+            throw new KmgDomainException(e.getMessage(), KmgLogMessageTypes.NONE, e);
+
+        } catch (final InvocationTargetException e) {
+
+            // TODO 2025/02/01 KenichiroArai KMGの例外にする
             throw new KmgDomainException(e.getMessage(), KmgLogMessageTypes.NONE, e);
 
         }
