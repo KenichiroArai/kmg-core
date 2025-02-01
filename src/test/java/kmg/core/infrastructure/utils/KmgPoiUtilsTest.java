@@ -33,17 +33,17 @@ public class KmgPoiUtilsTest {
         final Cell expected = null;
 
         /* 準備 */
+        Cell testTarget;
+
         try (Workbook workbook = WorkbookFactory.create(true)) {
 
             final Sheet sheet = workbook.createSheet();
-
-            /* テスト対象の実行 */
-            final Cell actual = KmgPoiUtils.getCell(sheet, 0, 0);
-
-            /* 検証の実施 */
-            Assertions.assertEquals(expected, actual, "行が存在しない場合はnullを返すべき");
+            testTarget = KmgPoiUtils.getCell(sheet, 0, 0);
 
         }
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, testTarget, "行が存在しない場合はnullを返すべき");
 
     }
 
@@ -61,21 +61,22 @@ public class KmgPoiUtilsTest {
         final String expected = null;
 
         /* 準備 */
+        Cell   testCell;
+        String actual;
+
         try (Workbook workbook = WorkbookFactory.create(true)) {
 
-            final Sheet sheet      = workbook.createSheet();
-            final Row   row        = sheet.createRow(0);
-            final Cell  testTarget = row.createCell(0);
-            testTarget.setCellFormula("INDIRECT(\"\"&\"\")");  // BLANKを返す数式
-            workbook.getCreationHelper().createFormulaEvaluator().evaluateFormulaCell(testTarget);
-
-            /* テスト対象の実行 */
-            final String actual = KmgPoiUtils.getStringFormulaValue(testTarget);
-
-            /* 検証の実施 */
-            Assertions.assertEquals(expected, actual, "数式の計算結果（空白）が返されるべき");
+            final Sheet sheet = workbook.createSheet();
+            final Row   row   = sheet.createRow(0);
+            testCell = row.createCell(0);
+            testCell.setCellFormula("INDIRECT(\"\"&\"\")");  // BLANKを返す数式
+            workbook.getCreationHelper().createFormulaEvaluator().evaluateFormulaCell(testCell);
+            actual = KmgPoiUtils.getStringFormulaValue(testCell);
 
         }
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "数式の計算結果（空白）が返されるべき");
 
     }
 
@@ -470,20 +471,21 @@ public class KmgPoiUtilsTest {
         final String expected = "123.0";
 
         /* 準備 */
+        Cell   testCell;
+        String actual;
+
         try (Workbook workbook = WorkbookFactory.create(true)) {
 
-            final Sheet sheet      = workbook.createSheet();
-            final Row   row        = sheet.createRow(0);
-            final Cell  testTarget = row.createCell(0);
-            testTarget.setCellValue(123.0);
-
-            /* テスト対象の実行 */
-            final String actual = KmgPoiUtils.getStringValue(testTarget);
-
-            /* 検証の実施 */
-            Assertions.assertEquals(expected, actual, "セルの数値が文字列として返されるべき");
+            final Sheet sheet = workbook.createSheet();
+            final Row   row   = sheet.createRow(0);
+            testCell = row.createCell(0);
+            testCell.setCellValue(123.0);
+            actual = KmgPoiUtils.getStringValue(testCell);
 
         }
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "セルの数値が文字列として返されるべき");
 
     }
 
@@ -501,20 +503,21 @@ public class KmgPoiUtilsTest {
         final String expected = "test";
 
         /* 準備 */
+        Cell   testCell;
+        String actual;
+
         try (Workbook workbook = WorkbookFactory.create(true)) {
 
-            final Sheet sheet      = workbook.createSheet();
-            final Row   row        = sheet.createRow(0);
-            final Cell  testTarget = row.createCell(0);
-            testTarget.setCellValue("test");
-
-            /* テスト対象の実行 */
-            final String actual = KmgPoiUtils.getStringValue(testTarget);
-
-            /* 検証の実施 */
-            Assertions.assertEquals(expected, actual, "セルの文字列値が返されるべき");
+            final Sheet sheet = workbook.createSheet();
+            final Row   row   = sheet.createRow(0);
+            testCell = row.createCell(0);
+            testCell.setCellValue("test");
+            actual = KmgPoiUtils.getStringValue(testCell);
 
         }
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "セルの文字列値が返されるべき");
 
     }
 
@@ -532,20 +535,21 @@ public class KmgPoiUtilsTest {
         final boolean expected = true;
 
         /* 準備 */
+        Cell    testCell;
+        boolean actual;
+
         try (Workbook workbook = WorkbookFactory.create(true)) {
 
-            final Sheet sheet      = workbook.createSheet();
-            final Row   row        = sheet.createRow(0);
-            final Cell  testTarget = row.createCell(0);
-            testTarget.setBlank();
-
-            /* テスト対象の実行 */
-            final boolean actual = KmgPoiUtils.isEmptyCell(testTarget);
-
-            /* 検証の実施 */
-            Assertions.assertEquals(expected, actual, "空のセルの場合はtrueを返すべき");
+            final Sheet sheet = workbook.createSheet();
+            final Row   row   = sheet.createRow(0);
+            testCell = row.createCell(0);
+            testCell.setBlank();
+            actual = KmgPoiUtils.isEmptyCell(testCell);
 
         }
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "空のセルの場合はtrueを返すべき");
 
     }
 
@@ -563,20 +567,21 @@ public class KmgPoiUtilsTest {
         final boolean expected = false;
 
         /* 準備 */
+        Cell    testCell;
+        boolean actual;
+
         try (Workbook workbook = WorkbookFactory.create(true)) {
 
-            final Sheet sheet      = workbook.createSheet();
-            final Row   row        = sheet.createRow(0);
-            final Cell  testTarget = row.createCell(0);
-            testTarget.setCellValue("test");
-
-            /* テスト対象の実行 */
-            final boolean actual = KmgPoiUtils.isEmptyCell(testTarget);
-
-            /* 検証の実施 */
-            Assertions.assertEquals(expected, actual, "値が入っているセルの場合はfalseを返すべき");
+            final Sheet sheet = workbook.createSheet();
+            final Row   row   = sheet.createRow(0);
+            testCell = row.createCell(0);
+            testCell.setCellValue("test");
+            actual = KmgPoiUtils.isEmptyCell(testCell);
 
         }
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "値が入っているセルの場合はfalseを返すべき");
 
     }
 
