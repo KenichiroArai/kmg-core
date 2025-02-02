@@ -45,6 +45,7 @@ public class KmgPfaMeasServiceImpl implements KmgPfaMeasService {
     public void end() {
 
         this.kmgPfaMeasModel.end();
+        // TODO 2025/02/02 KenichiroArai KMGLOGI12001={0}：終了。経過時間=[{1}{2}]
         System.out.println(String.format("%s：終了。経過時間=[%f%s]", this.name, this.kmgPfaMeasModel.getElapsedTime(), //$NON-NLS-1$
             this.kmgPfaMeasModel.getTimeUnit().getUnitName()));
 
@@ -60,6 +61,7 @@ public class KmgPfaMeasServiceImpl implements KmgPfaMeasService {
     @Override
     public void start() {
 
+        // TODO 2025/02/02 KenichiroArai KMGLOGI12000={0}：開始
         System.out.println(String.format("%s：開始", this.name));   //$NON-NLS-1$
         this.kmgPfaMeasModel.start();
 
