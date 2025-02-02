@@ -89,11 +89,11 @@ public final class KmgPathUtils {
 
         try {
 
-            result = getCodeSourceLocation(zlass);
+            result = KmgPathUtils.getCodeSourceLocation(zlass);
 
         } catch (final URISyntaxException e) {
 
-            // TODO KenichiroArai 2025/01/30 KMGの例外処でスローする。
+            // TODO KenichiroArai 2025/02/02 KMGMSGE24000=クラスからビルドバスの取得に失敗しました。クラス=[{0}]
             throw new KmgDomainException(e.getMessage(), KmgLogMessageTypes.NONE, e);
 
         }

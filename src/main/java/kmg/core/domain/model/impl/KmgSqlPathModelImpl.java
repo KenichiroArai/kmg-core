@@ -123,7 +123,7 @@ public class KmgSqlPathModelImpl implements KmgSqlPathModel {
 
         } catch (final IOException e) {
 
-            // TODO KenichiroArai 2021/06/08 メッセージ
+            // TODO KenichiroArai 2025/02/02 KMGMSGE11100={0}がありません。
             final String             errMsg      = String.format("%sがありません。", this.sqlFilePath.toAbsolutePath());
             final KmgLogMessageTypes logMsgTypes = KmgLogMessageTypes.I00001;
             throw new KmgDomainException(errMsg, logMsgTypes, e);
