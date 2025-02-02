@@ -61,6 +61,9 @@ public enum KmgDelimiterTypes implements Supplier<String> {
     /** 改行 */
     LINE_SEPARATOR("改行", KmgString.LINE_SEPARATOR),
 
+    /** 半角イコール */
+    HALF_EQUAL("半角イコール", "="),
+
     /* 定義：終了 */
     ;
 
