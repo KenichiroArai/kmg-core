@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Supplier;
 
+import kmg.core.infrastructure.common.MessageTypes;
+
 /**
  * KMGログメッセージの種類<br>
  *
@@ -12,7 +14,7 @@ import java.util.function.Supplier;
  * @version 1.0.0
  */
 @SuppressWarnings("nls")
-public enum KmgLogMessageTypes implements Supplier<String> {
+public enum KmgLogMessageTypes implements Supplier<String>, MessageTypes {
 
     /* 定義：開始 */
 
@@ -144,6 +146,7 @@ public enum KmgLogMessageTypes implements Supplier<String> {
      * @version 1.0.0
      * @return 名称
      */
+    @Override
     public String getName() {
 
         final String result = this.name;
@@ -167,7 +170,23 @@ public enum KmgLogMessageTypes implements Supplier<String> {
     }
 
     /**
-     * 種類の値<br>
+     * 種類の値を返す。<br>
+     *
+     * @author KenichiroArai
+     * @sine 1.0.0
+     * @version 1.0.0
+     * @return 種類の値
+     */
+    @Override
+    public String getCode() {
+
+        final String result = this.value;
+        return result;
+
+    }
+
+    /**
+     * 種類の値を返す。<br>
      *
      * @author KenichiroArai
      * @sine 1.0.0
