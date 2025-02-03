@@ -31,15 +31,6 @@ public enum KmgCharsetTypes implements Supplier<String> {
     /* 定義：終了 */
     ;
 
-    /** 名称 */
-    private final String name;
-
-    /** 値 */
-    private final String value;
-
-    /** 文字セット */
-    private Charset charset;
-
     /** 種類のマップ */
     private static final Map<String, KmgCharsetTypes> VALUES_MAP = new HashMap<>();
 
@@ -54,31 +45,27 @@ public enum KmgCharsetTypes implements Supplier<String> {
 
     }
 
+    /** 名称 */
+    private final String name;
+
+    /** 値 */
+    private final String value;
+
+    /** 文字セット */
+    private Charset charset;
+
     /**
-     * コンストラクタ<br>
+     * デフォルトの種類を返す<br>
      *
      * @author KenichiroArai
      * @sine 1.0.0
      * @version 1.0.0
-     * @param name
-     *              名称
-     * @param value
-     *              値
+     * @return デフォルト値
      */
-    KmgCharsetTypes(final String name, final String value) {
+    public static KmgCharsetTypes getDefault() {
 
-        this.name = name;
-        this.value = value;
-
-        if (KmgString.isEmpty(this.value)) {
-
-            this.charset = null;
-
-        } else {
-
-            this.charset = Charset.forName(this.value);
-
-        }
+        final KmgCharsetTypes result = NONE;
+        return result;
 
     }
 
@@ -124,30 +111,43 @@ public enum KmgCharsetTypes implements Supplier<String> {
     }
 
     /**
-     * デフォルトの種類を返す<br>
+     * コンストラクタ<br>
      *
      * @author KenichiroArai
      * @sine 1.0.0
      * @version 1.0.0
-     * @return デフォルト値
+     * @param name
+     *              名称
+     * @param value
+     *              値
      */
-    public static KmgCharsetTypes getDefault() {
+    KmgCharsetTypes(final String name, final String value) {
 
-        final KmgCharsetTypes result = NONE;
-        return result;
+        this.name = name;
+        this.value = value;
+
+        if (KmgString.isEmpty(this.value)) {
+
+            this.charset = null;
+
+        } else {
+
+            this.charset = Charset.forName(this.value);
+
+        }
 
     }
 
     /**
-     * 値を返す<br>
+     * 種類の値<br>
      *
      * @author KenichiroArai
      * @sine 1.0.0
      * @version 1.0.0
-     * @return 値
+     * @return 種類の値
      */
     @Override
-    public String toString() {
+    public String get() {
 
         final String result = this.value;
         return result;
@@ -203,15 +203,15 @@ public enum KmgCharsetTypes implements Supplier<String> {
     }
 
     /**
-     * 種類の値<br>
+     * 値を返す<br>
      *
      * @author KenichiroArai
      * @sine 1.0.0
      * @version 1.0.0
-     * @return 種類の値
+     * @return 値
      */
     @Override
-    public String get() {
+    public String toString() {
 
         final String result = this.value;
         return result;

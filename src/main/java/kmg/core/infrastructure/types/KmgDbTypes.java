@@ -41,15 +41,6 @@ public enum KmgDbTypes implements Supplier<String> {
     /* 定義：終了 */
     ;
 
-    /** 名称 */
-    private final String name;
-
-    /** 値 */
-    private final String value;
-
-    /** 別名の配列 */
-    private final String[] aliasArray;
-
     /** 種類のマップ */
     private static final Map<String, KmgDbTypes> valuesMap = new HashMap<>();
 
@@ -64,24 +55,27 @@ public enum KmgDbTypes implements Supplier<String> {
 
     }
 
+    /** 名称 */
+    private final String name;
+
+    /** 値 */
+    private final String value;
+
+    /** 別名の配列 */
+    private final String[] aliasArray;
+
     /**
-     * コンストラクタ<br>
+     * デフォルトの種類を返す<br>
      *
      * @author KenichiroArai
-     * @since 1.0.0
+     * @sine 1.0.0
      * @version 1.0.0
-     * @param name
-     *                   名称
-     * @param value
-     *                   値
-     * @param aliasArray
-     *                   別名の配列
+     * @return 初期値
      */
-    KmgDbTypes(final String name, final String value, final String[] aliasArray) {
+    public static KmgDbTypes getDefault() {
 
-        this.name = name;
-        this.value = value;
-        this.aliasArray = aliasArray;
+        final KmgDbTypes result = NONE;
+        return result;
 
     }
 
@@ -186,16 +180,53 @@ public enum KmgDbTypes implements Supplier<String> {
     }
 
     /**
-     * デフォルトの種類を返す<br>
+     * コンストラクタ<br>
+     *
+     * @author KenichiroArai
+     * @since 1.0.0
+     * @version 1.0.0
+     * @param name
+     *                   名称
+     * @param value
+     *                   値
+     * @param aliasArray
+     *                   別名の配列
+     */
+    KmgDbTypes(final String name, final String value, final String[] aliasArray) {
+
+        this.name = name;
+        this.value = value;
+        this.aliasArray = aliasArray;
+
+    }
+
+    /**
+     * 種類の値<br>
      *
      * @author KenichiroArai
      * @sine 1.0.0
      * @version 1.0.0
-     * @return 初期値
+     * @return 種類の値
      */
-    public static KmgDbTypes getDefault() {
+    @Override
+    public String get() {
 
-        final KmgDbTypes result = NONE;
+        final String result = this.value;
+        return result;
+
+    }
+
+    /**
+     * 別名の配列を返す<br>
+     *
+     * @author KenichiroArai
+     * @sine 1.0.0
+     * @version 1.0.0
+     * @return 別名の配列
+     */
+    public String[] getAliasArray() {
+
+        final String[] result = this.aliasArray;
         return result;
 
     }
@@ -242,37 +273,6 @@ public enum KmgDbTypes implements Supplier<String> {
     public String toString() {
 
         final String result = this.value;
-        return result;
-
-    }
-
-    /**
-     * 種類の値<br>
-     *
-     * @author KenichiroArai
-     * @sine 1.0.0
-     * @version 1.0.0
-     * @return 種類の値
-     */
-    @Override
-    public String get() {
-
-        final String result = this.value;
-        return result;
-
-    }
-
-    /**
-     * 別名の配列を返す<br>
-     *
-     * @author KenichiroArai
-     * @sine 1.0.0
-     * @version 1.0.0
-     * @return 別名の配列
-     */
-    public String[] getAliasArray() {
-
-        final String[] result = this.aliasArray;
         return result;
 
     }

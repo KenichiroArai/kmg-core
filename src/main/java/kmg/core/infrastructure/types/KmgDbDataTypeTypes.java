@@ -58,15 +58,6 @@ public enum KmgDbDataTypeTypes implements Supplier<String> {
     /* 定義：終了 */
     ;
 
-    /** 名称 */
-    private final String name;
-
-    /** 値 */
-    private final String value;
-
-    /** 型 */
-    private final Type type;
-
     /** 種類のマップ */
     private static final Map<String, KmgDbDataTypeTypes> valuesMap = new HashMap<>();
 
@@ -78,6 +69,32 @@ public enum KmgDbDataTypeTypes implements Supplier<String> {
             KmgDbDataTypeTypes.valuesMap.put(type.get(), type);
 
         }
+
+    }
+
+    /** 名称 */
+    private final String name;
+
+    /** 値 */
+    private final String value;
+
+    /** 型 */
+    private final Type type;
+
+    /**
+     * 値に該当する種類を返す<br>
+     *
+     * @author KenichiroArai
+     * @sine 1.0.0
+     * @version 1.0.0
+     ** @param value
+     *              値
+     * @return 種類
+     */
+    public static KmgDbDataTypeTypes getEnum(final String value) {
+
+        final KmgDbDataTypeTypes result = KmgDbDataTypeTypes.valuesMap.get(value);
+        return result;
 
     }
 
@@ -103,18 +120,17 @@ public enum KmgDbDataTypeTypes implements Supplier<String> {
     }
 
     /**
-     * 値に該当する種類を返す<br>
+     * 種類の値<br>
      *
      * @author KenichiroArai
      * @sine 1.0.0
      * @version 1.0.0
-     ** @param value
-     *              値
-     * @return 種類
+     * @return 種類の値
      */
-    public static KmgDbDataTypeTypes getEnum(final String value) {
+    @Override
+    public String get() {
 
-        final KmgDbDataTypeTypes result = KmgDbDataTypeTypes.valuesMap.get(value);
+        final String result = this.value;
         return result;
 
     }
@@ -135,18 +151,6 @@ public enum KmgDbDataTypeTypes implements Supplier<String> {
     }
 
     /**
-     * 値を返すvs
-     *
-     * @return 値
-     */
-    public String getValue() {
-
-        final String result = this.value;
-        return result;
-
-    }
-
-    /**
      * 型を返す<br>
      *
      * @author KenichiroArai
@@ -162,6 +166,18 @@ public enum KmgDbDataTypeTypes implements Supplier<String> {
     }
 
     /**
+     * 値を返すvs
+     *
+     * @return 値
+     */
+    public String getValue() {
+
+        final String result = this.value;
+        return result;
+
+    }
+
+    /**
      * 値を返す<br>
      *
      * @author KenichiroArai
@@ -171,22 +187,6 @@ public enum KmgDbDataTypeTypes implements Supplier<String> {
      */
     @Override
     public String toString() {
-
-        final String result = this.value;
-        return result;
-
-    }
-
-    /**
-     * 種類の値<br>
-     *
-     * @author KenichiroArai
-     * @sine 1.0.0
-     * @version 1.0.0
-     * @return 種類の値
-     */
-    @Override
-    public String get() {
 
         final String result = this.value;
         return result;
