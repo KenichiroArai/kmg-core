@@ -21,6 +21,20 @@ public class KmgMessageSource {
      *
      * @param messageTypes
      *                     メッセージの種類
+     * @return メッセージ
+     */
+    public String getMessage(final MessageTypes messageTypes) {
+
+        final String result = this.getMessage(messageTypes, null);
+        return result;
+
+    }
+
+    /**
+     * メッセージを取得する
+     *
+     * @param messageTypes
+     *                     メッセージの種類
      * @param args
      *                     引数
      * @return メッセージ

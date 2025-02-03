@@ -8,7 +8,7 @@ import org.springframework.util.ObjectUtils;
 
 import kmg.core.infrastructure.exception.KmgDomainException;
 import kmg.core.infrastructure.type.KmgString;
-import kmg.core.infrastructure.types.KmgLogMessageTypes;
+import kmg.core.infrastructure.types.KmgMsgMessageTypes;
 
 /**
  * KMGパスユーティリティ<br>
@@ -93,8 +93,8 @@ public final class KmgPathUtils {
 
         } catch (final URISyntaxException e) {
 
-            // TODO KenichiroArai 2025/02/02 KMGMSGE24000=クラスからビルドバスの取得に失敗しました。クラス=[{0}]
-            throw new KmgDomainException(e.getMessage(), KmgLogMessageTypes.NONE, e);
+            final KmgMsgMessageTypes msgTypes = KmgMsgMessageTypes.KMGMSGE24000;
+            throw new KmgDomainException(msgTypes, e);
 
         }
 

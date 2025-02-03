@@ -7,7 +7,7 @@ import java.math.BigDecimal;
 
 import kmg.core.domain.model.KmgReflectionModel;
 import kmg.core.infrastructure.exception.KmgDomainException;
-import kmg.core.infrastructure.types.KmgLogMessageTypes;
+import kmg.core.infrastructure.types.KmgMsgMessageTypes;
 
 /**
  * KMGリフレクションモデル<br>
@@ -111,8 +111,8 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
 
         } catch (final SecurityException e) {
 
-            // TODO KenichiroArai 2025/02/02 KMGMSGE11200=フィールドの取得に失敗しました。フィールド名=[{0}]、対象のクラス=[{1}]、最後に取得したフィールド=[{2}]
-            throw new KmgDomainException(e.getMessage(), KmgLogMessageTypes.NONE, e);
+            final KmgMsgMessageTypes msgTypes = KmgMsgMessageTypes.KMGMSGE11200;
+            throw new KmgDomainException(msgTypes, e);
 
         }
 
@@ -130,13 +130,13 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
 
         } catch (final SecurityException e) {
 
-            // TODO KenichiroArai 2025/02/02 KMGMSGE11201=フィールドの値の取得に失敗しました。フィールド名=[{0}]、対象のクラス=[{1}]、最後に取得したフィールド=[{2}]
-            throw new KmgDomainException(e.getMessage(), KmgLogMessageTypes.NONE, e);
+            final KmgMsgMessageTypes msgTypes = KmgMsgMessageTypes.KMGMSGE11201;
+            throw new KmgDomainException(msgTypes, e);
 
         } catch (final IllegalAccessException e) {
 
-            // TODO KenichiroArai 2025/02/02 KMGMSGE11202=フィールドの値の取得に失敗しました。フィールド名=[{0}]、対象のクラス=[{1}]、最後に取得したフィールド=[{2}]
-            throw new KmgDomainException(e.getMessage(), KmgLogMessageTypes.NONE, e);
+            final KmgMsgMessageTypes msgTypes = KmgMsgMessageTypes.KMGMSGE11202;
+            throw new KmgDomainException(msgTypes, e);
 
         }
 
@@ -202,8 +202,8 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
 
             } catch (final SecurityException e) {
 
-                // TODO KenichiroArai 2025/02/02 KMGMSGE11203=メソッドの取得に失敗しました。メソッド名=[{0}]、対象のクラス=[{1}]
-                throw new KmgDomainException(e.getMessage(), KmgLogMessageTypes.NONE, e);
+                final KmgMsgMessageTypes msgTypes = KmgMsgMessageTypes.KMGMSGE11203;
+                throw new KmgDomainException(msgTypes, e);
 
             }
 
@@ -280,23 +280,23 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
 
         } catch (final SecurityException e) {
 
-            // TODO KenichiroArai 2025/02/02 KMGMSGE11204=メソッドの値の取得に失敗しました。メソッド名=[{0}]、対象のクラス=[{1}]
-            throw new KmgDomainException(e.getMessage(), KmgLogMessageTypes.NONE, e);
+            final KmgMsgMessageTypes msgTypes = KmgMsgMessageTypes.KMGMSGE11204;
+            throw new KmgDomainException(msgTypes, e);
 
         } catch (final IllegalAccessException e) {
 
-            // TODO KenichiroArai 2025/02/02 KMGMSGE11205=メソッドの値の取得に失敗しました。メソッド名=[{0}]、対象のクラス=[{1}]
-            throw new KmgDomainException(e.getMessage(), KmgLogMessageTypes.NONE, e);
+            final KmgMsgMessageTypes msgTypes = KmgMsgMessageTypes.KMGMSGE11205;
+            throw new KmgDomainException(msgTypes, e);
 
         } catch (final IllegalArgumentException e) {
 
-            // TODO KenichiroArai 2025/02/02 KMGMSGE11206=メソッドの値の取得に失敗しました。メソッド名=[{0}]、対象のクラス=[{1}]
-            throw new KmgDomainException(e.getMessage(), KmgLogMessageTypes.NONE, e);
+            final KmgMsgMessageTypes msgTypes = KmgMsgMessageTypes.KMGMSGE11206;
+            throw new KmgDomainException(msgTypes, e);
 
         } catch (final InvocationTargetException e) {
 
-            // TODO KenichiroArai 2025/02/02 KMGMSGE11207=メソッドの値の取得に失敗しました。メソッド名=[{0}]、対象のクラス=[{1}]
-            throw new KmgDomainException(e.getMessage(), KmgLogMessageTypes.NONE, e);
+            final KmgMsgMessageTypes msgTypes = KmgMsgMessageTypes.KMGMSGE11207;
+            throw new KmgDomainException(msgTypes, e);
 
         }
 
@@ -367,8 +367,8 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
 
         } catch (final SecurityException e) {
 
-            // TODO KenichiroArai 2025/02/02 KMGMSGE11209=フィールドの取得に失敗しました。フィールド名=[{0}]、対象のクラス=[{1}]、最後に取得したフィールド=[{2}]
-            throw new KmgDomainException(e.getMessage(), KmgLogMessageTypes.NONE, e);
+            final KmgMsgMessageTypes msgTypes = KmgMsgMessageTypes.KMGMSGE11209;
+            throw new KmgDomainException(msgTypes, e);
 
         }
 
@@ -393,9 +393,8 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
 
                 } catch (final NumberFormatException e) {
 
-                    // TODO KenichiroArai 2025/02/02
-                    // KMGMSGE11210=フィールドの値の設定に失敗しました。フィールド名=[{0}]、対象のクラス=[{1}]、最後に取得したフィールド=[{2}]
-                    throw new KmgDomainException(e.getMessage(), KmgLogMessageTypes.NONE, e);
+                    final KmgMsgMessageTypes msgTypes = KmgMsgMessageTypes.KMGMSGE11210;
+                    throw new KmgDomainException(msgTypes, e);
 
                 }
 
@@ -404,8 +403,8 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
 
         } catch (final IllegalAccessException e) {
 
-            // TODO KenichiroArai 2025/02/02 KMGMSGE11211=フィールドの値の設定に失敗しました。フィールド名=[{0}]、対象のクラス=[{1}]、最後に取得したフィールド=[{2}]
-            throw new KmgDomainException(e.getMessage(), KmgLogMessageTypes.NONE, e);
+            final KmgMsgMessageTypes msgTypes = KmgMsgMessageTypes.KMGMSGE11211;
+            throw new KmgDomainException(msgTypes, e);
 
         }
 

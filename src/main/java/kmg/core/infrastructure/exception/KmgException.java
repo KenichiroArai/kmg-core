@@ -1,6 +1,9 @@
 package kmg.core.infrastructure.exception;
 
-import kmg.core.infrastructure.types.KmgLogMessageTypes;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import kmg.core.infrastructure.context.KmgMessageSource;
+import kmg.core.infrastructure.types.KmgMsgMessageTypes;
 
 /**
  * KMG例外<br>
@@ -11,14 +14,21 @@ import kmg.core.infrastructure.types.KmgLogMessageTypes;
  */
 public class KmgException extends Exception {
 
-    /** デフォルトシリアルバージョンＵＩＤ */
+    /** デフォルトシリアルバージョンUID */
     private static final long serialVersionUID = 1L;
 
-    /** ログメッセージの種類 */
-    private final KmgLogMessageTypes logMsgTypes;
+    /** メッセージソース */
+    @Autowired
+    private KmgMessageSource kmgMessageSource;
 
-    /** ログメッセージの引数 */
-    private final Object[] logMsgArgs;
+    /** メッセージ */
+    private final String message;
+
+    /** メッセージの種類 */
+    private final KmgMsgMessageTypes messageTypes;
+
+    /** メッセージの引数 */
+    private final Object[] messageArgs;
 
     /**
      * コンストラクタ<br>
@@ -26,18 +36,14 @@ public class KmgException extends Exception {
      * @author KenichiroArai
      * @sine 1.0.0
      * @version 1.0.0
-     * @param errMsg
-     *                    エラーメッセージ
-     * @param logMsgTypes
-     *                    ログメッセージの種類
-     * @param logMsgArgs
-     *                    ログメッセージの引数
+     * @param messageTypes
+     *                     メッセージの種類
+     * @param messageArgs
+     *                     メッセージの引数
      */
-    public KmgException(final String errMsg, final KmgLogMessageTypes logMsgTypes, final Object[] logMsgArgs) {
+    public KmgException(final KmgMsgMessageTypes messageTypes, final Object[] messageArgs) {
 
-        super(errMsg);
-        this.logMsgTypes = logMsgTypes;
-        this.logMsgArgs = logMsgArgs;
+        this(messageTypes, messageArgs, null);
 
     }
 
@@ -47,18 +53,19 @@ public class KmgException extends Exception {
      * @author KenichiroArai
      * @sine 1.0.0
      * @version 1.0.0
-     * @param errMsg
-     *                    エラーメッセージ
-     * @param logMsgTypes
-     *                    ログメッセージの種類
+     * @param messageTypes
+     *                     メッセージの種類
+     * @param messageArgs
+     *                     メッセージの引数
      * @param cause
-     *                    原因
+     *                     原因
      */
-    public KmgException(final String errMsg, final KmgLogMessageTypes logMsgTypes, final Throwable cause) {
+    public KmgException(final KmgMsgMessageTypes messageTypes, final Object[] messageArgs, final Throwable cause) {
 
-        super(errMsg, cause);
-        this.logMsgTypes = logMsgTypes;
-        this.logMsgArgs = null;
+        super(cause);
+        this.messageTypes = messageTypes;
+        this.messageArgs = messageArgs;
+        this.message = this.kmgMessageSource.getMessage(messageTypes, messageArgs);
 
     }
 
@@ -68,50 +75,59 @@ public class KmgException extends Exception {
      * @author KenichiroArai
      * @sine 1.0.0
      * @version 1.0.0
-     * @param errMsg
-     *                    エラーメッセージ
-     * @param logMsgTypes
-     *                    ログメッセージの種類
-     * @param logMsgArgs
-     *                    ログメッセージの引数
+     * @param messageTypes
+     *                     メッセージの種類
      * @param cause
-     *                    原因
+     *                     原因
      */
-    public KmgException(final String errMsg, final KmgLogMessageTypes logMsgTypes, final Object[] logMsgArgs,
-            final Throwable cause) {
+    public KmgException(final KmgMsgMessageTypes messageTypes, final Throwable cause) {
 
-        super(errMsg, cause);
-        this.logMsgTypes = logMsgTypes;
-        this.logMsgArgs = logMsgArgs;
+        this(messageTypes, null, cause);
 
     }
 
     /**
-     * ログメッセージの種類を返す<br>
+     * メッセージを返す。<br>
      *
      * @author KenichiroArai
      * @sine 1.0.0
      * @version 1.0.0
-     * @return ログメッセージの種類
+     * @return メッセージ
      */
-    public KmgLogMessageTypes getLogMsgTypes() {
+    @Override
+    public String getMessage() {
 
-        final KmgLogMessageTypes result = this.logMsgTypes;
+        final String result = this.message;
         return result;
 
     }
 
     /**
-     * ログメッセージの引数を返す<br>
+     * メッセージの引数を返す<br>
      *
      * @author KenichiroArai
      * @sine 1.0.0
      * @version 1.0.0
-     * @return ログメッセージの引数
+     * @return メッセージの引数
      */
-    public Object[] getLogMsgArgs() {
+    public Object[] getMessageArgs() {
 
-        final Object[] result = this.logMsgArgs;
+        final Object[] result = this.messageArgs;
+        return result;
+
+    }
+
+    /**
+     * メッセージの種類を返す<br>
+     *
+     * @author KenichiroArai
+     * @sine 1.0.0
+     * @version 1.0.0
+     * @return メッセージの種類
+     */
+    public KmgMsgMessageTypes getMessageTypes() {
+
+        final KmgMsgMessageTypes result = this.messageTypes;
         return result;
 
     }

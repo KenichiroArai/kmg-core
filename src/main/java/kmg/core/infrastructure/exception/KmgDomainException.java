@@ -1,6 +1,6 @@
 package kmg.core.infrastructure.exception;
 
-import kmg.core.infrastructure.types.KmgLogMessageTypes;
+import kmg.core.infrastructure.types.KmgMsgMessageTypes;
 
 /**
  * KMGドメイン例外<br>
@@ -20,16 +20,14 @@ public class KmgDomainException extends KmgException {
      * @author KenichiroArai
      * @sine 1.0.0
      * @version 1.0.0
-     * @param errMsg
-     *                    エラーメッセージ
-     * @param logMsgTypes
-     *                    ログメッセージの種類
-     * @param logMsgArgs
-     *                    ログメッセージの引数
+     * @param messageTypes
+     *                     メッセージの種類
+     * @param messageArgs
+     *                     メッセージの引数
      */
-    public KmgDomainException(final String errMsg, final KmgLogMessageTypes logMsgTypes, final Object[] logMsgArgs) {
+    public KmgDomainException(final KmgMsgMessageTypes messageTypes, final Object[] messageArgs) {
 
-        super(errMsg, logMsgTypes, logMsgArgs);
+        super(messageTypes, messageArgs);
 
     }
 
@@ -39,16 +37,17 @@ public class KmgDomainException extends KmgException {
      * @author KenichiroArai
      * @sine 1.0.0
      * @version 1.0.0
-     * @param errMsg
-     *                    エラーメッセージ
-     * @param logMsgTypes
-     *                    ログメッセージの種類
+     * @param messageTypes
+     *                     メッセージの種類
+     * @param messageArgs
+     *                     メッセージの引数
      * @param cause
-     *                    原因
+     *                     原因
      */
-    public KmgDomainException(final String errMsg, final KmgLogMessageTypes logMsgTypes, final Throwable cause) {
+    public KmgDomainException(final KmgMsgMessageTypes messageTypes, final Object[] messageArgs,
+        final Throwable cause) {
 
-        super(errMsg, logMsgTypes, cause);
+        super(messageTypes, messageArgs, cause);
 
     }
 
@@ -58,19 +57,14 @@ public class KmgDomainException extends KmgException {
      * @author KenichiroArai
      * @sine 1.0.0
      * @version 1.0.0
-     * @param errMsg
-     *                    エラーメッセージ
-     * @param logMsgTypes
-     *                    ログメッセージの種類
-     * @param logMsgArgs
-     *                    ログメッセージの引数
+     * @param messageTypes
+     *                     メッセージの種類
      * @param cause
-     *                    原因
+     *                     原因
      */
-    public KmgDomainException(final String errMsg, final KmgLogMessageTypes logMsgTypes, final Object[] logMsgArgs,
-            final Throwable cause) {
+    public KmgDomainException(final KmgMsgMessageTypes messageTypes, final Throwable cause) {
 
-        super(errMsg, logMsgTypes, logMsgArgs, cause);
+        super(messageTypes, cause);
 
     }
 
