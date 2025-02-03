@@ -321,6 +321,76 @@ public class KmgDelimiterTypesTest {
     }
 
     /**
+     * split メソッドのテスト - 制限付きの場合
+     */
+    @Test
+    public void testSplit_withLimit() {
+
+        /* 期待値の定義 */
+        final String[] expected = {
+            "test1", "test2,test3"
+        };
+
+        /* 準備 */
+        final KmgDelimiterTypes testType   = KmgDelimiterTypes.COMMA;
+        final String            testString = "test1,test2,test3";
+        final int               testLimit  = 2;
+
+        /* テスト対象の実行 */
+        final String[] actual = testType.split(testString, testLimit);
+
+        /* 検証の実施 */
+        Assertions.assertArrayEquals(expected, actual, "制限付き分割結果が一致しません");
+
+    }
+
+    /**
+     * split メソッドのテスト - 制限付き、空文字の場合
+     */
+    @Test
+    public void testSplit_withLimit_empty() {
+
+        /* 期待値の定義 */
+        final String[] expected = null;
+
+        /* 準備 */
+        final KmgDelimiterTypes testType   = KmgDelimiterTypes.COMMA;
+        final String            testString = KmgString.EMPTY;
+        final int               testLimit  = 2;
+
+        /* テスト対象の実行 */
+        final String[] actual = testType.split(testString, testLimit);
+
+        /* 検証の実施 */
+        Assertions.assertArrayEquals(expected, actual, "空文字の制限付き分割結果が一致しません");
+
+    }
+
+    /**
+     * split メソッドのテスト - 制限が文字列の分割数より大きい場合
+     */
+    @Test
+    public void testSplit_withLimit_largerLimit() {
+
+        /* 期待値の定義 */
+        final String[] expected = {
+            "test1", "test2", "test3"
+        };
+
+        /* 準備 */
+        final KmgDelimiterTypes testType   = KmgDelimiterTypes.COMMA;
+        final String            testString = "test1,test2,test3";
+        final int               testLimit  = 5;
+
+        /* テスト対象の実行 */
+        final String[] actual = testType.split(testString, testLimit);
+
+        /* 検証の実施 */
+        Assertions.assertArrayEquals(expected, actual, "制限が大きい場合の分割結果が一致しません");
+
+    }
+
+    /**
      * toString メソッドのテスト - HALF_SPACEの場合
      */
     @Test
