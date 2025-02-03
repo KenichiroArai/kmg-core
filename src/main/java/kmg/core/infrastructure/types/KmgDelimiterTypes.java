@@ -375,6 +375,34 @@ public enum KmgDelimiterTypes implements Supplier<String> {
     }
 
     /**
+     * 分割する文字列を分割し、文字列の配列にして返す。<br>
+     *
+     * @author KenichiroArai
+     * @sine 1.0.0
+     * @version 1.0.0
+     * @param target
+     *               分割する文字列
+     * @param limit
+     *               制限数
+     * @return 分割した文字列の配列
+     */
+    public String[] split(final String target, final int limit) {
+
+        String[] result = null;
+
+        if (KmgString.isEmpty(target)) {
+
+            return result;
+
+        }
+
+        result = target.split(this.value, limit);
+
+        return result;
+
+    }
+
+    /**
      * 種類の値<br>
      *
      * @author KenichiroArai
