@@ -5,8 +5,12 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import kmg.core.domain.model.KmgSqlPathModel;
 import kmg.core.infrastructure.exception.KmgDomainException;
+import kmg.core.infrastructure.model.KmgMessageModel;
+import kmg.core.infrastructure.model.factory.KmgMessageModelFactory;
 import kmg.core.infrastructure.type.KmgString;
 import kmg.core.infrastructure.types.KmgMsgMessageTypes;
 
@@ -18,6 +22,10 @@ import kmg.core.infrastructure.types.KmgMsgMessageTypes;
  * @version 1.0.0
  */
 public class KmgSqlPathModelImpl implements KmgSqlPathModel {
+
+    /** KMGメッセージリソース */
+    @Autowired
+    private KmgMessageModelFactory kmgMessageModelFactory;
 
     /** SQLファイルパス */
     private final Path sqlFilePath;
@@ -123,11 +131,12 @@ public class KmgSqlPathModelImpl implements KmgSqlPathModel {
 
         } catch (final IOException e) {
 
-            final KmgMsgMessageTypes msgTypes = KmgMsgMessageTypes.KMGMSGE11100;
-            final Object[]           msgArgs  = {
+            final KmgMsgMessageTypes msgTypes        = KmgMsgMessageTypes.KMGMSGE11100;
+            final Object[]           msgArgs         = {
                 this.sqlFilePath
             };
-            throw new KmgDomainException(msgTypes, msgArgs, e);
+            final KmgMessageModel    kmgMessageModel = this.kmgMessageModelFactory.create(msgTypes, msgArgs);
+            throw new KmgDomainException(kmgMessageModel, e);
 
         }
 

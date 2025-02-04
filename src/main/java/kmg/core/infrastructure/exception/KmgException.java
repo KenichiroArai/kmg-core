@@ -1,9 +1,6 @@
 package kmg.core.infrastructure.exception;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
-import kmg.core.infrastructure.context.KmgMessageSource;
-import kmg.core.infrastructure.types.KmgMsgMessageTypes;
+import kmg.core.infrastructure.model.KmgMessageModel;
 
 /**
  * KMG例外<br>
@@ -17,18 +14,8 @@ public class KmgException extends Exception {
     /** デフォルトシリアルバージョンUID */
     private static final long serialVersionUID = 1L;
 
-    /** メッセージソース */
-    @Autowired
-    private KmgMessageSource kmgMessageSource;
-
-    /** メッセージ */
-    private String message;
-
-    /** メッセージの種類 */
-    private final KmgMsgMessageTypes messageTypes;
-
-    /** メッセージの引数 */
-    private final Object[] messageArgs;
+    /** メッセージモデル */
+    private final KmgMessageModel kmgMessageModel;
 
     /**
      * コンストラクタ<br>
@@ -36,14 +23,12 @@ public class KmgException extends Exception {
      * @author KenichiroArai
      * @sine 1.0.0
      * @version 1.0.0
-     * @param messageTypes
-     *                     メッセージの種類
-     * @param messageArgs
-     *                     メッセージの引数
+     * @param kmgMessageModel
+     *                    メッセージモデル
      */
-    public KmgException(final KmgMsgMessageTypes messageTypes, final Object[] messageArgs) {
+    public KmgException(final KmgMessageModel kmgMessageModel) {
 
-        this(messageTypes, messageArgs, null);
+        this(kmgMessageModel, null);
 
     }
 
@@ -53,35 +38,15 @@ public class KmgException extends Exception {
      * @author KenichiroArai
      * @sine 1.0.0
      * @version 1.0.0
-     * @param messageTypes
-     *                     メッセージの種類
-     * @param messageArgs
-     *                     メッセージの引数
+     * @param kmgMessageModel
+     *                    メッセージモデル
      * @param cause
-     *                     原因
+     *                    原因
      */
-    public KmgException(final KmgMsgMessageTypes messageTypes, final Object[] messageArgs, final Throwable cause) {
+    public KmgException(final KmgMessageModel kmgMessageModel, final Throwable cause) {
 
         super(cause);
-        this.messageTypes = messageTypes;
-        this.messageArgs = messageArgs;
-
-    }
-
-    /**
-     * コンストラクタ<br>
-     *
-     * @author KenichiroArai
-     * @sine 1.0.0
-     * @version 1.0.0
-     * @param messageTypes
-     *                     メッセージの種類
-     * @param cause
-     *                     原因
-     */
-    public KmgException(final KmgMsgMessageTypes messageTypes, final Throwable cause) {
-
-        this(messageTypes, null, cause);
+        this.kmgMessageModel = kmgMessageModel;
 
     }
 
@@ -96,45 +61,20 @@ public class KmgException extends Exception {
     @Override
     public String getMessage() {
 
-        String result = null;
-
-        if (this.message == null) {
-
-            this.message = this.kmgMessageSource.getMessage(this.messageTypes, this.messageArgs);
-
-        }
-
-        result = this.message;
+        final String result = this.kmgMessageModel.getMessage();
         return result;
 
     }
 
     /**
-     * メッセージの引数を返す<br>
+     * メッセージモデルを返す。
      *
-     * @author KenichiroArai
-     * @sine 1.0.0
-     * @version 1.0.0
-     * @return メッセージの引数
+     * @return メッセージモデル
      */
-    public Object[] getMessageArgs() {
+    public KmgMessageModel getMessageInfo() {
 
-        final Object[] result = this.messageArgs;
-        return result;
+        final KmgMessageModel result = this.kmgMessageModel;
 
-    }
-
-    /**
-     * メッセージの種類を返す<br>
-     *
-     * @author KenichiroArai
-     * @sine 1.0.0
-     * @version 1.0.0
-     * @return メッセージの種類
-     */
-    public KmgMsgMessageTypes getMessageTypes() {
-
-        final KmgMsgMessageTypes result = this.messageTypes;
         return result;
 
     }

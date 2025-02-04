@@ -6,7 +6,7 @@ package kmg.core.infrastructure.common;
 /**
  * メッセージの種類のインタフェース
  */
-public interface MessageTypes {
+public interface KmgMessageTypes {
 
     /**
      * メッセージのコードを返す。

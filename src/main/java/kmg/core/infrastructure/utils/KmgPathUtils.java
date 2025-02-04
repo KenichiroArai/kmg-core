@@ -4,9 +4,12 @@ import java.net.URISyntaxException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.ObjectUtils;
 
 import kmg.core.infrastructure.exception.KmgDomainException;
+import kmg.core.infrastructure.model.KmgMessageModel;
+import kmg.core.infrastructure.model.factory.KmgMessageModelFactory;
 import kmg.core.infrastructure.type.KmgString;
 import kmg.core.infrastructure.types.KmgMsgMessageTypes;
 
@@ -18,6 +21,10 @@ import kmg.core.infrastructure.types.KmgMsgMessageTypes;
  * @version 1.0.0
  */
 public final class KmgPathUtils {
+
+    /** KMGメッセージリソース */
+    @Autowired
+    private static KmgMessageModelFactory kmgMessageModelFactory;
 
     /**
      * デフォルトコンストラクタ<br>
@@ -93,11 +100,12 @@ public final class KmgPathUtils {
 
         } catch (final URISyntaxException e) {
 
-            final KmgMsgMessageTypes msgTypes = KmgMsgMessageTypes.KMGMSGE24000;
-            final Object[]           msgArgs  = {
+            final KmgMsgMessageTypes msgTypes        = KmgMsgMessageTypes.KMGMSGE24000;
+            final Object[]           msgArgs         = {
                 zlass.getName()
             };
-            throw new KmgDomainException(msgTypes, msgArgs, e);
+            final KmgMessageModel    kmgMessageModel = KmgPathUtils.kmgMessageModelFactory.create(msgTypes, msgArgs);
+            throw new KmgDomainException(kmgMessageModel, e);
 
         }
 

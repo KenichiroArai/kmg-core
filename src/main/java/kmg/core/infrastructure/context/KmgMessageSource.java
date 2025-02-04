@@ -5,7 +5,7 @@ import java.util.Locale;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 
-import kmg.core.infrastructure.common.MessageTypes;
+import kmg.core.infrastructure.common.KmgMessageTypes;
 
 /**
  * KMGメッセージリソース
@@ -19,13 +19,13 @@ public class KmgMessageSource {
     /**
      * メッセージを取得する
      *
-     * @param messageTypes
+     * @param kmgMessageTypes
      *                     メッセージの種類
      * @return メッセージ
      */
-    public String getMessage(final MessageTypes messageTypes) {
+    public String getMessage(final KmgMessageTypes kmgMessageTypes) {
 
-        final String result = this.getMessage(messageTypes, null);
+        final String result = this.getMessage(kmgMessageTypes, null);
         return result;
 
     }
@@ -33,15 +33,15 @@ public class KmgMessageSource {
     /**
      * メッセージを取得する
      *
-     * @param messageTypes
+     * @param kmgMessageTypes
      *                     メッセージの種類
      * @param args
      *                     引数
      * @return メッセージ
      */
-    public String getMessage(final MessageTypes messageTypes, final Object[] args) {
+    public String getMessage(final KmgMessageTypes kmgMessageTypes, final Object[] args) {
 
-        final String result = this.messageSource.getMessage(messageTypes.getCode(), args, Locale.JAPANESE);
+        final String result = this.messageSource.getMessage(kmgMessageTypes.getCode(), args, Locale.JAPANESE);
         return result;
 
     }

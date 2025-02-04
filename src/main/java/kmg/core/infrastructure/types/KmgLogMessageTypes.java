@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Supplier;
 
-import kmg.core.infrastructure.common.MessageTypes;
+import kmg.core.infrastructure.common.KmgMessageTypes;
 
 /**
  * KMGログメッセージの種類<br>
@@ -14,7 +14,7 @@ import kmg.core.infrastructure.common.MessageTypes;
  * @version 1.0.0
  */
 @SuppressWarnings("nls")
-public enum KmgLogMessageTypes implements Supplier<String>, MessageTypes {
+public enum KmgLogMessageTypes implements Supplier<String>, KmgMessageTypes {
 
     /* 定義：開始 */
 
