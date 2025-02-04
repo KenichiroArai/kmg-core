@@ -6,10 +6,20 @@ import java.lang.reflect.Method;
 import java.math.BigDecimal;
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.ArgumentMatchers;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.test.util.ReflectionTestUtils;
 
 import kmg.core.infrastructure.exception.KmgDomainException;
+import kmg.core.infrastructure.model.KmgMessageModel;
+import kmg.core.infrastructure.model.factory.KmgMessageModelFactory;
 import kmg.core.infrastructure.type.KmgString;
+import kmg.core.infrastructure.types.KmgMsgMessageTypes;
 
 /**
  * KMGリフレクションモデル実装のテスト<br>
@@ -18,7 +28,38 @@ import kmg.core.infrastructure.type.KmgString;
  * @sine 1.0.0
  * @version 1.0.0
  */
+@ExtendWith(MockitoExtension.class)
 public class KmgReflectionModelImplTest {
+
+    /** KMGメッセージモデルファクトリのモック */
+    @Mock
+    private KmgMessageModelFactory kmgMessageModelFactory;
+
+    /** KMGメッセージモデルのモック */
+    @Mock
+    private KmgMessageModel kmgMessageModel;
+
+    /** テスト対象 */
+    private KmgReflectionModelImpl target;
+
+    /**
+     * セットアップ<br>
+     */
+    @BeforeEach
+    public void setUp() {
+
+        // テスト対象のインスタンスを生成
+        this.target = new KmgReflectionModelImpl(new TestClass());
+        // モックを注入
+        ReflectionTestUtils.setField(this.target, "kmgMessageModelFactory", this.kmgMessageModelFactory);
+
+        // メッセージモデルの基本設定
+        Mockito.when(
+            this.kmgMessageModelFactory.create(ArgumentMatchers.any(KmgMsgMessageTypes.class), ArgumentMatchers.any()))
+            .thenReturn(this.kmgMessageModel);
+        Mockito.when(this.kmgMessageModel.getMessage()).thenReturn("テストメッセージ");
+
+    }
 
     /**
      * テスト用のクラス<br>

@@ -35,7 +35,7 @@ public class KmgSystemExceptionTest {
 
         /* 準備 */
         final KmgMessageModel testMessageModel = Mockito.mock(KmgMessageModel.class);
-        Mockito.when(testMessageModel.toString()).thenReturn(expectedMessage);
+        Mockito.when(testMessageModel.getMessage()).thenReturn(expectedMessage);
 
         /* テスト対象の実行 */
         final KmgSystemException testException = new KmgSystemException(testMessageModel);
@@ -61,7 +61,7 @@ public class KmgSystemExceptionTest {
 
         /* 準備 */
         final KmgMessageModel testMessageModel = Mockito.mock(KmgMessageModel.class);
-        Mockito.when(testMessageModel.toString()).thenReturn(expectedMessage);
+        Mockito.when(testMessageModel.getMessage()).thenReturn(expectedMessage);
 
         /* テスト対象の実行 */
         final KmgSystemException testException = new KmgSystemException(testMessageModel, expectedCause);

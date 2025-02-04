@@ -6,11 +6,20 @@ import java.nio.file.Path;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.api.io.TempDir;
+import org.mockito.ArgumentMatchers;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.test.util.ReflectionTestUtils;
 
 import kmg.core.domain.model.KmgReflectionModel;
 import kmg.core.infrastructure.exception.KmgDomainException;
+import kmg.core.infrastructure.model.KmgMessageModel;
+import kmg.core.infrastructure.model.factory.KmgMessageModelFactory;
 import kmg.core.infrastructure.type.KmgString;
+import kmg.core.infrastructure.types.KmgMsgMessageTypes;
 
 /**
  * KMGSQLパスモデルテスト<br>
@@ -19,26 +28,42 @@ import kmg.core.infrastructure.type.KmgString;
  * @sine 1.0.0
  * @version 1.0.0
  */
+@ExtendWith(MockitoExtension.class)
 public class KmgSqlPathModelImplTest {
 
+    /** KMGメッセージモデルファクトリのモック */
+    @Mock
+    private KmgMessageModelFactory kmgMessageModelFactory;
+
+    /** KMGメッセージモデルのモック */
+    @Mock
+    private KmgMessageModel kmgMessageModel;
+
     /** テスト対象 */
-    private KmgSqlPathModelImpl testTarget;
+    private KmgSqlPathModelImpl target;
 
     /** 一時ディレクトリ */
     @TempDir
     private Path tempDir;
 
     /**
-     * 前処理<br>
-     *
-     * @author KenichiroArai
-     * @sine 1.0.0
-     * @version 1.0.0
+     * セットアップ<br>
      */
     @BeforeEach
-    public void beforeEach() {
+    public void setUp() {
 
-        this.testTarget = null;
+        // テスト対象のインスタンスを生成
+        final Path testFile = this.tempDir.resolve("test.sql");
+        this.target = new KmgSqlPathModelImpl(this.getClass(), testFile);
+
+        // モックを注入
+        ReflectionTestUtils.setField(this.target, "kmgMessageModelFactory", this.kmgMessageModelFactory);
+
+        // メッセージモデルの基本設定
+        Mockito.when(
+            this.kmgMessageModelFactory.create(ArgumentMatchers.any(KmgMsgMessageTypes.class), ArgumentMatchers.any()))
+            .thenReturn(this.kmgMessageModel);
+        Mockito.when(this.kmgMessageModel.getMessage()).thenReturn("テストメッセージ");
 
     }
 
@@ -62,8 +87,8 @@ public class KmgSqlPathModelImplTest {
         Files.writeString(testFile, "/*:sampleId*/'サンプル'");
 
         /* テスト対象の実行 */
-        this.testTarget = new KmgSqlPathModelImpl(KmgSqlPathModelImpl.class, testFile);
-        final String testResult = this.testTarget.toSql();
+        this.target = new KmgSqlPathModelImpl(KmgSqlPathModelImpl.class, testFile);
+        final String testResult = this.target.toSql();
 
         /* 検証の準備 */
         final String actualSql = testResult;
@@ -122,8 +147,8 @@ public class KmgSqlPathModelImplTest {
         final Path testFile = this.tempDir.resolve("not_exists.sql");
 
         /* テスト対象の実行と検証 */
-        this.testTarget = new KmgSqlPathModelImpl(this, testFile);
-        Assertions.assertThrows(expectedExceptionClass, () -> this.testTarget.toSql(), "例外が発生しませんでした");
+        this.target = new KmgSqlPathModelImpl(this, testFile);
+        Assertions.assertThrows(expectedExceptionClass, () -> this.target.toSql(), "例外が発生しませんでした");
 
     }
 
@@ -147,8 +172,8 @@ public class KmgSqlPathModelImplTest {
         Files.writeString(testFile, "");
 
         /* テスト対象の実行 */
-        this.testTarget = new KmgSqlPathModelImpl(this, testFile);
-        final String testResult = this.testTarget.toSql();
+        this.target = new KmgSqlPathModelImpl(this, testFile);
+        final String testResult = this.target.toSql();
 
         /* 検証の準備 */
         final String actualSql = testResult;
@@ -178,8 +203,8 @@ public class KmgSqlPathModelImplTest {
         Files.writeString(testFile, "/*:sampleId*/'サンプル'");
 
         /* テスト対象の実行 */
-        this.testTarget = new KmgSqlPathModelImpl(this, testFile);
-        final String testResult = this.testTarget.toSql();
+        this.target = new KmgSqlPathModelImpl(this, testFile);
+        final String testResult = this.target.toSql();
 
         /* 検証の準備 */
         final String actualSql = testResult;
