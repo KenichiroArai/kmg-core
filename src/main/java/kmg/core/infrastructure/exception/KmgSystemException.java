@@ -50,4 +50,21 @@ public class KmgSystemException extends KmgException {
         super(messageTypes, messageArgs, cause);
 
     }
+
+    /**
+     * コンストラクタ<br>
+     *
+     * @author KenichiroArai
+     * @sine 1.0.0
+     * @version 1.0.0
+     * @param messageTypes
+     *                     メッセージの種類
+     * @param cause
+     *                     原因
+     */
+    public KmgSystemException(final KmgMsgMessageTypes messageTypes, final Throwable cause) {
+
+        super(messageTypes, cause);
+
+    }
 }

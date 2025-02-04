@@ -74,4 +74,33 @@ public class KmgSystemExceptionTest {
         Assertions.assertEquals(expectedCause, actualCause, "原因が一致しません");
 
     }
+
+    /**
+     * コンストラクタのテスト - メッセージの種類と原因を指定した場合
+     */
+    @Test
+    @SuppressWarnings("static-method")
+    public void testConstructor_withTypeAndCause() {
+
+        /* 期待値の定義 */
+        final KmgMsgMessageTypes expectedMsgTypes = KmgMsgMessageTypes.NONE;
+        final Throwable          expectedCause    = new RuntimeException("テスト原因");
+
+        /* 準備 */
+
+        /* テスト対象の実行 */
+        final KmgSystemException testException = new KmgSystemException(expectedMsgTypes, expectedCause);
+
+        /* 検証の準備 */
+        final KmgMsgMessageTypes actualMsgTypes = testException.getMessageTypes();
+        final Object[]           actualMsgArgs  = testException.getMessageArgs();
+        final Throwable          actualCause    = testException.getCause();
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expectedMsgTypes, actualMsgTypes, "メッセージの種類が一致しません");
+        Assertions.assertNull(actualMsgArgs, "メッセージの引数がnullではありません");
+        Assertions.assertNotNull(actualCause, "原因がnullです");
+        Assertions.assertEquals(expectedCause, actualCause, "原因が一致しません");
+
+    }
 }
