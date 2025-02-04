@@ -3,23 +3,12 @@ package kmg.core;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.context.ConfigurableApplicationContext;
-import org.springframework.test.context.TestPropertySource;
-
-import kmg.core.infrastructure.context.KmgMessageSource;
 
 /**
  * KmgCoreApplication のテストクラス
  */
-@SpringBootTest
-@TestPropertySource(locations = "classpath:application-test.properties")
 public class KmgCoreApplicationTest {
-
-    /** KMGメッセージソースのモック */
-    @MockBean
-    private KmgMessageSource kmgMessageSource;
 
     /**
      * main メソッドのテスト - Spring Boot アプリケーションが正常に起動し、終了することを確認する。

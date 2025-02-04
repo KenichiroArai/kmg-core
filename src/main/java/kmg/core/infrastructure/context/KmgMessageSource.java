@@ -4,12 +4,13 @@ import java.util.Locale;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
-
+import org.springframework.stereotype.Component;
 import kmg.core.infrastructure.common.KmgMessageTypes;
 
 /**
  * KMGメッセージリソース
  */
+@Component
 public class KmgMessageSource {
 
     /** メッセージリソース */
@@ -20,7 +21,7 @@ public class KmgMessageSource {
      * メッセージを取得する
      *
      * @param kmgMessageTypes
-     *                     メッセージの種類
+     *                        メッセージの種類
      * @return メッセージ
      */
     public String getMessage(final KmgMessageTypes kmgMessageTypes) {
@@ -34,9 +35,9 @@ public class KmgMessageSource {
      * メッセージを取得する
      *
      * @param kmgMessageTypes
-     *                     メッセージの種類
+     *                        メッセージの種類
      * @param args
-     *                     引数
+     *                        引数
      * @return メッセージ
      */
     public String getMessage(final KmgMessageTypes kmgMessageTypes, final Object[] args) {
