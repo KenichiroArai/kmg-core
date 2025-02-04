@@ -14,7 +14,6 @@ import org.mockito.MockedStatic;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.context.TestConfiguration;
 
 import kmg.core.domain.model.impl.KmgReflectionModelImpl;
 import kmg.core.infrastructure.exception.KmgDomainException;
@@ -118,12 +117,11 @@ public class KmgPathUtilsTest {
         final URISyntaxException testException = new URISyntaxException("test", "Test URI Syntax Exception");
 
         // このテストケースでのみ必要なモックの設定
-        KmgPathUtils.setKmgMessageModelFactory(mockMessageModelFactory);
-        Mockito
-            .when(
-                mockMessageModelFactory.create(ArgumentMatchers.any(KmgMsgMessageTypes.class), ArgumentMatchers.any()))
-            .thenReturn(mockMessageModel);
-        Mockito.when(mockMessageModel.getMessage()).thenReturn(expectedMessage);
+        KmgPathUtils.setKmgMessageModelFactory(this.mockMessageModelFactory);
+        Mockito.when(
+            this.mockMessageModelFactory.create(ArgumentMatchers.any(KmgMsgMessageTypes.class), ArgumentMatchers.any()))
+            .thenReturn(this.mockMessageModel);
+        Mockito.when(this.mockMessageModel.getMessage()).thenReturn(expectedMessage);
 
         try (MockedStatic<KmgPathUtils> mockedStatic = Mockito.mockStatic(KmgPathUtils.class)) {
 
