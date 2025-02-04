@@ -555,7 +555,14 @@ public class KmgReflectionModelImplTest {
         final String expectedMessage = "Test illegal access exception";
 
         /* 準備 */
-        final TestClass testObject = new TestClass();
+        final TestClass              testObject              = new TestClass();
+        final KmgMessageModel        mockMessageModel        = Mockito.mock(KmgMessageModel.class);
+        final KmgMessageModelFactory mockMessageModelFactory = Mockito.mock(KmgMessageModelFactory.class);
+        Mockito
+            .when(
+                mockMessageModelFactory.create(ArgumentMatchers.any(KmgMsgMessageTypes.class), ArgumentMatchers.any()))
+            .thenReturn(mockMessageModel);
+        Mockito.when(mockMessageModel.getMessage()).thenReturn(expectedMessage);
 
         final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(testObject) {
 
@@ -567,6 +574,7 @@ public class KmgReflectionModelImplTest {
 
             }
         };
+        ReflectionTestUtils.setField(testReflection, "kmgMessageModelFactory", mockMessageModelFactory);
 
         /* テスト対象の実行 */
         final KmgDomainException actualException
@@ -597,7 +605,14 @@ public class KmgReflectionModelImplTest {
         final String expectedMessage = "Test illegal argument exception";
 
         /* 準備 */
-        final TestClass testObject = new TestClass();
+        final TestClass              testObject              = new TestClass();
+        final KmgMessageModel        mockMessageModel        = Mockito.mock(KmgMessageModel.class);
+        final KmgMessageModelFactory mockMessageModelFactory = Mockito.mock(KmgMessageModelFactory.class);
+        Mockito
+            .when(
+                mockMessageModelFactory.create(ArgumentMatchers.any(KmgMsgMessageTypes.class), ArgumentMatchers.any()))
+            .thenReturn(mockMessageModel);
+        Mockito.when(mockMessageModel.getMessage()).thenReturn(expectedMessage);
 
         final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(testObject) {
 
@@ -609,6 +624,7 @@ public class KmgReflectionModelImplTest {
 
             }
         };
+        ReflectionTestUtils.setField(testReflection, "kmgMessageModelFactory", mockMessageModelFactory);
 
         /* テスト対象の実行 */
         final KmgDomainException actualException
@@ -896,7 +912,14 @@ public class KmgReflectionModelImplTest {
         final String expectedMessage = "Test security exception from invoke";
 
         /* 準備 */
-        final TestClass testObject = new TestClass();
+        final TestClass              testObject              = new TestClass();
+        final KmgMessageModel        mockMessageModel        = Mockito.mock(KmgMessageModel.class);
+        final KmgMessageModelFactory mockMessageModelFactory = Mockito.mock(KmgMessageModelFactory.class);
+        Mockito
+            .when(
+                mockMessageModelFactory.create(ArgumentMatchers.any(KmgMsgMessageTypes.class), ArgumentMatchers.any()))
+            .thenReturn(mockMessageModel);
+        Mockito.when(mockMessageModel.getMessage()).thenReturn(expectedMessage);
 
         final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(testObject) {
 
@@ -908,6 +931,7 @@ public class KmgReflectionModelImplTest {
 
             }
         };
+        ReflectionTestUtils.setField(testReflection, "kmgMessageModelFactory", mockMessageModelFactory);
 
         /* テスト対象の実行 */
         final KmgDomainException actualException
@@ -1182,7 +1206,14 @@ public class KmgReflectionModelImplTest {
         final String expectedMessage = "Test security exception";
 
         /* 準備 */
-        final TestClass testObject = new TestClass();
+        final TestClass              testObject              = new TestClass();
+        final KmgMessageModel        mockMessageModel        = Mockito.mock(KmgMessageModel.class);
+        final KmgMessageModelFactory mockMessageModelFactory = Mockito.mock(KmgMessageModelFactory.class);
+        Mockito
+            .when(
+                mockMessageModelFactory.create(ArgumentMatchers.any(KmgMsgMessageTypes.class), ArgumentMatchers.any()))
+            .thenReturn(mockMessageModel);
+        Mockito.when(mockMessageModel.getMessage()).thenReturn(expectedMessage);
 
         final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(testObject) {
 
@@ -1194,6 +1225,7 @@ public class KmgReflectionModelImplTest {
 
             }
         };
+        ReflectionTestUtils.setField(testReflection, "kmgMessageModelFactory", mockMessageModelFactory);
 
         /* テスト対象の実行 */
         final KmgDomainException actualException
