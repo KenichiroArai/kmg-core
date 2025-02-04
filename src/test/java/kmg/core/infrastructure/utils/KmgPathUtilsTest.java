@@ -7,11 +7,20 @@ import java.nio.file.Paths;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.ArgumentMatchers;
+import org.mockito.Mock;
 import org.mockito.MockedStatic;
 import org.mockito.Mockito;
+import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.context.TestConfiguration;
 
 import kmg.core.domain.model.impl.KmgReflectionModelImpl;
 import kmg.core.infrastructure.exception.KmgDomainException;
+import kmg.core.infrastructure.model.KmgMessageModel;
+import kmg.core.infrastructure.model.factory.KmgMessageModelFactory;
+import kmg.core.infrastructure.types.KmgMsgMessageTypes;
 
 /**
  * KMGパスユーティリティテスト<br>
@@ -20,11 +29,21 @@ import kmg.core.infrastructure.exception.KmgDomainException;
  * @sine 1.0.0
  * @version 1.0.0
  */
+@SpringBootTest
+@ExtendWith(MockitoExtension.class)
 @SuppressWarnings("static-method")
 public class KmgPathUtilsTest {
 
     /** KMGリフレクションモデル */
     private static KmgReflectionModelImpl kmgReflectionModel;
+
+    /** KMGメッセージモデルファクトリのモック */
+    @Mock
+    private KmgMessageModelFactory mockMessageModelFactory;
+
+    /** KMGメッセージモデルのモック */
+    @Mock
+    private KmgMessageModel mockMessageModel;
 
     /**
      * テストの前処理<br>
@@ -98,12 +117,21 @@ public class KmgPathUtilsTest {
         final Class<?>           testTarget    = KmgPathUtilsTest.class;
         final URISyntaxException testException = new URISyntaxException("test", "Test URI Syntax Exception");
 
+        // このテストケースでのみ必要なモックの設定
+        KmgPathUtils.setKmgMessageModelFactory(mockMessageModelFactory);
+        Mockito
+            .when(
+                mockMessageModelFactory.create(ArgumentMatchers.any(KmgMsgMessageTypes.class), ArgumentMatchers.any()))
+            .thenReturn(mockMessageModel);
+        Mockito.when(mockMessageModel.getMessage()).thenReturn(expectedMessage);
+
         try (MockedStatic<KmgPathUtils> mockedStatic = Mockito.mockStatic(KmgPathUtils.class)) {
 
             /* テスト対象の実行 */
             mockedStatic.when(() -> KmgPathUtils.getCodeSourceLocation(testTarget)).thenThrow(testException);
-
             mockedStatic.when(() -> KmgPathUtils.getBinPath(testTarget)).thenCallRealMethod();
+            mockedStatic.when(() -> KmgPathUtils.setKmgMessageModelFactory(ArgumentMatchers.any()))
+                .thenCallRealMethod();
 
             /* 検証の実施 */
             final KmgDomainException actualException = Assertions.assertThrows(KmgDomainException.class,

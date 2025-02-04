@@ -23,8 +23,23 @@ import kmg.core.infrastructure.types.KmgMsgMessageTypes;
 public final class KmgPathUtils {
 
     /** KMGメッセージリソース */
-    @Autowired
     private static KmgMessageModelFactory kmgMessageModelFactory;
+
+    /**
+     * KMGメッセージモデルファクトリを設定する<br>
+     *
+     * @author KenichiroArai
+     * @sine 1.0.0
+     * @version 1.0.0
+     * @param factory
+     *                KMGメッセージモデルファクトリ
+     */
+    @Autowired
+    public static void setKmgMessageModelFactory(final KmgMessageModelFactory factory) {
+
+        kmgMessageModelFactory = factory;
+
+    }
 
     /**
      * デフォルトコンストラクタ<br>
