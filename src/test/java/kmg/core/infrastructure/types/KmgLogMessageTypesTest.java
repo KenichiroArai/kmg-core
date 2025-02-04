@@ -150,6 +150,26 @@ public class KmgLogMessageTypesTest {
     }
 
     /**
+     * getCode メソッドのテスト
+     */
+    @Test
+    public void testGetCode() {
+
+        /* 期待値の定義 */
+        final String expected = "I00001";
+
+        /* 準備 */
+        final KmgLogMessageTypes testType = KmgLogMessageTypes.I00001;
+
+        /* テスト対象の実行 */
+        final String actual = testType.getCode();
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "getCodeの返り値が一致しません");
+
+    }
+
+    /**
      * toString メソッドのテスト - I00001の場合
      */
     @Test
