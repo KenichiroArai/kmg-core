@@ -1,8 +1,17 @@
 package kmg.core.infrastructure.exception;
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.ArgumentMatchers;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.test.util.ReflectionTestUtils;
 
+import kmg.core.infrastructure.context.KmgMessageSource;
 import kmg.core.infrastructure.types.KmgMsgMessageTypes;
 
 /**
@@ -12,7 +21,28 @@ import kmg.core.infrastructure.types.KmgMsgMessageTypes;
  * @sine 1.0.0
  * @version 1.0.0
  */
+@ExtendWith(MockitoExtension.class)
 public class KmgDomainExceptionTest {
+
+    /** メッセージソースのモック */
+    @Mock
+    private KmgMessageSource kmgMessageSource;
+
+    /** テスト対象 */
+    @InjectMocks
+    private KmgDomainException testTarget;
+
+    /**
+     * テスト前処理<br>
+     */
+    @BeforeEach
+    public void setUp() {
+
+        // モックの設定
+        Mockito.when(this.kmgMessageSource.getMessage(ArgumentMatchers.any(), ArgumentMatchers.any()))
+            .thenReturn("テストメッセージ");
+
+    }
 
     /**
      * コンストラクタのテスト - メッセージの種類とメッセージの引数を指定した場合
@@ -31,6 +61,7 @@ public class KmgDomainExceptionTest {
 
         /* テスト対象の実行 */
         final KmgDomainException testException = new KmgDomainException(expectedMsgTypes, expectedMsgArgs);
+        ReflectionTestUtils.setField(testException, "kmgMessageSource", this.kmgMessageSource);
 
         /* 検証の準備 */
         final KmgMsgMessageTypes actualMsgTypes = testException.getMessageTypes();
