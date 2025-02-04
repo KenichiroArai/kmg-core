@@ -94,7 +94,10 @@ public final class KmgPathUtils {
         } catch (final URISyntaxException e) {
 
             final KmgMsgMessageTypes msgTypes = KmgMsgMessageTypes.KMGMSGE24000;
-            throw new KmgDomainException(msgTypes, e);
+            final Object[]           msgArgs  = {
+                zlass.getName()
+            };
+            throw new KmgDomainException(msgTypes, msgArgs, e);
 
         }
 
