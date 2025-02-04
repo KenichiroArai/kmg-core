@@ -112,7 +112,10 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
         } catch (final SecurityException e) {
 
             final KmgMsgMessageTypes msgTypes = KmgMsgMessageTypes.KMGMSGE11200;
-            throw new KmgDomainException(msgTypes, e);
+            final Object[]           msgArgs  = {
+                fieldName, targetClazz, this.lastGetField
+            };
+            throw new KmgDomainException(msgTypes, msgArgs, e);
 
         }
 
