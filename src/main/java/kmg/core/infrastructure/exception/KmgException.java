@@ -22,7 +22,7 @@ public class KmgException extends Exception {
     private KmgMessageSource kmgMessageSource;
 
     /** メッセージ */
-    private final String message;
+    private String message;
 
     /** メッセージの種類 */
     private final KmgMsgMessageTypes messageTypes;
@@ -65,7 +65,6 @@ public class KmgException extends Exception {
         super(cause);
         this.messageTypes = messageTypes;
         this.messageArgs = messageArgs;
-        this.message = this.kmgMessageSource.getMessage(messageTypes, messageArgs);
 
     }
 
@@ -97,7 +96,15 @@ public class KmgException extends Exception {
     @Override
     public String getMessage() {
 
-        final String result = this.message;
+        String result = null;
+
+        if (this.message == null) {
+
+            this.message = this.kmgMessageSource.getMessage(this.messageTypes, this.messageArgs);
+
+        }
+
+        result = this.message;
         return result;
 
     }
