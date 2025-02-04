@@ -13,6 +13,8 @@ import org.mockito.ArgumentMatchers;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.mockito.junit.jupiter.MockitoSettings;
+import org.mockito.quality.Strictness;
 import org.springframework.test.util.ReflectionTestUtils;
 
 import kmg.core.infrastructure.exception.KmgDomainException;
@@ -29,6 +31,7 @@ import kmg.core.infrastructure.types.KmgMsgMessageTypes;
  * @version 1.0.0
  */
 @ExtendWith(MockitoExtension.class)
+@MockitoSettings(strictness = Strictness.LENIENT)
 public class KmgReflectionModelImplTest {
 
     /** KMGメッセージモデルファクトリのモック */
@@ -47,6 +50,12 @@ public class KmgReflectionModelImplTest {
      */
     @BeforeEach
     public void setUp() {
+
+        // メッセージモデルの基本設定
+        Mockito.when(
+            this.kmgMessageModelFactory.create(ArgumentMatchers.any(KmgMsgMessageTypes.class), ArgumentMatchers.any()))
+            .thenReturn(this.kmgMessageModel);
+        Mockito.when(this.kmgMessageModel.getMessage()).thenReturn("Test Message");
 
         // テスト対象のインスタンスを生成
         this.target = new KmgReflectionModelImpl(new TestClass());
