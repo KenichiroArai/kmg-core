@@ -8,20 +8,20 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.api.io.TempDir;
-import org.mockito.ArgumentMatchers;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.mockito.junit.jupiter.MockitoSettings;
 import org.mockito.quality.Strictness;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.util.ReflectionTestUtils;
 
 import kmg.core.domain.model.KmgReflectionModel;
+import kmg.core.domain.model.factory.KmgReflectionModelFactory;
 import kmg.core.infrastructure.exception.KmgDomainException;
 import kmg.core.infrastructure.model.KmgMessageModel;
 import kmg.core.infrastructure.model.factory.KmgMessageModelFactory;
 import kmg.core.infrastructure.type.KmgString;
-import kmg.core.infrastructure.types.KmgMsgMessageTypes;
 
 /**
  * KMGSQLパスモデルテスト<br>
@@ -32,11 +32,16 @@ import kmg.core.infrastructure.types.KmgMsgMessageTypes;
  */
 @ExtendWith(MockitoExtension.class)
 @MockitoSettings(strictness = Strictness.LENIENT)
+@SpringBootTest
 public class KmgSqlPathModelImplTest {
 
     /** KMGメッセージモデルファクトリのモック */
-    @Mock
+    @Autowired
     private KmgMessageModelFactory kmgMessageModelFactory;
+
+    /** KMGリフレクションモデルファクトリのモック */
+    @Autowired
+    private KmgReflectionModelFactory kmgReflectionModelFactory;
 
     /** KMGメッセージモデルのモック */
     @Mock
@@ -55,18 +60,9 @@ public class KmgSqlPathModelImplTest {
     @BeforeEach
     public void setUp() {
 
-        // メッセージモデルの基本設定
-        Mockito.when(
-            this.kmgMessageModelFactory.create(ArgumentMatchers.any(KmgMsgMessageTypes.class), ArgumentMatchers.any()))
-            .thenReturn(this.kmgMessageModel);
-        Mockito.when(this.kmgMessageModel.getMessage()).thenReturn("テストメッセージ");
-
         // テスト対象のインスタンスを生成
         final Path testFile = this.tempDir.resolve("test.sql");
         this.target = new KmgSqlPathModelImpl(this.getClass(), testFile);
-
-        // モックを注入
-        ReflectionTestUtils.setField(this.target, "kmgMessageModelFactory", this.kmgMessageModelFactory);
 
     }
 
@@ -110,7 +106,6 @@ public class KmgSqlPathModelImplTest {
      * @throws Exception
      *                   例外
      */
-    @SuppressWarnings("static-method")
     @Test
     public void testConvertParameters_normalEmptyString() throws Exception {
 
@@ -120,7 +115,7 @@ public class KmgSqlPathModelImplTest {
         /* 準備 */
         final Path                testFile       = Files.createTempFile("test", ".sql");
         final KmgSqlPathModelImpl testInstance   = new KmgSqlPathModelImpl(KmgSqlPathModelImplTest.class, testFile);
-        final KmgReflectionModel  testReflection = new KmgReflectionModelImpl(testInstance);
+        final KmgReflectionModel  testReflection = this.kmgReflectionModelFactory.create(testInstance);
 
         /* テスト対象の実行 */
         final String testResult = (String) testReflection.getMethod("convertParameters", KmgString.EMPTY);

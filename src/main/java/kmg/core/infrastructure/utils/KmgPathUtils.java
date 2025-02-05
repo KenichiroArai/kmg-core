@@ -37,7 +37,7 @@ public final class KmgPathUtils {
     @Autowired
     public static void setKmgMessageModelFactory(final KmgMessageModelFactory factory) {
 
-        kmgMessageModelFactory = factory;
+        KmgPathUtils.kmgMessageModelFactory = factory;
 
     }
 
@@ -218,7 +218,19 @@ public final class KmgPathUtils {
 
         }
 
-        result = KmgPathUtils.getClassFullPath(object.getClass(), Paths.get(fileName));
+        Class<?> zlass = null;
+
+        if (object instanceof Class<?>) {
+
+            zlass = (Class<?>) object;
+
+        } else {
+
+            zlass = object.getClass();
+
+        }
+
+        result = KmgPathUtils.getClassFullPath(zlass, Paths.get(fileName));
         return result;
 
     }

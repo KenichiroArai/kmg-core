@@ -5,8 +5,6 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.math.BigDecimal;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
 import kmg.core.domain.model.KmgReflectionModel;
 import kmg.core.infrastructure.exception.KmgDomainException;
 import kmg.core.infrastructure.model.KmgMessageModel;
@@ -22,9 +20,8 @@ import kmg.core.infrastructure.types.KmgMsgMessageTypes;
  */
 public class KmgReflectionModelImpl implements KmgReflectionModel {
 
-    /** KMGメッセージリソース */
-    @Autowired
-    private KmgMessageModelFactory kmgMessageModelFactory;
+    /** KMGメッセージモデルファクトリ */
+    private final KmgMessageModelFactory kmgMessageModelFactory;
 
     /** オブジェクト */
     private final Object object;
@@ -36,16 +33,19 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
     private Field lastGetField;
 
     /**
-     * オブジェクト用コンストラクタ<br>
+     * コンストラクタ<br>
      *
      * @author KenichiroArai
      * @since 1.0.0
      * @version 1.0.0
+     * @param kmgMessageModelFactory
+     *                               KMGメッセージモデルファクトリ
      * @param object
-     *               対象オブジェクトのインスタンス
+     *                               対象オブジェクトのインスタンス
      */
-    public KmgReflectionModelImpl(final Object object) {
+    public KmgReflectionModelImpl(final KmgMessageModelFactory kmgMessageModelFactory, final Object object) {
 
+        this.kmgMessageModelFactory = kmgMessageModelFactory;
         this.object = object;
 
         // objectがクラスならインスタンスを生成する
