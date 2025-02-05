@@ -88,6 +88,39 @@
     </dependencies>
 
     <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.openclover</groupId>
+                    <artifactId>clover-maven-plugin</artifactId>
+                    <version>4.5.2</version>
+                    <configuration>
+                        <targetPercentage>0%</targetPercentage>
+                        <excludes>
+                            <exclude>**/*Test.java</exclude>
+                        </excludes>
+                        <debug>true</debug>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <id>clover-setup</id>
+                            <phase>process-sources</phase>
+                            <goals>
+                                <goal>setup</goal>
+                            </goals>
+                        </execution>
+                        <execution>
+                            <id>clover-report</id>
+                            <phase>test</phase>
+                            <goals>
+                                <goal>aggregate</goal>
+                                <goal>clover</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+            </plugins>
+        </pluginManagement>
         <plugins>
             <!-- Spring Boot Maven Plugin -->
             <plugin>
@@ -135,38 +168,6 @@
                         <phase>test</phase>
                         <goals>
                             <goal>report</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-
-            <!-- Cloverレポート用 -->
-            <plugin>
-                <groupId>org.openclover</groupId>
-                <artifactId>clover-maven-plugin</artifactId>
-                <version>4.5.2</version>
-                <configuration>
-                    <targetPercentage>0%</targetPercentage>
-                    <excludes>
-                        <exclude>**/*Test.java</exclude>
-                    </excludes>
-                    <instrumentLambda>false</instrumentLambda>
-                    <debug>true</debug>
-                </configuration>
-                <executions>
-                    <execution>
-                        <id>clover-setup</id>
-                        <phase>process-sources</phase>
-                        <goals>
-                            <goal>setup</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>clover-report</id>
-                        <phase>test</phase>
-                        <goals>
-                            <goal>aggregate</goal>
-                            <goal>clover</goal>
                         </goals>
                     </execution>
                 </executions>
