@@ -5,12 +5,16 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.ArgumentMatchers;
 import org.mockito.MockedStatic;
 import org.mockito.Mockito;
+import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.boot.test.context.SpringBootTest;
 
-import kmg.core.domain.model.impl.KmgReflectionModelImpl;
+import kmg.core.domain.model.KmgReflectionModel;
+import kmg.core.domain.model.factory.KmgReflectionModelFactory;
 import kmg.core.infrastructure.exception.KmgDomainException;
 
 /**
@@ -20,20 +24,16 @@ import kmg.core.infrastructure.exception.KmgDomainException;
  * @sine 1.0.0
  * @version 1.0.0
  */
+@SpringBootTest
+@ExtendWith(MockitoExtension.class)
 @SuppressWarnings("static-method")
 public class KmgPathUtilsTest {
 
-    /** KMGリフレクションモデル */
-    private static KmgReflectionModelImpl kmgReflectionModel;
-
     /**
-     * テストの前処理<br>
+     * テストクラス
      */
-    @BeforeAll
-    public static void beforeAll() {
-
-        KmgPathUtilsTest.kmgReflectionModel = new KmgReflectionModelImpl(KmgPathUtils.class);
-
+    private static class TestClass {
+        // 処理なし
     }
 
     /**
@@ -92,23 +92,24 @@ public class KmgPathUtilsTest {
     public void testGetBinPath_throwsURISyntaxException() throws Exception {
 
         /* 期待値の定義 */
-        final String expectedMessage = "Test URI Syntax Exception: test";
+        final String expectedMessage
+            = "クラスからビルドバスの取得に失敗しました。クラス=[kmg.core.infrastructure.utils.KmgPathUtilsTest$TestClass]";
 
         /* 準備 */
-        final Class<?>           testTarget    = KmgPathUtilsTest.class;
+        final Class<TestClass>   testTarget    = TestClass.class;
         final URISyntaxException testException = new URISyntaxException("test", "Test URI Syntax Exception");
 
         try (MockedStatic<KmgPathUtils> mockedStatic = Mockito.mockStatic(KmgPathUtils.class)) {
 
             /* テスト対象の実行 */
             mockedStatic.when(() -> KmgPathUtils.getCodeSourceLocation(testTarget)).thenThrow(testException);
-
             mockedStatic.when(() -> KmgPathUtils.getBinPath(testTarget)).thenCallRealMethod();
+            mockedStatic.when(() -> KmgPathUtils.setKmgMessageModelFactory(ArgumentMatchers.any()))
+                .thenCallRealMethod();
 
             /* 検証の実施 */
             final KmgDomainException actualException = Assertions.assertThrows(KmgDomainException.class,
                 () -> KmgPathUtils.getBinPath(testTarget), "URISyntaxExceptionが発生した場合、KmgDomainExceptionがスローされるべき");
-
             Assertions.assertEquals(expectedMessage, actualException.getMessage(), "例外メッセージが一致するべき");
             Assertions.assertEquals(testException, actualException.getCause(), "原因となる例外が設定されているべき");
 
@@ -126,7 +127,7 @@ public class KmgPathUtilsTest {
     public void testGetBinPath_validClass() throws KmgDomainException {
 
         /* 準備 */
-        final Class<?> testTarget = KmgPathUtilsTest.class;
+        final Class<?> testTarget = TestClass.class;
 
         /* テスト対象の実行 */
         final Path actual = KmgPathUtils.getBinPath(testTarget);
@@ -178,7 +179,8 @@ public class KmgPathUtilsTest {
         final Path   fileName    = Paths.get("test.txt");
 
         /* テスト対象の実行 */
-        final Path actual = (Path) KmgPathUtilsTest.kmgReflectionModel.getMethod("getClassFullPath", binPath,
+        final KmgReflectionModel kmgReflectionModel = new KmgReflectionModelFactory().create(KmgPathUtils.class);
+        final Path               actual             = (Path) kmgReflectionModel.getMethod("getClassFullPath", binPath,
             packageName, className, fileName);
 
         /* 検証の実施 */
@@ -205,7 +207,8 @@ public class KmgPathUtilsTest {
         final Path   fileName    = Paths.get("test.txt");
 
         /* テスト対象の実行 */
-        final Path actual = (Path) KmgPathUtilsTest.kmgReflectionModel.getMethod("getClassFullPath", binPath,
+        final KmgReflectionModel kmgReflectionModel = new KmgReflectionModelFactory().create(KmgPathUtils.class);
+        final Path               actual             = (Path) kmgReflectionModel.getMethod("getClassFullPath", binPath,
             packageName, className, fileName);
 
         /* 検証の実施 */
@@ -233,7 +236,8 @@ public class KmgPathUtilsTest {
         final Path   fileName    = Paths.get("data.json");
 
         /* テスト対象の実行 */
-        final Path actual = (Path) KmgPathUtilsTest.kmgReflectionModel.getMethod("getClassFullPath", binPath,
+        final KmgReflectionModel kmgReflectionModel = new KmgReflectionModelFactory().create(KmgPathUtils.class);
+        final Path               actual             = (Path) kmgReflectionModel.getMethod("getClassFullPath", binPath,
             packageName, className, fileName);
 
         /* 検証の実施 */
@@ -260,7 +264,8 @@ public class KmgPathUtilsTest {
         final Path   fileName    = Paths.get("test.txt");
 
         /* テスト対象の実行 */
-        final Path actual = (Path) KmgPathUtilsTest.kmgReflectionModel.getMethod("getClassFullPath", binPath,
+        final KmgReflectionModel kmgReflectionModel = new KmgReflectionModelFactory().create(KmgPathUtils.class);
+        final Path               actual             = (Path) kmgReflectionModel.getMethod("getClassFullPath", binPath,
             packageName, className, fileName);
 
         /* 検証の実施 */
@@ -335,7 +340,8 @@ public class KmgPathUtilsTest {
         final Path   fileName    = Paths.get("test.txt");
 
         /* テスト対象の実行 */
-        final Path actual = (Path) KmgPathUtilsTest.kmgReflectionModel.getMethod("getClassFullPath", binPath,
+        final KmgReflectionModel kmgReflectionModel = new KmgReflectionModelFactory().create(KmgPathUtils.class);
+        final Path               actual             = (Path) kmgReflectionModel.getMethod("getClassFullPath", binPath,
             packageName, className, fileName);
 
         /* 検証の実施 */
@@ -353,12 +359,11 @@ public class KmgPathUtilsTest {
     public void testGetClassFullPath_validClass() throws Exception {
 
         /* 期待値の定義 */
-        final Path binPath  = Paths
-            .get(KmgPathUtilsTest.class.getProtectionDomain().getCodeSource().getLocation().toURI());
-        final Path expected = binPath.resolve("kmg/core/infrastructure/utils/kmg_path_utils_test/test.txt");
+        final Path binPath  = Paths.get(TestClass.class.getProtectionDomain().getCodeSource().getLocation().toURI());
+        final Path expected = binPath.resolve("kmg/core/infrastructure/utils/test_class/test.txt");
 
         /* 準備 */
-        final Class<?> testTarget = KmgPathUtilsTest.class;
+        final Class<?> testTarget = TestClass.class;
         final Path     fileName   = Paths.get("test.txt");
 
         /* テスト対象の実行 */
@@ -379,20 +384,74 @@ public class KmgPathUtilsTest {
     @Test
     public void testGetClassFullPath_validObject() throws KmgDomainException {
 
-        /* テスト対象のクラスのビルドパスを取得 */
-        final Path binPath = KmgPathUtils.getBinPath(KmgPathUtilsTest.class);
+        /* 期待値の定義 */
 
-        /* 期待値の定義：ビルドパス + 相対パス */
-        final Path expected = binPath.resolve("kmg/core/infrastructure/utils/kmg_path_utils_test/test.txt");
+        // テスト対象
+        final TestClass testTarget = new TestClass();
+
+        // テスト対象のクラスのビルドパスを取得
+        final Path binPath  = KmgPathUtils.getBinPath(testTarget);
+        final Path expected = binPath.resolve("kmg/core/infrastructure/utils/test_class/test.txt");
 
         /* 準備 */
-        final Object testTarget = new KmgPathUtilsTest();
-        final String fileName   = "test.txt";
+        final String fileName = "test.txt";
 
         /* テスト対象の実行 */
         final Path actual = KmgPathUtils.getClassFullPath(testTarget, fileName);
 
         /* 検証の実施：完全一致 */
+        Assertions.assertNotNull(actual, "ビルドパスが返されるべき");
+        Assertions.assertEquals(expected, actual, "返されたパスが期待する絶対パスと一致するべき");
+
+    }
+
+    /**
+     * getClassFullPath メソッドのテスト - objectがClass<?>のインスタンスの場合
+     *
+     * @throws KmgDomainException
+     *                            失敗
+     */
+    @Test
+    public void testGetClassFullPath_objectIsClassInstance() throws KmgDomainException {
+
+        /* 期待値の定義 */
+        final Path binPath  = KmgPathUtils.getBinPath(TestClass.class);
+        final Path expected = binPath.resolve("kmg/core/infrastructure/utils/test_class/test.txt");
+
+        /* 準備 */
+        final Object testTarget = TestClass.class;  // Class<?>のインスタンス
+        final String fileName   = "test.txt";
+
+        /* テスト対象の実行 */
+        final Path actual = KmgPathUtils.getClassFullPath(testTarget, fileName);
+
+        /* 検証の実施 */
+        Assertions.assertNotNull(actual, "ビルドパスが返されるべき");
+        Assertions.assertEquals(expected, actual, "返されたパスが期待する絶対パスと一致するべき");
+
+    }
+
+    /**
+     * getClassFullPath メソッドのテスト - objectが通常のオブジェクトの場合
+     *
+     * @throws KmgDomainException
+     *                            失敗
+     */
+    @Test
+    public void testGetClassFullPath_objectIsNormalInstance() throws KmgDomainException {
+
+        /* 期待値の定義 */
+        final Path binPath  = KmgPathUtils.getBinPath(TestClass.class);
+        final Path expected = binPath.resolve("kmg/core/infrastructure/utils/test_class/test.txt");
+
+        /* 準備 */
+        final Object testTarget = new TestClass();  // 通常のオブジェクトインスタンス
+        final String fileName   = "test.txt";
+
+        /* テスト対象の実行 */
+        final Path actual = KmgPathUtils.getClassFullPath(testTarget, fileName);
+
+        /* 検証の実施 */
         Assertions.assertNotNull(actual, "ビルドパスが返されるべき");
         Assertions.assertEquals(expected, actual, "返されたパスが期待する絶対パスと一致するべき");
 
@@ -431,7 +490,7 @@ public class KmgPathUtilsTest {
     public void testGetCodeSourceLocation_validClass() throws URISyntaxException {
 
         /* 準備 */
-        final Class<?> testTarget = KmgPathUtilsTest.class;
+        final Class<TestClass> testTarget = TestClass.class;
 
         /* テスト対象の実行 */
         final Path actual = KmgPathUtils.getCodeSourceLocation(testTarget);

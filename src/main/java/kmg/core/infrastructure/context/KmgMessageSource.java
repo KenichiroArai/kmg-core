@@ -4,12 +4,13 @@ import java.util.Locale;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
-
-import kmg.core.infrastructure.common.MessageTypes;
+import org.springframework.stereotype.Component;
+import kmg.core.infrastructure.common.KmgMessageTypes;
 
 /**
  * KMGメッセージリソース
  */
+@Component
 public class KmgMessageSource {
 
     /** メッセージリソース */
@@ -19,15 +20,29 @@ public class KmgMessageSource {
     /**
      * メッセージを取得する
      *
-     * @param messageTypes
-     *                     メッセージの種類
-     * @param args
-     *                     引数
+     * @param kmgMessageTypes
+     *                        メッセージの種類
      * @return メッセージ
      */
-    public String getMessage(final MessageTypes messageTypes, final Object[] args) {
+    public String getMessage(final KmgMessageTypes kmgMessageTypes) {
 
-        final String result = this.messageSource.getMessage(messageTypes.getCode(), args, Locale.JAPANESE);
+        final String result = this.getMessage(kmgMessageTypes, null);
+        return result;
+
+    }
+
+    /**
+     * メッセージを取得する
+     *
+     * @param kmgMessageTypes
+     *                        メッセージの種類
+     * @param args
+     *                        引数
+     * @return メッセージ
+     */
+    public String getMessage(final KmgMessageTypes kmgMessageTypes, final Object[] args) {
+
+        final String result = this.messageSource.getMessage(kmgMessageTypes.getCode(), args, Locale.JAPANESE);
         return result;
 
     }

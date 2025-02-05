@@ -4,11 +4,14 @@ import java.net.URISyntaxException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.ObjectUtils;
 
 import kmg.core.infrastructure.exception.KmgDomainException;
+import kmg.core.infrastructure.model.KmgMessageModel;
+import kmg.core.infrastructure.model.factory.KmgMessageModelFactory;
 import kmg.core.infrastructure.type.KmgString;
-import kmg.core.infrastructure.types.KmgLogMessageTypes;
+import kmg.core.infrastructure.types.KmgMsgMessageTypes;
 
 /**
  * KMGパスユーティリティ<br>
@@ -18,6 +21,25 @@ import kmg.core.infrastructure.types.KmgLogMessageTypes;
  * @version 1.0.0
  */
 public final class KmgPathUtils {
+
+    /** KMGメッセージリソース */
+    private static KmgMessageModelFactory kmgMessageModelFactory;
+
+    /**
+     * KMGメッセージモデルファクトリを設定する<br>
+     *
+     * @author KenichiroArai
+     * @sine 1.0.0
+     * @version 1.0.0
+     * @param factory
+     *                KMGメッセージモデルファクトリ
+     */
+    @Autowired
+    public static void setKmgMessageModelFactory(final KmgMessageModelFactory factory) {
+
+        KmgPathUtils.kmgMessageModelFactory = factory;
+
+    }
 
     /**
      * デフォルトコンストラクタ<br>
@@ -93,8 +115,12 @@ public final class KmgPathUtils {
 
         } catch (final URISyntaxException e) {
 
-            // TODO KenichiroArai 2025/02/02 KMGMSGE24000=クラスからビルドバスの取得に失敗しました。クラス=[{0}]
-            throw new KmgDomainException(e.getMessage(), KmgLogMessageTypes.NONE, e);
+            final KmgMsgMessageTypes msgTypes        = KmgMsgMessageTypes.KMGMSGE24000;
+            final Object[]           msgArgs         = {
+                zlass.getName()
+            };
+            final KmgMessageModel    kmgMessageModel = KmgPathUtils.kmgMessageModelFactory.create(msgTypes, msgArgs);
+            throw new KmgDomainException(kmgMessageModel, e);
 
         }
 
@@ -192,7 +218,19 @@ public final class KmgPathUtils {
 
         }
 
-        result = KmgPathUtils.getClassFullPath(object.getClass(), Paths.get(fileName));
+        Class<?> zlass = null;
+
+        if (object instanceof Class<?>) {
+
+            zlass = (Class<?>) object;
+
+        } else {
+
+            zlass = object.getClass();
+
+        }
+
+        result = KmgPathUtils.getClassFullPath(zlass, Paths.get(fileName));
         return result;
 
     }

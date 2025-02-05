@@ -1,6 +1,6 @@
 package kmg.core.infrastructure.exception;
 
-import kmg.core.infrastructure.types.KmgLogMessageTypes;
+import kmg.core.infrastructure.model.KmgMessageModel;
 
 /**
  * KMGシステム例外<br>
@@ -20,16 +20,12 @@ public class KmgSystemException extends KmgException {
      * @author KenichiroArai
      * @sine 1.0.0
      * @version 1.0.0
-     * @param errMsg
-     *                    エラーメッセージ
-     * @param logMsgTypes
-     *                    ログメッセージの種類
-     * @param logMsgArgs
-     *                    ログメッセージの引数
+     * @param kmgMessageModel
+     *                    メッセージモデル
      */
-    public KmgSystemException(final String errMsg, final KmgLogMessageTypes logMsgTypes, final Object[] logMsgArgs) {
+    public KmgSystemException(final KmgMessageModel kmgMessageModel) {
 
-        super(errMsg, logMsgTypes, logMsgArgs);
+        super(kmgMessageModel);
 
     }
 
@@ -39,19 +35,14 @@ public class KmgSystemException extends KmgException {
      * @author KenichiroArai
      * @sine 1.0.0
      * @version 1.0.0
-     * @param errMsg
-     *                    エラーメッセージ
-     * @param logMsgTypes
-     *                    ログメッセージの種類
-     * @param logMsgArgs
-     *                    ログメッセージの引数
+     * @param kmgMessageModel
+     *                    メッセージモデル
      * @param cause
      *                    原因
      */
-    public KmgSystemException(final String errMsg, final KmgLogMessageTypes logMsgTypes, final Object[] logMsgArgs,
-            final Throwable cause) {
+    public KmgSystemException(final KmgMessageModel kmgMessageModel, final Throwable cause) {
 
-        super(errMsg, logMsgTypes, logMsgArgs, cause);
+        super(kmgMessageModel, cause);
 
     }
 }

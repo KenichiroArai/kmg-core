@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 /**
- * KMGログメッセージの種類のテスト<br>
+ * KMGメッセージメッセージの種類のテスト<br>
  *
  * @author KenichiroArai
  * @sine 1.0.0
@@ -13,7 +13,7 @@ import org.junit.jupiter.api.Test;
 @SuppressWarnings({
     "nls", "static-method"
 })
-public class KmgLogMessageTypesTest {
+public class KmgMsgMessageTypesTest {
 
     /**
      * get メソッドのテスト
@@ -22,10 +22,10 @@ public class KmgLogMessageTypesTest {
     public void testGet() {
 
         /* 期待値の定義 */
-        final String expected = "I00001";
+        final String expected = "KMGMSGE11100";
 
         /* 準備 */
-        final KmgLogMessageTypes testType = KmgLogMessageTypes.I00001;
+        final KmgMsgMessageTypes testType = KmgMsgMessageTypes.KMGMSGE11100;
 
         /* テスト対象の実行 */
         final String actual = testType.get();
@@ -36,16 +36,36 @@ public class KmgLogMessageTypesTest {
     }
 
     /**
+     * getCode メソッドのテスト
+     */
+    @Test
+    public void testGetCode() {
+
+        /* 期待値の定義 */
+        final String expected = "KMGMSGE11100";
+
+        /* 準備 */
+        final KmgMsgMessageTypes testType = KmgMsgMessageTypes.KMGMSGE11100;
+
+        /* テスト対象の実行 */
+        final String actual = testType.getCode();
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "getCodeの返り値が一致しません");
+
+    }
+
+    /**
      * getDefault メソッドのテスト
      */
     @Test
     public void testGetDefault() {
 
         /* 期待値の定義 */
-        final KmgLogMessageTypes expected = KmgLogMessageTypes.NONE;
+        final KmgMsgMessageTypes expected = KmgMsgMessageTypes.NONE;
 
         /* テスト対象の実行 */
-        final KmgLogMessageTypes actual = KmgLogMessageTypes.getDefault();
+        final KmgMsgMessageTypes actual = KmgMsgMessageTypes.getDefault();
 
         /* 検証の実施 */
         Assertions.assertEquals(expected, actual, "デフォルト値が一致しません");
@@ -59,13 +79,13 @@ public class KmgLogMessageTypesTest {
     public void testGetEnum_existingValue() {
 
         /* 期待値の定義 */
-        final KmgLogMessageTypes expected = KmgLogMessageTypes.I00001;
+        final KmgMsgMessageTypes expected = KmgMsgMessageTypes.KMGMSGE11100;
 
         /* 準備 */
-        final String testValue = "I00001";
+        final String testValue = "KMGMSGE11100";
 
         /* テスト対象の実行 */
-        final KmgLogMessageTypes actual = KmgLogMessageTypes.getEnum(testValue);
+        final KmgMsgMessageTypes actual = KmgMsgMessageTypes.getEnum(testValue);
 
         /* 検証の実施 */
         Assertions.assertEquals(expected, actual, "値が一致しません");
@@ -79,13 +99,13 @@ public class KmgLogMessageTypesTest {
     public void testGetEnum_nonExistingValue() {
 
         /* 期待値の定義 */
-        final KmgLogMessageTypes expected = KmgLogMessageTypes.NONE;
+        final KmgMsgMessageTypes expected = KmgMsgMessageTypes.NONE;
 
         /* 準備 */
         final String testValue = "INVALID";
 
         /* テスト対象の実行 */
-        final KmgLogMessageTypes actual = KmgLogMessageTypes.getEnum(testValue);
+        final KmgMsgMessageTypes actual = KmgMsgMessageTypes.getEnum(testValue);
 
         /* 検証の実施 */
         Assertions.assertEquals(expected, actual, "値が一致しません");
@@ -99,10 +119,10 @@ public class KmgLogMessageTypesTest {
     public void testGetInitValue() {
 
         /* 期待値の定義 */
-        final KmgLogMessageTypes expected = KmgLogMessageTypes.NONE;
+        final KmgMsgMessageTypes expected = KmgMsgMessageTypes.NONE;
 
         /* テスト対象の実行 */
-        final KmgLogMessageTypes actual = KmgLogMessageTypes.getInitValue();
+        final KmgMsgMessageTypes actual = KmgMsgMessageTypes.getInitValue();
 
         /* 検証の実施 */
         Assertions.assertEquals(expected, actual, "初期値が一致しません");
@@ -116,10 +136,10 @@ public class KmgLogMessageTypesTest {
     public void testGetName() {
 
         /* 期待値の定義 */
-        final String expected = "サンプル";
+        final String expected = "{0}がありません。";
 
         /* 準備 */
-        final KmgLogMessageTypes testType = KmgLogMessageTypes.I00001;
+        final KmgMsgMessageTypes testType = KmgMsgMessageTypes.KMGMSGE11100;
 
         /* テスト対象の実行 */
         final String actual = testType.getName();
@@ -136,10 +156,10 @@ public class KmgLogMessageTypesTest {
     public void testGetValue() {
 
         /* 期待値の定義 */
-        final String expected = "I00001";
+        final String expected = "KMGMSGE11100";
 
         /* 準備 */
-        final KmgLogMessageTypes testType = KmgLogMessageTypes.I00001;
+        final KmgMsgMessageTypes testType = KmgMsgMessageTypes.KMGMSGE11100;
 
         /* テスト対象の実行 */
         final String actual = testType.getValue();
@@ -150,42 +170,22 @@ public class KmgLogMessageTypesTest {
     }
 
     /**
-     * getCode メソッドのテスト
+     * toString メソッドのテスト - KMGMSGE11100の場合
      */
     @Test
-    public void testGetCode() {
+    public void testToString_kmgmsge11100() {
 
         /* 期待値の定義 */
-        final String expected = "I00001";
+        final String expected = "KMGMSGE11100";
 
         /* 準備 */
-        final KmgLogMessageTypes testType = KmgLogMessageTypes.I00001;
-
-        /* テスト対象の実行 */
-        final String actual = testType.getCode();
-
-        /* 検証の実施 */
-        Assertions.assertEquals(expected, actual, "getCodeの返り値が一致しません");
-
-    }
-
-    /**
-     * toString メソッドのテスト - I00001の場合
-     */
-    @Test
-    public void testToString_i00001() {
-
-        /* 期待値の定義 */
-        final String expected = "I00001";
-
-        /* 準備 */
-        final KmgLogMessageTypes testType = KmgLogMessageTypes.I00001;
+        final KmgMsgMessageTypes testType = KmgMsgMessageTypes.KMGMSGE11100;
 
         /* テスト対象の実行 */
         final String actual = testType.toString();
 
         /* 検証の実施 */
-        Assertions.assertEquals(expected, actual, "I00001の場合、'I00001'が返されること");
+        Assertions.assertEquals(expected, actual, "KMGMSGE11100の場合、'KMGMSGE11100'が返されること");
 
     }
 
@@ -199,7 +199,7 @@ public class KmgLogMessageTypesTest {
         final String expected = null;
 
         /* 準備 */
-        final KmgLogMessageTypes testType = KmgLogMessageTypes.NONE;
+        final KmgMsgMessageTypes testType = KmgMsgMessageTypes.NONE;
 
         /* テスト対象の実行 */
         final String actual = testType.toString();

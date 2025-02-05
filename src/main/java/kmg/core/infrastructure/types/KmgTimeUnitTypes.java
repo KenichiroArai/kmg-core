@@ -35,18 +35,6 @@ public enum KmgTimeUnitTypes implements Supplier<String> {
     /* 定義：終了 */
     ;
 
-    /** 名称 */
-    private final String name;
-
-    /** 値 */
-    private final String value;
-
-    /** 単位名 */
-    private final String unitName;
-
-    /** 単位値 */
-    private final BigDecimal unitValue;
-
     /** 種類のマップ */
     private static final Map<String, KmgTimeUnitTypes> VALUES_MAP = new HashMap<>();
 
@@ -61,27 +49,30 @@ public enum KmgTimeUnitTypes implements Supplier<String> {
 
     }
 
+    /** 名称 */
+    private final String name;
+
+    /** 値 */
+    private final String value;
+
+    /** 単位名 */
+    private final String unitName;
+
+    /** 単位値 */
+    private final BigDecimal unitValue;
+
     /**
-     * コンストラクタ<br>
+     * デフォルトの種類を返す<br>
      *
      * @author KenichiroArai
      * @sine 1.0.0
      * @version 1.0.0
-     * @param name
-     *                  名称
-     * @param value
-     *                  値
-     * @param unitName
-     *                  単位名
-     * @param unitValue
-     *                  単位値
+     * @return デフォルト値
      */
-    KmgTimeUnitTypes(final String name, final String value, final String unitName, final BigDecimal unitValue) {
+    public static KmgTimeUnitTypes getDefault() {
 
-        this.name = name;
-        this.value = value;
-        this.unitName = unitName;
-        this.unitValue = unitValue;
+        final KmgTimeUnitTypes result = NONE;
+        return result;
 
     }
 
@@ -128,30 +119,39 @@ public enum KmgTimeUnitTypes implements Supplier<String> {
     }
 
     /**
-     * デフォルトの種類を返す<br>
+     * コンストラクタ<br>
      *
      * @author KenichiroArai
      * @sine 1.0.0
      * @version 1.0.0
-     * @return デフォルト値
+     * @param name
+     *                  名称
+     * @param value
+     *                  値
+     * @param unitName
+     *                  単位名
+     * @param unitValue
+     *                  単位値
      */
-    public static KmgTimeUnitTypes getDefault() {
+    KmgTimeUnitTypes(final String name, final String value, final String unitName, final BigDecimal unitValue) {
 
-        final KmgTimeUnitTypes result = NONE;
-        return result;
+        this.name = name;
+        this.value = value;
+        this.unitName = unitName;
+        this.unitValue = unitValue;
 
     }
 
     /**
-     * 値を返す<br>
+     * 種類の値<br>
      *
      * @author KenichiroArai
      * @sine 1.0.0
      * @version 1.0.0
-     * @return 値
+     * @return 種類の値
      */
     @Override
-    public String toString() {
+    public String get() {
 
         final String result = this.value;
         return result;
@@ -169,21 +169,6 @@ public enum KmgTimeUnitTypes implements Supplier<String> {
     public String getName() {
 
         final String result = this.name;
-        return result;
-
-    }
-
-    /**
-     * 値を返す<br>
-     *
-     * @author KenichiroArai
-     * @sine 1.0.0
-     * @version 1.0.0
-     * @return 値
-     */
-    public String getValue() {
-
-        final String result = this.value;
         return result;
 
     }
@@ -219,15 +204,30 @@ public enum KmgTimeUnitTypes implements Supplier<String> {
     }
 
     /**
-     * 種類の値<br>
+     * 値を返す<br>
      *
      * @author KenichiroArai
      * @sine 1.0.0
      * @version 1.0.0
-     * @return 種類の値
+     * @return 値
+     */
+    public String getValue() {
+
+        final String result = this.value;
+        return result;
+
+    }
+
+    /**
+     * 値を返す<br>
+     *
+     * @author KenichiroArai
+     * @sine 1.0.0
+     * @version 1.0.0
+     * @return 値
      */
     @Override
-    public String get() {
+    public String toString() {
 
         final String result = this.value;
         return result;

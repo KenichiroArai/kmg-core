@@ -67,12 +67,6 @@ public enum KmgDelimiterTypes implements Supplier<String> {
     /* 定義：終了 */
     ;
 
-    /** 名称 */
-    private final String name;
-
-    /** 値 */
-    private final String value;
-
     /** 種類のマップ */
     private static final Map<String, KmgDelimiterTypes> valuesMap = new HashMap<>();
 
@@ -87,21 +81,24 @@ public enum KmgDelimiterTypes implements Supplier<String> {
 
     }
 
+    /** 名称 */
+    private final String name;
+
+    /** 値 */
+    private final String value;
+
     /**
-     * コンストラクタ<br>
+     * デフォルトの種類を返す<br>
      *
      * @author KenichiroArai
-     * @since 1.0.0
+     * @sine 1.0.0
      * @version 1.0.0
-     * @param name
-     *              名称
-     * @param value
-     *              値
+     * @return 初期値
      */
-    KmgDelimiterTypes(final String name, final String value) {
+    public static KmgDelimiterTypes getDefault() {
 
-        this.name = name;
-        this.value = value;
+        final KmgDelimiterTypes result = NONE;
+        return result;
 
     }
 
@@ -148,16 +145,35 @@ public enum KmgDelimiterTypes implements Supplier<String> {
     }
 
     /**
-     * デフォルトの種類を返す<br>
+     * コンストラクタ<br>
+     *
+     * @author KenichiroArai
+     * @since 1.0.0
+     * @version 1.0.0
+     * @param name
+     *              名称
+     * @param value
+     *              値
+     */
+    KmgDelimiterTypes(final String name, final String value) {
+
+        this.name = name;
+        this.value = value;
+
+    }
+
+    /**
+     * 種類の値<br>
      *
      * @author KenichiroArai
      * @sine 1.0.0
      * @version 1.0.0
-     * @return 初期値
+     * @return 種類の値
      */
-    public static KmgDelimiterTypes getDefault() {
+    @Override
+    public String get() {
 
-        final KmgDelimiterTypes result = NONE;
+        final String result = this.value;
         return result;
 
     }
@@ -186,22 +202,6 @@ public enum KmgDelimiterTypes implements Supplier<String> {
      * @return 値
      */
     public String getValue() {
-
-        final String result = this.value;
-        return result;
-
-    }
-
-    /**
-     * 値を返す<br>
-     *
-     * @author KenichiroArai
-     * @sine 1.0.0
-     * @version 1.0.0
-     * @return 値
-     */
-    @Override
-    public String toString() {
 
         final String result = this.value;
         return result;
@@ -375,15 +375,43 @@ public enum KmgDelimiterTypes implements Supplier<String> {
     }
 
     /**
-     * 種類の値<br>
+     * 分割する文字列を分割し、文字列の配列にして返す。<br>
      *
      * @author KenichiroArai
      * @sine 1.0.0
      * @version 1.0.0
-     * @return 種類の値
+     * @param target
+     *               分割する文字列
+     * @param limit
+     *               制限数
+     * @return 分割した文字列の配列
+     */
+    public String[] split(final String target, final int limit) {
+
+        String[] result = null;
+
+        if (KmgString.isEmpty(target)) {
+
+            return result;
+
+        }
+
+        result = target.split(this.value, limit);
+
+        return result;
+
+    }
+
+    /**
+     * 値を返す<br>
+     *
+     * @author KenichiroArai
+     * @sine 1.0.0
+     * @version 1.0.0
+     * @return 値
      */
     @Override
-    public String get() {
+    public String toString() {
 
         final String result = this.value;
         return result;
