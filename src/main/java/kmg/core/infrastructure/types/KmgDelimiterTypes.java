@@ -309,13 +309,23 @@ public enum KmgDelimiterTypes implements Supplier<String> {
 
         }
 
+        // リストが渡された場合は配列に変換
+        Object[] targetArray = targets;
+
+        if (targets.length == 1 && targets[0] instanceof List<?>) {
+
+            List<?> list = (List<?>) targets[0];
+            targetArray = list.toArray();
+
+        }
+
         final StringBuilder sb = new StringBuilder();
 
-        for (final Object target : targets) {
+        for (final Object target : targetArray) {
 
             if (target == null) {
 
-                sb.append(target);
+                sb.append("null");
 
             } else {
 
