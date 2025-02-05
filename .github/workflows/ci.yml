@@ -9,6 +9,7 @@ on:
         branches: ["main"]
     pull_request:
         branches: ["main"]
+    workflow_dispatch:
 
 jobs:
     build:
@@ -23,6 +24,11 @@ jobs:
                   java-version: "21"
                   distribution: "temurin"
                   cache: maven
+
+            - name: Create log directory
+              run: |
+                  sudo mkdir -p /var/log/TSSTS
+                  sudo chmod 777 /var/log/TSSTS
 
             - name: Build with Maven
               run: mvn -B package --file pom.xml
