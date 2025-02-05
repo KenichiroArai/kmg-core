@@ -842,4 +842,67 @@ public class KmgStringTest {
         Assertions.assertEquals(expected, actual, "toString()の結果が正しくないです");
 
     }
+
+    /**
+     * shouldAddUnderscore メソッドのテスト - 文字列の最後の大文字の場合
+     */
+    @Test
+    @SuppressWarnings("static-method")
+    public void testShouldAddUnderscore_lastUpperCase() {
+
+        /* 期待値の定義 */
+        final String expected = "test_a";
+
+        /* 準備 */
+        final String target = "testA";
+
+        /* テスト対象の実行 */
+        final String actual = KmgString.snakeCase(target);
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "文字列の最後の大文字の場合、アンダースコアが追加されるべき");
+
+    }
+
+    /**
+     * shouldAddUnderscore メソッドのテスト - 次の文字が小文字の場合
+     */
+    @Test
+    @SuppressWarnings("static-method")
+    public void testShouldAddUnderscore_nextCharLowerCase() {
+
+        /* 期待値の定義 */
+        final String expected = "test_abc";
+
+        /* 準備 */
+        final String target = "testAbc";
+
+        /* テスト対象の実行 */
+        final String actual = KmgString.snakeCase(target);
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "次の文字が小文字の場合、アンダースコアが追加されるべき");
+
+    }
+
+    /**
+     * shouldAddUnderscore メソッドのテスト - 次の文字が大文字の場合
+     */
+    @Test
+    @SuppressWarnings("static-method")
+    public void testShouldAddUnderscore_nextCharUpperCase() {
+
+        /* 期待値の定義 */
+        final String expected = "test_abc";
+
+        /* 準備 */
+        final String target = "testABC";
+
+        /* テスト対象の実行 */
+        final String actual = KmgString.snakeCase(target);
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "次の文字が大文字の場合、アンダースコアが追加されるべき");
+
+    }
 }
