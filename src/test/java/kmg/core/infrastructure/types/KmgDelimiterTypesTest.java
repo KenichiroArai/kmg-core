@@ -449,4 +449,308 @@ public class KmgDelimiterTypesTest {
         Assertions.assertEquals(expected, actual, "PERIODの場合、'.'が返されること");
 
     }
+
+    /**
+     * join メソッドのテスト - 通常の文字列配列を結合する場合
+     */
+    @Test
+    public void testJoin_normalCase() {
+
+        /* 期待値の定義 */
+        final String expectedResult = "a,b,c";
+
+        /* 準備 */
+        final KmgDelimiterTypes testTarget = KmgDelimiterTypes.COMMA;
+        final String[]          testInput  = {
+            "a", "b", "c"
+        };
+
+        /* テスト対象の実行 */
+        final String testResult = testTarget.join((Object[]) testInput);
+
+        /* 検証の準備 */
+        final String actualResult = testResult;
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expectedResult, actualResult, "通常の文字列配列の結合結果が一致しません");
+
+    }
+
+    /**
+     * join メソッドのテスト - 1つの要素のみの場合
+     */
+    @Test
+    public void testJoin_singleElement() {
+
+        /* 期待値の定義 */
+        final String expectedResult = "a";
+
+        /* 準備 */
+        final KmgDelimiterTypes testTarget = KmgDelimiterTypes.COMMA;
+        final String[]          testInput  = {
+            "a"
+        };
+
+        /* テスト対象の実行 */
+        final String testResult = testTarget.join((Object[]) testInput);
+
+        /* 検証の準備 */
+        final String actualResult = testResult;
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expectedResult, actualResult, "1つの要素の結合結果が一致しません");
+
+    }
+
+    /**
+     * join メソッドのテスト - 空の配列の場合
+     */
+    @Test
+    public void testJoin_emptyArray() {
+
+        /* 期待値の定義 */
+        final String expectedResult = null;
+
+        /* 準備 */
+        final KmgDelimiterTypes testTarget = KmgDelimiterTypes.COMMA;
+        final String[]          testInput  = {};
+
+        /* テスト対象の実行 */
+        final String testResult = testTarget.join((Object[]) testInput);
+
+        /* 検証の準備 */
+        final String actualResult = testResult;
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expectedResult, actualResult, "空配列の結合結果が一致しません");
+
+    }
+
+    /**
+     * join メソッドのテスト - nullを含む配列の場合
+     */
+    @Test
+    public void testJoin_containsNull() {
+
+        /* 期待値の定義 */
+        final String expectedResult = "a,c";
+
+        /* 準備 */
+        final KmgDelimiterTypes testTarget = KmgDelimiterTypes.COMMA;
+        final String[]          testInput  = {
+            "a", null, "c"
+        };
+
+        /* テスト対象の実行 */
+        final String testResult = testTarget.join((Object[]) testInput);
+
+        /* 検証の準備 */
+        final String actualResult = testResult;
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expectedResult, actualResult, "nullを含む配列の結合結果が一致しません");
+
+    }
+
+    /**
+     * join メソッドのテスト - 空文字を含む配列の場合
+     */
+    @Test
+    public void testJoin_containsEmptyString() {
+
+        /* 期待値の定義 */
+        final String expectedResult = "a,c";
+
+        /* 準備 */
+        final KmgDelimiterTypes testTarget = KmgDelimiterTypes.COMMA;
+        final String[]          testInput  = {
+            "a", "", "c"
+        };
+
+        /* テスト対象の実行 */
+        final String testResult = testTarget.join((Object[]) testInput);
+
+        /* 検証の準備 */
+        final String actualResult = testResult;
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expectedResult, actualResult, "空文字を含む配列の結合結果が一致しません");
+
+    }
+
+    /**
+     * join メソッドのテスト - 配列自体がnullの場合
+     */
+    @Test
+    public void testJoin_nullArray() {
+
+        /* 期待値の定義 */
+        final String expectedResult = null;
+
+        /* 準備 */
+        final KmgDelimiterTypes testTarget = KmgDelimiterTypes.COMMA;
+        final String[]          testInput  = null;
+
+        /* テスト対象の実行 */
+        final String testResult = testTarget.join((Object[]) testInput);
+
+        /* 検証の準備 */
+        final String actualResult = testResult;
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expectedResult, actualResult, "null配列の結合結果が一致しません");
+
+    }
+
+    /**
+     * joinAll メソッドのテスト - 通常の文字列配列を結合する場合
+     */
+    @Test
+    public void testJoinAll_normalCase() {
+
+        /* 期待値の定義 */
+        final String expectedResult = "a,b,c";
+
+        /* 準備 */
+        final KmgDelimiterTypes testTarget = KmgDelimiterTypes.COMMA;
+        final String[]          testInput  = {
+            "a", "b", "c"
+        };
+
+        /* テスト対象の実行 */
+        final String testResult = testTarget.joinAll((Object[]) testInput);
+
+        /* 検証の準備 */
+        final String actualResult = testResult;
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expectedResult, actualResult, "通常の文字列配列の結合結果が一致しません");
+
+    }
+
+    /**
+     * joinAll メソッドのテスト - 1つの要素のみの場合
+     */
+    @Test
+    public void testJoinAll_singleElement() {
+
+        /* 期待値の定義 */
+        final String expectedResult = "a";
+
+        /* 準備 */
+        final KmgDelimiterTypes testTarget = KmgDelimiterTypes.COMMA;
+        final String[]          testInput  = {
+            "a"
+        };
+
+        /* テスト対象の実行 */
+        final String testResult = testTarget.joinAll((Object[]) testInput);
+
+        /* 検証の準備 */
+        final String actualResult = testResult;
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expectedResult, actualResult, "1つの要素の結合結果が一致しません");
+
+    }
+
+    /**
+     * joinAll メソッドのテスト - 空の配列の場合
+     */
+    @Test
+    public void testJoinAll_emptyArray() {
+
+        /* 期待値の定義 */
+        final String expectedResult = null;
+
+        /* 準備 */
+        final KmgDelimiterTypes testTarget = KmgDelimiterTypes.COMMA;
+        final String[]          testInput  = {};
+
+        /* テスト対象の実行 */
+        final String testResult = testTarget.joinAll((Object[]) testInput);
+
+        /* 検証の準備 */
+        final String actualResult = testResult;
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expectedResult, actualResult, "空配列の結合結果が一致しません");
+
+    }
+
+    /**
+     * joinAll メソッドのテスト - nullを含む配列の場合
+     */
+    @Test
+    public void testJoinAll_containsNull() {
+
+        /* 期待値の定義 */
+        final String expectedResult = "a,null,c";
+
+        /* 準備 */
+        final KmgDelimiterTypes testTarget = KmgDelimiterTypes.COMMA;
+        final String[]          testInput  = {
+            "a", null, "c"
+        };
+
+        /* テスト対象の実行 */
+        final String testResult = testTarget.joinAll((Object[]) testInput);
+
+        /* 検証の準備 */
+        final String actualResult = testResult;
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expectedResult, actualResult, "nullを含む配列の結合結果が一致しません");
+
+    }
+
+    /**
+     * joinAll メソッドのテスト - 空文字を含む配列の場合
+     */
+    @Test
+    public void testJoinAll_containsEmptyString() {
+
+        /* 期待値の定義 */
+        final String expectedResult = "a,,c";
+
+        /* 準備 */
+        final KmgDelimiterTypes testTarget = KmgDelimiterTypes.COMMA;
+        final String[]          testInput  = {
+            "a", "", "c"
+        };
+
+        /* テスト対象の実行 */
+        final String testResult = testTarget.joinAll((Object[]) testInput);
+
+        /* 検証の準備 */
+        final String actualResult = testResult;
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expectedResult, actualResult, "空文字を含む配列の結合結果が一致しません");
+
+    }
+
+    /**
+     * joinAll メソッドのテスト - 配列自体がnullの場合
+     */
+    @Test
+    public void testJoinAll_nullArray() {
+
+        /* 期待値の定義 */
+        final String expectedResult = null;
+
+        /* 準備 */
+        final KmgDelimiterTypes testTarget = KmgDelimiterTypes.COMMA;
+        final String[]          testInput  = null;
+
+        /* テスト対象の実行 */
+        final String testResult = testTarget.joinAll((Object[]) testInput);
+
+        /* 検証の準備 */
+        final String actualResult = testResult;
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expectedResult, actualResult, "null配列の結合結果が一致しません");
+
+    }
 }

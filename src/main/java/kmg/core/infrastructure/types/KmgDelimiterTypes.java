@@ -245,8 +245,6 @@ public enum KmgDelimiterTypes implements Supplier<String> {
      */
     public String join(final Object... targets) {
 
-        // TODO KenichiroArai 2021/05/01 ストリーム形式を検討する。
-
         String result = null;
 
         final StringBuilder sb = new StringBuilder();
@@ -316,8 +314,6 @@ public enum KmgDelimiterTypes implements Supplier<String> {
      * @return 結合する文字列にデリミタを付加した文字列
      */
     public String joinAll(final Object... targets) {
-
-        // TODO KenichiroArai 2021/05/01 ストリーム形式を検討する。
 
         String result = null;
 
