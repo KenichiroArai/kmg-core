@@ -275,7 +275,7 @@ public enum KmgDelimiterTypes implements Supplier<String> {
 
         }
 
-        if (sb.length() > 0) {
+        if (sb.length() > 1) {
 
             result = sb.substring(0, sb.length() - 1).toString();
 
@@ -312,9 +312,8 @@ public enum KmgDelimiterTypes implements Supplier<String> {
         // リストが渡された場合は配列に変換
         Object[] targetArray = targets;
 
-        if (targets.length == 1 && targets[0] instanceof List<?>) {
+        if ((targets.length == 1) && (targets[0] instanceof final List<?> list)) {
 
-            List<?> list = (List<?>) targets[0];
             targetArray = list.toArray();
 
         }
@@ -336,7 +335,7 @@ public enum KmgDelimiterTypes implements Supplier<String> {
 
         }
 
-        if (sb.length() > 0) {
+        if (sb.length() > 1) {
 
             result = sb.substring(0, sb.length() - 1).toString();
 

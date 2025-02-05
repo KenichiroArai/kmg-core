@@ -753,4 +753,82 @@ public class KmgDelimiterTypesTest {
         Assertions.assertEquals(expectedResult, actualResult, "null配列の結合結果が一致しません");
 
     }
+
+    /**
+     * joinAll メソッドのテスト - 1文字の要素の場合（文字列長が1以下）
+     */
+    @Test
+    public void testJoinAll_singleCharElement() {
+
+        /* 期待値の定義 */
+        final String expectedResult = "a";
+
+        /* 準備 */
+        final KmgDelimiterTypes testTarget = KmgDelimiterTypes.COMMA;
+        final String[]          testInput  = {
+            "a"
+        };
+
+        /* テスト対象の実行 */
+        final String testResult = testTarget.joinAll((Object[]) testInput);
+
+        /* 検証の準備 */
+        final String actualResult = testResult;
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expectedResult, actualResult, "1文字の要素の結合結果が一致しません");
+
+    }
+
+    /**
+     * joinAll メソッドのテスト - 空文字の要素の場合（文字列長が1以下）
+     */
+    @Test
+    public void testJoinAll_emptyStringElement() {
+
+        /* 期待値の定義 */
+        final String expectedResult = "";
+
+        /* 準備 */
+        final KmgDelimiterTypes testTarget = KmgDelimiterTypes.COMMA;
+        final String[]          testInput  = {
+            ""
+        };
+
+        /* テスト対象の実行 */
+        final String testResult = testTarget.joinAll((Object[]) testInput);
+
+        /* 検証の準備 */
+        final String actualResult = testResult;
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expectedResult, actualResult, "空文字の要素の結合結果が一致しません");
+
+    }
+
+    /**
+     * joinAll メソッドのテスト - 複数の1文字要素の場合（文字列長が1より大きい）
+     */
+    @Test
+    public void testJoinAll_multipleSingleCharElements() {
+
+        /* 期待値の定義 */
+        final String expectedResult = "a,b";
+
+        /* 準備 */
+        final KmgDelimiterTypes testTarget = KmgDelimiterTypes.COMMA;
+        final String[]          testInput  = {
+            "a", "b"
+        };
+
+        /* テスト対象の実行 */
+        final String testResult = testTarget.joinAll((Object[]) testInput);
+
+        /* 検証の準備 */
+        final String actualResult = testResult;
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expectedResult, actualResult, "複数の1文字要素の結合結果が一致しません");
+
+    }
 }
