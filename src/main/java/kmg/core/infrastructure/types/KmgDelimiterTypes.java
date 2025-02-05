@@ -233,7 +233,8 @@ public enum KmgDelimiterTypes implements Supplier<String> {
     /**
      * 結合する文字列にデリミタを付加して文字列を返す<br>
      * <p>
-     * 但し、結合する文字列がnullまたは空文字の場合は結合しない
+     * 結合する文字列にnullまたは空文字があるの場合はその結合する文字列を含めない。<br>
+     * 結合する文字列がnullの場合は空文字を返す。<br>
      * </p>
      *
      * @author KenichiroArai
@@ -245,9 +246,13 @@ public enum KmgDelimiterTypes implements Supplier<String> {
      */
     public String join(final Object... targets) {
 
-        // TODO KenichiroArai 2021/05/01 ストリーム形式を検討する。
+        String result = KmgString.EMPTY;
 
-        String result = null;
+        if (targets == null) {
+
+            return result;
+
+        }
 
         final StringBuilder sb = new StringBuilder();
 
@@ -270,7 +275,7 @@ public enum KmgDelimiterTypes implements Supplier<String> {
 
         }
 
-        if (sb.length() > 0) {
+        if (sb.length() > 1) {
 
             result = sb.substring(0, sb.length() - 1).toString();
 
@@ -281,31 +286,10 @@ public enum KmgDelimiterTypes implements Supplier<String> {
     }
 
     /**
-     * 結合する文字列リストにデリミタを付加して文字列を返す<br>
-     * <p>
-     * 結合する文字列がnullまたは空文字の場合はそのまま結合する
-     * </p>
-     *
-     * @author KenichiroArai
-     * @sine 1.0.0
-     * @version 1.0.0
-     * @param <T>
-     *                   結合する文字列の型
-     * @param targetList
-     *                   結合する文字列リスト
-     * @return 結合する文字列リストにデリミタを付加した文字列
-     */
-    public <T> String joinAll(final List<T> targetList) {
-
-        final String result = this.joinAll(targetList.toArray(new Object[0]));
-        return result;
-
-    }
-
-    /**
      * 結合する文字列にデリミタを付加して文字列を返す<br>
      * <p>
-     * 結合する文字列がnullまたは空文字の場合はそのまま結合する
+     * 結合する文字列にnullまたは空文字があるの場合はそのまま結合する<br>
+     * 結合する文字列がnullの場合は空文字を返す。<br>
      * </p>
      *
      * @author KenichiroArai
@@ -317,17 +301,30 @@ public enum KmgDelimiterTypes implements Supplier<String> {
      */
     public String joinAll(final Object... targets) {
 
-        // TODO KenichiroArai 2021/05/01 ストリーム形式を検討する。
+        String result = KmgString.EMPTY;
 
-        String result = null;
+        if ((targets == null) || (targets.length == 0)) {
+
+            return result;
+
+        }
+
+        // リストが渡された場合は配列に変換
+        Object[] targetArray = targets;
+
+        if ((targets.length == 1) && (targets[0] instanceof final List<?> list)) {
+
+            targetArray = list.toArray();
+
+        }
 
         final StringBuilder sb = new StringBuilder();
 
-        for (final Object target : targets) {
+        for (final Object target : targetArray) {
 
             if (target == null) {
 
-                sb.append(target);
+                sb.append("null");
 
             } else {
 
@@ -338,7 +335,7 @@ public enum KmgDelimiterTypes implements Supplier<String> {
 
         }
 
-        if (sb.length() > 0) {
+        if (sb.length() > 1) {
 
             result = sb.substring(0, sb.length() - 1).toString();
 

@@ -73,6 +73,26 @@ public class KmgTemplateTypesTest {
     }
 
     /**
+     * getEnum メソッドのテスト - null値の場合
+     */
+    @Test
+    public void testGetEnum_nullValue() {
+
+        /* 期待値の定義 */
+        final KmgTemplateTypes expected = KmgTemplateTypes.NONE;
+
+        /* 準備 */
+        final String testValue = null;
+
+        /* テスト対象の実行 */
+        final KmgTemplateTypes actual = KmgTemplateTypes.getEnum(testValue);
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "null値の場合、NONEが返されること");
+
+    }
+
+    /**
      * getInitValue メソッドのテスト
      */
     @Test

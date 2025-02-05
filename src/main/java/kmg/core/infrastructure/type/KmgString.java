@@ -192,6 +192,7 @@ public class KmgString {
         if (target.length() == 1) {
             // 一文字の場合
 
+            result = target.toLowerCase();
             return result;
 
         }
@@ -202,30 +203,31 @@ public class KmgString {
 
         for (int i = 1; i < target.length(); ++i) {
 
-            // ローケースか
-            final boolean isLowerCase = Character.isLowerCase(target.charAt(i));
+            final char currentChar = target.charAt(i);
+            final char prevChar    = target.charAt(i - 1);
 
-            if (isLowerCase) {
-                // ローケースの場合
+            /* アンダースコアを追加するかの判定 */
+            final boolean shouldAddUnderscore = shouldAddUnderscore(target, i, currentChar, prevChar);
+
+            // アンダースコアを追加しない場合は次の反復に移る
+            if (!shouldAddUnderscore) {
 
                 continue;
 
             }
 
-            // スネークケースの文字列があるか
+            /* アンダースコアの追加 */
             if (snakeCaseSb.length() != 0) {
-                // ある場合
 
-                // 区切りを入れる
                 snakeCaseSb.append('_');
 
             }
-
             snakeCaseSb.append(target.substring(pos, i));
             pos = i;
 
         }
 
+        /* 残りの部分を追加 */
         if (snakeCaseSb.length() != 0) {
 
             snakeCaseSb.append('_');
@@ -234,6 +236,63 @@ public class KmgString {
         snakeCaseSb.append(target.substring(pos));
 
         result = snakeCaseSb.toString().toLowerCase();
+
+        return result;
+
+    }
+
+    /**
+     * アンダースコアを追加するかどうかを判定する<br>
+     * <p>
+     * 現在の文字が大文字でない場合は早期リターン
+     * </p>
+     *
+     * @author KenichiroArai
+     * @sine 1.0.0
+     * @version 1.0.0
+     * @param target
+     *                     対象文字列
+     * @param currentIndex
+     *                     現在の位置
+     * @param currentChar
+     *                     現在の文字
+     * @param prevChar
+     *                     前の文字
+     * @return true：アンダースコアを追加する、false：アンダースコアを追加しない
+     */
+    private static boolean shouldAddUnderscore(final String target, final int currentIndex, final char currentChar,
+        final char prevChar) {
+
+        boolean result = false;
+
+        // 現在の文字が大文字でない場合は早期リターン
+        if (!Character.isUpperCase(currentChar)) {
+
+            return result;
+
+        }
+
+        // 条件1: 前の文字が小文字である場合
+        if (Character.isLowerCase(prevChar)) {
+
+            result = true;
+            return result;
+
+        }
+
+        // 条件2: 次の文字が存在し、小文字である場合
+        if ((currentIndex + 1) < target.length()) {
+
+            final char nextChar = target.charAt(currentIndex + 1);
+
+            if (Character.isLowerCase(nextChar)) {
+
+                result = true;
+                return result;
+
+            }
+
+        }
 
         return result;
 
