@@ -210,9 +210,35 @@ public class KmgString {
             // 現在の文字が大文字で、かつ以下のいずれかの条件を満たす場合に区切りを入れる
             // 1. 前の文字が小文字
             // 2. 次の文字が存在し、小文字である（連続する大文字の最後）
-            final boolean shouldAddUnderscore = Character.isUpperCase(currentChar) && (Character.isLowerCase(prevChar)
-                || (i + 1 < target.length() && Character.isLowerCase(target.charAt(i + 1))));
+            // アンダースコアを追加するかの判定
+            boolean shouldAddUnderscore = false;
 
+            // 現在の文字が大文字かどうかを確認
+            if (Character.isUpperCase(currentChar)) {
+
+                // 条件1: 前の文字が小文字である
+                if (Character.isLowerCase(prevChar)) {
+
+                    shouldAddUnderscore = true;
+
+                }
+
+                // 条件2: 次の文字が存在し、小文字である
+                else if ((i + 1) < target.length()) {
+
+                    final char nextChar = target.charAt(i + 1);
+
+                    if (Character.isLowerCase(nextChar)) {
+
+                        shouldAddUnderscore = true;
+
+                    }
+
+                }
+
+            }
+
+            // アンダースコアを追加しない場合は次の反復に移る
             if (!shouldAddUnderscore) {
 
                 continue;
