@@ -509,7 +509,7 @@ public class KmgDelimiterTypesTest {
     public void testJoin_emptyArray() {
 
         /* 期待値の定義 */
-        final String expectedResult = null;
+        final String expectedResult = KmgString.EMPTY;
 
         /* 準備 */
         final KmgDelimiterTypes testTarget = KmgDelimiterTypes.COMMA;
@@ -585,7 +585,7 @@ public class KmgDelimiterTypesTest {
     public void testJoin_nullArray() {
 
         /* 期待値の定義 */
-        final String expectedResult = null;
+        final String expectedResult = KmgString.EMPTY;
 
         /* 準備 */
         final KmgDelimiterTypes testTarget = KmgDelimiterTypes.COMMA;
@@ -661,7 +661,7 @@ public class KmgDelimiterTypesTest {
     public void testJoinAll_emptyArray() {
 
         /* 期待値の定義 */
-        final String expectedResult = null;
+        final String expectedResult = KmgString.EMPTY;
 
         /* 準備 */
         final KmgDelimiterTypes testTarget = KmgDelimiterTypes.COMMA;
@@ -737,7 +737,7 @@ public class KmgDelimiterTypesTest {
     public void testJoinAll_nullArray() {
 
         /* 期待値の定義 */
-        final String expectedResult = null;
+        final String expectedResult = KmgString.EMPTY;
 
         /* 準備 */
         final KmgDelimiterTypes testTarget = KmgDelimiterTypes.COMMA;
