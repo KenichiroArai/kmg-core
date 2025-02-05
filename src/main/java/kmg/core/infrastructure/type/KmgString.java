@@ -192,6 +192,7 @@ public class KmgString {
         if (target.length() == 1) {
             // 一文字の場合
 
+            result = target.toLowerCase();
             return result;
 
         }
@@ -202,30 +203,34 @@ public class KmgString {
 
         for (int i = 1; i < target.length(); ++i) {
 
-            // ローケースか
-            final boolean isLowerCase = Character.isLowerCase(target.charAt(i));
+            final char currentChar = target.charAt(i);
+            final char prevChar    = target.charAt(i - 1);
 
-            if (isLowerCase) {
-                // ローケースの場合
+            /* アンダースコアを追加するかの判定 */
+            // 現在の文字が大文字で、かつ以下のいずれかの条件を満たす場合に区切りを入れる
+            // 1. 前の文字が小文字
+            // 2. 次の文字が存在し、小文字である（連続する大文字の最後）
+            final boolean shouldAddUnderscore = Character.isUpperCase(currentChar) && (Character.isLowerCase(prevChar)
+                || (i + 1 < target.length() && Character.isLowerCase(target.charAt(i + 1))));
+
+            if (!shouldAddUnderscore) {
 
                 continue;
 
             }
 
-            // スネークケースの文字列があるか
+            /* アンダースコアの追加 */
             if (snakeCaseSb.length() != 0) {
-                // ある場合
 
-                // 区切りを入れる
                 snakeCaseSb.append('_');
 
             }
-
             snakeCaseSb.append(target.substring(pos, i));
             pos = i;
 
         }
 
+        /* 残りの部分を追加 */
         if (snakeCaseSb.length() != 0) {
 
             snakeCaseSb.append('_');

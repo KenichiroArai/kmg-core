@@ -704,16 +704,79 @@ public class KmgStringTest {
     public void testSnakeCase_singleChar() {
 
         /* 期待値の定義 */
-        final String expected = null;
+        final String expected = "a";
 
         /* 準備 */
-        final String target = "a";
+        final String target = "A";
 
         /* テスト対象の実行 */
         final String actual = KmgString.snakeCase(target);
 
         /* 検証の実施 */
-        Assertions.assertEquals(expected, actual, "1文字の場合、nullを返すべき");
+        Assertions.assertEquals(expected, actual, "1文字の場合、小文字にして1文字を返すべき");
+
+    }
+
+    /**
+     * snakeCase メソッドのテスト - 最後の文字が大文字の場合
+     */
+    @Test
+    @SuppressWarnings("static-method")
+    public void testSnakeCase_lastCharUpperCase() {
+
+        /* 期待値の定義 */
+        final String expected = "aaa_bbb_c";
+
+        /* 準備 */
+        final String target = "aaaBbbC";
+
+        /* テスト対象の実行 */
+        final String actual = KmgString.snakeCase(target);
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "最後の文字が大文字の場合の変換が正しくないです");
+
+    }
+
+    /**
+     * snakeCase メソッドのテスト - 連続する大文字の処理
+     */
+    @Test
+    @SuppressWarnings("static-method")
+    public void testSnakeCase_consecutiveUpperCase() {
+
+        /* 期待値の定義 */
+        final String expected = "aaa_bbb_xml_http";
+
+        /* 準備 */
+        final String target = "aaaBbbXMLHttp";
+
+        /* テスト対象の実行 */
+        final String actual = KmgString.snakeCase(target);
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "連続する大文字の処理が正しくないです");
+
+    }
+
+    /**
+     * snakeCase メソッドのテスト - 既にスネークケース形式の場合
+     */
+    @Test
+    @SuppressWarnings("static-method")
+    public void testSnakeCase_alreadySnakeCase() {
+
+        /* 期待値の定義 */
+        final String expected = "aaa_bbb_ccc";
+
+        /* 準備 */
+        final String target = "aaa_bbb_ccc";
+
+        /* テスト対象の実行 */
+        final String actual = KmgString.snakeCase(target);
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "既にスネークケース形式の場合の処理が正しくないです");
 
     }
 
