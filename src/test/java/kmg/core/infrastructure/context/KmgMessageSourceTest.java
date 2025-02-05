@@ -2,6 +2,7 @@ package kmg.core.infrastructure.context;
 
 import java.util.Locale;
 
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -27,13 +28,41 @@ public class KmgMessageSourceTest {
     @Mock
     private MessageSource messageSource;
 
+    /** AutoCloseable */
+    private AutoCloseable closeable;
+
     /**
      * テストの準備
+     *
+     * @throws Exception
+     *                   例外が発生した場合
      */
     @BeforeEach
-    public void setUp() {
+    public void setUp() throws Exception {
 
-        MockitoAnnotations.openMocks(this);
+        try (AutoCloseable autoCloseable = MockitoAnnotations.openMocks(this)) {
+
+            this.closeable = autoCloseable;
+
+        }
+
+    }
+
+    /**
+     * テストの後処理
+     *
+     * @throws Exception
+     *                   例外が発生した場合
+     */
+    @AfterEach
+    public void tearDown() throws Exception {
+
+        if (this.closeable == null) {
+
+            return;
+
+        }
+        this.closeable.close();
 
     }
 
