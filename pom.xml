@@ -78,49 +78,9 @@
             <artifactId>mockito-core</artifactId>
             <scope>test</scope>
         </dependency>
-        <!-- 複雑度 -->
-        <dependency>
-            <groupId>org.openclover</groupId>
-            <artifactId>clover-maven-plugin</artifactId>
-            <version>4.5.2</version>
-            <scope>test</scope>
-        </dependency>
     </dependencies>
 
     <build>
-        <pluginManagement>
-            <plugins>
-                <plugin>
-                    <groupId>org.openclover</groupId>
-                    <artifactId>clover-maven-plugin</artifactId>
-                    <version>4.5.2</version>
-                    <configuration>
-                        <targetPercentage>0%</targetPercentage>
-                        <excludes>
-                            <exclude>**/*Test.java</exclude>
-                        </excludes>
-                        <debug>true</debug>
-                    </configuration>
-                    <executions>
-                        <execution>
-                            <id>clover-setup</id>
-                            <phase>process-sources</phase>
-                            <goals>
-                                <goal>setup</goal>
-                            </goals>
-                        </execution>
-                        <execution>
-                            <id>clover-report</id>
-                            <phase>test</phase>
-                            <goals>
-                                <goal>aggregate</goal>
-                                <goal>clover</goal>
-                            </goals>
-                        </execution>
-                    </executions>
-                </plugin>
-            </plugins>
-        </pluginManagement>
         <plugins>
             <!-- Spring Boot Maven Plugin -->
             <plugin>
@@ -169,6 +129,26 @@
                         <goals>
                             <goal>report</goal>
                         </goals>
+                    </execution>
+                    <execution>
+                        <id>check</id>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                        <configuration>
+                            <rules>
+                                <rule>
+                                    <element>METHOD</element>
+                                    <limits>
+                                        <limit>
+                                            <counter>COMPLEXITY</counter>
+                                            <value>TOTALCOUNT</value>
+                                            <maximum>15</maximum>
+                                        </limit>
+                                    </limits>
+                                </rule>
+                            </rules>
+                        </configuration>
                     </execution>
                 </executions>
             </plugin>
