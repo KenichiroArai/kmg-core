@@ -103,7 +103,6 @@ public class KmgReflectionModelImplTest {
      *                            KMGドメイン例外
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testGet_bigDecimalField() throws KmgDomainException {
 
         /* 期待値の定義 */
@@ -137,7 +136,6 @@ public class KmgReflectionModelImplTest {
      *                                  引数例外
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testGet_consecutiveCalls() throws KmgDomainException, IllegalArgumentException, IllegalAccessException {
 
         /* 準備 */
@@ -216,7 +214,6 @@ public class KmgReflectionModelImplTest {
      *                            KMGドメイン例外
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testGet_getValueSecurityException() throws KmgDomainException {
 
         /* 期待値の定義 */
@@ -260,7 +257,6 @@ public class KmgReflectionModelImplTest {
      *                            KMGドメイン例外
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testGet_nonExistentField() throws KmgDomainException {
 
         /* 期待値の定義 */
@@ -286,7 +282,6 @@ public class KmgReflectionModelImplTest {
      *                            KMGドメイン例外
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testGet_nullFieldName() throws KmgDomainException {
 
         /* 準備 */
@@ -309,7 +304,6 @@ public class KmgReflectionModelImplTest {
      *                            KMGドメイン例外
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testGet_privateField() throws KmgDomainException {
 
         /* 期待値の定義 */
@@ -339,7 +333,6 @@ public class KmgReflectionModelImplTest {
      *                            KMGドメイン例外
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testGet_publicField() throws KmgDomainException {
 
         /* 期待値の定義 */
@@ -369,7 +362,6 @@ public class KmgReflectionModelImplTest {
      *                            KMGドメイン例外
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testGet_securityException() throws KmgDomainException {
 
         /* 期待値の定義 */
@@ -413,7 +405,6 @@ public class KmgReflectionModelImplTest {
      *                            KMGドメイン例外
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testGetDeclaredMethods_normal() throws KmgDomainException {
 
         /* 準備 */
@@ -437,7 +428,6 @@ public class KmgReflectionModelImplTest {
      *                            KMGドメイン例外
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testGetDeclaredMethods_securityException() throws KmgDomainException {
 
         /* 期待値の定義 */
@@ -480,7 +470,6 @@ public class KmgReflectionModelImplTest {
      *                            KMGドメイン例外
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testGetLastGetField_beforeGetField() throws KmgDomainException {
 
         /* 期待値の定義 */
@@ -596,7 +585,6 @@ public class KmgReflectionModelImplTest {
      *                            KMGドメイン例外
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testGetMethod_invocationTargetException() throws KmgDomainException {
 
         /* 期待値の定義 */
@@ -641,7 +629,6 @@ public class KmgReflectionModelImplTest {
      *                            KMGドメイン例外
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testGetMethod_mismatchParameterCount() throws KmgDomainException {
 
         /* 期待値の定義 */
@@ -670,7 +657,6 @@ public class KmgReflectionModelImplTest {
      *                            KMGドメイン例外
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testGetMethod_mismatchParameterType() throws KmgDomainException {
 
         /* 期待値の定義 */
@@ -699,7 +685,6 @@ public class KmgReflectionModelImplTest {
      *                            KMGドメイン例外
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testGetMethod_nonExistentMethod() throws KmgDomainException {
 
         /* 期待値の定義 */
@@ -728,7 +713,6 @@ public class KmgReflectionModelImplTest {
      *                            KMGドメイン例外
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testGetMethod_nullMethodName() throws KmgDomainException {
 
         /* 期待値の定義 */
@@ -757,7 +741,6 @@ public class KmgReflectionModelImplTest {
      *                            KMGドメイン例外
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testGetMethod_privateMethod() throws KmgDomainException {
 
         /* 期待値の定義 */
@@ -797,7 +780,6 @@ public class KmgReflectionModelImplTest {
      *                            KMGドメイン例外
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testGetMethod_withParameters() throws KmgDomainException {
 
         /* 期待値の定義 */
@@ -826,7 +808,6 @@ public class KmgReflectionModelImplTest {
      *                            KMGドメイン例外
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testInvoke_normal() throws KmgDomainException {
 
         /* 期待値の定義 */
@@ -855,7 +836,6 @@ public class KmgReflectionModelImplTest {
      *                            KMGドメイン例外
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testInvoke_securityException() throws KmgDomainException {
 
         /* 期待値の定義 */
@@ -900,7 +880,6 @@ public class KmgReflectionModelImplTest {
      *                            KMGドメイン例外
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testSet_bigDecimalField() throws KmgDomainException {
 
         /* 期待値の定義 */
@@ -929,7 +908,6 @@ public class KmgReflectionModelImplTest {
      *                            KMGドメイン例外
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testSet_illegalAccessException() throws KmgDomainException {
 
         /* 期待値の定義 */
@@ -938,18 +916,18 @@ public class KmgReflectionModelImplTest {
         /* 準備 */
         final TestClass              testObject              = new TestClass();
         final KmgMessageModelFactory mockMessageModelFactory = Mockito.mock(KmgMessageModelFactory.class);
-        final KmgReflectionModelImpl testReflection          = new KmgReflectionModelImpl(this.kmgMessageModelFactory,
-            testObject) {
 
-                                                                 @Override
-                                                                 protected void setValue(final Field field,
-                                                                     final Object targetObject, final Object value)
-                                                                     throws SecurityException, IllegalAccessException {
+        final KmgReflectionModelImpl testReflection
+            = new KmgReflectionModelImpl(this.kmgMessageModelFactory, testObject) {
 
-                                                                     throw new IllegalAccessException(expectedMessage);
+                @Override
+                protected void setValue(final Field field, final Object targetObject, final Object value)
+                    throws SecurityException, IllegalAccessException {
 
-                                                                 }
-                                                             };
+                    throw new IllegalAccessException(expectedMessage);
+
+                }
+            };
         ReflectionTestUtils.setField(testReflection, "kmgMessageModelFactory", mockMessageModelFactory);
 
         /* テスト対象の実行 */
@@ -974,7 +952,6 @@ public class KmgReflectionModelImplTest {
      *                            KMGドメイン例外
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testSet_invalidBigDecimalValue() throws KmgDomainException {
 
         /* 期待値の定義 */
@@ -1007,7 +984,6 @@ public class KmgReflectionModelImplTest {
      *                            KMGドメイン例外
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testSet_nonExistentField() throws KmgDomainException {
 
         /* 準備 */
@@ -1030,7 +1006,6 @@ public class KmgReflectionModelImplTest {
      *                            KMGドメイン例外
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testSet_nullFieldName() throws KmgDomainException {
 
         /* 準備 */
@@ -1053,7 +1028,6 @@ public class KmgReflectionModelImplTest {
      *                            KMGドメイン例外
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testSet_nullValue() throws KmgDomainException {
 
         /* 期待値の定義 */
@@ -1082,7 +1056,6 @@ public class KmgReflectionModelImplTest {
      *                            KMGドメイン例外
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testSet_privateField() throws KmgDomainException {
 
         /* 期待値の定義 */
@@ -1111,7 +1084,6 @@ public class KmgReflectionModelImplTest {
      *                            KMGドメイン例外
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testSet_publicField() throws KmgDomainException {
 
         /* 期待値の定義 */
