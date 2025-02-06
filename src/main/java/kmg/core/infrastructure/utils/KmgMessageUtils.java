@@ -2,6 +2,7 @@ package kmg.core.infrastructure.utils;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.text.MessageFormat;
 import java.util.Properties;
 
 import kmg.core.infrastructure.type.KmgString;
@@ -53,10 +54,12 @@ public final class KmgMessageUtils {
      * @sine 1.0.0
      * @version 1.0.0
      * @param type
-     *             メッセージの種類
+     *                    メッセージの種類
+     * @param messageArgs
+     *                    メッセージの引数
      * @return メッセージ
      */
-    public static String getMessage(final KmgMsgMessageTypes type) {
+    public static String getMessage(final KmgMsgMessageTypes type, final Object[] messageArgs) {
 
         String result = KmgString.EMPTY;
 
@@ -65,7 +68,18 @@ public final class KmgMessageUtils {
             return result;
 
         }
-        result = KmgMessageUtils.properties.getProperty(type.getCode(), type.getCode());
+
+        final String messagePattern = KmgMessageUtils.properties.getProperty(type.getCode(), type.getCode());
+
+        if ((messageArgs != null) && (messageArgs.length > 0)) {
+
+            result = MessageFormat.format(messagePattern, messageArgs);
+
+        } else {
+
+            result = messagePattern;
+
+        }
         return result;
 
     }
@@ -78,7 +92,9 @@ public final class KmgMessageUtils {
      */
     public static void main(final String[] args) {
 
-        final String message = KmgMessageUtils.getMessage(KmgMsgMessageTypes.KMGMSGE11100);
+        final String message = KmgMessageUtils.getMessage(KmgMsgMessageTypes.KMGMSGE11100, new Object[] {
+            "test2136"
+        });
         System.out.println(message);
 
     }
