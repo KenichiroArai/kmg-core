@@ -1,11 +1,7 @@
 package kmg.core.infrastructure.utils;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.nio.charset.StandardCharsets;
 import java.text.MessageFormat;
-import java.util.Properties;
+import java.util.ResourceBundle;
 
 import kmg.core.infrastructure.type.KmgString;
 import kmg.core.infrastructure.types.KmgMsgMessageTypes;
@@ -19,22 +15,12 @@ import kmg.core.infrastructure.types.KmgMsgMessageTypes;
  */
 public final class KmgMessageUtils {
 
-    /** プロパティ */
-    private static Properties properties;
+    /** リソースバンドル */
+    private static ResourceBundle bundle;
 
     static {
 
-        KmgMessageUtils.properties = new Properties();
-
-        try (InputStream input = KmgMessageUtils.class.getClassLoader().getResourceAsStream("messages.properties");
-            InputStreamReader reader = new InputStreamReader(input, StandardCharsets.UTF_8)) {
-
-            KmgMessageUtils.properties.load(reader);
-
-        } catch (final IOException e) {
-
-            // TODO KenichiroArai 2025/02/06 ログを出力する
-        }
+        KmgMessageUtils.bundle = ResourceBundle.getBundle("messages");
 
     }
 
@@ -72,7 +58,7 @@ public final class KmgMessageUtils {
 
         }
 
-        final String messagePattern = KmgMessageUtils.properties.getProperty(type.getCode(), type.getCode());
+        final String messagePattern = KmgMessageUtils.bundle.getString(type.getCode());
 
         if ((messageArgs != null) && (messageArgs.length > 0)) {
 
