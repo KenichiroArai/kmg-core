@@ -2,6 +2,8 @@ package kmg.core.infrastructure.utils;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
 import java.text.MessageFormat;
 import java.util.Properties;
 
@@ -24,9 +26,10 @@ public final class KmgMessageUtils {
 
         KmgMessageUtils.properties = new Properties();
 
-        try (InputStream input = KmgMessageUtils.class.getClassLoader().getResourceAsStream("messages.properties")) {
+        try (InputStream input = KmgMessageUtils.class.getClassLoader().getResourceAsStream("messages.properties");
+            InputStreamReader reader = new InputStreamReader(input, StandardCharsets.UTF_8)) {
 
-            KmgMessageUtils.properties.load(input);
+            KmgMessageUtils.properties.load(reader);
 
         } catch (final IOException e) {
 
