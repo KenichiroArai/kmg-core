@@ -2,6 +2,8 @@ package kmg.core.infrastructure.model.impl;
 
 import kmg.core.infrastructure.model.KmgMessageModel;
 import kmg.core.infrastructure.types.KmgMsgMessageTypes;
+import kmg.core.infrastructure.utils.KmgMessageUtils;
+import java.text.MessageFormat;
 
 /**
  * メッセージモデルの実装<br>
@@ -42,9 +44,14 @@ public class KmgMessageModelImpl implements KmgMessageModel {
     @Override
     public String getMessage() {
 
-        // TODO KenichiroArai 2025/02/06 メッセージ
-        final String result = "";
-        return result;
+        String messagePattern = KmgMessageUtils.getMessage(this.messageTypes);
+
+        if (this.messageArgs != null && this.messageArgs.length > 0) {
+
+            return MessageFormat.format(messagePattern, this.messageArgs);
+
+        }
+        return messagePattern;
 
     }
 
