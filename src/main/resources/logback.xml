@@ -2,17 +2,17 @@
 <!DOCTYPE logback>
 <configuration>
     <property resource="application.properties" />
-    <timestamp key="date" datePattern="yyyy-MM-dd"/>
+    <timestamp key="date" datePattern="yyyy-MM-dd" />
 
     <appender name="APPLIATION_LOG" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>${logback.application.outpath}</file>
+        <file>${logging.file.name}</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>${logback.application.rolling.pattern}</fileNamePattern>
+            <fileNamePattern>${logging.file.path}/${spring.application.name}_%d{yyyy-MM-dd}.log</fileNamePattern>
             <maxHistory>10</maxHistory>
         </rollingPolicy>
         <encoder>
             <charset>UTF-8</charset>
-            <pattern>>${logback.application.pattern}</pattern>
+            <pattern>${logging.pattern.file}</pattern>
         </encoder>
     </appender>
 
@@ -20,7 +20,7 @@
         <target>System.out</target>
         <encoder>
             <charset>UTF-8</charset>
-            <pattern>${logback.application.pattern}</pattern>
+            <pattern>${logging.pattern.file}</pattern>
         </encoder>
     </appender>
 

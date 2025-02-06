@@ -7,14 +7,12 @@ import java.nio.file.Paths;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.ArgumentMatchers;
 import org.mockito.MockedStatic;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.boot.test.context.SpringBootTest;
 
 import kmg.core.domain.model.KmgReflectionModel;
-import kmg.core.domain.model.factory.KmgReflectionModelFactory;
+import kmg.core.domain.model.impl.KmgReflectionModelImpl;
 import kmg.core.infrastructure.exception.KmgDomainException;
 
 /**
@@ -24,7 +22,6 @@ import kmg.core.infrastructure.exception.KmgDomainException;
  * @sine 1.0.0
  * @version 1.0.0
  */
-@SpringBootTest
 @ExtendWith(MockitoExtension.class)
 @SuppressWarnings("static-method")
 public class KmgPathUtilsTest {
@@ -104,8 +101,6 @@ public class KmgPathUtilsTest {
             /* テスト対象の実行 */
             mockedStatic.when(() -> KmgPathUtils.getCodeSourceLocation(testTarget)).thenThrow(testException);
             mockedStatic.when(() -> KmgPathUtils.getBinPath(testTarget)).thenCallRealMethod();
-            mockedStatic.when(() -> KmgPathUtils.setKmgMessageModelFactory(ArgumentMatchers.any()))
-                .thenCallRealMethod();
 
             /* 検証の実施 */
             final KmgDomainException actualException = Assertions.assertThrows(KmgDomainException.class,
@@ -179,7 +174,7 @@ public class KmgPathUtilsTest {
         final Path   fileName    = Paths.get("test.txt");
 
         /* テスト対象の実行 */
-        final KmgReflectionModel kmgReflectionModel = new KmgReflectionModelFactory().create(KmgPathUtils.class);
+        final KmgReflectionModel kmgReflectionModel = new KmgReflectionModelImpl(KmgPathUtils.class);
         final Path               actual             = (Path) kmgReflectionModel.getMethod("getClassFullPath", binPath,
             packageName, className, fileName);
 
@@ -207,7 +202,7 @@ public class KmgPathUtilsTest {
         final Path   fileName    = Paths.get("test.txt");
 
         /* テスト対象の実行 */
-        final KmgReflectionModel kmgReflectionModel = new KmgReflectionModelFactory().create(KmgPathUtils.class);
+        final KmgReflectionModel kmgReflectionModel = new KmgReflectionModelImpl(KmgPathUtils.class);
         final Path               actual             = (Path) kmgReflectionModel.getMethod("getClassFullPath", binPath,
             packageName, className, fileName);
 
@@ -236,7 +231,7 @@ public class KmgPathUtilsTest {
         final Path   fileName    = Paths.get("data.json");
 
         /* テスト対象の実行 */
-        final KmgReflectionModel kmgReflectionModel = new KmgReflectionModelFactory().create(KmgPathUtils.class);
+        final KmgReflectionModel kmgReflectionModel = new KmgReflectionModelImpl(KmgPathUtils.class);
         final Path               actual             = (Path) kmgReflectionModel.getMethod("getClassFullPath", binPath,
             packageName, className, fileName);
 
@@ -264,7 +259,7 @@ public class KmgPathUtilsTest {
         final Path   fileName    = Paths.get("test.txt");
 
         /* テスト対象の実行 */
-        final KmgReflectionModel kmgReflectionModel = new KmgReflectionModelFactory().create(KmgPathUtils.class);
+        final KmgReflectionModel kmgReflectionModel = new KmgReflectionModelImpl(KmgPathUtils.class);
         final Path               actual             = (Path) kmgReflectionModel.getMethod("getClassFullPath", binPath,
             packageName, className, fileName);
 
@@ -340,7 +335,7 @@ public class KmgPathUtilsTest {
         final Path   fileName    = Paths.get("test.txt");
 
         /* テスト対象の実行 */
-        final KmgReflectionModel kmgReflectionModel = new KmgReflectionModelFactory().create(KmgPathUtils.class);
+        final KmgReflectionModel kmgReflectionModel = new KmgReflectionModelImpl(KmgPathUtils.class);
         final Path               actual             = (Path) kmgReflectionModel.getMethod("getClassFullPath", binPath,
             packageName, className, fileName);
 

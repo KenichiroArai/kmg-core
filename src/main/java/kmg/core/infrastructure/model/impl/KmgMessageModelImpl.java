@@ -1,6 +1,5 @@
 package kmg.core.infrastructure.model.impl;
 
-import kmg.core.infrastructure.context.KmgMessageSource;
 import kmg.core.infrastructure.model.KmgMessageModel;
 import kmg.core.infrastructure.types.KmgMsgMessageTypes;
 
@@ -19,9 +18,6 @@ public class KmgMessageModelImpl implements KmgMessageModel {
     /** メッセージの引数 */
     private final Object[] messageArgs;
 
-    /** KMGメッセージリソース */
-    private final KmgMessageSource kmgMessageSource;
-
     /**
      * コンストラクタ<br>
      *
@@ -29,18 +25,14 @@ public class KmgMessageModelImpl implements KmgMessageModel {
      * @sine 1.0.0
      * @version 1.0.0
      * @param messageTypes
-     *                         メッセージの種類
+     *                     メッセージの種類
      * @param messageArgs
-     *                         メッセージの引数
-     * @param kmgMessageSource
-     *                         KMGメッセージリソース
+     *                     メッセージの引数
      */
-    public KmgMessageModelImpl(final KmgMsgMessageTypes messageTypes, final Object[] messageArgs,
-        final KmgMessageSource kmgMessageSource) {
+    public KmgMessageModelImpl(final KmgMsgMessageTypes messageTypes, final Object[] messageArgs) {
 
         this.messageTypes = messageTypes;
         this.messageArgs = messageArgs;
-        this.kmgMessageSource = kmgMessageSource;
 
     }
 
@@ -50,7 +42,8 @@ public class KmgMessageModelImpl implements KmgMessageModel {
     @Override
     public String getMessage() {
 
-        final String result = this.kmgMessageSource.getMessage(this.messageTypes, this.messageArgs);
+        // TODO KenichiroArai 2025/02/06 メッセージ
+        final String result = "";
         return result;
 
     }

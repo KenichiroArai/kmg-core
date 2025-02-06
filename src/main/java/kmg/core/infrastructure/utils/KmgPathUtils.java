@@ -4,12 +4,11 @@ import java.net.URISyntaxException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.ObjectUtils;
 
 import kmg.core.infrastructure.exception.KmgDomainException;
 import kmg.core.infrastructure.model.KmgMessageModel;
-import kmg.core.infrastructure.model.factory.KmgMessageModelFactory;
+import kmg.core.infrastructure.model.impl.KmgMessageModelImpl;
 import kmg.core.infrastructure.type.KmgString;
 import kmg.core.infrastructure.types.KmgMsgMessageTypes;
 
@@ -21,25 +20,6 @@ import kmg.core.infrastructure.types.KmgMsgMessageTypes;
  * @version 1.0.0
  */
 public final class KmgPathUtils {
-
-    /** KMGメッセージリソース */
-    private static KmgMessageModelFactory kmgMessageModelFactory;
-
-    /**
-     * KMGメッセージモデルファクトリを設定する<br>
-     *
-     * @author KenichiroArai
-     * @sine 1.0.0
-     * @version 1.0.0
-     * @param factory
-     *                KMGメッセージモデルファクトリ
-     */
-    @Autowired
-    public static void setKmgMessageModelFactory(final KmgMessageModelFactory factory) {
-
-        KmgPathUtils.kmgMessageModelFactory = factory;
-
-    }
 
     /**
      * デフォルトコンストラクタ<br>
@@ -119,7 +99,7 @@ public final class KmgPathUtils {
             final Object[]           msgArgs         = {
                 zlass.getName()
             };
-            final KmgMessageModel    kmgMessageModel = KmgPathUtils.kmgMessageModelFactory.create(msgTypes, msgArgs);
+            final KmgMessageModel    kmgMessageModel = new KmgMessageModelImpl(msgTypes, msgArgs);
             throw new KmgDomainException(kmgMessageModel, e);
 
         }
