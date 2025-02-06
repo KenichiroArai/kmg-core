@@ -4,8 +4,6 @@ import java.net.URISyntaxException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-import org.springframework.util.ObjectUtils;
-
 import kmg.core.infrastructure.exception.KmgDomainException;
 import kmg.core.infrastructure.model.KmgMessageModel;
 import kmg.core.infrastructure.model.impl.KmgMessageModelImpl;
@@ -192,7 +190,7 @@ public final class KmgPathUtils {
 
         Path result = null;
 
-        if (ObjectUtils.isEmpty(object)) {
+        if ((object == null) || KmgString.EMPTY.equals(object)) {
 
             return result;
 
