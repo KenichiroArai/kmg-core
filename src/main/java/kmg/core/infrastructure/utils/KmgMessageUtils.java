@@ -129,19 +129,4 @@ public final class KmgMessageUtils {
         return result;
 
     }
-
-    /**
-     * サンプル
-     *
-     * @param args
-     *             引数
-     */
-    public static void main(final String[] args) {
-
-        final String message = KmgMessageUtils.getMessage(KmgMsgMessageTypes.KMGMSGE11100, new Object[] {
-            "test2150"
-        });
-        System.out.println(message);
-
-    }
 }
