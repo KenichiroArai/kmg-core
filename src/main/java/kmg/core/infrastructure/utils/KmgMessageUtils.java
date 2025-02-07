@@ -1,6 +1,8 @@
 package kmg.core.infrastructure.utils;
 
 import java.text.MessageFormat;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.ResourceBundle;
 
 import kmg.core.infrastructure.type.KmgString;
@@ -15,12 +17,21 @@ import kmg.core.infrastructure.types.KmgMsgMessageTypes;
  */
 public final class KmgMessageUtils {
 
-    /** リソースバンドル */
-    private static ResourceBundle bundle;
+    /** リソースバンドルマップ */
+    private static final Map<String, ResourceBundle> bundleMap = new HashMap<>();
+
+    /** プロパティファイル名の配列 */
+    private static final String[] PROPERTY_FILES = {
+        "messages", "messages-log"
+    };
 
     static {
 
-        KmgMessageUtils.bundle = ResourceBundle.getBundle("messages");
+        for (final String propertyFile : KmgMessageUtils.PROPERTY_FILES) {
+
+            KmgMessageUtils.bundleMap.put(propertyFile, ResourceBundle.getBundle(propertyFile));
+
+        }
 
     }
 
@@ -58,8 +69,33 @@ public final class KmgMessageUtils {
 
         }
 
-        final String messagePattern = KmgMessageUtils.bundle.getString(type.getCode());
+        // 全てのプロパティファイルから該当するメッセージを探す
+        String messagePattern = null;
 
+        for (final ResourceBundle bundle : KmgMessageUtils.bundleMap.values()) {
+
+            try {
+
+                messagePattern = bundle.getString(type.getCode());
+                break;
+
+            } catch (@SuppressWarnings("unused") final java.util.MissingResourceException e) {
+
+                // 該当するメッセージが見つからない場合は次のバンドルを探す
+                continue;
+
+            }
+
+        }
+
+        // メッセージが見つからない場合は空文字を返す
+        if (messagePattern == null) {
+
+            return result;
+
+        }
+
+        // メッセージの引数を置換
         if ((messageArgs != null) && (messageArgs.length > 0)) {
 
             result = MessageFormat.format(messagePattern, messageArgs);
@@ -69,6 +105,7 @@ public final class KmgMessageUtils {
             result = messagePattern;
 
         }
+
         return result;
 
     }
@@ -82,7 +119,7 @@ public final class KmgMessageUtils {
     public static void main(final String[] args) {
 
         final String message = KmgMessageUtils.getMessage(KmgMsgMessageTypes.KMGMSGE11100, new Object[] {
-            "test2136"
+            "test2150"
         });
         System.out.println(message);
 
