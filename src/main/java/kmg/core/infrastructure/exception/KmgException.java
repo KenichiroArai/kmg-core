@@ -16,13 +16,22 @@ public class KmgException extends Exception {
     private static final long serialVersionUID = 1L;
 
     /** メッセージメッセージの種類 */
-    private KmgMsgMessageTypes messageTypes;
+    private final KmgMsgMessageTypes messageTypes;
 
     /** メッセージメッセージの引数 */
-    private Object[] messageArgs;
+    private final Object[] messageArgs;
 
     /** メッセージ */
     private final String message;
+
+    /** メッセージ引数の数 */
+    private int messageArgsCount;
+
+    /** メッセージパターンの引数の数 */
+    private int messagePatternArgsCount;
+
+    /** メッセージ引数の数が一致しているか */
+    private boolean isMatchMessageArgsCount;
 
     /**
      * コンストラクタ<br>
@@ -76,6 +85,9 @@ public class KmgException extends Exception {
         this.messageArgs = messageArgs;
         this.message = KmgMessageUtils.getMessage(messageTypes, messageArgs);
 
+        /* メッセージカウントの初期化 */
+        this.setMessageCounts(messageTypes, messageArgs);
+
     }
 
     /**
@@ -127,6 +139,36 @@ public class KmgException extends Exception {
     }
 
     /**
+     * メッセージ引数の数を返す。<br>
+     *
+     * @author KenichiroArai
+     * @sine 1.0.0
+     * @version 1.0.0
+     * @return メッセージ引数の数
+     */
+    public int getMessageArgsCount() {
+
+        final int result = this.messageArgsCount;
+        return result;
+
+    }
+
+    /**
+     * メッセージパターンの引数の数を返す。<br>
+     *
+     * @author KenichiroArai
+     * @sine 1.0.0
+     * @version 1.0.0
+     * @return メッセージパターンの引数の数
+     */
+    public int getMessagePatternArgsCount() {
+
+        final int result = this.messagePatternArgsCount;
+        return result;
+
+    }
+
+    /**
      * メッセージの種類を返す。<br>
      *
      * @author KenichiroArai
@@ -142,36 +184,58 @@ public class KmgException extends Exception {
     }
 
     /**
-     * メッセージパターンの引数の数と実際の引数の数が一致しているかチェックする。<br>
+     * メッセージ引数の数が一致しているかを返す。<br>
      *
      * @author KenichiroArai
      * @sine 1.0.0
      * @version 1.0.0
-     * @return true：一致している、false：一致していない
+     * @return メッセージ引数の数が一致しているか
      */
-    public boolean checkMessageArgsCount() {
+    public boolean isMatchMessageArgsCount() {
 
-        boolean result = false;
-
-        /* 引数のチェック */
-        if (this.messageTypes == null) {
-
-            return result;
-
-        }
-
-        final String messagePattern = this.messageTypes.getCode();
-
-        if (messagePattern == null) {
-
-            return result;
-
-        }
-
-        /* メッセージパターンと引数の数のチェック */
-        result = KmgMessageUtils.checkMessageArgsCount(messagePattern, this.messageArgs);
-
+        final boolean result = this.isMatchMessageArgsCount;
         return result;
+
+    }
+
+    /**
+     * メッセージカウントを設定する<br>
+     *
+     * @author KenichiroArai
+     * @sine 1.0.0
+     * @version 1.0.0
+     * @param messageTypes
+     *                     メッセージの種類
+     * @param messageArgs
+     *                     メッセージの引数
+     */
+    private void setMessageCounts(final KmgMsgMessageTypes messageTypes, final Object[] messageArgs) {
+
+        /* メッセージ引数の数を計算する */
+        this.messageArgsCount = 0;
+
+        if (messageArgs != null) {
+
+            this.messageArgsCount = messageArgs.length;
+
+        }
+
+        /* メッセージパターンの引数の数を計算する */
+        if (messageTypes == null) {
+
+            return;
+
+        }
+
+        if (messageTypes.getCode() == null) {
+
+            return;
+
+        }
+        this.messagePatternArgsCount = KmgMessageUtils.getMessageArgsCount(messageTypes.getCode());
+
+        /* メッセージ引数の数とメッセージパターンの引数の数を比較する */
+        this.isMatchMessageArgsCount = (this.messagePatternArgsCount == this.messageArgsCount);
 
     }
 }
