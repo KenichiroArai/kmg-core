@@ -35,7 +35,7 @@ public class KmgException extends Exception {
      */
     public KmgException(final KmgMsgMessageTypes messageTypes) {
 
-        this.message = KmgMessageUtils.getMessage(messageTypes, null);
+        this(messageTypes, null, null);
 
     }
 
@@ -52,25 +52,7 @@ public class KmgException extends Exception {
      */
     public KmgException(final KmgMsgMessageTypes messageTypes, final Object[] messageArgs) {
 
-        this.message = KmgMessageUtils.getMessage(messageTypes, messageArgs);
-
-    }
-
-    /**
-     * コンストラクタ<br>
-     *
-     * @author KenichiroArai
-     * @sine 1.0.0
-     * @version 1.0.0
-     * @param messageTypes
-     *                     メッセージの種類
-     * @param cause
-     *                     原因
-     */
-    public KmgException(final KmgMsgMessageTypes messageTypes, final Throwable cause) {
-
-        super(cause);
-        this.message = KmgMessageUtils.getMessage(messageTypes, null);
+        this(messageTypes, messageArgs, null);
 
     }
 
@@ -90,7 +72,26 @@ public class KmgException extends Exception {
     public KmgException(final KmgMsgMessageTypes messageTypes, final Object[] messageArgs, final Throwable cause) {
 
         super(cause);
+        this.messageTypes = messageTypes;
+        this.messageArgs = messageArgs;
         this.message = KmgMessageUtils.getMessage(messageTypes, messageArgs);
+
+    }
+
+    /**
+     * コンストラクタ<br>
+     *
+     * @author KenichiroArai
+     * @sine 1.0.0
+     * @version 1.0.0
+     * @param messageTypes
+     *                     メッセージの種類
+     * @param cause
+     *                     原因
+     */
+    public KmgException(final KmgMsgMessageTypes messageTypes, final Throwable cause) {
+
+        this(messageTypes, null, cause);
 
     }
 

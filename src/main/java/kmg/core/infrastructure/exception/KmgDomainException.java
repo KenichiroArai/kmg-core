@@ -1,6 +1,6 @@
 package kmg.core.infrastructure.exception;
 
-import kmg.core.infrastructure.model.KmgMessageModel;
+import kmg.core.infrastructure.types.KmgMsgMessageTypes;
 
 /**
  * KMGドメイン例外<br>
@@ -20,12 +20,12 @@ public class KmgDomainException extends KmgException {
      * @author KenichiroArai
      * @sine 1.0.0
      * @version 1.0.0
-     * @param kmgMessageModel
-     *                    メッセージモデル
+     * @param messageTypes
+     *                     メッセージの種類
      */
-    public KmgDomainException(final KmgMessageModel kmgMessageModel) {
+    public KmgDomainException(final KmgMsgMessageTypes messageTypes) {
 
-        super(kmgMessageModel);
+        this(messageTypes, null, null);
 
     }
 
@@ -35,14 +35,51 @@ public class KmgDomainException extends KmgException {
      * @author KenichiroArai
      * @sine 1.0.0
      * @version 1.0.0
-     * @param kmgMessageModel
-     *                    メッセージモデル
-     * @param cause
-     *                    原因
+     * @param messageTypes
+     *                     メッセージの種類
+     * @param messageArgs
+     *                     メッセージの引数
      */
-    public KmgDomainException(final KmgMessageModel kmgMessageModel, final Throwable cause) {
+    public KmgDomainException(final KmgMsgMessageTypes messageTypes, final Object[] messageArgs) {
 
-        super(kmgMessageModel, cause);
+        this(messageTypes, messageArgs, null);
+
+    }
+
+    /**
+     * コンストラクタ<br>
+     *
+     * @author KenichiroArai
+     * @sine 1.0.0
+     * @version 1.0.0
+     * @param messageTypes
+     *                     メッセージの種類
+     * @param messageArgs
+     *                     メッセージの引数
+     * @param cause
+     *                     原因
+     */
+    public KmgDomainException(final KmgMsgMessageTypes messageTypes, final Object[] messageArgs,
+        final Throwable cause) {
+
+        super(messageTypes, messageArgs, cause);
+
+    }
+
+    /**
+     * コンストラクタ<br>
+     *
+     * @author KenichiroArai
+     * @sine 1.0.0
+     * @version 1.0.0
+     * @param messageTypes
+     *                     メッセージの種類
+     * @param cause
+     *                     原因
+     */
+    public KmgDomainException(final KmgMsgMessageTypes messageTypes, final Throwable cause) {
+
+        this(messageTypes, null, cause);
 
     }
 
