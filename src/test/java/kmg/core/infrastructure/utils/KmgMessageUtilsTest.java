@@ -167,4 +167,120 @@ public class KmgMessageUtilsTest {
         Assertions.assertEquals(expectedMessage, actualMessage, "空文字が返却されていません");
 
     }
+
+    /**
+     * checkMessageArgsCount メソッドのテスト - メッセージパターンがnullの場合
+     */
+    @Test
+    @SuppressWarnings("static-method")
+    public void testCheckMessageArgsCount_nullPattern() {
+
+        /* 期待値の定義 */
+        final boolean expectedResult = false;
+
+        /* 準備 */
+        final String   testPattern = null;
+        final Object[] testArgs    = new Object[] {
+            "test"
+        };
+
+        /* テスト対象の実行 */
+        final boolean actualResult = KmgMessageUtils.checkMessageArgsCount(testPattern, testArgs);
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expectedResult, actualResult, "メッセージパターンがnullの場合はfalseを返すこと");
+
+    }
+
+    /**
+     * checkMessageArgsCount メソッドのテスト - メッセージ引数がnullの場合
+     */
+    @Test
+    @SuppressWarnings("static-method")
+    public void testCheckMessageArgsCount_nullArgs() {
+
+        /* 期待値の定義 */
+        final boolean expectedResult = true;
+
+        /* 準備 */
+        final String   testPattern = "テスト";
+        final Object[] testArgs    = null;
+
+        /* テスト対象の実行 */
+        final boolean actualResult = KmgMessageUtils.checkMessageArgsCount(testPattern, testArgs);
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expectedResult, actualResult, "引数を含まないメッセージパターンで引数がnullの場合はtrueを返すこと");
+
+    }
+
+    /**
+     * checkMessageArgsCount メソッドのテスト - 引数の数が一致する場合
+     */
+    @Test
+    @SuppressWarnings("static-method")
+    public void testCheckMessageArgsCount_matchCount() {
+
+        /* 期待値の定義 */
+        final boolean expectedResult = true;
+
+        /* 準備 */
+        final String   testPattern = "テスト{} {}です。{}";
+        final Object[] testArgs    = new Object[] {
+            "A", "B", "C"
+        };
+
+        /* テスト対象の実行 */
+        final boolean actualResult = KmgMessageUtils.checkMessageArgsCount(testPattern, testArgs);
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expectedResult, actualResult, "引数の数が一致する場合はtrueを返すこと");
+
+    }
+
+    /**
+     * checkMessageArgsCount メソッドのテスト - 引数の数が一致しない場合
+     */
+    @Test
+    @SuppressWarnings("static-method")
+    public void testCheckMessageArgsCount_unmatchCount() {
+
+        /* 期待値の定義 */
+        final boolean expectedResult = false;
+
+        /* 準備 */
+        final String   testPattern = "テスト{} {}です。{}";
+        final Object[] testArgs    = new Object[] {
+            "A", "B"
+        };
+
+        /* テスト対象の実行 */
+        final boolean actualResult = KmgMessageUtils.checkMessageArgsCount(testPattern, testArgs);
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expectedResult, actualResult, "引数の数が一致しない場合はfalseを返すこと");
+
+    }
+
+    /**
+     * checkMessageArgsCount メソッドのテスト - 引数を含まないメッセージパターンの場合
+     */
+    @Test
+    @SuppressWarnings("static-method")
+    public void testCheckMessageArgsCount_noArgs() {
+
+        /* 期待値の定義 */
+        final boolean expectedResult = true;
+
+        /* 準備 */
+        final String   testPattern = "テストです。";
+        final Object[] testArgs    = new Object[] {};
+
+        /* テスト対象の実行 */
+        final boolean actualResult = KmgMessageUtils.checkMessageArgsCount(testPattern, testArgs);
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expectedResult, actualResult, "引数を含まないメッセージパターンで空の引数配列の場合はtrueを返すこと");
+
+    }
 }

@@ -140,4 +140,38 @@ public class KmgException extends Exception {
         return result;
 
     }
+
+    /**
+     * メッセージパターンの引数の数と実際の引数の数が一致しているかチェックする。<br>
+     *
+     * @author KenichiroArai
+     * @sine 1.0.0
+     * @version 1.0.0
+     * @return true：一致している、false：一致していない
+     */
+    public boolean checkMessageArgsCount() {
+
+        boolean result = false;
+
+        /* 引数のチェック */
+        if (this.messageTypes == null) {
+
+            return result;
+
+        }
+
+        final String messagePattern = this.messageTypes.getCode();
+
+        if (messagePattern == null) {
+
+            return result;
+
+        }
+
+        /* メッセージパターンと引数の数のチェック */
+        result = KmgMessageUtils.checkMessageArgsCount(messagePattern, this.messageArgs);
+
+        return result;
+
+    }
 }
