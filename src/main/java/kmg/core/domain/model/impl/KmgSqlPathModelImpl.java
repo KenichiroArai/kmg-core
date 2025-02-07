@@ -125,12 +125,11 @@ public class KmgSqlPathModelImpl implements KmgSqlPathModel {
 
         } catch (final IOException e) {
 
-            final KmgMsgMessageTypes msgTypes        = KmgMsgMessageTypes.KMGMSGE11100;
-            final Object[]           msgArgs         = {
+            final KmgMsgMessageTypes msgTypes = KmgMsgMessageTypes.KMGMSGE11100;
+            final Object[]           msgArgs  = {
                 this.sqlFilePath
             };
-            final KmgMessageModel    kmgMessageModel = new KmgMessageModelImpl(msgTypes, msgArgs);
-            throw new KmgDomainException(kmgMessageModel, e);
+            throw new KmgDomainException(msgTypes, msgArgs, e);
 
         }
 
