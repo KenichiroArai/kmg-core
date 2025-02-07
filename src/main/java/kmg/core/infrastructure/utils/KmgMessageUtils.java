@@ -18,7 +18,7 @@ import kmg.core.infrastructure.types.KmgMsgMessageTypes;
 public final class KmgMessageUtils {
 
     /** リソースバンドルマップ */
-    private static final Map<String, ResourceBundle> bundleMap = new HashMap<>();
+    private static final Map<String, ResourceBundle> bundleMap;
 
     /** プロパティファイル名の配列 */
     private static final String[] PROPERTY_FILES = {
@@ -27,6 +27,10 @@ public final class KmgMessageUtils {
 
     static {
 
+        /* リソースバンドルを読み込み、マップに格納する */
+        bundleMap = new HashMap<>();
+
+        // 各プロパティファイルのリソースバンドルを取得し、リソースバンドルマップに登録する
         for (final String propertyFile : KmgMessageUtils.PROPERTY_FILES) {
 
             KmgMessageUtils.bundleMap.put(propertyFile, ResourceBundle.getBundle(propertyFile));
@@ -63,13 +67,21 @@ public final class KmgMessageUtils {
 
         String result = KmgString.EMPTY;
 
-        if ((type == null) || (type.getCode() == null)) {
+        /* 引数のチェック */
+
+        if (type == null) {
 
             return result;
 
         }
 
-        // 全てのプロパティファイルから該当するメッセージを探す
+        if (type.getCode() == null) {
+
+            return result;
+
+        }
+
+        /* 全てのプロパティファイルから該当するメッセージを探す */
         String messagePattern = null;
 
         for (final ResourceBundle bundle : KmgMessageUtils.bundleMap.values()) {
@@ -88,23 +100,31 @@ public final class KmgMessageUtils {
 
         }
 
-        // メッセージが見つからない場合は空文字を返す
+        // メッセージが見つからないか
         if (messagePattern == null) {
+            // メッセージが見つからない場合
 
             return result;
 
         }
 
-        // メッセージの引数を置換
-        if ((messageArgs != null) && (messageArgs.length > 0)) {
+        /* メッセージの引数を埋め込みメッセージを作成する */
 
-            result = MessageFormat.format(messagePattern, messageArgs);
-
-        } else {
+        if (messageArgs == null) {
 
             result = messagePattern;
+            return result;
 
         }
+
+        if (messageArgs.length <= 0) {
+
+            result = messagePattern;
+            return result;
+
+        }
+
+        result = MessageFormat.format(messagePattern, messageArgs);
 
         return result;
 
