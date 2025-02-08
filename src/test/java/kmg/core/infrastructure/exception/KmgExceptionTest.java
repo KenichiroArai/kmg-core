@@ -205,7 +205,6 @@ public class KmgExceptionTest {
     public void testIsMatchMessageArgsCount_matching() {
 
         /* 期待値の定義 */
-        final boolean expectedIsMatch = true;
 
         /* 準備 */
         final Object[] testMsgArgs = {
@@ -219,7 +218,7 @@ public class KmgExceptionTest {
         final boolean actualIsMatch = testException.isMatchMessageArgsCount();
 
         /* 検証の実施 */
-        Assertions.assertEquals(expectedIsMatch, actualIsMatch, "メッセージ引数の数が一致しているか");
+        Assertions.assertTrue(actualIsMatch, "メッセージ引数の数が一致しているか");
 
     }
 
