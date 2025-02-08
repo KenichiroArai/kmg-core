@@ -548,4 +548,82 @@ public class KmgMessageUtilsTest {
         Assertions.assertEquals(expectedMessage, actualMessage, "引数が不足している場合、不足している引数のプレースホルダーはそのまま残るべきです");
 
     }
+
+    /**
+     * getMessage メソッドのテスト - 正常系：特殊文字を含むメッセージの場合
+     */
+    @Test
+    @SuppressWarnings("static-method")
+    public void testGetMessage_specialCharacters() {
+
+        /* 期待値の定義 */
+        final String expectedMessage = "特殊文字[!@#$%^&*()]を含むメッセージ";
+
+        /* 準備 */
+        final Object[] testArgs = {
+            "!@#$%^&*()"
+        };
+
+        /* テスト対象の実行 */
+        final String testResult = KmgMessageUtils.getMessage(KmgMsgMessageTypes.KMGMSGE11100, testArgs);
+
+        /* 検証の準備 */
+        final String actualMessage = testResult;
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expectedMessage, actualMessage, "特殊文字を含むメッセージが正しく生成されていません");
+
+    }
+
+    /**
+     * getMessage メソッドのテスト - 正常系：引数に空文字列を含む場合
+     */
+    @Test
+    @SuppressWarnings("static-method")
+    public void testGetMessage_emptyStringArg() {
+
+        /* 期待値の定義 */
+        final String expectedMessage = "がありません。";
+
+        /* 準備 */
+        final Object[] testArgs = {
+            ""
+        };
+
+        /* テスト対象の実行 */
+        final String testResult = KmgMessageUtils.getMessage(KmgMsgMessageTypes.KMGMSGE11100, testArgs);
+
+        /* 検証の準備 */
+        final String actualMessage = testResult;
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expectedMessage, actualMessage, "空文字列を含むメッセージが正しく生成されていません");
+
+    }
+
+    /**
+     * getMessage メソッドのテスト - 正常系：引数にnullを含む場合
+     */
+    @Test
+    @SuppressWarnings("static-method")
+    public void testGetMessage_nullArg() {
+
+        /* 期待値の定義 */
+        final String expectedMessage = "nullがありません。";
+
+        /* 準備 */
+        final Object[] testArgs = {
+            null
+        };
+
+        /* テスト対象の実行 */
+        final String testResult = KmgMessageUtils.getMessage(KmgMsgMessageTypes.KMGMSGE11100, testArgs);
+
+        /* 検証の準備 */
+        final String actualMessage = testResult;
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expectedMessage, actualMessage, "null値を含むメッセージが正しく生成されていません");
+
+    }
 }
