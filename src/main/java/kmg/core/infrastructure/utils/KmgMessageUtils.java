@@ -219,4 +219,52 @@ public final class KmgMessageUtils {
         return result;
 
     }
+
+    /**
+     * メッセージパターンを取得する<br>
+     *
+     * @author KenichiroArai
+     * @sine 1.0.0
+     * @version 1.0.0
+     * @param type
+     *             メッセージの種類
+     * @return メッセージパターン
+     */
+    public static String getMessagePattern(final KmgMsgMessageTypes type) {
+
+        String result = KmgString.EMPTY;
+
+        /* 引数のチェック */
+        if (type == null) {
+
+            return result;
+
+        }
+
+        if (type.getCode() == null) {
+
+            return result;
+
+        }
+
+        /* 全てのプロパティファイルから該当するメッセージパターンを探す */
+        for (final ResourceBundle bundle : KmgMessageUtils.bundleMap.values()) {
+
+            try {
+
+                result = bundle.getString(type.getCode());
+                break;
+
+            } catch (@SuppressWarnings("unused") final java.util.MissingResourceException e) {
+
+                // 該当するメッセージが見つからない場合は次のバンドルを探す
+                continue;
+
+            }
+
+        }
+
+        return result;
+
+    }
 }

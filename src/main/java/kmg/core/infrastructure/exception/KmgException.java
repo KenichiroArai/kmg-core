@@ -33,6 +33,9 @@ public class KmgException extends Exception {
     /** メッセージ引数の数が一致しているか */
     private boolean isMatchMessageArgsCount;
 
+    /** メッセージパターン */
+    private final String messagePattern;
+
     /**
      * コンストラクタ<br>
      *
@@ -83,6 +86,7 @@ public class KmgException extends Exception {
         super(cause);
         this.messageTypes = messageTypes;
         this.messageArgs = messageArgs;
+        this.messagePattern = KmgMessageUtils.getMessagePattern(messageTypes);
         this.message = KmgMessageUtils.getMessage(messageTypes, messageArgs);
 
         /* メッセージカウントの初期化 */
@@ -199,6 +203,21 @@ public class KmgException extends Exception {
     }
 
     /**
+     * メッセージパターンを返す。<br>
+     *
+     * @author KenichiroArai
+     * @sine 1.0.0
+     * @version 1.0.0
+     * @return メッセージパターン
+     */
+    public String getMessagePattern() {
+
+        final String result = this.messagePattern;
+        return result;
+
+    }
+
+    /**
      * メッセージカウントを設定する<br>
      *
      * @author KenichiroArai
@@ -232,7 +251,7 @@ public class KmgException extends Exception {
             return;
 
         }
-        this.messagePatternArgsCount = KmgMessageUtils.getMessageArgsCount(messageTypes.getCode());
+        this.messagePatternArgsCount = KmgMessageUtils.getMessageArgsCount(this.messagePattern);
 
         /* メッセージ引数の数とメッセージパターンの引数の数を比較する */
         this.isMatchMessageArgsCount = (this.messagePatternArgsCount == this.messageArgsCount);
