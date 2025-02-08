@@ -1,6 +1,5 @@
 package kmg.core.infrastructure.exception;
 
-import kmg.core.infrastructure.type.KmgString;
 import kmg.core.infrastructure.types.KmgMsgMessageTypes;
 import kmg.core.infrastructure.utils.KmgMessageUtils;
 
@@ -237,14 +236,6 @@ public class KmgException extends Exception {
         }
 
         /* メッセージパターンの引数の数を計算する */
-        this.messagePatternArgsCount = 0;
-
-        if (KmgString.isEmpty(this.messagePattern)) {
-
-            return;
-
-        }
-
         this.messagePatternArgsCount = KmgMessageUtils.getMessageArgsCount(this.messagePattern);
 
         /* メッセージ引数の数とメッセージパターンの引数の数を比較する */

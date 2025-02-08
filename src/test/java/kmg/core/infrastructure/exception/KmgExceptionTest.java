@@ -281,9 +281,8 @@ public class KmgExceptionTest {
     public void testSetMessageCounts_emptyMessagePattern() throws Exception {
 
         /* 期待値の定義 */
-        final int     expectedMessageArgsCount        = 0;
-        final int     expectedMessagePatternArgsCount = 0;
-        final boolean expectedIsMatchMessageArgsCount = true;
+        final int expectedMessageArgsCount        = 0;
+        final int expectedMessagePatternArgsCount = 0;
 
         /* 準備 */
         final KmgException           testException   = new KmgException(KmgMsgMessageTypes.KMGMSGE11100);
@@ -301,11 +300,9 @@ public class KmgExceptionTest {
         final boolean actualIsMatchMessageArgsCount = (boolean) reflectionModel.get("isMatchMessageArgsCount");
 
         /* 検証の実施 */
-        Assertions.assertEquals(expectedMessageArgsCount, actualMessageArgsCount, "メッセージ引数の数が一致しません");
-        Assertions.assertEquals(expectedMessagePatternArgsCount, actualMessagePatternArgsCount,
-            "メッセージパターンの引数の数が一致しません");
-        Assertions.assertEquals(expectedIsMatchMessageArgsCount, actualIsMatchMessageArgsCount,
-            "メッセージ引数の数の一致フラグが一致しません");
+        Assertions.assertEquals(expectedMessageArgsCount, actualMessageArgsCount, "メッセージ引数の数が一致する");
+        Assertions.assertEquals(expectedMessagePatternArgsCount, actualMessagePatternArgsCount, "メッセージパターンの引数の数が一致する");
+        Assertions.assertTrue(actualIsMatchMessageArgsCount, "メッセージ引数の数の一致フラグがtrueである");
 
     }
 }
