@@ -225,7 +225,7 @@ public class KmgMessageUtilsTest {
         final boolean expectedResult = true;
 
         /* 準備 */
-        final String   testPattern = "テスト{} {}です。{}";
+        final String   testPattern = "テスト{0} {1}です。{2}";
         final Object[] testArgs    = new Object[] {
             "A", "B", "C"
         };
@@ -249,7 +249,7 @@ public class KmgMessageUtilsTest {
         final boolean expectedResult = false;
 
         /* 準備 */
-        final String   testPattern = "テスト{} {}です。{}";
+        final String   testPattern = "テスト{0} {1}です。{2}";
         final Object[] testArgs    = new Object[] {
             "A", "B"
         };
