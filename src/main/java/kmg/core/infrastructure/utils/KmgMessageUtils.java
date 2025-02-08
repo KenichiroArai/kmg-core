@@ -40,15 +40,56 @@ public final class KmgMessageUtils {
     }
 
     /**
-     * コンストラクタ<br>
+     * メッセージパターンの引数の数と実際の引数の数が一致しているかチェックする<br>
      *
      * @author KenichiroArai
      * @sine 1.0.0
      * @version 1.0.0
+     * @param messagePattern
+     *                       メッセージパターン
+     * @param messageArgs
+     *                       メッセージの引数
+     * @return true：一致している、false：一致していない
      */
-    private KmgMessageUtils() {
+    public static boolean checkMessageArgsCount(final String messagePattern, final Object[] messageArgs) {
 
-        // 処理なし
+        boolean result = false;
+
+        /* 引数のチェック */
+        if (messagePattern == null) {
+
+            return result;
+
+        }
+
+        /* メッセージパターンの引数の数をカウントする */
+        int patternCount = 0;
+
+        try {
+
+            final MessageFormat messageFormat = new MessageFormat(messagePattern);
+            patternCount = messageFormat.getFormatsByArgumentIndex().length;
+
+        } catch (@SuppressWarnings("unused") final IllegalArgumentException e) {
+
+            return result;
+
+        }
+
+        /* メッセージの引数の数をカウントする */
+        int argsCount = 0;
+
+        if (messageArgs != null) {
+
+            argsCount = messageArgs.length;
+
+        }
+
+        /* メッセージパターンの引数の数とメッセージの引数の数が一致しているかチェックする */
+        result = patternCount == argsCount;
+
+        return result;
+
     }
 
     /**
@@ -125,59 +166,6 @@ public final class KmgMessageUtils {
         }
 
         result = MessageFormat.format(messagePattern, messageArgs);
-
-        return result;
-
-    }
-
-    /**
-     * メッセージパターンの引数の数と実際の引数の数が一致しているかチェックする<br>
-     *
-     * @author KenichiroArai
-     * @sine 1.0.0
-     * @version 1.0.0
-     * @param messagePattern
-     *                       メッセージパターン
-     * @param messageArgs
-     *                       メッセージの引数
-     * @return true：一致している、false：一致していない
-     */
-    public static boolean checkMessageArgsCount(final String messagePattern, final Object[] messageArgs) {
-
-        boolean result = false;
-
-        /* 引数のチェック */
-        if (messagePattern == null) {
-
-            return result;
-
-        }
-
-        /* メッセージパターンの引数の数をカウントする */
-        int patternCount = 0;
-
-        try {
-
-            final MessageFormat messageFormat = new MessageFormat(messagePattern);
-            patternCount = messageFormat.getFormatsByArgumentIndex().length;
-
-        } catch (@SuppressWarnings("unused") final IllegalArgumentException e) {
-
-            return result;
-
-        }
-
-        /* メッセージの引数の数をカウントする */
-        int argsCount = 0;
-
-        if (messageArgs != null) {
-
-            argsCount = messageArgs.length;
-
-        }
-
-        /* メッセージパターンの引数の数とメッセージの引数の数が一致しているかチェックする */
-        result = patternCount == argsCount;
 
         return result;
 
@@ -266,5 +254,17 @@ public final class KmgMessageUtils {
 
         return result;
 
+    }
+
+    /**
+     * コンストラクタ<br>
+     *
+     * @author KenichiroArai
+     * @sine 1.0.0
+     * @version 1.0.0
+     */
+    private KmgMessageUtils() {
+
+        // 処理なし
     }
 }
