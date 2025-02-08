@@ -1,5 +1,6 @@
 package kmg.core.infrastructure.exception;
 
+import kmg.core.infrastructure.type.KmgString;
 import kmg.core.infrastructure.types.KmgMsgMessageTypes;
 import kmg.core.infrastructure.utils.KmgMessageUtils;
 
@@ -90,7 +91,7 @@ public class KmgException extends Exception {
         this.message = KmgMessageUtils.getMessage(messageTypes, messageArgs);
 
         /* メッセージカウントの初期化 */
-        this.setMessageCounts(messageTypes, messageArgs);
+        this.setMessageCounts();
 
     }
 
@@ -223,30 +224,20 @@ public class KmgException extends Exception {
      * @author KenichiroArai
      * @sine 1.0.0
      * @version 1.0.0
-     * @param messageTypes
-     *                     メッセージの種類
-     * @param messageArgs
-     *                     メッセージの引数
      */
-    private void setMessageCounts(final KmgMsgMessageTypes messageTypes, final Object[] messageArgs) {
+    private void setMessageCounts() {
 
         /* メッセージ引数の数を計算する */
         this.messageArgsCount = 0;
 
-        if (messageArgs != null) {
+        if (this.messageArgs != null) {
 
-            this.messageArgsCount = messageArgs.length;
+            this.messageArgsCount = this.messageArgs.length;
 
         }
 
         /* メッセージパターンの引数の数を計算する */
-        if (messageTypes == null) {
-
-            return;
-
-        }
-
-        if (messageTypes.getCode() == null) {
+        if (KmgString.isEmpty(this.messagePattern)) {
 
             return;
 

@@ -184,7 +184,7 @@ public class KmgExceptionTest {
     public void testGetMessagePatternArgsCount() {
 
         /* 期待値の定義 */
-        final int expectedCount = 0;
+        final int expectedCount = 1;
 
         /* テスト対象の実行 */
         final KmgException testException = new KmgException(KmgMsgMessageTypes.KMGMSGE11100);
