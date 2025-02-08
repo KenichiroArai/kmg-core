@@ -23,7 +23,6 @@ public class KmgMessageUtilsTest {
     public void testCheckMessageArgsCount_invalidPattern() {
 
         /* 期待値の定義 */
-        final boolean expectedResult = false;
 
         /* 準備 */
         final String   testPattern = "テスト{invalid}";
@@ -47,7 +46,6 @@ public class KmgMessageUtilsTest {
     public void testCheckMessageArgsCount_matchCount() {
 
         /* 期待値の定義 */
-        final boolean expectedResult = true;
 
         /* 準備 */
         final String   testPattern = "テスト{0} {1}です。{2}";
@@ -71,7 +69,6 @@ public class KmgMessageUtilsTest {
     public void testCheckMessageArgsCount_noArgs() {
 
         /* 期待値の定義 */
-        final boolean expectedResult = true;
 
         /* 準備 */
         final String   testPattern = "テストです。";
@@ -139,7 +136,6 @@ public class KmgMessageUtilsTest {
     public void testCheckMessageArgsCount_unmatchCount() {
 
         /* 期待値の定義 */
-        final boolean expectedResult = false;
 
         /* 準備 */
         final String   testPattern = "テスト{0} {1}です。{2}";
