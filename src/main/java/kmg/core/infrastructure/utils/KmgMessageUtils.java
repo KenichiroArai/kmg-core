@@ -106,51 +106,16 @@ public final class KmgMessageUtils {
      */
     public static String getMessage(final KmgMessageTypes type, final Object[] messageArgs) {
 
-        String result = KmgString.EMPTY;
+        String result         = KmgString.EMPTY;
+        String messagePattern = getMessagePattern(type);
 
-        /* 引数のチェック */
-
-        if (type == null) {
-
-            return result;
-
-        }
-
-        if (type.getCode() == null) {
-
-            return result;
-
-        }
-
-        /* 全てのプロパティファイルから該当するメッセージを探す */
-        String messagePattern = null;
-
-        for (final ResourceBundle bundle : KmgMessageUtils.bundleMap.values()) {
-
-            try {
-
-                messagePattern = bundle.getString(type.getCode());
-                break;
-
-            } catch (@SuppressWarnings("unused") final java.util.MissingResourceException e) {
-
-                // 該当するメッセージが見つからない場合は次のバンドルを探す
-                continue;
-
-            }
-
-        }
-
-        // メッセージが見つからないか
-        if (messagePattern == null) {
-            // メッセージが見つからない場合
+        if (KmgString.EMPTY.equals(messagePattern)) {
 
             return result;
 
         }
 
         /* メッセージの引数を埋め込みメッセージを作成する */
-
         if (messageArgs == null) {
 
             result = messagePattern;
@@ -166,6 +131,53 @@ public final class KmgMessageUtils {
         }
 
         result = MessageFormat.format(messagePattern, messageArgs);
+        return result;
+
+    }
+
+    /**
+     * メッセージパターンを取得する<br>
+     *
+     * @author KenichiroArai
+     * @sine 1.0.0
+     * @version 1.0.0
+     * @param type
+     *             メッセージの種類
+     * @return メッセージパターン。見つからない場合は空文字
+     */
+    public static String getMessagePattern(final KmgMessageTypes type) {
+
+        String result = KmgString.EMPTY;
+
+        /* 引数のチェック */
+        if (type == null) {
+
+            return result;
+
+        }
+
+        if (type.getCode() == null) {
+
+            return result;
+
+        }
+
+        /* 全てのプロパティファイルから該当するメッセージパターンを探す */
+        for (final ResourceBundle bundle : KmgMessageUtils.bundleMap.values()) {
+
+            try {
+
+                result = bundle.getString(type.getCode());
+                return result;
+
+            } catch (@SuppressWarnings("unused") final java.util.MissingResourceException e) {
+
+                // 該当するメッセージが見つからない場合は次のバンドルを探す
+                continue;
+
+            }
+
+        }
 
         return result;
 
@@ -201,55 +213,6 @@ public final class KmgMessageUtils {
         } catch (@SuppressWarnings("unused") final IllegalArgumentException e) {
 
             // 処理なし
-
-        }
-
-        return result;
-
-    }
-
-    /**
-     * メッセージパターンを取得する<br>
-     *
-     * @author KenichiroArai
-     * @sine 1.0.0
-     * @version 1.0.0
-     * @param type
-     *             メッセージの種類
-     * @return メッセージパターン
-     */
-    public static String getMessagePattern(final KmgMessageTypes type) {
-
-        String result = KmgString.EMPTY;
-
-        /* 引数のチェック */
-        if (type == null) {
-
-            return result;
-
-        }
-
-        if (type.getCode() == null) {
-
-            return result;
-
-        }
-
-        /* 全てのプロパティファイルから該当するメッセージパターンを探す */
-        for (final ResourceBundle bundle : KmgMessageUtils.bundleMap.values()) {
-
-            try {
-
-                result = bundle.getString(type.getCode());
-                break;
-
-            } catch (@SuppressWarnings("unused") final java.util.MissingResourceException e) {
-
-                // 該当するメッセージが見つからない場合は次のバンドルを探す
-                continue;
-
-            }
-
         }
 
         return result;
