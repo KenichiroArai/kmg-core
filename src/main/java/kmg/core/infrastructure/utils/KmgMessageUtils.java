@@ -212,7 +212,7 @@ public final class KmgMessageUtils {
 
         } catch (@SuppressWarnings("unused") final IllegalArgumentException e) {
 
-            return result;
+            // 処理なし
 
         }
 
