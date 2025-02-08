@@ -557,7 +557,7 @@ public class KmgMessageUtilsTest {
     public void testGetMessage_specialCharacters() {
 
         /* 期待値の定義 */
-        final String expectedMessage = "特殊文字[!@#$%^&*()]を含むメッセージ";
+        final String expectedMessage = "!@#$%^&*()がありません。";
 
         /* 準備 */
         final Object[] testArgs = {
