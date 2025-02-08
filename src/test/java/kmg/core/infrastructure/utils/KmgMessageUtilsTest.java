@@ -180,7 +180,7 @@ public class KmgMessageUtilsTest {
 
         /* 準備 */
         final String   testPattern = null;
-        final Object[] testArgs    = new Object[] {
+        final Object[] testArgs    = {
             "test"
         };
 
@@ -226,7 +226,7 @@ public class KmgMessageUtilsTest {
 
         /* 準備 */
         final String   testPattern = "テスト{0} {1}です。{2}";
-        final Object[] testArgs    = new Object[] {
+        final Object[] testArgs    = {
             "A", "B", "C"
         };
 
@@ -250,7 +250,7 @@ public class KmgMessageUtilsTest {
 
         /* 準備 */
         final String   testPattern = "テスト{0} {1}です。{2}";
-        final Object[] testArgs    = new Object[] {
+        final Object[] testArgs    = {
             "A", "B"
         };
 
@@ -274,7 +274,7 @@ public class KmgMessageUtilsTest {
 
         /* 準備 */
         final String   testPattern = "テストです。";
-        final Object[] testArgs    = new Object[] {};
+        final Object[] testArgs    = {};
 
         /* テスト対象の実行 */
         final boolean actualResult = KmgMessageUtils.checkMessageArgsCount(testPattern, testArgs);
@@ -296,7 +296,7 @@ public class KmgMessageUtilsTest {
 
         /* 準備 */
         final String   testPattern = "テスト{invalid}";
-        final Object[] testArgs    = new Object[] {
+        final Object[] testArgs    = {
             "test"
         };
 
@@ -388,6 +388,163 @@ public class KmgMessageUtilsTest {
 
         /* 検証の実施 */
         Assertions.assertEquals(expectedPattern, actualPattern, "存在しないメッセージコードの場合は空文字を返すこと");
+
+    }
+
+    /**
+     * getMessage メソッドのテスト - 異常系：リソースバンドルから例外がスローされる場合
+     */
+    @Test
+    @SuppressWarnings("static-method")
+    public void testGetMessage_resourceBundleException() {
+
+        /* 期待値の定義 */
+        final String expectedMessage = KmgString.EMPTY;
+
+        /* 準備 */
+        final Object[]           testArgs = {
+            "test"
+        };
+        final KmgMsgMessageTypes testType = KmgMsgMessageTypes.KMGMSGE11200;
+
+        /* テスト対象の実行 */
+        final String testResult = KmgMessageUtils.getMessage(testType, testArgs);
+
+        /* 検証の準備 */
+        final String actualMessage = testResult;
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expectedMessage, actualMessage, "例外発生時に空文字が返却されていません");
+
+    }
+
+    /**
+     * getMessage メソッドのテスト - 正常系：MessageFormat.formatが正しく動作する場合
+     */
+    @Test
+    @SuppressWarnings("static-method")
+    public void testGetMessage_messageFormatSuccess() {
+
+        /* 期待値の定義 */
+        final String expectedMessage = "フィールドの取得に失敗しました。フィールド名=[testField]、対象のクラス=[TestClass]、最後に取得したフィールド=[lastField]";
+
+        /* 準備 */
+        final Object[] testArgs = {
+            "testField", "TestClass", "lastField"
+        };
+
+        /* テスト対象の実行 */
+        final String testResult = KmgMessageUtils.getMessage(KmgMsgMessageTypes.KMGMSGE11200, testArgs);
+
+        /* 検証の準備 */
+        final String actualMessage = testResult;
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expectedMessage, actualMessage, "MessageFormat.formatの結果が期待値と一致しません");
+
+    }
+
+    /**
+     * getMessage メソッドのテスト - 正常系：複数の引数を持つメッセージの場合
+     */
+    @Test
+    @SuppressWarnings("static-method")
+    public void testGetMessage_multipleArgs() {
+
+        /* 期待値の定義 */
+        final String expectedMessage = "フィールドの取得に失敗しました。フィールド名=[testField]、対象のクラス=[TestClass]、最後に取得したフィールド=[lastField]";
+
+        /* 準備 */
+        final Object[] testArgs = {
+            "testField", "TestClass", "lastField"
+        };
+
+        /* テスト対象の実行 */
+        final String testResult = KmgMessageUtils.getMessage(KmgMsgMessageTypes.KMGMSGE11200, testArgs);
+
+        /* 検証の準備 */
+        final String actualMessage = testResult;
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expectedMessage, actualMessage, "複数引数のメッセージが正しく生成されていません");
+
+    }
+
+    /**
+     * getMessage メソッドのテスト - 異常系：引数の数が不一致の場合
+     */
+    @Test
+    @SuppressWarnings("static-method")
+    public void testGetMessage_argumentMismatch() {
+
+        /* 期待値の定義 */
+        final String expectedMessage = "フィールドの取得に失敗しました。フィールド名=[{0}]、対象のクラス=[{1}]、最後に取得したフィールド=[{2}]";
+
+        /* 準備 */
+        final Object[] testArgs = {
+            "testField", "TestClass"  // 期待される引数の数より少ない
+        };
+
+        /* テスト対象の実行 */
+        final String testResult = KmgMessageUtils.getMessage(KmgMsgMessageTypes.KMGMSGE11200, testArgs);
+
+        /* 検証の準備 */
+        final String actualMessage = testResult;
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expectedMessage, actualMessage, "引数の数が不一致の場合にメッセージパターンがそのまま返却されていません");
+
+    }
+
+    /**
+     * getMessage メソッドのテスト - 正常系：フィールド取得失敗メッセージの場合
+     */
+    @Test
+    @SuppressWarnings("static-method")
+    public void testGetMessage_fieldAccessFailure() {
+
+        /* 期待値の定義 */
+        final String expectedMessage = "フィールドの取得に失敗しました。フィールド名=[testField]、対象のクラス=[TestClass]、最後に取得したフィールド=[lastField]";
+
+        /* 準備 */
+        final Object[] testArgs = {
+            "testField", "TestClass", "lastField"
+        };
+
+        /* テスト対象の実行 */
+        final String testResult = KmgMessageUtils.getMessage(KmgMsgMessageTypes.KMGMSGE11200, testArgs);
+
+        /* 検証の準備 */
+        final String actualMessage = testResult;
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expectedMessage, actualMessage, "フィールド取得失敗メッセージが正しく生成されていません");
+
+    }
+
+    /**
+     * getMessage メソッドのテスト - 異常系：引数が不足している場合
+     */
+    @Test
+    @SuppressWarnings("static-method")
+    public void testGetMessage_insufficientArgs() {
+
+        /* 期待値の定義 */
+        final String expectedMessage = "フィールドの取得に失敗しました。フィールド名=[{0}]、対象のクラス=[{1}]、最後に取得したフィールド=[{2}]";
+
+        /* 準備 */
+        final Object[] testArgs = {
+            "testField", "TestClass"  // 3つ目の引数が不足
+        };
+
+        /* テスト対象の実行 */
+        final String testResult = KmgMessageUtils.getMessage(KmgMsgMessageTypes.KMGMSGE11200, testArgs);
+
+        /* 検証の準備 */
+        final String actualMessage = testResult;
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expectedMessage, actualMessage, "引数が不足している場合にメッセージパターンがそのまま返却されていません");
 
     }
 }
