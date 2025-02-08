@@ -69,4 +69,33 @@ public class KmgSystemExceptionTest {
         Assertions.assertEquals(expectedCause, actualCause, "原因が一致しません");
 
     }
+
+    /**
+     * コンストラクタのテスト - メッセージタイプとメッセージ引数を指定した場合
+     */
+    @Test
+    @SuppressWarnings("static-method")
+    public void testConstructor_withMessageTypesAndArgs() {
+
+        /* 期待値の定義 */
+        final KmgMsgMessageTypes expectedMsgTypes = KmgMsgMessageTypes.KMGMSGE11100;
+        final Object[]           expectedMsgArgs  = {
+            "テスト引数1", "テスト引数2"
+        };
+        final String             expectedMessage  = "テスト引数1がありません。";
+
+        /* テスト対象の実行 */
+        final KmgSystemException testException = new KmgSystemException(expectedMsgTypes, expectedMsgArgs);
+
+        /* 検証の準備 */
+        final String             actualMessage  = testException.getMessage();
+        final KmgMsgMessageTypes actualMsgTypes = testException.getMessageTypes();
+        final Object[]           actualMsgArgs  = testException.getMessageArgs();
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expectedMsgTypes, actualMsgTypes, "メッセージタイプが一致しません");
+        Assertions.assertEquals(expectedMessage, actualMessage, "メッセージが一致しません");
+        Assertions.assertArrayEquals(expectedMsgArgs, actualMsgArgs, "メッセージ引数が一致しません");
+
+    }
 }

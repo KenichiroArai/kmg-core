@@ -7,8 +7,6 @@ import java.nio.file.Path;
 
 import kmg.core.domain.model.KmgSqlPathModel;
 import kmg.core.infrastructure.exception.KmgDomainException;
-import kmg.core.infrastructure.model.KmgMessageModel;
-import kmg.core.infrastructure.model.impl.KmgMessageModelImpl;
 import kmg.core.infrastructure.type.KmgString;
 import kmg.core.infrastructure.types.KmgMsgMessageTypes;
 

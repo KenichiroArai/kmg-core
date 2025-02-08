@@ -15,7 +15,6 @@ import org.mockito.quality.Strictness;
 
 import kmg.core.domain.model.KmgReflectionModel;
 import kmg.core.infrastructure.exception.KmgDomainException;
-import kmg.core.infrastructure.model.KmgMessageModel;
 import kmg.core.infrastructure.type.KmgString;
 
 /**
@@ -28,10 +27,6 @@ import kmg.core.infrastructure.type.KmgString;
 @ExtendWith(MockitoExtension.class)
 @MockitoSettings(strictness = Strictness.LENIENT)
 public class KmgSqlPathModelImplTest {
-
-    /** KMGメッセージモデルのモック */
-    @Mock
-    private KmgMessageModel kmgMessageModel;
 
     /** テスト対象 */
     private KmgSqlPathModelImpl target;

@@ -12,7 +12,6 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import kmg.core.infrastructure.exception.KmgDomainException;
-import kmg.core.infrastructure.model.KmgMessageModel;
 import kmg.core.infrastructure.type.KmgString;
 
 /**
@@ -24,10 +23,6 @@ import kmg.core.infrastructure.type.KmgString;
  */
 @ExtendWith(MockitoExtension.class)
 public class KmgReflectionModelImplTest {
-
-    /** KMGメッセージモデルのモック */
-    @Mock
-    private KmgMessageModel kmgMessageModel;
 
     /**
      * テスト用のクラス<br>
