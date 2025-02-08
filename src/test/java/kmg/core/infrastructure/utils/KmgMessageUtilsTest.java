@@ -405,7 +405,7 @@ public class KmgMessageUtilsTest {
         final Object[]           testArgs = {
             "test"
         };
-        final KmgMsgMessageTypes testType = KmgMsgMessageTypes.KMGMSGE11200;
+        final KmgMsgMessageTypes testType = KmgMsgMessageTypes.NONE;
 
         /* テスト対象の実行 */
         final String testResult = KmgMessageUtils.getMessage(testType, testArgs);
@@ -478,7 +478,7 @@ public class KmgMessageUtilsTest {
     public void testGetMessage_argumentMismatch() {
 
         /* 期待値の定義 */
-        final String expectedMessage = "フィールドの取得に失敗しました。フィールド名=[{0}]、対象のクラス=[{1}]、最後に取得したフィールド=[{2}]";
+        final String expectedMessage = "フィールドの取得に失敗しました。フィールド名=[testField]、対象のクラス=[TestClass]、最後に取得したフィールド=[{2}]";
 
         /* 準備 */
         final Object[] testArgs = {
@@ -492,7 +492,8 @@ public class KmgMessageUtilsTest {
         final String actualMessage = testResult;
 
         /* 検証の実施 */
-        Assertions.assertEquals(expectedMessage, actualMessage, "引数の数が不一致の場合にメッセージパターンがそのまま返却されていません");
+        Assertions.assertEquals(expectedMessage, actualMessage,
+            "引数の数が不一致の場合、提供された引数までは置換され、不足している引数のプレースホルダーはそのまま残るべきです");
 
     }
 
@@ -530,7 +531,7 @@ public class KmgMessageUtilsTest {
     public void testGetMessage_insufficientArgs() {
 
         /* 期待値の定義 */
-        final String expectedMessage = "フィールドの取得に失敗しました。フィールド名=[{0}]、対象のクラス=[{1}]、最後に取得したフィールド=[{2}]";
+        final String expectedMessage = "フィールドの取得に失敗しました。フィールド名=[testField]、対象のクラス=[TestClass]、最後に取得したフィールド=[{2}]";
 
         /* 準備 */
         final Object[] testArgs = {
@@ -544,7 +545,7 @@ public class KmgMessageUtilsTest {
         final String actualMessage = testResult;
 
         /* 検証の実施 */
-        Assertions.assertEquals(expectedMessage, actualMessage, "引数が不足している場合にメッセージパターンがそのまま返却されていません");
+        Assertions.assertEquals(expectedMessage, actualMessage, "引数が不足している場合、不足している引数のプレースホルダーはそのまま残るべきです");
 
     }
 }
