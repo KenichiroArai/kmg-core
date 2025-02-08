@@ -25,8 +25,8 @@ public class KmgExceptionTest {
     public void testConstructor_withMessageTypes() {
 
         /* 期待値の定義 */
-        final KmgMsgMessageTypes expectedMsgTypes = KmgMsgMessageTypes.NONE;
-        final String             expectedMessage  = "テストメッセージ";
+        final KmgMsgMessageTypes expectedMsgTypes = KmgMsgMessageTypes.KMGMSGE11100;
+        final String             expectedMessage  = "{0}がありません。";
 
         /* テスト対象の実行 */
         final KmgException testException = new KmgException(expectedMsgTypes);
@@ -49,11 +49,11 @@ public class KmgExceptionTest {
     public void testConstructor_withMessageTypesAndArgs() {
 
         /* 期待値の定義 */
-        final KmgMsgMessageTypes expectedMsgTypes = KmgMsgMessageTypes.NONE;
+        final KmgMsgMessageTypes expectedMsgTypes = KmgMsgMessageTypes.KMGMSGE11100;
         final Object[]           expectedMsgArgs  = {
             "テスト引数1", "テスト引数2"
         };
-        final String             expectedMessage  = "テストメッセージ";
+        final String             expectedMessage  = "テスト引数1がありません。";
 
         /* テスト対象の実行 */
         final KmgException testException = new KmgException(expectedMsgTypes, expectedMsgArgs);
@@ -78,8 +78,8 @@ public class KmgExceptionTest {
     public void testConstructor_withMessageTypesAndCause() {
 
         /* 期待値の定義 */
-        final KmgMsgMessageTypes expectedMsgTypes = KmgMsgMessageTypes.NONE;
-        final String             expectedMessage  = "テストメッセージ";
+        final KmgMsgMessageTypes expectedMsgTypes = KmgMsgMessageTypes.KMGMSGE11100;
+        final String             expectedMessage  = "{0}がありません。";
         final Throwable          expectedCause    = new RuntimeException("テスト原因");
 
         /* テスト対象の実行 */
@@ -105,11 +105,11 @@ public class KmgExceptionTest {
     public void testConstructor_withMessageTypesArgsAndCause() {
 
         /* 期待値の定義 */
-        final KmgMsgMessageTypes expectedMsgTypes = KmgMsgMessageTypes.NONE;
+        final KmgMsgMessageTypes expectedMsgTypes = KmgMsgMessageTypes.KMGMSGE11100;
         final Object[]           expectedMsgArgs  = {
             "テスト引数1", "テスト引数2"
         };
-        final String             expectedMessage  = "テストメッセージ";
+        final String             expectedMessage  = "テスト引数1がありません。";
         final Throwable          expectedCause    = new RuntimeException("テスト原因");
 
         /* テスト対象の実行 */
@@ -145,7 +145,7 @@ public class KmgExceptionTest {
         };
 
         /* テスト対象の実行 */
-        final KmgException testException = new KmgException(KmgMsgMessageTypes.NONE, testMsgArgs);
+        final KmgException testException = new KmgException(KmgMsgMessageTypes.KMGMSGE11100, testMsgArgs);
 
         /* 検証の準備 */
         final int actualCount = testException.getMessageArgsCount();
@@ -166,7 +166,7 @@ public class KmgExceptionTest {
         final int expectedCount = 0;
 
         /* テスト対象の実行 */
-        final KmgException testException = new KmgException(KmgMsgMessageTypes.NONE);
+        final KmgException testException = new KmgException(KmgMsgMessageTypes.KMGMSGE11100);
 
         /* 検証の準備 */
         final int actualCount = testException.getMessageArgsCount();
@@ -187,7 +187,7 @@ public class KmgExceptionTest {
         final int expectedCount = 0;
 
         /* テスト対象の実行 */
-        final KmgException testException = new KmgException(KmgMsgMessageTypes.NONE);
+        final KmgException testException = new KmgException(KmgMsgMessageTypes.KMGMSGE11100);
 
         /* 検証の準備 */
         final int actualCount = testException.getMessagePatternArgsCount();
