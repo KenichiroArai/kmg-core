@@ -234,7 +234,7 @@ public class KmgMessageUtilsTest {
         final boolean actualResult = KmgMessageUtils.checkMessageArgsCount(testPattern, testArgs);
 
         /* 検証の実施 */
-        Assertions.assertEquals(expectedResult, actualResult, "引数の数が一致する場合はtrueを返すこと");
+        Assertions.assertTrue(actualResult, "引数の数が一致する場合はtrueを返すこと");
 
     }
 
@@ -258,7 +258,7 @@ public class KmgMessageUtilsTest {
         final boolean actualResult = KmgMessageUtils.checkMessageArgsCount(testPattern, testArgs);
 
         /* 検証の実施 */
-        Assertions.assertEquals(expectedResult, actualResult, "引数の数が一致しない場合はfalseを返すこと");
+        Assertions.assertFalse(actualResult, "引数の数が一致しない場合はfalseを返すこと");
 
     }
 
@@ -280,7 +280,114 @@ public class KmgMessageUtilsTest {
         final boolean actualResult = KmgMessageUtils.checkMessageArgsCount(testPattern, testArgs);
 
         /* 検証の実施 */
-        Assertions.assertEquals(expectedResult, actualResult, "引数を含まないメッセージパターンで空の引数配列の場合はtrueを返すこと");
+        Assertions.assertTrue(actualResult, "引数を含まないメッセージパターンで空の引数配列の場合はtrueを返すこと");
+
+    }
+
+    /**
+     * checkMessageArgsCount メソッドのテスト - 不正なメッセージパターンの場合
+     */
+    @Test
+    @SuppressWarnings("static-method")
+    public void testCheckMessageArgsCount_invalidPattern() {
+
+        /* 期待値の定義 */
+        final boolean expectedResult = false;
+
+        /* 準備 */
+        final String   testPattern = "テスト{invalid}";
+        final Object[] testArgs    = new Object[] {
+            "test"
+        };
+
+        /* テスト対象の実行 */
+        final boolean actualResult = KmgMessageUtils.checkMessageArgsCount(testPattern, testArgs);
+
+        /* 検証の実施 */
+        Assertions.assertFalse(actualResult, "不正なメッセージパターンの場合はfalseを返すこと");
+
+    }
+
+    /**
+     * getMessageArgsCount メソッドのテスト - nullパターンの場合
+     */
+    @Test
+    @SuppressWarnings("static-method")
+    public void testGetMessageArgsCount_nullPattern() {
+
+        /* 期待値の定義 */
+        final int expectedCount = 0;
+
+        /* 準備 */
+        final String testPattern = null;
+
+        /* テスト対象の実行 */
+        final int actualCount = KmgMessageUtils.getMessageArgsCount(testPattern);
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expectedCount, actualCount, "nullパターンの場合は0を返すこと");
+
+    }
+
+    /**
+     * getMessageArgsCount メソッドのテスト - 不正なパターンの場合
+     */
+    @Test
+    @SuppressWarnings("static-method")
+    public void testGetMessageArgsCount_invalidPattern() {
+
+        /* 期待値の定義 */
+        final int expectedCount = 0;
+
+        /* 準備 */
+        final String testPattern = "テスト{invalid}";
+
+        /* テスト対象の実行 */
+        final int actualCount = KmgMessageUtils.getMessageArgsCount(testPattern);
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expectedCount, actualCount, "不正なパターンの場合は0を返すこと");
+
+    }
+
+    /**
+     * getMessagePattern メソッドのテスト - typeがnullの場合
+     */
+    @Test
+    @SuppressWarnings("static-method")
+    public void testGetMessagePattern_nullType() {
+
+        /* 期待値の定義 */
+        final String expectedPattern = KmgString.EMPTY;
+
+        /* 準備 */
+
+        /* テスト対象の実行 */
+        final String actualPattern = KmgMessageUtils.getMessagePattern(null);
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expectedPattern, actualPattern, "typeがnullの場合は空文字を返すこと");
+
+    }
+
+    /**
+     * getMessagePattern メソッドのテスト - 存在しないメッセージコードの場合
+     */
+    @Test
+    @SuppressWarnings("static-method")
+    public void testGetMessagePattern_nonExistentCode() {
+
+        /* 期待値の定義 */
+        final String expectedPattern = KmgString.EMPTY;
+
+        /* 準備 */
+        final KmgMsgMessageTypes testType = KmgMsgMessageTypes.NONE;
+
+        /* テスト対象の実行 */
+        final String actualPattern = KmgMessageUtils.getMessagePattern(testType);
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expectedPattern, actualPattern, "存在しないメッセージコードの場合は空文字を返すこと");
 
     }
 }
