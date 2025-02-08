@@ -237,11 +237,14 @@ public class KmgException extends Exception {
         }
 
         /* メッセージパターンの引数の数を計算する */
+        this.messagePatternArgsCount = 0;
+
         if (KmgString.isEmpty(this.messagePattern)) {
 
             return;
 
         }
+
         this.messagePatternArgsCount = KmgMessageUtils.getMessageArgsCount(this.messagePattern);
 
         /* メッセージ引数の数とメッセージパターンの引数の数を比較する */

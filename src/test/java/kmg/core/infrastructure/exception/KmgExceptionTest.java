@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import kmg.core.domain.model.impl.KmgReflectionModelImpl;
 import kmg.core.infrastructure.types.KmgMsgMessageTypes;
 
 /**
@@ -266,6 +267,45 @@ public class KmgExceptionTest {
 
         /* 検証の実施 */
         Assertions.assertEquals(expectedPattern, actualPattern, "メッセージパターンが一致しません");
+
+    }
+
+    /**
+     * setMessageCounts メソッドのテスト - メッセージパターンが空の場合
+     *
+     * @throws Exception
+     *                   リフレクション操作で発生する可能性のある例外
+     */
+    @Test
+    @SuppressWarnings("static-method")
+    public void testSetMessageCounts_emptyMessagePattern() throws Exception {
+
+        /* 期待値の定義 */
+        final int     expectedMessageArgsCount        = 0;
+        final int     expectedMessagePatternArgsCount = 0;
+        final boolean expectedIsMatchMessageArgsCount = true;
+
+        /* 準備 */
+        final KmgException           testException   = new KmgException(KmgMsgMessageTypes.KMGMSGE11100);
+        final KmgReflectionModelImpl reflectionModel = new KmgReflectionModelImpl(testException);
+
+        // privateフィールドのmessagePatternを空文字列に設定
+        reflectionModel.set("messagePattern", "");
+
+        /* テスト対象の実行 */
+        reflectionModel.getMethod("setMessageCounts");
+
+        /* 検証の準備 */
+        final int     actualMessageArgsCount        = (int) reflectionModel.get("messageArgsCount");
+        final int     actualMessagePatternArgsCount = (int) reflectionModel.get("messagePatternArgsCount");
+        final boolean actualIsMatchMessageArgsCount = (boolean) reflectionModel.get("isMatchMessageArgsCount");
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expectedMessageArgsCount, actualMessageArgsCount, "メッセージ引数の数が一致しません");
+        Assertions.assertEquals(expectedMessagePatternArgsCount, actualMessagePatternArgsCount,
+            "メッセージパターンの引数の数が一致しません");
+        Assertions.assertEquals(expectedIsMatchMessageArgsCount, actualIsMatchMessageArgsCount,
+            "メッセージ引数の数の一致フラグが一致しません");
 
     }
 }
