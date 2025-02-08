@@ -5,8 +5,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.ResourceBundle;
 
+import kmg.core.infrastructure.common.KmgMessageTypes;
 import kmg.core.infrastructure.type.KmgString;
-import kmg.core.infrastructure.types.KmgMsgMessageTypes;
 
 /**
  * KMGメッセージユーティリティ<br>
@@ -63,7 +63,7 @@ public final class KmgMessageUtils {
      *                    メッセージの引数
      * @return メッセージ
      */
-    public static String getMessage(final KmgMsgMessageTypes type, final Object[] messageArgs) {
+    public static String getMessage(final KmgMessageTypes type, final Object[] messageArgs) {
 
         String result = KmgString.EMPTY;
 
@@ -230,7 +230,7 @@ public final class KmgMessageUtils {
      *             メッセージの種類
      * @return メッセージパターン
      */
-    public static String getMessagePattern(final KmgMsgMessageTypes type) {
+    public static String getMessagePattern(final KmgMessageTypes type) {
 
         String result = KmgString.EMPTY;
 

@@ -6,6 +6,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import kmg.core.domain.model.impl.KmgReflectionModelImpl;
+import kmg.core.infrastructure.common.KmgMessageTypes;
 import kmg.core.infrastructure.types.KmgMsgMessageTypes;
 
 /**
@@ -26,15 +27,15 @@ public class KmgExceptionTest {
     public void testConstructor_withMessageTypes() {
 
         /* 期待値の定義 */
-        final KmgMsgMessageTypes expectedMsgTypes = KmgMsgMessageTypes.KMGMSGE11100;
-        final String             expectedMessage  = "{0}がありません。";
+        final KmgMessageTypes expectedMsgTypes = KmgMsgMessageTypes.KMGMSGE11100;
+        final String          expectedMessage  = "{0}がありません。";
 
         /* テスト対象の実行 */
         final KmgException testException = new KmgException(expectedMsgTypes);
 
         /* 検証の準備 */
-        final String             actualMessage  = testException.getMessage();
-        final KmgMsgMessageTypes actualMsgTypes = testException.getMessageTypes();
+        final String          actualMessage  = testException.getMessage();
+        final KmgMessageTypes actualMsgTypes = testException.getMessageTypes();
 
         /* 検証の実施 */
         Assertions.assertEquals(expectedMsgTypes, actualMsgTypes, "メッセージタイプが一致しません");
@@ -50,19 +51,19 @@ public class KmgExceptionTest {
     public void testConstructor_withMessageTypesAndArgs() {
 
         /* 期待値の定義 */
-        final KmgMsgMessageTypes expectedMsgTypes = KmgMsgMessageTypes.KMGMSGE11100;
-        final Object[]           expectedMsgArgs  = {
+        final KmgMessageTypes expectedMsgTypes = KmgMsgMessageTypes.KMGMSGE11100;
+        final Object[]        expectedMsgArgs  = {
             "テスト引数1", "テスト引数2"
         };
-        final String             expectedMessage  = "テスト引数1がありません。";
+        final String          expectedMessage  = "テスト引数1がありません。";
 
         /* テスト対象の実行 */
         final KmgException testException = new KmgException(expectedMsgTypes, expectedMsgArgs);
 
         /* 検証の準備 */
-        final String             actualMessage  = testException.getMessage();
-        final KmgMsgMessageTypes actualMsgTypes = testException.getMessageTypes();
-        final Object[]           actualMsgArgs  = testException.getMessageArgs();
+        final String          actualMessage  = testException.getMessage();
+        final KmgMessageTypes actualMsgTypes = testException.getMessageTypes();
+        final Object[]        actualMsgArgs  = testException.getMessageArgs();
 
         /* 検証の実施 */
         Assertions.assertEquals(expectedMsgTypes, actualMsgTypes, "メッセージタイプが一致しません");
@@ -79,17 +80,17 @@ public class KmgExceptionTest {
     public void testConstructor_withMessageTypesAndCause() {
 
         /* 期待値の定義 */
-        final KmgMsgMessageTypes expectedMsgTypes = KmgMsgMessageTypes.KMGMSGE11100;
-        final String             expectedMessage  = "{0}がありません。";
-        final Throwable          expectedCause    = new RuntimeException("テスト原因");
+        final KmgMessageTypes expectedMsgTypes = KmgMsgMessageTypes.KMGMSGE11100;
+        final String          expectedMessage  = "{0}がありません。";
+        final Throwable       expectedCause    = new RuntimeException("テスト原因");
 
         /* テスト対象の実行 */
         final KmgException testException = new KmgException(expectedMsgTypes, expectedCause);
 
         /* 検証の準備 */
-        final String             actualMessage  = testException.getMessage();
-        final KmgMsgMessageTypes actualMsgTypes = testException.getMessageTypes();
-        final Throwable          actualCause    = testException.getCause();
+        final String          actualMessage  = testException.getMessage();
+        final KmgMessageTypes actualMsgTypes = testException.getMessageTypes();
+        final Throwable       actualCause    = testException.getCause();
 
         /* 検証の実施 */
         Assertions.assertEquals(expectedMsgTypes, actualMsgTypes, "メッセージタイプが一致しません");
@@ -106,21 +107,21 @@ public class KmgExceptionTest {
     public void testConstructor_withMessageTypesArgsAndCause() {
 
         /* 期待値の定義 */
-        final KmgMsgMessageTypes expectedMsgTypes = KmgMsgMessageTypes.KMGMSGE11100;
-        final Object[]           expectedMsgArgs  = {
+        final KmgMessageTypes expectedMsgTypes = KmgMsgMessageTypes.KMGMSGE11100;
+        final Object[]        expectedMsgArgs  = {
             "テスト引数1", "テスト引数2"
         };
-        final String             expectedMessage  = "テスト引数1がありません。";
-        final Throwable          expectedCause    = new RuntimeException("テスト原因");
+        final String          expectedMessage  = "テスト引数1がありません。";
+        final Throwable       expectedCause    = new RuntimeException("テスト原因");
 
         /* テスト対象の実行 */
         final KmgException testException = new KmgException(expectedMsgTypes, expectedMsgArgs, expectedCause);
 
         /* 検証の準備 */
-        final String             actualMessage  = testException.getMessage();
-        final KmgMsgMessageTypes actualMsgTypes = testException.getMessageTypes();
-        final Object[]           actualMsgArgs  = testException.getMessageArgs();
-        final Throwable          actualCause    = testException.getCause();
+        final String          actualMessage  = testException.getMessage();
+        final KmgMessageTypes actualMsgTypes = testException.getMessageTypes();
+        final Object[]        actualMsgArgs  = testException.getMessageArgs();
+        final Throwable       actualCause    = testException.getCause();
 
         /* 検証の実施 */
         Assertions.assertEquals(expectedMsgTypes, actualMsgTypes, "メッセージタイプが一致しません");

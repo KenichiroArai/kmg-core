@@ -1,6 +1,6 @@
 package kmg.core.infrastructure.exception;
 
-import kmg.core.infrastructure.types.KmgMsgMessageTypes;
+import kmg.core.infrastructure.common.KmgMessageTypes;
 import kmg.core.infrastructure.utils.KmgMessageUtils;
 
 /**
@@ -16,7 +16,7 @@ public class KmgException extends Exception {
     private static final long serialVersionUID = 1L;
 
     /** メッセージメッセージの種類 */
-    private final KmgMsgMessageTypes messageTypes;
+    private final KmgMessageTypes messageTypes;
 
     /** メッセージメッセージの引数 */
     private final Object[] messageArgs;
@@ -45,7 +45,7 @@ public class KmgException extends Exception {
      * @param messageTypes
      *                     メッセージの種類
      */
-    public KmgException(final KmgMsgMessageTypes messageTypes) {
+    public KmgException(final KmgMessageTypes messageTypes) {
 
         this(messageTypes, null, null);
 
@@ -62,7 +62,7 @@ public class KmgException extends Exception {
      * @param messageArgs
      *                     メッセージの引数
      */
-    public KmgException(final KmgMsgMessageTypes messageTypes, final Object[] messageArgs) {
+    public KmgException(final KmgMessageTypes messageTypes, final Object[] messageArgs) {
 
         this(messageTypes, messageArgs, null);
 
@@ -81,7 +81,7 @@ public class KmgException extends Exception {
      * @param cause
      *                     原因
      */
-    public KmgException(final KmgMsgMessageTypes messageTypes, final Object[] messageArgs, final Throwable cause) {
+    public KmgException(final KmgMessageTypes messageTypes, final Object[] messageArgs, final Throwable cause) {
 
         super(cause);
         this.messageTypes = messageTypes;
@@ -105,7 +105,7 @@ public class KmgException extends Exception {
      * @param cause
      *                     原因
      */
-    public KmgException(final KmgMsgMessageTypes messageTypes, final Throwable cause) {
+    public KmgException(final KmgMessageTypes messageTypes, final Throwable cause) {
 
         this(messageTypes, null, cause);
 
@@ -180,9 +180,9 @@ public class KmgException extends Exception {
      * @version 1.0.0
      * @return メッセージの種類
      */
-    public KmgMsgMessageTypes getMessageTypes() {
+    public KmgMessageTypes getMessageTypes() {
 
-        final KmgMsgMessageTypes result = this.messageTypes;
+        final KmgMessageTypes result = this.messageTypes;
         return result;
 
     }
