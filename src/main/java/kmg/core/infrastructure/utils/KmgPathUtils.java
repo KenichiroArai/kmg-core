@@ -187,7 +187,7 @@ public final class KmgPathUtils {
 
         Path result = null;
 
-        if ((object == null) || KmgString.EMPTY.equals(object)) {
+        if (object == null) {
 
             return result;
 
