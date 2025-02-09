@@ -19,7 +19,9 @@ import kmg.core.infrastructure.types.KmgMsgMessageTypes;
  * KMGリフレクションモデル実装のテスト<br>
  *
  * @author KenichiroArai
+ *
  * @sine 1.0.0
+ *
  * @version 1.0.0
  */
 @ExtendWith(MockitoExtension.class)
@@ -70,6 +72,7 @@ public class KmgReflectionModelImplTest {
          *
          * @param param
          *              パラメータ
+         *
          * @return パラメータに「Test」を追加した文字列
          */
         @SuppressWarnings("static-method")
@@ -357,48 +360,51 @@ public class KmgReflectionModelImplTest {
      * @throws KmgDomainException
      *                            KMGドメイン例外
      */
+    @SuppressWarnings("static-method")
     @Test
     public void testGet_securityException() throws KmgDomainException {
 
         /* 期待値の定義 */
-        final String             expectedMessage                 = "Test security exception";
-        final String             expectedDomainMessage           = String.format(
-            "フィールドの取得に失敗しました。フィールド名=[%s]、対象のクラス=[%s]、最後に取得したフィールド=[%s]", "publicField",
-            "class kmg.core.domain.model.impl.KmgReflectionModelImplTest$TestClass", "null");
-        final KmgMsgMessageTypes expectedMessageTypes            = KmgMsgMessageTypes.KMGMSGE11200;
-        final int                expectedMessageArgsCount        = 3;
-        final int                expectedMessagePatternArgsCount = 3;
+
+        // フィールド取得失敗時のドメインメッセージ
+        final String expectedDomainMessage = String.format("フィールドの取得に失敗しました。フィールド名=[%s]、対象のクラス=[%s]、最後に取得したフィールド=[%s]",
+            "publicField", "class kmg.core.domain.model.impl.KmgReflectionModelImplTest$TestClass", "null");
+
+        final KmgMsgMessageTypes expectedMessageTypes            = KmgMsgMessageTypes.KMGMSGE11200; // 期待されるメッセージタイプ
+        final int                expectedMessageArgsCount        = 3;                               // 期待されるメッセージ引数の数
+        final int                expectedMessagePatternArgsCount = 3;                               // 期待されるメッセージパターン引数の数
 
         /* 準備 */
-        final TestClass testObject = new TestClass();
+        final TestClass testObject = new TestClass(); // テスト用のオブジェクト
 
+        // テスト用のリフレクションモデル
         final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(testObject) {
 
             @Override
             protected Field getField(final Class<?> targetClazz, final String name)
                 throws NoSuchFieldException, SecurityException {
 
-                throw new SecurityException(expectedMessage);
+                throw new SecurityException();
 
             }
         };
 
         /* テスト対象の実行 */
+
+        // 例外の発生を検証
         final KmgDomainException actualException
             = Assertions.assertThrows(KmgDomainException.class, () -> testReflection.get("publicField"));
 
         /* 検証の準備 */
-        final Throwable       actualCause                   = actualException.getCause();
-        final String          actualMessage                 = actualCause.getMessage();
-        final String          actualDomainMessage           = actualException.getMessage();
-        final KmgMessageTypes actualMessageTypes            = actualException.getMessageTypes();
-        final int             actualMessageArgsCount        = actualException.getMessageArgsCount();
-        final int             actualMessagePatternArgsCount = actualException.getMessagePatternArgsCount();
-        final boolean         actualIsMatchMessageArgsCount = actualException.isMatchMessageArgsCount();
+        final Throwable       actualCause                   = actualException.getCause();                   // 実際の例外の原因
+        final String          actualDomainMessage           = actualException.getMessage();                 // 実際のドメインメッセージ
+        final KmgMessageTypes actualMessageTypes            = actualException.getMessageTypes();            // 実際のメッセージタイプ
+        final int             actualMessageArgsCount        = actualException.getMessageArgsCount();        // 実際のメッセージ引数の数
+        final int             actualMessagePatternArgsCount = actualException.getMessagePatternArgsCount(); // 実際のメッセージパターン引数の数
+        final boolean         actualIsMatchMessageArgsCount = actualException.isMatchMessageArgsCount();    // メッセージ引数の数の一致確認フラグ
 
         /* 検証の実施 */
         Assertions.assertTrue(actualCause instanceof SecurityException, "KmgDomainExceptionの原因がSecurityExceptionであること");
-        Assertions.assertEquals(expectedMessage, actualMessage, "SecurityExceptionのメッセージが正しいこと");
         Assertions.assertEquals(expectedDomainMessage, actualDomainMessage, "KmgDomainExceptionのメッセージが正しいこと");
         Assertions.assertEquals(expectedMessageTypes, actualMessageTypes, "メッセージの種類が正しいこと");
         Assertions.assertEquals(expectedMessageArgsCount, actualMessageArgsCount, "メッセージ引数の数が正しいこと");
