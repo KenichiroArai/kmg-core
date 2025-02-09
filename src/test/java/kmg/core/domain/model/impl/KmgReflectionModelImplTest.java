@@ -9,15 +9,9 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.util.ReflectionTestUtils;
 
 import kmg.core.infrastructure.exception.KmgDomainException;
-import kmg.core.infrastructure.model.KmgMessageModel;
-import kmg.core.infrastructure.model.factory.KmgMessageModelFactory;
 import kmg.core.infrastructure.type.KmgString;
 
 /**
@@ -27,17 +21,8 @@ import kmg.core.infrastructure.type.KmgString;
  * @sine 1.0.0
  * @version 1.0.0
  */
-@SpringBootTest
 @ExtendWith(MockitoExtension.class)
 public class KmgReflectionModelImplTest {
-
-    /** KMGメッセージモデルファクトリのモック */
-    @Autowired
-    private KmgMessageModelFactory kmgMessageModelFactory;
-
-    /** KMGメッセージモデルのモック */
-    @Mock
-    private KmgMessageModel kmgMessageModel;
 
     /**
      * テスト用のクラス<br>
@@ -110,8 +95,7 @@ public class KmgReflectionModelImplTest {
 
         /* 準備 */
         final TestClass              testObject     = new TestClass();
-        final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(this.kmgMessageModelFactory,
-            testObject);
+        final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(testObject);
         testReflection.set("decimalField", expectedValue);
 
         /* テスト対象の実行 */
@@ -142,8 +126,7 @@ public class KmgReflectionModelImplTest {
         final TestClass testObject = new TestClass();
         testObject.publicField = "test1";
         testObject.setPrivateField("test2");
-        final KmgReflectionModelImpl testReflection
-            = new KmgReflectionModelImpl(this.kmgMessageModelFactory, testObject);
+        final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(testObject);
 
         /* テスト対象の実行と検証 */
         // 1回目の呼び出し
@@ -180,17 +163,16 @@ public class KmgReflectionModelImplTest {
         /* 準備 */
         final TestClass testObject = new TestClass();
 
-        final KmgReflectionModelImpl testReflection
-            = new KmgReflectionModelImpl(this.kmgMessageModelFactory, testObject) {
+        final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(testObject) {
 
-                @Override
-                protected Object getValue(final Field field, final Object targetObject)
-                    throws SecurityException, IllegalAccessException {
+            @Override
+            protected Object getValue(final Field field, final Object targetObject)
+                throws SecurityException, IllegalAccessException {
 
-                    throw new IllegalAccessException(expectedMessage);
+                throw new IllegalAccessException(expectedMessage);
 
-                }
-            };
+            }
+        };
 
         /* テスト対象の実行 */
         final KmgDomainException actualException
@@ -220,21 +202,18 @@ public class KmgReflectionModelImplTest {
         final String expectedMessage = "Test security exception from getValue";
 
         /* 準備 */
-        final TestClass              testObject              = new TestClass();
-        final KmgMessageModelFactory mockMessageModelFactory = Mockito.mock(KmgMessageModelFactory.class);
+        final TestClass testObject = new TestClass();
 
-        final KmgReflectionModelImpl testReflection
-            = new KmgReflectionModelImpl(this.kmgMessageModelFactory, testObject) {
+        final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(testObject) {
 
-                @Override
-                protected Object getValue(final Field field, final Object targetObject)
-                    throws SecurityException, IllegalAccessException {
+            @Override
+            protected Object getValue(final Field field, final Object targetObject)
+                throws SecurityException, IllegalAccessException {
 
-                    throw new SecurityException(expectedMessage);
+                throw new SecurityException(expectedMessage);
 
-                }
-            };
-        ReflectionTestUtils.setField(testReflection, "kmgMessageModelFactory", mockMessageModelFactory);
+            }
+        };
 
         /* テスト対象の実行 */
         final KmgDomainException actualException
@@ -264,8 +243,7 @@ public class KmgReflectionModelImplTest {
 
         /* 準備 */
         final TestClass              testObject     = new TestClass();
-        final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(this.kmgMessageModelFactory,
-            testObject);
+        final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(testObject);
 
         /* テスト対象の実行 */
         final String actualValue = (String) testReflection.get("nonExistentField");
@@ -286,8 +264,7 @@ public class KmgReflectionModelImplTest {
 
         /* 準備 */
         final TestClass              testObject     = new TestClass();
-        final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(this.kmgMessageModelFactory,
-            testObject);
+        final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(testObject);
 
         /* テスト対象の実行 */
         final Object actualValue = testReflection.get(null);
@@ -312,8 +289,7 @@ public class KmgReflectionModelImplTest {
         /* 準備 */
         final TestClass testObject = new TestClass();
         testObject.setPrivateField(expectedValue);
-        final KmgReflectionModelImpl testReflection
-            = new KmgReflectionModelImpl(this.kmgMessageModelFactory, testObject);
+        final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(testObject);
 
         /* テスト対象の実行 */
         final Object testResult = testReflection.get("privateField");
@@ -341,8 +317,7 @@ public class KmgReflectionModelImplTest {
         /* 準備 */
         final TestClass testObject = new TestClass();
         testObject.publicField = expectedValue;
-        final KmgReflectionModelImpl testReflection
-            = new KmgReflectionModelImpl(this.kmgMessageModelFactory, testObject);
+        final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(testObject);
 
         /* テスト対象の実行 */
         final Object testResult = testReflection.get("publicField");
@@ -368,21 +343,18 @@ public class KmgReflectionModelImplTest {
         final String expectedMessage = "Test security exception";
 
         /* 準備 */
-        final TestClass              testObject              = new TestClass();
-        final KmgMessageModelFactory mockMessageModelFactory = Mockito.mock(KmgMessageModelFactory.class);
+        final TestClass testObject = new TestClass();
 
-        final KmgReflectionModelImpl testReflection
-            = new KmgReflectionModelImpl(this.kmgMessageModelFactory, testObject) {
+        final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(testObject) {
 
-                @Override
-                protected Field getField(final Class<?> targetClazz, final String name)
-                    throws NoSuchFieldException, SecurityException {
+            @Override
+            protected Field getField(final Class<?> targetClazz, final String name)
+                throws NoSuchFieldException, SecurityException {
 
-                    throw new SecurityException(expectedMessage);
+                throw new SecurityException(expectedMessage);
 
-                }
-            };
-        ReflectionTestUtils.setField(testReflection, "kmgMessageModelFactory", mockMessageModelFactory);
+            }
+        };
 
         /* テスト対象の実行 */
         final KmgDomainException actualException
@@ -409,8 +381,7 @@ public class KmgReflectionModelImplTest {
 
         /* 準備 */
         final TestClass              testObject     = new TestClass();
-        final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(this.kmgMessageModelFactory,
-            testObject);
+        final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(testObject);
 
         /* テスト対象の実行 */
         final Object testResult = testReflection.getMethod("testMethod", "Hello");
@@ -434,20 +405,17 @@ public class KmgReflectionModelImplTest {
         final String expectedMessage = "Test security exception from getDeclaredMethods";
 
         /* 準備 */
-        final TestClass              testObject              = new TestClass();
-        final KmgMessageModelFactory mockMessageModelFactory = Mockito.mock(KmgMessageModelFactory.class);
+        final TestClass testObject = new TestClass();
 
-        final KmgReflectionModelImpl testReflection
-            = new KmgReflectionModelImpl(this.kmgMessageModelFactory, testObject) {
+        final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(testObject) {
 
-                @Override
-                protected Method[] getDeclaredMethods(final Class<?> targetClazz) throws SecurityException {
+            @Override
+            protected Method[] getDeclaredMethods(final Class<?> targetClazz) throws SecurityException {
 
-                    throw new SecurityException(expectedMessage);
+                throw new SecurityException(expectedMessage);
 
-                }
-            };
-        ReflectionTestUtils.setField(testReflection, "kmgMessageModelFactory", mockMessageModelFactory);
+            }
+        };
 
         /* テスト対象の実行 */
         final KmgDomainException actualException
@@ -476,8 +444,7 @@ public class KmgReflectionModelImplTest {
 
         /* 準備 */
         final TestClass              testObject     = new TestClass();
-        final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(this.kmgMessageModelFactory,
-            testObject);
+        final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(testObject);
 
         /* テスト対象の実行 */
         final Object testResult = testReflection.getLastGetField();
@@ -503,21 +470,18 @@ public class KmgReflectionModelImplTest {
         final String expectedMessage = "Test illegal access exception";
 
         /* 準備 */
-        final TestClass              testObject              = new TestClass();
-        final KmgMessageModelFactory mockMessageModelFactory = Mockito.mock(KmgMessageModelFactory.class);
+        final TestClass testObject = new TestClass();
 
-        final KmgReflectionModelImpl testReflection
-            = new KmgReflectionModelImpl(this.kmgMessageModelFactory, testObject) {
+        final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(testObject) {
 
-                @Override
-                protected Object invoke(final Method method, final Object targetObject, final Object... parameters)
-                    throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+            @Override
+            protected Object invoke(final Method method, final Object targetObject, final Object... parameters)
+                throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
 
-                    throw new IllegalAccessException(expectedMessage);
+                throw new IllegalAccessException(expectedMessage);
 
-                }
-            };
-        ReflectionTestUtils.setField(testReflection, "kmgMessageModelFactory", mockMessageModelFactory);
+            }
+        };
 
         /* テスト対象の実行 */
         final KmgDomainException actualException
@@ -547,21 +511,18 @@ public class KmgReflectionModelImplTest {
         final String expectedMessage = "Test illegal argument exception";
 
         /* 準備 */
-        final TestClass              testObject              = new TestClass();
-        final KmgMessageModelFactory mockMessageModelFactory = Mockito.mock(KmgMessageModelFactory.class);
+        final TestClass testObject = new TestClass();
 
-        final KmgReflectionModelImpl testReflection
-            = new KmgReflectionModelImpl(this.kmgMessageModelFactory, testObject) {
+        final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(testObject) {
 
-                @Override
-                protected Object invoke(final Method method, final Object targetObject, final Object... parameters)
-                    throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+            @Override
+            protected Object invoke(final Method method, final Object targetObject, final Object... parameters)
+                throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
 
-                    throw new IllegalArgumentException(expectedMessage);
+                throw new IllegalArgumentException(expectedMessage);
 
-                }
-            };
-        ReflectionTestUtils.setField(testReflection, "kmgMessageModelFactory", mockMessageModelFactory);
+            }
+        };
 
         /* テスト対象の実行 */
         final KmgDomainException actualException
@@ -591,21 +552,18 @@ public class KmgReflectionModelImplTest {
         final String expectedMessage = "Test invocation target exception";
 
         /* 準備 */
-        final TestClass              testObject              = new TestClass();
-        final KmgMessageModelFactory mockMessageModelFactory = Mockito.mock(KmgMessageModelFactory.class);
+        final TestClass testObject = new TestClass();
 
-        final KmgReflectionModelImpl testReflection
-            = new KmgReflectionModelImpl(this.kmgMessageModelFactory, testObject) {
+        final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(testObject) {
 
-                @Override
-                protected Object invoke(final Method method, final Object targetObject, final Object... parameters)
-                    throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+            @Override
+            protected Object invoke(final Method method, final Object targetObject, final Object... parameters)
+                throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
 
-                    throw new InvocationTargetException(new RuntimeException(expectedMessage));
+                throw new InvocationTargetException(new RuntimeException(expectedMessage));
 
-                }
-            };
-        ReflectionTestUtils.setField(testReflection, "kmgMessageModelFactory", mockMessageModelFactory);
+            }
+        };
 
         /* テスト対象の実行 */
         final KmgDomainException actualException
@@ -636,8 +594,7 @@ public class KmgReflectionModelImplTest {
 
         /* 準備 */
         final TestClass              testObject     = new TestClass();
-        final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(this.kmgMessageModelFactory,
-            testObject);
+        final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(testObject);
 
         /* テスト対象の実行 */
         final Object testResult = testReflection.getMethod("testMethod", "Hello", "World");
@@ -664,8 +621,7 @@ public class KmgReflectionModelImplTest {
 
         /* 準備 */
         final TestClass              testObject     = new TestClass();
-        final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(this.kmgMessageModelFactory,
-            testObject);
+        final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(testObject);
 
         /* テスト対象の実行 */
         final Object testResult = testReflection.getMethod("testMethod", Integer.valueOf(123));
@@ -692,8 +648,7 @@ public class KmgReflectionModelImplTest {
 
         /* 準備 */
         final TestClass              testObject     = new TestClass();
-        final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(this.kmgMessageModelFactory,
-            testObject);
+        final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(testObject);
 
         /* テスト対象の実行 */
         final Object testResult = testReflection.getMethod("nonExistentMethod", "param");
@@ -720,8 +675,7 @@ public class KmgReflectionModelImplTest {
 
         /* 準備 */
         final TestClass              testObject     = new TestClass();
-        final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(this.kmgMessageModelFactory,
-            testObject);
+        final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(testObject);
 
         /* テスト対象の実行 */
         final Object testResult = testReflection.getMethod(null, "Hello");
@@ -759,8 +713,7 @@ public class KmgReflectionModelImplTest {
             }
         };
 
-        final KmgReflectionModelImpl testReflection
-            = new KmgReflectionModelImpl(this.kmgMessageModelFactory, testObject);
+        final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(testObject);
 
         /* テスト対象の実行 */
         final Object testResult = testReflection.getMethod("privateTestMethod", "Private");
@@ -787,8 +740,7 @@ public class KmgReflectionModelImplTest {
 
         /* 準備 */
         final TestClass              testObject     = new TestClass();
-        final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(this.kmgMessageModelFactory,
-            testObject);
+        final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(testObject);
 
         /* テスト対象の実行 */
         final Object testResult = testReflection.getMethod("testMethod", "Hello");
@@ -815,8 +767,7 @@ public class KmgReflectionModelImplTest {
 
         /* 準備 */
         final TestClass              testObject     = new TestClass();
-        final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(this.kmgMessageModelFactory,
-            testObject);
+        final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(testObject);
 
         /* テスト対象の実行 */
         final Object testResult = testReflection.getMethod("testMethod", "Hello");
@@ -842,22 +793,18 @@ public class KmgReflectionModelImplTest {
         final String expectedMessage = "Test security exception from invoke";
 
         /* 準備 */
-        final TestClass              testObject              = new TestClass();
-        final KmgMessageModelFactory mockMessageModelFactory = Mockito.mock(KmgMessageModelFactory.class);
+        final TestClass testObject = new TestClass();
 
-        final KmgReflectionModelImpl testReflection
-            = new KmgReflectionModelImpl(this.kmgMessageModelFactory, testObject) {
+        final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(testObject) {
 
-                @Override
-                protected Object invoke(final Method method, final Object targetObject, final Object... parameters)
-                    throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+            @Override
+            protected Object invoke(final Method method, final Object targetObject, final Object... parameters)
+                throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
 
-                    throw new SecurityException(expectedMessage);
+                throw new SecurityException(expectedMessage);
 
-                }
-            };
-
-        ReflectionTestUtils.setField(testReflection, "kmgMessageModelFactory", mockMessageModelFactory);
+            }
+        };
 
         /* テスト対象の実行 */
         final KmgDomainException actualException
@@ -887,8 +834,7 @@ public class KmgReflectionModelImplTest {
 
         /* 準備 */
         final TestClass              testObject     = new TestClass();
-        final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(this.kmgMessageModelFactory,
-            testObject);
+        final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(testObject);
 
         /* テスト対象の実行 */
         testReflection.set("decimalField", expectedValue);
@@ -914,21 +860,18 @@ public class KmgReflectionModelImplTest {
         final String expectedMessage = "Test illegal access exception from setValue";
 
         /* 準備 */
-        final TestClass              testObject              = new TestClass();
-        final KmgMessageModelFactory mockMessageModelFactory = Mockito.mock(KmgMessageModelFactory.class);
+        final TestClass testObject = new TestClass();
 
-        final KmgReflectionModelImpl testReflection
-            = new KmgReflectionModelImpl(this.kmgMessageModelFactory, testObject) {
+        final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(testObject) {
 
-                @Override
-                protected void setValue(final Field field, final Object targetObject, final Object value)
-                    throws SecurityException, IllegalAccessException {
+            @Override
+            protected void setValue(final Field field, final Object targetObject, final Object value)
+                throws SecurityException, IllegalAccessException {
 
-                    throw new IllegalAccessException(expectedMessage);
+                throw new IllegalAccessException(expectedMessage);
 
-                }
-            };
-        ReflectionTestUtils.setField(testReflection, "kmgMessageModelFactory", mockMessageModelFactory);
+            }
+        };
 
         /* テスト対象の実行 */
         final KmgDomainException actualException
@@ -957,12 +900,9 @@ public class KmgReflectionModelImplTest {
         /* 期待値の定義 */
 
         /* 準備 */
-        final TestClass              testObject              = new TestClass();
-        final KmgMessageModelFactory mockMessageModelFactory = Mockito.mock(KmgMessageModelFactory.class);
+        final TestClass testObject = new TestClass();
 
-        final KmgReflectionModelImpl testReflection
-            = new KmgReflectionModelImpl(this.kmgMessageModelFactory, testObject);
-        ReflectionTestUtils.setField(testReflection, "kmgMessageModelFactory", mockMessageModelFactory);
+        final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(testObject);
 
         /* テスト対象の実行 */
         final KmgDomainException actualException
@@ -988,8 +928,7 @@ public class KmgReflectionModelImplTest {
 
         /* 準備 */
         final TestClass              testObject     = new TestClass();
-        final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(this.kmgMessageModelFactory,
-            testObject);
+        final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(testObject);
 
         /* テスト対象の実行 */
         testReflection.set("nonExistentField", "test value");
@@ -1010,8 +949,7 @@ public class KmgReflectionModelImplTest {
 
         /* 準備 */
         final TestClass              testObject     = new TestClass();
-        final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(this.kmgMessageModelFactory,
-            testObject);
+        final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(testObject);
 
         /* テスト対象の実行 */
         testReflection.set(null, "test value");
@@ -1035,8 +973,7 @@ public class KmgReflectionModelImplTest {
 
         /* 準備 */
         final TestClass              testObject     = new TestClass();
-        final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(this.kmgMessageModelFactory,
-            testObject);
+        final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(testObject);
 
         /* テスト対象の実行 */
         testReflection.set("publicField", null);
@@ -1063,8 +1000,7 @@ public class KmgReflectionModelImplTest {
 
         /* 準備 */
         final TestClass              testObject     = new TestClass();
-        final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(this.kmgMessageModelFactory,
-            testObject);
+        final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(testObject);
 
         /* テスト対象の実行 */
         testReflection.set("privateField", expectedValue);
@@ -1091,8 +1027,7 @@ public class KmgReflectionModelImplTest {
 
         /* 準備 */
         final TestClass              testObject     = new TestClass();
-        final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(this.kmgMessageModelFactory,
-            testObject);
+        final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(testObject);
 
         /* テスト対象の実行 */
         testReflection.set("publicField", expectedValue);
@@ -1118,21 +1053,18 @@ public class KmgReflectionModelImplTest {
         final String expectedMessage = "Test security exception";
 
         /* 準備 */
-        final TestClass              testObject              = new TestClass();
-        final KmgMessageModelFactory mockMessageModelFactory = Mockito.mock(KmgMessageModelFactory.class);
+        final TestClass testObject = new TestClass();
 
-        final KmgReflectionModelImpl testReflection
-            = new KmgReflectionModelImpl(this.kmgMessageModelFactory, testObject) {
+        final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(testObject) {
 
-                @Override
-                protected Field getField(final Class<?> targetClazz, final String name)
-                    throws NoSuchFieldException, SecurityException {
+            @Override
+            protected Field getField(final Class<?> targetClazz, final String name)
+                throws NoSuchFieldException, SecurityException {
 
-                    throw new SecurityException(expectedMessage);
+                throw new SecurityException(expectedMessage);
 
-                }
-            };
-        ReflectionTestUtils.setField(testReflection, "kmgMessageModelFactory", mockMessageModelFactory);
+            }
+        };
 
         /* テスト対象の実行 */
         final KmgDomainException actualException

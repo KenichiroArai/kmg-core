@@ -1,6 +1,6 @@
 package kmg.core.infrastructure.exception;
 
-import kmg.core.infrastructure.model.KmgMessageModel;
+import kmg.core.infrastructure.common.KmgMessageTypes;
 
 /**
  * KMGシステム例外<br>
@@ -20,12 +20,12 @@ public class KmgSystemException extends KmgException {
      * @author KenichiroArai
      * @sine 1.0.0
      * @version 1.0.0
-     * @param kmgMessageModel
-     *                    メッセージモデル
+     * @param messageTypes
+     *                     メッセージの種類
      */
-    public KmgSystemException(final KmgMessageModel kmgMessageModel) {
+    public KmgSystemException(final KmgMessageTypes messageTypes) {
 
-        super(kmgMessageModel);
+        this(messageTypes, null, null);
 
     }
 
@@ -35,14 +35,50 @@ public class KmgSystemException extends KmgException {
      * @author KenichiroArai
      * @sine 1.0.0
      * @version 1.0.0
-     * @param kmgMessageModel
-     *                    メッセージモデル
-     * @param cause
-     *                    原因
+     * @param messageTypes
+     *                     メッセージの種類
+     * @param messageArgs
+     *                     メッセージの引数
      */
-    public KmgSystemException(final KmgMessageModel kmgMessageModel, final Throwable cause) {
+    public KmgSystemException(final KmgMessageTypes messageTypes, final Object[] messageArgs) {
 
-        super(kmgMessageModel, cause);
+        this(messageTypes, messageArgs, null);
+
+    }
+
+    /**
+     * コンストラクタ<br>
+     *
+     * @author KenichiroArai
+     * @sine 1.0.0
+     * @version 1.0.0
+     * @param messageTypes
+     *                     メッセージの種類
+     * @param messageArgs
+     *                     メッセージの引数
+     * @param cause
+     *                     原因
+     */
+    public KmgSystemException(final KmgMessageTypes messageTypes, final Object[] messageArgs, final Throwable cause) {
+
+        super(messageTypes, messageArgs, cause);
+
+    }
+
+    /**
+     * コンストラクタ<br>
+     *
+     * @author KenichiroArai
+     * @sine 1.0.0
+     * @version 1.0.0
+     * @param messageTypes
+     *                     メッセージの種類
+     * @param cause
+     *                     原因
+     */
+    public KmgSystemException(final KmgMessageTypes messageTypes, final Throwable cause) {
+
+        this(messageTypes, null, cause);
 
     }
 }

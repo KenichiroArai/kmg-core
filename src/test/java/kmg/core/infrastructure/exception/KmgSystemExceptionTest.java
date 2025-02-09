@@ -3,11 +3,10 @@ package kmg.core.infrastructure.exception;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import kmg.core.infrastructure.model.KmgMessageModel;
+import kmg.core.infrastructure.common.KmgMessageTypes;
+import kmg.core.infrastructure.types.KmgMsgMessageTypes;
 
 /**
  * KMGシステム例外テスト<br>
@@ -19,61 +18,83 @@ import kmg.core.infrastructure.model.KmgMessageModel;
 @ExtendWith(MockitoExtension.class)
 public class KmgSystemExceptionTest {
 
-    /** メッセージモデルのモック */
-    @Mock
-    private KmgMessageModel kmgMessageModel;
-
     /**
-     * コンストラクタのテスト - メッセージモデルを指定した場合
+     * コンストラクタのテスト - メッセージタイプのみを指定した場合
      */
     @Test
     @SuppressWarnings("static-method")
-    public void testConstructor_withMessageModel() {
+    public void testConstructor_withMessageTypes() {
 
         /* 期待値の定義 */
-        final String expectedMessage = "テストメッセージ";
-
-        /* 準備 */
-        final KmgMessageModel testMessageModel = Mockito.mock(KmgMessageModel.class);
-        Mockito.when(testMessageModel.getMessage()).thenReturn(expectedMessage);
+        final KmgMessageTypes expectedMsgTypes = KmgMsgMessageTypes.KMGMSGE11100;
+        final String          expectedMessage  = "{0}がありません。";
 
         /* テスト対象の実行 */
-        final KmgSystemException testException = new KmgSystemException(testMessageModel);
+        final KmgSystemException testException = new KmgSystemException(expectedMsgTypes);
 
         /* 検証の準備 */
-        final String actualMessage = testException.getMessage();
+        final String          actualMessage  = testException.getMessage();
+        final KmgMessageTypes actualMsgTypes = testException.getMessageTypes();
 
         /* 検証の実施 */
+        Assertions.assertEquals(expectedMsgTypes, actualMsgTypes, "メッセージタイプが一致しません");
         Assertions.assertEquals(expectedMessage, actualMessage, "メッセージが一致しません");
 
     }
 
     /**
-     * コンストラクタのテスト - メッセージモデルと原因を指定した場合
+     * コンストラクタのテスト - メッセージタイプと原因を指定した場合
      */
     @Test
     @SuppressWarnings("static-method")
-    public void testConstructor_withMessageModelAndCause() {
+    public void testConstructor_withMessageTypesAndCause() {
 
         /* 期待値の定義 */
-        final String    expectedMessage = "テストメッセージ";
-        final Throwable expectedCause   = new RuntimeException("テスト原因");
-
-        /* 準備 */
-        final KmgMessageModel testMessageModel = Mockito.mock(KmgMessageModel.class);
-        Mockito.when(testMessageModel.getMessage()).thenReturn(expectedMessage);
+        final KmgMessageTypes expectedMsgTypes = KmgMsgMessageTypes.KMGMSGE11100;
+        final String          expectedMessage  = "{0}がありません。";
+        final Throwable       expectedCause    = new RuntimeException("テスト原因");
 
         /* テスト対象の実行 */
-        final KmgSystemException testException = new KmgSystemException(testMessageModel, expectedCause);
+        final KmgSystemException testException = new KmgSystemException(expectedMsgTypes, expectedCause);
 
         /* 検証の準備 */
-        final String    actualMessage = testException.getMessage();
-        final Throwable actualCause   = testException.getCause();
+        final String          actualMessage  = testException.getMessage();
+        final KmgMessageTypes actualMsgTypes = testException.getMessageTypes();
+        final Throwable       actualCause    = testException.getCause();
 
         /* 検証の実施 */
+        Assertions.assertEquals(expectedMsgTypes, actualMsgTypes, "メッセージタイプが一致しません");
         Assertions.assertEquals(expectedMessage, actualMessage, "メッセージが一致しません");
-        Assertions.assertNotNull(actualCause, "原因がnullです");
         Assertions.assertEquals(expectedCause, actualCause, "原因が一致しません");
+
+    }
+
+    /**
+     * コンストラクタのテスト - メッセージタイプとメッセージ引数を指定した場合
+     */
+    @Test
+    @SuppressWarnings("static-method")
+    public void testConstructor_withMessageTypesAndArgs() {
+
+        /* 期待値の定義 */
+        final KmgMessageTypes expectedMsgTypes = KmgMsgMessageTypes.KMGMSGE11100;
+        final Object[]        expectedMsgArgs  = {
+            "テスト引数1", "テスト引数2"
+        };
+        final String          expectedMessage  = "テスト引数1がありません。";
+
+        /* テスト対象の実行 */
+        final KmgSystemException testException = new KmgSystemException(expectedMsgTypes, expectedMsgArgs);
+
+        /* 検証の準備 */
+        final String          actualMessage  = testException.getMessage();
+        final KmgMessageTypes actualMsgTypes = testException.getMessageTypes();
+        final Object[]        actualMsgArgs  = testException.getMessageArgs();
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expectedMsgTypes, actualMsgTypes, "メッセージタイプが一致しません");
+        Assertions.assertEquals(expectedMessage, actualMessage, "メッセージが一致しません");
+        Assertions.assertArrayEquals(expectedMsgArgs, actualMsgArgs, "メッセージ引数が一致しません");
 
     }
 }

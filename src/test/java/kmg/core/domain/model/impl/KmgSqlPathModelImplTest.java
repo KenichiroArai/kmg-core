@@ -12,15 +12,9 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.mockito.junit.jupiter.MockitoSettings;
 import org.mockito.quality.Strictness;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.util.ReflectionTestUtils;
 
 import kmg.core.domain.model.KmgReflectionModel;
-import kmg.core.domain.model.factory.KmgReflectionModelFactory;
 import kmg.core.infrastructure.exception.KmgDomainException;
-import kmg.core.infrastructure.model.KmgMessageModel;
-import kmg.core.infrastructure.model.factory.KmgMessageModelFactory;
 import kmg.core.infrastructure.type.KmgString;
 
 /**
@@ -32,20 +26,7 @@ import kmg.core.infrastructure.type.KmgString;
  */
 @ExtendWith(MockitoExtension.class)
 @MockitoSettings(strictness = Strictness.LENIENT)
-@SpringBootTest
 public class KmgSqlPathModelImplTest {
-
-    /** KMGメッセージモデルファクトリのモック */
-    @Autowired
-    private KmgMessageModelFactory kmgMessageModelFactory;
-
-    /** KMGリフレクションモデルファクトリのモック */
-    @Autowired
-    private KmgReflectionModelFactory kmgReflectionModelFactory;
-
-    /** KMGメッセージモデルのモック */
-    @Mock
-    private KmgMessageModel kmgMessageModel;
 
     /** テスト対象 */
     private KmgSqlPathModelImpl target;
@@ -115,7 +96,7 @@ public class KmgSqlPathModelImplTest {
         /* 準備 */
         final Path                testFile       = Files.createTempFile("test", ".sql");
         final KmgSqlPathModelImpl testInstance   = new KmgSqlPathModelImpl(KmgSqlPathModelImplTest.class, testFile);
-        final KmgReflectionModel  testReflection = this.kmgReflectionModelFactory.create(testInstance);
+        final KmgReflectionModel  testReflection = new KmgReflectionModelImpl(testInstance);
 
         /* テスト対象の実行 */
         final String testResult = (String) testReflection.getMethod("convertParameters", KmgString.EMPTY);
@@ -140,7 +121,6 @@ public class KmgSqlPathModelImplTest {
         /* 準備 */
         final Path testFile = this.tempDir.resolve("not_exists.sql");
         this.target = new KmgSqlPathModelImpl(this, testFile);
-        ReflectionTestUtils.setField(this.target, "kmgMessageModelFactory", this.kmgMessageModelFactory);
 
         /* テスト対象の実行と検証 */
         Assertions.assertThrows(expectedExceptionClass, () -> this.target.toSql(), "例外が発生しませんでした");

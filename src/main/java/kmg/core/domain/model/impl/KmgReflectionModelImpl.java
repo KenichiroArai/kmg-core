@@ -7,8 +7,6 @@ import java.math.BigDecimal;
 
 import kmg.core.domain.model.KmgReflectionModel;
 import kmg.core.infrastructure.exception.KmgDomainException;
-import kmg.core.infrastructure.model.KmgMessageModel;
-import kmg.core.infrastructure.model.factory.KmgMessageModelFactory;
 import kmg.core.infrastructure.types.KmgMsgMessageTypes;
 
 /**
@@ -19,9 +17,6 @@ import kmg.core.infrastructure.types.KmgMsgMessageTypes;
  * @version 1.0.0
  */
 public class KmgReflectionModelImpl implements KmgReflectionModel {
-
-    /** KMGメッセージモデルファクトリ */
-    private final KmgMessageModelFactory kmgMessageModelFactory;
 
     /** オブジェクト */
     private final Object object;
@@ -38,14 +33,11 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
      * @author KenichiroArai
      * @since 1.0.0
      * @version 1.0.0
-     * @param kmgMessageModelFactory
-     *                               KMGメッセージモデルファクトリ
      * @param object
-     *                               対象オブジェクトのインスタンス
+     *               対象オブジェクトのインスタンス
      */
-    public KmgReflectionModelImpl(final KmgMessageModelFactory kmgMessageModelFactory, final Object object) {
+    public KmgReflectionModelImpl(final Object object) {
 
-        this.kmgMessageModelFactory = kmgMessageModelFactory;
         this.object = object;
 
         // objectがクラスならインスタンスを生成する
@@ -119,12 +111,11 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
 
         } catch (final SecurityException e) {
 
-            final KmgMsgMessageTypes msgTypes        = KmgMsgMessageTypes.KMGMSGE11200;
-            final Object[]           msgArgs         = {
+            final KmgMsgMessageTypes msgTypes = KmgMsgMessageTypes.KMGMSGE11200;
+            final Object[]           msgArgs  = {
                 fieldName, targetClazz, this.lastGetField
             };
-            final KmgMessageModel    kmgMessageModel = this.kmgMessageModelFactory.create(msgTypes, msgArgs);
-            throw new KmgDomainException(kmgMessageModel, e);
+            throw new KmgDomainException(msgTypes, msgArgs, e);
 
         }
 
@@ -142,21 +133,19 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
 
         } catch (final SecurityException e) {
 
-            final KmgMsgMessageTypes msgTypes        = KmgMsgMessageTypes.KMGMSGE11201;
-            final Object[]           msgArgs         = {
+            final KmgMsgMessageTypes msgTypes = KmgMsgMessageTypes.KMGMSGE11201;
+            final Object[]           msgArgs  = {
                 fieldName, targetClazz, this.lastGetField
             };
-            final KmgMessageModel    kmgMessageModel = this.kmgMessageModelFactory.create(msgTypes, msgArgs);
-            throw new KmgDomainException(kmgMessageModel, e);
+            throw new KmgDomainException(msgTypes, msgArgs, e);
 
         } catch (final IllegalAccessException e) {
 
-            final KmgMsgMessageTypes msgTypes        = KmgMsgMessageTypes.KMGMSGE11202;
-            final Object[]           msgArgs         = {
+            final KmgMsgMessageTypes msgTypes = KmgMsgMessageTypes.KMGMSGE11202;
+            final Object[]           msgArgs  = {
                 fieldName, targetClazz, this.lastGetField
             };
-            final KmgMessageModel    kmgMessageModel = this.kmgMessageModelFactory.create(msgTypes, msgArgs);
-            throw new KmgDomainException(kmgMessageModel, e);
+            throw new KmgDomainException(msgTypes, msgArgs, e);
 
         }
 
@@ -222,12 +211,11 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
 
             } catch (final SecurityException e) {
 
-                final KmgMsgMessageTypes msgTypes        = KmgMsgMessageTypes.KMGMSGE11203;
-                final Object[]           msgArgs         = {
+                final KmgMsgMessageTypes msgTypes = KmgMsgMessageTypes.KMGMSGE11203;
+                final Object[]           msgArgs  = {
                     methodName, targetClazz
                 };
-                final KmgMessageModel    kmgMessageModel = this.kmgMessageModelFactory.create(msgTypes, msgArgs);
-                throw new KmgDomainException(kmgMessageModel, e);
+                throw new KmgDomainException(msgTypes, msgArgs, e);
 
             }
 
@@ -304,39 +292,35 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
 
         } catch (final SecurityException e) {
 
-            final KmgMsgMessageTypes msgTypes        = KmgMsgMessageTypes.KMGMSGE11204;
-            final Object[]           msgArgs         = {
+            final KmgMsgMessageTypes msgTypes = KmgMsgMessageTypes.KMGMSGE11208;
+            final Object[]           msgArgs  = {
                 methodName, targetClazz
             };
-            final KmgMessageModel    kmgMessageModel = this.kmgMessageModelFactory.create(msgTypes, msgArgs);
-            throw new KmgDomainException(kmgMessageModel, e);
+            throw new KmgDomainException(msgTypes, msgArgs, e);
 
         } catch (final IllegalAccessException e) {
 
-            final KmgMsgMessageTypes msgTypes        = KmgMsgMessageTypes.KMGMSGE11205;
-            final Object[]           msgArgs         = {
+            final KmgMsgMessageTypes msgTypes = KmgMsgMessageTypes.KMGMSGE11209;
+            final Object[]           msgArgs  = {
                 methodName, targetClazz
             };
-            final KmgMessageModel    kmgMessageModel = this.kmgMessageModelFactory.create(msgTypes, msgArgs);
-            throw new KmgDomainException(kmgMessageModel, e);
+            throw new KmgDomainException(msgTypes, msgArgs, e);
 
         } catch (final IllegalArgumentException e) {
 
-            final KmgMsgMessageTypes msgTypes        = KmgMsgMessageTypes.KMGMSGE11206;
-            final Object[]           msgArgs         = {
+            final KmgMsgMessageTypes msgTypes = KmgMsgMessageTypes.KMGMSGE11206;
+            final Object[]           msgArgs  = {
                 methodName, targetClazz
             };
-            final KmgMessageModel    kmgMessageModel = this.kmgMessageModelFactory.create(msgTypes, msgArgs);
-            throw new KmgDomainException(kmgMessageModel, e);
+            throw new KmgDomainException(msgTypes, msgArgs, e);
 
         } catch (final InvocationTargetException e) {
 
-            final KmgMsgMessageTypes msgTypes        = KmgMsgMessageTypes.KMGMSGE11207;
-            final Object[]           msgArgs         = {
+            final KmgMsgMessageTypes msgTypes = KmgMsgMessageTypes.KMGMSGE11207;
+            final Object[]           msgArgs  = {
                 methodName, targetClazz
             };
-            final KmgMessageModel    kmgMessageModel = this.kmgMessageModelFactory.create(msgTypes, msgArgs);
-            throw new KmgDomainException(kmgMessageModel, e);
+            throw new KmgDomainException(msgTypes, msgArgs, e);
 
         }
 
@@ -407,12 +391,11 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
 
         } catch (final SecurityException e) {
 
-            final KmgMsgMessageTypes msgTypes        = KmgMsgMessageTypes.KMGMSGE11209;
-            final Object[]           msgArgs         = {
+            final KmgMsgMessageTypes msgTypes = KmgMsgMessageTypes.KMGMSGE11209;
+            final Object[]           msgArgs  = {
                 fieldName, targetClazz, this.lastGetField
             };
-            final KmgMessageModel    kmgMessageModel = this.kmgMessageModelFactory.create(msgTypes, msgArgs);
-            throw new KmgDomainException(kmgMessageModel, e);
+            throw new KmgDomainException(msgTypes, msgArgs, e);
 
         }
 
@@ -437,12 +420,11 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
 
                 } catch (final NumberFormatException e) {
 
-                    final KmgMsgMessageTypes msgTypes        = KmgMsgMessageTypes.KMGMSGE11210;
-                    final Object[]           msgArgs         = {
+                    final KmgMsgMessageTypes msgTypes = KmgMsgMessageTypes.KMGMSGE11210;
+                    final Object[]           msgArgs  = {
                         fieldName, targetClazz, this.lastGetField
                     };
-                    final KmgMessageModel    kmgMessageModel = this.kmgMessageModelFactory.create(msgTypes, msgArgs);
-                    throw new KmgDomainException(kmgMessageModel, e);
+                    throw new KmgDomainException(msgTypes, msgArgs, e);
 
                 }
 
@@ -451,12 +433,11 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
 
         } catch (final IllegalAccessException e) {
 
-            final KmgMsgMessageTypes msgTypes        = KmgMsgMessageTypes.KMGMSGE11211;
-            final Object[]           msgArgs         = {
+            final KmgMsgMessageTypes msgTypes = KmgMsgMessageTypes.KMGMSGE11211;
+            final Object[]           msgArgs  = {
                 fieldName, targetClazz, this.lastGetField
             };
-            final KmgMessageModel    kmgMessageModel = this.kmgMessageModelFactory.create(msgTypes, msgArgs);
-            throw new KmgDomainException(kmgMessageModel, e);
+            throw new KmgDomainException(msgTypes, msgArgs, e);
 
         }
 

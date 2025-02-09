@@ -1,18 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE logback>
 <configuration>
-    <property resource="application.properties" />
-    <timestamp key="date" datePattern="yyyy-MM-dd"/>
+    <property name="LOG_DIR" value="/var/log/kmg-core" />
+    <property name="LOG_FILENAME" value="kmg-core.log" />
+    <property name="LOG_PATTERN"
+        value="%d{yyyy-MM-dd HH:mm:ss.SSS} %5r [%-5p] - %m - [kmg-core] &lt;%C %M:%L&gt; [%t]%n%xEx" />
+    <timestamp key="date" datePattern="yyyy-MM-dd" />
 
     <appender name="APPLIATION_LOG" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>${logback.application.outpath}</file>
+        <file>${LOG_DIR}/${LOG_FILENAME}</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>${logback.application.rolling.pattern}</fileNamePattern>
+            <fileNamePattern>${LOG_DIR}/kmg-core_%d{yyyy-MM-dd}.log</fileNamePattern>
             <maxHistory>10</maxHistory>
         </rollingPolicy>
         <encoder>
             <charset>UTF-8</charset>
-            <pattern>>${logback.application.pattern}</pattern>
+            <pattern>${LOG_PATTERN}</pattern>
         </encoder>
     </appender>
 
@@ -20,7 +23,7 @@
         <target>System.out</target>
         <encoder>
             <charset>UTF-8</charset>
-            <pattern>${logback.application.pattern}</pattern>
+            <pattern>${LOG_PATTERN}</pattern>
         </encoder>
     </appender>
 
