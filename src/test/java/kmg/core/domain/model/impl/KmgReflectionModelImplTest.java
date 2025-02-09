@@ -396,7 +396,7 @@ public class KmgReflectionModelImplTest extends AbstractKmgTest {
         /* 検証の実施 */
 
         // 例外の検証
-        this.verifyKmgDomainException(actualException, SecurityException.class, expectedDomainMessage,
+        this.verifyKmgException(actualException, SecurityException.class, expectedDomainMessage,
             expectedMessageTypes);
 
     }

@@ -3,7 +3,7 @@ package kmg.core.test;
 import org.junit.jupiter.api.Assertions;
 
 import kmg.core.infrastructure.common.KmgMessageTypes;
-import kmg.core.infrastructure.exception.KmgDomainException;
+import kmg.core.infrastructure.exception.KmgException;
 
 /**
  * KMGのテストの抽象クラス<br>
@@ -29,7 +29,7 @@ public abstract class AbstractKmgTest {
      *                              期待するメッセージの種類
      */
     @SuppressWarnings("static-method")
-    protected void verifyKmgDomainException(final KmgDomainException actualException, final Class<?> expectedCauseClass,
+    protected void verifyKmgException(final KmgException actualException, final Class<?> expectedCauseClass,
         final String expectedDomainMessage, final KmgMessageTypes expectedMessageTypes) {
 
         /* 検証の準備 */
