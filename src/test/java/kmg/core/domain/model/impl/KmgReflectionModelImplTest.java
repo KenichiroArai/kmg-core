@@ -10,8 +10,10 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import kmg.core.infrastructure.common.KmgMessageTypes;
 import kmg.core.infrastructure.exception.KmgDomainException;
 import kmg.core.infrastructure.type.KmgString;
+import kmg.core.infrastructure.types.KmgMsgMessageTypes;
 
 /**
  * KMGリフレクションモデル実装のテスト<br>
@@ -157,11 +159,13 @@ public class KmgReflectionModelImplTest {
     public void testGet_getValueIllegalAccessException() throws KmgDomainException {
 
         /* 期待値の定義 */
-        final String expectedDomainMessage
-            = """
-                フィールドの値の取得に失敗しました。フィールド名=[publicField]、\
-                対象のクラス=[class kmg.core.domain.model.impl.KmgReflectionModelImplTest$TestClass]、\
-                最後に取得したフィールド=[public java.lang.String kmg.core.domain.model.impl.KmgReflectionModelImplTest$TestClass.publicField]""";
+        final String             expectedDomainMessage           = String.format(
+            "フィールドの値の取得に失敗しました。フィールド名=[%s]、対象のクラス=[%s]、最後に取得したフィールド=[%s]", "publicField",
+            "class kmg.core.domain.model.impl.KmgReflectionModelImplTest$TestClass",
+            "public java.lang.String kmg.core.domain.model.impl.KmgReflectionModelImplTest$TestClass.publicField");
+        final KmgMsgMessageTypes expectedMessageTypes            = KmgMsgMessageTypes.KMGMSGE11202;
+        final int                expectedMessageArgsCount        = 3;
+        final int                expectedMessagePatternArgsCount = 3;
 
         /* 準備 */
         final TestClass testObject = new TestClass();
@@ -182,13 +186,21 @@ public class KmgReflectionModelImplTest {
             = Assertions.assertThrows(KmgDomainException.class, () -> testReflection.get("publicField"));
 
         /* 検証の準備 */
-        final Throwable actualCause         = actualException.getCause();
-        final String    actualDomainMessage = actualException.getMessage();
+        final Throwable       actualCause                   = actualException.getCause();
+        final String          actualDomainMessage           = actualException.getMessage();
+        final KmgMessageTypes actualMessageTypes            = actualException.getMessageTypes();
+        final int             actualMessageArgsCount        = actualException.getMessageArgsCount();
+        final int             actualMessagePatternArgsCount = actualException.getMessagePatternArgsCount();
+        final boolean         actualIsMatchMessageArgsCount = actualException.isMatchMessageArgsCount();
 
         /* 検証の実施 */
         Assertions.assertTrue(actualCause instanceof IllegalAccessException,
             "KmgDomainExceptionの原因がIllegalAccessExceptionであること");
         Assertions.assertEquals(expectedDomainMessage, actualDomainMessage, "KmgDomainExceptionのメッセージが正しいこと");
+        Assertions.assertEquals(expectedMessageTypes, actualMessageTypes, "メッセージの種類が正しいこと");
+        Assertions.assertEquals(expectedMessageArgsCount, actualMessageArgsCount, "メッセージ引数の数が正しいこと");
+        Assertions.assertEquals(expectedMessagePatternArgsCount, actualMessagePatternArgsCount, "メッセージパターンの引数の数が正しいこと");
+        Assertions.assertTrue(actualIsMatchMessageArgsCount, "メッセージ引数の数が一致していること");
 
     }
 
