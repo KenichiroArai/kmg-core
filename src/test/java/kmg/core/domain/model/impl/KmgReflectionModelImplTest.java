@@ -522,11 +522,11 @@ public class KmgReflectionModelImplTest {
         /* 期待値の定義 */
         final String             expectedMessage                 = "Test illegal access exception";
         final String             expectedDomainMessage           = String.format(
-            "フィールドの取得に失敗しました。フィールド名=[%s]、対象のクラス=[%s]、最後に取得したフィールド=[%s]", "testMethod",
-            "class kmg.core.domain.model.impl.KmgReflectionModelImplTest$TestClass", "{2}");
-        final KmgMsgMessageTypes expectedMessageTypes            = KmgMsgMessageTypes.KMGMSGE11201;
-        final int                expectedMessageArgsCount        = 3;
-        final int                expectedMessagePatternArgsCount = 3;
+            "フィールドの取得に失敗しました。フィールド名=[%s]、対象のクラス=[%s]", "testMethod",
+            "class kmg.core.domain.model.impl.KmgReflectionModelImplTest$TestClass");
+        final KmgMsgMessageTypes expectedMessageTypes            = KmgMsgMessageTypes.KMGMSGE11209;
+        final int                expectedMessageArgsCount        = 2;
+        final int                expectedMessagePatternArgsCount = 2;
 
         /* 準備 */
         final TestClass testObject = new TestClass();
@@ -1188,7 +1188,7 @@ public class KmgReflectionModelImplTest {
         final String             expectedDomainMessage           = String.format(
             "フィールドの取得に失敗しました。フィールド名=[%s]、対象のクラス=[%s]、最後に取得したフィールド=[%s]", "publicField",
             "class kmg.core.domain.model.impl.KmgReflectionModelImplTest$TestClass", "null");
-        final KmgMsgMessageTypes expectedMessageTypes            = KmgMsgMessageTypes.KMGMSGE11200;
+        final KmgMsgMessageTypes expectedMessageTypes            = KmgMsgMessageTypes.KMGMSGE11209;
         final int                expectedMessageArgsCount        = 3;
         final int                expectedMessagePatternArgsCount = 3;
 
