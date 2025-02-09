@@ -292,7 +292,7 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
 
         } catch (final SecurityException e) {
 
-            final KmgMsgMessageTypes msgTypes = KmgMsgMessageTypes.KMGMSGE11208;
+            final KmgMsgMessageTypes msgTypes = KmgMsgMessageTypes.KMGMSGE11204;
             final Object[]           msgArgs  = {
                 methodName, targetClazz
             };
@@ -300,7 +300,7 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
 
         } catch (final IllegalAccessException e) {
 
-            final KmgMsgMessageTypes msgTypes = KmgMsgMessageTypes.KMGMSGE11209;
+            final KmgMsgMessageTypes msgTypes = KmgMsgMessageTypes.KMGMSGE11205;
             final Object[]           msgArgs  = {
                 methodName, targetClazz
             };
