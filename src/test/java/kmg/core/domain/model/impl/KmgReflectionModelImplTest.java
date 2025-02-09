@@ -14,6 +14,7 @@ import kmg.core.infrastructure.common.KmgMessageTypes;
 import kmg.core.infrastructure.exception.KmgDomainException;
 import kmg.core.infrastructure.type.KmgString;
 import kmg.core.infrastructure.types.KmgMsgMessageTypes;
+import kmg.core.test.AbstractKmgTest;
 
 /**
  * KMGリフレクションモデル実装のテスト<br>
@@ -25,7 +26,7 @@ import kmg.core.infrastructure.types.KmgMsgMessageTypes;
  * @version 1.0.0
  */
 @ExtendWith(MockitoExtension.class)
-public class KmgReflectionModelImplTest {
+public class KmgReflectionModelImplTest extends AbstractKmgTest {
 
     /**
      * テスト用のクラス<br>
@@ -360,7 +361,6 @@ public class KmgReflectionModelImplTest {
      * @throws KmgDomainException
      *                            KMGドメイン例外
      */
-    @SuppressWarnings("static-method")
     @Test
     public void testGet_securityException() throws KmgDomainException {
 
@@ -370,12 +370,10 @@ public class KmgReflectionModelImplTest {
         final String expectedDomainMessage = String.format("フィールドの取得に失敗しました。フィールド名=[%s]、対象のクラス=[%s]、最後に取得したフィールド=[%s]",
             "publicField", "class kmg.core.domain.model.impl.KmgReflectionModelImplTest$TestClass", "null");
 
-        final KmgMsgMessageTypes expectedMessageTypes            = KmgMsgMessageTypes.KMGMSGE11200; // 期待されるメッセージタイプ
-        final int                expectedMessageArgsCount        = 3;                               // 期待されるメッセージ引数の数
-        final int                expectedMessagePatternArgsCount = 3;                               // 期待されるメッセージパターン引数の数
+        final KmgMsgMessageTypes expectedMessageTypes = KmgMsgMessageTypes.KMGMSGE11200; // 期待されるメッセージタイプ
 
         /* 準備 */
-        final TestClass testObject = new TestClass(); // テスト用のオブジェクト
+        final TestClass testObject = new TestClass();
 
         // テスト用のリフレクションモデル
         final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(testObject) {
@@ -390,26 +388,16 @@ public class KmgReflectionModelImplTest {
         };
 
         /* テスト対象の実行 */
-
-        // 例外の発生を検証
         final KmgDomainException actualException
             = Assertions.assertThrows(KmgDomainException.class, () -> testReflection.get("publicField"));
 
         /* 検証の準備 */
-        final Throwable       actualCause                   = actualException.getCause();                   // 実際の例外の原因
-        final String          actualDomainMessage           = actualException.getMessage();                 // 実際のドメインメッセージ
-        final KmgMessageTypes actualMessageTypes            = actualException.getMessageTypes();            // 実際のメッセージタイプ
-        final int             actualMessageArgsCount        = actualException.getMessageArgsCount();        // 実際のメッセージ引数の数
-        final int             actualMessagePatternArgsCount = actualException.getMessagePatternArgsCount(); // 実際のメッセージパターン引数の数
-        final boolean         actualIsMatchMessageArgsCount = actualException.isMatchMessageArgsCount();    // メッセージ引数の数の一致確認フラグ
 
         /* 検証の実施 */
-        Assertions.assertTrue(actualCause instanceof SecurityException, "KmgDomainExceptionの原因がSecurityExceptionであること");
-        Assertions.assertEquals(expectedDomainMessage, actualDomainMessage, "KmgDomainExceptionのメッセージが正しいこと");
-        Assertions.assertEquals(expectedMessageTypes, actualMessageTypes, "メッセージの種類が正しいこと");
-        Assertions.assertEquals(expectedMessageArgsCount, actualMessageArgsCount, "メッセージ引数の数が正しいこと");
-        Assertions.assertEquals(expectedMessagePatternArgsCount, actualMessagePatternArgsCount, "メッセージパターンの引数の数が正しいこと");
-        Assertions.assertTrue(actualIsMatchMessageArgsCount, "メッセージ引数の数が一致していること");
+
+        // 例外の検証
+        this.verifyKmgDomainException(actualException, SecurityException.class, expectedDomainMessage,
+            expectedMessageTypes);
 
     }
 
@@ -419,6 +407,7 @@ public class KmgReflectionModelImplTest {
      * @throws KmgDomainException
      *                            KMGドメイン例外
      */
+    @SuppressWarnings("static-method")
     @Test
     public void testGetDeclaredMethods_normal() throws KmgDomainException {
 
