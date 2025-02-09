@@ -8,7 +8,6 @@ import java.math.BigDecimal;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import kmg.core.infrastructure.exception.KmgDomainException;
@@ -158,7 +157,11 @@ public class KmgReflectionModelImplTest {
     public void testGet_getValueIllegalAccessException() throws KmgDomainException {
 
         /* 期待値の定義 */
-        final String expectedMessage = "Test illegal access exception from getValue";
+        final String expectedDomainMessage
+            = """
+                フィールドの値の取得に失敗しました。フィールド名=[publicField]、\
+                対象のクラス=[class kmg.core.domain.model.impl.KmgReflectionModelImplTest$TestClass]、\
+                最後に取得したフィールド=[public java.lang.String kmg.core.domain.model.impl.KmgReflectionModelImplTest$TestClass.publicField]""";
 
         /* 準備 */
         final TestClass testObject = new TestClass();
@@ -169,7 +172,7 @@ public class KmgReflectionModelImplTest {
             protected Object getValue(final Field field, final Object targetObject)
                 throws SecurityException, IllegalAccessException {
 
-                throw new IllegalAccessException(expectedMessage);
+                throw new IllegalAccessException();
 
             }
         };
@@ -179,13 +182,13 @@ public class KmgReflectionModelImplTest {
             = Assertions.assertThrows(KmgDomainException.class, () -> testReflection.get("publicField"));
 
         /* 検証の準備 */
-        final Throwable actualCause   = actualException.getCause();
-        final String    actualMessage = actualCause.getMessage();
+        final Throwable actualCause         = actualException.getCause();
+        final String    actualDomainMessage = actualException.getMessage();
 
         /* 検証の実施 */
         Assertions.assertTrue(actualCause instanceof IllegalAccessException,
             "KmgDomainExceptionの原因がIllegalAccessExceptionであること");
-        Assertions.assertEquals(expectedMessage, actualMessage, "IllegalAccessExceptionのメッセージが正しいこと");
+        Assertions.assertEquals(expectedDomainMessage, actualDomainMessage, "KmgDomainExceptionのメッセージが正しいこと");
 
     }
 
