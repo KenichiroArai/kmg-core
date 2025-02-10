@@ -30,7 +30,7 @@ jobs:
               run: mvn -B package --file pom.xml
 
             - name: Run tests with JVM options
-              run: mvn test -Djdk.instrument.traceUsage=true -XX:+EnableDynamicAgentLoading
+              run: mvn test -Djdk.instrument.traceUsage=true -DargLine="-XX:+EnableDynamicAgentLoading"
 
             - name: Check Test Coverage
               run: |
