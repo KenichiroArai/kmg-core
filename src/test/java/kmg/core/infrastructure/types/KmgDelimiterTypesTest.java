@@ -12,7 +12,9 @@ import kmg.core.infrastructure.type.KmgString;
  * KMG区切り文字の種類のテスト<br>
  *
  * @author KenichiroArai
+ *
  * @sine 1.0.0
+ *
  * @version 1.0.0
  */
 @SuppressWarnings({

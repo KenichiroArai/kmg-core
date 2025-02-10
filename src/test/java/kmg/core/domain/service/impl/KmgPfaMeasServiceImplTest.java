@@ -16,7 +16,9 @@ import kmg.core.infrastructure.types.KmgTimeUnitTypes;
  * KMG性能測定サービス実装のテスト<br>
  *
  * @author KenichiroArai
+ *
  * @sine 1.0.0
+ *
  * @version 1.0.0
  */
 public class KmgPfaMeasServiceImplTest {

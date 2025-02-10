@@ -11,7 +11,9 @@ import kmg.core.infrastructure.type.KmgString;
  * KMG区切り文字の種類<br>
  *
  * @author KenichiroArai
+ *
  * @sine 1.0.0
+ *
  * @version 1.0.0
  */
 @SuppressWarnings("nls")
@@ -91,8 +93,11 @@ public enum KmgDelimiterTypes implements Supplier<String> {
      * デフォルトの種類を返す<br>
      *
      * @author KenichiroArai
+     *
      * @sine 1.0.0
+     *
      * @version 1.0.0
+     *
      * @return 初期値
      */
     public static KmgDelimiterTypes getDefault() {
@@ -109,10 +114,14 @@ public enum KmgDelimiterTypes implements Supplier<String> {
      * </p>
      *
      * @author KenichiroArai
+     *
      * @sine 1.0.0
+     *
      * @version 1.0.0
+     *
      * @param value
      *              値
+     *
      * @return 種類。指定無し（NONE）：値が存在しない場合
      */
     public static KmgDelimiterTypes getEnum(final String value) {
@@ -133,8 +142,11 @@ public enum KmgDelimiterTypes implements Supplier<String> {
      * 初期値の種類を返す<br>
      *
      * @author KenichiroArai
+     *
      * @sine 1.0.0
+     *
      * @version 1.0.0
+     *
      * @return 初期値
      */
     public static KmgDelimiterTypes getInitValue() {
@@ -148,8 +160,11 @@ public enum KmgDelimiterTypes implements Supplier<String> {
      * コンストラクタ<br>
      *
      * @author KenichiroArai
+     *
      * @since 1.0.0
+     *
      * @version 1.0.0
+     *
      * @param name
      *              名称
      * @param value
@@ -166,8 +181,11 @@ public enum KmgDelimiterTypes implements Supplier<String> {
      * 種類の値<br>
      *
      * @author KenichiroArai
+     *
      * @sine 1.0.0
+     *
      * @version 1.0.0
+     *
      * @return 種類の値
      */
     @Override
@@ -182,8 +200,11 @@ public enum KmgDelimiterTypes implements Supplier<String> {
      * 名称を返す<br>
      *
      * @author KenichiroArai
+     *
      * @sine 1.0.0
+     *
      * @version 1.0.0
+     *
      * @return 名称
      */
     public String getName() {
@@ -197,8 +218,11 @@ public enum KmgDelimiterTypes implements Supplier<String> {
      * 値を返す<br>
      *
      * @author KenichiroArai
+     *
      * @sine 1.0.0
+     *
      * @version 1.0.0
+     *
      * @return 値
      */
     public String getValue() {
@@ -215,12 +239,16 @@ public enum KmgDelimiterTypes implements Supplier<String> {
      * </p>
      *
      * @author KenichiroArai
+     *
      * @sine 1.0.0
+     *
      * @version 1.0.0
+     *
      * @param <T>
      *                   結合する文字列の型
      * @param targetList
      *                   結合する文字列リスト
+     *
      * @return 結合する文字列リストにデリミタを付加した文字列
      */
     public <T> String join(final List<T> targetList) {
@@ -238,10 +266,14 @@ public enum KmgDelimiterTypes implements Supplier<String> {
      * </p>
      *
      * @author KenichiroArai
+     *
      * @sine 1.0.0
+     *
      * @version 1.0.0
+     *
      * @param targets
      *                結合する文字列
+     *
      * @return 結合する文字列にデリミタを付加した文字列
      */
     public String join(final Object... targets) {
@@ -293,10 +325,14 @@ public enum KmgDelimiterTypes implements Supplier<String> {
      * </p>
      *
      * @author KenichiroArai
+     *
      * @sine 1.0.0
+     *
      * @version 1.0.0
+     *
      * @param targets
      *                結合する文字列
+     *
      * @return 結合する文字列にデリミタを付加した文字列
      */
     public String joinAll(final Object... targets) {
@@ -349,10 +385,14 @@ public enum KmgDelimiterTypes implements Supplier<String> {
      * 分割する文字列を分割し、文字列の配列にして返す。<br>
      *
      * @author KenichiroArai
+     *
      * @sine 1.0.0
+     *
      * @version 1.0.0
+     *
      * @param target
      *               分割する文字列
+     *
      * @return 分割した文字列の配列
      */
     public String[] split(final String target) {
@@ -375,12 +415,16 @@ public enum KmgDelimiterTypes implements Supplier<String> {
      * 分割する文字列を分割し、文字列の配列にして返す。<br>
      *
      * @author KenichiroArai
+     *
      * @sine 1.0.0
+     *
      * @version 1.0.0
+     *
      * @param target
      *               分割する文字列
      * @param limit
      *               制限数
+     *
      * @return 分割した文字列の配列
      */
     public String[] split(final String target, final int limit) {
@@ -403,8 +447,11 @@ public enum KmgDelimiterTypes implements Supplier<String> {
      * 値を返す<br>
      *
      * @author KenichiroArai
+     *
      * @sine 1.0.0
+     *
      * @version 1.0.0
+     *
      * @return 値
      */
     @Override

@@ -13,7 +13,9 @@ import kmg.core.infrastructure.types.KmgMsgMessageTypes;
  * KMG例外テスト<br>
  *
  * @author KenichiroArai
+ *
  * @sine 1.0.0
+ *
  * @version 1.0.0
  */
 @ExtendWith(MockitoExtension.class)

@@ -11,7 +11,9 @@ import kmg.core.infrastructure.types.KmgMsgMessageTypes;
  * KMGメッセージユーティリティのテスト<br>
  *
  * @author KenichiroArai
+ *
  * @sine 1.0.0
+ *
  * @version 1.0.0
  */
 public class KmgMessageUtilsTest {
@@ -211,7 +213,7 @@ public class KmgMessageUtilsTest {
 
         /* 準備 */
         final Object[] testArgs = {
-            "testField", "TestClass"  // 期待される引数の数より少ない
+            "testField", "TestClass" // 期待される引数の数より少ない
         };
 
         /* テスト対象の実行 */
@@ -317,7 +319,7 @@ public class KmgMessageUtilsTest {
 
         /* 準備 */
         final Object[] testArgs = {
-            "testField", "TestClass"  // 3つ目の引数が不足
+            "testField", "TestClass" // 3つ目の引数が不足
         };
 
         /* テスト対象の実行 */

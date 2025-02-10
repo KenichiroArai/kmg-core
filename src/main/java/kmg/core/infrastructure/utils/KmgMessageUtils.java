@@ -12,7 +12,9 @@ import kmg.core.infrastructure.type.KmgString;
  * KMGメッセージユーティリティ<br>
  *
  * @author KenichiroArai
+ *
  * @sine 1.0.0
+ *
  * @version 1.0.0
  */
 public final class KmgMessageUtils {
@@ -43,12 +45,16 @@ public final class KmgMessageUtils {
      * メッセージパターンの引数の数と実際の引数の数が一致しているかチェックする<br>
      *
      * @author KenichiroArai
+     *
      * @sine 1.0.0
+     *
      * @version 1.0.0
+     *
      * @param messagePattern
      *                       メッセージパターン
      * @param messageArgs
      *                       メッセージの引数
+     *
      * @return true：一致している、false：一致していない
      */
     public static boolean checkMessageArgsCount(final String messagePattern, final Object[] messageArgs) {
@@ -96,18 +102,22 @@ public final class KmgMessageUtils {
      * メッセージを取得する<br>
      *
      * @author KenichiroArai
+     *
      * @sine 1.0.0
+     *
      * @version 1.0.0
+     *
      * @param type
      *                    メッセージの種類
      * @param messageArgs
      *                    メッセージの引数
+     *
      * @return メッセージ
      */
     public static String getMessage(final KmgMessageTypes type, final Object[] messageArgs) {
 
-        String result         = KmgString.EMPTY;
-        String messagePattern = getMessagePattern(type);
+        String       result         = KmgString.EMPTY;
+        final String messagePattern = KmgMessageUtils.getMessagePattern(type);
 
         if (KmgString.EMPTY.equals(messagePattern)) {
 
@@ -139,10 +149,14 @@ public final class KmgMessageUtils {
      * メッセージパターンを取得する<br>
      *
      * @author KenichiroArai
+     *
      * @sine 1.0.0
+     *
      * @version 1.0.0
+     *
      * @param type
      *             メッセージの種類
+     *
      * @return メッセージパターン。見つからない場合は空文字
      */
     public static String getMessagePattern(final KmgMessageTypes type) {
@@ -187,10 +201,14 @@ public final class KmgMessageUtils {
      * メッセージパターンの引数の数を取得する<br>
      *
      * @author KenichiroArai
+     *
      * @sine 1.0.0
+     *
      * @version 1.0.0
+     *
      * @param messagePattern
      *                       メッセージパターン
+     *
      * @return メッセージパターンの引数の数
      */
     public static int getMessageArgsCount(final String messagePattern) {
@@ -223,7 +241,9 @@ public final class KmgMessageUtils {
      * コンストラクタ<br>
      *
      * @author KenichiroArai
+     *
      * @sine 1.0.0
+     *
      * @version 1.0.0
      */
     private KmgMessageUtils() {
