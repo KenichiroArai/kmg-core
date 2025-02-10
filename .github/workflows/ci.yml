@@ -1,15 +1,15 @@
-permissions:
-    contents: write
-    security-events: write
-
 name: Continuous Integration
 
 on:
-    push:
-        branches: ["main"]
     pull_request:
-        branches: ["main"]
+        branches:
+            - main
     workflow_dispatch:
+
+permissions:
+    contents: write
+    actions: write
+    security-events: write
 
 jobs:
     build:
@@ -25,13 +25,11 @@ jobs:
                   distribution: "temurin"
                   cache: maven
 
-            - name: Create log directory
-              run: |
-                  sudo mkdir -p /var/log/TSSTS
-                  sudo chmod 777 /var/log/TSSTS
-
             - name: Build with Maven
               run: mvn -B package --file pom.xml
+
+            - name: Run tests with JVM options
+              run: mvn test -Djdk.instrument.traceUsage=true -DargLine="-XX:+EnableDynamicAgentLoading"
 
             - name: Check Test Coverage
               run: |
