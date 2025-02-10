@@ -45,33 +45,6 @@ public class KmgSystemExceptionTest {
     }
 
     /**
-     * コンストラクタのテスト - メッセージタイプと原因を指定した場合
-     */
-    @Test
-    @SuppressWarnings("static-method")
-    public void testConstructor_withMessageTypesAndCause() {
-
-        /* 期待値の定義 */
-        final KmgMessageTypes expectedMsgTypes = KmgMsgMessageTypes.KMGMSGE11100;
-        final String          expectedMessage  = "{0}がありません。";
-        final Throwable       expectedCause    = new RuntimeException("テスト原因");
-
-        /* テスト対象の実行 */
-        final KmgSystemException testException = new KmgSystemException(expectedMsgTypes, expectedCause);
-
-        /* 検証の準備 */
-        final String          actualMessage  = testException.getMessage();
-        final KmgMessageTypes actualMsgTypes = testException.getMessageTypes();
-        final Throwable       actualCause    = testException.getCause();
-
-        /* 検証の実施 */
-        Assertions.assertEquals(expectedMsgTypes, actualMsgTypes, "メッセージタイプが一致しません");
-        Assertions.assertEquals(expectedMessage, actualMessage, "メッセージが一致しません");
-        Assertions.assertEquals(expectedCause, actualCause, "原因が一致しません");
-
-    }
-
-    /**
      * コンストラクタのテスト - メッセージタイプとメッセージ引数を指定した場合
      */
     @Test
@@ -97,6 +70,33 @@ public class KmgSystemExceptionTest {
         Assertions.assertEquals(expectedMsgTypes, actualMsgTypes, "メッセージタイプが一致しません");
         Assertions.assertEquals(expectedMessage, actualMessage, "メッセージが一致しません");
         Assertions.assertArrayEquals(expectedMsgArgs, actualMsgArgs, "メッセージ引数が一致しません");
+
+    }
+
+    /**
+     * コンストラクタのテスト - メッセージタイプと原因を指定した場合
+     */
+    @Test
+    @SuppressWarnings("static-method")
+    public void testConstructor_withMessageTypesAndCause() {
+
+        /* 期待値の定義 */
+        final KmgMessageTypes expectedMsgTypes = KmgMsgMessageTypes.KMGMSGE11100;
+        final String          expectedMessage  = "{0}がありません。";
+        final Throwable       expectedCause    = new RuntimeException("テスト原因");
+
+        /* テスト対象の実行 */
+        final KmgSystemException testException = new KmgSystemException(expectedMsgTypes, expectedCause);
+
+        /* 検証の準備 */
+        final String          actualMessage  = testException.getMessage();
+        final KmgMessageTypes actualMsgTypes = testException.getMessageTypes();
+        final Throwable       actualCause    = testException.getCause();
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expectedMsgTypes, actualMsgTypes, "メッセージタイプが一致しません");
+        Assertions.assertEquals(expectedMessage, actualMessage, "メッセージが一致しません");
+        Assertions.assertEquals(expectedCause, actualCause, "原因が一致しません");
 
     }
 }

@@ -323,6 +323,58 @@ public class KmgPathUtilsTest extends AbstractKmgTest {
     }
 
     /**
+     * getClassFullPath メソッドのテスト - objectがClass<?>のインスタンスの場合
+     *
+     * @throws KmgDomainException
+     *                            失敗
+     */
+    @Test
+    public void testGetClassFullPath_objectIsClassInstance() throws KmgDomainException {
+
+        /* 期待値の定義 */
+        final Path binPath  = KmgPathUtils.getBinPath(TestClass.class);
+        final Path expected = binPath.resolve("kmg/core/infrastructure/utils/test_class/test.txt");
+
+        /* 準備 */
+        final Object testTarget = TestClass.class; // Class<?>のインスタンス
+        final String fileName   = "test.txt";
+
+        /* テスト対象の実行 */
+        final Path actual = KmgPathUtils.getClassFullPath(testTarget, fileName);
+
+        /* 検証の実施 */
+        Assertions.assertNotNull(actual, "ビルドパスが返されるべき");
+        Assertions.assertEquals(expected, actual, "返されたパスが期待する絶対パスと一致するべき");
+
+    }
+
+    /**
+     * getClassFullPath メソッドのテスト - objectが通常のオブジェクトの場合
+     *
+     * @throws KmgDomainException
+     *                            失敗
+     */
+    @Test
+    public void testGetClassFullPath_objectIsNormalInstance() throws KmgDomainException {
+
+        /* 期待値の定義 */
+        final Path binPath  = KmgPathUtils.getBinPath(TestClass.class);
+        final Path expected = binPath.resolve("kmg/core/infrastructure/utils/test_class/test.txt");
+
+        /* 準備 */
+        final Object testTarget = new TestClass(); // 通常のオブジェクトインスタンス
+        final String fileName   = "test.txt";
+
+        /* テスト対象の実行 */
+        final Path actual = KmgPathUtils.getClassFullPath(testTarget, fileName);
+
+        /* 検証の実施 */
+        Assertions.assertNotNull(actual, "ビルドパスが返されるべき");
+        Assertions.assertEquals(expected, actual, "返されたパスが期待する絶対パスと一致するべき");
+
+    }
+
+    /**
      * getClassFullPath メソッドのテスト - パッケージ名のドットがスラッシュに変換される場合
      *
      * @throws KmgDomainException
@@ -401,58 +453,6 @@ public class KmgPathUtilsTest extends AbstractKmgTest {
         final Path actual = KmgPathUtils.getClassFullPath(testTarget, fileName);
 
         /* 検証の実施：完全一致 */
-        Assertions.assertNotNull(actual, "ビルドパスが返されるべき");
-        Assertions.assertEquals(expected, actual, "返されたパスが期待する絶対パスと一致するべき");
-
-    }
-
-    /**
-     * getClassFullPath メソッドのテスト - objectがClass<?>のインスタンスの場合
-     *
-     * @throws KmgDomainException
-     *                            失敗
-     */
-    @Test
-    public void testGetClassFullPath_objectIsClassInstance() throws KmgDomainException {
-
-        /* 期待値の定義 */
-        final Path binPath  = KmgPathUtils.getBinPath(TestClass.class);
-        final Path expected = binPath.resolve("kmg/core/infrastructure/utils/test_class/test.txt");
-
-        /* 準備 */
-        final Object testTarget = TestClass.class; // Class<?>のインスタンス
-        final String fileName   = "test.txt";
-
-        /* テスト対象の実行 */
-        final Path actual = KmgPathUtils.getClassFullPath(testTarget, fileName);
-
-        /* 検証の実施 */
-        Assertions.assertNotNull(actual, "ビルドパスが返されるべき");
-        Assertions.assertEquals(expected, actual, "返されたパスが期待する絶対パスと一致するべき");
-
-    }
-
-    /**
-     * getClassFullPath メソッドのテスト - objectが通常のオブジェクトの場合
-     *
-     * @throws KmgDomainException
-     *                            失敗
-     */
-    @Test
-    public void testGetClassFullPath_objectIsNormalInstance() throws KmgDomainException {
-
-        /* 期待値の定義 */
-        final Path binPath  = KmgPathUtils.getBinPath(TestClass.class);
-        final Path expected = binPath.resolve("kmg/core/infrastructure/utils/test_class/test.txt");
-
-        /* 準備 */
-        final Object testTarget = new TestClass(); // 通常のオブジェクトインスタンス
-        final String fileName   = "test.txt";
-
-        /* テスト対象の実行 */
-        final Path actual = KmgPathUtils.getClassFullPath(testTarget, fileName);
-
-        /* 検証の実施 */
         Assertions.assertNotNull(actual, "ビルドパスが返されるべき");
         Assertions.assertEquals(expected, actual, "返されたパスが期待する絶対パスと一致するべき");
 
