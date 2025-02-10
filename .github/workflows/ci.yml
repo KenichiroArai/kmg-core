@@ -32,8 +32,10 @@ jobs:
               run: mvn test -Djdk.instrument.traceUsage=true -DargLine="-XX:+EnableDynamicAgentLoading"
 
             - name: Check Test Coverage
+              id: coverage
               run: |
                   COVERAGE=$(mvn jacoco:report | grep -A 1 "Total.*class" | grep "[0-9]\{1,3\}%" | grep -o "[0-9]\{1,3\}%" | cut -d'%' -f1)
+                  echo "coverage=$COVERAGE" >> $GITHUB_OUTPUT
                   if [ "$COVERAGE" -lt 100 ]; then
                     echo "Test coverage is below 100%. Current coverage: $COVERAGE%"
                     exit 1
@@ -54,4 +56,4 @@ jobs:
                   deny-licenses: AGPL-1.0-or-later
 
             - name: Update dependency graph
-              uses: advanced-security/maven-dependency-submission-action@571e99aab1055c2e71a1e2309b9691de18d6b7d6
+              uses: advanced-security/maven-dependency-submission-action@v2
