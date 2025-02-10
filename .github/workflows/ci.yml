@@ -55,8 +55,9 @@ jobs:
                   deny-licenses: AGPL-1.0-or-later
 
             - name: Generate and submit dependency snapshot
+              env:
+                  GH_TOKEN: ${{ github.token }}
               run: |
                   mvn dependency:tree -DoutputFile=dependency-tree.txt
-                  gh auth status || echo "GitHub CLI not authenticated"
                   gh api -X POST /repos/${{ github.repository }}/dependency-graph/snapshots \
                     -F "snapshot=$(cat dependency-tree.txt)"
