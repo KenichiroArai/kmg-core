@@ -25,6 +25,9 @@ import kmg.core.test.AbstractKmgTest;
  *
  * @version 1.0.0
  */
+@SuppressWarnings({
+    "nls", "static-method"
+})
 @ExtendWith(MockitoExtension.class)
 public class KmgReflectionModelImplTest extends AbstractKmgTest {
 
@@ -76,7 +79,6 @@ public class KmgReflectionModelImplTest extends AbstractKmgTest {
          *
          * @return パラメータに「Test」を追加した文字列
          */
-        @SuppressWarnings("static-method")
         public String testMethod(final String param) {
 
             final String result = KmgString.concat(param, "Test");

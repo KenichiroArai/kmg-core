@@ -15,6 +15,7 @@ import kmg.core.infrastructure.types.KmgTimeUnitTypes;
  *
  * @version 1.0.0
  */
+@SuppressWarnings("nls")
 public class KmgPfaMeasModelTest {
 
     /** 許容誤差 */

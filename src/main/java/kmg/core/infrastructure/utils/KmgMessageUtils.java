@@ -23,6 +23,7 @@ public final class KmgMessageUtils {
     private static final Map<String, ResourceBundle> bundleMap;
 
     /** プロパティファイル名の配列 */
+    @SuppressWarnings("nls")
     private static final String[] PROPERTY_FILES = {
         "messages", "messages-log"
     };

@@ -21,6 +21,7 @@ import kmg.core.infrastructure.types.KmgTimeUnitTypes;
  *
  * @version 1.0.0
  */
+@SuppressWarnings("nls")
 public class KmgPfaMeasServiceImplTest {
 
     /** 標準出力のキャプチャ用 */

@@ -18,6 +18,9 @@ import kmg.core.infrastructure.types.KmgMsgMessageTypes;
  *
  * @version 1.0.0
  */
+@SuppressWarnings({
+    "nls", "static-method"
+})
 @ExtendWith(MockitoExtension.class)
 public class KmgExceptionTest {
 
@@ -25,7 +28,6 @@ public class KmgExceptionTest {
      * コンストラクタのテスト - メッセージタイプのみを指定した場合
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testConstructor_withMessageTypes() {
 
         /* 期待値の定義 */
@@ -49,7 +51,6 @@ public class KmgExceptionTest {
      * コンストラクタのテスト - メッセージタイプとメッセージ引数を指定した場合
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testConstructor_withMessageTypesAndArgs() {
 
         /* 期待値の定義 */

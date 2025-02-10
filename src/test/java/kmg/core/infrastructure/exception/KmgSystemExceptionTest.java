@@ -17,6 +17,7 @@ import kmg.core.infrastructure.types.KmgMsgMessageTypes;
  *
  * @version 1.0.0
  */
+@SuppressWarnings("nls")
 @ExtendWith(MockitoExtension.class)
 public class KmgSystemExceptionTest {
 
