@@ -32,10 +32,9 @@ jobs:
               run: mvn test -Djdk.instrument.traceUsage=true -DargLine="-XX:+EnableDynamicAgentLoading"
 
             - name: Check Test Coverage
-              id: coverage
               run: |
-                  COVERAGE=$(mvn jacoco:report | grep -A 1 "Total.*class" | grep "[0-9]\{1,3\}%" | grep -o "[0-9]\{1,3\}%" | cut -d'%' -f1)
-                  echo "coverage=$COVERAGE" >> $GITHUB_OUTPUT
+                  mvn jacoco:report
+                  COVERAGE=$(cat target/site/jacoco/index.html | grep -o 'Total[^%]*%' | grep -o '[0-9]\+' || echo "0")
                   if [ "$COVERAGE" -lt 100 ]; then
                     echo "Test coverage is below 100%. Current coverage: $COVERAGE%"
                     exit 1
