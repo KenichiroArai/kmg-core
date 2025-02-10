@@ -15,6 +15,7 @@ import org.junit.jupiter.api.Test;
  *
  * @version 1.0.0
  */
+@SuppressWarnings("nls")
 public class KmgMapUtilsTest {
 
     /**

@@ -27,8 +27,10 @@ import kmg.core.test.AbstractKmgTest;
  *
  * @version 1.0.0
  */
+@SuppressWarnings({
+    "nls", "static-method"
+})
 @ExtendWith(MockitoExtension.class)
-@SuppressWarnings("static-method")
 public class KmgPathUtilsTest extends AbstractKmgTest {
 
     /**

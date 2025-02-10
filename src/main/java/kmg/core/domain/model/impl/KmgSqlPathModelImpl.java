@@ -52,7 +52,8 @@ public class KmgSqlPathModelImpl implements KmgSqlPathModel {
 
         }
 
-        result = str.replaceAll("/\\*(.+)\\*/.*", "$1");
+        // TODO KenichiroArai 2025/02/11 定数化
+        result = str.replaceAll("/\\*(.+)\\*/.*", "$1"); //$NON-NLS-1$ //$NON-NLS-2$
 
         return result;
 
@@ -147,7 +148,8 @@ public class KmgSqlPathModelImpl implements KmgSqlPathModel {
 
         }
 
-        final String result = sqlTmp.toString().replaceAll("\\R+$", KmgString.EMPTY);
+        // TODO KenichiroArai 2025/02/11 定数化
+        final String result = sqlTmp.toString().replaceAll("\\R+$", KmgString.EMPTY); //$NON-NLS-1$
 
         return result;
 

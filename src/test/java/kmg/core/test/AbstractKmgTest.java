@@ -14,6 +14,7 @@ import kmg.core.infrastructure.exception.KmgException;
  *
  * @version 1.0.0
  */
+@SuppressWarnings("nls")
 public abstract class AbstractKmgTest {
 
     /**
