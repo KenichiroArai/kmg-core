@@ -10,7 +10,9 @@ import kmg.core.infrastructure.types.KmgTimeUnitTypes;
  * KMG性能測定モデルテスト<br>
  *
  * @author KenichiroArai
+ *
  * @sine 1.0.0
+ *
  * @version 1.0.0
  */
 public class KmgPfaMeasModelTest {
@@ -165,6 +167,7 @@ public class KmgPfaMeasModelTest {
      *
      * @param times
      *              getNow() メソッドが返す連続的なタイムスタンプを表す可変長の long 値。 空の場合、モック化されていないスパイオブジェクトを返します。
+     *
      * @return モック化された getNow() の動作を持つ KmgPfaMeasModel のスパイオブジェクト
      */
     @SuppressWarnings("static-method")

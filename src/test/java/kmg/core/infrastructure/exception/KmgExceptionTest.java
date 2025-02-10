@@ -13,7 +13,9 @@ import kmg.core.infrastructure.types.KmgMsgMessageTypes;
  * KMG例外テスト<br>
  *
  * @author KenichiroArai
+ *
  * @sine 1.0.0
+ *
  * @version 1.0.0
  */
 @ExtendWith(MockitoExtension.class)
@@ -179,6 +181,27 @@ public class KmgExceptionTest {
     }
 
     /**
+     * getMessagePattern メソッドのテスト - メッセージパターンを取得する場合
+     */
+    @Test
+    @SuppressWarnings("static-method")
+    public void testGetMessagePattern() {
+
+        /* 期待値の定義 */
+        final String expectedPattern = "{0}がありません。";
+
+        /* テスト対象の実行 */
+        final KmgException testException = new KmgException(KmgMsgMessageTypes.KMGMSGE11100);
+
+        /* 検証の準備 */
+        final String actualPattern = testException.getMessagePattern();
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expectedPattern, actualPattern, "メッセージパターンが一致しません");
+
+    }
+
+    /**
      * getMessagePatternArgsCount メソッドのテスト
      */
     @Test
@@ -247,27 +270,6 @@ public class KmgExceptionTest {
 
         /* 検証の実施 */
         Assertions.assertEquals(expectedIsMatch, actualIsMatch, "メッセージ引数の数が一致していないか");
-
-    }
-
-    /**
-     * getMessagePattern メソッドのテスト - メッセージパターンを取得する場合
-     */
-    @Test
-    @SuppressWarnings("static-method")
-    public void testGetMessagePattern() {
-
-        /* 期待値の定義 */
-        final String expectedPattern = "{0}がありません。";
-
-        /* テスト対象の実行 */
-        final KmgException testException = new KmgException(KmgMsgMessageTypes.KMGMSGE11100);
-
-        /* 検証の準備 */
-        final String actualPattern = testException.getMessagePattern();
-
-        /* 検証の実施 */
-        Assertions.assertEquals(expectedPattern, actualPattern, "メッセージパターンが一致しません");
 
     }
 

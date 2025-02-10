@@ -7,7 +7,9 @@ import kmg.core.infrastructure.utils.KmgArrayUtils;
  * KMG文字列
  *
  * @author KenichiroArai
+ *
  * @sine 1.0.0
+ *
  * @version 1.0.0
  */
 public class KmgString {
@@ -31,8 +33,11 @@ public class KmgString {
      * コンストラクタ
      *
      * @author KenichiroArai
+     *
      * @sine 1.0.0
+     *
      * @version 1.0.0
+     *
      * @param value
      *              値
      */
@@ -46,8 +51,11 @@ public class KmgString {
      * 値を返す。
      *
      * @author KenichiroArai
+     *
      * @sine 1.0.0
+     *
      * @version 1.0.0
+     *
      * @return 値
      */
     public String getValue() {
@@ -61,10 +69,14 @@ public class KmgString {
      * 対象文字列が空文字かどうかを返す<br>
      *
      * @author KenichiroArai
+     *
      * @sine 1.0.0
+     *
      * @version 1.0.0
+     *
      * @param target
      *               対象文字列
+     *
      * @return true：空文字列、false：空文字ではない
      */
     public static boolean isEmpty(final String target) {
@@ -79,10 +91,14 @@ public class KmgString {
      * 対象文字列が空文字ではないかどうかを返す<br>
      *
      * @author KenichiroArai
+     *
      * @sine 1.0.0
+     *
      * @version 1.0.0
+     *
      * @param target
      *               対象文字列
+     *
      * @return true：空文字ではない、false：空文字列
      */
     public static boolean isNotEmpty(final String target) {
@@ -96,10 +112,14 @@ public class KmgString {
      * 文字列を結合して返す<br>
      *
      * @author KenichiroArai
+     *
      * @sine 1.0.0
+     *
      * @version 1.0.0
+     *
      * @param target
      *               対象文字列
+     *
      * @return 結合した文字列
      */
     public static String concat(final String... target) {
@@ -131,10 +151,14 @@ public class KmgString {
      * キャピタライズを返す<br>
      *
      * @author KenichiroArai
+     *
      * @sine 1.0.0
+     *
      * @version 1.0.0
+     *
      * @param target
      *               対象文字列
+     *
      * @return キャピタライズ
      */
     public static String capitalize(final String target) {
@@ -168,10 +192,14 @@ public class KmgString {
      * </p>
      *
      * @author KenichiroArai
+     *
      * @sine 1.0.0
+     *
      * @version 1.0.0
+     *
      * @param target
      *               対象文字列
+     *
      * @return スネークケースの文字列
      */
     public static String snakeCase(final String target) {
@@ -207,7 +235,7 @@ public class KmgString {
             final char prevChar    = target.charAt(i - 1);
 
             /* アンダースコアを追加するかの判定 */
-            final boolean shouldAddUnderscore = shouldAddUnderscore(target, i, currentChar, prevChar);
+            final boolean shouldAddUnderscore = KmgString.shouldAddUnderscore(target, i, currentChar, prevChar);
 
             // アンダースコアを追加しない場合は次の反復に移る
             if (!shouldAddUnderscore) {
@@ -248,8 +276,11 @@ public class KmgString {
      * </p>
      *
      * @author KenichiroArai
+     *
      * @sine 1.0.0
+     *
      * @version 1.0.0
+     *
      * @param target
      *                     対象文字列
      * @param currentIndex
@@ -258,6 +289,7 @@ public class KmgString {
      *                     現在の文字
      * @param prevChar
      *                     前の文字
+     *
      * @return true：アンダースコアを追加する、false：アンダースコアを追加しない
      */
     private static boolean shouldAddUnderscore(final String target, final int currentIndex, final char currentChar,
@@ -288,7 +320,6 @@ public class KmgString {
             if (Character.isLowerCase(nextChar)) {
 
                 result = true;
-                return result;
 
             }
 
@@ -305,10 +336,14 @@ public class KmgString {
      * </p>
      *
      * @author KenichiroArai
+     *
      * @sine 1.0.0
+     *
      * @version 1.0.0
+     *
      * @param target
      *               対象文字列
+     *
      * @return キャメルケースの文字列
      */
     public static String camelCase(final String target) {
@@ -369,12 +404,16 @@ public class KmgString {
      * </p>
      *
      * @author KenichiroArai
+     *
      * @sine 1.0.0
+     *
      * @version 1.0.0
+     *
      * @param str1
      *             文字列１
      * @param str2
      *             文字列２
+     *
      * @return true：一致、false：一致しない
      */
     public static boolean equals(final String str1, final String str2) {
@@ -403,12 +442,16 @@ public class KmgString {
      * 大文字小文字区別しないで一致するか<br>
      *
      * @author KenichiroArai
+     *
      * @sine 1.0.0
+     *
      * @version 1.0.0
+     *
      * @param str1
      *             文字列１
      * @param str2
      *             文字列２
+     *
      * @return true：一致、false：一致しない
      */
     public static boolean equalsIgnoreCase(final String str1, final String str2) {
@@ -437,8 +480,11 @@ public class KmgString {
      * 空文字かどうかを返す<br>
      *
      * @author KenichiroArai
+     *
      * @sine 1.0.0
+     *
      * @version 1.0.0
+     *
      * @return true：空文字である、false：空文字ではない
      */
     public boolean isEmpty() {
@@ -466,8 +512,11 @@ public class KmgString {
      * 空文字ではないかどうかを返す<br>
      *
      * @author KenichiroArai
+     *
      * @sine 1.0.0
+     *
      * @version 1.0.0
+     *
      * @return true：空文字である、false：空文字ではない
      */
     public boolean isNotEmpty() {
@@ -484,8 +533,11 @@ public class KmgString {
      * </p>
      *
      * @author KenichiroArai
+     *
      * @sine 1.0.0
+     *
      * @version 1.0.0
+     *
      * @return スネークケースの文字列
      */
     public String toSnakeCase() {
@@ -502,7 +554,9 @@ public class KmgString {
      * </p>
      *
      * @author KenichiroArai
+     *
      * @sine 1.0.0
+     *
      * @version 1.0.0
      */
     public void fromSnakeCase() {
@@ -518,8 +572,11 @@ public class KmgString {
      * </p>
      *
      * @author KenichiroArai
+     *
      * @sine 1.0.0
+     *
      * @version 1.0.0
+     *
      * @return キャメルケースの文字列
      */
     public String toCamelCase() {
@@ -536,7 +593,9 @@ public class KmgString {
      * </p>
      *
      * @author KenichiroArai
+     *
      * @sine 1.0.0
+     *
      * @version 1.0.0
      */
     public void fromCamelCase() {
@@ -563,7 +622,9 @@ public class KmgString {
      * 文字列を返す<br>
      *
      * @author KenichiroArai
+     *
      * @sine 1.0.0
+     *
      * @version 1.0.0
      */
     @Override

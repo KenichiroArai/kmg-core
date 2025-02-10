@@ -7,7 +7,9 @@ import org.junit.jupiter.api.Test;
  * KMG配列ユーティリティテスト<br>
  *
  * @author KenichiroArai
+ *
  * @sine 1.0.0
+ *
  * @version 1.0.0
  */
 public class KmgArrayUtilsTest {

@@ -11,7 +11,9 @@ import kmg.core.infrastructure.utils.KmgArrayUtils;
  * KMGＤＢの種類<br>
  *
  * @author KenichiroArai
+ *
  * @sine 1.0.0
+ *
  * @version 1.0.0
  */
 @SuppressWarnings("nls")
@@ -68,8 +70,11 @@ public enum KmgDbTypes implements Supplier<String> {
      * デフォルトの種類を返す<br>
      *
      * @author KenichiroArai
+     *
      * @sine 1.0.0
+     *
      * @version 1.0.0
+     *
      * @return 初期値
      */
     public static KmgDbTypes getDefault() {
@@ -86,10 +91,14 @@ public enum KmgDbTypes implements Supplier<String> {
      * </p>
      *
      * @author KenichiroArai
+     *
      * @sine 1.0.0
+     *
      * @version 1.0.0
+     *
      * @param value
      *              値
+     *
      * @return 種類。指定無し（NONE）：値が存在しない場合
      */
     public static KmgDbTypes getEnum(final String value) {
@@ -114,10 +123,14 @@ public enum KmgDbTypes implements Supplier<String> {
      * </p>
      *
      * @author KenichiroArai
+     *
      * @sine 1.0.0
+     *
      * @version 1.0.0
+     *
      * @param target
      *               対象
+     *
      * @return 種類。指定無し（NONE）：対象が存在しない場合
      */
     public static KmgDbTypes getEnumByTarget(final String target) {
@@ -168,8 +181,11 @@ public enum KmgDbTypes implements Supplier<String> {
      * 初期値の種類を返す<br>
      *
      * @author KenichiroArai
+     *
      * @sine 1.0.0
+     *
      * @version 1.0.0
+     *
      * @return 初期値
      */
     public static KmgDbTypes getInitValue() {
@@ -183,8 +199,11 @@ public enum KmgDbTypes implements Supplier<String> {
      * コンストラクタ<br>
      *
      * @author KenichiroArai
+     *
      * @since 1.0.0
+     *
      * @version 1.0.0
+     *
      * @param name
      *                   名称
      * @param value
@@ -204,8 +223,11 @@ public enum KmgDbTypes implements Supplier<String> {
      * 種類の値<br>
      *
      * @author KenichiroArai
+     *
      * @sine 1.0.0
+     *
      * @version 1.0.0
+     *
      * @return 種類の値
      */
     @Override
@@ -220,8 +242,11 @@ public enum KmgDbTypes implements Supplier<String> {
      * 別名の配列を返す<br>
      *
      * @author KenichiroArai
+     *
      * @sine 1.0.0
+     *
      * @version 1.0.0
+     *
      * @return 別名の配列
      */
     public String[] getAliasArray() {
@@ -235,8 +260,11 @@ public enum KmgDbTypes implements Supplier<String> {
      * 名称を返す<br>
      *
      * @author KenichiroArai
+     *
      * @sine 1.0.0
+     *
      * @version 1.0.0
+     *
      * @return 名称
      */
     public String getName() {
@@ -250,8 +278,11 @@ public enum KmgDbTypes implements Supplier<String> {
      * 値を返す<br>
      *
      * @author KenichiroArai
+     *
      * @sine 1.0.0
+     *
      * @version 1.0.0
+     *
      * @return 値
      */
     public String getValue() {
@@ -265,8 +296,11 @@ public enum KmgDbTypes implements Supplier<String> {
      * 値を返す<br>
      *
      * @author KenichiroArai
+     *
      * @sine 1.0.0
+     *
      * @version 1.0.0
+     *
      * @return 値
      */
     @Override

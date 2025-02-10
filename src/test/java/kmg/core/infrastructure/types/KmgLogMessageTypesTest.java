@@ -7,7 +7,9 @@ import org.junit.jupiter.api.Test;
  * KMGログメッセージの種類のテスト<br>
  *
  * @author KenichiroArai
+ *
  * @sine 1.0.0
+ *
  * @version 1.0.0
  */
 @SuppressWarnings({
@@ -32,6 +34,26 @@ public class KmgLogMessageTypesTest {
 
         /* 検証の実施 */
         Assertions.assertEquals(expected, actual, "取得値が一致しません");
+
+    }
+
+    /**
+     * getCode メソッドのテスト
+     */
+    @Test
+    public void testGetCode() {
+
+        /* 期待値の定義 */
+        final String expected = "I00001";
+
+        /* 準備 */
+        final KmgLogMessageTypes testType = KmgLogMessageTypes.I00001;
+
+        /* テスト対象の実行 */
+        final String actual = testType.getCode();
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "getCodeの返り値が一致しません");
 
     }
 
@@ -146,26 +168,6 @@ public class KmgLogMessageTypesTest {
 
         /* 検証の実施 */
         Assertions.assertEquals(expected, actual, "値が一致しません");
-
-    }
-
-    /**
-     * getCode メソッドのテスト
-     */
-    @Test
-    public void testGetCode() {
-
-        /* 期待値の定義 */
-        final String expected = "I00001";
-
-        /* 準備 */
-        final KmgLogMessageTypes testType = KmgLogMessageTypes.I00001;
-
-        /* テスト対象の実行 */
-        final String actual = testType.getCode();
-
-        /* 検証の実施 */
-        Assertions.assertEquals(expected, actual, "getCodeの返り値が一致しません");
 
     }
 

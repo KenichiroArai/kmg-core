@@ -7,7 +7,9 @@ import java.math.RoundingMode;
  * KMGデシマル<br>
  *
  * @author KenichiroArai
+ *
  * @sine 1.0.0
+ *
  * @version 1.0.0
  */
 public class KmgDecimal {
@@ -37,10 +39,14 @@ public class KmgDecimal {
      * 計算用のスケールを設定する<br>
      *
      * @author KenichiroArai
+     *
      * @sine 1.0.0
+     *
      * @version 1.0.0
+     *
      * @param value
      *              値
+     *
      * @return スケール設定後の巨大デシマル
      */
     public static BigDecimal setCalcScale(final BigDecimal value) {
@@ -54,10 +60,14 @@ public class KmgDecimal {
      * 計算用のスケールを設定する<br>
      *
      * @author KenichiroArai
+     *
      * @sine 1.0.0
+     *
      * @version 1.0.0
+     *
      * @param value
      *              値
+     *
      * @return スケール設定後の巨大デシマル
      */
     public static BigDecimal setCalcScale(final double value) {
@@ -71,10 +81,14 @@ public class KmgDecimal {
      * 結果用のスケールを設定する<br>
      *
      * @author KenichiroArai
+     *
      * @sine 1.0.0
+     *
      * @version 1.0.0
+     *
      * @param value
      *              値
+     *
      * @return スケール設定後の巨大デシマル
      */
     public static BigDecimal setResultScale(final BigDecimal value) {
@@ -88,10 +102,14 @@ public class KmgDecimal {
      * 結果用のスケールを設定する<br>
      *
      * @author KenichiroArai
+     *
      * @sine 1.0.0
+     *
      * @version 1.0.0
+     *
      * @param value
      *              値
+     *
      * @return スケール設定後の巨大デシマル
      */
     public static BigDecimal setResultScale(final double value) {
@@ -108,12 +126,16 @@ public class KmgDecimal {
      * </p>
      *
      * @author KenichiroArai
+     *
      * @sine 1.0.0
+     *
      * @version 1.0.0
+     *
      * @param num1
      *             数値１
      * @param num2
      *             数値２
+     *
      * @return 除算結果
      */
     public static BigDecimal divide(final BigDecimal num1, final BigDecimal num2) {
@@ -127,8 +149,11 @@ public class KmgDecimal {
      * コンストラクタ<br>
      *
      * @author KenichiroArai
+     *
      * @sine 1.0.0
+     *
      * @version 1.0.0
+     *
      * @param value
      *              値
      */
@@ -143,8 +168,11 @@ public class KmgDecimal {
      * コンストラクタ<br>
      *
      * @author KenichiroArai
+     *
      * @sine 1.0.0
+     *
      * @version 1.0.0
+     *
      * @param value
      *              値
      */
@@ -160,8 +188,11 @@ public class KmgDecimal {
      * 値を返す<br>
      *
      * @author KenichiroArai
+     *
      * @sine 1.0.0
+     *
      * @version 1.0.0
+     *
      * @return 値
      */
     public BigDecimal getValue() {
@@ -175,7 +206,9 @@ public class KmgDecimal {
      * 計算用のスケールを設定する<br>
      *
      * @author KenichiroArai
+     *
      * @sine 1.0.0
+     *
      * @version 1.0.0
      */
     private void setCalcScale() {

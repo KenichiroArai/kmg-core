@@ -7,7 +7,9 @@ import kmg.core.infrastructure.utils.KmgMessageUtils;
  * KMG例外<br>
  *
  * @author KenichiroArai
+ *
  * @sine 1.0.0
+ *
  * @version 1.0.0
  */
 public class KmgException extends Exception {
@@ -40,8 +42,11 @@ public class KmgException extends Exception {
      * コンストラクタ<br>
      *
      * @author KenichiroArai
+     *
      * @sine 1.0.0
+     *
      * @version 1.0.0
+     *
      * @param messageTypes
      *                     メッセージの種類
      */
@@ -55,8 +60,11 @@ public class KmgException extends Exception {
      * コンストラクタ<br>
      *
      * @author KenichiroArai
+     *
      * @sine 1.0.0
+     *
      * @version 1.0.0
+     *
      * @param messageTypes
      *                     メッセージの種類
      * @param messageArgs
@@ -72,8 +80,11 @@ public class KmgException extends Exception {
      * コンストラクタ<br>
      *
      * @author KenichiroArai
+     *
      * @sine 1.0.0
+     *
      * @version 1.0.0
+     *
      * @param messageTypes
      *                     メッセージの種類
      * @param messageArgs
@@ -98,8 +109,11 @@ public class KmgException extends Exception {
      * コンストラクタ<br>
      *
      * @author KenichiroArai
+     *
      * @sine 1.0.0
+     *
      * @version 1.0.0
+     *
      * @param messageTypes
      *                     メッセージの種類
      * @param cause
@@ -115,8 +129,11 @@ public class KmgException extends Exception {
      * メッセージを返す。<br>
      *
      * @author KenichiroArai
+     *
      * @sine 1.0.0
+     *
      * @version 1.0.0
+     *
      * @return メッセージ
      */
     @Override
@@ -131,8 +148,11 @@ public class KmgException extends Exception {
      * メッセージの引数を返す。<br>
      *
      * @author KenichiroArai
+     *
      * @sine 1.0.0
+     *
      * @version 1.0.0
+     *
      * @return メッセージの引数
      */
     public Object[] getMessageArgs() {
@@ -146,8 +166,11 @@ public class KmgException extends Exception {
      * メッセージ引数の数を返す。<br>
      *
      * @author KenichiroArai
+     *
      * @sine 1.0.0
+     *
      * @version 1.0.0
+     *
      * @return メッセージ引数の数
      */
     public int getMessageArgsCount() {
@@ -161,8 +184,11 @@ public class KmgException extends Exception {
      * メッセージパターンの引数の数を返す。<br>
      *
      * @author KenichiroArai
+     *
      * @sine 1.0.0
+     *
      * @version 1.0.0
+     *
      * @return メッセージパターンの引数の数
      */
     public int getMessagePatternArgsCount() {
@@ -176,8 +202,11 @@ public class KmgException extends Exception {
      * メッセージの種類を返す。<br>
      *
      * @author KenichiroArai
+     *
      * @sine 1.0.0
+     *
      * @version 1.0.0
+     *
      * @return メッセージの種類
      */
     public KmgMessageTypes getMessageTypes() {
@@ -191,8 +220,11 @@ public class KmgException extends Exception {
      * メッセージ引数の数が一致しているかを返す。<br>
      *
      * @author KenichiroArai
+     *
      * @sine 1.0.0
+     *
      * @version 1.0.0
+     *
      * @return メッセージ引数の数が一致しているか
      */
     public boolean isMatchMessageArgsCount() {
@@ -206,8 +238,11 @@ public class KmgException extends Exception {
      * メッセージパターンを返す。<br>
      *
      * @author KenichiroArai
+     *
      * @sine 1.0.0
+     *
      * @version 1.0.0
+     *
      * @return メッセージパターン
      */
     public String getMessagePattern() {
@@ -221,7 +256,9 @@ public class KmgException extends Exception {
      * メッセージカウントを設定する<br>
      *
      * @author KenichiroArai
+     *
      * @sine 1.0.0
+     *
      * @version 1.0.0
      */
     private void setMessageCounts() {

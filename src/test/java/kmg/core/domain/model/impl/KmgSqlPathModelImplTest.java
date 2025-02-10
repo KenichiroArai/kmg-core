@@ -8,25 +8,29 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.api.io.TempDir;
-import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.mockito.junit.jupiter.MockitoSettings;
 import org.mockito.quality.Strictness;
 
 import kmg.core.domain.model.KmgReflectionModel;
+import kmg.core.infrastructure.common.KmgMessageTypes;
 import kmg.core.infrastructure.exception.KmgDomainException;
 import kmg.core.infrastructure.type.KmgString;
+import kmg.core.infrastructure.types.KmgMsgMessageTypes;
+import kmg.core.test.AbstractKmgTest;
 
 /**
  * KMGSQLパスモデルテスト<br>
  *
  * @author KenichiroArai
+ *
  * @sine 1.0.0
+ *
  * @version 1.0.0
  */
 @ExtendWith(MockitoExtension.class)
 @MockitoSettings(strictness = Strictness.LENIENT)
-public class KmgSqlPathModelImplTest {
+public class KmgSqlPathModelImplTest extends AbstractKmgTest {
 
     /** テスト対象 */
     private KmgSqlPathModelImpl target;
@@ -51,8 +55,11 @@ public class KmgSqlPathModelImplTest {
      * コンストラクタのテスト - 正常系：クラスを使用したコンストラクタ<br>
      *
      * @author KenichiroArai
+     *
      * @sine 1.0.0
+     *
      * @version 1.0.0
+     *
      * @throws Exception
      *                   例外
      */
@@ -82,8 +89,11 @@ public class KmgSqlPathModelImplTest {
      * convertParameters メソッドのテスト - 正常系：空文字列<br>
      *
      * @author KenichiroArai
+     *
      * @sine 1.0.0
+     *
      * @version 1.0.0
+     *
      * @throws Exception
      *                   例外
      */
@@ -116,14 +126,21 @@ public class KmgSqlPathModelImplTest {
     public void testToSql_errorFileNotFound() {
 
         /* 期待値の定義 */
-        final Class<KmgDomainException> expectedExceptionClass = KmgDomainException.class;
+        final String          expectedDomainMessage = KmgString
+            .concat(this.tempDir.resolve("not_exists.sql").toString(), "がありません。");
+        final KmgMessageTypes expectedMessageTypes  = KmgMsgMessageTypes.KMGMSGE11100;
 
         /* 準備 */
         final Path testFile = this.tempDir.resolve("not_exists.sql");
         this.target = new KmgSqlPathModelImpl(this, testFile);
 
-        /* テスト対象の実行と検証 */
-        Assertions.assertThrows(expectedExceptionClass, () -> this.target.toSql(), "例外が発生しませんでした");
+        /* テスト対象の実行 */
+        final KmgDomainException actualException
+            = Assertions.assertThrows(KmgDomainException.class, () -> this.target.toSql());
+
+        /* 検証の実施 */
+        this.verifyKmgException(actualException, java.nio.file.NoSuchFileException.class, expectedDomainMessage,
+            expectedMessageTypes);
 
     }
 
@@ -131,8 +148,11 @@ public class KmgSqlPathModelImplTest {
      * toSql メソッドのテスト - 正常系：空のSQL<br>
      *
      * @author KenichiroArai
+     *
      * @sine 1.0.0
+     *
      * @version 1.0.0
+     *
      * @throws Exception
      *                   例外
      */
@@ -162,8 +182,11 @@ public class KmgSqlPathModelImplTest {
      * toSql メソッドのテスト - 正常系：パラメータ変換<br>
      *
      * @author KenichiroArai
+     *
      * @sine 1.0.0
+     *
      * @version 1.0.0
+     *
      * @throws Exception
      *                   例外
      */

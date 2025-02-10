@@ -9,7 +9,9 @@ import org.junit.jupiter.api.Test;
  * KMG時間単位の種類のテスト<br>
  *
  * @author KenichiroArai
+ *
  * @sine 1.0.0
+ *
  * @version 1.0.0
  */
 @SuppressWarnings({

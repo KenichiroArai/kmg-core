@@ -11,7 +11,9 @@ import kmg.core.infrastructure.types.KmgMsgMessageTypes;
  * KMGメッセージユーティリティのテスト<br>
  *
  * @author KenichiroArai
+ *
  * @sine 1.0.0
+ *
  * @version 1.0.0
  */
 public class KmgMessageUtilsTest {
@@ -211,7 +213,7 @@ public class KmgMessageUtilsTest {
 
         /* 準備 */
         final Object[] testArgs = {
-            "testField", "TestClass"  // 期待される引数の数より少ない
+            "testField", "TestClass" // 期待される引数の数より少ない
         };
 
         /* テスト対象の実行 */
@@ -317,7 +319,7 @@ public class KmgMessageUtilsTest {
 
         /* 準備 */
         final Object[] testArgs = {
-            "testField", "TestClass"  // 3つ目の引数が不足
+            "testField", "TestClass" // 3つ目の引数が不足
         };
 
         /* テスト対象の実行 */
@@ -354,6 +356,51 @@ public class KmgMessageUtilsTest {
 
         /* 検証の実施 */
         Assertions.assertEquals(expectedMessage, actualMessage, "MessageFormat.formatの結果が期待値と一致しません");
+
+    }
+
+    /**
+     * getMessage メソッドのテスト - 異常系：メッセージパターンがnullの場合
+     */
+    @Test
+    @SuppressWarnings("static-method")
+    public void testGetMessage_messagePatternNull() {
+
+        /* 期待値の定義 */
+        final String expectedMessage = KmgString.EMPTY;
+
+        /* 準備 */
+        final Object[] testArgs = {
+            "テスト"
+        };
+        // 存在しないコードを返すKmgMessageTypesの実装
+        final KmgMessageTypes mockType = new KmgMessageTypes() {
+
+            @Override
+            public String getCode() {
+
+                final String result = "NON_EXISTENT_CODE";
+                return result;
+
+            }
+
+            @Override
+            public String getName() {
+
+                final String result = "Mock Type";
+                return result;
+
+            }
+        };
+
+        /* テスト対象の実行 */
+        final String testResult = KmgMessageUtils.getMessage(mockType, testArgs);
+
+        /* 検証の準備 */
+        final String actualMessage = testResult;
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expectedMessage, actualMessage, "メッセージパターンがnullの場合は空文字が返却されること");
 
     }
 
@@ -621,51 +668,6 @@ public class KmgMessageUtilsTest {
 
         /* 検証の実施 */
         Assertions.assertEquals(expectedPattern, actualPattern, "typeがnullの場合は空文字を返すこと");
-
-    }
-
-    /**
-     * getMessage メソッドのテスト - 異常系：メッセージパターンがnullの場合
-     */
-    @Test
-    @SuppressWarnings("static-method")
-    public void testGetMessage_messagePatternNull() {
-
-        /* 期待値の定義 */
-        final String expectedMessage = KmgString.EMPTY;
-
-        /* 準備 */
-        final Object[] testArgs = {
-            "テスト"
-        };
-        // 存在しないコードを返すKmgMessageTypesの実装
-        final KmgMessageTypes mockType = new KmgMessageTypes() {
-
-            @Override
-            public String getCode() {
-
-                final String result = "NON_EXISTENT_CODE";
-                return result;
-
-            }
-
-            @Override
-            public String getName() {
-
-                final String result = "Mock Type";
-                return result;
-
-            }
-        };
-
-        /* テスト対象の実行 */
-        final String testResult = KmgMessageUtils.getMessage(mockType, testArgs);
-
-        /* 検証の準備 */
-        final String actualMessage = testResult;
-
-        /* 検証の実施 */
-        Assertions.assertEquals(expectedMessage, actualMessage, "メッセージパターンがnullの場合は空文字が返却されること");
 
     }
 }

@@ -10,7 +10,9 @@ import kmg.core.infrastructure.common.KmgMessageTypes;
  * KMGメッセージメッセージの種類<br>
  *
  * @author KenichiroArai
+ *
  * @sine 1.0.0
+ *
  * @version 1.0.0
  */
 @SuppressWarnings("nls")
@@ -47,9 +49,6 @@ public enum KmgMsgMessageTypes implements Supplier<String>, KmgMessageTypes {
 
     /** メソッドの値の取得に失敗しました。メソッド名=[{0}]、対象のクラス=[{1}] */
     KMGMSGE11207("メソッドの値の取得に失敗しました。メソッド名=[{0}]、対象のクラス=[{1}]", "KMGMSGE11207"),
-
-    /** メソッドの値の取得に失敗しました。メソッド名=[{0}]、対象のクラス=[{1}] */
-    KMGMSGE11208("メソッドの値の取得に失敗しました。メソッド名=[{0}]、対象のクラス=[{1}]", "KMGMSGE11208"),
 
     /** フィールドの取得に失敗しました。フィールド名=[{0}]、対象のクラス=[{1}]、最後に取得したフィールド=[{2}] */
     KMGMSGE11209("フィールドの取得に失敗しました。フィールド名=[{0}]、対象のクラス=[{1}]、最後に取得したフィールド=[{2}]", "KMGMSGE11209"),
@@ -90,8 +89,11 @@ public enum KmgMsgMessageTypes implements Supplier<String>, KmgMessageTypes {
      * デフォルトの種類を返す<br>
      *
      * @author KenichiroArai
+     *
      * @sine 1.0.0
+     *
      * @version 1.0.0
+     *
      * @return デフォルト値
      */
     public static KmgMsgMessageTypes getDefault() {
@@ -108,10 +110,14 @@ public enum KmgMsgMessageTypes implements Supplier<String>, KmgMessageTypes {
      * </p>
      *
      * @author KenichiroArai
+     *
      * @sine 1.0.0
+     *
      * @version 1.0.0
+     *
      * @param value
      *              値
+     *
      * @return 種類。指定無し（NONE）：値が存在しない場合。
      */
     public static KmgMsgMessageTypes getEnum(final String value) {
@@ -131,8 +137,11 @@ public enum KmgMsgMessageTypes implements Supplier<String>, KmgMessageTypes {
      * 初期値の種類を返す<br>
      *
      * @author KenichiroArai
+     *
      * @sine 1.0.0
+     *
      * @version 1.0.0
+     *
      * @return 初期値
      */
     public static KmgMsgMessageTypes getInitValue() {
@@ -146,8 +155,11 @@ public enum KmgMsgMessageTypes implements Supplier<String>, KmgMessageTypes {
      * コンストラクタ<br>
      *
      * @author KenichiroArai
+     *
      * @sine 1.0.0
+     *
      * @version 1.0.0
+     *
      * @param name
      *              名称
      * @param value
@@ -164,8 +176,11 @@ public enum KmgMsgMessageTypes implements Supplier<String>, KmgMessageTypes {
      * 種類の値を返す。<br>
      *
      * @author KenichiroArai
+     *
      * @sine 1.0.0
+     *
      * @version 1.0.0
+     *
      * @return 種類の値
      */
     @Override
@@ -180,8 +195,11 @@ public enum KmgMsgMessageTypes implements Supplier<String>, KmgMessageTypes {
      * 種類の値を返す。<br>
      *
      * @author KenichiroArai
+     *
      * @sine 1.0.0
+     *
      * @version 1.0.0
+     *
      * @return 種類の値
      */
     @Override
@@ -196,8 +214,11 @@ public enum KmgMsgMessageTypes implements Supplier<String>, KmgMessageTypes {
      * 名称を返す<br>
      *
      * @author KenichiroArai
+     *
      * @sine 1.0.0
+     *
      * @version 1.0.0
+     *
      * @return 名称
      */
     @Override
@@ -212,8 +233,11 @@ public enum KmgMsgMessageTypes implements Supplier<String>, KmgMessageTypes {
      * 値を返す<br>
      *
      * @author KenichiroArai
+     *
      * @sine 1.0.0
+     *
      * @version 1.0.0
+     *
      * @return 値
      */
     public String getValue() {
@@ -227,8 +251,11 @@ public enum KmgMsgMessageTypes implements Supplier<String>, KmgMessageTypes {
      * 値を返す<br>
      *
      * @author KenichiroArai
+     *
      * @sine 1.0.0
+     *
      * @version 1.0.0
+     *
      * @return 値
      */
     @Override

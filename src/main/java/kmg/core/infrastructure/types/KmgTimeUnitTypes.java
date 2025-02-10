@@ -9,7 +9,9 @@ import java.util.function.Supplier;
  * KMG時間単位の種類<br>
  *
  * @author KenichiroArai
+ *
  * @sine 1.0.0
+ *
  * @version 1.0.0
  */
 @SuppressWarnings("nls")
@@ -65,8 +67,11 @@ public enum KmgTimeUnitTypes implements Supplier<String> {
      * デフォルトの種類を返す<br>
      *
      * @author KenichiroArai
+     *
      * @sine 1.0.0
+     *
      * @version 1.0.0
+     *
      * @return デフォルト値
      */
     public static KmgTimeUnitTypes getDefault() {
@@ -84,10 +89,14 @@ public enum KmgTimeUnitTypes implements Supplier<String> {
      * <br>
      *
      * @author KenichiroArai
+     *
      * @sine 1.0.0
+     *
      * @version 1.0.0
+     *
      * @param value
      *              値
+     *
      * @return 種類。指定無し（NONE）：値が存在しない場合。
      */
     public static KmgTimeUnitTypes getEnum(final String value) {
@@ -107,8 +116,11 @@ public enum KmgTimeUnitTypes implements Supplier<String> {
      * 初期値の種類を返す<br>
      *
      * @author KenichiroArai
+     *
      * @sine 1.0.0
+     *
      * @version 1.0.0
+     *
      * @return 初期値
      */
     public static KmgTimeUnitTypes getInitValue() {
@@ -122,8 +134,11 @@ public enum KmgTimeUnitTypes implements Supplier<String> {
      * コンストラクタ<br>
      *
      * @author KenichiroArai
+     *
      * @sine 1.0.0
+     *
      * @version 1.0.0
+     *
      * @param name
      *                  名称
      * @param value
@@ -146,8 +161,11 @@ public enum KmgTimeUnitTypes implements Supplier<String> {
      * 種類の値<br>
      *
      * @author KenichiroArai
+     *
      * @sine 1.0.0
+     *
      * @version 1.0.0
+     *
      * @return 種類の値
      */
     @Override
@@ -162,8 +180,11 @@ public enum KmgTimeUnitTypes implements Supplier<String> {
      * 名称を返す<br>
      *
      * @author KenichiroArai
+     *
      * @sine 1.0.0
+     *
      * @version 1.0.0
+     *
      * @return 名称
      */
     public String getName() {
@@ -177,8 +198,11 @@ public enum KmgTimeUnitTypes implements Supplier<String> {
      * 単位名を返す<br>
      *
      * @author KenichiroArai
+     *
      * @sine 1.0.0
+     *
      * @version 1.0.0
+     *
      * @return 単位名
      */
     public String getUnitName() {
@@ -192,8 +216,11 @@ public enum KmgTimeUnitTypes implements Supplier<String> {
      * 単位値を返す<br>
      *
      * @author KenichiroArai
+     *
      * @sine 1.0.0
+     *
      * @version 1.0.0
+     *
      * @return 単位値
      */
     public BigDecimal getUnitValue() {
@@ -207,8 +234,11 @@ public enum KmgTimeUnitTypes implements Supplier<String> {
      * 値を返す<br>
      *
      * @author KenichiroArai
+     *
      * @sine 1.0.0
+     *
      * @version 1.0.0
+     *
      * @return 値
      */
     public String getValue() {
@@ -222,8 +252,11 @@ public enum KmgTimeUnitTypes implements Supplier<String> {
      * 値を返す<br>
      *
      * @author KenichiroArai
+     *
      * @sine 1.0.0
+     *
      * @version 1.0.0
+     *
      * @return 値
      */
     @Override

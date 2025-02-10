@@ -6,7 +6,9 @@ import kmg.core.infrastructure.exception.KmgDomainException;
  * KMGＳＱＬパスモデルインタフェース<br>
  *
  * @author KenichiroArai
+ *
  * @sine 1.0.0
+ *
  * @version 1.0.0
  */
 public interface KmgSqlPathModel {
@@ -22,9 +24,13 @@ public interface KmgSqlPathModel {
      * </p>
      *
      * @author KenichiroArai
+     *
      * @sine 1.0.0
+     *
      * @version 1.0.0
+     *
      * @return ＳＱＬにして返す
+     *
      * @throws KmgDomainException
      *                            KMGドメイン例外
      */

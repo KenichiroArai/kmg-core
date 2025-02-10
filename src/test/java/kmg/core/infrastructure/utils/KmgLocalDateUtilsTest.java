@@ -11,7 +11,9 @@ import org.junit.jupiter.api.Test;
  * KMGローカル日付ユーティリティテスト<br>
  *
  * @author KenichiroArai
+ *
  * @sine 1.0.0
+ *
  * @version 1.0.0
  */
 public class KmgLocalDateUtilsTest {

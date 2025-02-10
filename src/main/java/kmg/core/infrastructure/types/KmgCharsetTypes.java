@@ -11,7 +11,9 @@ import kmg.core.infrastructure.type.KmgString;
  * KMG文字セットの種類<br>
  *
  * @author KenichiroArai
+ *
  * @sine 1.0.0
+ *
  * @version 1.0.0
  */
 @SuppressWarnings("nls")
@@ -58,8 +60,11 @@ public enum KmgCharsetTypes implements Supplier<String> {
      * デフォルトの種類を返す<br>
      *
      * @author KenichiroArai
+     *
      * @sine 1.0.0
+     *
      * @version 1.0.0
+     *
      * @return デフォルト値
      */
     public static KmgCharsetTypes getDefault() {
@@ -76,10 +81,14 @@ public enum KmgCharsetTypes implements Supplier<String> {
      * </p>
      *
      * @author KenichiroArai
+     *
      * @sine 1.0.0
+     *
      * @version 1.0.0
+     *
      * @param value
      *              値
+     *
      * @return 種類。指定無し（NONE）：値が存在しない場合。
      */
     public static KmgCharsetTypes getEnum(final String value) {
@@ -99,8 +108,11 @@ public enum KmgCharsetTypes implements Supplier<String> {
      * 初期値の種類を返す<br>
      *
      * @author KenichiroArai
+     *
      * @sine 1.0.0
+     *
      * @version 1.0.0
+     *
      * @return 初期値
      */
     public static KmgCharsetTypes getInitValue() {
@@ -114,8 +126,11 @@ public enum KmgCharsetTypes implements Supplier<String> {
      * コンストラクタ<br>
      *
      * @author KenichiroArai
+     *
      * @sine 1.0.0
+     *
      * @version 1.0.0
+     *
      * @param name
      *              名称
      * @param value
@@ -142,8 +157,11 @@ public enum KmgCharsetTypes implements Supplier<String> {
      * 種類の値<br>
      *
      * @author KenichiroArai
+     *
      * @sine 1.0.0
+     *
      * @version 1.0.0
+     *
      * @return 種類の値
      */
     @Override
@@ -158,8 +176,11 @@ public enum KmgCharsetTypes implements Supplier<String> {
      * 名称を返す<br>
      *
      * @author KenichiroArai
+     *
      * @sine 1.0.0
+     *
      * @version 1.0.0
+     *
      * @return 名称
      */
     public String getName() {
@@ -173,8 +194,11 @@ public enum KmgCharsetTypes implements Supplier<String> {
      * 値を返す<br>
      *
      * @author KenichiroArai
+     *
      * @sine 1.0.0
+     *
      * @version 1.0.0
+     *
      * @return 値
      */
     public String getValue() {
@@ -191,8 +215,11 @@ public enum KmgCharsetTypes implements Supplier<String> {
      * </p>
      *
      * @author KenichiroArai
+     *
      * @sine 1.0.0
+     *
      * @version 1.0.0
+     *
      * @return 文字セット
      */
     public Charset toCharset() {
@@ -206,8 +233,11 @@ public enum KmgCharsetTypes implements Supplier<String> {
      * 値を返す<br>
      *
      * @author KenichiroArai
+     *
      * @sine 1.0.0
+     *
      * @version 1.0.0
+     *
      * @return 値
      */
     @Override

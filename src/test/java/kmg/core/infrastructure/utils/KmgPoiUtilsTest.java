@@ -14,7 +14,9 @@ import org.junit.jupiter.api.Test;
  * KMGＰＯＩユーティリティテスト<br>
  *
  * @author KenichiroArai
+ *
  * @sine 1.0.0
+ *
  * @version 1.0.0
  */
 public class KmgPoiUtilsTest {
@@ -69,7 +71,7 @@ public class KmgPoiUtilsTest {
             final Sheet sheet = workbook.createSheet();
             final Row   row   = sheet.createRow(0);
             testCell = row.createCell(0);
-            testCell.setCellFormula("INDIRECT(\"\"&\"\")");  // BLANKを返す数式
+            testCell.setCellFormula("INDIRECT(\"\"&\"\")"); // BLANKを返す数式
             workbook.getCreationHelper().createFormulaEvaluator().evaluateFormulaCell(testCell);
             actual = KmgPoiUtils.getStringFormulaValue(testCell);
 
@@ -137,7 +139,7 @@ public class KmgPoiUtilsTest {
             final Sheet sheet = workbook.createSheet();
             final Row   row   = sheet.createRow(0);
             testCell = row.createCell(0);
-            testCell.setCellFormula("1/0");  // エラーを発生させる数式
+            testCell.setCellFormula("1/0"); // エラーを発生させる数式
             workbook.getCreationHelper().createFormulaEvaluator().evaluateFormulaCell(testCell);
 
             /* テスト対象の実行 */
@@ -172,7 +174,7 @@ public class KmgPoiUtilsTest {
             final Sheet sheet = workbook.createSheet();
             final Row   row   = sheet.createRow(0);
             testCell = row.createCell(0);
-            testCell.setCellFormula("NA()");  // _NONEを返す数式
+            testCell.setCellFormula("NA()"); // _NONEを返す数式
             workbook.getCreationHelper().createFormulaEvaluator().evaluateFormulaCell(testCell);
 
             /* テスト対象の実行 */
@@ -314,7 +316,7 @@ public class KmgPoiUtilsTest {
             final Row   row       = sheet.createRow(0);
             final Cell  firstCell = row.createCell(0);
             firstCell.setCellValue("test");
-            sheet.addMergedRegion(new CellRangeAddress(0, 1, 0, 1));  // (0,0)-(1,1)の範囲を結合
+            sheet.addMergedRegion(new CellRangeAddress(0, 1, 0, 1)); // (0,0)-(1,1)の範囲を結合
 
             // 結合範囲外のセル(2,2)を作成
             final Row outsideRow = sheet.createRow(2);
