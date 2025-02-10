@@ -1,7 +1,3 @@
-permissions:
-    contents: write
-    security-events: write
-
 name: Continuous Integration
 
 on:
@@ -25,13 +21,11 @@ jobs:
                   distribution: "temurin"
                   cache: maven
 
-            - name: Create log directory
-              run: |
-                  sudo mkdir -p /var/log/TSSTS
-                  sudo chmod 777 /var/log/TSSTS
-
             - name: Build with Maven
               run: mvn -B package --file pom.xml
+
+            - name: Run tests with JVM options
+              run: mvn test -Djava.util.logging.config.file=logging.properties -Djdk.instrument.traceUsage=true -XX:+EnableDynamicAgentLoading
 
             - name: Check Test Coverage
               run: |
