@@ -17,7 +17,7 @@ import kmg.core.infrastructure.exception.KmgException;
 public abstract class AbstractKmgTest {
 
     /**
-     * KMGドメイン例外の検証を行う<br>
+     * KMG例外の検証を行う<br>
      *
      * @param actualException
      *                              実際の例外
