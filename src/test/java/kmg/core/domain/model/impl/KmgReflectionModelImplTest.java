@@ -381,12 +381,11 @@ public class KmgReflectionModelImplTest extends AbstractKmgTest {
     }
 
     /**
-     * getDeclaredMethods メソッドのテスト - 正常系<br>
+     * getDeclaredMethods メソッドのテスト - 正常系
      *
      * @throws KmgDomainException
      *                            KMGドメイン例外
      */
-    @SuppressWarnings("static-method")
     @Test
     public void testGetDeclaredMethods_normal() throws KmgDomainException {
 

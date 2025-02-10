@@ -79,7 +79,6 @@ public class KmgExceptionTest {
      * コンストラクタのテスト - メッセージタイプと原因を指定した場合
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testConstructor_withMessageTypesAndCause() {
 
         /* 期待値の定義 */
@@ -106,7 +105,6 @@ public class KmgExceptionTest {
      * コンストラクタのテスト - メッセージタイプ、メッセージ引数、原因を指定した場合
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testConstructor_withMessageTypesArgsAndCause() {
 
         /* 期待値の定義 */
@@ -138,7 +136,6 @@ public class KmgExceptionTest {
      * getMessageArgsCount メソッドのテスト - メッセージ引数がある場合
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testGetMessageArgsCount_withArgs() {
 
         /* 期待値の定義 */
@@ -164,7 +161,6 @@ public class KmgExceptionTest {
      * getMessageArgsCount メソッドのテスト - メッセージ引数がnullの場合
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testGetMessageArgsCount_withNullArgs() {
 
         /* 期待値の定義 */
@@ -185,7 +181,6 @@ public class KmgExceptionTest {
      * getMessagePattern メソッドのテスト - メッセージパターンを取得する場合
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testGetMessagePattern() {
 
         /* 期待値の定義 */
@@ -206,7 +201,6 @@ public class KmgExceptionTest {
      * getMessagePatternArgsCount メソッドのテスト
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testGetMessagePatternArgsCount() {
 
         /* 期待値の定義 */
@@ -227,7 +221,6 @@ public class KmgExceptionTest {
      * isMatchMessageArgsCount メソッドのテスト - メッセージ引数の数が一致する場合
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testIsMatchMessageArgsCount_matching() {
 
         /* 期待値の定義 */
@@ -252,7 +245,6 @@ public class KmgExceptionTest {
      * isMatchMessageArgsCount メソッドのテスト - メッセージ引数の数が一致しない場合
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testIsMatchMessageArgsCount_notMatching() {
 
         /* 期待値の定義 */
@@ -281,7 +273,6 @@ public class KmgExceptionTest {
      *                   リフレクション操作で発生する可能性のある例外
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testSetMessageCounts_emptyMessagePattern() throws Exception {
 
         /* 期待値の定義 */
