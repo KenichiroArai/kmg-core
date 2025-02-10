@@ -54,5 +54,9 @@ jobs:
                   fail-on-severity: high
                   deny-licenses: AGPL-1.0-or-later
 
-            - name: Update dependency graph
-              uses: advanced-security/maven-dependency-submission-action@v2
+            - name: Generate and submit dependency snapshot
+              run: |
+                  mvn dependency:tree -DoutputFile=dependency-tree.txt
+                  gh auth status || echo "GitHub CLI not authenticated"
+                  gh api -X POST /repos/${{ github.repository }}/dependency-graph/snapshots \
+                    -F "snapshot=$(cat dependency-tree.txt)"
