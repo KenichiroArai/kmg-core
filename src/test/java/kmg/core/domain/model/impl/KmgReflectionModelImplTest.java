@@ -484,13 +484,13 @@ public class KmgReflectionModelImplTest extends AbstractKmgTest {
     }
 
     /**
-     * getMethod メソッドのテスト - IllegalAccessException発生時<br>
+     * getMethod メソッドのテスト - 異常系：IllegalAccessException発生時<br>
      *
      * @throws KmgDomainException
      *                            KMGドメイン例外
      */
     @Test
-    public void testGetMethod_illegalAccessException() throws KmgDomainException {
+    public void testGetMethod_errorIllegalAccessException() throws KmgDomainException {
 
         /* 期待値の定義 */
         final String             expectedDomainMessage = String.format("メソッドの値の取得に失敗しました。メソッド名=[%s]、対象のクラス=[%s]",
@@ -506,7 +506,7 @@ public class KmgReflectionModelImplTest extends AbstractKmgTest {
             protected Object invoke(final Method method, final Object targetObject, final Object... parameters)
                 throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
 
-                throw new IllegalAccessException("Test illegal access exception");
+                throw new IllegalAccessException();
 
             }
         };
