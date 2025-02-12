@@ -390,10 +390,10 @@ public class KmgStringTest {
     }
 
     /**
-     * fromCamelCaseメソッドのテスト
+     * fromCamelCase メソッドのテスト - 正常系：キャメルケースからスネークケースへの変換
      */
     @Test
-    public void testFromCamelCase() {
+    public void testFromCamelCase_normalConversion() {
 
         /* 期待値の定義 */
         final String expected = "aaaBbbCcc";
@@ -410,10 +410,10 @@ public class KmgStringTest {
     }
 
     /**
-     * fromSnakeCaseメソッドのテスト
+     * fromSnakeCase メソッドのテスト - 正常系：スネークケースからキャメルケースへの変換
      */
     @Test
-    public void testFromSnakeCase() {
+    public void testFromSnakeCase_normalConversion() {
 
         /* 期待値の定義 */
         final String expected = "aaa_bbb_ccc";
@@ -430,10 +430,10 @@ public class KmgStringTest {
     }
 
     /**
-     * getValue メソッドのテスト - 初期値の取得
+     * getValue メソッドのテスト - 正常系：初期値の取得
      */
     @Test
-    public void testGetValue_initialValue() {
+    public void testGetValue_normalInitialValue() {
 
         /* 期待値の定義 */
         final String expected = "test";
@@ -490,10 +490,10 @@ public class KmgStringTest {
     }
 
     /**
-     * isEmpty メソッドのテスト - 引数が空文字の場合
+     * isEmpty メソッドのテスト - 正常系：引数が空文字の場合
      */
     @Test
-    public void testIsEmpty_emptyString() {
+    public void testIsEmpty_normalEmptyString() {
 
         /* 期待値の定義 */
         final boolean expected = true;
@@ -510,10 +510,10 @@ public class KmgStringTest {
     }
 
     /**
-     * isEmpty メソッドのテスト - 引数が文字列の場合
+     * isEmpty メソッドのテスト - 準正常系：非空文字列の場合
      */
     @Test
-    public void testIsEmpty_nonEmptyString() {
+    public void testIsEmpty_semiNonEmptyString() {
 
         /* 期待値の定義 */
         final boolean expected = false;
@@ -530,10 +530,10 @@ public class KmgStringTest {
     }
 
     /**
-     * isEmpty メソッドのテスト - 引数がnullの場合
+     * isEmpty メソッドのテスト - 異常系：nullの場合
      */
     @Test
-    public void testIsEmpty_null() {
+    public void testIsEmpty_errorNull() {
 
         /* 期待値の定義 */
         final boolean expected = true;
