@@ -550,10 +550,10 @@ public class KmgStringTest {
     }
 
     /**
-     * isNotEmpty メソッドのテスト - 引数が空文字の場合
+     * isNotEmpty メソッドのテスト - 準正常系：空文字の場合
      */
     @Test
-    public void testIsNotEmpty_emptyString() {
+    public void testIsNotEmpty_semiEmptyString() {
 
         /* 期待値の定義 */
         final boolean expected = false;
@@ -570,10 +570,10 @@ public class KmgStringTest {
     }
 
     /**
-     * isNotEmpty メソッドのテスト - 引数が文字列の場合
+     * isNotEmpty メソッドのテスト - 正常系：文字列が存在する場合
      */
     @Test
-    public void testIsNotEmpty_nonEmptyString() {
+    public void testIsNotEmpty_normalExistString() {
 
         /* 期待値の定義 */
         final boolean expected = true;
@@ -590,10 +590,10 @@ public class KmgStringTest {
     }
 
     /**
-     * isNotEmpty メソッドのテスト - 引数がnullの場合
+     * isNotEmpty メソッドのテスト - 異常系：nullの場合
      */
     @Test
-    public void testIsNotEmpty_null() {
+    public void testIsNotEmpty_errorNull() {
 
         /* 期待値の定義 */
         final boolean expected = false;
@@ -610,10 +610,10 @@ public class KmgStringTest {
     }
 
     /**
-     * replaceメソッドのテスト
+     * replace メソッドのテスト - 正常系：文字列の置換
      */
     @Test
-    public void testReplace() {
+    public void testReplace_normalReplacement() {
 
         /* 期待値の定義 */
         final String expected = "Hello World";
@@ -630,10 +630,10 @@ public class KmgStringTest {
     }
 
     /**
-     * shouldAddUnderscore メソッドのテスト - 文字列の最後の大文字の場合
+     * shouldAddUnderscore メソッドのテスト - 正常系：文字列の最後の大文字の場合
      */
     @Test
-    public void testShouldAddUnderscore_lastUpperCase() {
+    public void testShouldAddUnderscore_normalLastUpperCase() {
 
         /* 期待値の定義 */
         final String expected = "test_a";
@@ -650,10 +650,10 @@ public class KmgStringTest {
     }
 
     /**
-     * shouldAddUnderscore メソッドのテスト - 次の文字が小文字の場合
+     * shouldAddUnderscore メソッドのテスト - 正常系：次の文字が小文字の場合
      */
     @Test
-    public void testShouldAddUnderscore_nextCharLowerCase() {
+    public void testShouldAddUnderscore_normalNextCharLowerCase() {
 
         /* 期待値の定義 */
         final String expected = "test_abc";
@@ -670,10 +670,10 @@ public class KmgStringTest {
     }
 
     /**
-     * shouldAddUnderscore メソッドのテスト - 次の文字が大文字の場合
+     * shouldAddUnderscore メソッドのテスト - 正常系：次の文字が大文字の場合
      */
     @Test
-    public void testShouldAddUnderscore_nextCharUpperCase() {
+    public void testShouldAddUnderscore_normalNextCharUpperCase() {
 
         /* 期待値の定義 */
         final String expected = "test_abc";
