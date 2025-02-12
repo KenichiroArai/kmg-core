@@ -450,10 +450,10 @@ public class KmgStringTest {
     }
 
     /**
-     * インスタンスメソッドのisEmptyのテスト
+     * インスタンスメソッド - 正常系：isEmpty
      */
     @Test
-    public void testInstanceIsEmpty() {
+    public void testInstance_normalIsEmpty() {
 
         /* 期待値の定義 */
         final boolean expectedEmpty    = true;
@@ -470,10 +470,10 @@ public class KmgStringTest {
     }
 
     /**
-     * インスタンスメソッドのisNotEmptyのテスト
+     * インスタンスメソッド - 正常系：isNotEmpty
      */
     @Test
-    public void testInstanceIsNotEmpty() {
+    public void testInstance_normalIsNotEmpty() {
 
         /* 期待値の定義 */
         final boolean expectedEmpty    = false;
