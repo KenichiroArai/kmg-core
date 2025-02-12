@@ -690,10 +690,10 @@ public class KmgStringTest {
     }
 
     /**
-     * snakeCase メソッドのテスト - 既にスネークケース形式の場合
+     * snakeCase メソッドのテスト - 正常系：既にスネークケース形式の場合
      */
     @Test
-    public void testSnakeCase_alreadySnakeCase() {
+    public void testSnakeCase_normalAlreadySnakeCase() {
 
         /* 期待値の定義 */
         final String expected = "aaa_bbb_ccc";
@@ -710,10 +710,10 @@ public class KmgStringTest {
     }
 
     /**
-     * snakeCase メソッドのテスト - 連続する大文字の処理
+     * snakeCase メソッドのテスト - 正常系：連続する大文字の処理
      */
     @Test
-    public void testSnakeCase_consecutiveUpperCase() {
+    public void testSnakeCase_normalConsecutiveUpperCase() {
 
         /* 期待値の定義 */
         final String expected = "aaa_bbb_xml_http";
@@ -730,10 +730,10 @@ public class KmgStringTest {
     }
 
     /**
-     * snakeCase メソッドのテスト - 空文字の場合
+     * snakeCase メソッドのテスト - 異常系：空文字の場合
      */
     @Test
-    public void testSnakeCase_emptyString() {
+    public void testSnakeCase_errorEmptyString() {
 
         /* 期待値の定義 */
         final String expected = null;
@@ -750,10 +750,10 @@ public class KmgStringTest {
     }
 
     /**
-     * snakeCase メソッドのテスト - キャメルケースからスネークケースへの変換
+     * snakeCase メソッドのテスト - 正常系：キャメルケースからスネークケースへの変換
      */
     @Test
-    public void testSnakeCase_fromCamelCase() {
+    public void testSnakeCase_normalFromCamelCase() {
 
         /* 期待値の定義 */
         final String expected = "aaa_bbb_ccc";
@@ -770,10 +770,10 @@ public class KmgStringTest {
     }
 
     /**
-     * snakeCase メソッドのテスト - 最後の文字が大文字の場合
+     * snakeCase メソッドのテスト - 正常系：最後の文字が大文字の場合
      */
     @Test
-    public void testSnakeCase_lastCharUpperCase() {
+    public void testSnakeCase_normalLastCharUpperCase() {
 
         /* 期待値の定義 */
         final String expected = "aaa_bbb_c";
@@ -790,10 +790,10 @@ public class KmgStringTest {
     }
 
     /**
-     * snakeCase メソッドのテスト - 1文字の場合
+     * snakeCase メソッドのテスト - 準正常系：1文字の場合
      */
     @Test
-    public void testSnakeCase_singleChar() {
+    public void testSnakeCase_semiSingleChar() {
 
         /* 期待値の定義 */
         final String expected = "a";
@@ -810,10 +810,10 @@ public class KmgStringTest {
     }
 
     /**
-     * toCamelCaseメソッドのテスト
+     * toCamelCase メソッドのテスト - 正常系：スネークケースからキャメルケースへの変換
      */
     @Test
-    public void testToCamelCase() {
+    public void testToCamelCase_normalFromSnakeCase() {
 
         /* 期待値の定義 */
         final String expected = "aaaBbbCcc";
@@ -830,10 +830,10 @@ public class KmgStringTest {
     }
 
     /**
-     * toSnakeCaseメソッドのテスト
+     * toSnakeCase メソッドのテスト - 正常系：キャメルケースからスネークケースへの変換
      */
     @Test
-    public void testToSnakeCase() {
+    public void testToSnakeCase_normalFromCamelCase() {
 
         /* 期待値の定義 */
         final String expected = "aaa_bbb_ccc";
@@ -850,10 +850,10 @@ public class KmgStringTest {
     }
 
     /**
-     * toStringメソッドのテスト
+     * toString メソッドのテスト - 正常系：文字列表現の取得
      */
     @Test
-    public void testToString() {
+    public void testToString_normalGetString() {
 
         /* 期待値の定義 */
         final String expected = "test";
