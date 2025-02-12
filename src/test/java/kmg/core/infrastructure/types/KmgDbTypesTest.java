@@ -18,10 +18,10 @@ import org.junit.jupiter.api.Test;
 public class KmgDbTypesTest {
 
     /**
-     * get メソッドのテスト
+     * get メソッドのテスト - 正常系:基本的な値の取得
      */
     @Test
-    public void testGet() {
+    public void testGet_normalBasicValue() {
 
         /* 期待値の定義 */
         final String expected = "PostgreSQL";
@@ -38,10 +38,10 @@ public class KmgDbTypesTest {
     }
 
     /**
-     * getAliasArray メソッドのテスト
+     * getAliasArray メソッドのテスト - 正常系:別名配列の取得
      */
     @Test
-    public void testGetAliasArray() {
+    public void testGetAliasArray_normalBasicArray() {
 
         /* 期待値の定義 */
         final String[] expected = {
@@ -60,10 +60,10 @@ public class KmgDbTypesTest {
     }
 
     /**
-     * getDefault メソッドのテスト
+     * getDefault メソッドのテスト - 正常系:デフォルト値の取得
      */
     @Test
-    public void testGetDefault() {
+    public void testGetDefault_normalDefaultValue() {
 
         /* 期待値の定義 */
         final KmgDbTypes expected = KmgDbTypes.NONE;
@@ -77,10 +77,10 @@ public class KmgDbTypesTest {
     }
 
     /**
-     * getEnum メソッドのテスト - 存在する値の場合
+     * getEnum メソッドのテスト - 正常系:存在する値の取得
      */
     @Test
-    public void testGetEnum_existingValue() {
+    public void testGetEnum_normalExistingValue() {
 
         /* 期待値の定義 */
         final KmgDbTypes expected = KmgDbTypes.POSTGRE_SQL;
@@ -97,10 +97,10 @@ public class KmgDbTypesTest {
     }
 
     /**
-     * getEnum メソッドのテスト - 存在しない値の場合
+     * getEnum メソッドのテスト - 準正常系:存在しない値の取得
      */
     @Test
-    public void testGetEnum_nonExistingValue() {
+    public void testGetEnum_semiNonExistingValue() {
 
         /* 期待値の定義 */
         final KmgDbTypes expected = KmgDbTypes.NONE;
@@ -117,10 +117,10 @@ public class KmgDbTypesTest {
     }
 
     /**
-     * getEnumByTarget メソッドのテスト - 別名が一致しない場合
+     * getEnumByTarget メソッドのテスト - 準正常系:別名が一致しない場合の取得
      */
     @Test
-    public void testGetEnumByTarget_aliasNotMatch() {
+    public void testGetEnumByTarget_semiAliasNotMatch() {
 
         /* 期待値の定義 */
         final KmgDbTypes expected = KmgDbTypes.NONE;
@@ -137,10 +137,10 @@ public class KmgDbTypesTest {
     }
 
     /**
-     * getEnumByTarget メソッドのテスト - 別名で検索する場合
+     * getEnumByTarget メソッドのテスト - 正常系:別名による検索
      */
     @Test
-    public void testGetEnumByTarget_byAlias() {
+    public void testGetEnumByTarget_normalByAlias() {
 
         /* 期待値の定義 */
         final KmgDbTypes expected = KmgDbTypes.POSTGRE_SQL;
@@ -157,10 +157,10 @@ public class KmgDbTypesTest {
     }
 
     /**
-     * getEnumByTarget メソッドのテスト - 値で検索する場合
+     * getEnumByTarget メソッドのテスト - 正常系:値による検索
      */
     @Test
-    public void testGetEnumByTarget_byValue() {
+    public void testGetEnumByTarget_normalByValue() {
 
         /* 期待値の定義 */
         final KmgDbTypes expected = KmgDbTypes.POSTGRE_SQL;
@@ -177,10 +177,10 @@ public class KmgDbTypesTest {
     }
 
     /**
-     * getEnumByTarget メソッドのテスト - 大文字小文字を区別しない比較で一致する場合
+     * getEnumByTarget メソッドのテスト - 正常系:大文字小文字を区別しない比較
      */
     @Test
-    public void testGetEnumByTarget_caseInsensitive() {
+    public void testGetEnumByTarget_normalCaseInsensitive() {
 
         /* 期待値の定義 */
         final KmgDbTypes expected = KmgDbTypes.POSTGRE_SQL;
@@ -197,10 +197,10 @@ public class KmgDbTypesTest {
     }
 
     /**
-     * getEnumByTarget メソッドのテスト - 別名が存在しない場合
+     * getEnumByTarget メソッドのテスト - 正常系:別名が存在しない場合の検索
      */
     @Test
-    public void testGetEnumByTarget_noAlias() {
+    public void testGetEnumByTarget_normalNoAlias() {
 
         /* 期待値の定義 */
         final KmgDbTypes expected = KmgDbTypes.MYSQL;
@@ -217,10 +217,10 @@ public class KmgDbTypesTest {
     }
 
     /**
-     * getEnumByTarget メソッドのテスト - 存在しない対象の場合
+     * getEnumByTarget メソッドのテスト - 準正常系:存在しない対象の検索
      */
     @Test
-    public void testGetEnumByTarget_nonExistingTarget() {
+    public void testGetEnumByTarget_semiNonExistingTarget() {
 
         /* 期待値の定義 */
         final KmgDbTypes expected = KmgDbTypes.NONE;
@@ -237,10 +237,10 @@ public class KmgDbTypesTest {
     }
 
     /**
-     * getEnumByTarget メソッドのテスト - 値の大文字小文字を区別しない比較で一致する場合
+     * getEnumByTarget メソッドのテスト - 正常系:値の大文字小文字を区別しない比較
      */
     @Test
-    public void testGetEnumByTarget_valueIgnoreCase() {
+    public void testGetEnumByTarget_normalValueIgnoreCase() {
 
         /* 期待値の定義 */
         final KmgDbTypes expected = KmgDbTypes.POSTGRE_SQL;
@@ -257,10 +257,10 @@ public class KmgDbTypesTest {
     }
 
     /**
-     * getInitValue メソッドのテスト
+     * getInitValue メソッドのテスト - 正常系:初期値の取得
      */
     @Test
-    public void testGetInitValue() {
+    public void testGetInitValue_normalBasicValue() {
 
         /* 期待値の定義 */
         final KmgDbTypes expected = KmgDbTypes.NONE;
@@ -274,10 +274,10 @@ public class KmgDbTypesTest {
     }
 
     /**
-     * getName メソッドのテスト
+     * getName メソッドのテスト - 正常系:名前の取得
      */
     @Test
-    public void testGetName() {
+    public void testGetName_normalBasicName() {
 
         /* 期待値の定義 */
         final String expected = "PostgreSQL";
@@ -294,10 +294,10 @@ public class KmgDbTypesTest {
     }
 
     /**
-     * getValue メソッドのテスト
+     * getValue メソッドのテスト - 正常系:値の取得
      */
     @Test
-    public void testGetValue() {
+    public void testGetValue_normalBasicValue() {
 
         /* 期待値の定義 */
         final String expected = "PostgreSQL";
@@ -314,10 +314,10 @@ public class KmgDbTypesTest {
     }
 
     /**
-     * toString メソッドのテスト - MySQLの場合
+     * toString メソッドのテスト - 正常系:MySQLの文字列表現
      */
     @Test
-    public void testToString_mysql() {
+    public void testToString_normalMysql() {
 
         /* 期待値の定義 */
         final String expected = "MySQL";
@@ -334,10 +334,10 @@ public class KmgDbTypesTest {
     }
 
     /**
-     * toString メソッドのテスト - NONEの場合
+     * toString メソッドのテスト - 正常系:NONEの文字列表現
      */
     @Test
-    public void testToString_none() {
+    public void testToString_normalNone() {
 
         /* 期待値の定義 */
         final String expected = null;
@@ -354,10 +354,10 @@ public class KmgDbTypesTest {
     }
 
     /**
-     * toString メソッドのテスト - PostgreSQLの場合
+     * toString メソッドのテスト - 正常系:PostgreSQLの文字列表現
      */
     @Test
-    public void testToString_postgresql() {
+    public void testToString_normalPostgresql() {
 
         /* 期待値の定義 */
         final String expected = "PostgreSQL";

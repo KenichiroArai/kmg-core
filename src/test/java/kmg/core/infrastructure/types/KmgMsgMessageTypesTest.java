@@ -18,10 +18,10 @@ import org.junit.jupiter.api.Test;
 public class KmgMsgMessageTypesTest {
 
     /**
-     * get メソッドのテスト
+     * get メソッドのテスト - 正常系:基本的な値の取得
      */
     @Test
-    public void testGet() {
+    public void testGet_normalBasicValue() {
 
         /* 期待値の定義 */
         final String expected = "KMGMSGE11100";
@@ -38,10 +38,10 @@ public class KmgMsgMessageTypesTest {
     }
 
     /**
-     * getCode メソッドのテスト
+     * getCode メソッドのテスト - 正常系:コードの取得
      */
     @Test
-    public void testGetCode() {
+    public void testGetCode_normalBasicCode() {
 
         /* 期待値の定義 */
         final String expected = "KMGMSGE11100";
@@ -58,10 +58,10 @@ public class KmgMsgMessageTypesTest {
     }
 
     /**
-     * getDefault メソッドのテスト
+     * getDefault メソッドのテスト - 正常系:デフォルト値の取得
      */
     @Test
-    public void testGetDefault() {
+    public void testGetDefault_normalDefaultValue() {
 
         /* 期待値の定義 */
         final KmgMsgMessageTypes expected = KmgMsgMessageTypes.NONE;
@@ -75,10 +75,10 @@ public class KmgMsgMessageTypesTest {
     }
 
     /**
-     * getEnum メソッドのテスト - 存在する値の場合
+     * getEnum メソッドのテスト - 正常系:存在する値の取得
      */
     @Test
-    public void testGetEnum_existingValue() {
+    public void testGetEnum_normalExistingValue() {
 
         /* 期待値の定義 */
         final KmgMsgMessageTypes expected = KmgMsgMessageTypes.KMGMSGE11100;
@@ -95,10 +95,10 @@ public class KmgMsgMessageTypesTest {
     }
 
     /**
-     * getEnum メソッドのテスト - 存在しない値の場合
+     * getEnum メソッドのテスト - 準正常系:存在しない値の取得
      */
     @Test
-    public void testGetEnum_nonExistingValue() {
+    public void testGetEnum_semiNonExistingValue() {
 
         /* 期待値の定義 */
         final KmgMsgMessageTypes expected = KmgMsgMessageTypes.NONE;
@@ -115,10 +115,10 @@ public class KmgMsgMessageTypesTest {
     }
 
     /**
-     * getInitValue メソッドのテスト
+     * getInitValue メソッドのテスト - 正常系:初期値の取得
      */
     @Test
-    public void testGetInitValue() {
+    public void testGetInitValue_normalInitialValue() {
 
         /* 期待値の定義 */
         final KmgMsgMessageTypes expected = KmgMsgMessageTypes.NONE;
@@ -132,10 +132,10 @@ public class KmgMsgMessageTypesTest {
     }
 
     /**
-     * getName メソッドのテスト
+     * getName メソッドのテスト - 正常系:名前の取得
      */
     @Test
-    public void testGetName() {
+    public void testGetName_normalBasicName() {
 
         /* 期待値の定義 */
         final String expected = "{0}がありません。";
@@ -152,10 +152,10 @@ public class KmgMsgMessageTypesTest {
     }
 
     /**
-     * getValue メソッドのテスト
+     * getValue メソッドのテスト - 正常系:値の取得
      */
     @Test
-    public void testGetValue() {
+    public void testGetValue_normalBasicValue() {
 
         /* 期待値の定義 */
         final String expected = "KMGMSGE11100";
@@ -172,10 +172,10 @@ public class KmgMsgMessageTypesTest {
     }
 
     /**
-     * toString メソッドのテスト - KMGMSGE11100の場合
+     * toString メソッドのテスト - 正常系:KMGMSGE11100の文字列表現
      */
     @Test
-    public void testToString_kmgmsge11100() {
+    public void testToString_normalKmgmsge11100() {
 
         /* 期待値の定義 */
         final String expected = "KMGMSGE11100";
@@ -192,10 +192,10 @@ public class KmgMsgMessageTypesTest {
     }
 
     /**
-     * toString メソッドのテスト - NONEの場合
+     * toString メソッドのテスト - 正常系:NONEの文字列表現
      */
     @Test
-    public void testToString_none() {
+    public void testToString_normalNone() {
 
         /* 期待値の定義 */
         final String expected = null;
