@@ -249,13 +249,13 @@ public class KmgPathUtilsTest extends AbstractKmgTest {
     }
 
     /**
-     * getClassFullPath メソッドのテスト - ビルドパスがnullの場合
+     * getClassFullPath メソッドのテスト - 正常系：ビルドパスがnullの場合
      *
      * @throws KmgDomainException
      *                            KMGドメイン例外
      */
     @Test
-    public void testGetClassFullPath_nullBinPath() throws KmgDomainException {
+    public void testGetClassFullPath_normalNullBinPath() throws KmgDomainException {
 
         /* 期待値の定義 */
         final Path expected = Paths.get("/kmg/core/infrastructure/utils/test_class/test.txt");
