@@ -25,10 +25,10 @@ import kmg.core.infrastructure.type.KmgString;
 public class KmgDbDataTypeTypesTest {
 
     /**
-     * get メソッドのテスト
+     * get メソッドのテスト - 正常系：値の取得
      */
     @Test
-    public void testGet() {
+    public void testGet_normalValue() {
 
         /* 期待値の定義 */
         final String expected = "4バイト整数";
@@ -45,10 +45,10 @@ public class KmgDbDataTypeTypesTest {
     }
 
     /**
-     * getEnum メソッドのテスト - 存在する値の場合
+     * getEnum メソッドのテスト - 正常系：存在する値の取得
      */
     @Test
-    public void testGetEnum_existingValue() {
+    public void testGetEnum_normalExistingValue() {
 
         /* 期待値の定義 */
         final KmgDbDataTypeTypes expected = KmgDbDataTypeTypes.INTEGER;
@@ -65,10 +65,10 @@ public class KmgDbDataTypeTypesTest {
     }
 
     /**
-     * getName メソッドのテスト
+     * getName メソッドのテスト - 正常系：名称の取得
      */
     @Test
-    public void testGetName() {
+    public void testGetName_normalValue() {
 
         /* 期待値の定義 */
         final String expected = "4バイト整数";
@@ -85,10 +85,10 @@ public class KmgDbDataTypeTypesTest {
     }
 
     /**
-     * getType メソッドのテスト - BigDecimal型の場合
+     * getType メソッドのテスト - 正常系：BigDecimal型の取得
      */
     @Test
-    public void testGetType_bigDecimal() {
+    public void testGetType_normalBigDecimal() {
 
         /* 期待値の定義 */
         final Type expected = BigDecimal.class;
@@ -105,10 +105,10 @@ public class KmgDbDataTypeTypesTest {
     }
 
     /**
-     * getType メソッドのテスト - LocalDate型の場合
+     * getType メソッドのテスト - 正常系：LocalDate型の取得
      */
     @Test
-    public void testGetType_date() {
+    public void testGetType_normalDate() {
 
         /* 期待値の定義 */
         final Type expected = LocalDate.class;
@@ -125,10 +125,10 @@ public class KmgDbDataTypeTypesTest {
     }
 
     /**
-     * getType メソッドのテスト - Integer型の場合
+     * getType メソッドのテスト - 正常系：Integer型の取得
      */
     @Test
-    public void testGetType_integer() {
+    public void testGetType_normalInteger() {
 
         /* 期待値の定義 */
         final Type expected = Integer.class;
@@ -145,10 +145,10 @@ public class KmgDbDataTypeTypesTest {
     }
 
     /**
-     * getType メソッドのテスト - LocalDateTime型の場合
+     * getType メソッドのテスト - 正常系：LocalDateTime型の取得
      */
     @Test
-    public void testGetType_time() {
+    public void testGetType_normalTime() {
 
         /* 期待値の定義 */
         final Type expected = LocalDateTime.class;
@@ -165,10 +165,10 @@ public class KmgDbDataTypeTypesTest {
     }
 
     /**
-     * getValue メソッドのテスト
+     * getValue メソッドのテスト - 正常系：値の取得
      */
     @Test
-    public void testGetValue() {
+    public void testGetValue_normalValue() {
 
         /* 期待値の定義 */
         final String expected = "4バイト整数";
@@ -185,10 +185,10 @@ public class KmgDbDataTypeTypesTest {
     }
 
     /**
-     * toString メソッドのテスト - INTEGERの場合
+     * toString メソッドのテスト - 正常系：INTEGER型の文字列表現の取得
      */
     @Test
-    public void testToString_integer() {
+    public void testToString_normalInteger() {
 
         /* 期待値の定義 */
         final String expected = "4バイト整数";
@@ -205,10 +205,10 @@ public class KmgDbDataTypeTypesTest {
     }
 
     /**
-     * toString メソッドのテスト - LONGの場合
+     * toString メソッドのテスト - 正常系：LONG型の文字列表現の取得
      */
     @Test
-    public void testToString_long() {
+    public void testToString_normalLong() {
 
         /* 期待値の定義 */
         final String expected = "8バイト整数";
@@ -225,10 +225,10 @@ public class KmgDbDataTypeTypesTest {
     }
 
     /**
-     * toString メソッドのテスト - NONEの場合
+     * toString メソッドのテスト - 正常系：NONE型の文字列表現の取得
      */
     @Test
-    public void testToString_none() {
+    public void testToString_normalNone() {
 
         /* 期待値の定義 */
         final String expected = KmgString.EMPTY;
