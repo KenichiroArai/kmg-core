@@ -14,15 +14,16 @@ import org.junit.jupiter.api.Test;
  *
  * @version 1.0.0
  */
-@SuppressWarnings("nls")
+@SuppressWarnings({
+    "nls", "static-method"
+})
 public class KmgDecimalTest {
 
     /**
-     * CALC_ZERO定数のテスト - 計算用ゼロ値の確認
+     * CALC_ZERO定数のテスト - 正常系：計算用ゼロ値の確認
      */
     @Test
-    @SuppressWarnings("static-method")
-    public void testCalcZero() {
+    public void testCalcZero_normalZeroValue() {
 
         /* 期待値の定義 */
         final BigDecimal expectedValue = new BigDecimal("0.000000000000000");
@@ -33,11 +34,10 @@ public class KmgDecimalTest {
     }
 
     /**
-     * コンストラクタのテスト - BigDecimal値で初期化する場合
+     * コンストラクタのテスト - 正常系：BigDecimal値で初期化する場合
      */
     @Test
-    @SuppressWarnings("static-method")
-    public void testConstructor_bigDecimalValue() {
+    public void testConstructor_normalBigDecimalValue() {
 
         /* 期待値の定義 */
         final BigDecimal expectedValue = new BigDecimal("1.234567890123457");
@@ -57,11 +57,28 @@ public class KmgDecimalTest {
     }
 
     /**
-     * コンストラクタのテスト - double値で初期化する場合
+     * コンストラクタのテスト - 準正常系：BigDecimal値がnullの場合
      */
     @Test
-    @SuppressWarnings("static-method")
-    public void testConstructor_doubleValue() {
+    public void testConstructor_semiNullBigDecimalValue() {
+
+        /* 期待値の定義 */
+        final Class<NullPointerException> expectedExceptionClass = NullPointerException.class;
+
+        /* 準備 */
+        final BigDecimal testValue = null;
+
+        /* 検証の実施 */
+        Assertions.assertThrows(expectedExceptionClass, () -> new KmgDecimal(testValue),
+            "null値でNullPointerExceptionが発生しませんでした");
+
+    }
+
+    /**
+     * コンストラクタのテスト - 正常系：double値で初期化する場合
+     */
+    @Test
+    public void testConstructor_normalDoubleValue() {
 
         /* 期待値の定義 */
         final BigDecimal expectedValue = new BigDecimal("1.234567890123457");
@@ -81,10 +98,9 @@ public class KmgDecimalTest {
     }
 
     /**
-     * divide メソッドのテスト - 通常の除算の場合
+     * divide メソッドのテスト - 正常系：通常の除算の場合
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testDivide_normalDivision() {
 
         /* 期待値の定義 */
@@ -103,11 +119,48 @@ public class KmgDecimalTest {
     }
 
     /**
-     * RESULT_ZERO定数のテスト - 結果用ゼロ値の確認
+     * divide メソッドのテスト - 準正常系：ゼロ除算の場合
      */
     @Test
-    @SuppressWarnings("static-method")
-    public void testResultZero() {
+    public void testDivide_semiZeroDivision() {
+
+        /* 期待値の定義 */
+        final Class<ArithmeticException> expectedExceptionClass = ArithmeticException.class;
+
+        /* 準備 */
+        final BigDecimal testNum1 = new BigDecimal("10");
+        final BigDecimal testNum2 = BigDecimal.ZERO;
+
+        /* 検証の実施 */
+        Assertions.assertThrows(expectedExceptionClass, () -> KmgDecimal.divide(testNum1, testNum2),
+            "ゼロ除算でArithmeticExceptionが発生しませんでした");
+
+    }
+
+    /**
+     * divide メソッドのテスト - 準正常系：引数がnullの場合
+     */
+    @Test
+    public void testDivide_semiNullArguments() {
+
+        /* 期待値の定義 */
+        final Class<NullPointerException> expectedExceptionClass = NullPointerException.class;
+
+        /* 準備 */
+        final BigDecimal testNum1 = null;
+        final BigDecimal testNum2 = new BigDecimal("5");
+
+        /* 検証の実施 */
+        Assertions.assertThrows(expectedExceptionClass, () -> KmgDecimal.divide(testNum1, testNum2),
+            "null値でNullPointerExceptionが発生しませんでした");
+
+    }
+
+    /**
+     * RESULT_ZERO定数のテスト - 正常系：結果用ゼロ値の確認
+     */
+    @Test
+    public void testResultZero_normalZeroValue() {
 
         /* 期待値の定義 */
         final BigDecimal expectedValue = new BigDecimal("0.000");
@@ -118,11 +171,10 @@ public class KmgDecimalTest {
     }
 
     /**
-     * setCalcScale メソッドのテスト - BigDecimalの値で計算用スケールを設定する場合
+     * setCalcScale メソッドのテスト - 正常系：BigDecimalの値で計算用スケールを設定する場合
      */
     @Test
-    @SuppressWarnings("static-method")
-    public void testSetCalcScale_bigDecimalValue() {
+    public void testSetCalcScale_normalBigDecimalValue() {
 
         /* 期待値の定義 */
         final BigDecimal expectedValue = new BigDecimal("1.234567890123457");
@@ -139,11 +191,28 @@ public class KmgDecimalTest {
     }
 
     /**
-     * setCalcScale メソッドのテスト - double値で計算用スケールを設定する場合
+     * setCalcScale メソッドのテスト - 準正常系：BigDecimalの値がnullの場合
      */
     @Test
-    @SuppressWarnings("static-method")
-    public void testSetCalcScale_doubleValue() {
+    public void testSetCalcScale_semiNullBigDecimalValue() {
+
+        /* 期待値の定義 */
+        final Class<NullPointerException> expectedExceptionClass = NullPointerException.class;
+
+        /* 準備 */
+        final BigDecimal testValue = null;
+
+        /* 検証の実施 */
+        Assertions.assertThrows(expectedExceptionClass, () -> KmgDecimal.setCalcScale(testValue),
+            "null値でNullPointerExceptionが発生しませんでした");
+
+    }
+
+    /**
+     * setCalcScale メソッドのテスト - 正常系：double値で計算用スケールを設定する場合
+     */
+    @Test
+    public void testSetCalcScale_normalDoubleValue() {
 
         /* 期待値の定義 */
         final BigDecimal expectedValue = new BigDecimal("1.234567890123457");
@@ -160,11 +229,10 @@ public class KmgDecimalTest {
     }
 
     /**
-     * setResultScale メソッドのテスト - BigDecimalの値で結果用スケールを設定する場合
+     * setResultScale メソッドのテスト - 正常系：BigDecimalの値で結果用スケールを設定する場合
      */
     @Test
-    @SuppressWarnings("static-method")
-    public void testSetResultScale_bigDecimalValue() {
+    public void testSetResultScale_normalBigDecimalValue() {
 
         /* 期待値の定義 */
         final BigDecimal expectedValue = new BigDecimal("1.235");
@@ -181,11 +249,28 @@ public class KmgDecimalTest {
     }
 
     /**
-     * setResultScale メソッドのテスト - double値で結果用スケールを設定する場合
+     * setResultScale メソッドのテスト - 準正常系：BigDecimalの値がnullの場合
      */
     @Test
-    @SuppressWarnings("static-method")
-    public void testSetResultScale_doubleValue() {
+    public void testSetResultScale_semiNullBigDecimalValue() {
+
+        /* 期待値の定義 */
+        final Class<NullPointerException> expectedExceptionClass = NullPointerException.class;
+
+        /* 準備 */
+        final BigDecimal testValue = null;
+
+        /* 検証の実施 */
+        Assertions.assertThrows(expectedExceptionClass, () -> KmgDecimal.setResultScale(testValue),
+            "null値でNullPointerExceptionが発生しませんでした");
+
+    }
+
+    /**
+     * setResultScale メソッドのテスト - 正常系：double値で結果用スケールを設定する場合
+     */
+    @Test
+    public void testSetResultScale_normalDoubleValue() {
 
         /* 期待値の定義 */
         final BigDecimal expectedValue = new BigDecimal("1.235");
