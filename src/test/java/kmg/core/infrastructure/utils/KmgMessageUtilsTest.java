@@ -16,7 +16,9 @@ import kmg.core.infrastructure.types.KmgMsgMessageTypes;
  *
  * @version 1.0.0
  */
-@SuppressWarnings("nls")
+@SuppressWarnings({
+    "nls", "static-method"
+})
 public class KmgMessageUtilsTest {
 
     /**

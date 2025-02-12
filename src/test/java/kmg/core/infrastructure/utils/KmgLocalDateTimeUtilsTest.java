@@ -17,7 +17,9 @@ import org.junit.jupiter.api.Test;
  *
  * @version 1.0.0
  */
-@SuppressWarnings("nls")
+@SuppressWarnings({
+    "nls", "static-method"
+})
 public class KmgLocalDateTimeUtilsTest {
 
     /**
