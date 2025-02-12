@@ -152,31 +152,6 @@ public class KmgMessageUtilsTest {
     }
 
     /**
-     * getMessage メソッドのテスト - 正常系：引数に空文字列を含む場合
-     */
-    @Test
-    public void testGetMessage_emptyStringArg() {
-
-        /* 期待値の定義 */
-        final String expectedMessage = "がありません。";
-
-        /* 準備 */
-        final Object[] testArgs = {
-            ""
-        };
-
-        /* テスト対象の実行 */
-        final String testResult = KmgMessageUtils.getMessage(KmgMsgMessageTypes.KMGMSGE11100, testArgs);
-
-        /* 検証の準備 */
-        final String actualMessage = testResult;
-
-        /* 検証の実施 */
-        Assertions.assertEquals(expectedMessage, actualMessage, "空文字列を含むメッセージが正しく生成されていません");
-
-    }
-
-    /**
      * getMessage メソッドのテスト - 異常系:messageArgsがnullの場合
      */
     @Test
@@ -422,6 +397,31 @@ public class KmgMessageUtilsTest {
     }
 
     /**
+     * getMessage メソッドのテスト - 正常系:引数に空文字列を含む場合
+     */
+    @Test
+    public void testGetMessage_normalEmptyStringArg() {
+
+        /* 期待値の定義 */
+        final String expectedMessage = "がありません。";
+
+        /* 準備 */
+        final Object[] testArgs = {
+            ""
+        };
+
+        /* テスト対象の実行 */
+        final String testResult = KmgMessageUtils.getMessage(KmgMsgMessageTypes.KMGMSGE11100, testArgs);
+
+        /* 検証の準備 */
+        final String actualMessage = testResult;
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expectedMessage, actualMessage, "空文字列を含むメッセージが正しく生成されていません");
+
+    }
+
+    /**
      * getMessage メソッドのテスト - 正常系:メッセージフォーマット成功の場合
      */
     @Test
@@ -472,6 +472,31 @@ public class KmgMessageUtilsTest {
     }
 
     /**
+     * getMessage メソッドのテスト - 正常系:引数にnullを含む場合
+     */
+    @Test
+    public void testGetMessage_normalNullArg() {
+
+        /* 期待値の定義 */
+        final String expectedMessage = "nullがありません。";
+
+        /* 準備 */
+        final Object[] testArgs = {
+            null
+        };
+
+        /* テスト対象の実行 */
+        final String testResult = KmgMessageUtils.getMessage(KmgMsgMessageTypes.KMGMSGE11100, testArgs);
+
+        /* 検証の準備 */
+        final String actualMessage = testResult;
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expectedMessage, actualMessage, "null値を含むメッセージが正しく生成されていません");
+
+    }
+
+    /**
      * getMessage メソッドのテスト - 正常系:特殊文字を含む場合
      */
     @Test
@@ -493,31 +518,6 @@ public class KmgMessageUtilsTest {
 
         /* 検証の実施 */
         Assertions.assertEquals(expectedMessage, actualMessage, "特殊文字を含むメッセージが正しく生成されていません");
-
-    }
-
-    /**
-     * getMessage メソッドのテスト - 正常系：引数にnullを含む場合
-     */
-    @Test
-    public void testGetMessage_nullArg() {
-
-        /* 期待値の定義 */
-        final String expectedMessage = "nullがありません。";
-
-        /* 準備 */
-        final Object[] testArgs = {
-            null
-        };
-
-        /* テスト対象の実行 */
-        final String testResult = KmgMessageUtils.getMessage(KmgMsgMessageTypes.KMGMSGE11100, testArgs);
-
-        /* 検証の準備 */
-        final String actualMessage = testResult;
-
-        /* 検証の実施 */
-        Assertions.assertEquals(expectedMessage, actualMessage, "null値を含むメッセージが正しく生成されていません");
 
     }
 
