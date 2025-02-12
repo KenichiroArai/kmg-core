@@ -3,20 +3,21 @@
 ## コア技術
 
 - Java: 21
-- Spring Boot: 3.4.2
-- JUnit Jupiter: (Spring Boot依存バージョン)
+- Apache POI: 5.2.5
+- JUnit Jupiter: 5.10.2
 - Mockito: 5.11.0
 
 ## 開発ツール
 
-- Maven: 3.9.x
-- Eclipse: 2024-03
+- Maven: 3.12.1（コンパイラプラグイン）
 - JaCoCo: 0.8.11
+- Maven Surefire Plugin: 3.2.5
 
 ## プロジェクト設定
 
 - Java Compiler: Java 21
 - Source Encoding: UTF-8
+- JavaFX: 21.0.2
 
 ---
 
@@ -59,6 +60,12 @@ kmg-core-src/
 - インフラストラクチャクラス → `src/main/java/kmg/core/infrastructure/`
 - プレゼンテーションクラス → `src/main/java/kmg/core/presentation/`
 - テストクラス → 対応する実装クラスと同じパッケージ構成
+
+### テスト要件
+
+- JUnitテストレポートの生成
+- カバレッジレポートの生成（JaCoCo）
+- メソッドの複雑度は15以下に制限
 
 ---
 
