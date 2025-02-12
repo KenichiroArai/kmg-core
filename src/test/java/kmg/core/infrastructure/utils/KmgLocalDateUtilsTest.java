@@ -144,26 +144,6 @@ public class KmgLocalDateUtilsTest {
     }
 
     /**
-     * parseYyyyMmDd メソッドのテスト - 準正常系:空文字の場合
-     */
-    @Test
-    public void testParseYyyyMmDd_semiEmpty() {
-
-        /* 期待値の定義 */
-        final LocalDate expected = null;
-
-        /* 準備 */
-        final String testTarget = "";
-
-        /* テスト対象の実行 */
-        final LocalDate actual = KmgLocalDateUtils.parseYyyyMmDd(testTarget);
-
-        /* 検証の実施 */
-        Assertions.assertEquals(expected, actual, "空文字の場合はnullを返すべき");
-
-    }
-
-    /**
      * parseYyyyMmDd メソッドのテスト - 異常系:nullの場合
      */
     @Test
@@ -200,6 +180,26 @@ public class KmgLocalDateUtilsTest {
 
         /* 検証の実施 */
         Assertions.assertEquals(expected, actual, "正しい日付が返されるべき");
+
+    }
+
+    /**
+     * parseYyyyMmDd メソッドのテスト - 準正常系:空文字の場合
+     */
+    @Test
+    public void testParseYyyyMmDd_semiEmpty() {
+
+        /* 期待値の定義 */
+        final LocalDate expected = null;
+
+        /* 準備 */
+        final String testTarget = "";
+
+        /* テスト対象の実行 */
+        final LocalDate actual = KmgLocalDateUtils.parseYyyyMmDd(testTarget);
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "空文字の場合はnullを返すべき");
 
     }
 }

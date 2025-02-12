@@ -22,22 +22,22 @@ import org.junit.jupiter.api.Test;
 public class KmgListUtilsTest {
 
     /**
-     * isEmpty メソッドのテスト - 準正常系:空リストの場合
+     * isEmpty メソッドのテスト - 異常系:nullの場合
      */
     @Test
-    public void testIsEmpty_semiEmptyList() {
+    public void testIsEmpty_errorNull() {
 
         /* 期待値の定義 */
         final boolean expected = true;
 
         /* 準備 */
-        final List<?> testTarget = new ArrayList<>();
+        final List<?> testTarget = null;
 
         /* テスト対象の実行 */
         final boolean actual = KmgListUtils.isEmpty(testTarget);
 
         /* 検証の実施 */
-        Assertions.assertEquals(expected, actual, "空リストの場合はtrueを返すべき");
+        Assertions.assertEquals(expected, actual, "nullの場合はtrueを返すべき");
 
     }
 
@@ -62,42 +62,42 @@ public class KmgListUtilsTest {
     }
 
     /**
-     * isEmpty メソッドのテスト - 異常系:nullの場合
+     * isEmpty メソッドのテスト - 準正常系:空リストの場合
      */
     @Test
-    public void testIsEmpty_errorNull() {
+    public void testIsEmpty_semiEmptyList() {
 
         /* 期待値の定義 */
         final boolean expected = true;
 
         /* 準備 */
-        final List<?> testTarget = null;
+        final List<?> testTarget = new ArrayList<>();
 
         /* テスト対象の実行 */
         final boolean actual = KmgListUtils.isEmpty(testTarget);
 
         /* 検証の実施 */
-        Assertions.assertEquals(expected, actual, "nullの場合はtrueを返すべき");
+        Assertions.assertEquals(expected, actual, "空リストの場合はtrueを返すべき");
 
     }
 
     /**
-     * isNotEmpty メソッドのテスト - 準正常系:空リストの場合
+     * isNotEmpty メソッドのテスト - 異常系:nullの場合
      */
     @Test
-    public void testIsNotEmpty_semiEmptyList() {
+    public void testIsNotEmpty_errorNull() {
 
         /* 期待値の定義 */
         final boolean expected = false;
 
         /* 準備 */
-        final List<?> testTarget = new ArrayList<>();
+        final List<?> testTarget = null;
 
         /* テスト対象の実行 */
         final boolean actual = KmgListUtils.isNotEmpty(testTarget);
 
         /* 検証の実施 */
-        Assertions.assertEquals(expected, actual, "空リストの場合はfalseを返すべき");
+        Assertions.assertEquals(expected, actual, "nullの場合はfalseを返すべき");
 
     }
 
@@ -122,22 +122,22 @@ public class KmgListUtilsTest {
     }
 
     /**
-     * isNotEmpty メソッドのテスト - 異常系:nullの場合
+     * isNotEmpty メソッドのテスト - 準正常系:空リストの場合
      */
     @Test
-    public void testIsNotEmpty_errorNull() {
+    public void testIsNotEmpty_semiEmptyList() {
 
         /* 期待値の定義 */
         final boolean expected = false;
 
         /* 準備 */
-        final List<?> testTarget = null;
+        final List<?> testTarget = new ArrayList<>();
 
         /* テスト対象の実行 */
         final boolean actual = KmgListUtils.isNotEmpty(testTarget);
 
         /* 検証の実施 */
-        Assertions.assertEquals(expected, actual, "nullの場合はfalseを返すべき");
+        Assertions.assertEquals(expected, actual, "空リストの場合はfalseを返すべき");
 
     }
 }

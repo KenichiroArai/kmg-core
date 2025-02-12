@@ -18,22 +18,22 @@ import org.junit.jupiter.api.Test;
 public class KmgArrayUtilsTest {
 
     /**
-     * isEmpty メソッドのテスト - 準正常系:空配列の場合
+     * isEmpty メソッドのテスト - 異常系:nullの場合
      */
     @Test
-    public void testIsEmpty_semiEmptyArray() {
+    public void testIsEmpty_errorNull() {
 
         /* 期待値の定義 */
         final boolean expected = true;
 
         /* 準備 */
-        final Object[] testTarget = {};
+        final Object[] testTarget = null;
 
         /* テスト対象の実行 */
         final boolean actual = KmgArrayUtils.isEmpty(testTarget);
 
         /* 検証の実施 */
-        Assertions.assertEquals(expected, actual, "空配列の場合はtrueを返すべき");
+        Assertions.assertEquals(expected, actual, "nullの場合はtrueを返すべき");
 
     }
 
@@ -60,42 +60,42 @@ public class KmgArrayUtilsTest {
     }
 
     /**
-     * isEmpty メソッドのテスト - 異常系:nullの場合
+     * isEmpty メソッドのテスト - 準正常系:空配列の場合
      */
     @Test
-    public void testIsEmpty_errorNull() {
+    public void testIsEmpty_semiEmptyArray() {
 
         /* 期待値の定義 */
         final boolean expected = true;
 
         /* 準備 */
-        final Object[] testTarget = null;
+        final Object[] testTarget = {};
 
         /* テスト対象の実行 */
         final boolean actual = KmgArrayUtils.isEmpty(testTarget);
 
         /* 検証の実施 */
-        Assertions.assertEquals(expected, actual, "nullの場合はtrueを返すべき");
+        Assertions.assertEquals(expected, actual, "空配列の場合はtrueを返すべき");
 
     }
 
     /**
-     * isNotEmpty メソッドのテスト - 準正常系:空配列の場合
+     * isNotEmpty メソッドのテスト - 異常系:nullの場合
      */
     @Test
-    public void testIsNotEmpty_semiEmptyArray() {
+    public void testIsNotEmpty_errorNull() {
 
         /* 期待値の定義 */
         final boolean expected = false;
 
         /* 準備 */
-        final Object[] testTarget = {};
+        final Object[] testTarget = null;
 
         /* テスト対象の実行 */
         final boolean actual = KmgArrayUtils.isNotEmpty(testTarget);
 
         /* 検証の実施 */
-        Assertions.assertEquals(expected, actual, "空配列の場合はfalseを返すべき");
+        Assertions.assertEquals(expected, actual, "nullの場合はfalseを返すべき");
 
     }
 
@@ -122,22 +122,22 @@ public class KmgArrayUtilsTest {
     }
 
     /**
-     * isNotEmpty メソッドのテスト - 異常系:nullの場合
+     * isNotEmpty メソッドのテスト - 準正常系:空配列の場合
      */
     @Test
-    public void testIsNotEmpty_errorNull() {
+    public void testIsNotEmpty_semiEmptyArray() {
 
         /* 期待値の定義 */
         final boolean expected = false;
 
         /* 準備 */
-        final Object[] testTarget = null;
+        final Object[] testTarget = {};
 
         /* テスト対象の実行 */
         final boolean actual = KmgArrayUtils.isNotEmpty(testTarget);
 
         /* 検証の実施 */
-        Assertions.assertEquals(expected, actual, "nullの場合はfalseを返すべき");
+        Assertions.assertEquals(expected, actual, "空配列の場合はfalseを返すべき");
 
     }
 }
