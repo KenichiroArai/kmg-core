@@ -117,26 +117,6 @@ public class KmgDbTypesTest {
     }
 
     /**
-     * getEnumByTarget メソッドのテスト - 準正常系:別名が一致しない場合の取得
-     */
-    @Test
-    public void testGetEnumByTarget_semiAliasNotMatch() {
-
-        /* 期待値の定義 */
-        final KmgDbTypes expected = KmgDbTypes.NONE;
-
-        /* 準備 */
-        final String testTarget = "NotMatchingAlias";
-
-        /* テスト対象の実行 */
-        final KmgDbTypes actual = KmgDbTypes.getEnumByTarget(testTarget);
-
-        /* 検証の実施 */
-        Assertions.assertEquals(expected, actual, "別名が一致しない場合の検索結果が一致しません");
-
-    }
-
-    /**
      * getEnumByTarget メソッドのテスト - 正常系:別名による検索
      */
     @Test
@@ -217,26 +197,6 @@ public class KmgDbTypesTest {
     }
 
     /**
-     * getEnumByTarget メソッドのテスト - 準正常系:存在しない対象の検索
-     */
-    @Test
-    public void testGetEnumByTarget_semiNonExistingTarget() {
-
-        /* 期待値の定義 */
-        final KmgDbTypes expected = KmgDbTypes.NONE;
-
-        /* 準備 */
-        final String testTarget = "NonExistingDB";
-
-        /* テスト対象の実行 */
-        final KmgDbTypes actual = KmgDbTypes.getEnumByTarget(testTarget);
-
-        /* 検証の実施 */
-        Assertions.assertEquals(expected, actual, "存在しない対象の場合の検索結果が一致しません");
-
-    }
-
-    /**
      * getEnumByTarget メソッドのテスト - 正常系:値の大文字小文字を区別しない比較
      */
     @Test
@@ -253,6 +213,46 @@ public class KmgDbTypesTest {
 
         /* 検証の実施 */
         Assertions.assertEquals(expected, actual, "値の大文字小文字を区別しない比較での検索結果が一致しません");
+
+    }
+
+    /**
+     * getEnumByTarget メソッドのテスト - 準正常系:別名が一致しない場合の取得
+     */
+    @Test
+    public void testGetEnumByTarget_semiAliasNotMatch() {
+
+        /* 期待値の定義 */
+        final KmgDbTypes expected = KmgDbTypes.NONE;
+
+        /* 準備 */
+        final String testTarget = "NotMatchingAlias";
+
+        /* テスト対象の実行 */
+        final KmgDbTypes actual = KmgDbTypes.getEnumByTarget(testTarget);
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "別名が一致しない場合の検索結果が一致しません");
+
+    }
+
+    /**
+     * getEnumByTarget メソッドのテスト - 準正常系:存在しない対象の検索
+     */
+    @Test
+    public void testGetEnumByTarget_semiNonExistingTarget() {
+
+        /* 期待値の定義 */
+        final KmgDbTypes expected = KmgDbTypes.NONE;
+
+        /* 準備 */
+        final String testTarget = "NonExistingDB";
+
+        /* テスト対象の実行 */
+        final KmgDbTypes actual = KmgDbTypes.getEnumByTarget(testTarget);
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "存在しない対象の場合の検索結果が一致しません");
 
     }
 
