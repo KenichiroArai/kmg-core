@@ -18,26 +18,6 @@ import org.junit.jupiter.api.Test;
 public class KmgStringTest {
 
     /**
-     * camelCase メソッドのテスト - 正常系：スネークケースからキャメルケースへの変換
-     */
-    @Test
-    public void testCamelCase_normalFromSnakeCase() {
-
-        /* 期待値の定義 */
-        final String expected = "aaaBbbCcc";
-
-        /* 準備 */
-        final String target = "aaa_bbb_ccc";
-
-        /* テスト対象の実行 */
-        final String actual = KmgString.camelCase(target);
-
-        /* 検証の実施 */
-        Assertions.assertEquals(expected, actual, "スネークケースからキャメルケースへの変換が正しくないです");
-
-    }
-
-    /**
      * camelCase メソッドのテスト - 異常系：引数がnullの場合
      */
     @Test
@@ -54,6 +34,26 @@ public class KmgStringTest {
 
         /* 検証の実施 */
         Assertions.assertEquals(expected, actual, "nullの場合、nullを返すべき");
+
+    }
+
+    /**
+     * camelCase メソッドのテスト - 正常系：スネークケースからキャメルケースへの変換
+     */
+    @Test
+    public void testCamelCase_normalFromSnakeCase() {
+
+        /* 期待値の定義 */
+        final String expected = "aaaBbbCcc";
+
+        /* 準備 */
+        final String target = "aaa_bbb_ccc";
+
+        /* テスト対象の実行 */
+        final String actual = KmgString.camelCase(target);
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "スネークケースからキャメルケースへの変換が正しくないです");
 
     }
 
@@ -98,26 +98,6 @@ public class KmgStringTest {
     }
 
     /**
-     * capitalize メソッドのテスト - 準正常系：空文字の場合
-     */
-    @Test
-    public void testCapitalize_semiEmptyString() {
-
-        /* 期待値の定義 */
-        final String expected = "";
-
-        /* 準備 */
-        final String target = "";
-
-        /* テスト対象の実行 */
-        final String actual = KmgString.capitalize(target);
-
-        /* 検証の実施 */
-        Assertions.assertEquals(expected, actual, "空文字の場合、空文字を返すべき");
-
-    }
-
-    /**
      * capitalize メソッドのテスト - 正常系：通常の文字列の場合
      */
     @Test
@@ -138,22 +118,22 @@ public class KmgStringTest {
     }
 
     /**
-     * concat メソッドのテスト - 準正常系：空の配列の場合
+     * capitalize メソッドのテスト - 準正常系：空文字の場合
      */
     @Test
-    public void testConcat_semiEmptyArray() {
+    public void testCapitalize_semiEmptyString() {
 
         /* 期待値の定義 */
         final String expected = "";
 
         /* 準備 */
-        final String[] target = {};
+        final String target = "";
 
         /* テスト対象の実行 */
-        final String actual = KmgString.concat(target);
+        final String actual = KmgString.capitalize(target);
 
         /* 検証の実施 */
-        Assertions.assertEquals(expected, actual, "空の配列の場合、空文字を返すべき");
+        Assertions.assertEquals(expected, actual, "空文字の場合、空文字を返すべき");
 
     }
 
@@ -180,44 +160,22 @@ public class KmgStringTest {
     }
 
     /**
-     * equals メソッドのテスト - 準正常系：異なる文字列の場合
+     * concat メソッドのテスト - 準正常系：空の配列の場合
      */
     @Test
-    public void testEquals_semiDifferentStrings() {
+    public void testConcat_semiEmptyArray() {
 
         /* 期待値の定義 */
-        final boolean expected = false;
+        final String expected = "";
 
         /* 準備 */
-        final String str1 = "test1";
-        final String str2 = "test2";
+        final String[] target = {};
 
         /* テスト対象の実行 */
-        final boolean actual = KmgString.equals(str1, str2);
+        final String actual = KmgString.concat(target);
 
         /* 検証の実施 */
-        Assertions.assertEquals(expected, actual, "異なる文字列の場合、falseを返すべき");
-
-    }
-
-    /**
-     * equals メソッドのテスト - 正常系：同じ文字列の場合
-     */
-    @Test
-    public void testEquals_normalSameStrings() {
-
-        /* 期待値の定義 */
-        final boolean expected = true;
-
-        /* 準備 */
-        final String str1 = "test";
-        final String str2 = "test";
-
-        /* テスト対象の実行 */
-        final boolean actual = KmgString.equals(str1, str2);
-
-        /* 検証の実施 */
-        Assertions.assertEquals(expected, actual, "同じ文字列の場合、trueを返すべき");
+        Assertions.assertEquals(expected, actual, "空の配列の場合、空文字を返すべき");
 
     }
 
@@ -264,6 +222,48 @@ public class KmgStringTest {
     }
 
     /**
+     * equals メソッドのテスト - 正常系：同じ文字列の場合
+     */
+    @Test
+    public void testEquals_normalSameStrings() {
+
+        /* 期待値の定義 */
+        final boolean expected = true;
+
+        /* 準備 */
+        final String str1 = "test";
+        final String str2 = "test";
+
+        /* テスト対象の実行 */
+        final boolean actual = KmgString.equals(str1, str2);
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "同じ文字列の場合、trueを返すべき");
+
+    }
+
+    /**
+     * equals メソッドのテスト - 準正常系：異なる文字列の場合
+     */
+    @Test
+    public void testEquals_semiDifferentStrings() {
+
+        /* 期待値の定義 */
+        final boolean expected = false;
+
+        /* 準備 */
+        final String str1 = "test1";
+        final String str2 = "test2";
+
+        /* テスト対象の実行 */
+        final boolean actual = KmgString.equals(str1, str2);
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "異なる文字列の場合、falseを返すべき");
+
+    }
+
+    /**
      * equalsIgnoreCase メソッドのテスト - 異常系：両方がnullの場合
      */
     @Test
@@ -281,69 +281,6 @@ public class KmgStringTest {
 
         /* 検証の実施 */
         Assertions.assertEquals(expected, actual, "両方nullの場合、falseを返すべき");
-
-    }
-
-    /**
-     * equalsIgnoreCase メソッドのテスト - 正常系：大文字小文字が異なる場合
-     */
-    @Test
-    public void testEqualsIgnoreCase_normalDifferentCase() {
-
-        /* 期待値の定義 */
-        final boolean expected = true;
-
-        /* 準備 */
-        final String str1 = "TEST";
-        final String str2 = "test";
-
-        /* テスト対象の実行 */
-        final boolean actual = KmgString.equalsIgnoreCase(str1, str2);
-
-        /* 検証の実施 */
-        Assertions.assertEquals(expected, actual, "大文字小文字が異なる場合でも、trueを返すべき");
-
-    }
-
-    /**
-     * equalsIgnoreCase メソッドのテスト - 準正常系：異なる文字列の場合
-     */
-    @Test
-    public void testEqualsIgnoreCase_semiDifferentStrings() {
-
-        /* 期待値の定義 */
-        final boolean expected = false;
-
-        /* 準備 */
-        final String str1 = "test1";
-        final String str2 = "test2";
-
-        /* テスト対象の実行 */
-        final boolean actual = KmgString.equalsIgnoreCase(str1, str2);
-
-        /* 検証の実施 */
-        Assertions.assertEquals(expected, actual, "異なる文字列の場合、falseを返すべき");
-
-    }
-
-    /**
-     * equalsIgnoreCase メソッドのテスト - 正常系：同じ文字列の場合
-     */
-    @Test
-    public void testEqualsIgnoreCase_normalSameStrings() {
-
-        /* 期待値の定義 */
-        final boolean expected = true;
-
-        /* 準備 */
-        final String str1 = "test";
-        final String str2 = "test";
-
-        /* テスト対象の実行 */
-        final boolean actual = KmgString.equalsIgnoreCase(str1, str2);
-
-        /* 検証の実施 */
-        Assertions.assertEquals(expected, actual, "同じ文字列の場合、trueを返すべき");
 
     }
 
@@ -386,6 +323,69 @@ public class KmgStringTest {
 
         /* 検証の実施 */
         Assertions.assertEquals(expected, actual, "nullを含む場合、falseを返すべき");
+
+    }
+
+    /**
+     * equalsIgnoreCase メソッドのテスト - 正常系：大文字小文字が異なる場合
+     */
+    @Test
+    public void testEqualsIgnoreCase_normalDifferentCase() {
+
+        /* 期待値の定義 */
+        final boolean expected = true;
+
+        /* 準備 */
+        final String str1 = "TEST";
+        final String str2 = "test";
+
+        /* テスト対象の実行 */
+        final boolean actual = KmgString.equalsIgnoreCase(str1, str2);
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "大文字小文字が異なる場合でも、trueを返すべき");
+
+    }
+
+    /**
+     * equalsIgnoreCase メソッドのテスト - 正常系：同じ文字列の場合
+     */
+    @Test
+    public void testEqualsIgnoreCase_normalSameStrings() {
+
+        /* 期待値の定義 */
+        final boolean expected = true;
+
+        /* 準備 */
+        final String str1 = "test";
+        final String str2 = "test";
+
+        /* テスト対象の実行 */
+        final boolean actual = KmgString.equalsIgnoreCase(str1, str2);
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "同じ文字列の場合、trueを返すべき");
+
+    }
+
+    /**
+     * equalsIgnoreCase メソッドのテスト - 準正常系：異なる文字列の場合
+     */
+    @Test
+    public void testEqualsIgnoreCase_semiDifferentStrings() {
+
+        /* 期待値の定義 */
+        final boolean expected = false;
+
+        /* 準備 */
+        final String str1 = "test1";
+        final String str2 = "test2";
+
+        /* テスト対象の実行 */
+        final boolean actual = KmgString.equalsIgnoreCase(str1, str2);
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "異なる文字列の場合、falseを返すべき");
 
     }
 
@@ -490,6 +490,26 @@ public class KmgStringTest {
     }
 
     /**
+     * isEmpty メソッドのテスト - 異常系：nullの場合
+     */
+    @Test
+    public void testIsEmpty_errorNull() {
+
+        /* 期待値の定義 */
+        final boolean expected = true;
+
+        /* 準備 */
+        final String target = null;
+
+        /* テスト対象の実行 */
+        final boolean actual = KmgString.isEmpty(target);
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "nullの場合、trueを返すべき");
+
+    }
+
+    /**
      * isEmpty メソッドのテスト - 正常系：引数が空文字の場合
      */
     @Test
@@ -530,42 +550,22 @@ public class KmgStringTest {
     }
 
     /**
-     * isEmpty メソッドのテスト - 異常系：nullの場合
+     * isNotEmpty メソッドのテスト - 異常系：nullの場合
      */
     @Test
-    public void testIsEmpty_errorNull() {
-
-        /* 期待値の定義 */
-        final boolean expected = true;
-
-        /* 準備 */
-        final String target = null;
-
-        /* テスト対象の実行 */
-        final boolean actual = KmgString.isEmpty(target);
-
-        /* 検証の実施 */
-        Assertions.assertEquals(expected, actual, "nullの場合、trueを返すべき");
-
-    }
-
-    /**
-     * isNotEmpty メソッドのテスト - 準正常系：空文字の場合
-     */
-    @Test
-    public void testIsNotEmpty_semiEmptyString() {
+    public void testIsNotEmpty_errorNull() {
 
         /* 期待値の定義 */
         final boolean expected = false;
 
         /* 準備 */
-        final String target = "";
+        final String target = null;
 
         /* テスト対象の実行 */
         final boolean actual = KmgString.isNotEmpty(target);
 
         /* 検証の実施 */
-        Assertions.assertEquals(expected, actual, "空文字の場合、falseを返すべき");
+        Assertions.assertEquals(expected, actual, "nullの場合、falseを返すべき");
 
     }
 
@@ -590,22 +590,22 @@ public class KmgStringTest {
     }
 
     /**
-     * isNotEmpty メソッドのテスト - 異常系：nullの場合
+     * isNotEmpty メソッドのテスト - 準正常系：空文字の場合
      */
     @Test
-    public void testIsNotEmpty_errorNull() {
+    public void testIsNotEmpty_semiEmptyString() {
 
         /* 期待値の定義 */
         final boolean expected = false;
 
         /* 準備 */
-        final String target = null;
+        final String target = "";
 
         /* テスト対象の実行 */
         final boolean actual = KmgString.isNotEmpty(target);
 
         /* 検証の実施 */
-        Assertions.assertEquals(expected, actual, "nullの場合、falseを返すべき");
+        Assertions.assertEquals(expected, actual, "空文字の場合、falseを返すべき");
 
     }
 
@@ -690,6 +690,26 @@ public class KmgStringTest {
     }
 
     /**
+     * snakeCase メソッドのテスト - 異常系：空文字の場合
+     */
+    @Test
+    public void testSnakeCase_errorEmptyString() {
+
+        /* 期待値の定義 */
+        final String expected = null;
+
+        /* 準備 */
+        final String target = "";
+
+        /* テスト対象の実行 */
+        final String actual = KmgString.snakeCase(target);
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "空文字の場合、nullを返すべき");
+
+    }
+
+    /**
      * snakeCase メソッドのテスト - 正常系：既にスネークケース形式の場合
      */
     @Test
@@ -726,26 +746,6 @@ public class KmgStringTest {
 
         /* 検証の実施 */
         Assertions.assertEquals(expected, actual, "連続する大文字の処理が正しくないです");
-
-    }
-
-    /**
-     * snakeCase メソッドのテスト - 異常系：空文字の場合
-     */
-    @Test
-    public void testSnakeCase_errorEmptyString() {
-
-        /* 期待値の定義 */
-        final String expected = null;
-
-        /* 準備 */
-        final String target = "";
-
-        /* テスト対象の実行 */
-        final String actual = KmgString.snakeCase(target);
-
-        /* 検証の実施 */
-        Assertions.assertEquals(expected, actual, "空文字の場合、nullを返すべき");
 
     }
 
