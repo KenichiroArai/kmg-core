@@ -23,10 +23,10 @@ import kmg.core.infrastructure.type.KmgString;
 public class KmgDelimiterTypesTest {
 
     /**
-     * get メソッドのテスト
+     * get メソッドのテスト - 正常系:基本的な値の取得
      */
     @Test
-    public void testGet() {
+    public void testGet_normalBasicValue() {
 
         /* 期待値の定義 */
         final String expected = ",";
@@ -43,10 +43,10 @@ public class KmgDelimiterTypesTest {
     }
 
     /**
-     * getDefault メソッドのテスト
+     * getDefault メソッドのテスト - 正常系:デフォルト値の取得
      */
     @Test
-    public void testGetDefault() {
+    public void testGetDefault_normalDefaultValue() {
 
         /* 期待値の定義 */
         final KmgDelimiterTypes expected = KmgDelimiterTypes.NONE;
@@ -60,10 +60,10 @@ public class KmgDelimiterTypesTest {
     }
 
     /**
-     * getEnum メソッドのテスト - 存在する値の場合
+     * getEnum メソッドのテスト - 正常系:存在する値の取得
      */
     @Test
-    public void testGetEnum_existingValue() {
+    public void testGetEnum_normalExistingValue() {
 
         /* 期待値の定義 */
         final KmgDelimiterTypes expected = KmgDelimiterTypes.COMMA;
@@ -80,10 +80,10 @@ public class KmgDelimiterTypesTest {
     }
 
     /**
-     * getEnum メソッドのテスト - 存在しない値の場合
+     * getEnum メソッドのテスト - 準正常系:存在しない値の取得
      */
     @Test
-    public void testGetEnum_nonExistingValue() {
+    public void testGetEnum_semiNonExistingValue() {
 
         /* 期待値の定義 */
         final KmgDelimiterTypes expected = KmgDelimiterTypes.NONE;
@@ -100,10 +100,10 @@ public class KmgDelimiterTypesTest {
     }
 
     /**
-     * getInitValue メソッドのテスト
+     * getInitValue メソッドのテスト - 正常系:初期値の取得
      */
     @Test
-    public void testGetInitValue() {
+    public void testGetInitValue_normalInitialValue() {
 
         /* 期待値の定義 */
         final KmgDelimiterTypes expected = KmgDelimiterTypes.NONE;
@@ -117,10 +117,10 @@ public class KmgDelimiterTypesTest {
     }
 
     /**
-     * getName メソッドのテスト
+     * getName メソッドのテスト - 正常系:名前の取得
      */
     @Test
-    public void testGetName() {
+    public void testGetName_normalBasicName() {
 
         /* 期待値の定義 */
         final String expected = "カンマ";
@@ -137,10 +137,10 @@ public class KmgDelimiterTypesTest {
     }
 
     /**
-     * getValue メソッドのテスト
+     * getValue メソッドのテスト - 正常系:値の取得
      */
     @Test
-    public void testGetValue() {
+    public void testGetValue_normalBasicValue() {
 
         /* 期待値の定義 */
         final String expected = ",";
@@ -157,107 +157,10 @@ public class KmgDelimiterTypesTest {
     }
 
     /**
-     * join メソッドのテスト - 空文字を含む配列の場合
+     * join メソッドのテスト - 正常系:基本的な結合
      */
     @Test
-    public void testJoin_containsEmptyString() {
-
-        /* 期待値の定義 */
-        final String expectedResult = "a,c";
-
-        /* 準備 */
-        final KmgDelimiterTypes testTarget = KmgDelimiterTypes.COMMA;
-        final String[]          testInput  = {
-            "a", "", "c"
-        };
-
-        /* テスト対象の実行 */
-        final String testResult = testTarget.join((Object[]) testInput);
-
-        /* 検証の準備 */
-        final String actualResult = testResult;
-
-        /* 検証の実施 */
-        Assertions.assertEquals(expectedResult, actualResult, "空文字を含む配列の結合結果が一致しません");
-
-    }
-
-    /**
-     * join メソッドのテスト - nullを含む配列の場合
-     */
-    @Test
-    public void testJoin_containsNull() {
-
-        /* 期待値の定義 */
-        final String expectedResult = "a,c";
-
-        /* 準備 */
-        final KmgDelimiterTypes testTarget = KmgDelimiterTypes.COMMA;
-        final String[]          testInput  = {
-            "a", null, "c"
-        };
-
-        /* テスト対象の実行 */
-        final String testResult = testTarget.join((Object[]) testInput);
-
-        /* 検証の準備 */
-        final String actualResult = testResult;
-
-        /* 検証の実施 */
-        Assertions.assertEquals(expectedResult, actualResult, "nullを含む配列の結合結果が一致しません");
-
-    }
-
-    /**
-     * join メソッドのテスト - 空の配列の場合
-     */
-    @Test
-    public void testJoin_emptyArray() {
-
-        /* 期待値の定義 */
-        final String expectedResult = KmgString.EMPTY;
-
-        /* 準備 */
-        final KmgDelimiterTypes testTarget = KmgDelimiterTypes.COMMA;
-        final String[]          testInput  = {};
-
-        /* テスト対象の実行 */
-        final String testResult = testTarget.join((Object[]) testInput);
-
-        /* 検証の準備 */
-        final String actualResult = testResult;
-
-        /* 検証の実施 */
-        Assertions.assertEquals(expectedResult, actualResult, "空配列の結合結果が一致しません");
-
-    }
-
-    /**
-     * join メソッドのテスト - リストを結合する場合
-     */
-    @Test
-    public void testJoin_list() {
-
-        /* 期待値の定義 */
-        final String expected = "test1,test2,test3";
-
-        /* 準備 */
-        final KmgDelimiterTypes testType = KmgDelimiterTypes.COMMA;
-        final List<String>      testList = Arrays.asList("test1", "test2", "test3");
-
-        /* テスト対象の実行 */
-        final String actual = testType.join(testList);
-
-        /* 検証の実施 */
-        Assertions.assertEquals(expected, actual, "リストの結合結果が一致しません");
-
-    }
-
-    /**
-     * join メソッドのテスト - 通常の文字列配列を結合する場合
-     */
-    @Test
-    public void testJoin_normalCase() {
+    public void testJoin_normalBasicCase() {
 
         /* 期待値の定義 */
         final String expectedResult = "a,b,c";
@@ -280,34 +183,31 @@ public class KmgDelimiterTypesTest {
     }
 
     /**
-     * join メソッドのテスト - 配列自体がnullの場合
+     * join メソッドのテスト - 正常系:リストの結合
      */
     @Test
-    public void testJoin_nullArray() {
+    public void testJoin_normalList() {
 
         /* 期待値の定義 */
-        final String expectedResult = KmgString.EMPTY;
+        final String expected = "test1,test2,test3";
 
         /* 準備 */
-        final KmgDelimiterTypes testTarget = KmgDelimiterTypes.COMMA;
-        final String[]          testInput  = null;
+        final KmgDelimiterTypes testType = KmgDelimiterTypes.COMMA;
+        final List<String>      testList = Arrays.asList("test1", "test2", "test3");
 
         /* テスト対象の実行 */
-        final String testResult = testTarget.join((Object[]) testInput);
-
-        /* 検証の準備 */
-        final String actualResult = testResult;
+        final String actual = testType.join(testList);
 
         /* 検証の実施 */
-        Assertions.assertEquals(expectedResult, actualResult, "null配列の結合結果が一致しません");
+        Assertions.assertEquals(expected, actual, "リストの結合結果が一致しません");
 
     }
 
     /**
-     * join メソッドのテスト - 1つの要素のみの場合
+     * join メソッドのテスト - 正常系:単一要素の結合
      */
     @Test
-    public void testJoin_singleElement() {
+    public void testJoin_normalSingleElement() {
 
         /* 期待値の定義 */
         final String expectedResult = "a";
@@ -330,10 +230,10 @@ public class KmgDelimiterTypesTest {
     }
 
     /**
-     * join メソッドのテスト - 可変長引数を結合する場合
+     * join メソッドのテスト - 正常系:可変引数の結合
      */
     @Test
-    public void testJoin_varargs() {
+    public void testJoin_normalVarargs() {
 
         /* 期待値の定義 */
         final String expected = "test1,test2,test3";
@@ -350,10 +250,110 @@ public class KmgDelimiterTypesTest {
     }
 
     /**
-     * join メソッドのテスト - 空文字を含む可変長引数を結合する場合
+     * join メソッドのテスト - 準正常系:空文字を含む配列の結合
      */
     @Test
-    public void testJoin_varargs_withEmpty() {
+    public void testJoin_semiContainsEmptyString() {
+
+        /* 期待値の定義 */
+        final String expectedResult = "a,c";
+
+        /* 準備 */
+        final KmgDelimiterTypes testTarget = KmgDelimiterTypes.COMMA;
+        final String[]          testInput  = {
+            "a", "", "c"
+        };
+
+        /* テスト対象の実行 */
+        final String testResult = testTarget.join((Object[]) testInput);
+
+        /* 検証の準備 */
+        final String actualResult = testResult;
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expectedResult, actualResult, "空文字を含む配列の結合結果が一致しません");
+
+    }
+
+    /**
+     * join メソッドのテスト - 準正常系:nullを含む配列の結合
+     */
+    @Test
+    public void testJoin_semiContainsNull() {
+
+        /* 期待値の定義 */
+        final String expectedResult = "a,c";
+
+        /* 準備 */
+        final KmgDelimiterTypes testTarget = KmgDelimiterTypes.COMMA;
+        final String[]          testInput  = {
+            "a", null, "c"
+        };
+
+        /* テスト対象の実行 */
+        final String testResult = testTarget.join((Object[]) testInput);
+
+        /* 検証の準備 */
+        final String actualResult = testResult;
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expectedResult, actualResult, "nullを含む配列の結合結果が一致しません");
+
+    }
+
+    /**
+     * join メソッドのテスト - 準正常系:空配列の結合
+     */
+    @Test
+    public void testJoin_semiEmptyArray() {
+
+        /* 期待値の定義 */
+        final String expectedResult = KmgString.EMPTY;
+
+        /* 準備 */
+        final KmgDelimiterTypes testTarget = KmgDelimiterTypes.COMMA;
+        final String[]          testInput  = {};
+
+        /* テスト対象の実行 */
+        final String testResult = testTarget.join((Object[]) testInput);
+
+        /* 検証の準備 */
+        final String actualResult = testResult;
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expectedResult, actualResult, "空配列の結合結果が一致しません");
+
+    }
+
+    /**
+     * join メソッドのテスト - 準正常系:null配列の結合
+     */
+    @Test
+    public void testJoin_semiNullArray() {
+
+        /* 期待値の定義 */
+        final String expectedResult = KmgString.EMPTY;
+
+        /* 準備 */
+        final KmgDelimiterTypes testTarget = KmgDelimiterTypes.COMMA;
+        final String[]          testInput  = null;
+
+        /* テスト対象の実行 */
+        final String testResult = testTarget.join((Object[]) testInput);
+
+        /* 検証の準備 */
+        final String actualResult = testResult;
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expectedResult, actualResult, "null配列の結合結果が一致しません");
+
+    }
+
+    /**
+     * join メソッドのテスト - 準正常系:空文字を含む可変引数の結合
+     */
+    @Test
+    public void testJoin_semiVarargsWithEmpty() {
 
         /* 期待値の定義 */
         final String expected = "test1,test3";
@@ -370,10 +370,10 @@ public class KmgDelimiterTypesTest {
     }
 
     /**
-     * join メソッドのテスト - nullを含む可変長引数を結合する場合
+     * join メソッドのテスト - 準正常系:nullを含む可変引数の結合
      */
     @Test
-    public void testJoin_varargs_withNull() {
+    public void testJoin_semiVarargsWithNull() {
 
         /* 期待値の定義 */
         final String expected = "test1,test3";
@@ -390,18 +390,18 @@ public class KmgDelimiterTypesTest {
     }
 
     /**
-     * joinAll メソッドのテスト - 空文字を含む配列の場合
+     * joinAll メソッドのテスト - 正常系:基本的な結合
      */
     @Test
-    public void testJoinAll_containsEmptyString() {
+    public void testJoinAll_normalBasicCase() {
 
         /* 期待値の定義 */
-        final String expectedResult = "a,,c";
+        final String expectedResult = "a,b,c";
 
         /* 準備 */
         final KmgDelimiterTypes testTarget = KmgDelimiterTypes.COMMA;
         final String[]          testInput  = {
-            "a", "", "c"
+            "a", "b", "c"
         };
 
         /* テスト対象の実行 */
@@ -411,91 +411,15 @@ public class KmgDelimiterTypesTest {
         final String actualResult = testResult;
 
         /* 検証の実施 */
-        Assertions.assertEquals(expectedResult, actualResult, "空文字を含む配列の結合結果が一致しません");
+        Assertions.assertEquals(expectedResult, actualResult, "通常の文字列配列の結合結果が一致しません");
 
     }
 
     /**
-     * joinAll メソッドのテスト - nullを含む配列の場合
+     * joinAll メソッドのテスト - 正常系:リストの結合
      */
     @Test
-    public void testJoinAll_containsNull() {
-
-        /* 期待値の定義 */
-        final String expectedResult = "a,null,c";
-
-        /* 準備 */
-        final KmgDelimiterTypes testTarget = KmgDelimiterTypes.COMMA;
-        final String[]          testInput  = {
-            "a", null, "c"
-        };
-
-        /* テスト対象の実行 */
-        final String testResult = testTarget.joinAll((Object[]) testInput);
-
-        /* 検証の準備 */
-        final String actualResult = testResult;
-
-        /* 検証の実施 */
-        Assertions.assertEquals(expectedResult, actualResult, "nullを含む配列の結合結果が一致しません");
-
-    }
-
-    /**
-     * joinAll メソッドのテスト - 空の配列の場合
-     */
-    @Test
-    public void testJoinAll_emptyArray() {
-
-        /* 期待値の定義 */
-        final String expectedResult = KmgString.EMPTY;
-
-        /* 準備 */
-        final KmgDelimiterTypes testTarget = KmgDelimiterTypes.COMMA;
-        final String[]          testInput  = {};
-
-        /* テスト対象の実行 */
-        final String testResult = testTarget.joinAll((Object[]) testInput);
-
-        /* 検証の準備 */
-        final String actualResult = testResult;
-
-        /* 検証の実施 */
-        Assertions.assertEquals(expectedResult, actualResult, "空配列の結合結果が一致しません");
-
-    }
-
-    /**
-     * joinAll メソッドのテスト - 空文字の要素の場合（文字列長が1以下）
-     */
-    @Test
-    public void testJoinAll_emptyStringElement() {
-
-        /* 期待値の定義 */
-        final String expectedResult = "";
-
-        /* 準備 */
-        final KmgDelimiterTypes testTarget = KmgDelimiterTypes.COMMA;
-        final String[]          testInput  = {
-            ""
-        };
-
-        /* テスト対象の実行 */
-        final String testResult = testTarget.joinAll((Object[]) testInput);
-
-        /* 検証の準備 */
-        final String actualResult = testResult;
-
-        /* 検証の実施 */
-        Assertions.assertEquals(expectedResult, actualResult, "空文字の要素の結合結果が一致しません");
-
-    }
-
-    /**
-     * join メソッドのテスト - リストを結合する場合
-     */
-    @Test
-    public void testJoinAll_list() {
+    public void testJoinAll_normalList() {
 
         /* 期待値の定義 */
         final String expected = "test1,null,test3";
@@ -513,10 +437,10 @@ public class KmgDelimiterTypesTest {
     }
 
     /**
-     * joinAll メソッドのテスト - 複数の1文字要素の場合（文字列長が1より大きい）
+     * joinAll メソッドのテスト - 正常系:複数の単一文字要素の結合
      */
     @Test
-    public void testJoinAll_multipleSingleCharElements() {
+    public void testJoinAll_normalMultipleSingleCharElements() {
 
         /* 期待値の定義 */
         final String expectedResult = "a,b";
@@ -539,60 +463,10 @@ public class KmgDelimiterTypesTest {
     }
 
     /**
-     * joinAll メソッドのテスト - 通常の文字列配列を結合する場合
+     * joinAll メソッドのテスト - 正常系:単一文字要素の結合
      */
     @Test
-    public void testJoinAll_normalCase() {
-
-        /* 期待値の定義 */
-        final String expectedResult = "a,b,c";
-
-        /* 準備 */
-        final KmgDelimiterTypes testTarget = KmgDelimiterTypes.COMMA;
-        final String[]          testInput  = {
-            "a", "b", "c"
-        };
-
-        /* テスト対象の実行 */
-        final String testResult = testTarget.joinAll((Object[]) testInput);
-
-        /* 検証の準備 */
-        final String actualResult = testResult;
-
-        /* 検証の実施 */
-        Assertions.assertEquals(expectedResult, actualResult, "通常の文字列配列の結合結果が一致しません");
-
-    }
-
-    /**
-     * joinAll メソッドのテスト - 配列自体がnullの場合
-     */
-    @Test
-    public void testJoinAll_nullArray() {
-
-        /* 期待値の定義 */
-        final String expectedResult = KmgString.EMPTY;
-
-        /* 準備 */
-        final KmgDelimiterTypes testTarget = KmgDelimiterTypes.COMMA;
-        final String[]          testInput  = null;
-
-        /* テスト対象の実行 */
-        final String testResult = testTarget.joinAll((Object[]) testInput);
-
-        /* 検証の準備 */
-        final String actualResult = testResult;
-
-        /* 検証の実施 */
-        Assertions.assertEquals(expectedResult, actualResult, "null配列の結合結果が一致しません");
-
-    }
-
-    /**
-     * joinAll メソッドのテスト - 1文字の要素の場合（文字列長が1以下）
-     */
-    @Test
-    public void testJoinAll_singleCharElement() {
+    public void testJoinAll_normalSingleCharElement() {
 
         /* 期待値の定義 */
         final String expectedResult = "a";
@@ -615,10 +489,10 @@ public class KmgDelimiterTypesTest {
     }
 
     /**
-     * joinAll メソッドのテスト - 1つの要素のみの場合
+     * joinAll メソッドのテスト - 正常系:単一要素の結合
      */
     @Test
-    public void testJoinAll_singleElement() {
+    public void testJoinAll_normalSingleElement() {
 
         /* 期待値の定義 */
         final String expectedResult = "a";
@@ -641,10 +515,10 @@ public class KmgDelimiterTypesTest {
     }
 
     /**
-     * join メソッドのテスト - 可変長引数を結合する場合
+     * joinAll メソッドのテスト - 正常系:可変引数の結合
      */
     @Test
-    public void testJoinAll_varargs() {
+    public void testJoinAll_normalVarargs() {
 
         /* 期待値の定義 */
         final String expected = "test1,null,test3";
@@ -661,31 +535,136 @@ public class KmgDelimiterTypesTest {
     }
 
     /**
-     * split メソッドのテスト - 空文字の場合
+     * joinAll メソッドのテスト - 準正常系:空文字を含む配列の結合
      */
     @Test
-    public void testSplit_empty() {
+    public void testJoinAll_semiContainsEmptyString() {
 
         /* 期待値の定義 */
-        final String[] expected = null;
+        final String expectedResult = "a,,c";
 
         /* 準備 */
-        final KmgDelimiterTypes testType   = KmgDelimiterTypes.COMMA;
-        final String            testString = KmgString.EMPTY;
+        final KmgDelimiterTypes testTarget = KmgDelimiterTypes.COMMA;
+        final String[]          testInput  = {
+            "a", "", "c"
+        };
 
         /* テスト対象の実行 */
-        final String[] actual = testType.split(testString);
+        final String testResult = testTarget.joinAll((Object[]) testInput);
+
+        /* 検証の準備 */
+        final String actualResult = testResult;
 
         /* 検証の実施 */
-        Assertions.assertArrayEquals(expected, actual, "空文字の分割結果が一致しません");
+        Assertions.assertEquals(expectedResult, actualResult, "空文字を含む配列の結合結果が一致しません");
 
     }
 
     /**
-     * split メソッドのテスト - 通常の場合
+     * joinAll メソッドのテスト - 準正常系:nullを含む配列の結合
      */
     @Test
-    public void testSplit_normal() {
+    public void testJoinAll_semiContainsNull() {
+
+        /* 期待値の定義 */
+        final String expectedResult = "a,null,c";
+
+        /* 準備 */
+        final KmgDelimiterTypes testTarget = KmgDelimiterTypes.COMMA;
+        final String[]          testInput  = {
+            "a", null, "c"
+        };
+
+        /* テスト対象の実行 */
+        final String testResult = testTarget.joinAll((Object[]) testInput);
+
+        /* 検証の準備 */
+        final String actualResult = testResult;
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expectedResult, actualResult, "nullを含む配列の結合結果が一致しません");
+
+    }
+
+    /**
+     * joinAll メソッドのテスト - 準正常系:空配列の結合
+     */
+    @Test
+    public void testJoinAll_semiEmptyArray() {
+
+        /* 期待値の定義 */
+        final String expectedResult = KmgString.EMPTY;
+
+        /* 準備 */
+        final KmgDelimiterTypes testTarget = KmgDelimiterTypes.COMMA;
+        final String[]          testInput  = {};
+
+        /* テスト対象の実行 */
+        final String testResult = testTarget.joinAll((Object[]) testInput);
+
+        /* 検証の準備 */
+        final String actualResult = testResult;
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expectedResult, actualResult, "空配列の結合結果が一致しません");
+
+    }
+
+    /**
+     * joinAll メソッドのテスト - 準正常系:空文字要素の結合
+     */
+    @Test
+    public void testJoinAll_semiEmptyStringElement() {
+
+        /* 期待値の定義 */
+        final String expectedResult = "";
+
+        /* 準備 */
+        final KmgDelimiterTypes testTarget = KmgDelimiterTypes.COMMA;
+        final String[]          testInput  = {
+            ""
+        };
+
+        /* テスト対象の実行 */
+        final String testResult = testTarget.joinAll((Object[]) testInput);
+
+        /* 検証の準備 */
+        final String actualResult = testResult;
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expectedResult, actualResult, "空文字の要素の結合結果が一致しません");
+
+    }
+
+    /**
+     * joinAll メソッドのテスト - 準正常系:null配列の結合
+     */
+    @Test
+    public void testJoinAll_semiNullArray() {
+
+        /* 期待値の定義 */
+        final String expectedResult = KmgString.EMPTY;
+
+        /* 準備 */
+        final KmgDelimiterTypes testTarget = KmgDelimiterTypes.COMMA;
+        final String[]          testInput  = null;
+
+        /* テスト対象の実行 */
+        final String testResult = testTarget.joinAll((Object[]) testInput);
+
+        /* 検証の準備 */
+        final String actualResult = testResult;
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expectedResult, actualResult, "null配列の結合結果が一致しません");
+
+    }
+
+    /**
+     * split メソッドのテスト - 正常系:基本的な分割
+     */
+    @Test
+    public void testSplit_normalBasicCase() {
 
         /* 期待値の定義 */
         final String[] expected = {
@@ -705,56 +684,10 @@ public class KmgDelimiterTypesTest {
     }
 
     /**
-     * split メソッドのテスト - 制限付きの場合
+     * split メソッドのテスト - 正常系:大きな制限値での分割
      */
     @Test
-    public void testSplit_withLimit() {
-
-        /* 期待値の定義 */
-        final String[] expected = {
-            "test1", "test2,test3"
-        };
-
-        /* 準備 */
-        final KmgDelimiterTypes testType   = KmgDelimiterTypes.COMMA;
-        final String            testString = "test1,test2,test3";
-        final int               testLimit  = 2;
-
-        /* テスト対象の実行 */
-        final String[] actual = testType.split(testString, testLimit);
-
-        /* 検証の実施 */
-        Assertions.assertArrayEquals(expected, actual, "制限付き分割結果が一致しません");
-
-    }
-
-    /**
-     * split メソッドのテスト - 制限付き、空文字の場合
-     */
-    @Test
-    public void testSplit_withLimit_empty() {
-
-        /* 期待値の定義 */
-        final String[] expected = null;
-
-        /* 準備 */
-        final KmgDelimiterTypes testType   = KmgDelimiterTypes.COMMA;
-        final String            testString = KmgString.EMPTY;
-        final int               testLimit  = 2;
-
-        /* テスト対象の実行 */
-        final String[] actual = testType.split(testString, testLimit);
-
-        /* 検証の実施 */
-        Assertions.assertArrayEquals(expected, actual, "空文字の制限付き分割結果が一致しません");
-
-    }
-
-    /**
-     * split メソッドのテスト - 制限が文字列の分割数より大きい場合
-     */
-    @Test
-    public void testSplit_withLimit_largerLimit() {
+    public void testSplit_normalWithLargerLimit() {
 
         /* 期待値の定義 */
         final String[] expected = {
@@ -775,10 +708,77 @@ public class KmgDelimiterTypesTest {
     }
 
     /**
-     * toString メソッドのテスト - HALF_SPACEの場合
+     * split メソッドのテスト - 正常系:制限付きの分割
      */
     @Test
-    public void testToString_halfSpace() {
+    public void testSplit_normalWithLimit() {
+
+        /* 期待値の定義 */
+        final String[] expected = {
+            "test1", "test2,test3"
+        };
+
+        /* 準備 */
+        final KmgDelimiterTypes testType   = KmgDelimiterTypes.COMMA;
+        final String            testString = "test1,test2,test3";
+        final int               testLimit  = 2;
+
+        /* テスト対象の実行 */
+        final String[] actual = testType.split(testString, testLimit);
+
+        /* 検証の実施 */
+        Assertions.assertArrayEquals(expected, actual, "制限付き分割結果が一致しません");
+
+    }
+
+    /**
+     * split メソッドのテスト - 準正常系:空文字列の分割
+     */
+    @Test
+    public void testSplit_semiEmpty() {
+
+        /* 期待値の定義 */
+        final String[] expected = null;
+
+        /* 準備 */
+        final KmgDelimiterTypes testType   = KmgDelimiterTypes.COMMA;
+        final String            testString = KmgString.EMPTY;
+
+        /* テスト対象の実行 */
+        final String[] actual = testType.split(testString);
+
+        /* 検証の実施 */
+        Assertions.assertArrayEquals(expected, actual, "空文字の分割結果が一致しません");
+
+    }
+
+    /**
+     * split メソッドのテスト - 準正常系:制限付きの空文字列分割
+     */
+    @Test
+    public void testSplit_semiWithLimitEmpty() {
+
+        /* 期待値の定義 */
+        final String[] expected = null;
+
+        /* 準備 */
+        final KmgDelimiterTypes testType   = KmgDelimiterTypes.COMMA;
+        final String            testString = KmgString.EMPTY;
+        final int               testLimit  = 2;
+
+        /* テスト対象の実行 */
+        final String[] actual = testType.split(testString, testLimit);
+
+        /* 検証の実施 */
+        Assertions.assertArrayEquals(expected, actual, "空文字の制限付き分割結果が一致しません");
+
+    }
+
+    /**
+     * toString メソッドのテスト - 正常系:半角スペースの文字列表現
+     */
+    @Test
+    public void testToString_normalHalfSpace() {
 
         /* 期待値の定義 */
         final String expected = KmgString.HALF_SPACE;
@@ -795,10 +795,10 @@ public class KmgDelimiterTypesTest {
     }
 
     /**
-     * toString メソッドのテスト - NONEの場合
+     * toString メソッドのテスト - 正常系:NONEの文字列表現
      */
     @Test
-    public void testToString_none() {
+    public void testToString_normalNone() {
 
         /* 期待値の定義 */
         final String expected = null;
@@ -815,10 +815,10 @@ public class KmgDelimiterTypesTest {
     }
 
     /**
-     * toString メソッドのテスト - PERIODの場合
+     * toString メソッドのテスト - 正常系:ピリオドの文字列表現
      */
     @Test
-    public void testToString_period() {
+    public void testToString_normalPeriod() {
 
         /* 期待値の定義 */
         final String expected = ".";

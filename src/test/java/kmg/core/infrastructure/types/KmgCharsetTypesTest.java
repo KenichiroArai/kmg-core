@@ -20,10 +20,10 @@ import org.junit.jupiter.api.Test;
 public class KmgCharsetTypesTest {
 
     /**
-     * get メソッドのテスト
+     * get メソッドのテスト - 正常系：UTF-8の値を取得する場合
      */
     @Test
-    public void testGet() {
+    public void testGet_normalGetUtf8Value() {
 
         /* 期待値の定義 */
         final String expected = "UTF-8";
@@ -40,10 +40,10 @@ public class KmgCharsetTypesTest {
     }
 
     /**
-     * getDefault メソッドのテスト
+     * getDefault メソッドのテスト - 正常系：デフォルト値を取得する場合
      */
     @Test
-    public void testGetDefault() {
+    public void testGetDefault_normalGetDefaultValue() {
 
         /* 期待値の定義 */
         final KmgCharsetTypes expected = KmgCharsetTypes.NONE;
@@ -57,10 +57,10 @@ public class KmgCharsetTypesTest {
     }
 
     /**
-     * getEnum メソッドのテスト - 存在する値の場合
+     * getEnum メソッドのテスト - 正常系：存在する値を取得する場合
      */
     @Test
-    public void testGetEnum_existingValue() {
+    public void testGetEnum_normalGetExistingValue() {
 
         /* 期待値の定義 */
         final KmgCharsetTypes expected = KmgCharsetTypes.UTF8;
@@ -77,10 +77,10 @@ public class KmgCharsetTypesTest {
     }
 
     /**
-     * getEnum メソッドのテスト - 存在しない値の場合
+     * getEnum メソッドのテスト - 準正常系：存在しない値を取得する場合
      */
     @Test
-    public void testGetEnum_nonExistingValue() {
+    public void testGetEnum_semiGetNonExistingValue() {
 
         /* 期待値の定義 */
         final KmgCharsetTypes expected = KmgCharsetTypes.NONE;
@@ -97,10 +97,10 @@ public class KmgCharsetTypesTest {
     }
 
     /**
-     * getInitValue メソッドのテスト
+     * getInitValue メソッドのテスト - 正常系：初期値を取得する場合
      */
     @Test
-    public void testGetInitValue() {
+    public void testGetInitValue_normalGetInitialValue() {
 
         /* 期待値の定義 */
         final KmgCharsetTypes expected = KmgCharsetTypes.NONE;
@@ -114,10 +114,10 @@ public class KmgCharsetTypesTest {
     }
 
     /**
-     * getName メソッドのテスト
+     * getName メソッドのテスト - 正常系：UTF-8の名称を取得する場合
      */
     @Test
-    public void testGetName() {
+    public void testGetName_normalGetUtf8Name() {
 
         /* 期待値の定義 */
         final String expected = "UTF-8";
@@ -134,10 +134,10 @@ public class KmgCharsetTypesTest {
     }
 
     /**
-     * getValue メソッドのテスト
+     * getValue メソッドのテスト - 正常系：UTF-8の値を取得する場合
      */
     @Test
-    public void testGetValue() {
+    public void testGetValue_normalGetUtf8Value() {
 
         /* 期待値の定義 */
         final String expected = "UTF-8";
@@ -154,30 +154,10 @@ public class KmgCharsetTypesTest {
     }
 
     /**
-     * toCharset メソッドのテスト - NONEの場合
+     * toCharset メソッドのテスト - 正常系：有効な文字セットの場合
      */
     @Test
-    public void testToCharset_none() {
-
-        /* 期待値の定義 */
-        final Charset expected = null;
-
-        /* 準備 */
-        final KmgCharsetTypes testType = KmgCharsetTypes.NONE;
-
-        /* テスト対象の実行 */
-        final Charset actual = testType.toCharset();
-
-        /* 検証の実施 */
-        Assertions.assertEquals(expected, actual, "NONEの文字セットがnullではありません");
-
-    }
-
-    /**
-     * toCharset メソッドのテスト - 有効な文字セットの場合
-     */
-    @Test
-    public void testToCharset_validCharset() {
+    public void testToCharset_normalValidCharset() {
 
         /* 期待値の定義 */
         final Charset expected = Charset.forName("UTF-8");
@@ -194,10 +174,30 @@ public class KmgCharsetTypesTest {
     }
 
     /**
-     * toString メソッドのテスト - MS932の場合
+     * toCharset メソッドのテスト - 準正常系：NONEの場合
      */
     @Test
-    public void testToString_ms932() {
+    public void testToCharset_semiNone() {
+
+        /* 期待値の定義 */
+        final Charset expected = null;
+
+        /* 準備 */
+        final KmgCharsetTypes testType = KmgCharsetTypes.NONE;
+
+        /* テスト対象の実行 */
+        final Charset actual = testType.toCharset();
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "NONEの文字セットがnullではありません");
+
+    }
+
+    /**
+     * toString メソッドのテスト - 正常系：MS932の場合
+     */
+    @Test
+    public void testToString_normalMs932() {
 
         /* 期待値の定義 */
         final String expected = "MS932";
@@ -214,30 +214,10 @@ public class KmgCharsetTypesTest {
     }
 
     /**
-     * toString メソッドのテスト - NONEの場合
+     * toString メソッドのテスト - 正常系：UTF8の場合
      */
     @Test
-    public void testToString_none() {
-
-        /* 期待値の定義 */
-        final String expected = null;
-
-        /* 準備 */
-        final KmgCharsetTypes testType = KmgCharsetTypes.NONE;
-
-        /* テスト対象の実行 */
-        final String actual = testType.toString();
-
-        /* 検証の実施 */
-        Assertions.assertEquals(expected, actual, "NONEの場合、nullが返されること");
-
-    }
-
-    /**
-     * toString メソッドのテスト - UTF8の場合
-     */
-    @Test
-    public void testToString_utf8() {
+    public void testToString_normalUtf8() {
 
         /* 期待値の定義 */
         final String expected = "UTF-8";
@@ -250,6 +230,26 @@ public class KmgCharsetTypesTest {
 
         /* 検証の実施 */
         Assertions.assertEquals(expected, actual, "UTF8の場合、'UTF-8'が返されること");
+
+    }
+
+    /**
+     * toString メソッドのテスト - 準正常系：NONEの場合
+     */
+    @Test
+    public void testToString_semiNone() {
+
+        /* 期待値の定義 */
+        final String expected = null;
+
+        /* 準備 */
+        final KmgCharsetTypes testType = KmgCharsetTypes.NONE;
+
+        /* テスト対象の実行 */
+        final String actual = testType.toString();
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "NONEの場合、nullが返されること");
 
     }
 }

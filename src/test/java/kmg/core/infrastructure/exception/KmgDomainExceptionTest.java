@@ -17,16 +17,17 @@ import kmg.core.infrastructure.types.KmgMsgMessageTypes;
  *
  * @version 1.0.0
  */
-@SuppressWarnings("nls")
+@SuppressWarnings({
+    "nls", "static-method"
+})
 @ExtendWith(MockitoExtension.class)
 public class KmgDomainExceptionTest {
 
     /**
-     * コンストラクタのテスト - メッセージタイプのみを指定した場合
+     * constructor メソッドのテスト - 正常系：メッセージタイプのみを指定した場合
      */
     @Test
-    @SuppressWarnings("static-method")
-    public void testConstructor_withMessageTypes() {
+    public void testConstructor_normalWithMessageTypes() {
 
         /* 期待値の定義 */
         final KmgMessageTypes expectedMsgTypes = KmgMsgMessageTypes.KMGMSGE11100;
@@ -46,11 +47,10 @@ public class KmgDomainExceptionTest {
     }
 
     /**
-     * コンストラクタのテスト - メッセージタイプとメッセージ引数を指定した場合
+     * constructor メソッドのテスト - 正常系：メッセージタイプとメッセージ引数を指定した場合
      */
     @Test
-    @SuppressWarnings("static-method")
-    public void testConstructor_withMessageTypesAndArgs() {
+    public void testConstructor_normalWithMessageTypesAndArgs() {
 
         /* 期待値の定義 */
         final KmgMessageTypes expectedMsgTypes = KmgMsgMessageTypes.KMGMSGE11100;
@@ -75,11 +75,10 @@ public class KmgDomainExceptionTest {
     }
 
     /**
-     * コンストラクタのテスト - メッセージタイプと原因を指定した場合
+     * constructor メソッドのテスト - 正常系：メッセージタイプと原因を指定した場合
      */
     @Test
-    @SuppressWarnings("static-method")
-    public void testConstructor_withMessageTypesAndCause() {
+    public void testConstructor_normalWithMessageTypesAndCause() {
 
         /* 期待値の定義 */
         final KmgMessageTypes expectedMsgTypes = KmgMsgMessageTypes.KMGMSGE11100;

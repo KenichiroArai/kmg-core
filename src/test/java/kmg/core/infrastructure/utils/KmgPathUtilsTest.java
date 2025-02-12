@@ -41,13 +41,13 @@ public class KmgPathUtilsTest extends AbstractKmgTest {
     }
 
     /**
-     * getBinPath メソッドのテスト - nullの場合（Class）
+     * getBinPath メソッドのテスト - 異常系:nullの場合（Class）
      *
      * @throws Exception
      *                   失敗
      */
     @Test
-    public void testGetBinPath_nullClass() throws Exception {
+    public void testGetBinPath_errorNullClass() throws Exception {
 
         /* 期待値の定義 */
         final Path expected = null;
@@ -64,13 +64,13 @@ public class KmgPathUtilsTest extends AbstractKmgTest {
     }
 
     /**
-     * getBinPath メソッドのテスト - nullの場合（Object）
+     * getBinPath メソッドのテスト - 異常系:nullの場合（Object）
      *
      * @throws KmgDomainException
      *                            失敗
      */
     @Test
-    public void testGetBinPath_nullObject() throws KmgDomainException {
+    public void testGetBinPath_errorNullObject() throws KmgDomainException {
 
         /* 期待値の定義 */
         final Path expected = null;
@@ -87,13 +87,13 @@ public class KmgPathUtilsTest extends AbstractKmgTest {
     }
 
     /**
-     * getBinPath メソッドのテスト - URISyntaxExceptionが発生する場合
+     * getBinPath メソッドのテスト - 異常系:URISyntaxExceptionが発生する場合
      *
      * @throws Exception
      *                   失敗
      */
     @Test
-    public void testGetBinPath_throwsURISyntaxException() throws Exception {
+    public void testGetBinPath_errorThrowsURISyntaxException() throws Exception {
 
         /* 期待値の定義 */
         final String          expectedDomainMessage = String.format("クラスからビルドバスの取得に失敗しました。クラス=[%s]",
@@ -121,13 +121,13 @@ public class KmgPathUtilsTest extends AbstractKmgTest {
     }
 
     /**
-     * getBinPath メソッドのテスト - 正常なクラスの場合
+     * getBinPath メソッドのテスト - 正常系:正常なクラスの場合
      *
      * @throws KmgDomainException
      *                            失敗
      */
     @Test
-    public void testGetBinPath_validClass() throws KmgDomainException {
+    public void testGetBinPath_normalValidClass() throws KmgDomainException {
 
         /* 準備 */
         final Class<?> testTarget = TestClass.class;
@@ -142,13 +142,13 @@ public class KmgPathUtilsTest extends AbstractKmgTest {
     }
 
     /**
-     * getBinPath メソッドのテスト - 正常なオブジェクトの場合
+     * getBinPath メソッドのテスト - 正常系:正常なオブジェクトの場合
      *
      * @throws KmgDomainException
      *                            失敗
      */
     @Test
-    public void testGetBinPath_validObject() throws KmgDomainException {
+    public void testGetBinPath_normalValidObject() throws KmgDomainException {
 
         /* 準備 */
         final Object testTarget = new KmgPathUtilsTest();
@@ -163,42 +163,13 @@ public class KmgPathUtilsTest extends AbstractKmgTest {
     }
 
     /**
-     * getClassFullPath メソッドのテスト - クラス名に$が含まれている場合
+     * getClassFullPath メソッドのテスト - 異常系:クラス名が空の場合
      *
      * @throws KmgDomainException
      *                            KMGドメイン例外
      */
     @Test
-    public void testGetClassFullPath_classNameWithDollar() throws KmgDomainException {
-
-        /* 期待値の定義 */
-        final Path binPath  = Paths.get("test-classes");
-        final Path expected = Paths.get(binPath.toAbsolutePath().toString(),
-            "kmg/core/infrastructure/utils/test_class/test.txt");
-
-        /* 準備 */
-        final String packageName = "kmg.core.infrastructure.utils";
-        final String className   = "TestClass$InnerClass";
-        final Path   fileName    = Paths.get("test.txt");
-
-        /* テスト対象の実行 */
-        final KmgReflectionModel kmgReflectionModel = new KmgReflectionModelImpl(KmgPathUtils.class);
-        final Path               actual             = (Path) kmgReflectionModel.getMethod("getClassFullPath", binPath,
-            packageName, className, fileName);
-
-        /* 検証の実施 */
-        Assertions.assertEquals(expected, actual, "$以前の部分がクラス名として扱われるべき");
-
-    }
-
-    /**
-     * getClassFullPath メソッドのテスト - クラス名が空の場合
-     *
-     * @throws KmgDomainException
-     *                            KMGドメイン例外
-     */
-    @Test
-    public void testGetClassFullPath_emptyClassName() throws KmgDomainException {
+    public void testGetClassFullPath_errorEmptyClassName() throws KmgDomainException {
 
         /* 期待値の定義 */
         final Path expected = null;
@@ -220,13 +191,61 @@ public class KmgPathUtilsTest extends AbstractKmgTest {
     }
 
     /**
-     * getClassFullPath メソッドのテスト - 全ての要素が正しく結合される場合
+     * getClassFullPath メソッドのテスト - 異常系:クラスがnullの場合
      *
      * @throws KmgDomainException
      *                            KMGドメイン例外
      */
     @Test
-    public void testGetClassFullPath_fullPathCombination() throws KmgDomainException {
+    public void testGetClassFullPath_errorNullClass() throws KmgDomainException {
+
+        /* 期待値の定義 */
+        final Path expected = null;
+
+        /* 準備 */
+        final Class<?> testTarget = null;
+        final Path     fileName   = Paths.get("test.txt");
+
+        /* テスト対象の実行 */
+        final Path actual = KmgPathUtils.getClassFullPath(testTarget, fileName);
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "nullの場合はnullを返すべき");
+
+    }
+
+    /**
+     * getClassFullPath メソッドのテスト - 異常系:オブジェクトがnullの場合
+     *
+     * @throws KmgDomainException
+     *                            KMGドメイン例外
+     */
+    @Test
+    public void testGetClassFullPath_errorNullObject() throws KmgDomainException {
+
+        /* 期待値の定義 */
+        final Path expected = null;
+
+        /* 準備 */
+        final Object testTarget = null;
+        final String fileName   = "test.txt";
+
+        /* テスト対象の実行 */
+        final Path actual = KmgPathUtils.getClassFullPath(testTarget, fileName);
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "nullの場合はnullを返すべき");
+
+    }
+
+    /**
+     * getClassFullPath メソッドのテスト - 正常系:全ての要素が正しく結合される場合
+     *
+     * @throws KmgDomainException
+     *                            KMGドメイン例外
+     */
+    @Test
+    public void testGetClassFullPath_normalFullPathCombination() throws KmgDomainException {
 
         /* 期待値の定義 */
         final Path binPath  = Paths.get("build/classes");
@@ -249,13 +268,13 @@ public class KmgPathUtilsTest extends AbstractKmgTest {
     }
 
     /**
-     * getClassFullPath メソッドのテスト - ビルドパスがnullの場合
+     * getClassFullPath メソッドのテスト - 正常系：ビルドパスがnullの場合
      *
      * @throws KmgDomainException
      *                            KMGドメイン例外
      */
     @Test
-    public void testGetClassFullPath_nullBinPath() throws KmgDomainException {
+    public void testGetClassFullPath_normalNullBinPath() throws KmgDomainException {
 
         /* 期待値の定義 */
         final Path expected = Paths.get("/kmg/core/infrastructure/utils/test_class/test.txt");
@@ -277,61 +296,13 @@ public class KmgPathUtilsTest extends AbstractKmgTest {
     }
 
     /**
-     * getClassFullPath メソッドのテスト - nullの場合（Class）
+     * getClassFullPath メソッドのテスト - 正常系:オブジェクトがクラスインスタンスの場合
      *
      * @throws KmgDomainException
-     *                            失敗
+     *                            KMGドメイン例外
      */
     @Test
-    public void testGetClassFullPath_nullClass() throws KmgDomainException {
-
-        /* 期待値の定義 */
-        final Path expected = null;
-
-        /* 準備 */
-        final Class<?> testTarget = null;
-        final Path     fileName   = Paths.get("test.txt");
-
-        /* テスト対象の実行 */
-        final Path actual = KmgPathUtils.getClassFullPath(testTarget, fileName);
-
-        /* 検証の実施 */
-        Assertions.assertEquals(expected, actual, "nullの場合はnullを返すべき");
-
-    }
-
-    /**
-     * getClassFullPath メソッドのテスト - nullの場合（Object）
-     *
-     * @throws KmgDomainException
-     *                            失敗
-     */
-    @Test
-    public void testGetClassFullPath_nullObject() throws KmgDomainException {
-
-        /* 期待値の定義 */
-        final Path expected = null;
-
-        /* 準備 */
-        final Object testTarget = null;
-        final String fileName   = "test.txt";
-
-        /* テスト対象の実行 */
-        final Path actual = KmgPathUtils.getClassFullPath(testTarget, fileName);
-
-        /* 検証の実施 */
-        Assertions.assertEquals(expected, actual, "nullの場合はnullを返すべき");
-
-    }
-
-    /**
-     * getClassFullPath メソッドのテスト - objectがClass<?>のインスタンスの場合
-     *
-     * @throws KmgDomainException
-     *                            失敗
-     */
-    @Test
-    public void testGetClassFullPath_objectIsClassInstance() throws KmgDomainException {
+    public void testGetClassFullPath_normalObjectIsClassInstance() throws KmgDomainException {
 
         /* 期待値の定義 */
         final Path binPath  = KmgPathUtils.getBinPath(TestClass.class);
@@ -351,13 +322,13 @@ public class KmgPathUtilsTest extends AbstractKmgTest {
     }
 
     /**
-     * getClassFullPath メソッドのテスト - objectが通常のオブジェクトの場合
+     * getClassFullPath メソッドのテスト - 正常系:オブジェクトが通常のインスタンスの場合
      *
      * @throws KmgDomainException
-     *                            失敗
+     *                            KMGドメイン例外
      */
     @Test
-    public void testGetClassFullPath_objectIsNormalInstance() throws KmgDomainException {
+    public void testGetClassFullPath_normalObjectIsNormalInstance() throws KmgDomainException {
 
         /* 期待値の定義 */
         final Path binPath  = KmgPathUtils.getBinPath(TestClass.class);
@@ -377,13 +348,13 @@ public class KmgPathUtilsTest extends AbstractKmgTest {
     }
 
     /**
-     * getClassFullPath メソッドのテスト - パッケージ名のドットがスラッシュに変換される場合
+     * getClassFullPath メソッドのテスト - 正常系:パッケージ名の変換の場合
      *
      * @throws KmgDomainException
      *                            KMGドメイン例外
      */
     @Test
-    public void testGetClassFullPath_packageNameConversion() throws KmgDomainException {
+    public void testGetClassFullPath_normalPackageNameConversion() throws KmgDomainException {
 
         /* 期待値の定義 */
         final Path binPath  = Paths.get("test-classes");
@@ -405,13 +376,13 @@ public class KmgPathUtilsTest extends AbstractKmgTest {
     }
 
     /**
-     * getClassFullPath メソッドのテスト - 正常なクラスの場合
+     * getClassFullPath メソッドのテスト - 正常系:有効なクラスの場合
      *
      * @throws Exception
-     *                   失敗
+     *                   例外
      */
     @Test
-    public void testGetClassFullPath_validClass() throws Exception {
+    public void testGetClassFullPath_normalValidClass() throws Exception {
 
         /* 期待値の定義 */
         final Path binPath  = Paths.get(TestClass.class.getProtectionDomain().getCodeSource().getLocation().toURI());
@@ -431,13 +402,13 @@ public class KmgPathUtilsTest extends AbstractKmgTest {
     }
 
     /**
-     * getClassFullPath メソッドのテスト - 正常なオブジェクトの場合
+     * getClassFullPath メソッドのテスト - 正常系:有効なオブジェクトの場合
      *
      * @throws KmgDomainException
-     *                            失敗
+     *                            KMGドメイン例外
      */
     @Test
-    public void testGetClassFullPath_validObject() throws KmgDomainException {
+    public void testGetClassFullPath_normalValidObject() throws KmgDomainException {
 
         /* 期待値の定義 */
 
@@ -461,13 +432,42 @@ public class KmgPathUtilsTest extends AbstractKmgTest {
     }
 
     /**
-     * getCodeSourceLocation メソッドのテスト - nullの場合
+     * getClassFullPath メソッドのテスト - 異常系:ビルドパスがnullの場合
+     *
+     * @throws KmgDomainException
+     *                            KMGドメイン例外
+     */
+    @Test
+    public void testGetClassFullPath_semiClassNameWithDollar() throws KmgDomainException {
+
+        /* 期待値の定義 */
+        final Path binPath  = Paths.get("test-classes");
+        final Path expected = Paths.get(binPath.toAbsolutePath().toString(),
+            "kmg/core/infrastructure/utils/test_class/test.txt");
+
+        /* 準備 */
+        final String packageName = "kmg.core.infrastructure.utils";
+        final String className   = "TestClass$InnerClass";
+        final Path   fileName    = Paths.get("test.txt");
+
+        /* テスト対象の実行 */
+        final KmgReflectionModel kmgReflectionModel = new KmgReflectionModelImpl(KmgPathUtils.class);
+        final Path               actual             = (Path) kmgReflectionModel.getMethod("getClassFullPath", binPath,
+            packageName, className, fileName);
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "$以前の部分がクラス名として扱われるべき");
+
+    }
+
+    /**
+     * getCodeSourceLocation メソッドのテスト - 異常系:nullの場合
      *
      * @throws URISyntaxException
      *                            URI構文例外
      */
     @Test
-    public void testGetCodeSourceLocation_null() throws URISyntaxException {
+    public void testGetCodeSourceLocation_errorNull() throws URISyntaxException {
 
         /* 期待値の定義 */
         final Path expected = null;
@@ -484,13 +484,13 @@ public class KmgPathUtilsTest extends AbstractKmgTest {
     }
 
     /**
-     * getCodeSourceLocation メソッドのテスト - 正常なクラスの場合
+     * getCodeSourceLocation メソッドのテスト - 正常系:有効なクラスの場合
      *
      * @throws URISyntaxException
      *                            URI構文例外
      */
     @Test
-    public void testGetCodeSourceLocation_validClass() throws URISyntaxException {
+    public void testGetCodeSourceLocation_normalValidClass() throws URISyntaxException {
 
         /* 準備 */
         final Class<TestClass> testTarget = TestClass.class;
@@ -505,10 +505,10 @@ public class KmgPathUtilsTest extends AbstractKmgTest {
     }
 
     /**
-     * getFileNameOnly メソッドのテスト - nullの場合
+     * getFileNameOnly メソッドのテスト - 異常系:nullの場合
      */
     @Test
-    public void testGetFileNameOnly_null() {
+    public void testGetFileNameOnly_errorNull() {
 
         /* 期待値の定義 */
         final String expected = null;
@@ -525,10 +525,10 @@ public class KmgPathUtilsTest extends AbstractKmgTest {
     }
 
     /**
-     * getFileNameOnly メソッドのテスト - 正常なファイルパスの場合
+     * getFileNameOnly メソッドのテスト - 正常系:有効なパスの場合
      */
     @Test
-    public void testGetFileNameOnly_validPath() {
+    public void testGetFileNameOnly_normalValidPath() {
 
         /* 期待値の定義 */
         final String expected = "test";

@@ -12,36 +12,36 @@ import org.junit.jupiter.api.Test;
  *
  * @version 1.0.0
  */
-@SuppressWarnings("nls")
+@SuppressWarnings({
+    "nls", "static-method"
+})
 public class KmgArrayUtilsTest {
 
     /**
-     * isEmpty メソッドのテスト - 空配列の場合
+     * isEmpty メソッドのテスト - 異常系:nullの場合
      */
     @Test
-    @SuppressWarnings("static-method")
-    public void testIsEmpty_emptyArray() {
+    public void testIsEmpty_errorNull() {
 
         /* 期待値の定義 */
         final boolean expected = true;
 
         /* 準備 */
-        final Object[] testTarget = {};
+        final Object[] testTarget = null;
 
         /* テスト対象の実行 */
         final boolean actual = KmgArrayUtils.isEmpty(testTarget);
 
         /* 検証の実施 */
-        Assertions.assertEquals(expected, actual, "空配列の場合はtrueを返すべき");
+        Assertions.assertEquals(expected, actual, "nullの場合はtrueを返すべき");
 
     }
 
     /**
-     * isEmpty メソッドのテスト - 要素がある場合
+     * isEmpty メソッドのテスト - 正常系:要素がある場合
      */
     @Test
-    @SuppressWarnings("static-method")
-    public void testIsEmpty_hasElements() {
+    public void testIsEmpty_normalHasElements() {
 
         /* 期待値の定義 */
         final boolean expected = false;
@@ -60,53 +60,50 @@ public class KmgArrayUtilsTest {
     }
 
     /**
-     * isEmpty メソッドのテスト - nullの場合
+     * isEmpty メソッドのテスト - 準正常系:空配列の場合
      */
     @Test
-    @SuppressWarnings("static-method")
-    public void testIsEmpty_null() {
+    public void testIsEmpty_semiEmptyArray() {
 
         /* 期待値の定義 */
         final boolean expected = true;
 
         /* 準備 */
-        final Object[] testTarget = null;
+        final Object[] testTarget = {};
 
         /* テスト対象の実行 */
         final boolean actual = KmgArrayUtils.isEmpty(testTarget);
 
         /* 検証の実施 */
-        Assertions.assertEquals(expected, actual, "nullの場合はtrueを返すべき");
+        Assertions.assertEquals(expected, actual, "空配列の場合はtrueを返すべき");
 
     }
 
     /**
-     * isNotEmpty メソッドのテスト - 空配列の場合
+     * isNotEmpty メソッドのテスト - 異常系:nullの場合
      */
     @Test
-    @SuppressWarnings("static-method")
-    public void testIsNotEmpty_emptyArray() {
+    public void testIsNotEmpty_errorNull() {
 
         /* 期待値の定義 */
         final boolean expected = false;
 
         /* 準備 */
-        final Object[] testTarget = {};
+        final Object[] testTarget = null;
 
         /* テスト対象の実行 */
         final boolean actual = KmgArrayUtils.isNotEmpty(testTarget);
 
         /* 検証の実施 */
-        Assertions.assertEquals(expected, actual, "空配列の場合はfalseを返すべき");
+        Assertions.assertEquals(expected, actual, "nullの場合はfalseを返すべき");
 
     }
 
     /**
-     * isNotEmpty メソッドのテスト - 要素がある場合
+     * isNotEmpty メソッドのテスト - 正常系:要素がある場合
      */
     @Test
-    @SuppressWarnings("static-method")
-    public void testIsNotEmpty_hasElements() {
+    public void testIsNotEmpty_normalHasElements() {
 
         /* 期待値の定義 */
         final boolean expected = true;
@@ -125,23 +122,22 @@ public class KmgArrayUtilsTest {
     }
 
     /**
-     * isNotEmpty メソッドのテスト - nullの場合
+     * isNotEmpty メソッドのテスト - 準正常系:空配列の場合
      */
     @Test
-    @SuppressWarnings("static-method")
-    public void testIsNotEmpty_null() {
+    public void testIsNotEmpty_semiEmptyArray() {
 
         /* 期待値の定義 */
         final boolean expected = false;
 
         /* 準備 */
-        final Object[] testTarget = null;
+        final Object[] testTarget = {};
 
         /* テスト対象の実行 */
         final boolean actual = KmgArrayUtils.isNotEmpty(testTarget);
 
         /* 検証の実施 */
-        Assertions.assertEquals(expected, actual, "nullの場合はfalseを返すべき");
+        Assertions.assertEquals(expected, actual, "空配列の場合はfalseを返すべき");
 
     }
 }

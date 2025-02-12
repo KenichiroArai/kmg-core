@@ -40,11 +40,11 @@ public class KmgReflectionModelImplTest extends AbstractKmgTest {
         /** パブリックフィールド */
         public String publicField;
 
-        /** プライベートフィールド */
-        private String privateField;
-
         /** BigDecimalフィールド */
         private BigDecimal decimalField;
+
+        /** プライベートフィールド */
+        private String privateField;
 
         /**
          * プライベートフィールドを取得する<br>
@@ -54,7 +54,6 @@ public class KmgReflectionModelImplTest extends AbstractKmgTest {
         public String getPrivateField() {
 
             final String result = this.privateField;
-
             return result;
 
         }
@@ -82,87 +81,19 @@ public class KmgReflectionModelImplTest extends AbstractKmgTest {
         public String testMethod(final String param) {
 
             final String result = KmgString.concat(param, "Test");
-
             return result;
 
         }
     }
 
     /**
-     * get メソッドのテスト - BigDecimalフィールドの値を取得<br>
+     * get メソッドのテスト - 異常系:getValue呼び出し時のIllegalAccessException
      *
      * @throws KmgDomainException
      *                            KMGドメイン例外
      */
     @Test
-    public void testGet_bigDecimalField() throws KmgDomainException {
-
-        /* 期待値の定義 */
-        final BigDecimal expectedValue = new BigDecimal("123.45");
-
-        /* 準備 */
-        final TestClass              testObject     = new TestClass();
-        final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(testObject);
-        testReflection.set("decimalField", expectedValue);
-
-        /* テスト対象の実行 */
-        final Object testResult = testReflection.get("decimalField");
-
-        /* 検証の準備 */
-        final BigDecimal actualValue = (BigDecimal) testResult;
-
-        /* 検証の実施 */
-        Assertions.assertEquals(expectedValue, actualValue, "BigDecimalフィールドから値が正しく取得できること");
-
-    }
-
-    /**
-     * get メソッドのテスト - 連続呼び出し時のlastGetFieldの状態確認<br>
-     *
-     * @throws KmgDomainException
-     *                                  KMGドメイン例外
-     * @throws IllegalAccessException
-     *                                  イリーガルアクセス例外
-     * @throws IllegalArgumentException
-     *                                  引数例外
-     */
-    @Test
-    public void testGet_consecutiveCalls() throws KmgDomainException, IllegalArgumentException, IllegalAccessException {
-
-        /* 準備 */
-        final TestClass testObject = new TestClass();
-        testObject.publicField = "test1";
-        testObject.setPrivateField("test2");
-        final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(testObject);
-
-        /* テスト対象の実行と検証 */
-        // 1回目の呼び出し
-        final Object firstResult = testReflection.get("publicField");
-        Assertions.assertEquals("test1", firstResult, "1回目のget呼び出しで正しい値が取得できること");
-        Assertions.assertEquals("test1", testReflection.getLastGetField().get(testObject),
-            "1回目のget呼び出し後のlastGetFieldが正しいこと");
-
-        // 2回目の呼び出し
-        final Object secondResult = testReflection.get("privateField");
-        Assertions.assertEquals("test2", secondResult, "2回目のget呼び出しで正しい値が取得できること");
-        Assertions.assertEquals("test2", testReflection.getLastGetField().get(testObject),
-            "2回目のget呼び出し後のlastGetFieldが更新されていること");
-
-        // 存在しないフィールドの呼び出し
-        final Object thirdResult = testReflection.get("nonExistentField");
-        Assertions.assertNull(thirdResult, "存在しないフィールドの呼び出しでnullが返されること");
-        Assertions.assertNull(testReflection.getLastGetField(), "存在しないフィールドの呼び出し後のlastGetFieldがnullになること");
-
-    }
-
-    /**
-     * get メソッドのテスト - getValue呼び出し時のIllegalAccessException<br>
-     *
-     * @throws KmgDomainException
-     *                            KMGドメイン例外
-     */
-    @Test
-    public void testGet_getValueIllegalAccessException() throws KmgDomainException {
+    public void testGet_errorGetValueIllegalAccessException() throws KmgDomainException {
 
         /* 期待値の定義 */
         final String             expectedDomainMessage = String.format(
@@ -189,6 +120,7 @@ public class KmgReflectionModelImplTest extends AbstractKmgTest {
         final KmgDomainException actualException
             = Assertions.assertThrows(KmgDomainException.class, () -> testReflection.get("publicField"));
 
+        /* 検証の準備 */
         /* 検証の実施 */
         this.verifyKmgException(actualException, IllegalAccessException.class, expectedDomainMessage,
             expectedMessageTypes);
@@ -196,13 +128,13 @@ public class KmgReflectionModelImplTest extends AbstractKmgTest {
     }
 
     /**
-     * get メソッドのテスト - getValue呼び出し時のSecurityException<br>
+     * get メソッドのテスト - 異常系:getValue呼び出し時のSecurityException
      *
      * @throws KmgDomainException
      *                            KMGドメイン例外
      */
     @Test
-    public void testGet_getValueSecurityException() throws KmgDomainException {
+    public void testGet_errorGetValueSecurityException() throws KmgDomainException {
 
         /* 期待値の定義 */
         final String             expectedDomainMessage = String.format(
@@ -229,109 +161,9 @@ public class KmgReflectionModelImplTest extends AbstractKmgTest {
         final KmgDomainException actualException
             = Assertions.assertThrows(KmgDomainException.class, () -> testReflection.get("publicField"));
 
+        /* 検証の準備 */
         /* 検証の実施 */
         this.verifyKmgException(actualException, SecurityException.class, expectedDomainMessage, expectedMessageTypes);
-
-    }
-
-    /**
-     * get メソッドのテスト - 存在しないフィールドへのアクセス<br>
-     *
-     * @throws KmgDomainException
-     *                            KMGドメイン例外
-     */
-    @Test
-    public void testGet_nonExistentField() throws KmgDomainException {
-
-        /* 期待値の定義 */
-        final String expectedValue = null;
-
-        /* 準備 */
-        final TestClass              testObject     = new TestClass();
-        final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(testObject);
-
-        /* テスト対象の実行 */
-        final String actualValue = (String) testReflection.get("nonExistentField");
-
-        /* 検証の実施 */
-        Assertions.assertEquals(expectedValue, actualValue, "存在しないフィールドへのアクセスでnullが返されること");
-
-    }
-
-    /**
-     * get メソッドのテスト - nullフィールド名を指定<br>
-     *
-     * @throws KmgDomainException
-     *                            KMGドメイン例外
-     */
-    @Test
-    public void testGet_nullFieldName() throws KmgDomainException {
-
-        /* 準備 */
-        final TestClass              testObject     = new TestClass();
-        final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(testObject);
-
-        /* テスト対象の実行 */
-        final Object actualValue = testReflection.get(null);
-
-        /* 検証の実施 */
-        Assertions.assertNull(actualValue, "nullフィールド名を指定した場合、nullが返されること");
-
-    }
-
-    /**
-     * get メソッドのテスト - プライベートフィールドの値を取得<br>
-     *
-     * @throws KmgDomainException
-     *                            KMGドメイン例外
-     */
-    @Test
-    public void testGet_privateField() throws KmgDomainException {
-
-        /* 期待値の定義 */
-        final String expectedValue = "test value";
-
-        /* 準備 */
-        final TestClass testObject = new TestClass();
-        testObject.setPrivateField(expectedValue);
-        final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(testObject);
-
-        /* テスト対象の実行 */
-        final Object testResult = testReflection.get("privateField");
-
-        /* 検証の準備 */
-        final String actualValue = (String) testResult;
-
-        /* 検証の実施 */
-        Assertions.assertEquals(expectedValue, actualValue, "プライベートフィールドから値が取得できること");
-
-    }
-
-    /**
-     * get メソッドのテスト - パブリックフィールドの値を取得<br>
-     *
-     * @throws KmgDomainException
-     *                            KMGドメイン例外
-     */
-    @Test
-    public void testGet_publicField() throws KmgDomainException {
-
-        /* 期待値の定義 */
-        final String expectedValue = "test value";
-
-        /* 準備 */
-        final TestClass testObject = new TestClass();
-        testObject.publicField = expectedValue;
-        final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(testObject);
-
-        /* テスト対象の実行 */
-        final Object testResult = testReflection.get("publicField");
-
-        /* 検証の準備 */
-        final String actualValue = (String) testResult;
-
-        /* 検証の実施 */
-        Assertions.assertEquals(expectedValue, actualValue, "パブリックフィールドから値が取得できること");
 
     }
 
@@ -342,20 +174,17 @@ public class KmgReflectionModelImplTest extends AbstractKmgTest {
      *                            KMGドメイン例外
      */
     @Test
-    public void testGet_securityException() throws KmgDomainException {
+    public void testGet_errorSecurityException() throws KmgDomainException {
 
         /* 期待値の定義 */
-
-        // フィールド取得失敗時のドメインメッセージ
-        final String expectedDomainMessage = String.format("フィールドの取得に失敗しました。フィールド名=[%s]、対象のクラス=[%s]、最後に取得したフィールド=[%s]",
-            "publicField", "class kmg.core.domain.model.impl.KmgReflectionModelImplTest$TestClass", "null");
-
-        final KmgMsgMessageTypes expectedMessageTypes = KmgMsgMessageTypes.KMGMSGE11200; // 期待されるメッセージタイプ
+        final String             expectedDomainMessage = String.format(
+            "フィールドの取得に失敗しました。フィールド名=[%s]、対象のクラス=[%s]、最後に取得したフィールド=[%s]", "publicField",
+            "class kmg.core.domain.model.impl.KmgReflectionModelImplTest$TestClass", "null");
+        final KmgMsgMessageTypes expectedMessageTypes  = KmgMsgMessageTypes.KMGMSGE11200;
 
         /* 準備 */
         final TestClass testObject = new TestClass();
 
-        // テスト用のリフレクションモデル
         final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(testObject) {
 
             @Override
@@ -374,31 +203,190 @@ public class KmgReflectionModelImplTest extends AbstractKmgTest {
         /* 検証の準備 */
 
         /* 検証の実施 */
-
-        // 例外の検証
         this.verifyKmgException(actualException, SecurityException.class, expectedDomainMessage, expectedMessageTypes);
 
     }
 
     /**
-     * getDeclaredMethods メソッドのテスト - 正常系
+     * get メソッドのテスト - 正常系：BigDecimalフィールドの値を取得<br>
      *
      * @throws KmgDomainException
      *                            KMGドメイン例外
      */
     @Test
-    public void testGetDeclaredMethods_normal() throws KmgDomainException {
+    public void testGet_normalBigDecimalField() throws KmgDomainException {
+
+        /* 期待値の定義 */
+        final BigDecimal expectedValue = new BigDecimal("123.45");
+
+        /* 準備 */
+        final TestClass              testObject     = new TestClass();
+        final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(testObject);
+        testReflection.set("decimalField", expectedValue);
+
+        /* テスト対象の実行 */
+        final Object testResult = testReflection.get("decimalField");
+
+        /* 検証の準備 */
+        final BigDecimal actualValue = (BigDecimal) testResult;
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expectedValue, actualValue, "get: BigDecimalフィールドから値が正しく取得できること");
+
+    }
+
+    /**
+     * get メソッドのテスト - 正常系:連続呼び出し時のlastGetFieldの状態確認
+     *
+     * @throws KmgDomainException
+     *                                  KMGドメイン例外
+     * @throws IllegalAccessException
+     *                                  イリーガルアクセス例外
+     * @throws IllegalArgumentException
+     *                                  引数例外
+     */
+    @Test
+    public void testGet_normalConsecutiveCalls()
+        throws KmgDomainException, IllegalArgumentException, IllegalAccessException {
+
+        /* 準備 */
+        final TestClass testObject = new TestClass();
+        testObject.publicField = "test1";
+        testObject.setPrivateField("test2");
+        final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(testObject);
+
+        /* テスト対象の実行と検証 */
+        // 1回目の呼び出し
+        /* 期待値の定義 */
+        /* テスト対象の実行 */
+        final Object firstResult = testReflection.get("publicField");
+        /* 検証の準備 */
+        /* 検証の実施 */
+        Assertions.assertEquals("test1", firstResult, "get: 1回目のget呼び出しで正しい値が取得できること");
+        Assertions.assertEquals("test1", testReflection.getLastGetField().get(testObject),
+            "get: 1回目のget呼び出し後のlastGetFieldが正しいこと");
+
+        // 2回目の呼び出し
+        /* 期待値の定義 */
+        /* テスト対象の実行 */
+        final Object secondResult = testReflection.get("privateField");
+        /* 検証の準備 */
+        /* 検証の実施 */
+        Assertions.assertEquals("test2", secondResult, "get: 2回目のget呼び出しで正しい値が取得できること");
+        Assertions.assertEquals("test2", testReflection.getLastGetField().get(testObject),
+            "get: 2回目のget呼び出し後のlastGetFieldが更新されていること");
+
+        // 存在しないフィールドの呼び出し
+        /* 期待値の定義 */
+        /* テスト対象の実行 */
+        final Object thirdResult = testReflection.get("nonExistentField");
+        /* 検証の準備 */
+        /* 検証の実施 */
+        Assertions.assertNull(thirdResult, "get: 存在しないフィールドの呼び出しでnullが返されること");
+        Assertions.assertNull(testReflection.getLastGetField(), "get: 存在しないフィールドの呼び出し後のlastGetFieldがnullになること");
+
+    }
+
+    /**
+     * get メソッドのテスト - 正常系:存在しないフィールドへのアクセス
+     *
+     * @throws KmgDomainException
+     *                            KMGドメイン例外
+     */
+    @Test
+    public void testGet_normalNonExistentField() throws KmgDomainException {
+
+        /* 期待値の定義 */
+        final String expectedValue = null;
 
         /* 準備 */
         final TestClass              testObject     = new TestClass();
         final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(testObject);
 
         /* テスト対象の実行 */
-        final Object testResult = testReflection.getMethod("testMethod", "Hello");
+        final String actualValue = (String) testReflection.get("nonExistentField");
+
+        /* 検証の準備 */
+        /* 検証の実施 */
+        Assertions.assertEquals(expectedValue, actualValue, "get: 存在しないフィールドへのアクセスでnullが返されること");
+
+    }
+
+    /**
+     * get メソッドのテスト - 正常系:nullフィールド名を指定
+     *
+     * @throws KmgDomainException
+     *                            KMGドメイン例外
+     */
+    @Test
+    public void testGet_normalNullFieldName() throws KmgDomainException {
+
+        /* 準備 */
+        final TestClass              testObject     = new TestClass();
+        final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(testObject);
+
+        /* テスト対象の実行 */
+        final Object actualValue = testReflection.get(null);
+
+        /* 検証の準備 */
+        /* 検証の実施 */
+        Assertions.assertNull(actualValue, "get: nullフィールド名を指定した場合、nullが返されること");
+
+    }
+
+    /**
+     * get メソッドのテスト - 正常系:プライベートフィールドの値を取得
+     *
+     * @throws KmgDomainException
+     *                            KMGドメイン例外
+     */
+    @Test
+    public void testGet_normalPrivateField() throws KmgDomainException {
+
+        /* 期待値の定義 */
+        final String expectedValue = "test value";
+
+        /* 準備 */
+        final TestClass testObject = new TestClass();
+        testObject.setPrivateField(expectedValue);
+        final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(testObject);
+
+        /* テスト対象の実行 */
+        final Object testResult = testReflection.get("privateField");
+
+        /* 検証の準備 */
+        final String actualValue = (String) testResult;
 
         /* 検証の実施 */
-        Assertions.assertNotNull(testResult, "宣言されたメソッドが正しく取得できること");
-        Assertions.assertEquals("HelloTest", testResult, "メソッドの実行結果が正しいこと");
+        Assertions.assertEquals(expectedValue, actualValue, "get: プライベートフィールドから値が取得できること");
+
+    }
+
+    /**
+     * get メソッドのテスト - 正常系:パブリックフィールドの値を取得
+     *
+     * @throws KmgDomainException
+     *                            KMGドメイン例外
+     */
+    @Test
+    public void testGet_normalPublicField() throws KmgDomainException {
+
+        /* 期待値の定義 */
+        final String expectedValue = "test value";
+
+        /* 準備 */
+        final TestClass testObject = new TestClass();
+        testObject.publicField = expectedValue;
+        final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(testObject);
+
+        /* テスト対象の実行 */
+        final Object testResult = testReflection.get("publicField");
+
+        /* 検証の準備 */
+        final String actualValue = (String) testResult;
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expectedValue, actualValue, "get: パブリックフィールドから値が取得できること");
 
     }
 
@@ -409,51 +397,69 @@ public class KmgReflectionModelImplTest extends AbstractKmgTest {
      *                            KMGドメイン例外
      */
     @Test
-    public void testGetDeclaredMethods_securityException() throws KmgDomainException {
+    public void testGetDeclaredMethods_errorSecurityException() throws KmgDomainException {
 
         /* 期待値の定義 */
-        final String             expectedMessage                 = "Test security exception from getDeclaredMethods";
-        final String             expectedDomainMessage           = String.format(
-            "メソッドの取得に失敗しました。メソッド名=[%s]、対象のクラス=[%s]", "testMethod",
-            "class kmg.core.domain.model.impl.KmgReflectionModelImplTest$TestClass");
-        final KmgMsgMessageTypes expectedMessageTypes            = KmgMsgMessageTypes.KMGMSGE11203;
-        final int                expectedMessageArgsCount        = 2;
-        final int                expectedMessagePatternArgsCount = 2;
+        final String             expectedMessage       = "Test security exception from getDeclaredMethods";
+        final String             expectedDomainMessage = String.format("メソッドの取得に失敗しました。メソッド名=[%s]、対象のクラス=[%s]",
+            "testMethod", "class kmg.core.domain.model.impl.KmgReflectionModelImplTest$TestClass");
+        final KmgMsgMessageTypes expectedMessageTypes  = KmgMsgMessageTypes.KMGMSGE11203;
 
         /* 準備 */
-        final TestClass testObject = new TestClass();
-
+        final TestClass              testObject     = new TestClass();
         final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(testObject) {
 
-            @Override
-            protected Method[] getDeclaredMethods(final Class<?> targetClazz) throws SecurityException {
+                                                        @Override
+                                                        protected Method[] getDeclaredMethods(
+                                                            final Class<?> targetClazz) throws SecurityException {
 
-                throw new SecurityException(expectedMessage);
+                                                            throw new SecurityException(expectedMessage);
 
-            }
-        };
+                                                        }
+                                                    };
 
         /* テスト対象の実行 */
         final KmgDomainException actualException
             = Assertions.assertThrows(KmgDomainException.class, () -> testReflection.getMethod("testMethod"));
 
         /* 検証の準備 */
-        final Throwable       actualCause                   = actualException.getCause();
-        final String          actualMessage                 = actualCause.getMessage();
-        final String          actualDomainMessage           = actualException.getMessage();
-        final KmgMessageTypes actualMessageTypes            = actualException.getMessageTypes();
-        final int             actualMessageArgsCount        = actualException.getMessageArgsCount();
-        final int             actualMessagePatternArgsCount = actualException.getMessagePatternArgsCount();
-        final boolean         actualIsMatchMessageArgsCount = actualException.isMatchMessageArgsCount();
+        final Throwable       actualCause         = actualException.getCause();
+        final String          actualMessage       = actualCause.getMessage();
+        final String          actualDomainMessage = actualException.getMessage();
+        final KmgMessageTypes actualMessageTypes  = actualException.getMessageTypes();
 
         /* 検証の実施 */
         Assertions.assertTrue(actualCause instanceof SecurityException, "KmgDomainExceptionの原因がSecurityExceptionであること");
         Assertions.assertEquals(expectedMessage, actualMessage, "SecurityExceptionのメッセージが正しいこと");
         Assertions.assertEquals(expectedDomainMessage, actualDomainMessage, "KmgDomainExceptionのメッセージが正しいこと");
         Assertions.assertEquals(expectedMessageTypes, actualMessageTypes, "メッセージの種類が正しいこと");
-        Assertions.assertEquals(expectedMessageArgsCount, actualMessageArgsCount, "メッセージ引数の数が正しいこと");
-        Assertions.assertEquals(expectedMessagePatternArgsCount, actualMessagePatternArgsCount, "メッセージパターンの引数の数が正しいこと");
-        Assertions.assertTrue(actualIsMatchMessageArgsCount, "メッセージ引数の数が一致していること");
+
+    }
+
+    /**
+     * getDeclaredMethods メソッドのテスト - 正常系<br>
+     *
+     * @throws KmgDomainException
+     *                            KMGドメイン例外
+     */
+    @Test
+    public void testGetDeclaredMethods_normal() throws KmgDomainException {
+
+        /* 期待値の定義 */
+        final String expectedValue = "HelloTest";
+
+        /* 準備 */
+        final TestClass              testObject     = new TestClass();
+        final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(testObject);
+
+        /* テスト対象の実行 */
+        final Object testResult = testReflection.getMethod("testMethod", "Hello");
+
+        /* 検証の準備 */
+        final String actualValue = (String) testResult;
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expectedValue, actualValue, "メソッドの実行結果が正しいこと");
 
     }
 
@@ -464,9 +470,10 @@ public class KmgReflectionModelImplTest extends AbstractKmgTest {
      *                            KMGドメイン例外
      */
     @Test
-    public void testGetLastGetField_beforeGetField() throws KmgDomainException {
+    public void testGetLastGetField_normalBeforeGetField() throws KmgDomainException {
 
         /* 期待値の定義 */
+        final Object expectedValue = null;
 
         /* 準備 */
         final TestClass              testObject     = new TestClass();
@@ -476,21 +483,21 @@ public class KmgReflectionModelImplTest extends AbstractKmgTest {
         final Object testResult = testReflection.getLastGetField();
 
         /* 検証の準備 */
-        final Object actualResult = testResult;
+        final Object actualValue = testResult;
 
         /* 検証の実施 */
-        Assertions.assertNull(actualResult, "最後に取得したフィールドがnullであること");
+        Assertions.assertEquals(expectedValue, actualValue, "最後に取得したフィールドがnullであること");
 
     }
 
     /**
-     * getMethod メソッドのテスト - IllegalAccessException発生時<br>
+     * getMethod メソッドのテスト - 異常系：IllegalAccessException発生時<br>
      *
      * @throws KmgDomainException
      *                            KMGドメイン例外
      */
     @Test
-    public void testGetMethod_illegalAccessException() throws KmgDomainException {
+    public void testGetMethod_errorIllegalAccessException() throws KmgDomainException {
 
         /* 期待値の定義 */
         final String             expectedDomainMessage = String.format("メソッドの値の取得に失敗しました。メソッド名=[%s]、対象のクラス=[%s]",
@@ -498,18 +505,19 @@ public class KmgReflectionModelImplTest extends AbstractKmgTest {
         final KmgMsgMessageTypes expectedMessageTypes  = KmgMsgMessageTypes.KMGMSGE11205;
 
         /* 準備 */
-        final TestClass testObject = new TestClass();
-
+        final TestClass              testObject     = new TestClass();
         final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(testObject) {
 
-            @Override
-            protected Object invoke(final Method method, final Object targetObject, final Object... parameters)
-                throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+                                                        @Override
+                                                        protected Object invoke(final Method method,
+                                                            final Object targetObject, final Object... parameters)
+                                                            throws IllegalAccessException, IllegalArgumentException,
+                                                            InvocationTargetException {
 
-                throw new IllegalAccessException("Test illegal access exception");
+                                                            throw new IllegalAccessException();
 
-            }
-        };
+                                                        }
+                                                    };
 
         /* テスト対象の実行 */
         final KmgDomainException actualException
@@ -522,13 +530,13 @@ public class KmgReflectionModelImplTest extends AbstractKmgTest {
     }
 
     /**
-     * getMethod メソッドのテスト - IllegalArgumentException発生時<br>
+     * getMethod メソッドのテスト - 異常系：IllegalArgumentException発生時<br>
      *
      * @throws KmgDomainException
      *                            KMGドメイン例外
      */
     @Test
-    public void testGetMethod_illegalArgumentException() throws KmgDomainException {
+    public void testGetMethod_errorIllegalArgumentException() throws KmgDomainException {
 
         /* 期待値の定義 */
         final String             expectedDomainMessage = String.format("メソッドの値の取得に失敗しました。メソッド名=[%s]、対象のクラス=[%s]",
@@ -560,13 +568,13 @@ public class KmgReflectionModelImplTest extends AbstractKmgTest {
     }
 
     /**
-     * getMethod メソッドのテスト - InvocationTargetException発生時<br>
+     * getMethod メソッドのテスト - 異常系：InvocationTargetException発生時<br>
      *
      * @throws KmgDomainException
      *                            KMGドメイン例外
      */
     @Test
-    public void testGetMethod_invocationTargetException() throws KmgDomainException {
+    public void testGetMethod_errorInvocationTargetException() throws KmgDomainException {
 
         /* 期待値の定義 */
         final String             expectedDomainMessage = String.format("メソッドの値の取得に失敗しました。メソッド名=[%s]、対象のクラス=[%s]",
@@ -574,18 +582,20 @@ public class KmgReflectionModelImplTest extends AbstractKmgTest {
         final KmgMsgMessageTypes expectedMessageTypes  = KmgMsgMessageTypes.KMGMSGE11207;
 
         /* 準備 */
-        final TestClass testObject = new TestClass();
-
+        final TestClass              testObject     = new TestClass();
         final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(testObject) {
 
-            @Override
-            protected Object invoke(final Method method, final Object targetObject, final Object... parameters)
-                throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+                                                        @Override
+                                                        protected Object invoke(final Method method,
+                                                            final Object targetObject, final Object... parameters)
+                                                            throws IllegalAccessException, IllegalArgumentException,
+                                                            InvocationTargetException {
 
-                throw new InvocationTargetException(new RuntimeException("Test invocation target exception"));
+                                                            throw new InvocationTargetException(new RuntimeException(
+                                                                "Test invocation target exception"));
 
-            }
-        };
+                                                        }
+                                                    };
 
         /* テスト対象の実行 */
         final KmgDomainException actualException
@@ -598,13 +608,77 @@ public class KmgReflectionModelImplTest extends AbstractKmgTest {
     }
 
     /**
-     * getMethod メソッドのテスト - パラメータ数が一致しない場合<br>
+     * getMethod メソッドのテスト - 正常系：privateメソッドへのアクセス<br>
      *
      * @throws KmgDomainException
      *                            KMGドメイン例外
      */
     @Test
-    public void testGetMethod_mismatchParameterCount() throws KmgDomainException {
+    public void testGetMethod_normalPrivateMethod() throws KmgDomainException {
+
+        /* 期待値の定義 */
+        final String expectedValue = "PrivateTest";
+
+        /* 準備 */
+        final TestClass testObject = new TestClass() {
+
+            @SuppressWarnings("unused")
+            private String privateTestMethod(final String param) {
+
+                final String result = KmgString.concat(param, "Test");
+                return result;
+
+            }
+        };
+
+        final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(testObject);
+
+        /* テスト対象の実行 */
+        final Object testResult = testReflection.getMethod("privateTestMethod", "Private");
+
+        /* 検証の準備 */
+        final String actualValue = (String) testResult;
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expectedValue, actualValue, "privateメソッドが正しく呼び出され、結果が返されること");
+
+    }
+
+    /**
+     * getMethod メソッドのテスト - 正常系：パラメータありのメソッド呼び出し<br>
+     *
+     * @throws KmgDomainException
+     *                            KMGドメイン例外
+     */
+    @Test
+    public void testGetMethod_normalWithParameters() throws KmgDomainException {
+
+        /* 期待値の定義 */
+        final String expectedValue = "HelloTest";
+
+        /* 準備 */
+        final TestClass              testObject     = new TestClass();
+        final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(testObject);
+
+        /* テスト対象の実行 */
+        final Object testResult = testReflection.getMethod("testMethod", "Hello");
+
+        /* 検証の準備 */
+        final String actualValue = (String) testResult;
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expectedValue, actualValue, "メソッドが正しく呼び出され、結果が返されること");
+
+    }
+
+    /**
+     * getMethod メソッドのテスト - 準正常系：パラメータ数が一致しない場合<br>
+     *
+     * @throws KmgDomainException
+     *                            KMGドメイン例外
+     */
+    @Test
+    public void testGetMethod_semiMismatchParameterCount() throws KmgDomainException {
 
         /* 期待値の定義 */
         final Object expectedValue = null;
@@ -625,13 +699,13 @@ public class KmgReflectionModelImplTest extends AbstractKmgTest {
     }
 
     /**
-     * getMethod メソッドのテスト - パラメータの型が一致しない場合<br>
+     * getMethod メソッドのテスト - 準正常系：パラメータの型が一致しない場合<br>
      *
      * @throws KmgDomainException
      *                            KMGドメイン例外
      */
     @Test
-    public void testGetMethod_mismatchParameterType() throws KmgDomainException {
+    public void testGetMethod_semiMismatchParameterType() throws KmgDomainException {
 
         /* 期待値の定義 */
         final Object expectedValue = null;
@@ -652,13 +726,13 @@ public class KmgReflectionModelImplTest extends AbstractKmgTest {
     }
 
     /**
-     * getMethod メソッドのテスト - 存在しないメソッドへのアクセス<br>
+     * getMethod メソッドのテスト - 準正常系：存在しないメソッドへのアクセス<br>
      *
      * @throws KmgDomainException
      *                            KMGドメイン例外
      */
     @Test
-    public void testGetMethod_nonExistentMethod() throws KmgDomainException {
+    public void testGetMethod_semiNonExistentMethod() throws KmgDomainException {
 
         /* 期待値の定義 */
         final Object expectedValue = null;
@@ -679,13 +753,13 @@ public class KmgReflectionModelImplTest extends AbstractKmgTest {
     }
 
     /**
-     * getMethod メソッドのテスト - メソッド名がnullの場合<br>
+     * getMethod メソッドのテスト - 準正常系：メソッド名がnullの場合<br>
      *
      * @throws KmgDomainException
      *                            KMGドメイン例外
      */
     @Test
-    public void testGetMethod_nullMethodName() throws KmgDomainException {
+    public void testGetMethod_semiNullMethodName() throws KmgDomainException {
 
         /* 期待値の定義 */
         final Object expectedValue = null;
@@ -706,105 +780,13 @@ public class KmgReflectionModelImplTest extends AbstractKmgTest {
     }
 
     /**
-     * getMethod メソッドのテスト - privateメソッドへのアクセス<br>
+     * invoke メソッドのテスト - 異常系：SecurityException発生時<br>
      *
      * @throws KmgDomainException
      *                            KMGドメイン例外
      */
     @Test
-    public void testGetMethod_privateMethod() throws KmgDomainException {
-
-        /* 期待値の定義 */
-        final String expectedValue = "PrivateTest";
-
-        /* 準備 */
-        final TestClass testObject = new TestClass() {
-
-            @SuppressWarnings("unused")
-            private String privateTestMethod(final String param) {
-
-                final String result = KmgString.concat(param, "Test");
-
-                return result;
-
-            }
-        };
-
-        final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(testObject);
-
-        /* テスト対象の実行 */
-        final Object testResult = testReflection.getMethod("privateTestMethod", "Private");
-
-        /* 検証の準備 */
-        final String actualValue = (String) testResult;
-
-        /* 検証の実施 */
-        Assertions.assertEquals(expectedValue, actualValue, "privateメソッドが正しく呼び出され、結果が返されること");
-
-    }
-
-    /**
-     * getMethod メソッドのテスト - 正常系（パラメータありのメソッド呼び出し）<br>
-     *
-     * @throws KmgDomainException
-     *                            KMGドメイン例外
-     */
-    @Test
-    public void testGetMethod_withParameters() throws KmgDomainException {
-
-        /* 期待値の定義 */
-        final String expectedValue = "HelloTest";
-
-        /* 準備 */
-        final TestClass              testObject     = new TestClass();
-        final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(testObject);
-
-        /* テスト対象の実行 */
-        final Object testResult = testReflection.getMethod("testMethod", "Hello");
-
-        /* 検証の準備 */
-        final String actualValue = (String) testResult;
-
-        /* 検証の実施 */
-        Assertions.assertEquals(expectedValue, actualValue, "メソッドが正しく呼び出され、結果が返されること");
-
-    }
-
-    /**
-     * invoke メソッドのテスト - 正常系<br>
-     *
-     * @throws KmgDomainException
-     *                            KMGドメイン例外
-     */
-    @Test
-    public void testInvoke_normal() throws KmgDomainException {
-
-        /* 期待値の定義 */
-        final String expectedValue = "HelloTest";
-
-        /* 準備 */
-        final TestClass              testObject     = new TestClass();
-        final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(testObject);
-
-        /* テスト対象の実行 */
-        final Object testResult = testReflection.getMethod("testMethod", "Hello");
-
-        /* 検証の準備 */
-        final String actualValue = (String) testResult;
-
-        /* 検証の実施 */
-        Assertions.assertEquals(expectedValue, actualValue, "メソッドが正しく呼び出され、結果が返されること");
-
-    }
-
-    /**
-     * invoke メソッドのテスト - SecurityException発生時<br>
-     *
-     * @throws KmgDomainException
-     *                            KMGドメイン例外
-     */
-    @Test
-    public void testInvoke_securityException() throws KmgDomainException {
+    public void testInvoke_errorSecurityException() throws KmgDomainException {
 
         /* 期待値の定義 */
         final String             expectedDomainMessage = String.format("メソッドの値の取得に失敗しました。メソッド名=[%s]、対象のクラス=[%s]",
@@ -812,18 +794,20 @@ public class KmgReflectionModelImplTest extends AbstractKmgTest {
         final KmgMsgMessageTypes expectedMessageTypes  = KmgMsgMessageTypes.KMGMSGE11204;
 
         /* 準備 */
-        final TestClass testObject = new TestClass();
-
+        final TestClass              testObject     = new TestClass();
         final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(testObject) {
 
-            @Override
-            protected Object invoke(final Method method, final Object targetObject, final Object... parameters)
-                throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+                                                        @Override
+                                                        protected Object invoke(final Method method,
+                                                            final Object targetObject, final Object... parameters)
+                                                            throws IllegalAccessException, IllegalArgumentException,
+                                                            InvocationTargetException {
 
-                throw new SecurityException("Test security exception from invoke");
+                                                            throw new SecurityException(
+                                                                "Test security exception from invoke");
 
-            }
-        };
+                                                        }
+                                                    };
 
         /* テスト対象の実行 */
         final KmgDomainException actualException
@@ -835,40 +819,40 @@ public class KmgReflectionModelImplTest extends AbstractKmgTest {
     }
 
     /**
-     * set メソッドのテスト - BigDecimalフィールドへの値の設定<br>
+     * invoke メソッドのテスト - 正常系：メソッドが正しく呼び出されること<br>
      *
      * @throws KmgDomainException
      *                            KMGドメイン例外
      */
     @Test
-    public void testSet_bigDecimalField() throws KmgDomainException {
+    public void testInvoke_normalMethodCall() throws KmgDomainException {
 
         /* 期待値の定義 */
-        final BigDecimal expectedValue = new BigDecimal("123.45");
+        final String expectedValue = "HelloTest";
 
         /* 準備 */
         final TestClass              testObject     = new TestClass();
         final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(testObject);
 
         /* テスト対象の実行 */
-        testReflection.set("decimalField", expectedValue);
+        final Object testResult = testReflection.getMethod("testMethod", "Hello");
 
         /* 検証の準備 */
-        final Object actualValue = testReflection.get("decimalField");
+        final String actualValue = (String) testResult;
 
         /* 検証の実施 */
-        Assertions.assertEquals(expectedValue, actualValue, "BigDecimalフィールドに値が正しく設定されること");
+        Assertions.assertEquals(expectedValue, actualValue, "メソッドが正しく呼び出され、結果が返されること");
 
     }
 
     /**
-     * set メソッドのテスト - IllegalAccessException発生時<br>
+     * set メソッドのテスト - 異常系：IllegalAccessException発生時<br>
      *
      * @throws KmgDomainException
      *                            KMGドメイン例外
      */
     @Test
-    public void testSet_illegalAccessException() throws KmgDomainException {
+    public void testSet_errorIllegalAccessException() throws KmgDomainException {
 
         /* 期待値の定義 */
         final String             expectedDomainMessage = String.format(
@@ -878,18 +862,19 @@ public class KmgReflectionModelImplTest extends AbstractKmgTest {
         final KmgMsgMessageTypes expectedMessageTypes  = KmgMsgMessageTypes.KMGMSGE11211;
 
         /* 準備 */
-        final TestClass testObject = new TestClass();
-
+        final TestClass              testObject     = new TestClass();
         final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(testObject) {
 
-            @Override
-            protected void setValue(final Field field, final Object targetObject, final Object value)
-                throws SecurityException, IllegalAccessException {
+                                                        @Override
+                                                        protected void setValue(final Field field,
+                                                            final Object targetObject, final Object value)
+                                                            throws SecurityException, IllegalAccessException {
 
-                throw new IllegalAccessException("Test illegal access exception from setValue");
+                                                            throw new IllegalAccessException(
+                                                                "Test illegal access exception from setValue");
 
-            }
-        };
+                                                        }
+                                                    };
 
         /* テスト対象の実行 */
         final KmgDomainException actualException
@@ -902,19 +887,19 @@ public class KmgReflectionModelImplTest extends AbstractKmgTest {
     }
 
     /**
-     * set メソッドのテスト - BigDecimalに変換できない値の場合<br>
+     * set メソッドのテスト - 異常系：BigDecimalに変換できない値の場合<br>
      *
      * @throws KmgDomainException
      *                            KMGドメイン例外
      */
     @Test
-    public void testSet_invalidBigDecimalValue() throws KmgDomainException {
+    public void testSet_errorInvalidBigDecimalValue() throws KmgDomainException {
 
         /* 期待値の定義 */
+        final KmgMsgMessageTypes expectedMessageTypes = KmgMsgMessageTypes.KMGMSGE11210;
 
         /* 準備 */
-        final TestClass testObject = new TestClass();
-
+        final TestClass              testObject     = new TestClass();
         final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(testObject);
 
         /* テスト対象の実行 */
@@ -927,140 +912,18 @@ public class KmgReflectionModelImplTest extends AbstractKmgTest {
         /* 検証の実施 */
         Assertions.assertTrue(actualCause instanceof IllegalArgumentException,
             "KmgDomainExceptionの原因がIllegalArgumentExceptionであること");
+        Assertions.assertEquals(expectedMessageTypes, actualException.getMessageTypes(), "メッセージの種類が正しいこと");
 
     }
 
     /**
-     * set メソッドのテスト - 存在しないフィールドへの値の設定<br>
+     * set メソッドのテスト - 異常系：SecurityException発生時<br>
      *
      * @throws KmgDomainException
      *                            KMGドメイン例外
      */
     @Test
-    public void testSet_nonExistentField() throws KmgDomainException {
-
-        /* 準備 */
-        final TestClass              testObject     = new TestClass();
-        final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(testObject);
-
-        /* テスト対象の実行 */
-        testReflection.set("nonExistentField", "test value");
-
-        /* 検証の実施 */
-        Assertions.assertNull(testReflection.getLastGetField(), "存在しないフィールドへの設定時にlastGetFieldがnullであること");
-
-    }
-
-    /**
-     * set メソッドのテスト - nullフィールド名を指定<br>
-     *
-     * @throws KmgDomainException
-     *                            KMGドメイン例外
-     */
-    @Test
-    public void testSet_nullFieldName() throws KmgDomainException {
-
-        /* 準備 */
-        final TestClass              testObject     = new TestClass();
-        final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(testObject);
-
-        /* テスト対象の実行 */
-        testReflection.set(null, "test value");
-
-        /* 検証の実施 */
-        Assertions.assertNull(testReflection.getLastGetField(), "nullフィールド名指定時にlastGetFieldがnullであること");
-
-    }
-
-    /**
-     * set メソッドのテスト - 値がnullの場合<br>
-     *
-     * @throws KmgDomainException
-     *                            KMGドメイン例外
-     */
-    @Test
-    public void testSet_nullValue() throws KmgDomainException {
-
-        /* 期待値の定義 */
-        final Object expectedValue = null;
-
-        /* 準備 */
-        final TestClass              testObject     = new TestClass();
-        final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(testObject);
-
-        /* テスト対象の実行 */
-        testReflection.set("publicField", null);
-
-        /* 検証の準備 */
-        final Object actualValue = testObject.publicField;
-
-        /* 検証の実施 */
-        Assertions.assertEquals(expectedValue, actualValue, "nullが正しく設定されること");
-
-    }
-
-    /**
-     * set メソッドのテスト - プライベートフィールドへの値の設定<br>
-     *
-     * @throws KmgDomainException
-     *                            KMGドメイン例外
-     */
-    @Test
-    public void testSet_privateField() throws KmgDomainException {
-
-        /* 期待値の定義 */
-        final String expectedValue = "test value";
-
-        /* 準備 */
-        final TestClass              testObject     = new TestClass();
-        final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(testObject);
-
-        /* テスト対象の実行 */
-        testReflection.set("privateField", expectedValue);
-
-        /* 検証の準備 */
-        final String actualValue = testObject.getPrivateField();
-
-        /* 検証の実施 */
-        Assertions.assertEquals(expectedValue, actualValue, "プライベートフィールドに値が正しく設定されること");
-
-    }
-
-    /**
-     * set メソッドのテスト - パブリックフィールドへの値の設定<br>
-     *
-     * @throws KmgDomainException
-     *                            KMGドメイン例外
-     */
-    @Test
-    public void testSet_publicField() throws KmgDomainException {
-
-        /* 期待値の定義 */
-        final String expectedValue = "test value";
-
-        /* 準備 */
-        final TestClass              testObject     = new TestClass();
-        final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(testObject);
-
-        /* テスト対象の実行 */
-        testReflection.set("publicField", expectedValue);
-
-        /* 検証の準備 */
-        final String actualValue = testObject.publicField;
-
-        /* 検証の実施 */
-        Assertions.assertEquals(expectedValue, actualValue, "パブリックフィールドに値が正しく設定されること");
-
-    }
-
-    /**
-     * set メソッドのテスト - SecurityException発生時<br>
-     *
-     * @throws KmgDomainException
-     *                            KMGドメイン例外
-     */
-    @Test
-    public void testSet_securityException() throws KmgDomainException {
+    public void testSet_errorSecurityException() throws KmgDomainException {
 
         /* 期待値の定義 */
         final String             expectedDomainMessage = String.format(
@@ -1088,6 +951,168 @@ public class KmgReflectionModelImplTest extends AbstractKmgTest {
 
         /* 検証の実施 */
         this.verifyKmgException(actualException, SecurityException.class, expectedDomainMessage, expectedMessageTypes);
+
+    }
+
+    /**
+     * set メソッドのテスト - 正常系：BigDecimalフィールドへの値の設定<br>
+     *
+     * @throws KmgDomainException
+     *                            KMGドメイン例外
+     */
+    @Test
+    public void testSet_normalBigDecimalField() throws KmgDomainException {
+
+        /* 期待値の定義 */
+        final BigDecimal expectedValue = new BigDecimal("123.45");
+
+        /* 準備 */
+        final TestClass              testObject     = new TestClass();
+        final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(testObject);
+
+        /* テスト対象の実行 */
+        testReflection.set("decimalField", expectedValue);
+
+        /* 検証の準備 */
+        final Object actualValue = testReflection.get("decimalField");
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expectedValue, actualValue, "BigDecimalフィールドに値が正しく設定されること");
+
+    }
+
+    /**
+     * set メソッドのテスト - 正常系：値がnullの場合<br>
+     *
+     * @throws KmgDomainException
+     *                            KMGドメイン例外
+     */
+    @Test
+    public void testSet_normalNullValue() throws KmgDomainException {
+
+        /* 期待値の定義 */
+        final Object expectedValue = null;
+
+        /* 準備 */
+        final TestClass              testObject     = new TestClass();
+        final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(testObject);
+
+        /* テスト対象の実行 */
+        testReflection.set("publicField", null);
+
+        /* 検証の準備 */
+        final Object actualValue = testObject.publicField;
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expectedValue, actualValue, "nullが正しく設定されること");
+
+    }
+
+    /**
+     * set メソッドのテスト - 正常系：プライベートフィールドへの値の設定<br>
+     *
+     * @throws KmgDomainException
+     *                            KMGドメイン例外
+     */
+    @Test
+    public void testSet_normalPrivateField() throws KmgDomainException {
+
+        /* 期待値の定義 */
+        final String expectedValue = "test value";
+
+        /* 準備 */
+        final TestClass              testObject     = new TestClass();
+        final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(testObject);
+
+        /* テスト対象の実行 */
+        testReflection.set("privateField", expectedValue);
+
+        /* 検証の準備 */
+        final String actualValue = testObject.getPrivateField();
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expectedValue, actualValue, "プライベートフィールドに値が正しく設定されること");
+
+    }
+
+    /**
+     * set メソッドのテスト - 正常系：パブリックフィールドへの値の設定<br>
+     *
+     * @throws KmgDomainException
+     *                            KMGドメイン例外
+     */
+    @Test
+    public void testSet_normalPublicField() throws KmgDomainException {
+
+        /* 期待値の定義 */
+        final String expectedValue = "test value";
+
+        /* 準備 */
+        final TestClass              testObject     = new TestClass();
+        final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(testObject);
+
+        /* テスト対象の実行 */
+        testReflection.set("publicField", expectedValue);
+
+        /* 検証の準備 */
+        final String actualValue = testObject.publicField;
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expectedValue, actualValue, "パブリックフィールドに値が正しく設定されること");
+
+    }
+
+    /**
+     * set メソッドのテスト - 準正常系：存在しないフィールドへの値の設定<br>
+     *
+     * @throws KmgDomainException
+     *                            KMGドメイン例外
+     */
+    @Test
+    public void testSet_semiNonExistentField() throws KmgDomainException {
+
+        /* 期待値の定義 */
+        final Field expectedLastGetField = null;
+
+        /* 準備 */
+        final TestClass              testObject     = new TestClass();
+        final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(testObject);
+
+        /* テスト対象の実行 */
+        testReflection.set("nonExistentField", "test value");
+
+        /* 検証の準備 */
+        final Field actualLastGetField = testReflection.getLastGetField();
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expectedLastGetField, actualLastGetField, "存在しないフィールドへの設定時にlastGetFieldがnullであること");
+
+    }
+
+    /**
+     * set メソッドのテスト - 準正常系：nullフィールド名を指定<br>
+     *
+     * @throws KmgDomainException
+     *                            KMGドメイン例外
+     */
+    @Test
+    public void testSet_semiNullFieldName() throws KmgDomainException {
+
+        /* 期待値の定義 */
+        final Field expectedLastGetField = null;
+
+        /* 準備 */
+        final TestClass              testObject     = new TestClass();
+        final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(testObject);
+
+        /* テスト対象の実行 */
+        testReflection.set(null, "test value");
+
+        /* 検証の準備 */
+        final Field actualLastGetField = testReflection.getLastGetField();
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expectedLastGetField, actualLastGetField, "nullフィールド名指定時にlastGetFieldがnullであること");
 
     }
 

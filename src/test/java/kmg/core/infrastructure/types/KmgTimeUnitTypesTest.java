@@ -20,10 +20,10 @@ import org.junit.jupiter.api.Test;
 public class KmgTimeUnitTypesTest {
 
     /**
-     * get メソッドのテスト
+     * get メソッドのテスト - 正常系:基本的な値の取得
      */
     @Test
-    public void testGet() {
+    public void testGet_normalBasicValue() {
 
         /* 期待値の定義 */
         final String expected = "seconds";
@@ -40,10 +40,10 @@ public class KmgTimeUnitTypesTest {
     }
 
     /**
-     * getDefault メソッドのテスト
+     * getDefault メソッドのテスト - 正常系:デフォルト値の取得
      */
     @Test
-    public void testGetDefault() {
+    public void testGetDefault_normalDefaultValue() {
 
         /* 期待値の定義 */
         final KmgTimeUnitTypes expected = KmgTimeUnitTypes.NONE;
@@ -57,10 +57,10 @@ public class KmgTimeUnitTypesTest {
     }
 
     /**
-     * getEnum メソッドのテスト - 存在する値の場合
+     * getEnum メソッドのテスト - 正常系:存在する値の取得
      */
     @Test
-    public void testGetEnum_existingValue() {
+    public void testGetEnum_normalExistingValue() {
 
         /* 期待値の定義 */
         final KmgTimeUnitTypes expected = KmgTimeUnitTypes.SECONDS;
@@ -77,10 +77,10 @@ public class KmgTimeUnitTypesTest {
     }
 
     /**
-     * getEnum メソッドのテスト - 存在しない値の場合
+     * getEnum メソッドのテスト - 準正常系:存在しない値の取得
      */
     @Test
-    public void testGetEnum_nonExistingValue() {
+    public void testGetEnum_semiNonExistingValue() {
 
         /* 期待値の定義 */
         final KmgTimeUnitTypes expected = KmgTimeUnitTypes.NONE;
@@ -97,10 +97,10 @@ public class KmgTimeUnitTypesTest {
     }
 
     /**
-     * getInitValue メソッドのテスト
+     * getInitValue メソッドのテスト - 正常系:初期値の取得
      */
     @Test
-    public void testGetInitValue() {
+    public void testGetInitValue_normalInitialValue() {
 
         /* 期待値の定義 */
         final KmgTimeUnitTypes expected = KmgTimeUnitTypes.NONE;
@@ -114,10 +114,10 @@ public class KmgTimeUnitTypesTest {
     }
 
     /**
-     * getName メソッドのテスト
+     * getName メソッドのテスト - 正常系:名前の取得
      */
     @Test
-    public void testGetName() {
+    public void testGetName_normalBasicName() {
 
         /* 期待値の定義 */
         final String expected = "秒";
@@ -134,10 +134,10 @@ public class KmgTimeUnitTypesTest {
     }
 
     /**
-     * getUnitName メソッドのテスト
+     * getUnitName メソッドのテスト - 正常系:単位名の取得
      */
     @Test
-    public void testGetUnitName() {
+    public void testGetUnitName_normalBasicUnitName() {
 
         /* 期待値の定義 */
         final String expected = "秒";
@@ -154,10 +154,10 @@ public class KmgTimeUnitTypesTest {
     }
 
     /**
-     * getUnitValue メソッドのテスト - ミリ秒の場合
+     * getUnitValue メソッドのテスト - 正常系:ミリ秒の単位値取得
      */
     @Test
-    public void testGetUnitValue_milliseconds() {
+    public void testGetUnitValue_normalMilliseconds() {
 
         /* 期待値の定義 */
         final BigDecimal expected = new BigDecimal("0.001");
@@ -174,10 +174,10 @@ public class KmgTimeUnitTypesTest {
     }
 
     /**
-     * getUnitValue メソッドのテスト - 秒の場合
+     * getUnitValue メソッドのテスト - 正常系:秒の単位値取得
      */
     @Test
-    public void testGetUnitValue_seconds() {
+    public void testGetUnitValue_normalSeconds() {
 
         /* 期待値の定義 */
         final BigDecimal expected = BigDecimal.ONE;
@@ -194,10 +194,10 @@ public class KmgTimeUnitTypesTest {
     }
 
     /**
-     * getValue メソッドのテスト
+     * getValue メソッドのテスト - 正常系:値の取得
      */
     @Test
-    public void testGetValue() {
+    public void testGetValue_normalBasicValue() {
 
         /* 期待値の定義 */
         final String expected = "seconds";
@@ -214,10 +214,10 @@ public class KmgTimeUnitTypesTest {
     }
 
     /**
-     * toString メソッドのテスト - MILLISECONDの場合
+     * toString メソッドのテスト - 正常系:ミリ秒の文字列表現
      */
     @Test
-    public void testToString_millisecond() {
+    public void testToString_normalMillisecond() {
 
         /* 期待値の定義 */
         final String expected = "millisecond,";
@@ -234,10 +234,10 @@ public class KmgTimeUnitTypesTest {
     }
 
     /**
-     * toString メソッドのテスト - NONEの場合
+     * toString メソッドのテスト - 正常系:NONEの文字列表現
      */
     @Test
-    public void testToString_none() {
+    public void testToString_normalNone() {
 
         /* 期待値の定義 */
         final String expected = null;
@@ -254,10 +254,10 @@ public class KmgTimeUnitTypesTest {
     }
 
     /**
-     * toString メソッドのテスト - SECONDSの場合
+     * toString メソッドのテスト - 正常系:秒の文字列表現
      */
     @Test
-    public void testToString_seconds() {
+    public void testToString_normalSeconds() {
 
         /* 期待値の定義 */
         final String expected = "seconds";
