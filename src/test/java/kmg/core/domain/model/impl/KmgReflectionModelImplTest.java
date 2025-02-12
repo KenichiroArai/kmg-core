@@ -786,7 +786,6 @@ public class KmgReflectionModelImplTest extends AbstractKmgTest {
      *                            KMGドメイン例外
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testInvoke_errorSecurityException() throws KmgDomainException {
 
         /* 期待値の定義 */
@@ -853,7 +852,6 @@ public class KmgReflectionModelImplTest extends AbstractKmgTest {
      *                            KMGドメイン例外
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testSet_errorIllegalAccessException() throws KmgDomainException {
 
         /* 期待値の定義 */
@@ -895,7 +893,6 @@ public class KmgReflectionModelImplTest extends AbstractKmgTest {
      *                            KMGドメイン例外
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testSet_errorInvalidBigDecimalValue() throws KmgDomainException {
 
         /* 期待値の定義 */
@@ -926,7 +923,6 @@ public class KmgReflectionModelImplTest extends AbstractKmgTest {
      *                            KMGドメイン例外
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testSet_errorSecurityException() throws KmgDomainException {
 
         /* 期待値の定義 */
@@ -965,7 +961,6 @@ public class KmgReflectionModelImplTest extends AbstractKmgTest {
      *                            KMGドメイン例外
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testSet_normalBigDecimalField() throws KmgDomainException {
 
         /* 期待値の定義 */
@@ -993,7 +988,6 @@ public class KmgReflectionModelImplTest extends AbstractKmgTest {
      *                            KMGドメイン例外
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testSet_normalNullValue() throws KmgDomainException {
 
         /* 期待値の定義 */
@@ -1021,7 +1015,6 @@ public class KmgReflectionModelImplTest extends AbstractKmgTest {
      *                            KMGドメイン例外
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testSet_normalPrivateField() throws KmgDomainException {
 
         /* 期待値の定義 */
@@ -1049,7 +1042,6 @@ public class KmgReflectionModelImplTest extends AbstractKmgTest {
      *                            KMGドメイン例外
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testSet_normalPublicField() throws KmgDomainException {
 
         /* 期待値の定義 */
@@ -1077,7 +1069,6 @@ public class KmgReflectionModelImplTest extends AbstractKmgTest {
      *                            KMGドメイン例外
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testSet_semiNonExistentField() throws KmgDomainException {
 
         /* 期待値の定義 */
@@ -1105,7 +1096,6 @@ public class KmgReflectionModelImplTest extends AbstractKmgTest {
      *                            KMGドメイン例外
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testSet_semiNullFieldName() throws KmgDomainException {
 
         /* 期待値の定義 */
