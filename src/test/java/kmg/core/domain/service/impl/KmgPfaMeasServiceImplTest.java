@@ -26,11 +26,11 @@ import kmg.core.infrastructure.types.KmgTimeUnitTypes;
 })
 public class KmgPfaMeasServiceImplTest {
 
-    /** 標準出力のキャプチャ用 */
-    private ByteArrayOutputStream outContent;
-
     /** 元の標準出力 */
     private PrintStream originalOut;
+
+    /** 標準出力のキャプチャ用 */
+    private ByteArrayOutputStream outContent;
 
     /**
      * テスト前処理<br>

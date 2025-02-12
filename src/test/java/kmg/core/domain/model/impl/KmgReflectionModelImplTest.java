@@ -40,11 +40,11 @@ public class KmgReflectionModelImplTest extends AbstractKmgTest {
         /** パブリックフィールド */
         public String publicField;
 
-        /** プライベートフィールド */
-        private String privateField;
-
         /** BigDecimalフィールド */
         private BigDecimal decimalField;
+
+        /** プライベートフィールド */
+        private String privateField;
 
         /**
          * プライベートフィールドを取得する<br>
