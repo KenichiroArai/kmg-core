@@ -15,14 +15,16 @@ import kmg.core.infrastructure.types.KmgTimeUnitTypes;
  *
  * @version 1.0.0
  */
-@SuppressWarnings("nls")
+@SuppressWarnings({
+    "nls", "static-method"
+})
 public class KmgPfaMeasModelTest {
 
     /** 許容誤差 */
     private static final double DELTA = 0.001;
 
     /**
-     * end メソッドのテスト - マイクロ秒の経過時間が正しく計算されることの確認
+     * end メソッドのテスト - 正常系:マイクロ秒の経過時間が正しく計算されることの確認
      */
     @Test
     public void testEnd_calculateElapsedTimeInMicroseconds() {
@@ -36,6 +38,7 @@ public class KmgPfaMeasModelTest {
         /* 準備 */
         final KmgPfaMeasModel testTarget = this.createMockedModel(expectedStartTime, expectedEndTime);
 
+        /* テスト対象の実行 */
         testTarget.start();
         testTarget.end();
 
@@ -50,7 +53,7 @@ public class KmgPfaMeasModelTest {
     }
 
     /**
-     * end メソッドのテスト - ミリ秒の経過時間が正しく計算されることの確認
+     * end メソッドのテスト - 正常系:ミリ秒の経過時間が正しく計算されることの確認
      */
     @Test
     public void testEnd_calculateElapsedTimeInMilliseconds() {
@@ -64,6 +67,7 @@ public class KmgPfaMeasModelTest {
         /* 準備 */
         final KmgPfaMeasModel testTarget = this.createMockedModel(expectedStartTime, expectedEndTime);
 
+        /* テスト対象の実行 */
         testTarget.start();
         testTarget.end();
 
@@ -78,7 +82,7 @@ public class KmgPfaMeasModelTest {
     }
 
     /**
-     * end メソッドのテスト - ナノ秒の経過時間が正しく計算されることの確認
+     * end メソッドのテスト - 正常系:ナノ秒の経過時間が正しく計算されることの確認
      */
     @Test
     public void testEnd_calculateElapsedTimeInNanoseconds() {
@@ -92,6 +96,7 @@ public class KmgPfaMeasModelTest {
         /* 準備 */
         final KmgPfaMeasModel testTarget = this.createMockedModel(expectedStartTime, expectedEndTime);
 
+        /* テスト対象の実行 */
         testTarget.start();
         testTarget.end();
 
@@ -110,7 +115,7 @@ public class KmgPfaMeasModelTest {
     }
 
     /**
-     * end メソッドのテスト - 秒の経過時間が正しく計算されることの確認
+     * end メソッドのテスト - 正常系:秒の経過時間が正しく計算されることの確認
      */
     @Test
     public void testEnd_calculateElapsedTimeInSeconds() {
@@ -124,6 +129,7 @@ public class KmgPfaMeasModelTest {
         /* 準備 */
         final KmgPfaMeasModel testTarget = this.createMockedModel(expectedStartTime, expectedEndTime);
 
+        /* テスト対象の実行 */
         testTarget.start();
         testTarget.end();
 
@@ -138,7 +144,7 @@ public class KmgPfaMeasModelTest {
     }
 
     /**
-     * start メソッドのテスト - 開始時間が記録されることの確認
+     * start メソッドのテスト - 正常系:開始時間が正しく記録されることの確認
      */
     @Test
     public void testStart_recordStartTime() {
@@ -171,7 +177,6 @@ public class KmgPfaMeasModelTest {
      *
      * @return モック化された getNow() の動作を持つ KmgPfaMeasModel のスパイオブジェクト
      */
-    @SuppressWarnings("static-method")
     private KmgPfaMeasModel createMockedModel(final Long... times) {
 
         final KmgPfaMeasModel result = Mockito.spy(new KmgPfaMeasModel());
