@@ -393,7 +393,6 @@ public class KmgStringTest {
      * fromCamelCaseメソッドのテスト
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testFromCamelCase() {
 
         /* 期待値の定義 */
@@ -414,7 +413,6 @@ public class KmgStringTest {
      * fromSnakeCaseメソッドのテスト
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testFromSnakeCase() {
 
         /* 期待値の定義 */
@@ -435,7 +433,6 @@ public class KmgStringTest {
      * getValue メソッドのテスト - 初期値の取得
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testGetValue_initialValue() {
 
         /* 期待値の定義 */
@@ -456,7 +453,6 @@ public class KmgStringTest {
      * インスタンスメソッドのisEmptyのテスト
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testInstanceIsEmpty() {
 
         /* 期待値の定義 */
@@ -477,7 +473,6 @@ public class KmgStringTest {
      * インスタンスメソッドのisNotEmptyのテスト
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testInstanceIsNotEmpty() {
 
         /* 期待値の定義 */
@@ -498,7 +493,6 @@ public class KmgStringTest {
      * isEmpty メソッドのテスト - 引数が空文字の場合
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testIsEmpty_emptyString() {
 
         /* 期待値の定義 */
@@ -519,7 +513,6 @@ public class KmgStringTest {
      * isEmpty メソッドのテスト - 引数が文字列の場合
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testIsEmpty_nonEmptyString() {
 
         /* 期待値の定義 */
@@ -540,7 +533,6 @@ public class KmgStringTest {
      * isEmpty メソッドのテスト - 引数がnullの場合
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testIsEmpty_null() {
 
         /* 期待値の定義 */
@@ -561,7 +553,6 @@ public class KmgStringTest {
      * isNotEmpty メソッドのテスト - 引数が空文字の場合
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testIsNotEmpty_emptyString() {
 
         /* 期待値の定義 */
@@ -582,7 +573,6 @@ public class KmgStringTest {
      * isNotEmpty メソッドのテスト - 引数が文字列の場合
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testIsNotEmpty_nonEmptyString() {
 
         /* 期待値の定義 */
@@ -603,7 +593,6 @@ public class KmgStringTest {
      * isNotEmpty メソッドのテスト - 引数がnullの場合
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testIsNotEmpty_null() {
 
         /* 期待値の定義 */
@@ -624,7 +613,6 @@ public class KmgStringTest {
      * replaceメソッドのテスト
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testReplace() {
 
         /* 期待値の定義 */
@@ -645,7 +633,6 @@ public class KmgStringTest {
      * shouldAddUnderscore メソッドのテスト - 文字列の最後の大文字の場合
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testShouldAddUnderscore_lastUpperCase() {
 
         /* 期待値の定義 */
@@ -666,7 +653,6 @@ public class KmgStringTest {
      * shouldAddUnderscore メソッドのテスト - 次の文字が小文字の場合
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testShouldAddUnderscore_nextCharLowerCase() {
 
         /* 期待値の定義 */
@@ -687,7 +673,6 @@ public class KmgStringTest {
      * shouldAddUnderscore メソッドのテスト - 次の文字が大文字の場合
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testShouldAddUnderscore_nextCharUpperCase() {
 
         /* 期待値の定義 */
@@ -708,7 +693,6 @@ public class KmgStringTest {
      * snakeCase メソッドのテスト - 既にスネークケース形式の場合
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testSnakeCase_alreadySnakeCase() {
 
         /* 期待値の定義 */
@@ -729,7 +713,6 @@ public class KmgStringTest {
      * snakeCase メソッドのテスト - 連続する大文字の処理
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testSnakeCase_consecutiveUpperCase() {
 
         /* 期待値の定義 */
@@ -750,7 +733,6 @@ public class KmgStringTest {
      * snakeCase メソッドのテスト - 空文字の場合
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testSnakeCase_emptyString() {
 
         /* 期待値の定義 */
@@ -771,7 +753,6 @@ public class KmgStringTest {
      * snakeCase メソッドのテスト - キャメルケースからスネークケースへの変換
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testSnakeCase_fromCamelCase() {
 
         /* 期待値の定義 */
@@ -792,7 +773,6 @@ public class KmgStringTest {
      * snakeCase メソッドのテスト - 最後の文字が大文字の場合
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testSnakeCase_lastCharUpperCase() {
 
         /* 期待値の定義 */
@@ -813,7 +793,6 @@ public class KmgStringTest {
      * snakeCase メソッドのテスト - 1文字の場合
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testSnakeCase_singleChar() {
 
         /* 期待値の定義 */
@@ -834,7 +813,6 @@ public class KmgStringTest {
      * toCamelCaseメソッドのテスト
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testToCamelCase() {
 
         /* 期待値の定義 */
@@ -855,7 +833,6 @@ public class KmgStringTest {
      * toSnakeCaseメソッドのテスト
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testToSnakeCase() {
 
         /* 期待値の定義 */
@@ -876,7 +853,6 @@ public class KmgStringTest {
      * toStringメソッドのテスト
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testToString() {
 
         /* 期待値の定義 */
