@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 /**
- * KmgString テスト
+ * KmgString クラスのテスト
  *
  * @author KenichiroArai
  *
@@ -12,15 +12,16 @@ import org.junit.jupiter.api.Test;
  *
  * @version 1.0.0
  */
-@SuppressWarnings("nls")
+@SuppressWarnings({
+    "nls", "static-method"
+})
 public class KmgStringTest {
 
     /**
-     * camelCase メソッドのテスト - スネークケースからキャメルケースへの変換
+     * camelCase メソッドのテスト - 正常系：スネークケースからキャメルケースへの変換
      */
     @Test
-    @SuppressWarnings("static-method")
-    public void testCamelCase_fromSnakeCase() {
+    public void testCamelCase_normalFromSnakeCase() {
 
         /* 期待値の定義 */
         final String expected = "aaaBbbCcc";
@@ -37,11 +38,10 @@ public class KmgStringTest {
     }
 
     /**
-     * camelCase メソッドのテスト - 引数がnullの場合
+     * camelCase メソッドのテスト - 異常系：引数がnullの場合
      */
     @Test
-    @SuppressWarnings("static-method")
-    public void testCamelCase_null() {
+    public void testCamelCase_errorNull() {
 
         /* 期待値の定義 */
         final String expected = null;
@@ -58,11 +58,10 @@ public class KmgStringTest {
     }
 
     /**
-     * camelCase メソッドのテスト - 大文字の1文字の場合
+     * camelCase メソッドのテスト - 準正常系：大文字の1文字の場合
      */
     @Test
-    @SuppressWarnings("static-method")
-    public void testCamelCase_singleBigChar() {
+    public void testCamelCase_semiSingleBigChar() {
 
         /* 期待値の定義 */
         final String expected = "a";
@@ -79,11 +78,10 @@ public class KmgStringTest {
     }
 
     /**
-     * camelCase メソッドのテスト - 小文字の1文字の場合
+     * camelCase メソッドのテスト - 準正常系：小文字の1文字の場合
      */
     @Test
-    @SuppressWarnings("static-method")
-    public void testCamelCase_singleLowerChar() {
+    public void testCamelCase_semiSingleLowerChar() {
 
         /* 期待値の定義 */
         final String expected = "a";
@@ -100,11 +98,10 @@ public class KmgStringTest {
     }
 
     /**
-     * capitalize メソッドのテスト - 空文字の場合
+     * capitalize メソッドのテスト - 準正常系：空文字の場合
      */
     @Test
-    @SuppressWarnings("static-method")
-    public void testCapitalize_emptyString() {
+    public void testCapitalize_semiEmptyString() {
 
         /* 期待値の定義 */
         final String expected = "";
@@ -121,10 +118,9 @@ public class KmgStringTest {
     }
 
     /**
-     * capitalize メソッドのテスト - 通常の文字列の場合
+     * capitalize メソッドのテスト - 正常系：通常の文字列の場合
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testCapitalize_normalString() {
 
         /* 期待値の定義 */
@@ -142,11 +138,10 @@ public class KmgStringTest {
     }
 
     /**
-     * concat メソッドのテスト - 空の配列の場合
+     * concat メソッドのテスト - 準正常系：空の配列の場合
      */
     @Test
-    @SuppressWarnings("static-method")
-    public void testConcat_emptyArray() {
+    public void testConcat_semiEmptyArray() {
 
         /* 期待値の定義 */
         final String expected = "";
@@ -163,11 +158,10 @@ public class KmgStringTest {
     }
 
     /**
-     * concat メソッドのテスト - 複数の文字列を結合する場合
+     * concat メソッドのテスト - 正常系：複数の文字列を結合する場合
      */
     @Test
-    @SuppressWarnings("static-method")
-    public void testConcat_multipleStrings() {
+    public void testConcat_normalMultipleStrings() {
 
         /* 期待値の定義 */
         final String expected = "abc123";
@@ -186,11 +180,10 @@ public class KmgStringTest {
     }
 
     /**
-     * equals メソッドのテスト - 異なる文字列の場合
+     * equals メソッドのテスト - 準正常系：異なる文字列の場合
      */
     @Test
-    @SuppressWarnings("static-method")
-    public void testEquals_differentStrings() {
+    public void testEquals_semiDifferentStrings() {
 
         /* 期待値の定義 */
         final boolean expected = false;
@@ -208,11 +201,10 @@ public class KmgStringTest {
     }
 
     /**
-     * equals メソッドのテスト - 同じ文字列の場合
+     * equals メソッドのテスト - 正常系：同じ文字列の場合
      */
     @Test
-    @SuppressWarnings("static-method")
-    public void testEquals_sameStrings() {
+    public void testEquals_normalSameStrings() {
 
         /* 期待値の定義 */
         final boolean expected = true;
@@ -230,11 +222,10 @@ public class KmgStringTest {
     }
 
     /**
-     * equals メソッドのテスト - str1がnull文字列の場合
+     * equals メソッドのテスト - 異常系：str1がnull文字列の場合
      */
     @Test
-    @SuppressWarnings("static-method")
-    public void testEquals_str1NullStrings() {
+    public void testEquals_errorStr1NullStrings() {
 
         /* 期待値の定義 */
         final boolean expected = false;
@@ -252,11 +243,10 @@ public class KmgStringTest {
     }
 
     /**
-     * equals メソッドのテスト - str2がnull文字列の場合
+     * equals メソッドのテスト - 異常系：str2がnull文字列の場合
      */
     @Test
-    @SuppressWarnings("static-method")
-    public void testEquals_str2NullStrings() {
+    public void testEquals_errorStr2NullStrings() {
 
         /* 期待値の定義 */
         final boolean expected = false;
@@ -274,11 +264,10 @@ public class KmgStringTest {
     }
 
     /**
-     * equalsIgnoreCase メソッドのテスト - 両方nullの場合
+     * equalsIgnoreCase メソッドのテスト - 異常系：両方がnullの場合
      */
     @Test
-    @SuppressWarnings("static-method")
-    public void testEqualsIgnoreCase_bothNull() {
+    public void testEqualsIgnoreCase_errorBothNull() {
 
         /* 期待値の定義 */
         final boolean expected = false;
@@ -296,11 +285,10 @@ public class KmgStringTest {
     }
 
     /**
-     * equalsIgnoreCase メソッドのテスト - 大文字小文字が異なる場合
+     * equalsIgnoreCase メソッドのテスト - 正常系：大文字小文字が異なる場合
      */
     @Test
-    @SuppressWarnings("static-method")
-    public void testEqualsIgnoreCase_differentCase() {
+    public void testEqualsIgnoreCase_normalDifferentCase() {
 
         /* 期待値の定義 */
         final boolean expected = true;
@@ -318,11 +306,10 @@ public class KmgStringTest {
     }
 
     /**
-     * equalsIgnoreCase メソッドのテスト - 異なる文字列の場合
+     * equalsIgnoreCase メソッドのテスト - 準正常系：異なる文字列の場合
      */
     @Test
-    @SuppressWarnings("static-method")
-    public void testEqualsIgnoreCase_differentStrings() {
+    public void testEqualsIgnoreCase_semiDifferentStrings() {
 
         /* 期待値の定義 */
         final boolean expected = false;
@@ -340,11 +327,10 @@ public class KmgStringTest {
     }
 
     /**
-     * equalsIgnoreCase メソッドのテスト - 同一文字列の場合
+     * equalsIgnoreCase メソッドのテスト - 正常系：同じ文字列の場合
      */
     @Test
-    @SuppressWarnings("static-method")
-    public void testEqualsIgnoreCase_sameStrings() {
+    public void testEqualsIgnoreCase_normalSameStrings() {
 
         /* 期待値の定義 */
         final boolean expected = true;
@@ -357,16 +343,15 @@ public class KmgStringTest {
         final boolean actual = KmgString.equalsIgnoreCase(str1, str2);
 
         /* 検証の実施 */
-        Assertions.assertEquals(expected, actual, "同一文字列の場合、trueを返すべき");
+        Assertions.assertEquals(expected, actual, "同じ文字列の場合、trueを返すべき");
 
     }
 
     /**
-     * equalsIgnoreCase メソッドのテスト - str1がnull文字列の場合
+     * equalsIgnoreCase メソッドのテスト - 異常系：str1がnullの場合
      */
     @Test
-    @SuppressWarnings("static-method")
-    public void testEqualsIgnoreCase_str1NullStrings() {
+    public void testEqualsIgnoreCase_errorStr1NullStrings() {
 
         /* 期待値の定義 */
         final boolean expected = false;
@@ -379,16 +364,15 @@ public class KmgStringTest {
         final boolean actual = KmgString.equalsIgnoreCase(str1, str2);
 
         /* 検証の実施 */
-        Assertions.assertEquals(expected, actual, "nullを含む場合、falseを返すべき");
+        Assertions.assertEquals(expected, actual, "str1がnullの場合、falseを返すべき");
 
     }
 
     /**
-     * equalsIgnoreCase メソッドのテスト - str2がnull文字列の場合
+     * equalsIgnoreCase メソッドのテスト - 異常系：str2がnullの場合
      */
     @Test
-    @SuppressWarnings("static-method")
-    public void testEqualsIgnoreCase_str2NullStrings() {
+    public void testEqualsIgnoreCase_errorStr2NullStrings() {
 
         /* 期待値の定義 */
         final boolean expected = false;
