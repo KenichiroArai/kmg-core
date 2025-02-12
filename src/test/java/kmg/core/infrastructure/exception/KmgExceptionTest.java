@@ -25,33 +25,10 @@ import kmg.core.infrastructure.types.KmgMsgMessageTypes;
 public class KmgExceptionTest {
 
     /**
-     * コンストラクタのテスト - メッセージタイプのみを指定した場合
+     * コンストラクタのテスト - 正常系：メッセージタイプとメッセージ引数を指定した場合
      */
     @Test
-    public void testConstructor_withMessageTypes() {
-
-        /* 期待値の定義 */
-        final KmgMessageTypes expectedMsgTypes = KmgMsgMessageTypes.KMGMSGE11100;
-        final String          expectedMessage  = "{0}がありません。";
-
-        /* テスト対象の実行 */
-        final KmgException testException = new KmgException(expectedMsgTypes);
-
-        /* 検証の準備 */
-        final String          actualMessage  = testException.getMessage();
-        final KmgMessageTypes actualMsgTypes = testException.getMessageTypes();
-
-        /* 検証の実施 */
-        Assertions.assertEquals(expectedMsgTypes, actualMsgTypes, "メッセージタイプが一致しません");
-        Assertions.assertEquals(expectedMessage, actualMessage, "メッセージが一致しません");
-
-    }
-
-    /**
-     * コンストラクタのテスト - メッセージタイプとメッセージ引数を指定した場合
-     */
-    @Test
-    public void testConstructor_withMessageTypesAndArgs() {
+    public void testConstructor_normalWithMessageTypesAndArgs() {
 
         /* 期待値の定義 */
         final KmgMessageTypes expectedMsgTypes = KmgMsgMessageTypes.KMGMSGE11100;
@@ -76,10 +53,10 @@ public class KmgExceptionTest {
     }
 
     /**
-     * コンストラクタのテスト - メッセージタイプと原因を指定した場合
+     * コンストラクタのテスト - 正常系：メッセージタイプと原因を指定した場合
      */
     @Test
-    public void testConstructor_withMessageTypesAndCause() {
+    public void testConstructor_normalWithMessageTypesAndCause() {
 
         /* 期待値の定義 */
         final KmgMessageTypes expectedMsgTypes = KmgMsgMessageTypes.KMGMSGE11100;
@@ -102,10 +79,10 @@ public class KmgExceptionTest {
     }
 
     /**
-     * コンストラクタのテスト - メッセージタイプ、メッセージ引数、原因を指定した場合
+     * コンストラクタのテスト - 正常系：メッセージタイプ、メッセージ引数、原因を指定した場合
      */
     @Test
-    public void testConstructor_withMessageTypesArgsAndCause() {
+    public void testConstructor_normalWithMessageTypesArgsAndCause() {
 
         /* 期待値の定義 */
         final KmgMessageTypes expectedMsgTypes = KmgMsgMessageTypes.KMGMSGE11100;
@@ -133,10 +110,33 @@ public class KmgExceptionTest {
     }
 
     /**
-     * getMessageArgsCount メソッドのテスト - メッセージ引数がある場合
+     * コンストラクタのテスト - 正常系：メッセージタイプのみを指定した場合
      */
     @Test
-    public void testGetMessageArgsCount_withArgs() {
+    public void testConstructor_normalWithMessageTypesOnly() {
+
+        /* 期待値の定義 */
+        final KmgMessageTypes expectedMsgTypes = KmgMsgMessageTypes.KMGMSGE11100;
+        final String          expectedMessage  = "{0}がありません。";
+
+        /* テスト対象の実行 */
+        final KmgException testException = new KmgException(expectedMsgTypes);
+
+        /* 検証の準備 */
+        final String          actualMessage  = testException.getMessage();
+        final KmgMessageTypes actualMsgTypes = testException.getMessageTypes();
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expectedMsgTypes, actualMsgTypes, "メッセージタイプが一致しません");
+        Assertions.assertEquals(expectedMessage, actualMessage, "メッセージが一致しません");
+
+    }
+
+    /**
+     * getMessageArgsCount メソッドのテスト - 正常系：メッセージ引数がある場合
+     */
+    @Test
+    public void testGetMessageArgsCount_normalWithArgs() {
 
         /* 期待値の定義 */
         final int expectedCount = 2;
@@ -158,10 +158,10 @@ public class KmgExceptionTest {
     }
 
     /**
-     * getMessageArgsCount メソッドのテスト - メッセージ引数がnullの場合
+     * getMessageArgsCount メソッドのテスト - 準正常系：メッセージ引数がnullの場合
      */
     @Test
-    public void testGetMessageArgsCount_withNullArgs() {
+    public void testGetMessageArgsCount_semiWithNullArgs() {
 
         /* 期待値の定義 */
         final int expectedCount = 0;
@@ -178,10 +178,10 @@ public class KmgExceptionTest {
     }
 
     /**
-     * getMessagePattern メソッドのテスト - メッセージパターンを取得する場合
+     * getMessagePattern メソッドのテスト - 正常系：メッセージパターンを取得する場合
      */
     @Test
-    public void testGetMessagePattern() {
+    public void testGetMessagePattern_normalGetPattern() {
 
         /* 期待値の定義 */
         final String expectedPattern = "{0}がありません。";
@@ -198,10 +198,10 @@ public class KmgExceptionTest {
     }
 
     /**
-     * getMessagePatternArgsCount メソッドのテスト
+     * getMessagePatternArgsCount メソッドのテスト - 正常系：メッセージパターンの引数の数を取得する場合
      */
     @Test
-    public void testGetMessagePatternArgsCount() {
+    public void testGetMessagePatternArgsCount_normalGetCount() {
 
         /* 期待値の定義 */
         final int expectedCount = 1;
@@ -218,10 +218,10 @@ public class KmgExceptionTest {
     }
 
     /**
-     * isMatchMessageArgsCount メソッドのテスト - メッセージ引数の数が一致する場合
+     * isMatchMessageArgsCount メソッドのテスト - 正常系：メッセージ引数の数が一致する場合
      */
     @Test
-    public void testIsMatchMessageArgsCount_matching() {
+    public void testIsMatchMessageArgsCount_normalMatching() {
 
         /* 期待値の定義 */
 
@@ -242,10 +242,10 @@ public class KmgExceptionTest {
     }
 
     /**
-     * isMatchMessageArgsCount メソッドのテスト - メッセージ引数の数が一致しない場合
+     * isMatchMessageArgsCount メソッドのテスト - 準正常系：メッセージ引数の数が一致しない場合
      */
     @Test
-    public void testIsMatchMessageArgsCount_notMatching() {
+    public void testIsMatchMessageArgsCount_semiNotMatching() {
 
         /* 期待値の定義 */
         final boolean expectedIsMatch = false;
@@ -267,13 +267,13 @@ public class KmgExceptionTest {
     }
 
     /**
-     * setMessageCounts メソッドのテスト - メッセージパターンが空の場合
+     * setMessageCounts メソッドのテスト - 準正常系：メッセージパターンが空の場合
      *
      * @throws Exception
      *                   リフレクション操作で発生する可能性のある例外
      */
     @Test
-    public void testSetMessageCounts_emptyMessagePattern() throws Exception {
+    public void testSetMessageCounts_semiEmptyPattern() throws Exception {
 
         /* 期待値の定義 */
         final int expectedMessageArgsCount        = 0;
