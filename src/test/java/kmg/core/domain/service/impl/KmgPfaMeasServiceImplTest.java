@@ -21,7 +21,9 @@ import kmg.core.infrastructure.types.KmgTimeUnitTypes;
  *
  * @version 1.0.0
  */
-@SuppressWarnings("nls")
+@SuppressWarnings({
+    "nls",
+})
 public class KmgPfaMeasServiceImplTest {
 
     /** 標準出力のキャプチャ用 */
@@ -55,10 +57,10 @@ public class KmgPfaMeasServiceImplTest {
     }
 
     /**
-     * コンストラクタのテスト - 名称が正しく設定されることの確認
+     * コンストラクタのテスト - 正常系:名称が正しく設定されることの確認
      */
     @Test
-    public void testConstructor_setName() {
+    public void testConstructor_normalSetName() {
 
         /* 期待値の定義 */
         final String expectedName = "テスト測定";
@@ -78,10 +80,10 @@ public class KmgPfaMeasServiceImplTest {
     }
 
     /**
-     * end メソッドのテスト - 終了メッセージが正しく出力されることの確認
+     * end メソッドのテスト - 正常系:終了メッセージが正しく出力されることの確認
      */
     @Test
-    public void testEnd_outputEndMessage() {
+    public void testEnd_normalOutputEndMessage() {
 
         /* 期待値の定義 */
         final String           expectedName        = "テスト測定";
@@ -121,10 +123,10 @@ public class KmgPfaMeasServiceImplTest {
     }
 
     /**
-     * start メソッドのテスト - 開始メッセージが正しく出力されることの確認
+     * start メソッドのテスト - 正常系:開始メッセージが正しく出力されることの確認
      */
     @Test
-    public void testStart_outputStartMessage() {
+    public void testStart_normalOutputStartMessage() {
 
         /* 期待値の定義 */
         final String expectedName   = "テスト測定";
