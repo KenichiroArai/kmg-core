@@ -21,7 +21,6 @@ public class KmgArrayUtilsTest {
      * isEmpty メソッドのテスト - 空配列の場合
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testIsEmpty_emptyArray() {
 
         /* 期待値の定義 */
@@ -42,7 +41,6 @@ public class KmgArrayUtilsTest {
      * isEmpty メソッドのテスト - 要素がある場合
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testIsEmpty_hasElements() {
 
         /* 期待値の定義 */
@@ -65,7 +63,6 @@ public class KmgArrayUtilsTest {
      * isEmpty メソッドのテスト - nullの場合
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testIsEmpty_null() {
 
         /* 期待値の定義 */
@@ -86,7 +83,6 @@ public class KmgArrayUtilsTest {
      * isNotEmpty メソッドのテスト - 空配列の場合
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testIsNotEmpty_emptyArray() {
 
         /* 期待値の定義 */
@@ -107,7 +103,6 @@ public class KmgArrayUtilsTest {
      * isNotEmpty メソッドのテスト - 要素がある場合
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testIsNotEmpty_hasElements() {
 
         /* 期待値の定義 */
@@ -130,7 +125,6 @@ public class KmgArrayUtilsTest {
      * isNotEmpty メソッドのテスト - nullの場合
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testIsNotEmpty_null() {
 
         /* 期待値の定義 */

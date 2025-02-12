@@ -25,7 +25,6 @@ public class KmgListUtilsTest {
      * isEmpty メソッドのテスト - 空リストの場合
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testIsEmpty_emptyList() {
 
         /* 期待値の定義 */
@@ -46,7 +45,6 @@ public class KmgListUtilsTest {
      * isEmpty メソッドのテスト - 要素がある場合
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testIsEmpty_hasElements() {
 
         /* 期待値の定義 */
@@ -67,7 +65,6 @@ public class KmgListUtilsTest {
      * isEmpty メソッドのテスト - nullの場合
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testIsEmpty_null() {
 
         /* 期待値の定義 */
@@ -88,7 +85,6 @@ public class KmgListUtilsTest {
      * isNotEmpty メソッドのテスト - 空リストの場合
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testIsNotEmpty_emptyList() {
 
         /* 期待値の定義 */
@@ -109,7 +105,6 @@ public class KmgListUtilsTest {
      * isNotEmpty メソッドのテスト - 要素がある場合
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testIsNotEmpty_hasElements() {
 
         /* 期待値の定義 */
@@ -130,7 +125,6 @@ public class KmgListUtilsTest {
      * isNotEmpty メソッドのテスト - nullの場合
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testIsNotEmpty_null() {
 
         /* 期待値の定義 */

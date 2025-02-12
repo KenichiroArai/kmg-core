@@ -25,7 +25,6 @@ public class KmgMessageUtilsTest {
      * checkMessageArgsCount メソッドのテスト - 不正なメッセージパターンの場合
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testCheckMessageArgsCount_invalidPattern() {
 
         /* 期待値の定義 */
@@ -48,7 +47,6 @@ public class KmgMessageUtilsTest {
      * checkMessageArgsCount メソッドのテスト - 引数の数が一致する場合
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testCheckMessageArgsCount_matchCount() {
 
         /* 期待値の定義 */
@@ -71,7 +69,6 @@ public class KmgMessageUtilsTest {
      * checkMessageArgsCount メソッドのテスト - 引数を含まないメッセージパターンの場合
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testCheckMessageArgsCount_noArgs() {
 
         /* 期待値の定義 */
@@ -92,7 +89,6 @@ public class KmgMessageUtilsTest {
      * checkMessageArgsCount メソッドのテスト - メッセージ引数がnullの場合
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testCheckMessageArgsCount_nullArgs() {
 
         /* 期待値の定義 */
@@ -114,7 +110,6 @@ public class KmgMessageUtilsTest {
      * checkMessageArgsCount メソッドのテスト - メッセージパターンがnullの場合
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testCheckMessageArgsCount_nullPattern() {
 
         /* 期待値の定義 */
@@ -138,7 +133,6 @@ public class KmgMessageUtilsTest {
      * checkMessageArgsCount メソッドのテスト - 引数の数が一致しない場合
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testCheckMessageArgsCount_unmatchCount() {
 
         /* 期待値の定義 */
@@ -161,7 +155,6 @@ public class KmgMessageUtilsTest {
      * getMessage メソッドのテスト - 異常系：messageArgsが空配列の場合
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testGetMessage_argsEmpty() {
 
         /* 期待値の定義 */
@@ -185,7 +178,6 @@ public class KmgMessageUtilsTest {
      * getMessage メソッドのテスト - 異常系：messageArgsがnullの場合
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testGetMessage_argsNull() {
 
         /* 期待値の定義 */
@@ -208,7 +200,6 @@ public class KmgMessageUtilsTest {
      * getMessage メソッドのテスト - 異常系：引数の数が不一致の場合
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testGetMessage_argumentMismatch() {
 
         /* 期待値の定義 */
@@ -235,7 +226,6 @@ public class KmgMessageUtilsTest {
      * getMessage メソッドのテスト - 異常系：type.getCodeがnullの場合
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testGetMessage_codeNull() {
 
         /* 期待値の定義 */
@@ -262,7 +252,6 @@ public class KmgMessageUtilsTest {
      * getMessage メソッドのテスト - 正常系：引数に空文字列を含む場合
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testGetMessage_emptyStringArg() {
 
         /* 期待値の定義 */
@@ -288,7 +277,6 @@ public class KmgMessageUtilsTest {
      * getMessage メソッドのテスト - 正常系：フィールド取得失敗メッセージの場合
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testGetMessage_fieldAccessFailure() {
 
         /* 期待値の定義 */
@@ -314,7 +302,6 @@ public class KmgMessageUtilsTest {
      * getMessage メソッドのテスト - 異常系：引数が不足している場合
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testGetMessage_insufficientArgs() {
 
         /* 期待値の定義 */
@@ -340,7 +327,6 @@ public class KmgMessageUtilsTest {
      * getMessage メソッドのテスト - 正常系：MessageFormat.formatが正しく動作する場合
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testGetMessage_messageFormatSuccess() {
 
         /* 期待値の定義 */
@@ -366,7 +352,6 @@ public class KmgMessageUtilsTest {
      * getMessage メソッドのテスト - 異常系：メッセージパターンがnullの場合
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testGetMessage_messagePatternNull() {
 
         /* 期待値の定義 */
@@ -411,7 +396,6 @@ public class KmgMessageUtilsTest {
      * getMessage メソッドのテスト - 正常系：複数の引数を持つメッセージの場合
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testGetMessage_multipleArgs() {
 
         /* 期待値の定義 */
@@ -437,7 +421,6 @@ public class KmgMessageUtilsTest {
      * getMessage メソッドのテスト - 異常系：存在しないメッセージコードの場合
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testGetMessage_nonExistentCode() {
 
         /* 期待値の定義 */
@@ -464,7 +447,6 @@ public class KmgMessageUtilsTest {
      * getMessage メソッドのテスト - 正常系：メッセージと引数が正しく設定される場合
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testGetMessage_normalCase() {
 
         /* 期待値の定義 */
@@ -490,7 +472,6 @@ public class KmgMessageUtilsTest {
      * getMessage メソッドのテスト - 正常系：引数にnullを含む場合
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testGetMessage_nullArg() {
 
         /* 期待値の定義 */
@@ -516,7 +497,6 @@ public class KmgMessageUtilsTest {
      * getMessage メソッドのテスト - 異常系：リソースバンドルから例外がスローされる場合
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testGetMessage_resourceBundleException() {
 
         /* 期待値の定義 */
@@ -543,7 +523,6 @@ public class KmgMessageUtilsTest {
      * getMessage メソッドのテスト - 正常系：特殊文字を含むメッセージの場合
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testGetMessage_specialCharacters() {
 
         /* 期待値の定義 */
@@ -569,7 +548,6 @@ public class KmgMessageUtilsTest {
      * getMessage メソッドのテスト - 異常系：typeがnullの場合
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testGetMessage_typeNull() {
 
         /* 期待値の定義 */
@@ -595,7 +573,6 @@ public class KmgMessageUtilsTest {
      * getMessageArgsCount メソッドのテスト - 不正なパターンの場合
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testGetMessageArgsCount_invalidPattern() {
 
         /* 期待値の定義 */
@@ -616,7 +593,6 @@ public class KmgMessageUtilsTest {
      * getMessageArgsCount メソッドのテスト - nullパターンの場合
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testGetMessageArgsCount_nullPattern() {
 
         /* 期待値の定義 */
@@ -637,7 +613,6 @@ public class KmgMessageUtilsTest {
      * getMessagePattern メソッドのテスト - 存在しないメッセージコードの場合
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testGetMessagePattern_nonExistentCode() {
 
         /* 期待値の定義 */
@@ -658,7 +633,6 @@ public class KmgMessageUtilsTest {
      * getMessagePattern メソッドのテスト - typeがnullの場合
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testGetMessagePattern_nullType() {
 
         /* 期待値の定義 */

@@ -26,7 +26,6 @@ public class KmgLocalDateTimeUtilsTest {
      * formatYyyyMmDdHhMmSsSss メソッドのテスト - nullの場合（Date）
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testFormatYyyyMmDdHhMmSsSss_nullDate() {
 
         /* 期待値の定義 */
@@ -47,7 +46,6 @@ public class KmgLocalDateTimeUtilsTest {
      * formatYyyyMmDdHhMmSsSss メソッドのテスト - nullの場合（LocalDateTime）
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testFormatYyyyMmDdHhMmSsSss_nullLocalDateTime() {
 
         /* 期待値の定義 */
@@ -68,7 +66,6 @@ public class KmgLocalDateTimeUtilsTest {
      * formatYyyyMmDdHhMmSsSss メソッドのテスト - 正常な日付の場合（Date）
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testFormatYyyyMmDdHhMmSsSss_validDate() {
 
         /* 期待値の定義 */
@@ -90,7 +87,6 @@ public class KmgLocalDateTimeUtilsTest {
      * formatYyyyMmDdHhMmSsSss メソッドのテスト - 正常な日時の場合（LocalDateTime）
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testFormatYyyyMmDdHhMmSsSss_validLocalDateTime() {
 
         /* 期待値の定義 */
@@ -111,7 +107,6 @@ public class KmgLocalDateTimeUtilsTest {
      * from メソッドのテスト - nullの場合
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testFrom_null() {
 
         /* 期待値の定義 */
@@ -132,7 +127,6 @@ public class KmgLocalDateTimeUtilsTest {
      * from メソッドのテスト - 正常な日付の場合
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testFrom_validDate() {
 
         /* 期待値の定義 */
@@ -154,7 +148,6 @@ public class KmgLocalDateTimeUtilsTest {
      * parseYyyyMmDdHhMmSsSss メソッドのテスト - 空文字の場合
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testParseYyyyMmDdHhMmSsSss_empty() {
 
         /* 期待値の定義 */
@@ -175,7 +168,6 @@ public class KmgLocalDateTimeUtilsTest {
      * parseYyyyMmDdHhMmSsSss メソッドのテスト - nullの場合
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testParseYyyyMmDdHhMmSsSss_null() {
 
         /* 期待値の定義 */
@@ -196,7 +188,6 @@ public class KmgLocalDateTimeUtilsTest {
      * parseYyyyMmDdHhMmSsSss メソッドのテスト - 正常な日時文字列の場合
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testParseYyyyMmDdHhMmSsSss_validDateTime() {
 
         /* 期待値の定義 */

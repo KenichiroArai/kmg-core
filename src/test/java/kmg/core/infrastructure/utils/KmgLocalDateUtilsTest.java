@@ -25,7 +25,6 @@ public class KmgLocalDateUtilsTest {
      * formatYyyyMmDd メソッドのテスト - nullの場合（Date）
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testFormatYyyyMmDd_nullDate() {
 
         /* 期待値の定義 */
@@ -46,7 +45,6 @@ public class KmgLocalDateUtilsTest {
      * formatYyyyMmDd メソッドのテスト - nullの場合（LocalDate）
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testFormatYyyyMmDd_nullLocalDate() {
 
         /* 期待値の定義 */
@@ -67,7 +65,6 @@ public class KmgLocalDateUtilsTest {
      * formatYyyyMmDd メソッドのテスト - 正常な日付の場合（Date）
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testFormatYyyyMmDd_validDate() {
 
         /* 期待値の定義 */
@@ -89,7 +86,6 @@ public class KmgLocalDateUtilsTest {
      * formatYyyyMmDd メソッドのテスト - 正常な日付の場合（LocalDate）
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testFormatYyyyMmDd_validLocalDate() {
 
         /* 期待値の定義 */
@@ -110,7 +106,6 @@ public class KmgLocalDateUtilsTest {
      * from メソッドのテスト - nullの場合
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testFrom_null() {
 
         /* 期待値の定義 */
@@ -131,7 +126,6 @@ public class KmgLocalDateUtilsTest {
      * from メソッドのテスト - 正常な日付の場合
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testFrom_validDate() {
 
         /* 期待値の定義 */
@@ -153,7 +147,6 @@ public class KmgLocalDateUtilsTest {
      * parseYyyyMmDd メソッドのテスト - 空文字の場合
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testParseYyyyMmDd_empty() {
 
         /* 期待値の定義 */
@@ -174,7 +167,6 @@ public class KmgLocalDateUtilsTest {
      * parseYyyyMmDd メソッドのテスト - nullの場合
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testParseYyyyMmDd_null() {
 
         /* 期待値の定義 */
@@ -195,7 +187,6 @@ public class KmgLocalDateUtilsTest {
      * parseYyyyMmDd メソッドのテスト - 正常な日付文字列の場合
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testParseYyyyMmDd_validDate() {
 
         /* 期待値の定義 */

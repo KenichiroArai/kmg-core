@@ -31,7 +31,6 @@ public class KmgPoiUtilsTest {
      *                   例外が発生した場合
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testGetCell_noRow() throws Exception {
 
         /* 期待値の定義 */
@@ -59,7 +58,6 @@ public class KmgPoiUtilsTest {
      *                   例外が発生した場合
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testGetStringFormulaValue_blankFormula() throws Exception {
 
         /* 期待値の定義 */
@@ -92,7 +90,6 @@ public class KmgPoiUtilsTest {
      *                   例外が発生した場合
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testGetStringFormulaValue_booleanFormula() throws Exception {
 
         /* 期待値の定義 */
@@ -127,7 +124,6 @@ public class KmgPoiUtilsTest {
      *                   例外が発生した場合
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testGetStringFormulaValue_errorFormula() throws Exception {
 
         /* 期待値の定義 */
@@ -162,7 +158,6 @@ public class KmgPoiUtilsTest {
      *                   例外が発生した場合
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testGetStringFormulaValue_noneFormula() throws Exception {
 
         /* 期待値の定義 */
@@ -197,7 +192,6 @@ public class KmgPoiUtilsTest {
      *                   例外が発生した場合
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testGetStringFormulaValue_numericFormula() throws Exception {
 
         /* 期待値の定義 */
@@ -232,7 +226,6 @@ public class KmgPoiUtilsTest {
      *                   例外が発生した場合
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testGetStringFormulaValue_stringFormula() throws Exception {
 
         /* 期待値の定義 */
@@ -267,7 +260,6 @@ public class KmgPoiUtilsTest {
      *                   例外が発生した場合
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testGetStringRangeValue_mergedCell() throws Exception {
 
         /* 期待値の定義 */
@@ -303,7 +295,6 @@ public class KmgPoiUtilsTest {
      *                   例外が発生した場合
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testGetStringRangeValue_outsideMergedRegion() throws Exception {
 
         /* 期待値の定義 */
@@ -342,7 +333,6 @@ public class KmgPoiUtilsTest {
      *                   例外が発生した場合
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testGetStringValue_booleanCell() throws Exception {
 
         /* 期待値の定義 */
@@ -373,7 +363,6 @@ public class KmgPoiUtilsTest {
      *                   例外が発生した場合
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testGetStringValue_errorCell() throws Exception {
 
         /* 期待値の定義 */
@@ -404,7 +393,6 @@ public class KmgPoiUtilsTest {
      *                   例外が発生した場合
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testGetStringValue_formulaCell() throws Exception {
 
         /* 期待値の定義 */
@@ -436,7 +424,6 @@ public class KmgPoiUtilsTest {
      *                   例外が発生した場合
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testGetStringValue_noneCell() throws Exception {
 
         /* 期待値の定義 */
@@ -469,7 +456,6 @@ public class KmgPoiUtilsTest {
      * getStringValue メソッドのテスト - nullの場合
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testGetStringValue_null() {
 
         /* 期待値の定義 */
@@ -493,7 +479,6 @@ public class KmgPoiUtilsTest {
      *                   例外が発生した場合
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testGetStringValue_numericCell() throws Exception {
 
         /* 期待値の定義 */
@@ -525,7 +510,6 @@ public class KmgPoiUtilsTest {
      *                   例外が発生した場合
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testGetStringValue_stringCell() throws Exception {
 
         /* 期待値の定義 */
@@ -557,7 +541,6 @@ public class KmgPoiUtilsTest {
      *                   例外が発生した場合
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testIsEmptyCell_emptyCell() throws Exception {
 
         /* 期待値の定義 */
@@ -589,7 +572,6 @@ public class KmgPoiUtilsTest {
      *                   例外が発生した場合
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testIsEmptyCell_nonEmptyCell() throws Exception {
 
         /* 期待値の定義 */
@@ -618,7 +600,6 @@ public class KmgPoiUtilsTest {
      * isEmptyCell メソッドのテスト - nullの場合
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testIsEmptyCell_null() {
 
         /* 期待値の定義 */

@@ -24,7 +24,6 @@ public class KmgMapUtilsTest {
      * isEmpty メソッドのテスト - 空マップの場合
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testIsEmpty_emptyMap() {
 
         /* 期待値の定義 */
@@ -45,7 +44,6 @@ public class KmgMapUtilsTest {
      * isEmpty メソッドのテスト - 要素がある場合
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testIsEmpty_hasElements() {
 
         /* 期待値の定義 */
@@ -67,7 +65,6 @@ public class KmgMapUtilsTest {
      * isEmpty メソッドのテスト - nullの場合
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testIsEmpty_null() {
 
         /* 期待値の定義 */
@@ -88,7 +85,6 @@ public class KmgMapUtilsTest {
      * isNotEmpty メソッドのテスト - 空マップの場合
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testIsNotEmpty_emptyMap() {
 
         /* 期待値の定義 */
@@ -109,7 +105,6 @@ public class KmgMapUtilsTest {
      * isNotEmpty メソッドのテスト - 要素がある場合
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testIsNotEmpty_hasElements() {
 
         /* 期待値の定義 */
@@ -131,7 +126,6 @@ public class KmgMapUtilsTest {
      * isNotEmpty メソッドのテスト - nullの場合
      */
     @Test
-    @SuppressWarnings("static-method")
     public void testIsNotEmpty_null() {
 
         /* 期待値の定義 */
