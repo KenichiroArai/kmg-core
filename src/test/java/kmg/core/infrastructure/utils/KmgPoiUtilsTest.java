@@ -25,13 +25,13 @@ import org.junit.jupiter.api.Test;
 public class KmgPoiUtilsTest {
 
     /**
-     * getCell メソッドのテスト - 行が存在しない場合
+     * getCell メソッドのテスト - 異常系:行が存在しない場合
      *
      * @throws Exception
      *                   例外が発生した場合
      */
     @Test
-    public void testGetCell_noRow() throws Exception {
+    public void testGetCell_errorNoRow() throws Exception {
 
         /* 期待値の定義 */
         final Cell expected = null;
@@ -52,13 +52,13 @@ public class KmgPoiUtilsTest {
     }
 
     /**
-     * getStringFormulaValue メソッドのテスト - 空白を返す数式の場合
+     * getStringFormulaValue メソッドのテスト - 準正常系:空白を返す数式の場合
      *
      * @throws Exception
      *                   例外が発生した場合
      */
     @Test
-    public void testGetStringFormulaValue_blankFormula() throws Exception {
+    public void testGetStringFormulaValue_semiBlankFormula() throws Exception {
 
         /* 期待値の定義 */
         final String expected = null;
@@ -84,13 +84,13 @@ public class KmgPoiUtilsTest {
     }
 
     /**
-     * getStringFormulaValue メソッドのテスト - 真偽値を返す数式の場合
+     * getStringFormulaValue メソッドのテスト - 正常系:真偽値を返す数式の場合
      *
      * @throws Exception
      *                   例外が発生した場合
      */
     @Test
-    public void testGetStringFormulaValue_booleanFormula() throws Exception {
+    public void testGetStringFormulaValue_normalBooleanFormula() throws Exception {
 
         /* 期待値の定義 */
         final String expected = "true";
@@ -118,13 +118,13 @@ public class KmgPoiUtilsTest {
     }
 
     /**
-     * getStringFormulaValue メソッドのテスト - エラーを返す数式の場合
+     * getStringFormulaValue メソッドのテスト - 異常系:エラーを返す数式の場合
      *
      * @throws Exception
      *                   例外が発生した場合
      */
     @Test
-    public void testGetStringFormulaValue_errorFormula() throws Exception {
+    public void testGetStringFormulaValue_errorErrorFormula() throws Exception {
 
         /* 期待値の定義 */
         final String expected = null;
@@ -152,13 +152,13 @@ public class KmgPoiUtilsTest {
     }
 
     /**
-     * getStringFormulaValue メソッドのテスト - _NONEを返す数式の場合
+     * getStringFormulaValue メソッドのテスト - 準正常系:_NONEを返す数式の場合
      *
      * @throws Exception
      *                   例外が発生した場合
      */
     @Test
-    public void testGetStringFormulaValue_noneFormula() throws Exception {
+    public void testGetStringFormulaValue_semiNoneFormula() throws Exception {
 
         /* 期待値の定義 */
         final String expected = null;
@@ -186,13 +186,13 @@ public class KmgPoiUtilsTest {
     }
 
     /**
-     * getStringFormulaValue メソッドのテスト - 数値を返す数式の場合
+     * getStringFormulaValue メソッドのテスト - 正常系:数値を返す数式の場合
      *
      * @throws Exception
      *                   例外が発生した場合
      */
     @Test
-    public void testGetStringFormulaValue_numericFormula() throws Exception {
+    public void testGetStringFormulaValue_normalNumericFormula() throws Exception {
 
         /* 期待値の定義 */
         final String expected = "123.0";
@@ -220,13 +220,13 @@ public class KmgPoiUtilsTest {
     }
 
     /**
-     * getStringFormulaValue メソッドのテスト - 文字列を返す数式の場合
+     * getStringFormulaValue メソッドのテスト - 正常系:文字列を返す数式の場合
      *
      * @throws Exception
      *                   例外が発生した場合
      */
     @Test
-    public void testGetStringFormulaValue_stringFormula() throws Exception {
+    public void testGetStringFormulaValue_normalStringFormula() throws Exception {
 
         /* 期待値の定義 */
         final String expected = "test";

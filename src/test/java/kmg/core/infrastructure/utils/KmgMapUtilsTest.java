@@ -21,10 +21,10 @@ import org.junit.jupiter.api.Test;
 public class KmgMapUtilsTest {
 
     /**
-     * isEmpty メソッドのテスト - 空マップの場合
+     * isEmpty メソッドのテスト - 準正常系:空マップの場合
      */
     @Test
-    public void testIsEmpty_emptyMap() {
+    public void testIsEmpty_semiEmptyMap() {
 
         /* 期待値の定義 */
         final boolean expected = true;
@@ -41,10 +41,10 @@ public class KmgMapUtilsTest {
     }
 
     /**
-     * isEmpty メソッドのテスト - 要素がある場合
+     * isEmpty メソッドのテスト - 正常系:要素がある場合
      */
     @Test
-    public void testIsEmpty_hasElements() {
+    public void testIsEmpty_normalHasElements() {
 
         /* 期待値の定義 */
         final boolean expected = false;
@@ -62,10 +62,10 @@ public class KmgMapUtilsTest {
     }
 
     /**
-     * isEmpty メソッドのテスト - nullの場合
+     * isEmpty メソッドのテスト - 異常系:nullの場合
      */
     @Test
-    public void testIsEmpty_null() {
+    public void testIsEmpty_errorNull() {
 
         /* 期待値の定義 */
         final boolean expected = true;
@@ -82,10 +82,10 @@ public class KmgMapUtilsTest {
     }
 
     /**
-     * isNotEmpty メソッドのテスト - 空マップの場合
+     * isNotEmpty メソッドのテスト - 準正常系:空マップの場合
      */
     @Test
-    public void testIsNotEmpty_emptyMap() {
+    public void testIsNotEmpty_semiEmptyMap() {
 
         /* 期待値の定義 */
         final boolean expected = false;
@@ -102,10 +102,10 @@ public class KmgMapUtilsTest {
     }
 
     /**
-     * isNotEmpty メソッドのテスト - 要素がある場合
+     * isNotEmpty メソッドのテスト - 正常系:要素がある場合
      */
     @Test
-    public void testIsNotEmpty_hasElements() {
+    public void testIsNotEmpty_normalHasElements() {
 
         /* 期待値の定義 */
         final boolean expected = true;
@@ -123,10 +123,10 @@ public class KmgMapUtilsTest {
     }
 
     /**
-     * isNotEmpty メソッドのテスト - nullの場合
+     * isNotEmpty メソッドのテスト - 異常系:nullの場合
      */
     @Test
-    public void testIsNotEmpty_null() {
+    public void testIsNotEmpty_errorNull() {
 
         /* 期待値の定義 */
         final boolean expected = false;

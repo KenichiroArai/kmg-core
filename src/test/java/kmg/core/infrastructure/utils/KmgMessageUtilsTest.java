@@ -22,10 +22,10 @@ import kmg.core.infrastructure.types.KmgMsgMessageTypes;
 public class KmgMessageUtilsTest {
 
     /**
-     * checkMessageArgsCount メソッドのテスト - 不正なメッセージパターンの場合
+     * checkMessageArgsCount メソッドのテスト - 異常系:不正なメッセージパターンの場合
      */
     @Test
-    public void testCheckMessageArgsCount_invalidPattern() {
+    public void testCheckMessageArgsCount_errorInvalidPattern() {
 
         /* 期待値の定義 */
 
@@ -44,10 +44,10 @@ public class KmgMessageUtilsTest {
     }
 
     /**
-     * checkMessageArgsCount メソッドのテスト - 引数の数が一致する場合
+     * checkMessageArgsCount メソッドのテスト - 正常系:引数の数が一致する場合
      */
     @Test
-    public void testCheckMessageArgsCount_matchCount() {
+    public void testCheckMessageArgsCount_normalMatchCount() {
 
         /* 期待値の定義 */
 
@@ -66,10 +66,10 @@ public class KmgMessageUtilsTest {
     }
 
     /**
-     * checkMessageArgsCount メソッドのテスト - 引数を含まないメッセージパターンの場合
+     * checkMessageArgsCount メソッドのテスト - 正常系:引数を含まないメッセージパターンの場合
      */
     @Test
-    public void testCheckMessageArgsCount_noArgs() {
+    public void testCheckMessageArgsCount_normalNoArgs() {
 
         /* 期待値の定義 */
 
@@ -86,10 +86,10 @@ public class KmgMessageUtilsTest {
     }
 
     /**
-     * checkMessageArgsCount メソッドのテスト - メッセージ引数がnullの場合
+     * checkMessageArgsCount メソッドのテスト - 準正常系:メッセージ引数がnullの場合
      */
     @Test
-    public void testCheckMessageArgsCount_nullArgs() {
+    public void testCheckMessageArgsCount_semiNullArgs() {
 
         /* 期待値の定義 */
         final boolean expectedResult = true;
@@ -107,10 +107,10 @@ public class KmgMessageUtilsTest {
     }
 
     /**
-     * checkMessageArgsCount メソッドのテスト - メッセージパターンがnullの場合
+     * checkMessageArgsCount メソッドのテスト - 異常系:メッセージパターンがnullの場合
      */
     @Test
-    public void testCheckMessageArgsCount_nullPattern() {
+    public void testCheckMessageArgsCount_errorNullPattern() {
 
         /* 期待値の定義 */
         final boolean expectedResult = false;
@@ -130,10 +130,10 @@ public class KmgMessageUtilsTest {
     }
 
     /**
-     * checkMessageArgsCount メソッドのテスト - 引数の数が一致しない場合
+     * checkMessageArgsCount メソッドのテスト - 異常系:引数の数が一致しない場合
      */
     @Test
-    public void testCheckMessageArgsCount_unmatchCount() {
+    public void testCheckMessageArgsCount_errorUnmatchCount() {
 
         /* 期待値の定義 */
 
@@ -152,10 +152,10 @@ public class KmgMessageUtilsTest {
     }
 
     /**
-     * getMessage メソッドのテスト - 異常系：messageArgsが空配列の場合
+     * getMessage メソッドのテスト - 準正常系:messageArgsが空配列の場合
      */
     @Test
-    public void testGetMessage_argsEmpty() {
+    public void testGetMessage_semiArgsEmpty() {
 
         /* 期待値の定義 */
         final String expectedMessage = "{0}がありません。";
@@ -175,10 +175,10 @@ public class KmgMessageUtilsTest {
     }
 
     /**
-     * getMessage メソッドのテスト - 異常系：messageArgsがnullの場合
+     * getMessage メソッドのテスト - 異常系:messageArgsがnullの場合
      */
     @Test
-    public void testGetMessage_argsNull() {
+    public void testGetMessage_errorArgsNull() {
 
         /* 期待値の定義 */
         final String expectedMessage = "{0}がありません。";
@@ -197,10 +197,10 @@ public class KmgMessageUtilsTest {
     }
 
     /**
-     * getMessage メソッドのテスト - 異常系：引数の数が不一致の場合
+     * getMessage メソッドのテスト - 異常系:引数の数が不一致の場合
      */
     @Test
-    public void testGetMessage_argumentMismatch() {
+    public void testGetMessage_errorArgumentMismatch() {
 
         /* 期待値の定義 */
         final String expectedMessage = "フィールドの取得に失敗しました。フィールド名=[testField]、対象のクラス=[TestClass]、最後に取得したフィールド=[{2}]";
@@ -223,10 +223,10 @@ public class KmgMessageUtilsTest {
     }
 
     /**
-     * getMessage メソッドのテスト - 異常系：type.getCodeがnullの場合
+     * getMessage メソッドのテスト - 異常系:type.getCodeがnullの場合
      */
     @Test
-    public void testGetMessage_codeNull() {
+    public void testGetMessage_errorCodeNull() {
 
         /* 期待値の定義 */
         final String expectedMessage = KmgString.EMPTY;

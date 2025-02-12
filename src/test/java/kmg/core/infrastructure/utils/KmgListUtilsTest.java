@@ -22,10 +22,10 @@ import org.junit.jupiter.api.Test;
 public class KmgListUtilsTest {
 
     /**
-     * isEmpty メソッドのテスト - 空リストの場合
+     * isEmpty メソッドのテスト - 準正常系:空リストの場合
      */
     @Test
-    public void testIsEmpty_emptyList() {
+    public void testIsEmpty_semiEmptyList() {
 
         /* 期待値の定義 */
         final boolean expected = true;
@@ -42,10 +42,10 @@ public class KmgListUtilsTest {
     }
 
     /**
-     * isEmpty メソッドのテスト - 要素がある場合
+     * isEmpty メソッドのテスト - 正常系:要素がある場合
      */
     @Test
-    public void testIsEmpty_hasElements() {
+    public void testIsEmpty_normalHasElements() {
 
         /* 期待値の定義 */
         final boolean expected = false;
@@ -62,10 +62,10 @@ public class KmgListUtilsTest {
     }
 
     /**
-     * isEmpty メソッドのテスト - nullの場合
+     * isEmpty メソッドのテスト - 異常系:nullの場合
      */
     @Test
-    public void testIsEmpty_null() {
+    public void testIsEmpty_errorNull() {
 
         /* 期待値の定義 */
         final boolean expected = true;
@@ -82,10 +82,10 @@ public class KmgListUtilsTest {
     }
 
     /**
-     * isNotEmpty メソッドのテスト - 空リストの場合
+     * isNotEmpty メソッドのテスト - 準正常系:空リストの場合
      */
     @Test
-    public void testIsNotEmpty_emptyList() {
+    public void testIsNotEmpty_semiEmptyList() {
 
         /* 期待値の定義 */
         final boolean expected = false;
@@ -102,10 +102,10 @@ public class KmgListUtilsTest {
     }
 
     /**
-     * isNotEmpty メソッドのテスト - 要素がある場合
+     * isNotEmpty メソッドのテスト - 正常系:要素がある場合
      */
     @Test
-    public void testIsNotEmpty_hasElements() {
+    public void testIsNotEmpty_normalHasElements() {
 
         /* 期待値の定義 */
         final boolean expected = true;
@@ -122,10 +122,10 @@ public class KmgListUtilsTest {
     }
 
     /**
-     * isNotEmpty メソッドのテスト - nullの場合
+     * isNotEmpty メソッドのテスト - 異常系:nullの場合
      */
     @Test
-    public void testIsNotEmpty_null() {
+    public void testIsNotEmpty_errorNull() {
 
         /* 期待値の定義 */
         final boolean expected = false;
