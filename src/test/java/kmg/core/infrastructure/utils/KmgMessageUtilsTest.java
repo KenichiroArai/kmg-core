@@ -44,6 +44,51 @@ public class KmgMessageUtilsTest {
     }
 
     /**
+     * checkMessageArgsCount メソッドのテスト - 異常系:メッセージパターンがnullの場合
+     */
+    @Test
+    public void testCheckMessageArgsCount_errorNullPattern() {
+
+        /* 期待値の定義 */
+        final boolean expectedResult = false;
+
+        /* 準備 */
+        final String   testPattern = null;
+        final Object[] testArgs    = {
+            "test"
+        };
+
+        /* テスト対象の実行 */
+        final boolean actualResult = KmgMessageUtils.checkMessageArgsCount(testPattern, testArgs);
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expectedResult, actualResult, "メッセージパターンがnullの場合はfalseを返すこと");
+
+    }
+
+    /**
+     * checkMessageArgsCount メソッドのテスト - 異常系:引数の数が一致しない場合
+     */
+    @Test
+    public void testCheckMessageArgsCount_errorUnmatchCount() {
+
+        /* 期待値の定義 */
+
+        /* 準備 */
+        final String   testPattern = "テスト{0} {1}です。{2}";
+        final Object[] testArgs    = {
+            "A", "B"
+        };
+
+        /* テスト対象の実行 */
+        final boolean actualResult = KmgMessageUtils.checkMessageArgsCount(testPattern, testArgs);
+
+        /* 検証の実施 */
+        Assertions.assertFalse(actualResult, "引数の数が一致しない場合はfalseを返すこと");
+
+    }
+
+    /**
      * checkMessageArgsCount メソッドのテスト - 正常系:引数の数が一致する場合
      */
     @Test
@@ -107,61 +152,18 @@ public class KmgMessageUtilsTest {
     }
 
     /**
-     * checkMessageArgsCount メソッドのテスト - 異常系:メッセージパターンがnullの場合
+     * getMessage メソッドのテスト - 正常系：引数に空文字列を含む場合
      */
     @Test
-    public void testCheckMessageArgsCount_errorNullPattern() {
+    public void testGetMessage_emptyStringArg() {
 
         /* 期待値の定義 */
-        final boolean expectedResult = false;
+        final String expectedMessage = "がありません。";
 
         /* 準備 */
-        final String   testPattern = null;
-        final Object[] testArgs    = {
-            "test"
+        final Object[] testArgs = {
+            ""
         };
-
-        /* テスト対象の実行 */
-        final boolean actualResult = KmgMessageUtils.checkMessageArgsCount(testPattern, testArgs);
-
-        /* 検証の実施 */
-        Assertions.assertEquals(expectedResult, actualResult, "メッセージパターンがnullの場合はfalseを返すこと");
-
-    }
-
-    /**
-     * checkMessageArgsCount メソッドのテスト - 異常系:引数の数が一致しない場合
-     */
-    @Test
-    public void testCheckMessageArgsCount_errorUnmatchCount() {
-
-        /* 期待値の定義 */
-
-        /* 準備 */
-        final String   testPattern = "テスト{0} {1}です。{2}";
-        final Object[] testArgs    = {
-            "A", "B"
-        };
-
-        /* テスト対象の実行 */
-        final boolean actualResult = KmgMessageUtils.checkMessageArgsCount(testPattern, testArgs);
-
-        /* 検証の実施 */
-        Assertions.assertFalse(actualResult, "引数の数が一致しない場合はfalseを返すこと");
-
-    }
-
-    /**
-     * getMessage メソッドのテスト - 準正常系:messageArgsが空配列の場合
-     */
-    @Test
-    public void testGetMessage_semiArgsEmpty() {
-
-        /* 期待値の定義 */
-        final String expectedMessage = "{0}がありません。";
-
-        /* 準備 */
-        final Object[] testArgs = {};
 
         /* テスト対象の実行 */
         final String testResult = KmgMessageUtils.getMessage(KmgMsgMessageTypes.KMGMSGE11100, testArgs);
@@ -170,7 +172,7 @@ public class KmgMessageUtilsTest {
         final String actualMessage = testResult;
 
         /* 検証の実施 */
-        Assertions.assertEquals(expectedMessage, actualMessage, "メッセージパターンがそのまま返却されていません");
+        Assertions.assertEquals(expectedMessage, actualMessage, "空文字列を含むメッセージが正しく生成されていません");
 
     }
 
@@ -249,31 +251,6 @@ public class KmgMessageUtilsTest {
     }
 
     /**
-     * getMessage メソッドのテスト - 正常系：引数に空文字列を含む場合
-     */
-    @Test
-    public void testGetMessage_emptyStringArg() {
-
-        /* 期待値の定義 */
-        final String expectedMessage = "がありません。";
-
-        /* 準備 */
-        final Object[] testArgs = {
-            ""
-        };
-
-        /* テスト対象の実行 */
-        final String testResult = KmgMessageUtils.getMessage(KmgMsgMessageTypes.KMGMSGE11100, testArgs);
-
-        /* 検証の準備 */
-        final String actualMessage = testResult;
-
-        /* 検証の実施 */
-        Assertions.assertEquals(expectedMessage, actualMessage, "空文字列を含むメッセージが正しく生成されていません");
-
-    }
-
-    /**
      * getMessage メソッドのテスト - 異常系:フィールドアクセス失敗の場合
      */
     @Test
@@ -295,56 +272,6 @@ public class KmgMessageUtilsTest {
 
         /* 検証の実施 */
         Assertions.assertEquals(expectedMessage, actualMessage, "フィールド取得失敗メッセージが正しく生成されていません");
-
-    }
-
-    /**
-     * getMessage メソッドのテスト - 準正常系:引数が不足している場合
-     */
-    @Test
-    public void testGetMessage_semiInsufficientArgs() {
-
-        /* 期待値の定義 */
-        final String expectedMessage = "フィールドの取得に失敗しました。フィールド名=[testField]、対象のクラス=[TestClass]、最後に取得したフィールド=[{2}]";
-
-        /* 準備 */
-        final Object[] testArgs = {
-            "testField", "TestClass" // 3つ目の引数が不足
-        };
-
-        /* テスト対象の実行 */
-        final String testResult = KmgMessageUtils.getMessage(KmgMsgMessageTypes.KMGMSGE11200, testArgs);
-
-        /* 検証の準備 */
-        final String actualMessage = testResult;
-
-        /* 検証の実施 */
-        Assertions.assertEquals(expectedMessage, actualMessage, "引数が不足している場合、不足している引数のプレースホルダーはそのまま残るべきです");
-
-    }
-
-    /**
-     * getMessage メソッドのテスト - 正常系:メッセージフォーマット成功の場合
-     */
-    @Test
-    public void testGetMessage_normalMessageFormatSuccess() {
-
-        /* 期待値の定義 */
-        final String expectedMessage = "フィールドの取得に失敗しました。フィールド名=[testField]、対象のクラス=[TestClass]、最後に取得したフィールド=[lastField]";
-
-        /* 準備 */
-        final Object[] testArgs = {
-            "testField", "TestClass", "lastField"
-        };
-
-        /* テスト対象の実行 */
-        final String testResult = KmgMessageUtils.getMessage(KmgMsgMessageTypes.KMGMSGE11200, testArgs);
-
-        /* 検証の準備 */
-        final String actualMessage = testResult;
-
-        /* 検証の実施 */
-        Assertions.assertEquals(expectedMessage, actualMessage, "MessageFormat.formatの結果が期待値と一致しません");
 
     }
 
@@ -393,31 +320,6 @@ public class KmgMessageUtilsTest {
     }
 
     /**
-     * getMessage メソッドのテスト - 正常系:複数の引数がある場合
-     */
-    @Test
-    public void testGetMessage_normalMultipleArgs() {
-
-        /* 期待値の定義 */
-        final String expectedMessage = "フィールドの取得に失敗しました。フィールド名=[testField]、対象のクラス=[TestClass]、最後に取得したフィールド=[lastField]";
-
-        /* 準備 */
-        final Object[] testArgs = {
-            "testField", "TestClass", "lastField"
-        };
-
-        /* テスト対象の実行 */
-        final String testResult = KmgMessageUtils.getMessage(KmgMsgMessageTypes.KMGMSGE11200, testArgs);
-
-        /* 検証の準備 */
-        final String actualMessage = testResult;
-
-        /* 検証の実施 */
-        Assertions.assertEquals(expectedMessage, actualMessage, "複数引数のメッセージが正しく生成されていません");
-
-    }
-
-    /**
      * getMessage メソッドのテスト - 異常系:存在しないコードの場合
      */
     @Test
@@ -434,6 +336,57 @@ public class KmgMessageUtilsTest {
 
         /* テスト対象の実行 */
         final String testResult = KmgMessageUtils.getMessage(testType, testArgs);
+
+        /* 検証の準備 */
+        final String actualMessage = testResult;
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expectedMessage, actualMessage, "空文字が返却されていません");
+
+    }
+
+    /**
+     * getMessage メソッドのテスト - 異常系:リソースバンドル例外の場合
+     */
+    @Test
+    public void testGetMessage_errorResourceBundleException() {
+
+        /* 期待値の定義 */
+        final String expectedMessage = KmgString.EMPTY;
+
+        /* 準備 */
+        final Object[]           testArgs = {
+            "test"
+        };
+        final KmgMsgMessageTypes testType = KmgMsgMessageTypes.NONE;
+
+        /* テスト対象の実行 */
+        final String testResult = KmgMessageUtils.getMessage(testType, testArgs);
+
+        /* 検証の準備 */
+        final String actualMessage = testResult;
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expectedMessage, actualMessage, "例外発生時に空文字が返却されていません");
+
+    }
+
+    /**
+     * getMessage メソッドのテスト - 異常系:タイプがnullの場合
+     */
+    @Test
+    public void testGetMessage_errorTypeNull() {
+
+        /* 期待値の定義 */
+        final String expectedMessage = KmgString.EMPTY;
+
+        /* 準備 */
+        final Object[] testArgs = {
+            "test"
+        };
+
+        /* テスト対象の実行 */
+        final String testResult = KmgMessageUtils.getMessage(null, testArgs);
 
         /* 検証の準備 */
         final String actualMessage = testResult;
@@ -469,53 +422,52 @@ public class KmgMessageUtilsTest {
     }
 
     /**
-     * getMessage メソッドのテスト - 正常系：引数にnullを含む場合
+     * getMessage メソッドのテスト - 正常系:メッセージフォーマット成功の場合
      */
     @Test
-    public void testGetMessage_nullArg() {
+    public void testGetMessage_normalMessageFormatSuccess() {
 
         /* 期待値の定義 */
-        final String expectedMessage = "nullがありません。";
+        final String expectedMessage = "フィールドの取得に失敗しました。フィールド名=[testField]、対象のクラス=[TestClass]、最後に取得したフィールド=[lastField]";
 
         /* 準備 */
         final Object[] testArgs = {
-            null
+            "testField", "TestClass", "lastField"
         };
 
         /* テスト対象の実行 */
-        final String testResult = KmgMessageUtils.getMessage(KmgMsgMessageTypes.KMGMSGE11100, testArgs);
+        final String testResult = KmgMessageUtils.getMessage(KmgMsgMessageTypes.KMGMSGE11200, testArgs);
 
         /* 検証の準備 */
         final String actualMessage = testResult;
 
         /* 検証の実施 */
-        Assertions.assertEquals(expectedMessage, actualMessage, "null値を含むメッセージが正しく生成されていません");
+        Assertions.assertEquals(expectedMessage, actualMessage, "MessageFormat.formatの結果が期待値と一致しません");
 
     }
 
     /**
-     * getMessage メソッドのテスト - 異常系:リソースバンドル例外の場合
+     * getMessage メソッドのテスト - 正常系:複数の引数がある場合
      */
     @Test
-    public void testGetMessage_errorResourceBundleException() {
+    public void testGetMessage_normalMultipleArgs() {
 
         /* 期待値の定義 */
-        final String expectedMessage = KmgString.EMPTY;
+        final String expectedMessage = "フィールドの取得に失敗しました。フィールド名=[testField]、対象のクラス=[TestClass]、最後に取得したフィールド=[lastField]";
 
         /* 準備 */
-        final Object[]           testArgs = {
-            "test"
+        final Object[] testArgs = {
+            "testField", "TestClass", "lastField"
         };
-        final KmgMsgMessageTypes testType = KmgMsgMessageTypes.NONE;
 
         /* テスト対象の実行 */
-        final String testResult = KmgMessageUtils.getMessage(testType, testArgs);
+        final String testResult = KmgMessageUtils.getMessage(KmgMsgMessageTypes.KMGMSGE11200, testArgs);
 
         /* 検証の準備 */
         final String actualMessage = testResult;
 
         /* 検証の実施 */
-        Assertions.assertEquals(expectedMessage, actualMessage, "例外発生時に空文字が返却されていません");
+        Assertions.assertEquals(expectedMessage, actualMessage, "複数引数のメッセージが正しく生成されていません");
 
     }
 
@@ -545,27 +497,75 @@ public class KmgMessageUtilsTest {
     }
 
     /**
-     * getMessage メソッドのテスト - 異常系:タイプがnullの場合
+     * getMessage メソッドのテスト - 正常系：引数にnullを含む場合
      */
     @Test
-    public void testGetMessage_errorTypeNull() {
+    public void testGetMessage_nullArg() {
 
         /* 期待値の定義 */
-        final String expectedMessage = KmgString.EMPTY;
+        final String expectedMessage = "nullがありません。";
 
         /* 準備 */
         final Object[] testArgs = {
-            "test"
+            null
         };
 
         /* テスト対象の実行 */
-        final String testResult = KmgMessageUtils.getMessage(null, testArgs);
+        final String testResult = KmgMessageUtils.getMessage(KmgMsgMessageTypes.KMGMSGE11100, testArgs);
 
         /* 検証の準備 */
         final String actualMessage = testResult;
 
         /* 検証の実施 */
-        Assertions.assertEquals(expectedMessage, actualMessage, "空文字が返却されていません");
+        Assertions.assertEquals(expectedMessage, actualMessage, "null値を含むメッセージが正しく生成されていません");
+
+    }
+
+    /**
+     * getMessage メソッドのテスト - 準正常系:messageArgsが空配列の場合
+     */
+    @Test
+    public void testGetMessage_semiArgsEmpty() {
+
+        /* 期待値の定義 */
+        final String expectedMessage = "{0}がありません。";
+
+        /* 準備 */
+        final Object[] testArgs = {};
+
+        /* テスト対象の実行 */
+        final String testResult = KmgMessageUtils.getMessage(KmgMsgMessageTypes.KMGMSGE11100, testArgs);
+
+        /* 検証の準備 */
+        final String actualMessage = testResult;
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expectedMessage, actualMessage, "メッセージパターンがそのまま返却されていません");
+
+    }
+
+    /**
+     * getMessage メソッドのテスト - 準正常系:引数が不足している場合
+     */
+    @Test
+    public void testGetMessage_semiInsufficientArgs() {
+
+        /* 期待値の定義 */
+        final String expectedMessage = "フィールドの取得に失敗しました。フィールド名=[testField]、対象のクラス=[TestClass]、最後に取得したフィールド=[{2}]";
+
+        /* 準備 */
+        final Object[] testArgs = {
+            "testField", "TestClass" // 3つ目の引数が不足
+        };
+
+        /* テスト対象の実行 */
+        final String testResult = KmgMessageUtils.getMessage(KmgMsgMessageTypes.KMGMSGE11200, testArgs);
+
+        /* 検証の準備 */
+        final String actualMessage = testResult;
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expectedMessage, actualMessage, "引数が不足している場合、不足している引数のプレースホルダーはそのまま残るべきです");
 
     }
 
