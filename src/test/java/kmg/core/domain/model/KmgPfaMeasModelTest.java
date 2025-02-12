@@ -27,7 +27,7 @@ public class KmgPfaMeasModelTest {
      * end メソッドのテスト - 正常系:マイクロ秒の経過時間が正しく計算されることの確認
      */
     @Test
-    public void testEnd_calculateElapsedTimeInMicroseconds() {
+    public void testEnd_normalCalculateElapsedTimeInMicroseconds() {
 
         /* 期待値の定義 */
         final long             expectedStartTime   = 1L;
@@ -56,7 +56,7 @@ public class KmgPfaMeasModelTest {
      * end メソッドのテスト - 正常系:ミリ秒の経過時間が正しく計算されることの確認
      */
     @Test
-    public void testEnd_calculateElapsedTimeInMilliseconds() {
+    public void testEnd_normalCalculateElapsedTimeInMilliseconds() {
 
         /* 期待値の定義 */
         final long             expectedStartTime   = 1000L;
@@ -85,7 +85,7 @@ public class KmgPfaMeasModelTest {
      * end メソッドのテスト - 正常系:ナノ秒の経過時間が正しく計算されることの確認
      */
     @Test
-    public void testEnd_calculateElapsedTimeInNanoseconds() {
+    public void testEnd_normalCalculateElapsedTimeInNanoseconds() {
 
         /* 期待値の定義 */
         final long             expectedStartTime   = 1000L;
@@ -118,7 +118,7 @@ public class KmgPfaMeasModelTest {
      * end メソッドのテスト - 正常系:秒の経過時間が正しく計算されることの確認
      */
     @Test
-    public void testEnd_calculateElapsedTimeInSeconds() {
+    public void testEnd_normalCalculateElapsedTimeInSeconds() {
 
         /* 期待値の定義 */
         final long             expectedStartTime   = 1000L;
@@ -147,7 +147,7 @@ public class KmgPfaMeasModelTest {
      * start メソッドのテスト - 正常系:開始時間が正しく記録されることの確認
      */
     @Test
-    public void testStart_recordStartTime() {
+    public void testStart_normalRecordStartTime() {
 
         /* 期待値の定義 */
         final long expectedStartTime = 1000L;
