@@ -36,16 +36,19 @@ release.bat [作業ブランチ] [リリースブランチ] [バージョン]
 ### 2. 手動でリリースを実行する方法
 
 1. 作業ブランチを作成
+
    ```bash
    git checkout -b features/release-vX.Y.Z
    ```
 
 2. pom.xml のバージョンを更新
+
    ```bash
    mvn versions:set -DnewVersion=X.Y.Z
    ```
 
 3. 変更をコミットしプッシュ
+
    ```bash
    git add pom.xml
    git commit -m "バージョンをX.Y.Zに更新"
@@ -55,6 +58,7 @@ release.bat [作業ブランチ] [リリースブランチ] [バージョン]
 4. プルリクエストを作成し、マージ
 
 5. タグを作成しプッシュ
+
    ```bash
    git tag vX.Y.Z
    git push origin vX.Y.Z
