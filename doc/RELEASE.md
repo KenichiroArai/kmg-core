@@ -22,7 +22,7 @@
 
 ```bash
 release.bat [作業ブランチ] [リリースブランチ] [バージョン]
-# 例：release.bat features/release main 1.0.0
+# 例：release.bat features/main main 1.0.0
 ```
 
 スクリプトは以下の処理を自動的に実行します：
@@ -38,7 +38,7 @@ release.bat [作業ブランチ] [リリースブランチ] [バージョン]
 1. 作業ブランチを作成
 
    ```bash
-   git checkout -b features/release-vX.Y.Z
+   git checkout -b features/main-vX.Y.Z
    ```
 
 2. pom.xml のバージョンを更新
@@ -52,7 +52,7 @@ release.bat [作業ブランチ] [リリースブランチ] [バージョン]
    ```bash
    git add pom.xml
    git commit -m "バージョンをX.Y.Zに更新"
-   git push origin features/release-vX.Y.Z
+   git push origin features/main-vX.Y.Z
    ```
 
 4. プルリクエストを作成し、マージ
