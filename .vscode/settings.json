@@ -8,5 +8,8 @@
         "files.encoding": "shiftjis",
         "files.autoGuessEncoding": false,
         "files.eol": "\r\n"
+    },
+    "files.readonlyInclude": {
+        "**/.settings/**": true
     }
 }
