@@ -1,4 +1,4 @@
-package kmg.core.domain.model;
+package kmg.core.infrastructure.model;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;

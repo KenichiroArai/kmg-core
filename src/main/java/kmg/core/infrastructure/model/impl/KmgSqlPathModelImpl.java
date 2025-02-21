@@ -1,12 +1,12 @@
-package kmg.core.domain.model.impl;
+package kmg.core.infrastructure.model.impl;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
-import kmg.core.domain.model.KmgSqlPathModel;
 import kmg.core.infrastructure.exception.KmgDomainException;
+import kmg.core.infrastructure.model.KmgSqlPathModel;
 import kmg.core.infrastructure.type.KmgString;
 import kmg.core.infrastructure.types.KmgMsgMessageTypes;
 
