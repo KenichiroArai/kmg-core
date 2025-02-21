@@ -2,7 +2,6 @@ package kmg.core.infrastructure.types;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.function.Supplier;
 
 import kmg.core.infrastructure.common.KmgMessageTypes;
 
@@ -16,51 +15,51 @@ import kmg.core.infrastructure.common.KmgMessageTypes;
  * @version 1.0.0
  */
 @SuppressWarnings("nls")
-public enum KmgMsgMessageTypes implements Supplier<String>, KmgMessageTypes {
+public enum KmgMsgMessageTypes implements KmgMessageTypes {
 
     /* 定義：開始 */
 
     /** 指定無し */
-    NONE("指定無し", null),
+    NONE("指定無し"),
 
     /** {0}がありません。 */
-    KMGMSGE11100("{0}がありません。", "KMGMSGE11100"),
+    KMGMSGE11100("{0}がありません。"),
 
     /** フィールドの取得に失敗しました。フィールド名=[{0}]、対象のクラス=[{1}]、最後に取得したフィールド=[{2}] */
-    KMGMSGE11200("フィールドの取得に失敗しました。フィールド名=[{0}]、対象のクラス=[{1}]、最後に取得したフィールド=[{2}]", "KMGMSGE11200"),
+    KMGMSGE11200("フィールドの取得に失敗しました。フィールド名=[{0}]、対象のクラス=[{1}]、最後に取得したフィールド=[{2}]"),
 
     /** フィールドの値の取得に失敗しました。フィールド名=[{0}]、対象のクラス=[{1}]、最後に取得したフィールド=[{2}] */
-    KMGMSGE11201("フィールドの値の取得に失敗しました。フィールド名=[{0}]、対象のクラス=[{1}]、最後に取得したフィールド=[{2}]", "KMGMSGE11201"),
+    KMGMSGE11201("フィールドの値の取得に失敗しました。フィールド名=[{0}]、対象のクラス=[{1}]、最後に取得したフィールド=[{2}]"),
 
     /** フィールドの値の取得に失敗しました。フィールド名=[{0}]、対象のクラス=[{1}]、最後に取得したフィールド=[{2}] */
-    KMGMSGE11202("フィールドの値の取得に失敗しました。フィールド名=[{0}]、対象のクラス=[{1}]、最後に取得したフィールド=[{2}]", "KMGMSGE11202"),
+    KMGMSGE11202("フィールドの値の取得に失敗しました。フィールド名=[{0}]、対象のクラス=[{1}]、最後に取得したフィールド=[{2}]"),
 
     /** メソッドの取得に失敗しました。メソッド名=[{0}]、対象のクラス=[{1}] */
-    KMGMSGE11203("メソッドの取得に失敗しました。メソッド名=[{0}]、対象のクラス=[{1}]", "KMGMSGE11203"),
+    KMGMSGE11203("メソッドの取得に失敗しました。メソッド名=[{0}]、対象のクラス=[{1}]"),
 
     /** メソッドの値の取得に失敗しました。メソッド名=[{0}]、対象のクラス=[{1}] */
-    KMGMSGE11204("メソッドの値の取得に失敗しました。メソッド名=[{0}]、対象のクラス=[{1}]", "KMGMSGE11204"),
+    KMGMSGE11204("メソッドの値の取得に失敗しました。メソッド名=[{0}]、対象のクラス=[{1}]"),
 
     /** メソッドの値の取得に失敗しました。メソッド名=[{0}]、対象のクラス=[{1}] */
-    KMGMSGE11205("メソッドの値の取得に失敗しました。メソッド名=[{0}]、対象のクラス=[{1}]", "KMGMSGE11205"),
+    KMGMSGE11205("メソッドの値の取得に失敗しました。メソッド名=[{0}]、対象のクラス=[{1}]"),
 
     /** メソッドの値の取得に失敗しました。メソッド名=[{0}]、対象のクラス=[{1}] */
-    KMGMSGE11206("メソッドの値の取得に失敗しました。メソッド名=[{0}]、対象のクラス=[{1}]", "KMGMSGE11206"),
+    KMGMSGE11206("メソッドの値の取得に失敗しました。メソッド名=[{0}]、対象のクラス=[{1}]"),
 
     /** メソッドの値の取得に失敗しました。メソッド名=[{0}]、対象のクラス=[{1}] */
-    KMGMSGE11207("メソッドの値の取得に失敗しました。メソッド名=[{0}]、対象のクラス=[{1}]", "KMGMSGE11207"),
+    KMGMSGE11207("メソッドの値の取得に失敗しました。メソッド名=[{0}]、対象のクラス=[{1}]"),
 
     /** フィールドの取得に失敗しました。フィールド名=[{0}]、対象のクラス=[{1}]、最後に取得したフィールド=[{2}] */
-    KMGMSGE11209("フィールドの取得に失敗しました。フィールド名=[{0}]、対象のクラス=[{1}]、最後に取得したフィールド=[{2}]", "KMGMSGE11209"),
+    KMGMSGE11209("フィールドの取得に失敗しました。フィールド名=[{0}]、対象のクラス=[{1}]、最後に取得したフィールド=[{2}]"),
 
     /** フィールドの値の設定に失敗しました。フィールド名=[{0}]、対象のクラス=[{1}]、最後に取得したフィールド=[{2}] */
-    KMGMSGE11210("フィールドの値の設定に失敗しました。フィールド名=[{0}]、対象のクラス=[{1}]、最後に取得したフィールド=[{2}]", "KMGMSGE11210"),
+    KMGMSGE11210("フィールドの値の設定に失敗しました。フィールド名=[{0}]、対象のクラス=[{1}]、最後に取得したフィールド=[{2}]"),
 
     /** フィールドの値の設定に失敗しました。フィールド名=[{0}]、対象のクラス=[{1}]、最後に取得したフィールド=[{2}] */
-    KMGMSGE11211("フィールドの値の設定に失敗しました。フィールド名=[{0}]、対象のクラス=[{1}]、最後に取得したフィールド=[{2}]", "KMGMSGE11211"),
+    KMGMSGE11211("フィールドの値の設定に失敗しました。フィールド名=[{0}]、対象のクラス=[{1}]、最後に取得したフィールド=[{2}]"),
 
     /** クラスからビルドバスの取得に失敗しました。クラス=[{0}] */
-    KMGMSGE24000("クラスからビルドバスの取得に失敗しました。クラス=[{0}]", "KMGMSGE24000"),
+    KMGMSGE24000("クラスからビルドバスの取得に失敗しました。クラス=[{0}]"),
 
     /* 定義：終了 */
     ;
@@ -79,11 +78,17 @@ public enum KmgMsgMessageTypes implements Supplier<String>, KmgMessageTypes {
 
     }
 
-    /** 名称 */
-    private final String name;
+    /** 表示名 */
+    private final String displayName;
 
-    /** 値 */
+    /** メッセージのキー */
+    private final String key;
+
+    /** メッセージの値 */
     private final String value;
+
+    /** 詳細情報 */
+    private final String detail;
 
     /**
      * デフォルトの種類を返す<br>
@@ -104,9 +109,9 @@ public enum KmgMsgMessageTypes implements Supplier<String>, KmgMessageTypes {
     }
 
     /**
-     * 値に該当する種類を返す<br>
+     * キーに該当する種類を返す<br>
      * <p>
-     * 但し、値が存在しない場合は、指定無し（NONE）を返す。
+     * 但し、キーが存在しない場合は、指定無し（NONE）を返す。
      * </p>
      *
      * @author KenichiroArai
@@ -115,14 +120,14 @@ public enum KmgMsgMessageTypes implements Supplier<String>, KmgMessageTypes {
      *
      * @version 1.0.0
      *
-     * @param value
-     *              値
+     * @param key
+     *            キー
      *
-     * @return 種類。指定無し（NONE）：値が存在しない場合。
+     * @return 種類。指定無し（NONE）：キーが存在しない場合。
      */
-    public static KmgMsgMessageTypes getEnum(final String value) {
+    public static KmgMsgMessageTypes getEnum(final String key) {
 
-        KmgMsgMessageTypes result = KmgMsgMessageTypes.VALUES_MAP.get(value);
+        KmgMsgMessageTypes result = KmgMsgMessageTypes.VALUES_MAP.get(key);
 
         if (result == null) {
 
@@ -160,86 +165,98 @@ public enum KmgMsgMessageTypes implements Supplier<String>, KmgMessageTypes {
      *
      * @version 1.0.0
      *
-     * @param name
-     *              名称
-     * @param value
-     *              値
+     * @param displayName
+     *                    表示名
      */
-    KmgMsgMessageTypes(final String name, final String value) {
+    KmgMsgMessageTypes(final String displayName) {
 
-        this.name = name;
-        this.value = value;
+        this.displayName = displayName;
+        this.key = super.name();
+        this.value = displayName;
+        this.detail = displayName;
 
     }
 
     /**
-     * 種類の値を返す。<br>
+     * メッセージのキーを返す。<br>
+     * このメソッドは{@link #getKey()}のエイリアスです。
      *
-     * @author KenichiroArai
+     * @return メッセージのキー
      *
-     * @sine 1.0.0
-     *
-     * @version 1.0.0
-     *
-     * @return 種類の値
+     * @see #getKey()
      */
     @Override
     public String get() {
 
-        final String result = this.value;
+        final String result = this.getKey();
         return result;
 
     }
 
     /**
-     * 種類の値を返す。<br>
+     * メッセージのキーを返す。<br>
+     * このメソッドは{@link #getKey()}のエイリアスです。
      *
-     * @author KenichiroArai
+     * @return メッセージのキー
      *
-     * @sine 1.0.0
-     *
-     * @version 1.0.0
-     *
-     * @return 種類の値
+     * @see #getKey()
      */
     @Override
     public String getCode() {
 
-        final String result = this.value;
+        final String result = this.getKey();
         return result;
 
     }
 
     /**
-     * 名称を返す<br>
+     * 詳細情報を返す。<br>
      *
-     * @author KenichiroArai
-     *
-     * @sine 1.0.0
-     *
-     * @version 1.0.0
-     *
-     * @return 名称
+     * @return 詳細情報
      */
     @Override
-    public String getName() {
+    public String getDetail() {
 
-        final String result = this.name;
+        final String result = this.detail;
         return result;
 
     }
 
     /**
-     * 値を返す<br>
+     * 表示名を返す。<br>
+     * <p>
+     * 識別するための表示名を返す。
+     * </p>
      *
-     * @author KenichiroArai
-     *
-     * @sine 1.0.0
-     *
-     * @version 1.0.0
-     *
-     * @return 値
+     * @return 表示名
      */
+    @Override
+    public String getDisplayName() {
+
+        final String result = this.displayName;
+        return result;
+
+    }
+
+    /**
+     * メッセージのキーを返す。<br>
+     *
+     * @return メッセージのキー
+     */
+    @Override
+    public String getKey() {
+
+        final String result = this.key;
+        return result;
+
+    }
+
+    /**
+     * メッセージの値を返す。
+     *
+     * @return メッセージの値
+     */
+    @Override
     public String getValue() {
 
         final String result = this.value;
@@ -248,21 +265,19 @@ public enum KmgMsgMessageTypes implements Supplier<String>, KmgMessageTypes {
     }
 
     /**
-     * 値を返す<br>
+     * メッセージのキーを返す。<br>
+     * このメソッドは{@link #getKey()}のエイリアスです。
      *
-     * @author KenichiroArai
+     * @return メッセージのキー
      *
-     * @sine 1.0.0
-     *
-     * @version 1.0.0
-     *
-     * @return 値
+     * @see #getKey()
      */
     @Override
     public String toString() {
 
-        final String result = this.value;
+        final String result = this.getKey();
         return result;
 
     }
+
 }

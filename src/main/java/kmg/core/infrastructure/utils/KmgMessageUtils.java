@@ -171,7 +171,7 @@ public final class KmgMessageUtils {
 
         }
 
-        if (type.getCode() == null) {
+        if (type.getKey() == null) {
 
             return result;
 
@@ -182,7 +182,7 @@ public final class KmgMessageUtils {
 
             try {
 
-                result = bundle.getString(type.getCode());
+                result = bundle.getString(type.getKey());
                 return result;
 
             } catch (@SuppressWarnings("unused") final java.util.MissingResourceException e) {

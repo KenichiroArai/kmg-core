@@ -275,9 +275,41 @@ public class KmgMessageUtilsTest {
             }
 
             @Override
-            public String getName() {
+            public String get() {
 
-                final String result = "Mock Type";
+                final String result = this.getKey();
+                return result;
+
+            }
+
+            @Override
+            public String getDetail() {
+
+                final String result = "Mock Detail";
+                return result;
+
+            }
+
+            @Override
+            public String getDisplayName() {
+
+                final String result = "Mock Display Name";
+                return result;
+
+            }
+
+            @Override
+            public String getKey() {
+
+                final String result = "NON_EXISTENT_CODE";
+                return result;
+
+            }
+
+            @Override
+            public String getValue() {
+
+                final String result = "Mock Value";
                 return result;
 
             }
