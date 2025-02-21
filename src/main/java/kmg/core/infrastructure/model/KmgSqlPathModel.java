@@ -1,4 +1,4 @@
-package kmg.core.domain.model;
+package kmg.core.infrastructure.model;
 
 import kmg.core.infrastructure.exception.KmgDomainException;
 

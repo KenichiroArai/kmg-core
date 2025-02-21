@@ -1,7 +1,7 @@
 package kmg.core.domain.service.impl;
 
-import kmg.core.domain.model.KmgPfaMeasModel;
 import kmg.core.domain.service.KmgPfaMeasService;
+import kmg.core.infrastructure.model.KmgPfaMeasModel;
 
 /**
  * KMG性能測定サービス<br>
