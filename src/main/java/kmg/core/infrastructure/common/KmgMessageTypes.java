@@ -1,31 +1,55 @@
-/**
- *
- */
 package kmg.core.infrastructure.common;
 
 /**
  * メッセージの種類のインタフェース
  */
-public interface KmgMessageTypes {
+public interface KmgMessageTypes extends KmgTypes<String> {
 
     /**
-     * メッセージのコードを返す。
+     * メッセージのキーを返す。<br>
+     * このメソッドは{@link #getKey()}のエイリアスです。
      *
-     * @return メッセージのコード
+     * @return メッセージのキー
+     *
+     * @see #getKey()
+     */
+    @Override
+    String get();
+
+    /**
+     * メッセージのキーを返す。<br>
+     * このメソッドは{@link #getKey()}のエイリアスです。
+     *
+     * @return メッセージのキー
+     *
+     * @see #getKey()
      */
     String getCode();
 
     /**
-     * メッセージの名称を返す。<br>
+     * メッセージのキーを返す。<br>
      *
-     * @author KenichiroArai
-     *
-     * @sine 1.0.0
-     *
-     * @version 1.0.0
-     *
-     * @return 名称
+     * @return メッセージのキー
      */
-    String getName();
+    @Override
+    String getKey();
+
+    /**
+     * メッセージの値を返す。
+     *
+     * @return メッセージの値
+     */
+    String getValue();
+
+    /**
+     * メッセージのキーを返す。<br>
+     * このメソッドは{@link #getKey()}のエイリアスです。
+     *
+     * @return メッセージのキー
+     *
+     * @see #getKey()
+     */
+    @Override
+    String toString();
 
 }

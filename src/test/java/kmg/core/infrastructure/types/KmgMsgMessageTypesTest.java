@@ -132,10 +132,10 @@ public class KmgMsgMessageTypesTest {
     }
 
     /**
-     * getName メソッドのテスト - 正常系:名前の取得
+     * getDisplayName メソッドのテスト - 正常系:表示名の取得
      */
     @Test
-    public void testGetName_normalBasicName() {
+    public void testGetDisplayName_normalBasicDisplayName() {
 
         /* 期待値の定義 */
         final String expected = "{0}がありません。";
@@ -144,10 +144,10 @@ public class KmgMsgMessageTypesTest {
         final KmgMsgMessageTypes testType = KmgMsgMessageTypes.KMGMSGE11100;
 
         /* テスト対象の実行 */
-        final String actual = testType.getName();
+        final String actual = testType.getDisplayName();
 
         /* 検証の実施 */
-        Assertions.assertEquals(expected, actual, "名称が一致しません");
+        Assertions.assertEquals(expected, actual, "表示名が一致しません");
 
     }
 
@@ -158,7 +158,7 @@ public class KmgMsgMessageTypesTest {
     public void testGetValue_normalBasicValue() {
 
         /* 期待値の定義 */
-        final String expected = "KMGMSGE11100";
+        final String expected = "{0}がありません。";
 
         /* 準備 */
         final KmgMsgMessageTypes testType = KmgMsgMessageTypes.KMGMSGE11100;
@@ -198,7 +198,7 @@ public class KmgMsgMessageTypesTest {
     public void testToString_normalNone() {
 
         /* 期待値の定義 */
-        final String expected = null;
+        final String expected = "NONE";
 
         /* 準備 */
         final KmgMsgMessageTypes testType = KmgMsgMessageTypes.NONE;
@@ -207,7 +207,7 @@ public class KmgMsgMessageTypesTest {
         final String actual = testType.toString();
 
         /* 検証の実施 */
-        Assertions.assertEquals(expected, actual, "NONEの場合、nullが返されること");
+        Assertions.assertEquals(expected, actual, "NONEの場合、\"NONE\"が返されること");
 
     }
 }
