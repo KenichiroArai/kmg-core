@@ -2,7 +2,8 @@ package kmg.core.infrastructure.types;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.function.Supplier;
+
+import kmg.core.infrastructure.common.KmgTypes;
 
 /**
  * KMGテンプレートの種類<br>
@@ -14,12 +15,12 @@ import java.util.function.Supplier;
  * @version 1.0.0
  */
 @SuppressWarnings("nls")
-public enum KmgTemplateTypes implements Supplier<String> {
+public enum KmgTemplateTypes implements KmgTypes<String> {
 
     /* 定義：開始 */
 
     /** 指定無し */
-    NONE("指定無し", null),
+    NONE("指定無し", "none", "指定無し"),
 
     /* 定義：終了 */
     ;
@@ -38,11 +39,14 @@ public enum KmgTemplateTypes implements Supplier<String> {
 
     }
 
-    /** 名称 */
-    private final String name;
+    /** 表示名 */
+    private final String displayName;
 
-    /** 値 */
-    private final String value;
+    /** キー */
+    private final String key;
+
+    /** 詳細情報 */
+    private final String detail;
 
     /**
      * デフォルトの種類を返す<br>
@@ -63,9 +67,9 @@ public enum KmgTemplateTypes implements Supplier<String> {
     }
 
     /**
-     * 値に該当する種類を返す<br>
+     * キーに該当する種類を返す<br>
      * <p>
-     * 但し、値が存在しない場合は、指定無し（NONE）を返す。
+     * 但し、キーが存在しない場合は、指定無し（NONE）を返す。
      * </p>
      *
      * @author KenichiroArai
@@ -74,14 +78,14 @@ public enum KmgTemplateTypes implements Supplier<String> {
      *
      * @version 1.0.0
      *
-     * @param value
-     *              値
+     * @param key
+     *            キー
      *
-     * @return 種類。指定無し（NONE）：値が存在しない場合。
+     * @return 種類。指定無し（NONE）：キーが存在しない場合。
      */
-    public static KmgTemplateTypes getEnum(final String value) {
+    public static KmgTemplateTypes getEnum(final String key) {
 
-        KmgTemplateTypes result = KmgTemplateTypes.VALUES_MAP.get(value);
+        KmgTemplateTypes result = KmgTemplateTypes.VALUES_MAP.get(key);
 
         if (result == null) {
 
@@ -119,88 +123,91 @@ public enum KmgTemplateTypes implements Supplier<String> {
      *
      * @version 1.0.0
      *
-     * @param name
-     *              名称
-     * @param value
-     *              値
+     * @param displayName
+     *                    表示名
+     * @param key
+     *                    キー
+     * @param detail
+     *                    詳細情報
      */
-    KmgTemplateTypes(final String name, final String value) {
+    KmgTemplateTypes(final String displayName, final String key, final String detail) {
 
-        this.name = name;
-        this.value = value;
+        this.displayName = displayName;
+        this.key = super.name();
+        this.detail = displayName;
 
     }
 
     /**
-     * 種類の値<br>
+     * キーを返す。<br>
+     * このメソッドは{@link #getKey()}のエイリアスです。
      *
-     * @author KenichiroArai
+     * @return キー
      *
-     * @sine 1.0.0
-     *
-     * @version 1.0.0
-     *
-     * @return 種類の値
+     * @see #getKey()
      */
     @Override
     public String get() {
 
-        final String result = this.value;
+        final String result = this.getKey();
         return result;
 
     }
 
     /**
-     * 名称を返す<br>
+     * 詳細情報を返す。<br>
      *
-     * @author KenichiroArai
-     *
-     * @sine 1.0.0
-     *
-     * @version 1.0.0
-     *
-     * @return 名称
+     * @return 詳細情報
      */
-    public String getName() {
+    @Override
+    public String getDetail() {
 
-        final String result = this.name;
+        final String result = this.detail;
         return result;
 
     }
 
     /**
-     * 値を返す<br>
+     * 表示名を返す。<br>
+     * <p>
+     * 識別するための表示名を返す。
+     * </p>
      *
-     * @author KenichiroArai
-     *
-     * @sine 1.0.0
-     *
-     * @version 1.0.0
-     *
-     * @return 値
+     * @return 表示名
      */
-    public String getValue() {
+    @Override
+    public String getDisplayName() {
 
-        final String result = this.value;
+        final String result = this.displayName;
         return result;
 
     }
 
     /**
-     * 値を返す<br>
+     * キーを返す。<br>
      *
-     * @author KenichiroArai
+     * @return キー
+     */
+    @Override
+    public String getKey() {
+
+        final String result = this.key;
+        return result;
+
+    }
+
+    /**
+     * キーを返す。<br>
+     * このメソッドは{@link #getKey()}のエイリアスです。
      *
-     * @sine 1.0.0
+     * @return キー
      *
-     * @version 1.0.0
-     *
-     * @return 値
+     * @see #getKey()
      */
     @Override
     public String toString() {
 
-        final String result = this.value;
+        final String result = this.getKey();
         return result;
 
     }

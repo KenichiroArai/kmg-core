@@ -18,13 +18,13 @@ import org.junit.jupiter.api.Test;
 public class KmgTemplateTypesTest {
 
     /**
-     * get メソッドのテスト - 正常系:基本的な値の取得
+     * get メソッドのテスト - 正常系:値の取得
      */
     @Test
     public void testGet_normalBasicValue() {
 
         /* 期待値の定義 */
-        final String expected = null;
+        final String expected = "NONE";
 
         /* 準備 */
         final KmgTemplateTypes testType = KmgTemplateTypes.NONE;
@@ -33,7 +33,7 @@ public class KmgTemplateTypesTest {
         final String actual = testType.get();
 
         /* 検証の実施 */
-        Assertions.assertEquals(expected, actual, "取得値が一致しません");
+        Assertions.assertEquals(expected, actual, "値が一致しません");
 
     }
 
@@ -51,6 +51,66 @@ public class KmgTemplateTypesTest {
 
         /* 検証の実施 */
         Assertions.assertEquals(expected, actual, "デフォルト値が一致しません");
+
+    }
+
+    /**
+     * getDetail メソッドのテスト - 正常系:詳細情報の取得
+     */
+    @Test
+    public void testGetDetail_normalBasicDetail() {
+
+        /* 期待値の定義 */
+        final String expected = "指定無し";
+
+        /* 準備 */
+        final KmgTemplateTypes testType = KmgTemplateTypes.NONE;
+
+        /* テスト対象の実行 */
+        final String actual = testType.getDetail();
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "詳細情報が一致しません");
+
+    }
+
+    /**
+     * getDisplayName メソッドのテスト - 正常系:表示名の取得
+     */
+    @Test
+    public void testGetDisplayName_normalBasicName() {
+
+        /* 期待値の定義 */
+        final String expected = "指定無し";
+
+        /* 準備 */
+        final KmgTemplateTypes testType = KmgTemplateTypes.NONE;
+
+        /* テスト対象の実行 */
+        final String actual = testType.getDisplayName();
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "表示名が一致しません");
+
+    }
+
+    /**
+     * getEnum メソッドのテスト - 正常系:存在する値の取得
+     */
+    @Test
+    public void testGetEnum_normalExistingValue() {
+
+        /* 期待値の定義 */
+        final KmgTemplateTypes expected = KmgTemplateTypes.NONE;
+
+        /* 準備 */
+        final String testValue = "NONE";
+
+        /* テスト対象の実行 */
+        final KmgTemplateTypes actual = KmgTemplateTypes.getEnum(testValue);
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "値が一致しません");
 
     }
 
@@ -112,53 +172,13 @@ public class KmgTemplateTypesTest {
     }
 
     /**
-     * getName メソッドのテスト - 正常系:名前の取得
-     */
-    @Test
-    public void testGetName_normalBasicName() {
-
-        /* 期待値の定義 */
-        final String expected = "指定無し";
-
-        /* 準備 */
-        final KmgTemplateTypes testType = KmgTemplateTypes.NONE;
-
-        /* テスト対象の実行 */
-        final String actual = testType.getName();
-
-        /* 検証の実施 */
-        Assertions.assertEquals(expected, actual, "名称が一致しません");
-
-    }
-
-    /**
-     * getValue メソッドのテスト - 正常系:値の取得
-     */
-    @Test
-    public void testGetValue_normalBasicValue() {
-
-        /* 期待値の定義 */
-        final String expected = null;
-
-        /* 準備 */
-        final KmgTemplateTypes testType = KmgTemplateTypes.NONE;
-
-        /* テスト対象の実行 */
-        final String actual = testType.getValue();
-
-        /* 検証の実施 */
-        Assertions.assertEquals(expected, actual, "値が一致しません");
-
-    }
-
-    /**
      * toString メソッドのテスト - 正常系:NONEの文字列表現
      */
     @Test
     public void testToString_normalNone() {
 
         /* 期待値の定義 */
-        final String expected = null;
+        final String expected = "NONE";
 
         /* 準備 */
         final KmgTemplateTypes testType = KmgTemplateTypes.NONE;
@@ -167,7 +187,7 @@ public class KmgTemplateTypesTest {
         final String actual = testType.toString();
 
         /* 検証の実施 */
-        Assertions.assertEquals(expected, actual, "NONEの場合、nullが返されること");
+        Assertions.assertEquals(expected, actual, "文字列表現が一致しません");
 
     }
 }
