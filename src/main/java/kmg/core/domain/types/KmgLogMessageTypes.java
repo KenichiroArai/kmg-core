@@ -1,4 +1,4 @@
-package kmg.core.infrastructure.types;
+package kmg.core.domain.types;
 
 import java.util.HashMap;
 import java.util.Map;

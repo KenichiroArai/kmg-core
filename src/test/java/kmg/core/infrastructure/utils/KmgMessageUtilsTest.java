@@ -3,9 +3,9 @@ package kmg.core.infrastructure.utils;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import kmg.core.domain.types.KmgMsgMessageTypes;
 import kmg.core.infrastructure.common.KmgMessageTypes;
 import kmg.core.infrastructure.type.KmgString;
-import kmg.core.infrastructure.types.KmgMsgMessageTypes;
 
 /**
  * KMGメッセージユーティリティのテスト<br>
