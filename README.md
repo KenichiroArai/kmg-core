@@ -19,13 +19,17 @@ kmg-core-src（以降は、「KMGコア」と言う。）は、KMGシリーズ�
 kmg-core-src/
 ├── src/
 │   ├── main/java/kmg/core/
-│   │   └── infrastructure/
-│   │       ├── types/     # 型定義
-│   │       └── utils/     # ユーティリティクラス
+│   │   ├── infrastructure/
+│   │   │   ├── types/     # 型定義
+│   │   │   └── utils/     # ユーティリティクラス
+│   │   └── template/      # 再利用可能なテンプレート
+│   │       └── types/     # テンプレート型定義
 │   └── test/java/kmg/core/
-│       └── infrastructure/
-│           ├── types/     # 型定義のテスト
-│           └── utils/     # ユーティリティクラスのテスト
+│       ├── infrastructure/
+│       │   ├── types/     # 型定義のテスト
+│       │   └── utils/     # ユーティリティクラスのテスト
+│       └── template/      # テンプレートのテスト
+│           └── types/     # テンプレート型定義のテスト
 ├── doc/                   # ドキュメント
 │   ├── RELEASE.md        # リリース手順
 │   └── メッセージ一覧.xlsx  # メッセージ定義
@@ -102,6 +106,22 @@ mvn test
 - `KmgLogMessageTypes` - ログメッセージ型
 - `KmgDelimiterTypes` - 区切り文字型
 - `KmgDbDataTypeTypes` - データベースデータ型
+
+## テンプレート機能
+
+`kmg.core.template`パッケージには、他のプロジェクトで再利用可能なテンプレートコードが含まれています。
+
+### 使用方法
+
+1. 必要なテンプレートコードを対象プロジェクトにコピー
+2. パッケージ名を対象プロジェクトに合わせて変更
+3. 必要に応じてカスタマイズ
+
+### 提供されているテンプレート
+
+- `KmgTemplateTypes`: 列挙型のテンプレート
+  - 表示名、キー、詳細情報を持つ基本的な列挙型の実装例
+  - マップによる値の管理とルックアップ機能の実装例
 
 ## ライセンス
 

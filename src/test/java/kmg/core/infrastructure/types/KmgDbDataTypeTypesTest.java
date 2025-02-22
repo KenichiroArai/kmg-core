@@ -45,6 +45,63 @@ public class KmgDbDataTypeTypesTest {
     }
 
     /**
+     * getDefault メソッドのテスト - 正常系：デフォルト値の取得
+     */
+    @Test
+    public void testGetDefault_normalValue() {
+
+        /* 期待値の定義 */
+        final KmgDbDataTypeTypes expected = KmgDbDataTypeTypes.NONE;
+
+        /* テスト対象の実行 */
+        final KmgDbDataTypeTypes actual = KmgDbDataTypeTypes.getDefault();
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "デフォルト値が一致しません");
+
+    }
+
+    /**
+     * getDetail メソッドのテスト - 正常系：詳細情報の取得
+     */
+    @Test
+    public void testGetDetail_normalValue() {
+
+        /* 期待値の定義 */
+        final String expected = "4バイト整数";
+
+        /* 準備 */
+        final KmgDbDataTypeTypes testType = KmgDbDataTypeTypes.INTEGER;
+
+        /* テスト対象の実行 */
+        final String actual = testType.getDetail();
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "詳細情報が一致しません");
+
+    }
+
+    /**
+     * getDisplayName メソッドのテスト - 正常系：表示名の取得
+     */
+    @Test
+    public void testGetDisplayName_normalValue() {
+
+        /* 期待値の定義 */
+        final String expected = "4バイト整数";
+
+        /* 準備 */
+        final KmgDbDataTypeTypes testType = KmgDbDataTypeTypes.INTEGER;
+
+        /* テスト対象の実行 */
+        final String actual = testType.getDisplayName();
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "表示名が一致しません");
+
+    }
+
+    /**
      * getEnum メソッドのテスト - 正常系：存在する値の取得
      */
     @Test
@@ -65,10 +122,47 @@ public class KmgDbDataTypeTypesTest {
     }
 
     /**
-     * getName メソッドのテスト - 正常系：名称の取得
+     * getEnum メソッドのテスト - 準正常系：存在しない値の取得
      */
     @Test
-    public void testGetName_normalValue() {
+    public void testGetEnum_semiNonExistingValue() {
+
+        /* 期待値の定義 */
+        final KmgDbDataTypeTypes expected = KmgDbDataTypeTypes.NONE;
+
+        /* 準備 */
+        final String testValue = "存在しない値";
+
+        /* テスト対象の実行 */
+        final KmgDbDataTypeTypes actual = KmgDbDataTypeTypes.getEnum(testValue);
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "存在しない値の場合、NONEが返されること");
+
+    }
+
+    /**
+     * getInitValue メソッドのテスト - 正常系：初期値の取得
+     */
+    @Test
+    public void testGetInitValue_normalValue() {
+
+        /* 期待値の定義 */
+        final KmgDbDataTypeTypes expected = KmgDbDataTypeTypes.NONE;
+
+        /* テスト対象の実行 */
+        final KmgDbDataTypeTypes actual = KmgDbDataTypeTypes.getInitValue();
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "初期値が一致しません");
+
+    }
+
+    /**
+     * getKey メソッドのテスト - 正常系：キーの取得
+     */
+    @Test
+    public void testGetKey_normalValue() {
 
         /* 期待値の定義 */
         final String expected = "4バイト整数";
@@ -77,15 +171,15 @@ public class KmgDbDataTypeTypesTest {
         final KmgDbDataTypeTypes testType = KmgDbDataTypeTypes.INTEGER;
 
         /* テスト対象の実行 */
-        final String actual = testType.getName();
+        final String actual = testType.getKey();
 
         /* 検証の実施 */
-        Assertions.assertEquals(expected, actual, "名称が一致しません");
+        Assertions.assertEquals(expected, actual, "キーが一致しません");
 
     }
 
     /**
-     * getType メソッドのテスト - 正常系：BigDecimal型の取得
+     * getType メソッドのテスト - 正常系：BIG_DECIMAL型の型情報取得
      */
     @Test
     public void testGetType_normalBigDecimal() {
@@ -100,12 +194,12 @@ public class KmgDbDataTypeTypesTest {
         final Type actual = testType.getType();
 
         /* 検証の実施 */
-        Assertions.assertEquals(expected, actual, "型が一致しません");
+        Assertions.assertEquals(expected, actual, "BIG_DECIMAL型の型情報が一致しません");
 
     }
 
     /**
-     * getType メソッドのテスト - 正常系：LocalDate型の取得
+     * getType メソッドのテスト - 正常系：DATE型の型情報取得
      */
     @Test
     public void testGetType_normalDate() {
@@ -120,12 +214,12 @@ public class KmgDbDataTypeTypesTest {
         final Type actual = testType.getType();
 
         /* 検証の実施 */
-        Assertions.assertEquals(expected, actual, "型が一致しません");
+        Assertions.assertEquals(expected, actual, "DATE型の型情報が一致しません");
 
     }
 
     /**
-     * getType メソッドのテスト - 正常系：Integer型の取得
+     * getType メソッドのテスト - 正常系：INTEGER型の型情報取得
      */
     @Test
     public void testGetType_normalInteger() {
@@ -140,12 +234,32 @@ public class KmgDbDataTypeTypesTest {
         final Type actual = testType.getType();
 
         /* 検証の実施 */
-        Assertions.assertEquals(expected, actual, "型が一致しません");
+        Assertions.assertEquals(expected, actual, "INTEGER型の型情報が一致しません");
 
     }
 
     /**
-     * getType メソッドのテスト - 正常系：LocalDateTime型の取得
+     * getType メソッドのテスト - 正常系：NONE型の型情報取得
+     */
+    @Test
+    public void testGetType_normalNone() {
+
+        /* 期待値の定義 */
+        final Type expected = null;
+
+        /* 準備 */
+        final KmgDbDataTypeTypes testType = KmgDbDataTypeTypes.NONE;
+
+        /* テスト対象の実行 */
+        final Type actual = testType.getType();
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "NONE型の型情報が一致しません");
+
+    }
+
+    /**
+     * getType メソッドのテスト - 正常系：TIME型の型情報取得
      */
     @Test
     public void testGetType_normalTime() {
@@ -160,27 +274,7 @@ public class KmgDbDataTypeTypesTest {
         final Type actual = testType.getType();
 
         /* 検証の実施 */
-        Assertions.assertEquals(expected, actual, "型が一致しません");
-
-    }
-
-    /**
-     * getValue メソッドのテスト - 正常系：値の取得
-     */
-    @Test
-    public void testGetValue_normalValue() {
-
-        /* 期待値の定義 */
-        final String expected = "4バイト整数";
-
-        /* 準備 */
-        final KmgDbDataTypeTypes testType = KmgDbDataTypeTypes.INTEGER;
-
-        /* テスト対象の実行 */
-        final String actual = testType.getValue();
-
-        /* 検証の実施 */
-        Assertions.assertEquals(expected, actual, "値が一致しません");
+        Assertions.assertEquals(expected, actual, "TIME型の型情報が一致しません");
 
     }
 

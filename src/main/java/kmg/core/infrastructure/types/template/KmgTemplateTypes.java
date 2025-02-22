@@ -1,13 +1,12 @@
-package kmg.core.infrastructure.types;
+package kmg.core.infrastructure.types.template;
 
-import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
 
 import kmg.core.infrastructure.common.KmgTypes;
 
 /**
- * KMG時間単位の種類<br>
+ * KMGテンプレートの種類<br>
  *
  * @author KenichiroArai
  *
@@ -16,37 +15,25 @@ import kmg.core.infrastructure.common.KmgTypes;
  * @version 1.0.0
  */
 @SuppressWarnings("nls")
-public enum KmgTimeUnitTypes implements KmgTypes<String> {
+public enum KmgTemplateTypes implements KmgTypes<String> {
 
     /* 定義：開始 */
 
     /** 指定無し */
-    NONE("指定無し", null, "指定無し", BigDecimal.ZERO),
-
-    /** 秒 */
-    SECONDS("秒", "seconds", "秒", BigDecimal.ONE),
-
-    /** ミリ秒 */
-    MILLISECOND("ミリ秒", "millisecond,", "ミリ秒", new BigDecimal("0.001")),
-
-    /** マイクロ秒 */
-    MICROSECONDS("マイクロ秒", "microseconds", "マイクロ秒", new BigDecimal("0.000001")),
-
-    /** ナノ秒 */
-    NANOSECONDS("ナノ秒", "nanoseconds", "ナノ秒", new BigDecimal("0.000000001")),
+    NONE("指定無し", "None", "指定無し"),
 
     /* 定義：終了 */
     ;
 
     /** 種類のマップ */
-    private static final Map<String, KmgTimeUnitTypes> VALUES_MAP = new HashMap<>();
+    private static final Map<String, KmgTemplateTypes> VALUES_MAP = new HashMap<>();
 
     static {
 
         /* 種類のマップにプット */
-        for (final KmgTimeUnitTypes type : KmgTimeUnitTypes.values()) {
+        for (final KmgTemplateTypes type : KmgTemplateTypes.values()) {
 
-            KmgTimeUnitTypes.VALUES_MAP.put(type.get(), type);
+            KmgTemplateTypes.VALUES_MAP.put(type.get(), type);
 
         }
 
@@ -61,12 +48,6 @@ public enum KmgTimeUnitTypes implements KmgTypes<String> {
     /** 詳細情報 */
     private final String detail;
 
-    /** 単位名 */
-    private final String unitName;
-
-    /** 単位値 */
-    private final BigDecimal unitValue;
-
     /**
      * デフォルトの種類を返す<br>
      *
@@ -78,9 +59,9 @@ public enum KmgTimeUnitTypes implements KmgTypes<String> {
      *
      * @return デフォルト値
      */
-    public static KmgTimeUnitTypes getDefault() {
+    public static KmgTemplateTypes getDefault() {
 
-        final KmgTimeUnitTypes result = NONE;
+        final KmgTemplateTypes result = NONE;
         return result;
 
     }
@@ -102,9 +83,9 @@ public enum KmgTimeUnitTypes implements KmgTypes<String> {
      *
      * @return 種類。指定無し（NONE）：キーが存在しない場合。
      */
-    public static KmgTimeUnitTypes getEnum(final String key) {
+    public static KmgTemplateTypes getEnum(final String key) {
 
-        KmgTimeUnitTypes result = KmgTimeUnitTypes.VALUES_MAP.get(key);
+        KmgTemplateTypes result = KmgTemplateTypes.VALUES_MAP.get(key);
 
         if (result == null) {
 
@@ -126,9 +107,9 @@ public enum KmgTimeUnitTypes implements KmgTypes<String> {
      *
      * @return 初期値
      */
-    public static KmgTimeUnitTypes getInitValue() {
+    public static KmgTemplateTypes getInitValue() {
 
-        final KmgTimeUnitTypes result = NONE;
+        final KmgTemplateTypes result = NONE;
         return result;
 
     }
@@ -146,18 +127,14 @@ public enum KmgTimeUnitTypes implements KmgTypes<String> {
      *                    表示名
      * @param key
      *                    キー
-     * @param unitName
-     *                    単位名
-     * @param unitValue
-     *                    単位値
+     * @param detail
+     *                    詳細情報
      */
-    KmgTimeUnitTypes(final String displayName, final String key, final String unitName, final BigDecimal unitValue) {
+    KmgTemplateTypes(final String displayName, final String key, final String detail) {
 
         this.displayName = displayName;
         this.key = key;
-        this.detail = displayName;
-        this.unitName = unitName;
-        this.unitValue = unitValue;
+        this.detail = detail;
 
     }
 
@@ -220,42 +197,6 @@ public enum KmgTimeUnitTypes implements KmgTypes<String> {
     }
 
     /**
-     * 単位名を返す<br>
-     *
-     * @author KenichiroArai
-     *
-     * @sine 1.0.0
-     *
-     * @version 1.0.0
-     *
-     * @return 単位名
-     */
-    public String getUnitName() {
-
-        final String result = this.unitName;
-        return result;
-
-    }
-
-    /**
-     * 単位値を返す<br>
-     *
-     * @author KenichiroArai
-     *
-     * @sine 1.0.0
-     *
-     * @version 1.0.0
-     *
-     * @return 単位値
-     */
-    public BigDecimal getUnitValue() {
-
-        final BigDecimal result = this.unitValue;
-        return result;
-
-    }
-
-    /**
      * キーを返す。<br>
      * このメソッドは{@link #getKey()}のエイリアスです。
      *
@@ -270,5 +211,4 @@ public enum KmgTimeUnitTypes implements KmgTypes<String> {
         return result;
 
     }
-
 }

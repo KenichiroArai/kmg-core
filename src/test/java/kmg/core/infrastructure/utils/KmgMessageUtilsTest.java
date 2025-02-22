@@ -267,17 +267,17 @@ public class KmgMessageUtilsTest {
         final KmgMessageTypes mockType = new KmgMessageTypes() {
 
             @Override
-            public String getCode() {
+            public String get() {
 
-                final String result = "NON_EXISTENT_CODE";
+                final String result = this.getKey();
                 return result;
 
             }
 
             @Override
-            public String get() {
+            public String getCode() {
 
-                final String result = this.getKey();
+                final String result = "NON_EXISTENT_CODE";
                 return result;
 
             }
@@ -658,6 +658,79 @@ public class KmgMessageUtilsTest {
 
         /* 検証の実施 */
         Assertions.assertEquals(expectedPattern, actualPattern, "存在しないメッセージコードの場合は空文字を返すこと");
+
+    }
+
+    /**
+     * getMessagePattern メソッドのテスト - 異常系:type.getKeyがnullの場合
+     */
+    @Test
+    public void testGetMessagePattern_errorNullKey() {
+
+        /* 期待値の定義 */
+        final String expectedPattern = KmgString.EMPTY;
+
+        /* 準備 */
+        // nullを返すgetKeyを持つKmgMessageTypesの実装
+        final KmgMessageTypes mockType = new KmgMessageTypes() {
+
+            @Override
+            public String get() {
+
+                final String result = this.getKey();
+                return result;
+
+            }
+
+            @Override
+            public String getCode() {
+
+                final String result = "MOCK_CODE";
+                return result;
+
+            }
+
+            @Override
+            public String getDetail() {
+
+                final String result = "Mock Detail";
+                return result;
+
+            }
+
+            @Override
+            public String getDisplayName() {
+
+                final String result = "Mock Display Name";
+                return result;
+
+            }
+
+            @Override
+            public String getKey() {
+
+                final String result = null;
+                return result;
+
+            }
+
+            @Override
+            public String getValue() {
+
+                final String result = "Mock Value";
+                return result;
+
+            }
+        };
+
+        /* テスト対象の実行 */
+        final String testResult = KmgMessageUtils.getMessagePattern(mockType);
+
+        /* 検証の準備 */
+        final String actualPattern = testResult;
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expectedPattern, actualPattern, "type.getKeyがnullの場合は空文字を返すこと");
 
     }
 

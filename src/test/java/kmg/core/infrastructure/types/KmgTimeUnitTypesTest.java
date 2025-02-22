@@ -57,6 +57,46 @@ public class KmgTimeUnitTypesTest {
     }
 
     /**
+     * getDetail メソッドのテスト - 正常系:詳細情報の取得
+     */
+    @Test
+    public void testGetDetail_normalBasicDetail() {
+
+        /* 期待値の定義 */
+        final String expected = "秒";
+
+        /* 準備 */
+        final KmgTimeUnitTypes testType = KmgTimeUnitTypes.SECONDS;
+
+        /* テスト対象の実行 */
+        final String actual = testType.getDetail();
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "詳細情報が一致しません");
+
+    }
+
+    /**
+     * getDisplayName メソッドのテスト - 正常系:表示名の取得
+     */
+    @Test
+    public void testGetDisplayName_normalBasicDisplayName() {
+
+        /* 期待値の定義 */
+        final String expected = "秒";
+
+        /* 準備 */
+        final KmgTimeUnitTypes testType = KmgTimeUnitTypes.SECONDS;
+
+        /* テスト対象の実行 */
+        final String actual = testType.getDisplayName();
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "表示名が一致しません");
+
+    }
+
+    /**
      * getEnum メソッドのテスト - 正常系:存在する値の取得
      */
     @Test
@@ -97,6 +137,26 @@ public class KmgTimeUnitTypesTest {
     }
 
     /**
+     * getEnum メソッドのテスト - 準正常系:null値の取得
+     */
+    @Test
+    public void testGetEnum_semiNullValue() {
+
+        /* 期待値の定義 */
+        final KmgTimeUnitTypes expected = KmgTimeUnitTypes.NONE;
+
+        /* 準備 */
+        final String testValue = null;
+
+        /* テスト対象の実行 */
+        final KmgTimeUnitTypes actual = KmgTimeUnitTypes.getEnum(testValue);
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "値が一致しません");
+
+    }
+
+    /**
      * getInitValue メソッドのテスト - 正常系:初期値の取得
      */
     @Test
@@ -110,26 +170,6 @@ public class KmgTimeUnitTypesTest {
 
         /* 検証の実施 */
         Assertions.assertEquals(expected, actual, "初期値が一致しません");
-
-    }
-
-    /**
-     * getName メソッドのテスト - 正常系:名前の取得
-     */
-    @Test
-    public void testGetName_normalBasicName() {
-
-        /* 期待値の定義 */
-        final String expected = "秒";
-
-        /* 準備 */
-        final KmgTimeUnitTypes testType = KmgTimeUnitTypes.SECONDS;
-
-        /* テスト対象の実行 */
-        final String actual = testType.getName();
-
-        /* 検証の実施 */
-        Assertions.assertEquals(expected, actual, "名称が一致しません");
 
     }
 
@@ -194,70 +234,10 @@ public class KmgTimeUnitTypesTest {
     }
 
     /**
-     * getValue メソッドのテスト - 正常系:値の取得
+     * toString メソッドのテスト - 正常系:文字列表現の取得
      */
     @Test
-    public void testGetValue_normalBasicValue() {
-
-        /* 期待値の定義 */
-        final String expected = "seconds";
-
-        /* 準備 */
-        final KmgTimeUnitTypes testType = KmgTimeUnitTypes.SECONDS;
-
-        /* テスト対象の実行 */
-        final String actual = testType.getValue();
-
-        /* 検証の実施 */
-        Assertions.assertEquals(expected, actual, "値が一致しません");
-
-    }
-
-    /**
-     * toString メソッドのテスト - 正常系:ミリ秒の文字列表現
-     */
-    @Test
-    public void testToString_normalMillisecond() {
-
-        /* 期待値の定義 */
-        final String expected = "millisecond,";
-
-        /* 準備 */
-        final KmgTimeUnitTypes testType = KmgTimeUnitTypes.MILLISECOND;
-
-        /* テスト対象の実行 */
-        final String actual = testType.toString();
-
-        /* 検証の実施 */
-        Assertions.assertEquals(expected, actual, "MILLISECONDの場合、'millisecond,'が返されること");
-
-    }
-
-    /**
-     * toString メソッドのテスト - 正常系:NONEの文字列表現
-     */
-    @Test
-    public void testToString_normalNone() {
-
-        /* 期待値の定義 */
-        final String expected = null;
-
-        /* 準備 */
-        final KmgTimeUnitTypes testType = KmgTimeUnitTypes.NONE;
-
-        /* テスト対象の実行 */
-        final String actual = testType.toString();
-
-        /* 検証の実施 */
-        Assertions.assertEquals(expected, actual, "NONEの場合、nullが返されること");
-
-    }
-
-    /**
-     * toString メソッドのテスト - 正常系:秒の文字列表現
-     */
-    @Test
-    public void testToString_normalSeconds() {
+    public void testToString_normalBasicValue() {
 
         /* 期待値の定義 */
         final String expected = "seconds";
@@ -269,7 +249,7 @@ public class KmgTimeUnitTypesTest {
         final String actual = testType.toString();
 
         /* 検証の実施 */
-        Assertions.assertEquals(expected, actual, "SECONDSの場合、'seconds'が返されること");
+        Assertions.assertEquals(expected, actual, "文字列表現が一致しません");
 
     }
 }
