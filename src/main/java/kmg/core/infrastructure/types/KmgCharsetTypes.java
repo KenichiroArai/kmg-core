@@ -60,27 +60,6 @@ public enum KmgCharsetTypes implements KmgTypes<String> {
     private Charset charset;
 
     /**
-     * 文字セットを返す<br>
-     * <p>
-     * NONEの場合は、nullを返す。
-     * </p>
-     *
-     * @author KenichiroArai
-     *
-     * @sine 1.0.0
-     *
-     * @version 1.0.0
-     *
-     * @return 文字セット
-     */
-    public Charset toCharset() {
-
-        final Charset result = this.charset;
-        return result;
-
-    }
-
-    /**
      * デフォルトの種類を返す<br>
      *
      * @author KenichiroArai
@@ -232,6 +211,27 @@ public enum KmgCharsetTypes implements KmgTypes<String> {
     public String getKey() {
 
         final String result = this.key;
+        return result;
+
+    }
+
+    /**
+     * 文字セットを返す<br>
+     * <p>
+     * NONEの場合は、nullを返す。
+     * </p>
+     *
+     * @author KenichiroArai
+     *
+     * @sine 1.0.0
+     *
+     * @version 1.0.0
+     *
+     * @return 文字セット
+     */
+    public Charset toCharset() {
+
+        final Charset result = this.charset;
         return result;
 
     }
