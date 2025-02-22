@@ -236,6 +236,18 @@ public enum KmgDbDataTypeTypes implements KmgTypes<String> {
     }
 
     /**
+     * 型を返す<br>
+     *
+     * @return 型
+     */
+    public Type getType() {
+
+        final Type result = this.type;
+        return result;
+
+    }
+
+    /**
      * キーを返す。<br>
      * このメソッドは{@link #getKey()}のエイリアスです。
      *

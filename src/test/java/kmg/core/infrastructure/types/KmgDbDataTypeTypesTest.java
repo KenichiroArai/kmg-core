@@ -1,5 +1,10 @@
 package kmg.core.infrastructure.types;
 
+import java.lang.reflect.Type;
+import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -170,6 +175,106 @@ public class KmgDbDataTypeTypesTest {
 
         /* 検証の実施 */
         Assertions.assertEquals(expected, actual, "キーが一致しません");
+
+    }
+
+    /**
+     * getType メソッドのテスト - 正常系：BIG_DECIMAL型の型情報取得
+     */
+    @Test
+    public void testGetType_normalBigDecimal() {
+
+        /* 期待値の定義 */
+        final Type expected = BigDecimal.class;
+
+        /* 準備 */
+        final KmgDbDataTypeTypes testType = KmgDbDataTypeTypes.BIG_DECIMAL;
+
+        /* テスト対象の実行 */
+        final Type actual = testType.getType();
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "BIG_DECIMAL型の型情報が一致しません");
+
+    }
+
+    /**
+     * getType メソッドのテスト - 正常系：DATE型の型情報取得
+     */
+    @Test
+    public void testGetType_normalDate() {
+
+        /* 期待値の定義 */
+        final Type expected = LocalDate.class;
+
+        /* 準備 */
+        final KmgDbDataTypeTypes testType = KmgDbDataTypeTypes.DATE;
+
+        /* テスト対象の実行 */
+        final Type actual = testType.getType();
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "DATE型の型情報が一致しません");
+
+    }
+
+    /**
+     * getType メソッドのテスト - 正常系：INTEGER型の型情報取得
+     */
+    @Test
+    public void testGetType_normalInteger() {
+
+        /* 期待値の定義 */
+        final Type expected = Integer.class;
+
+        /* 準備 */
+        final KmgDbDataTypeTypes testType = KmgDbDataTypeTypes.INTEGER;
+
+        /* テスト対象の実行 */
+        final Type actual = testType.getType();
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "INTEGER型の型情報が一致しません");
+
+    }
+
+    /**
+     * getType メソッドのテスト - 正常系：NONE型の型情報取得
+     */
+    @Test
+    public void testGetType_normalNone() {
+
+        /* 期待値の定義 */
+        final Type expected = null;
+
+        /* 準備 */
+        final KmgDbDataTypeTypes testType = KmgDbDataTypeTypes.NONE;
+
+        /* テスト対象の実行 */
+        final Type actual = testType.getType();
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "NONE型の型情報が一致しません");
+
+    }
+
+    /**
+     * getType メソッドのテスト - 正常系：TIME型の型情報取得
+     */
+    @Test
+    public void testGetType_normalTime() {
+
+        /* 期待値の定義 */
+        final Type expected = LocalDateTime.class;
+
+        /* 準備 */
+        final KmgDbDataTypeTypes testType = KmgDbDataTypeTypes.TIME;
+
+        /* テスト対象の実行 */
+        final Type actual = testType.getType();
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "TIME型の型情報が一致しません");
 
     }
 
