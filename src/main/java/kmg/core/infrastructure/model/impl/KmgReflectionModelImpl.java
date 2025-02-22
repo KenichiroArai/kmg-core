@@ -125,7 +125,7 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
             final Object[]           msgArgs  = {
                 fieldName, targetClazz, this.lastGetField
             };
-            throw new KmgReflectionException(msgTypes, msgArgs, e);
+            throw new KmgReflectionException(this, msgTypes, msgArgs, e);
 
         }
 
@@ -147,7 +147,7 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
             final Object[]           msgArgs  = {
                 fieldName, targetClazz, this.lastGetField
             };
-            throw new KmgReflectionException(msgTypes, msgArgs, e);
+            throw new KmgReflectionException(this, msgTypes, msgArgs, e);
 
         } catch (final IllegalAccessException e) {
 
@@ -155,7 +155,7 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
             final Object[]           msgArgs  = {
                 fieldName, targetClazz, this.lastGetField
             };
-            throw new KmgReflectionException(msgTypes, msgArgs, e);
+            throw new KmgReflectionException(this, msgTypes, msgArgs, e);
 
         }
 
@@ -233,7 +233,7 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
                 final Object[]           msgArgs  = {
                     methodName, targetClazz
                 };
-                throw new KmgReflectionException(msgTypes, msgArgs, e);
+                throw new KmgReflectionException(this, msgTypes, msgArgs, e);
 
             }
 
@@ -314,7 +314,7 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
             final Object[]           msgArgs  = {
                 methodName, targetClazz
             };
-            throw new KmgReflectionException(msgTypes, msgArgs, e);
+            throw new KmgReflectionException(this, msgTypes, msgArgs, e);
 
         } catch (final IllegalAccessException e) {
 
@@ -322,7 +322,7 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
             final Object[]           msgArgs  = {
                 methodName, targetClazz
             };
-            throw new KmgReflectionException(msgTypes, msgArgs, e);
+            throw new KmgReflectionException(this, msgTypes, msgArgs, e);
 
         } catch (final IllegalArgumentException e) {
 
@@ -330,7 +330,7 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
             final Object[]           msgArgs  = {
                 methodName, targetClazz
             };
-            throw new KmgReflectionException(msgTypes, msgArgs, e);
+            throw new KmgReflectionException(this, msgTypes, msgArgs, e);
 
         } catch (final InvocationTargetException e) {
 
@@ -338,7 +338,7 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
             final Object[]           msgArgs  = {
                 methodName, targetClazz
             };
-            throw new KmgReflectionException(msgTypes, msgArgs, e);
+            throw new KmgReflectionException(this, msgTypes, msgArgs, e);
 
         }
 
@@ -417,7 +417,7 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
             final Object[]           msgArgs  = {
                 fieldName, targetClazz, this.lastGetField
             };
-            throw new KmgReflectionException(msgTypes, msgArgs, e);
+            throw new KmgReflectionException(this, msgTypes, msgArgs, e);
 
         }
 
@@ -446,7 +446,7 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
                     final Object[]           msgArgs  = {
                         fieldName, targetClazz, this.lastGetField
                     };
-                    throw new KmgReflectionException(msgTypes, msgArgs, e);
+                    throw new KmgReflectionException(this, msgTypes, msgArgs, e);
 
                 }
 
@@ -459,7 +459,7 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
             final Object[]           msgArgs  = {
                 fieldName, targetClazz, this.lastGetField
             };
-            throw new KmgReflectionException(msgTypes, msgArgs, e);
+            throw new KmgReflectionException(this, msgTypes, msgArgs, e);
 
         }
 
