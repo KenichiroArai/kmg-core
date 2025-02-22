@@ -3,8 +3,8 @@ package kmg.core.infrastructure.types;
 import java.nio.charset.Charset;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.function.Supplier;
 
+import kmg.core.infrastructure.common.KmgTypes;
 import kmg.core.infrastructure.type.KmgString;
 
 /**
@@ -17,7 +17,7 @@ import kmg.core.infrastructure.type.KmgString;
  * @version 1.0.0
  */
 @SuppressWarnings("nls")
-public enum KmgCharsetTypes implements Supplier<String> {
+public enum KmgCharsetTypes implements KmgTypes<String> {
 
     /* 定義：開始 */
 
@@ -47,14 +47,38 @@ public enum KmgCharsetTypes implements Supplier<String> {
 
     }
 
-    /** 名称 */
-    private final String name;
+    /** 表示名 */
+    private final String displayName;
 
-    /** 値 */
-    private final String value;
+    /** キー */
+    private final String key;
+
+    /** 詳細情報 */
+    private final String detail;
 
     /** 文字セット */
     private Charset charset;
+
+    /**
+     * 文字セットを返す<br>
+     * <p>
+     * NONEの場合は、nullを返す。
+     * </p>
+     *
+     * @author KenichiroArai
+     *
+     * @sine 1.0.0
+     *
+     * @version 1.0.0
+     *
+     * @return 文字セット
+     */
+    public Charset toCharset() {
+
+        final Charset result = this.charset;
+        return result;
+
+    }
 
     /**
      * デフォルトの種類を返す<br>
@@ -75,9 +99,9 @@ public enum KmgCharsetTypes implements Supplier<String> {
     }
 
     /**
-     * 値に該当する種類を返す<br>
+     * キーに該当する種類を返す<br>
      * <p>
-     * 但し、値が存在しない場合は、指定無し（NONE）を返す。
+     * 但し、キーが存在しない場合は、指定無し（NONE）を返す。
      * </p>
      *
      * @author KenichiroArai
@@ -86,14 +110,14 @@ public enum KmgCharsetTypes implements Supplier<String> {
      *
      * @version 1.0.0
      *
-     * @param value
-     *              値
+     * @param key
+     *            キー
      *
-     * @return 種類。指定無し（NONE）：値が存在しない場合。
+     * @return 種類。指定無し（NONE）：キーが存在しない場合。
      */
-    public static KmgCharsetTypes getEnum(final String value) {
+    public static KmgCharsetTypes getEnum(final String key) {
 
-        KmgCharsetTypes result = KmgCharsetTypes.VALUES_MAP.get(value);
+        KmgCharsetTypes result = KmgCharsetTypes.VALUES_MAP.get(key);
 
         if (result == null) {
 
@@ -131,121 +155,100 @@ public enum KmgCharsetTypes implements Supplier<String> {
      *
      * @version 1.0.0
      *
-     * @param name
-     *              名称
-     * @param value
-     *              値
+     * @param displayName
+     *                    表示名
+     * @param key
+     *                    キー
      */
-    KmgCharsetTypes(final String name, final String value) {
+    KmgCharsetTypes(final String displayName, final String key) {
 
-        this.name = name;
-        this.value = value;
+        this.displayName = displayName;
+        this.key = key;
+        this.detail = displayName;
 
-        if (KmgString.isEmpty(this.value)) {
+        if (KmgString.isEmpty(key)) {
 
             this.charset = null;
 
         } else {
 
-            this.charset = Charset.forName(this.value);
+            this.charset = Charset.forName(key);
 
         }
 
     }
 
     /**
-     * 種類の値<br>
+     * キーを返す。<br>
+     * このメソッドは{@link #getKey()}のエイリアスです。
      *
-     * @author KenichiroArai
+     * @return キー
      *
-     * @sine 1.0.0
-     *
-     * @version 1.0.0
-     *
-     * @return 種類の値
+     * @see #getKey()
      */
     @Override
     public String get() {
 
-        final String result = this.value;
+        final String result = this.getKey();
         return result;
 
     }
 
     /**
-     * 名称を返す<br>
+     * 詳細情報を返す。<br>
      *
-     * @author KenichiroArai
-     *
-     * @sine 1.0.0
-     *
-     * @version 1.0.0
-     *
-     * @return 名称
+     * @return 詳細情報
      */
-    public String getName() {
+    @Override
+    public String getDetail() {
 
-        final String result = this.name;
+        final String result = this.detail;
         return result;
 
     }
 
     /**
-     * 値を返す<br>
-     *
-     * @author KenichiroArai
-     *
-     * @sine 1.0.0
-     *
-     * @version 1.0.0
-     *
-     * @return 値
-     */
-    public String getValue() {
-
-        final String result = this.value;
-        return result;
-
-    }
-
-    /**
-     * 文字セットを返す<br>
+     * 表示名を返す。<br>
      * <p>
-     * NONEの場合は、nullを返す。
+     * 識別するための表示名を返す。
      * </p>
      *
-     * @author KenichiroArai
-     *
-     * @sine 1.0.0
-     *
-     * @version 1.0.0
-     *
-     * @return 文字セット
+     * @return 表示名
      */
-    public Charset toCharset() {
+    @Override
+    public String getDisplayName() {
 
-        final Charset result = this.charset;
+        final String result = this.displayName;
         return result;
 
     }
 
     /**
-     * 値を返す<br>
+     * キーを返す。<br>
      *
-     * @author KenichiroArai
+     * @return キー
+     */
+    @Override
+    public String getKey() {
+
+        final String result = this.key;
+        return result;
+
+    }
+
+    /**
+     * キーを返す。<br>
+     * このメソッドは{@link #getKey()}のエイリアスです。
      *
-     * @sine 1.0.0
+     * @return キー
      *
-     * @version 1.0.0
-     *
-     * @return 値
+     * @see #getKey()
      */
     @Override
     public String toString() {
 
-        final String result = this.value;
+        final String result = this.getKey();
         return result;
 
     }
-
 }

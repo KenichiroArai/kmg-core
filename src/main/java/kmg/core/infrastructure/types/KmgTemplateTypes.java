@@ -20,7 +20,7 @@ public enum KmgTemplateTypes implements KmgTypes<String> {
     /* 定義：開始 */
 
     /** 指定無し */
-    NONE("指定無し", "none", "指定無し"),
+    NONE("指定無し", "None", "指定無し"),
 
     /* 定義：終了 */
     ;
@@ -133,8 +133,8 @@ public enum KmgTemplateTypes implements KmgTypes<String> {
     KmgTemplateTypes(final String displayName, final String key, final String detail) {
 
         this.displayName = displayName;
-        this.key = super.name();
-        this.detail = displayName;
+        this.key = key;
+        this.detail = detail;
 
     }
 

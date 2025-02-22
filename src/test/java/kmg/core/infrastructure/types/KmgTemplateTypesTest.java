@@ -24,7 +24,7 @@ public class KmgTemplateTypesTest {
     public void testGet_normalBasicValue() {
 
         /* 期待値の定義 */
-        final String expected = "NONE";
+        final String expected = "None";
 
         /* 準備 */
         final KmgTemplateTypes testType = KmgTemplateTypes.NONE;
@@ -104,7 +104,7 @@ public class KmgTemplateTypesTest {
         final KmgTemplateTypes expected = KmgTemplateTypes.NONE;
 
         /* 準備 */
-        final String testValue = "NONE";
+        final String testValue = "None";
 
         /* テスト対象の実行 */
         final KmgTemplateTypes actual = KmgTemplateTypes.getEnum(testValue);
@@ -178,7 +178,7 @@ public class KmgTemplateTypesTest {
     public void testToString_normalNone() {
 
         /* 期待値の定義 */
-        final String expected = "NONE";
+        final String expected = "None";
 
         /* 準備 */
         final KmgTemplateTypes testType = KmgTemplateTypes.NONE;
