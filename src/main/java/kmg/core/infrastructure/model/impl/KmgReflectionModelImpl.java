@@ -6,7 +6,7 @@ import java.lang.reflect.Method;
 import java.math.BigDecimal;
 
 import kmg.core.domain.types.KmgMsgMessageTypes;
-import kmg.core.infrastructure.exception.KmgDomainException;
+import kmg.core.infrastructure.exception.KmgReflectionException;
 import kmg.core.infrastructure.model.KmgReflectionModel;
 
 /**
@@ -72,11 +72,11 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
      *
      * @return 値
      *
-     * @throws KmgDomainException
-     *                            KMGドメイン例外
+     * @throws KmgReflectionException
+     *                                KMGドメイン例外
      */
     @Override
-    public Object get(final String fieldName) throws KmgDomainException {
+    public Object get(final String fieldName) throws KmgReflectionException {
 
         Object result = null;
 
@@ -125,7 +125,7 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
             final Object[]           msgArgs  = {
                 fieldName, targetClazz, this.lastGetField
             };
-            throw new KmgDomainException(msgTypes, msgArgs, e);
+            throw new KmgReflectionException(this, msgTypes, msgArgs, e);
 
         }
 
@@ -147,7 +147,7 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
             final Object[]           msgArgs  = {
                 fieldName, targetClazz, this.lastGetField
             };
-            throw new KmgDomainException(msgTypes, msgArgs, e);
+            throw new KmgReflectionException(this, msgTypes, msgArgs, e);
 
         } catch (final IllegalAccessException e) {
 
@@ -155,7 +155,7 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
             final Object[]           msgArgs  = {
                 fieldName, targetClazz, this.lastGetField
             };
-            throw new KmgDomainException(msgTypes, msgArgs, e);
+            throw new KmgReflectionException(this, msgTypes, msgArgs, e);
 
         }
 
@@ -198,11 +198,11 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
      *
      * @return 返却値
      *
-     * @throws KmgDomainException
-     *                            KMGドメイン例外
+     * @throws KmgReflectionException
+     *                                KMGドメイン例外
      */
     @Override
-    public Object getMethod(final String methodName, final Object... parameters) throws KmgDomainException {
+    public Object getMethod(final String methodName, final Object... parameters) throws KmgReflectionException {
 
         Object result = null;
 
@@ -233,7 +233,7 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
                 final Object[]           msgArgs  = {
                     methodName, targetClazz
                 };
-                throw new KmgDomainException(msgTypes, msgArgs, e);
+                throw new KmgReflectionException(this, msgTypes, msgArgs, e);
 
             }
 
@@ -314,7 +314,7 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
             final Object[]           msgArgs  = {
                 methodName, targetClazz
             };
-            throw new KmgDomainException(msgTypes, msgArgs, e);
+            throw new KmgReflectionException(this, msgTypes, msgArgs, e);
 
         } catch (final IllegalAccessException e) {
 
@@ -322,7 +322,7 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
             final Object[]           msgArgs  = {
                 methodName, targetClazz
             };
-            throw new KmgDomainException(msgTypes, msgArgs, e);
+            throw new KmgReflectionException(this, msgTypes, msgArgs, e);
 
         } catch (final IllegalArgumentException e) {
 
@@ -330,7 +330,7 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
             final Object[]           msgArgs  = {
                 methodName, targetClazz
             };
-            throw new KmgDomainException(msgTypes, msgArgs, e);
+            throw new KmgReflectionException(this, msgTypes, msgArgs, e);
 
         } catch (final InvocationTargetException e) {
 
@@ -338,7 +338,7 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
             final Object[]           msgArgs  = {
                 methodName, targetClazz
             };
-            throw new KmgDomainException(msgTypes, msgArgs, e);
+            throw new KmgReflectionException(this, msgTypes, msgArgs, e);
 
         }
 
@@ -360,11 +360,11 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
      * @param value
      *                  値
      *
-     * @throws KmgDomainException
-     *                            KMGドメイン例外
+     * @throws KmgReflectionException
+     *                                KMGドメイン例外
      */
     @Override
-    public void set(final String fieldName, final Object value) throws KmgDomainException {
+    public void set(final String fieldName, final Object value) throws KmgReflectionException {
 
         if (fieldName == null) {
 
@@ -417,7 +417,7 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
             final Object[]           msgArgs  = {
                 fieldName, targetClazz, this.lastGetField
             };
-            throw new KmgDomainException(msgTypes, msgArgs, e);
+            throw new KmgReflectionException(this, msgTypes, msgArgs, e);
 
         }
 
@@ -446,7 +446,7 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
                     final Object[]           msgArgs  = {
                         fieldName, targetClazz, this.lastGetField
                     };
-                    throw new KmgDomainException(msgTypes, msgArgs, e);
+                    throw new KmgReflectionException(this, msgTypes, msgArgs, e);
 
                 }
 
@@ -459,7 +459,7 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
             final Object[]           msgArgs  = {
                 fieldName, targetClazz, this.lastGetField
             };
-            throw new KmgDomainException(msgTypes, msgArgs, e);
+            throw new KmgReflectionException(this, msgTypes, msgArgs, e);
 
         }
 

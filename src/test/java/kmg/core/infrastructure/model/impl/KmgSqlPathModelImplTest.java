@@ -30,7 +30,9 @@ import kmg.core.test.AbstractKmgTest;
  */
 @ExtendWith(MockitoExtension.class)
 @MockitoSettings(strictness = Strictness.LENIENT)
-@SuppressWarnings("nls")
+@SuppressWarnings({
+    "nls", "static-method"
+})
 public class KmgSqlPathModelImplTest extends AbstractKmgTest {
 
     /** テスト対象 */
@@ -98,7 +100,6 @@ public class KmgSqlPathModelImplTest extends AbstractKmgTest {
      * @throws Exception
      *                   例外
      */
-    @SuppressWarnings("static-method")
     @Test
     public void testConvertParameters_normalEmptyString() throws Exception {
 

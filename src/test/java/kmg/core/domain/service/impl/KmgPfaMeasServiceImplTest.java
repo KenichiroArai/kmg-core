@@ -102,7 +102,8 @@ public class KmgPfaMeasServiceImplTest {
             @Override
             protected KmgPfaMeasModel createKmgPfaMeasModel() {
 
-                return mockModel;
+                final KmgPfaMeasModel result = mockModel;
+                return result;
 
             }
         };
