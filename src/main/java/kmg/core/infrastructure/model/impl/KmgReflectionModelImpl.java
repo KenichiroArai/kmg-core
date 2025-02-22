@@ -5,9 +5,9 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.math.BigDecimal;
 
+import kmg.core.domain.types.KmgMsgMessageTypes;
 import kmg.core.infrastructure.exception.KmgDomainException;
 import kmg.core.infrastructure.model.KmgReflectionModel;
-import kmg.core.infrastructure.types.KmgMsgMessageTypes;
 
 /**
  * KMGリフレクションモデル<br>
