@@ -24,7 +24,7 @@
     <scm>
         <connection>scm:git:${project.scm.url}</connection>
         <developerConnection>scm:git:${project.scm.url}</developerConnection>
-        <url>https://github.com/KenichiroArai/kmg-core-src.git</url>
+        <url>https://github.com/KenichiroArai/kmg-core.git</url>
         <tag>HEAD</tag>
     </scm>
 
@@ -191,7 +191,7 @@
         <repository>
             <id>github</id>
             <name>GitHub KenichiroArai Apache Maven Packages</name>
-            <url>https://maven.pkg.github.com/KenichiroArai/kmg-core-src</url>
+            <url>https://maven.pkg.github.com/KenichiroArai/kmg-core</url>
         </repository>
     </distributionManagement>
 

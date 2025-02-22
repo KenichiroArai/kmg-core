@@ -1,6 +1,6 @@
-# kmg-core-src について
+# kmg-core について
 
-kmg-core-src（以降は、「KMGコア」と言う。）は、KMGシリーズのJavaアプリケーション開発のための基盤となるコアです。
+kmg-core（以降は、「KMGコア」と言う。）は、KMGシリーズのJavaアプリケーション開発のための基盤となるコアです。
 
 特徴は、フレームワークなどを依存関係が少なく多くのプロジェクトで使用できるように構成されています。
 
@@ -16,7 +16,7 @@ kmg-core-src（以降は、「KMGコア」と言う。）は、KMGシリーズ�
 ## プロジェクト構成
 
 ```bash
-kmg-core-src/
+kmg-core/
 ├── src/
 │   ├── main/java/kmg/core/
 │   │   ├── infrastructure/

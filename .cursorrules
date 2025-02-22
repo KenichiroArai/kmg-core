@@ -26,7 +26,7 @@
 以下のディレクトリ構造に従って実装を行ってください：
 
 ```bash
-kmg-core-src/
+kmg-core/
 ├── src/
 │   ├── main/
 │   │   ├── java/
@@ -46,11 +46,18 @@ kmg-core-src/
 │       │           ├── infrastructure/   # インフラストラクチャテスト
 │       │           └── presentation/     # プレゼンテーションテスト
 │       └── resources/                    # テストリソース
+├── scripts/                              # スクリプトファイル
+├── doc/                                  # ドキュメント
 ├── .settings/                            # Eclipse設定
 ├── .vscode/                              # VSCode設定
+├── .github/                              # GitHub設定
 ├── target/                               # ビルド成果物
 ├── pom.xml                               # Mavenプロジェクト設定
 ├── .gitignore                            # Git除外設定
+├── .project                              # Eclipseプロジェクト設定
+├── .classpath                            # Eclipseクラスパス設定
+├── .tgitconfig                           # TortoiseGit設定
+├── LICENSE                               # ライセンスファイル
 └── README.md                             # プロジェクト説明
 ```
 
