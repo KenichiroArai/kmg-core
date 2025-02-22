@@ -60,6 +60,46 @@ public class KmgDelimiterTypesTest {
     }
 
     /**
+     * getDetail メソッドのテスト - 正常系:基本的な詳細情報の取得
+     */
+    @Test
+    public void testGetDetail_normalBasicDetail() {
+
+        /* 期待値の定義 */
+        final String expected = "カンマ";
+
+        /* 準備 */
+        final KmgDelimiterTypes testType = KmgDelimiterTypes.COMMA;
+
+        /* テスト対象の実行 */
+        final String actual = testType.getDetail();
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "詳細情報が一致しません");
+
+    }
+
+    /**
+     * getDisplayName メソッドのテスト - 正常系:基本的な表示名の取得
+     */
+    @Test
+    public void testGetDisplayName_normalBasicName() {
+
+        /* 期待値の定義 */
+        final String expected = "カンマ";
+
+        /* 準備 */
+        final KmgDelimiterTypes testType = KmgDelimiterTypes.COMMA;
+
+        /* テスト対象の実行 */
+        final String actual = testType.getDisplayName();
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "表示名が一致しません");
+
+    }
+
+    /**
      * getEnum メソッドのテスト - 正常系:存在する値の取得
      */
     @Test
@@ -76,6 +116,26 @@ public class KmgDelimiterTypesTest {
 
         /* 検証の実施 */
         Assertions.assertEquals(expected, actual, "値が一致しません");
+
+    }
+
+    /**
+     * getEnum メソッドのテスト - 準正常系:存在しないキーの取得
+     */
+    @Test
+    public void testGetEnum_semiNonExistingKey() {
+
+        /* 期待値の定義 */
+        final KmgDelimiterTypes expected = KmgDelimiterTypes.NONE;
+
+        /* 準備 */
+        final String testValue = null;
+
+        /* テスト対象の実行 */
+        final KmgDelimiterTypes actual = KmgDelimiterTypes.getEnum(testValue);
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "存在しないキーの場合、NONEが返されること");
 
     }
 
@@ -117,30 +177,10 @@ public class KmgDelimiterTypesTest {
     }
 
     /**
-     * getName メソッドのテスト - 正常系:名前の取得
+     * getKey メソッドのテスト - 正常系:基本的なキーの取得
      */
     @Test
-    public void testGetName_normalBasicName() {
-
-        /* 期待値の定義 */
-        final String expected = "カンマ";
-
-        /* 準備 */
-        final KmgDelimiterTypes testType = KmgDelimiterTypes.COMMA;
-
-        /* テスト対象の実行 */
-        final String actual = testType.getName();
-
-        /* 検証の実施 */
-        Assertions.assertEquals(expected, actual, "名称が一致しません");
-
-    }
-
-    /**
-     * getValue メソッドのテスト - 正常系:値の取得
-     */
-    @Test
-    public void testGetValue_normalBasicValue() {
+    public void testGetKey_normalBasicKey() {
 
         /* 期待値の定義 */
         final String expected = ",";
@@ -149,10 +189,10 @@ public class KmgDelimiterTypesTest {
         final KmgDelimiterTypes testType = KmgDelimiterTypes.COMMA;
 
         /* テスト対象の実行 */
-        final String actual = testType.getValue();
+        final String actual = testType.getKey();
 
         /* 検証の実施 */
-        Assertions.assertEquals(expected, actual, "値が一致しません");
+        Assertions.assertEquals(expected, actual, "キーが一致しません");
 
     }
 
