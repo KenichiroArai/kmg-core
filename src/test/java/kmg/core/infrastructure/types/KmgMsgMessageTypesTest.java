@@ -75,6 +75,46 @@ public class KmgMsgMessageTypesTest {
     }
 
     /**
+     * getDetail メソッドのテスト - 正常系:詳細情報の取得
+     */
+    @Test
+    public void testGetDetail_normalBasicDetail() {
+
+        /* 期待値の定義 */
+        final String expected = "{0}がありません。";
+
+        /* 準備 */
+        final KmgMsgMessageTypes testType = KmgMsgMessageTypes.KMGMSGE11100;
+
+        /* テスト対象の実行 */
+        final String actual = testType.getDetail();
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "詳細情報が一致しません");
+
+    }
+
+    /**
+     * getDisplayName メソッドのテスト - 正常系:表示名の取得
+     */
+    @Test
+    public void testGetDisplayName_normalBasicDisplayName() {
+
+        /* 期待値の定義 */
+        final String expected = "{0}がありません。";
+
+        /* 準備 */
+        final KmgMsgMessageTypes testType = KmgMsgMessageTypes.KMGMSGE11100;
+
+        /* テスト対象の実行 */
+        final String actual = testType.getDisplayName();
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "表示名が一致しません");
+
+    }
+
+    /**
      * getEnum メソッドのテスト - 正常系:存在する値の取得
      */
     @Test
@@ -128,26 +168,6 @@ public class KmgMsgMessageTypesTest {
 
         /* 検証の実施 */
         Assertions.assertEquals(expected, actual, "初期値が一致しません");
-
-    }
-
-    /**
-     * getDisplayName メソッドのテスト - 正常系:表示名の取得
-     */
-    @Test
-    public void testGetDisplayName_normalBasicDisplayName() {
-
-        /* 期待値の定義 */
-        final String expected = "{0}がありません。";
-
-        /* 準備 */
-        final KmgMsgMessageTypes testType = KmgMsgMessageTypes.KMGMSGE11100;
-
-        /* テスト対象の実行 */
-        final String actual = testType.getDisplayName();
-
-        /* 検証の実施 */
-        Assertions.assertEquals(expected, actual, "表示名が一致しません");
 
     }
 
