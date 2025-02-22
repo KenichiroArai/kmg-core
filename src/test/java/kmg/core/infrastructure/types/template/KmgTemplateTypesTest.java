@@ -1,4 +1,4 @@
-package kmg.core.infrastructure.types;
+package kmg.core.infrastructure.types.template;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
