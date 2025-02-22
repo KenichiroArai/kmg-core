@@ -132,14 +132,13 @@ public class KmgPoiUtilsTest {
         final String expected = "123.0";
 
         /* 準備 */
-        Cell   testCell;
         String actual;
 
         try (Workbook workbook = WorkbookFactory.create(true)) {
 
-            final Sheet sheet = workbook.createSheet();
-            final Row   row   = sheet.createRow(0);
-            testCell = row.createCell(0);
+            final Sheet sheet    = workbook.createSheet();
+            final Row   row      = sheet.createRow(0);
+            final Cell  testCell = row.createCell(0);
             testCell.setCellFormula("123.0");
             workbook.getCreationHelper().createFormulaEvaluator().evaluateFormulaCell(testCell);
 
@@ -166,14 +165,13 @@ public class KmgPoiUtilsTest {
         final String expected = "test";
 
         /* 準備 */
-        Cell   testCell;
         String actual;
 
         try (Workbook workbook = WorkbookFactory.create(true)) {
 
-            final Sheet sheet = workbook.createSheet();
-            final Row   row   = sheet.createRow(0);
-            testCell = row.createCell(0);
+            final Sheet sheet    = workbook.createSheet();
+            final Row   row      = sheet.createRow(0);
+            final Cell  testCell = row.createCell(0);
             testCell.setCellFormula("\"test\"");
             workbook.getCreationHelper().createFormulaEvaluator().evaluateFormulaCell(testCell);
 
@@ -200,14 +198,13 @@ public class KmgPoiUtilsTest {
         final String expected = null;
 
         /* 準備 */
-        Cell   testCell;
         String actual;
 
         try (Workbook workbook = WorkbookFactory.create(true)) {
 
-            final Sheet sheet = workbook.createSheet();
-            final Row   row   = sheet.createRow(0);
-            testCell = row.createCell(0);
+            final Sheet sheet    = workbook.createSheet();
+            final Row   row      = sheet.createRow(0);
+            final Cell  testCell = row.createCell(0);
             testCell.setCellFormula("INDIRECT(\"\"&\"\")"); // BLANKを返す数式
             workbook.getCreationHelper().createFormulaEvaluator().evaluateFormulaCell(testCell);
             actual = KmgPoiUtils.getStringFormulaValue(testCell);
@@ -232,14 +229,13 @@ public class KmgPoiUtilsTest {
         final String expected = null;
 
         /* 準備 */
-        Cell   testCell;
         String actual;
 
         try (Workbook workbook = WorkbookFactory.create(true)) {
 
-            final Sheet sheet = workbook.createSheet();
-            final Row   row   = sheet.createRow(0);
-            testCell = row.createCell(0);
+            final Sheet sheet    = workbook.createSheet();
+            final Row   row      = sheet.createRow(0);
+            final Cell  testCell = row.createCell(0);
             testCell.setCellFormula("NA()"); // _NONEを返す数式
             workbook.getCreationHelper().createFormulaEvaluator().evaluateFormulaCell(testCell);
 
@@ -266,7 +262,6 @@ public class KmgPoiUtilsTest {
         final String expected = "test";
 
         /* 準備 */
-        Cell   testCell;
         String actual;
 
         try (Workbook workbook = WorkbookFactory.create(true)) {
@@ -276,7 +271,7 @@ public class KmgPoiUtilsTest {
             final Cell  firstCell = row.createCell(0);
             firstCell.setCellValue("test");
             sheet.addMergedRegion(new CellRangeAddress(0, 1, 0, 1));
-            testCell = sheet.getRow(0).createCell(1);
+            final Cell testCell = sheet.getRow(0).createCell(1);
 
             /* テスト対象の実行 */
             actual = KmgPoiUtils.getStringRangeValue(testCell);
@@ -301,7 +296,6 @@ public class KmgPoiUtilsTest {
         final String expected = null;
 
         /* 準備 */
-        Cell   testCell;
         String actual;
 
         try (Workbook workbook = WorkbookFactory.create(true)) {
@@ -313,8 +307,8 @@ public class KmgPoiUtilsTest {
             sheet.addMergedRegion(new CellRangeAddress(0, 1, 0, 1)); // (0,0)-(1,1)の範囲を結合
 
             // 結合範囲外のセル(2,2)を作成
-            final Row outsideRow = sheet.createRow(2);
-            testCell = outsideRow.createCell(2);
+            final Row  outsideRow = sheet.createRow(2);
+            final Cell testCell   = outsideRow.createCell(2);
 
             /* テスト対象の実行 */
             actual = KmgPoiUtils.getStringRangeValue(testCell);
@@ -400,14 +394,13 @@ public class KmgPoiUtilsTest {
         final String expected = "123.0";
 
         /* 準備 */
-        Cell   testCell;
         String actual;
 
         try (Workbook workbook = WorkbookFactory.create(true)) {
 
-            final Sheet sheet = workbook.createSheet();
-            final Row   row   = sheet.createRow(0);
-            testCell = row.createCell(0);
+            final Sheet sheet    = workbook.createSheet();
+            final Row   row      = sheet.createRow(0);
+            final Cell  testCell = row.createCell(0);
             testCell.setCellValue(123.0);
             actual = KmgPoiUtils.getStringValue(testCell);
 
@@ -431,14 +424,13 @@ public class KmgPoiUtilsTest {
         final String expected = "test";
 
         /* 準備 */
-        Cell   testCell;
         String actual;
 
         try (Workbook workbook = WorkbookFactory.create(true)) {
 
-            final Sheet sheet = workbook.createSheet();
-            final Row   row   = sheet.createRow(0);
-            testCell = row.createCell(0);
+            final Sheet sheet    = workbook.createSheet();
+            final Row   row      = sheet.createRow(0);
+            final Cell  testCell = row.createCell(0);
             testCell.setCellValue("test");
             actual = KmgPoiUtils.getStringValue(testCell);
 
@@ -492,14 +484,13 @@ public class KmgPoiUtilsTest {
         final String expected = null;
 
         /* 準備 */
-        Cell   testCell;
         String actual;
 
         try (Workbook workbook = WorkbookFactory.create(true)) {
 
-            final Sheet sheet = workbook.createSheet();
-            final Row   row   = sheet.createRow(0);
-            testCell = row.createCell(0);
+            final Sheet sheet    = workbook.createSheet();
+            final Row   row      = sheet.createRow(0);
+            final Cell  testCell = row.createCell(0);
             // _NONEタイプのセルを作成（通常は直接作成できないため、この方法で代用）
             testCell.setBlank();
             testCell.removeCellComment();
@@ -550,14 +541,13 @@ public class KmgPoiUtilsTest {
         final boolean expected = true;
 
         /* 準備 */
-        Cell    testCell;
         boolean actual;
 
         try (Workbook workbook = WorkbookFactory.create(true)) {
 
-            final Sheet sheet = workbook.createSheet();
-            final Row   row   = sheet.createRow(0);
-            testCell = row.createCell(0);
+            final Sheet sheet    = workbook.createSheet();
+            final Row   row      = sheet.createRow(0);
+            final Cell  testCell = row.createCell(0);
             testCell.setBlank();
             actual = KmgPoiUtils.isEmptyCell(testCell);
 
@@ -581,14 +571,13 @@ public class KmgPoiUtilsTest {
         final boolean expected = false;
 
         /* 準備 */
-        Cell    testCell;
         boolean actual;
 
         try (Workbook workbook = WorkbookFactory.create(true)) {
 
-            final Sheet sheet = workbook.createSheet();
-            final Row   row   = sheet.createRow(0);
-            testCell = row.createCell(0);
+            final Sheet sheet    = workbook.createSheet();
+            final Row   row      = sheet.createRow(0);
+            final Cell  testCell = row.createCell(0);
             testCell.setCellValue("test");
             actual = KmgPoiUtils.isEmptyCell(testCell);
 
