@@ -406,17 +406,17 @@ public class KmgReflectionModelImplTest extends AbstractKmgTest {
         final KmgMsgMessageTypes expectedMessageTypes  = KmgMsgMessageTypes.KMGMSGE11203;
 
         /* 準備 */
-        final TestClass              testObject     = new TestClass();
+        final TestClass testObject = new TestClass();
+
         final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(testObject) {
 
-                                                        @Override
-                                                        protected Method[] getDeclaredMethods(
-                                                            final Class<?> targetClazz) throws SecurityException {
+            @Override
+            protected Method[] getDeclaredMethods(final Class<?> targetClazz) throws SecurityException {
 
-                                                            throw new SecurityException(expectedMessage);
+                throw new SecurityException(expectedMessage);
 
-                                                        }
-                                                    };
+            }
+        };
 
         /* テスト対象の実行 */
         final KmgReflectionException actualException
@@ -506,19 +506,18 @@ public class KmgReflectionModelImplTest extends AbstractKmgTest {
         final KmgMsgMessageTypes expectedMessageTypes  = KmgMsgMessageTypes.KMGMSGE11205;
 
         /* 準備 */
-        final TestClass              testObject     = new TestClass();
+        final TestClass testObject = new TestClass();
+
         final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(testObject) {
 
-                                                        @Override
-                                                        protected Object invoke(final Method method,
-                                                            final Object targetObject, final Object... parameters)
-                                                            throws IllegalAccessException, IllegalArgumentException,
-                                                            InvocationTargetException {
+            @Override
+            protected Object invoke(final Method method, final Object targetObject, final Object... parameters)
+                throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
 
-                                                            throw new IllegalAccessException();
+                throw new IllegalAccessException();
 
-                                                        }
-                                                    };
+            }
+        };
 
         /* テスト対象の実行 */
         final KmgReflectionException actualException = Assertions.assertThrows(KmgReflectionException.class,
@@ -583,20 +582,18 @@ public class KmgReflectionModelImplTest extends AbstractKmgTest {
         final KmgMsgMessageTypes expectedMessageTypes  = KmgMsgMessageTypes.KMGMSGE11207;
 
         /* 準備 */
-        final TestClass              testObject     = new TestClass();
+        final TestClass testObject = new TestClass();
+
         final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(testObject) {
 
-                                                        @Override
-                                                        protected Object invoke(final Method method,
-                                                            final Object targetObject, final Object... parameters)
-                                                            throws IllegalAccessException, IllegalArgumentException,
-                                                            InvocationTargetException {
+            @Override
+            protected Object invoke(final Method method, final Object targetObject, final Object... parameters)
+                throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
 
-                                                            throw new InvocationTargetException(new RuntimeException(
-                                                                "Test invocation target exception"));
+                throw new InvocationTargetException(new RuntimeException("Test invocation target exception"));
 
-                                                        }
-                                                    };
+            }
+        };
 
         /* テスト対象の実行 */
         final KmgReflectionException actualException = Assertions.assertThrows(KmgReflectionException.class,
@@ -795,20 +792,18 @@ public class KmgReflectionModelImplTest extends AbstractKmgTest {
         final KmgMsgMessageTypes expectedMessageTypes  = KmgMsgMessageTypes.KMGMSGE11204;
 
         /* 準備 */
-        final TestClass              testObject     = new TestClass();
+        final TestClass testObject = new TestClass();
+
         final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(testObject) {
 
-                                                        @Override
-                                                        protected Object invoke(final Method method,
-                                                            final Object targetObject, final Object... parameters)
-                                                            throws IllegalAccessException, IllegalArgumentException,
-                                                            InvocationTargetException {
+            @Override
+            protected Object invoke(final Method method, final Object targetObject, final Object... parameters)
+                throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
 
-                                                            throw new SecurityException(
-                                                                "Test security exception from invoke");
+                throw new SecurityException("Test security exception from invoke");
 
-                                                        }
-                                                    };
+            }
+        };
 
         /* テスト対象の実行 */
         final KmgReflectionException actualException = Assertions.assertThrows(KmgReflectionException.class,
@@ -863,19 +858,18 @@ public class KmgReflectionModelImplTest extends AbstractKmgTest {
         final KmgMsgMessageTypes expectedMessageTypes  = KmgMsgMessageTypes.KMGMSGE11211;
 
         /* 準備 */
-        final TestClass              testObject     = new TestClass();
+        final TestClass testObject = new TestClass();
+
         final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(testObject) {
 
-                                                        @Override
-                                                        protected void setValue(final Field field,
-                                                            final Object targetObject, final Object value)
-                                                            throws SecurityException, IllegalAccessException {
+            @Override
+            protected void setValue(final Field field, final Object targetObject, final Object value)
+                throws SecurityException, IllegalAccessException {
 
-                                                            throw new IllegalAccessException(
-                                                                "Test illegal access exception from setValue");
+                throw new IllegalAccessException("Test illegal access exception from setValue");
 
-                                                        }
-                                                    };
+            }
+        };
 
         /* テスト対象の実行 */
         final KmgReflectionException actualException
