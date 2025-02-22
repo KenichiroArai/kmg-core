@@ -6,8 +6,8 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.function.Supplier;
 
+import kmg.core.infrastructure.common.KmgTypes;
 import kmg.core.infrastructure.type.KmgString;
 
 /**
@@ -20,7 +20,7 @@ import kmg.core.infrastructure.type.KmgString;
  * @version 1.0.0
  */
 @SuppressWarnings("nls")
-public enum KmgDbDataTypeTypes implements Supplier<String> {
+public enum KmgDbDataTypeTypes implements KmgTypes<String> {
 
     /* 定義：開始 */
 
@@ -61,45 +61,93 @@ public enum KmgDbDataTypeTypes implements Supplier<String> {
     ;
 
     /** 種類のマップ */
-    private static final Map<String, KmgDbDataTypeTypes> valuesMap = new HashMap<>();
+    private static final Map<String, KmgDbDataTypeTypes> VALUES_MAP = new HashMap<>();
 
     static {
 
         /* 種類のマップにプット */
         for (final KmgDbDataTypeTypes type : KmgDbDataTypeTypes.values()) {
 
-            KmgDbDataTypeTypes.valuesMap.put(type.get(), type);
+            KmgDbDataTypeTypes.VALUES_MAP.put(type.get(), type);
 
         }
 
     }
 
-    /** 名称 */
-    private final String name;
+    /** 表示名 */
+    private final String displayName;
 
-    /** 値 */
-    private final String value;
+    /** キー */
+    private final String key;
+
+    /** 詳細情報 */
+    private final String detail;
 
     /** 型 */
     private final Type type;
 
     /**
-     * 値に該当する種類を返す<br>
+     * デフォルトの種類を返す<br>
      *
      * @author KenichiroArai
      *
      * @sine 1.0.0
      *
      * @version 1.0.0
-     **
-     * @param value
-     *              値
      *
-     * @return 種類
+     * @return デフォルト値
      */
-    public static KmgDbDataTypeTypes getEnum(final String value) {
+    public static KmgDbDataTypeTypes getDefault() {
 
-        final KmgDbDataTypeTypes result = KmgDbDataTypeTypes.valuesMap.get(value);
+        final KmgDbDataTypeTypes result = NONE;
+        return result;
+
+    }
+
+    /**
+     * キーに該当する種類を返す<br>
+     * <p>
+     * 但し、キーが存在しない場合は、指定無し（NONE）を返す。
+     * </p>
+     *
+     * @author KenichiroArai
+     *
+     * @sine 1.0.0
+     *
+     * @version 1.0.0
+     *
+     * @param key
+     *            キー
+     *
+     * @return 種類。指定無し（NONE）：キーが存在しない場合。
+     */
+    public static KmgDbDataTypeTypes getEnum(final String key) {
+
+        KmgDbDataTypeTypes result = KmgDbDataTypeTypes.VALUES_MAP.get(key);
+
+        if (result == null) {
+
+            result = NONE;
+
+        }
+        return result;
+
+    }
+
+    /**
+     * 初期値の種類を返す<br>
+     *
+     * @author KenichiroArai
+     *
+     * @sine 1.0.0
+     *
+     * @version 1.0.0
+     *
+     * @return 初期値
+     */
+    public static KmgDbDataTypeTypes getInitValue() {
+
+        final KmgDbDataTypeTypes result = NONE;
         return result;
 
     }
@@ -112,105 +160,95 @@ public enum KmgDbDataTypeTypes implements Supplier<String> {
      * @sine 1.0.0
      *
      * @version 1.0.0
-     **
-     * @param name
-     *              名称
-     * @param value
-     *              値
+     *
+     * @param displayName
+     *                    表示名
+     * @param key
+     *                    キー
      * @param type
-     *              型
+     *                    型
      */
-    KmgDbDataTypeTypes(final String name, final String value, final Type type) {
+    KmgDbDataTypeTypes(final String displayName, final String key, final Type type) {
 
-        this.name = name;
-        this.value = value;
+        this.displayName = displayName;
+        this.key = key;
+        this.detail = displayName;
         this.type = type;
 
     }
 
     /**
-     * 種類の値<br>
+     * キーを返す。<br>
+     * このメソッドは{@link #getKey()}のエイリアスです。
      *
-     * @author KenichiroArai
+     * @return キー
      *
-     * @sine 1.0.0
-     *
-     * @version 1.0.0
-     *
-     * @return 種類の値
+     * @see #getKey()
      */
     @Override
     public String get() {
 
-        final String result = this.value;
+        final String result = this.getKey();
         return result;
 
     }
 
     /**
-     * 名称を返す<br>
+     * 詳細情報を返す。<br>
      *
-     * @author KenichiroArai
-     *
-     * @sine 1.0.0
-     *
-     * @version 1.0.0
-     *
-     * @return 名称
+     * @return 詳細情報
      */
-    public String getName() {
+    @Override
+    public String getDetail() {
 
-        final String result = this.name;
+        final String result = this.detail;
         return result;
 
     }
 
     /**
-     * 型を返す<br>
+     * 表示名を返す。<br>
+     * <p>
+     * 識別するための表示名を返す。
+     * </p>
      *
-     * @author KenichiroArai
-     *
-     * @sine 1.0.0
-     *
-     * @version 1.0.0
-     *
-     * @return 型
+     * @return 表示名
      */
-    public Type getType() {
+    @Override
+    public String getDisplayName() {
 
-        final Type result = this.type;
+        final String result = this.displayName;
         return result;
 
     }
 
     /**
-     * 値を返すvs
+     * キーを返す。<br>
      *
-     * @return 値
+     * @return キー
      */
-    public String getValue() {
+    @Override
+    public String getKey() {
 
-        final String result = this.value;
+        final String result = this.key;
         return result;
 
     }
 
     /**
-     * 値を返す<br>
+     * キーを返す。<br>
+     * このメソッドは{@link #getKey()}のエイリアスです。
      *
-     * @author KenichiroArai
+     * @return キー
      *
-     * @sine 1.0.0
-     *
-     * @version 1.0.0
-     *
-     * @return 値
+     * @see #getKey()
      */
     @Override
     public String toString() {
 
-        final String result = this.value;
+        final String result = this.getKey();
         return result;
 
     }
+
 }
