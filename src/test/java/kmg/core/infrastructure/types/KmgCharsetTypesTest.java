@@ -57,6 +57,66 @@ public class KmgCharsetTypesTest {
     }
 
     /**
+     * getDetail メソッドのテスト - 正常系：MS932の詳細情報を取得する場合
+     */
+    @Test
+    public void testGetDetail_normalGetMs932Detail() {
+
+        /* 期待値の定義 */
+        final String expected = "MS932";
+
+        /* 準備 */
+        final KmgCharsetTypes testType = KmgCharsetTypes.MS932;
+
+        /* テスト対象の実行 */
+        final String actual = testType.getDetail();
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "詳細情報が一致しません");
+
+    }
+
+    /**
+     * getDetail メソッドのテスト - 正常系：UTF-8の詳細情報を取得する場合
+     */
+    @Test
+    public void testGetDetail_normalGetUtf8Detail() {
+
+        /* 期待値の定義 */
+        final String expected = "UTF-8";
+
+        /* 準備 */
+        final KmgCharsetTypes testType = KmgCharsetTypes.UTF8;
+
+        /* テスト対象の実行 */
+        final String actual = testType.getDetail();
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "詳細情報が一致しません");
+
+    }
+
+    /**
+     * getDetail メソッドのテスト - 準正常系：NONEの詳細情報を取得する場合
+     */
+    @Test
+    public void testGetDetail_semiGetNoneDetail() {
+
+        /* 期待値の定義 */
+        final String expected = "指定無し";
+
+        /* 準備 */
+        final KmgCharsetTypes testType = KmgCharsetTypes.NONE;
+
+        /* テスト対象の実行 */
+        final String actual = testType.getDetail();
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "詳細情報が一致しません");
+
+    }
+
+    /**
      * getDisplayName メソッドのテスト - 正常系：UTF-8の名称を取得する場合
      */
     @Test
@@ -230,66 +290,6 @@ public class KmgCharsetTypesTest {
 
         /* 検証の実施 */
         Assertions.assertEquals(expected, actual, "NONEの場合、nullが返されること");
-
-    }
-
-    /**
-     * getDetail メソッドのテスト - 正常系：UTF-8の詳細情報を取得する場合
-     */
-    @Test
-    public void testGetDetail_normalGetUtf8Detail() {
-
-        /* 期待値の定義 */
-        final String expected = "UTF-8";
-
-        /* 準備 */
-        final KmgCharsetTypes testType = KmgCharsetTypes.UTF8;
-
-        /* テスト対象の実行 */
-        final String actual = testType.getDetail();
-
-        /* 検証の実施 */
-        Assertions.assertEquals(expected, actual, "詳細情報が一致しません");
-
-    }
-
-    /**
-     * getDetail メソッドのテスト - 正常系：MS932の詳細情報を取得する場合
-     */
-    @Test
-    public void testGetDetail_normalGetMs932Detail() {
-
-        /* 期待値の定義 */
-        final String expected = "MS932";
-
-        /* 準備 */
-        final KmgCharsetTypes testType = KmgCharsetTypes.MS932;
-
-        /* テスト対象の実行 */
-        final String actual = testType.getDetail();
-
-        /* 検証の実施 */
-        Assertions.assertEquals(expected, actual, "詳細情報が一致しません");
-
-    }
-
-    /**
-     * getDetail メソッドのテスト - 準正常系：NONEの詳細情報を取得する場合
-     */
-    @Test
-    public void testGetDetail_semiGetNoneDetail() {
-
-        /* 期待値の定義 */
-        final String expected = "指定無し";
-
-        /* 準備 */
-        final KmgCharsetTypes testType = KmgCharsetTypes.NONE;
-
-        /* テスト対象の実行 */
-        final String actual = testType.getDetail();
-
-        /* 検証の実施 */
-        Assertions.assertEquals(expected, actual, "詳細情報が一致しません");
 
     }
 }
