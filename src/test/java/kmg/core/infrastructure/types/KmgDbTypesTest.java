@@ -77,6 +77,46 @@ public class KmgDbTypesTest {
     }
 
     /**
+     * getDetail メソッドのテスト - 正常系:基本的な詳細情報の取得
+     */
+    @Test
+    public void testGetDetail_normalBasicValue() {
+
+        /* 期待値の定義 */
+        final String expected = "PostgreSQL";
+
+        /* 準備 */
+        final KmgDbTypes testType = KmgDbTypes.POSTGRE_SQL;
+
+        /* テスト対象の実行 */
+        final String actual = testType.getDetail();
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "詳細情報が一致しません");
+
+    }
+
+    /**
+     * getDisplayName メソッドのテスト - 正常系:基本的な表示名の取得
+     */
+    @Test
+    public void testGetDisplayName_normalBasicValue() {
+
+        /* 期待値の定義 */
+        final String expected = "PostgreSQL";
+
+        /* 準備 */
+        final KmgDbTypes testType = KmgDbTypes.POSTGRE_SQL;
+
+        /* テスト対象の実行 */
+        final String actual = testType.getDisplayName();
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "表示名が一致しません");
+
+    }
+
+    /**
      * getEnum メソッドのテスト - 正常系:存在する値の取得
      */
     @Test
@@ -113,6 +153,26 @@ public class KmgDbTypesTest {
 
         /* 検証の実施 */
         Assertions.assertEquals(expected, actual, "値が一致しません");
+
+    }
+
+    /**
+     * getEnum メソッドのテスト - 準正常系:nullの場合の取得
+     */
+    @Test
+    public void testGetEnum_semiNullValue() {
+
+        /* 期待値の定義 */
+        final KmgDbTypes expected = KmgDbTypes.NONE;
+
+        /* 準備 */
+        final String testValue = null;
+
+        /* テスト対象の実行 */
+        final KmgDbTypes actual = KmgDbTypes.getEnum(testValue);
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "nullの場合、NONEが返されること");
 
     }
 
@@ -270,46 +330,6 @@ public class KmgDbTypesTest {
 
         /* 検証の実施 */
         Assertions.assertEquals(expected, actual, "初期値が一致しません");
-
-    }
-
-    /**
-     * getName メソッドのテスト - 正常系:名前の取得
-     */
-    @Test
-    public void testGetName_normalBasicName() {
-
-        /* 期待値の定義 */
-        final String expected = "PostgreSQL";
-
-        /* 準備 */
-        final KmgDbTypes testType = KmgDbTypes.POSTGRE_SQL;
-
-        /* テスト対象の実行 */
-        final String actual = testType.getName();
-
-        /* 検証の実施 */
-        Assertions.assertEquals(expected, actual, "名称が一致しません");
-
-    }
-
-    /**
-     * getValue メソッドのテスト - 正常系:値の取得
-     */
-    @Test
-    public void testGetValue_normalBasicValue() {
-
-        /* 期待値の定義 */
-        final String expected = "PostgreSQL";
-
-        /* 準備 */
-        final KmgDbTypes testType = KmgDbTypes.POSTGRE_SQL;
-
-        /* テスト対象の実行 */
-        final String actual = testType.getValue();
-
-        /* 検証の実施 */
-        Assertions.assertEquals(expected, actual, "値が一致しません");
 
     }
 
