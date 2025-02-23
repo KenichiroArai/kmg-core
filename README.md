@@ -1,6 +1,6 @@
-# kmg-core-src について
+# kmg-core について
 
-kmg-core-src（以降は、「KMGコア」と言う。）は、KMGシリーズのJavaアプリケーション開発のための基盤となるコアです。
+kmg-core（以降は、「KMGコア」と言う。）は、KMGシリーズのJavaアプリケーション開発のための基盤となるコアです。
 
 特徴は、フレームワークなどを依存関係が少なく多くのプロジェクトで使用できるように構成されています。
 
@@ -16,24 +16,40 @@ kmg-core-src（以降は、「KMGコア」と言う。）は、KMGシリーズ�
 ## プロジェクト構成
 
 ```bash
-kmg-core-src/
+kmg-core/
 ├── src/
 │   ├── main/java/kmg/core/
-│   │   ├── infrastructure/
-│   │   │   ├── types/     # 型定義
-│   │   │   └── utils/     # ユーティリティクラス
-│   │   └── template/      # 再利用可能なテンプレート
-│   │       └── types/     # テンプレート型定義
+│   │   ├── domain/
+│   │   │   ├── service/     # ドメインサービス
+│   │   │   │   └── impl/   # サービス実装
+│   │   │   └── types/      # ドメイン型定義
+│   │   └── infrastructure/
+│   │       ├── common/      # 共通機能
+│   │       ├── exception/   # 例外処理
+│   │       ├── model/       # モデル
+│   │       │   └── impl/   # モデル実装
+│   │       ├── type/        # 型定義
+│   │       ├── types/       # 型定義（列挙型など）
+│   │       │   └── template/ # テンプレート型
+│   │       └── utils/       # ユーティリティクラス
 │   └── test/java/kmg/core/
+│       ├── domain/
+│       │   ├── service/     # サービステスト
+│       │   │   └── impl/   # 実装テスト
+│       │   └── types/      # 型定義テスト
 │       ├── infrastructure/
-│       │   ├── types/     # 型定義のテスト
-│       │   └── utils/     # ユーティリティクラスのテスト
-│       └── template/      # テンプレートのテスト
-│           └── types/     # テンプレート型定義のテスト
-├── doc/                   # ドキュメント
-│   ├── RELEASE.md        # リリース手順
-│   └── メッセージ一覧.xlsx  # メッセージ定義
-└── pom.xml               # Maven設定ファイル
+│       │   ├── exception/   # 例外テスト
+│       │   ├── model/       # モデルテスト
+│       │   │   └── impl/   # 実装テスト
+│       │   ├── type/        # 型テスト
+│       │   ├── types/       # 型定義テスト
+│       │   │   └── template/ # テンプレートテスト
+│       │   └── utils/       # ユーティリティテスト
+│       └── test/            # テストユーティリティ
+├── doc/                     # ドキュメント
+│   ├── RELEASE.md          # リリース手順
+│   └── メッセージ一覧.xlsx    # メッセージ定義
+└── pom.xml                 # Maven設定ファイル
 ```
 
 ## 開発環境
