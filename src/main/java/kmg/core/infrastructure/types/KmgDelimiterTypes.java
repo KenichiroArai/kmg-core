@@ -66,6 +66,9 @@ public enum KmgDelimiterTypes implements KmgTypes<String> {
     /** 半角イコール */
     HALF_EQUAL("半角イコール", "="),
 
+    /** 半角アットマーク */
+    HALF_AT_SIGN("半角アットマーク", "@"),
+
     /* 定義：終了 */
     ;
 
