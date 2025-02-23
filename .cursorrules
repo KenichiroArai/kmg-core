@@ -33,24 +33,49 @@ kmg-core/
 │   │   │   └── kmg/
 │   │   │       └── core/
 │   │   │           ├── domain/           # ドメイン層
-│   │   │           │   ├── model/       # ドメインモデル
-│   │   │           │   └── service/     # ドメインサービス
-│   │   │           ├── infrastructure/   # インフラストラクチャ層
-│   │   │           └── presentation/     # プレゼンテーション層
+│   │   │           │   ├── service/     # ドメインサービス
+│   │   │           │   │   └── impl/   # サービス実装
+│   │   │           │   └── types/      # ドメイン型定義
+│   │   │           └── infrastructure/   # インフラストラクチャ層
+│   │   │               ├── common/      # 共通機能
+│   │   │               ├── exception/   # 例外クラス
+│   │   │               ├── model/       # モデル
+│   │   │               │   └── impl/   # モデル実装
+│   │   │               ├── type/        # 型定義
+│   │   │               ├── types/       # 型定義（列挙型など）
+│   │   │               │   └── template/ # テンプレート型
+│   │   │               └── utils/       # ユーティリティ
 │   │   └── resources/                    # リソースファイル
 │   └── test/
 │       ├── java/                         # テストコード
 │       │   └── kmg/
 │       │       └── core/
 │       │           ├── domain/           # ドメインテスト
+│       │           │   ├── service/     # サービステスト
+│       │           │   │   └── impl/   # 実装テスト
+│       │           │   └── types/      # 型定義テスト
 │       │           ├── infrastructure/   # インフラストラクチャテスト
-│       │           └── presentation/     # プレゼンテーションテスト
+│       │           │   ├── exception/   # 例外テスト
+│       │           │   ├── model/       # モデルテスト
+│       │           │   │   └── impl/   # 実装テスト
+│       │           │   ├── type/        # 型テスト
+│       │           │   ├── types/       # 型定義テスト
+│       │           │   │   └── template/ # テンプレートテスト
+│       │           │   └── utils/       # ユーティリティテスト
+│       │           └── test/            # テストユーティリティ
 │       └── resources/                    # テストリソース
+│           └── kmg/
+│               └── core/
+│                   └── domain/
+│                       └── model/
+│                           └── impl/
+│                               └── kmg_sql_path_model_impl_tests/
 ├── scripts/                              # スクリプトファイル
 ├── doc/                                  # ドキュメント
 ├── .settings/                            # Eclipse設定
 ├── .vscode/                              # VSCode設定
 ├── .github/                              # GitHub設定
+│   └── workflows/                        # GitHub Actions
 ├── target/                               # ビルド成果物
 ├── pom.xml                               # Mavenプロジェクト設定
 ├── .gitignore                            # Git除外設定
