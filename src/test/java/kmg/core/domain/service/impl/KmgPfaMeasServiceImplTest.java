@@ -16,24 +16,46 @@ import kmg.core.infrastructure.types.KmgTimeUnitTypes;
  * KMG性能測定サービス実装のテスト<br>
  *
  * @author KenichiroArai
- *
- * @sine 1.0.0
- *
- * @version 1.0.0
+ * 
+ * @sine 0.1.0
+ * 
+ * @version 0.1.0
  */
 @SuppressWarnings({
     "nls",
 })
 public class KmgPfaMeasServiceImplTest {
 
-    /** 元の標準出力 */
+    /**
+     * 元の標準出力
+     * 
+     * @author KenichiroArai
+     * 
+     * @sine 0.1.0
+     * 
+     * @version 0.1.0
+     */
     private PrintStream originalOut;
 
-    /** 標準出力のキャプチャ用 */
+    /**
+     * 標準出力のキャプチャ用
+     * 
+     * @author KenichiroArai
+     * 
+     * @sine 0.1.0
+     * 
+     * @version 0.1.0
+     */
     private ByteArrayOutputStream outContent;
 
     /**
      * テスト前処理<br>
+     * 
+     * @author KenichiroArai
+     * 
+     * @sine 0.1.0
+     * 
+     * @version 0.1.0
      */
     @BeforeEach
     public void setUp() {
@@ -47,6 +69,12 @@ public class KmgPfaMeasServiceImplTest {
 
     /**
      * テスト後処理<br>
+     * 
+     * @author KenichiroArai
+     * 
+     * @sine 0.1.0
+     * 
+     * @version 0.1.0
      */
     @AfterEach
     public void tearDown() {
@@ -58,6 +86,12 @@ public class KmgPfaMeasServiceImplTest {
 
     /**
      * コンストラクタのテスト - 正常系:名称が正しく設定されることの確認
+     * 
+     * @author KenichiroArai
+     * 
+     * @sine 0.1.0
+     * 
+     * @version 0.1.0
      */
     @Test
     public void testConstructor_normalSetName() {
@@ -81,6 +115,12 @@ public class KmgPfaMeasServiceImplTest {
 
     /**
      * end メソッドのテスト - 正常系:終了メッセージが正しく出力されることの確認
+     * 
+     * @author KenichiroArai
+     * 
+     * @sine 0.1.0
+     * 
+     * @version 0.1.0
      */
     @Test
     public void testEnd_normalOutputEndMessage() {
@@ -125,6 +165,12 @@ public class KmgPfaMeasServiceImplTest {
 
     /**
      * start メソッドのテスト - 正常系:開始メッセージが正しく出力されることの確認
+     * 
+     * @author KenichiroArai
+     * 
+     * @sine 0.1.0
+     * 
+     * @version 0.1.0
      */
     @Test
     public void testStart_normalOutputStartMessage() {

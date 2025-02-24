@@ -13,24 +13,32 @@ import kmg.core.infrastructure.type.KmgString;
  * KMGローカル日時ユーティリティ<br>
  *
  * @author KenichiroArai
- *
- * @sine 1.0.0
- *
- * @version 1.0.0
+ * 
+ * @sine 0.1.0
+ * 
+ * @version 0.1.0
  */
 public final class KmgLocalDateTimeUtils {
 
-    /** フォーマッタパターン（yyyy/MM/dd HH:mm:ss.SSS） */
+    /**
+     * フォーマッタパターン（yyyy/MM/dd HH:mm:ss.SSS）
+     * 
+     * @author KenichiroArai
+     * 
+     * @sine 0.1.0
+     * 
+     * @version 0.1.0
+     */
     private static final String FORMATTER_PATTERN_YYYY_MM_DD_HH_MM_SS_SSS = "yyyy/MM/dd HH:mm:ss.SSS"; //$NON-NLS-1$
 
     /**
      * デフォルトコンストラクタ<br>
      *
      * @author KenichiroArai
-     *
-     * @sine 1.0.0
-     *
-     * @version 1.0.0
+     * 
+     * @sine 0.1.0
+     * 
+     * @version 0.1.0
      */
     private KmgLocalDateTimeUtils() {
 
@@ -44,10 +52,10 @@ public final class KmgLocalDateTimeUtils {
      * </p>
      *
      * @author KenichiroArai
-     *
-     * @sine 1.0.0
-     *
-     * @version 1.0.0
+     * 
+     * @sine 0.1.0
+     * 
+     * @version 0.1.0
      *
      * @param dateTimeStr
      *                    日時文字列（yyyy/MM/dd HH:mm:ss.SSS）
@@ -76,10 +84,10 @@ public final class KmgLocalDateTimeUtils {
      * </p>
      *
      * @author KenichiroArai
-     *
-     * @sine 1.0.0
-     *
-     * @version 1.0.0
+     * 
+     * @sine 0.1.0
+     * 
+     * @version 0.1.0
      *
      * @param date
      *             日付
@@ -107,10 +115,10 @@ public final class KmgLocalDateTimeUtils {
      * </p>
      *
      * @author KenichiroArai
-     *
-     * @sine 1.0.0
-     *
-     * @version 1.0.0
+     * 
+     * @sine 0.1.0
+     * 
+     * @version 0.1.0
      *
      * @param localDateTime
      *                      ローカル日時
@@ -139,10 +147,10 @@ public final class KmgLocalDateTimeUtils {
      * </p>
      *
      * @author KenichiroArai
-     *
-     * @sine 1.0.0
-     *
-     * @version 1.0.0
+     * 
+     * @sine 0.1.0
+     * 
+     * @version 0.1.0
      *
      * @param date
      *             日付

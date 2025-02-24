@@ -6,10 +6,10 @@ import java.util.List;
  * KMGリストユーティリティ<br>
  *
  * @author KenichiroArai
- *
- * @sine 1.0.0
- *
- * @version 1.0.0
+ * 
+ * @sine 0.1.0
+ * 
+ * @version 0.1.0
  */
 public final class KmgListUtils {
 
@@ -17,10 +17,10 @@ public final class KmgListUtils {
      * デフォルトコンストラクタ<br>
      *
      * @author KenichiroArai
-     *
-     * @sine 1.0.0
-     *
-     * @version 1.0.0
+     * 
+     * @sine 0.1.0
+     * 
+     * @version 0.1.0
      */
     private KmgListUtils() {
 
@@ -31,10 +31,10 @@ public final class KmgListUtils {
      * 対象が空か<br>
      *
      * @author KenichiroArai
-     *
-     * @sine 1.0.0
-     *
-     * @version 1.0.0
+     * 
+     * @sine 0.1.0
+     * 
+     * @version 0.1.0
      *
      * @param target
      *               対象
@@ -66,10 +66,10 @@ public final class KmgListUtils {
      * 対象が空ではないか<br>
      *
      * @author KenichiroArai
-     *
-     * @sine 1.0.0
-     *
-     * @version 1.0.0
+     * 
+     * @sine 0.1.0
+     * 
+     * @version 0.1.0
      *
      * @param target
      *               対象

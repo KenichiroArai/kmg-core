@@ -14,10 +14,10 @@ import org.junit.jupiter.api.Test;
  * KMGＰＯＩユーティリティテスト<br>
  *
  * @author KenichiroArai
- *
- * @sine 1.0.0
- *
- * @version 1.0.0
+ * 
+ * @sine 0.1.0
+ * 
+ * @version 0.1.0
  */
 @SuppressWarnings({
     "nls", "static-method"
@@ -27,6 +27,12 @@ public class KmgPoiUtilsTest {
     /**
      * getCell メソッドのテスト - 異常系:行が存在しない場合
      *
+     * @author KenichiroArai
+     * 
+     * @sine 0.1.0
+     * 
+     * @version 0.1.0
+     * 
      * @throws Exception
      *                   例外が発生した場合
      */
@@ -54,6 +60,12 @@ public class KmgPoiUtilsTest {
     /**
      * getStringFormulaValue メソッドのテスト - 異常系:エラーを返す数式の場合
      *
+     * @author KenichiroArai
+     * 
+     * @sine 0.1.0
+     * 
+     * @version 0.1.0
+     * 
      * @throws Exception
      *                   例外が発生した場合
      */
@@ -88,6 +100,12 @@ public class KmgPoiUtilsTest {
     /**
      * getStringFormulaValue メソッドのテスト - 正常系:真偽値を返す数式の場合
      *
+     * @author KenichiroArai
+     * 
+     * @sine 0.1.0
+     * 
+     * @version 0.1.0
+     * 
      * @throws Exception
      *                   例外が発生した場合
      */
@@ -122,6 +140,12 @@ public class KmgPoiUtilsTest {
     /**
      * getStringFormulaValue メソッドのテスト - 正常系:数値を返す数式の場合
      *
+     * @author KenichiroArai
+     * 
+     * @sine 0.1.0
+     * 
+     * @version 0.1.0
+     * 
      * @throws Exception
      *                   例外が発生した場合
      */
@@ -155,6 +179,12 @@ public class KmgPoiUtilsTest {
     /**
      * getStringFormulaValue メソッドのテスト - 正常系:文字列を返す数式の場合
      *
+     * @author KenichiroArai
+     * 
+     * @sine 0.1.0
+     * 
+     * @version 0.1.0
+     * 
      * @throws Exception
      *                   例外が発生した場合
      */
@@ -188,6 +218,12 @@ public class KmgPoiUtilsTest {
     /**
      * getStringFormulaValue メソッドのテスト - 準正常系:空白を返す数式の場合
      *
+     * @author KenichiroArai
+     * 
+     * @sine 0.1.0
+     * 
+     * @version 0.1.0
+     * 
      * @throws Exception
      *                   例外が発生した場合
      */
@@ -219,6 +255,12 @@ public class KmgPoiUtilsTest {
     /**
      * getStringFormulaValue メソッドのテスト - 準正常系:_NONEを返す数式の場合
      *
+     * @author KenichiroArai
+     * 
+     * @sine 0.1.0
+     * 
+     * @version 0.1.0
+     * 
      * @throws Exception
      *                   例外が発生した場合
      */
@@ -252,6 +294,12 @@ public class KmgPoiUtilsTest {
     /**
      * getStringRangeValue メソッドのテスト - 正常系:結合セルの場合
      *
+     * @author KenichiroArai
+     * 
+     * @sine 0.1.0
+     * 
+     * @version 0.1.0
+     * 
      * @throws Exception
      *                   例外が発生した場合
      */
@@ -286,6 +334,12 @@ public class KmgPoiUtilsTest {
     /**
      * getStringRangeValue メソッドのテスト - 準正常系:結合セル範囲外の場合
      *
+     * @author KenichiroArai
+     * 
+     * @sine 0.1.0
+     * 
+     * @version 0.1.0
+     * 
      * @throws Exception
      *                   例外が発生した場合
      */
@@ -323,6 +377,12 @@ public class KmgPoiUtilsTest {
     /**
      * getStringValue メソッドのテスト - 正常系:真偽値セルの場合
      *
+     * @author KenichiroArai
+     * 
+     * @sine 0.1.0
+     * 
+     * @version 0.1.0
+     * 
      * @throws Exception
      *                   例外が発生した場合
      */
@@ -353,6 +413,12 @@ public class KmgPoiUtilsTest {
     /**
      * getStringValue メソッドのテスト - 正常系:数式セルの場合
      *
+     * @author KenichiroArai
+     * 
+     * @sine 0.1.0
+     * 
+     * @version 0.1.0
+     * 
      * @throws Exception
      *                   例外が発生した場合
      */
@@ -384,6 +450,12 @@ public class KmgPoiUtilsTest {
     /**
      * getStringValue メソッドのテスト - 正常系:数値セルの場合
      *
+     * @author KenichiroArai
+     * 
+     * @sine 0.1.0
+     * 
+     * @version 0.1.0
+     * 
      * @throws Exception
      *                   例外が発生した場合
      */
@@ -414,6 +486,12 @@ public class KmgPoiUtilsTest {
     /**
      * getStringValue メソッドのテスト - 正常系:文字列セルの場合
      *
+     * @author KenichiroArai
+     * 
+     * @sine 0.1.0
+     * 
+     * @version 0.1.0
+     * 
      * @throws Exception
      *                   例外が発生した場合
      */
@@ -444,6 +522,12 @@ public class KmgPoiUtilsTest {
     /**
      * getStringValue メソッドのテスト - 準正常系:エラーセルの場合
      *
+     * @author KenichiroArai
+     * 
+     * @sine 0.1.0
+     * 
+     * @version 0.1.0
+     * 
      * @throws Exception
      *                   例外が発生した場合
      */
@@ -474,6 +558,12 @@ public class KmgPoiUtilsTest {
     /**
      * getStringValue メソッドのテスト - 準正常系:NONEセルの場合
      *
+     * @author KenichiroArai
+     * 
+     * @sine 0.1.0
+     * 
+     * @version 0.1.0
+     * 
      * @throws Exception
      *                   例外が発生した場合
      */
@@ -508,6 +598,12 @@ public class KmgPoiUtilsTest {
     /**
      * getStringValue メソッドのテスト - 準正常系:nullの場合
      *
+     * @author KenichiroArai
+     * 
+     * @sine 0.1.0
+     * 
+     * @version 0.1.0
+     * 
      * @throws Exception
      *                   例外が発生した場合
      */
@@ -531,6 +627,12 @@ public class KmgPoiUtilsTest {
     /**
      * isEmptyCell メソッドのテスト - 正常系:空のセルの場合
      *
+     * @author KenichiroArai
+     * 
+     * @sine 0.1.0
+     * 
+     * @version 0.1.0
+     * 
      * @throws Exception
      *                   例外が発生した場合
      */
@@ -561,6 +663,12 @@ public class KmgPoiUtilsTest {
     /**
      * isEmptyCell メソッドのテスト - 正常系:空でないセルの場合
      *
+     * @author KenichiroArai
+     * 
+     * @sine 0.1.0
+     * 
+     * @version 0.1.0
+     * 
      * @throws Exception
      *                   例外が発生した場合
      */
@@ -591,6 +699,12 @@ public class KmgPoiUtilsTest {
     /**
      * isEmptyCell メソッドのテスト - 準正常系:nullの場合
      *
+     * @author KenichiroArai
+     * 
+     * @sine 0.1.0
+     * 
+     * @version 0.1.0
+     * 
      * @throws Exception
      *                   例外が発生した場合
      */

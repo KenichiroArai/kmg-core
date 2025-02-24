@@ -4,10 +4,10 @@ package kmg.core.infrastructure.utils;
  * KMG配列ユーティリティ<br>
  *
  * @author KenichiroArai
- *
- * @sine 1.0.0
- *
- * @version 1.0.0
+ * 
+ * @sine 0.1.0
+ * 
+ * @version 0.1.0
  */
 public final class KmgArrayUtils {
 
@@ -15,10 +15,10 @@ public final class KmgArrayUtils {
      * デフォルトコンストラクタ<br>
      *
      * @author KenichiroArai
-     *
-     * @sine 1.0.0
-     *
-     * @version 1.0.0
+     * 
+     * @sine 0.1.0
+     * 
+     * @version 0.1.0
      */
     private KmgArrayUtils() {
 
@@ -29,10 +29,10 @@ public final class KmgArrayUtils {
      * 対象が空か<br>
      *
      * @author KenichiroArai
-     *
-     * @sine 1.0.0
-     *
-     * @version 1.0.0
+     * 
+     * @sine 0.1.0
+     * 
+     * @version 0.1.0
      *
      * @param target
      *               対象
@@ -64,10 +64,10 @@ public final class KmgArrayUtils {
      * 対象が空ではないか<br>
      *
      * @author KenichiroArai
-     *
-     * @sine 1.0.0
-     *
-     * @version 1.0.0
+     * 
+     * @sine 0.1.0
+     * 
+     * @version 0.1.0
      *
      * @param target
      *               対象

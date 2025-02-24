@@ -15,10 +15,10 @@ import kmg.core.infrastructure.model.KmgReflectionModel;
  * KMGリフレクション例外テスト<br>
  *
  * @author KenichiroArai
- *
- * @sine 1.0.0
- *
- * @version 1.0.0
+ * 
+ * @sine 0.1.0
+ * 
+ * @version 0.1.0
  */
 @SuppressWarnings({
     "nls",
@@ -26,18 +26,48 @@ import kmg.core.infrastructure.model.KmgReflectionModel;
 @ExtendWith(MockitoExtension.class)
 public class KmgReflectionExceptionTest {
 
-    /** KMGリフレクションモデル */
+    /**
+     * KMGリフレクションモデル
+     * 
+     * @author KenichiroArai
+     * 
+     * @sine 0.1.0
+     * 
+     * @version 0.1.0
+     */
     @Mock
     private KmgReflectionModel kmgReflectionModel;
 
-    /** メッセージタイプ */
+    /**
+     * メッセージタイプ
+     * 
+     * @author KenichiroArai
+     * 
+     * @sine 0.1.0
+     * 
+     * @version 0.1.0
+     */
     private KmgMessageTypes messageTypes;
 
-    /** メッセージ */
+    /**
+     * メッセージ
+     * 
+     * @author KenichiroArai
+     * 
+     * @sine 0.1.0
+     * 
+     * @version 0.1.0
+     */
     private String message;
 
     /**
      * 初期化処理<br>
+     * 
+     * @author KenichiroArai
+     * 
+     * @sine 0.1.0
+     * 
+     * @version 0.1.0
      */
     @BeforeEach
     public void setUp() {
@@ -50,6 +80,12 @@ public class KmgReflectionExceptionTest {
 
     /**
      * constructor メソッドのテスト - 正常系：メッセージタイプとKMGリフレクションモデルを指定した場合
+     * 
+     * @author KenichiroArai
+     * 
+     * @sine 0.1.0
+     * 
+     * @version 0.1.0
      */
     @Test
     public void testConstructor_normalWithMessageTypesAndModel() {
@@ -72,6 +108,12 @@ public class KmgReflectionExceptionTest {
 
     /**
      * constructor メソッドのテスト - 正常系：メッセージタイプ、メッセージ引数、KMGリフレクションモデルを指定した場合
+     * 
+     * @author KenichiroArai
+     * 
+     * @sine 0.1.0
+     * 
+     * @version 0.1.0
      */
     @Test
     public void testConstructor_normalWithMessageTypesAndArgsAndModel() {
@@ -102,6 +144,12 @@ public class KmgReflectionExceptionTest {
 
     /**
      * constructor メソッドのテスト - 正常系：メッセージタイプ、原因、KMGリフレクションモデルを指定した場合
+     * 
+     * @author KenichiroArai
+     * 
+     * @sine 0.1.0
+     * 
+     * @version 0.1.0
      */
     @Test
     public void testConstructor_normalWithMessageTypesAndCauseAndModel() {
@@ -129,6 +177,12 @@ public class KmgReflectionExceptionTest {
 
     /**
      * constructor メソッドのテスト - 正常系：メッセージタイプ、メッセージ引数、原因、KMGリフレクションモデルを指定した場合
+     * 
+     * @author KenichiroArai
+     * 
+     * @sine 0.1.0
+     * 
+     * @version 0.1.0
      */
     @Test
     public void testConstructor_normalWithMessageTypesAndArgsAndCauseAndModel() {

@@ -9,10 +9,10 @@ import org.junit.jupiter.api.Test;
  * KMG時間単位の種類のテスト<br>
  *
  * @author KenichiroArai
- *
- * @sine 1.0.0
- *
- * @version 1.0.0
+ * 
+ * @sine 0.1.0
+ * 
+ * @version 0.1.0
  */
 @SuppressWarnings({
     "nls", "static-method"
@@ -21,6 +21,12 @@ public class KmgTimeUnitTypesTest {
 
     /**
      * get メソッドのテスト - 正常系:基本的な値の取得
+     * 
+     * @author KenichiroArai
+     * 
+     * @sine 0.1.0
+     * 
+     * @version 0.1.0
      */
     @Test
     public void testGet_normalBasicValue() {
@@ -41,6 +47,12 @@ public class KmgTimeUnitTypesTest {
 
     /**
      * getDefault メソッドのテスト - 正常系:デフォルト値の取得
+     * 
+     * @author KenichiroArai
+     * 
+     * @sine 0.1.0
+     * 
+     * @version 0.1.0
      */
     @Test
     public void testGetDefault_normalDefaultValue() {
@@ -58,6 +70,12 @@ public class KmgTimeUnitTypesTest {
 
     /**
      * getDetail メソッドのテスト - 正常系:詳細情報の取得
+     * 
+     * @author KenichiroArai
+     * 
+     * @sine 0.1.0
+     * 
+     * @version 0.1.0
      */
     @Test
     public void testGetDetail_normalBasicDetail() {
@@ -78,6 +96,12 @@ public class KmgTimeUnitTypesTest {
 
     /**
      * getDisplayName メソッドのテスト - 正常系:表示名の取得
+     * 
+     * @author KenichiroArai
+     * 
+     * @sine 0.1.0
+     * 
+     * @version 0.1.0
      */
     @Test
     public void testGetDisplayName_normalBasicDisplayName() {
@@ -98,6 +122,12 @@ public class KmgTimeUnitTypesTest {
 
     /**
      * getEnum メソッドのテスト - 正常系:存在する値の取得
+     * 
+     * @author KenichiroArai
+     * 
+     * @sine 0.1.0
+     * 
+     * @version 0.1.0
      */
     @Test
     public void testGetEnum_normalExistingValue() {
@@ -118,6 +148,12 @@ public class KmgTimeUnitTypesTest {
 
     /**
      * getEnum メソッドのテスト - 準正常系:存在しない値の取得
+     * 
+     * @author KenichiroArai
+     * 
+     * @sine 0.1.0
+     * 
+     * @version 0.1.0
      */
     @Test
     public void testGetEnum_semiNonExistingValue() {
@@ -138,6 +174,12 @@ public class KmgTimeUnitTypesTest {
 
     /**
      * getEnum メソッドのテスト - 準正常系:null値の取得
+     * 
+     * @author KenichiroArai
+     * 
+     * @sine 0.1.0
+     * 
+     * @version 0.1.0
      */
     @Test
     public void testGetEnum_semiNullValue() {
@@ -158,6 +200,12 @@ public class KmgTimeUnitTypesTest {
 
     /**
      * getInitValue メソッドのテスト - 正常系:初期値の取得
+     * 
+     * @author KenichiroArai
+     * 
+     * @sine 0.1.0
+     * 
+     * @version 0.1.0
      */
     @Test
     public void testGetInitValue_normalInitialValue() {
@@ -175,6 +223,12 @@ public class KmgTimeUnitTypesTest {
 
     /**
      * getUnitName メソッドのテスト - 正常系:単位名の取得
+     * 
+     * @author KenichiroArai
+     * 
+     * @sine 0.1.0
+     * 
+     * @version 0.1.0
      */
     @Test
     public void testGetUnitName_normalBasicUnitName() {
@@ -195,6 +249,12 @@ public class KmgTimeUnitTypesTest {
 
     /**
      * getUnitValue メソッドのテスト - 正常系:ミリ秒の単位値取得
+     * 
+     * @author KenichiroArai
+     * 
+     * @sine 0.1.0
+     * 
+     * @version 0.1.0
      */
     @Test
     public void testGetUnitValue_normalMilliseconds() {
@@ -215,6 +275,12 @@ public class KmgTimeUnitTypesTest {
 
     /**
      * getUnitValue メソッドのテスト - 正常系:秒の単位値取得
+     * 
+     * @author KenichiroArai
+     * 
+     * @sine 0.1.0
+     * 
+     * @version 0.1.0
      */
     @Test
     public void testGetUnitValue_normalSeconds() {
@@ -235,6 +301,12 @@ public class KmgTimeUnitTypesTest {
 
     /**
      * toString メソッドのテスト - 正常系:文字列表現の取得
+     * 
+     * @author KenichiroArai
+     * 
+     * @sine 0.1.0
+     * 
+     * @version 0.1.0
      */
     @Test
     public void testToString_normalBasicValue() {

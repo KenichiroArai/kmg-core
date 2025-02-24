@@ -22,10 +22,10 @@ import kmg.core.test.AbstractKmgTest;
  * KMGパスユーティリティテスト<br>
  *
  * @author KenichiroArai
- *
- * @sine 1.0.0
- *
- * @version 1.0.0
+ * 
+ * @sine 0.1.0
+ * 
+ * @version 0.1.0
  */
 @SuppressWarnings({
     "nls", "static-method"
@@ -35,6 +35,12 @@ public class KmgPathUtilsTest extends AbstractKmgTest {
 
     /**
      * テストクラス
+     * 
+     * @author KenichiroArai
+     * 
+     * @sine 0.1.0
+     * 
+     * @version 0.1.0
      */
     private static class TestClass {
         // 処理なし
@@ -43,6 +49,12 @@ public class KmgPathUtilsTest extends AbstractKmgTest {
     /**
      * getBinPath メソッドのテスト - 異常系:nullの場合（Class）
      *
+     * @author KenichiroArai
+     * 
+     * @sine 0.1.0
+     * 
+     * @version 0.1.0
+     * 
      * @throws Exception
      *                   失敗
      */
@@ -66,6 +78,12 @@ public class KmgPathUtilsTest extends AbstractKmgTest {
     /**
      * getBinPath メソッドのテスト - 異常系:nullの場合（Object）
      *
+     * @author KenichiroArai
+     * 
+     * @sine 0.1.0
+     * 
+     * @version 0.1.0
+     * 
      * @throws KmgDomainException
      *                            失敗
      */
@@ -89,6 +107,12 @@ public class KmgPathUtilsTest extends AbstractKmgTest {
     /**
      * getBinPath メソッドのテスト - 異常系:URISyntaxExceptionが発生する場合
      *
+     * @author KenichiroArai
+     * 
+     * @sine 0.1.0
+     * 
+     * @version 0.1.0
+     * 
      * @throws Exception
      *                   失敗
      */
@@ -123,6 +147,12 @@ public class KmgPathUtilsTest extends AbstractKmgTest {
     /**
      * getBinPath メソッドのテスト - 正常系:正常なクラスの場合
      *
+     * @author KenichiroArai
+     * 
+     * @sine 0.1.0
+     * 
+     * @version 0.1.0
+     * 
      * @throws KmgDomainException
      *                            失敗
      */
@@ -144,6 +174,12 @@ public class KmgPathUtilsTest extends AbstractKmgTest {
     /**
      * getBinPath メソッドのテスト - 正常系:正常なオブジェクトの場合
      *
+     * @author KenichiroArai
+     * 
+     * @sine 0.1.0
+     * 
+     * @version 0.1.0
+     * 
      * @throws KmgDomainException
      *                            失敗
      */
@@ -165,6 +201,12 @@ public class KmgPathUtilsTest extends AbstractKmgTest {
     /**
      * getClassFullPath メソッドのテスト - 異常系:クラス名が空の場合
      *
+     * @author KenichiroArai
+     * 
+     * @sine 0.1.0
+     * 
+     * @version 0.1.0
+     * 
      * @throws KmgDomainException
      *                            KMGドメイン例外
      */
@@ -193,6 +235,12 @@ public class KmgPathUtilsTest extends AbstractKmgTest {
     /**
      * getClassFullPath メソッドのテスト - 異常系:クラスがnullの場合
      *
+     * @author KenichiroArai
+     * 
+     * @sine 0.1.0
+     * 
+     * @version 0.1.0
+     * 
      * @throws KmgDomainException
      *                            KMGドメイン例外
      */
@@ -217,6 +265,12 @@ public class KmgPathUtilsTest extends AbstractKmgTest {
     /**
      * getClassFullPath メソッドのテスト - 異常系:オブジェクトがnullの場合
      *
+     * @author KenichiroArai
+     * 
+     * @sine 0.1.0
+     * 
+     * @version 0.1.0
+     * 
      * @throws KmgDomainException
      *                            KMGドメイン例外
      */
@@ -241,6 +295,12 @@ public class KmgPathUtilsTest extends AbstractKmgTest {
     /**
      * getClassFullPath メソッドのテスト - 正常系:全ての要素が正しく結合される場合
      *
+     * @author KenichiroArai
+     * 
+     * @sine 0.1.0
+     * 
+     * @version 0.1.0
+     * 
      * @throws KmgDomainException
      *                            KMGドメイン例外
      */
@@ -270,6 +330,12 @@ public class KmgPathUtilsTest extends AbstractKmgTest {
     /**
      * getClassFullPath メソッドのテスト - 正常系：ビルドパスがnullの場合
      *
+     * @author KenichiroArai
+     * 
+     * @sine 0.1.0
+     * 
+     * @version 0.1.0
+     * 
      * @throws KmgDomainException
      *                            KMGドメイン例外
      */
@@ -298,6 +364,12 @@ public class KmgPathUtilsTest extends AbstractKmgTest {
     /**
      * getClassFullPath メソッドのテスト - 正常系:オブジェクトがクラスインスタンスの場合
      *
+     * @author KenichiroArai
+     * 
+     * @sine 0.1.0
+     * 
+     * @version 0.1.0
+     * 
      * @throws KmgDomainException
      *                            KMGドメイン例外
      */
@@ -324,6 +396,12 @@ public class KmgPathUtilsTest extends AbstractKmgTest {
     /**
      * getClassFullPath メソッドのテスト - 正常系:オブジェクトが通常のインスタンスの場合
      *
+     * @author KenichiroArai
+     * 
+     * @sine 0.1.0
+     * 
+     * @version 0.1.0
+     * 
      * @throws KmgDomainException
      *                            KMGドメイン例外
      */
@@ -350,6 +428,12 @@ public class KmgPathUtilsTest extends AbstractKmgTest {
     /**
      * getClassFullPath メソッドのテスト - 正常系:パッケージ名の変換の場合
      *
+     * @author KenichiroArai
+     * 
+     * @sine 0.1.0
+     * 
+     * @version 0.1.0
+     * 
      * @throws KmgDomainException
      *                            KMGドメイン例外
      */
@@ -378,6 +462,12 @@ public class KmgPathUtilsTest extends AbstractKmgTest {
     /**
      * getClassFullPath メソッドのテスト - 正常系:有効なクラスの場合
      *
+     * @author KenichiroArai
+     * 
+     * @sine 0.1.0
+     * 
+     * @version 0.1.0
+     * 
      * @throws Exception
      *                   例外
      */
@@ -404,6 +494,12 @@ public class KmgPathUtilsTest extends AbstractKmgTest {
     /**
      * getClassFullPath メソッドのテスト - 正常系:有効なオブジェクトの場合
      *
+     * @author KenichiroArai
+     * 
+     * @sine 0.1.0
+     * 
+     * @version 0.1.0
+     * 
      * @throws KmgDomainException
      *                            KMGドメイン例外
      */
@@ -434,6 +530,12 @@ public class KmgPathUtilsTest extends AbstractKmgTest {
     /**
      * getClassFullPath メソッドのテスト - 異常系:ビルドパスがnullの場合
      *
+     * @author KenichiroArai
+     * 
+     * @sine 0.1.0
+     * 
+     * @version 0.1.0
+     * 
      * @throws KmgDomainException
      *                            KMGドメイン例外
      */
@@ -463,6 +565,12 @@ public class KmgPathUtilsTest extends AbstractKmgTest {
     /**
      * getCodeSourceLocation メソッドのテスト - 異常系:nullの場合
      *
+     * @author KenichiroArai
+     * 
+     * @sine 0.1.0
+     * 
+     * @version 0.1.0
+     * 
      * @throws URISyntaxException
      *                            URI構文例外
      */
@@ -486,6 +594,12 @@ public class KmgPathUtilsTest extends AbstractKmgTest {
     /**
      * getCodeSourceLocation メソッドのテスト - 正常系:有効なクラスの場合
      *
+     * @author KenichiroArai
+     * 
+     * @sine 0.1.0
+     * 
+     * @version 0.1.0
+     * 
      * @throws URISyntaxException
      *                            URI構文例外
      */
@@ -506,6 +620,12 @@ public class KmgPathUtilsTest extends AbstractKmgTest {
 
     /**
      * getFileNameOnly メソッドのテスト - 異常系:nullの場合
+     * 
+     * @author KenichiroArai
+     * 
+     * @sine 0.1.0
+     * 
+     * @version 0.1.0
      */
     @Test
     public void testGetFileNameOnly_errorNull() {
@@ -526,6 +646,12 @@ public class KmgPathUtilsTest extends AbstractKmgTest {
 
     /**
      * getFileNameOnly メソッドのテスト - 正常系:有効なパスの場合
+     * 
+     * @author KenichiroArai
+     * 
+     * @sine 0.1.0
+     * 
+     * @version 0.1.0
      */
     @Test
     public void testGetFileNameOnly_normalValidPath() {

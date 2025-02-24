@@ -23,10 +23,10 @@ import kmg.core.test.AbstractKmgTest;
  * KMGSQLパスモデルテスト<br>
  *
  * @author KenichiroArai
- *
- * @sine 1.0.0
- *
- * @version 1.0.0
+ * 
+ * @sine 0.1.0
+ * 
+ * @version 0.1.0
  */
 @ExtendWith(MockitoExtension.class)
 @MockitoSettings(strictness = Strictness.LENIENT)
@@ -35,15 +35,37 @@ import kmg.core.test.AbstractKmgTest;
 })
 public class KmgSqlPathModelImplTest extends AbstractKmgTest {
 
-    /** テスト対象 */
+    /**
+     * テスト対象
+     * 
+     * @author KenichiroArai
+     * 
+     * @sine 0.1.0
+     * 
+     * @version 0.1.0
+     */
     private KmgSqlPathModelImpl target;
 
-    /** 一時ディレクトリ */
+    /**
+     * 一時ディレクトリ
+     * 
+     * @author KenichiroArai
+     * 
+     * @sine 0.1.0
+     * 
+     * @version 0.1.0
+     */
     @TempDir
     private Path tempDir;
 
     /**
      * セットアップ<br>
+     * 
+     * @author KenichiroArai
+     * 
+     * @sine 0.1.0
+     * 
+     * @version 0.1.0
      */
     @BeforeEach
     public void setUp() {
@@ -58,10 +80,10 @@ public class KmgSqlPathModelImplTest extends AbstractKmgTest {
      * コンストラクタのテスト - 正常系：クラスを使用したコンストラクタ<br>
      *
      * @author KenichiroArai
-     *
-     * @sine 1.0.0
-     *
-     * @version 1.0.0
+     * 
+     * @sine 0.1.0
+     * 
+     * @version 0.1.0
      *
      * @throws Exception
      *                   例外
@@ -92,10 +114,10 @@ public class KmgSqlPathModelImplTest extends AbstractKmgTest {
      * convertParameters メソッドのテスト - 正常系：空文字列<br>
      *
      * @author KenichiroArai
-     *
-     * @sine 1.0.0
-     *
-     * @version 1.0.0
+     * 
+     * @sine 0.1.0
+     * 
+     * @version 0.1.0
      *
      * @throws Exception
      *                   例外
@@ -124,6 +146,12 @@ public class KmgSqlPathModelImplTest extends AbstractKmgTest {
 
     /**
      * toSql メソッドのテスト - 異常系：ファイルが存在しない<br>
+     * 
+     * @author KenichiroArai
+     * 
+     * @sine 0.1.0
+     * 
+     * @version 0.1.0
      */
     @Test
     public void testToSql_errorFileNotFound() {
@@ -151,10 +179,10 @@ public class KmgSqlPathModelImplTest extends AbstractKmgTest {
      * toSql メソッドのテスト - 正常系：空のSQL<br>
      *
      * @author KenichiroArai
-     *
-     * @sine 1.0.0
-     *
-     * @version 1.0.0
+     * 
+     * @sine 0.1.0
+     * 
+     * @version 0.1.0
      *
      * @throws Exception
      *                   例外
@@ -185,10 +213,10 @@ public class KmgSqlPathModelImplTest extends AbstractKmgTest {
      * toSql メソッドのテスト - 正常系：パラメータ変換<br>
      *
      * @author KenichiroArai
-     *
-     * @sine 1.0.0
-     *
-     * @version 1.0.0
+     * 
+     * @sine 0.1.0
+     * 
+     * @version 0.1.0
      *
      * @throws Exception
      *                   例外
