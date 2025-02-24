@@ -9,9 +9,9 @@ import org.junit.jupiter.api.Test;
  * KMGデシマルテスト<br>
  *
  * @author KenichiroArai
- * 
+ *
  * @sine 0.1.0
- * 
+ *
  * @version 0.1.0
  */
 @SuppressWarnings({
@@ -21,11 +21,11 @@ public class KmgDecimalTest {
 
     /**
      * CALC_ZERO定数のテスト - 正常系：計算用ゼロ値の確認
-     * 
+     *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      */
     @Test
@@ -41,11 +41,11 @@ public class KmgDecimalTest {
 
     /**
      * コンストラクタのテスト - 正常系：BigDecimal値で初期化する場合
-     * 
+     *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      */
     @Test
@@ -70,11 +70,11 @@ public class KmgDecimalTest {
 
     /**
      * コンストラクタのテスト - 正常系：double値で初期化する場合
-     * 
+     *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      */
     @Test
@@ -99,11 +99,11 @@ public class KmgDecimalTest {
 
     /**
      * コンストラクタのテスト - 準正常系：BigDecimal値がnullの場合
-     * 
+     *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      */
     @Test
@@ -123,11 +123,11 @@ public class KmgDecimalTest {
 
     /**
      * divide メソッドのテスト - 正常系：通常の除算の場合
-     * 
+     *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      */
     @Test
@@ -150,11 +150,11 @@ public class KmgDecimalTest {
 
     /**
      * divide メソッドのテスト - 準正常系：引数がnullの場合
-     * 
+     *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      */
     @Test
@@ -175,11 +175,11 @@ public class KmgDecimalTest {
 
     /**
      * divide メソッドのテスト - 準正常系：ゼロ除算の場合
-     * 
+     *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      */
     @Test
@@ -200,11 +200,11 @@ public class KmgDecimalTest {
 
     /**
      * RESULT_ZERO定数のテスト - 正常系：結果用ゼロ値の確認
-     * 
+     *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      */
     @Test
@@ -220,11 +220,11 @@ public class KmgDecimalTest {
 
     /**
      * setCalcScale メソッドのテスト - 正常系：BigDecimalの値で計算用スケールを設定する場合
-     * 
+     *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      */
     @Test
@@ -246,11 +246,11 @@ public class KmgDecimalTest {
 
     /**
      * setCalcScale メソッドのテスト - 正常系：double値で計算用スケールを設定する場合
-     * 
+     *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      */
     @Test
@@ -272,11 +272,11 @@ public class KmgDecimalTest {
 
     /**
      * setCalcScale メソッドのテスト - 準正常系：BigDecimalの値がnullの場合
-     * 
+     *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      */
     @Test
@@ -296,11 +296,11 @@ public class KmgDecimalTest {
 
     /**
      * setResultScale メソッドのテスト - 正常系：BigDecimalの値で結果用スケールを設定する場合
-     * 
+     *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      */
     @Test
@@ -322,11 +322,11 @@ public class KmgDecimalTest {
 
     /**
      * setResultScale メソッドのテスト - 正常系：double値で結果用スケールを設定する場合
-     * 
+     *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      */
     @Test
@@ -348,11 +348,11 @@ public class KmgDecimalTest {
 
     /**
      * setResultScale メソッドのテスト - 準正常系：BigDecimalの値がnullの場合
-     * 
+     *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      */
     @Test

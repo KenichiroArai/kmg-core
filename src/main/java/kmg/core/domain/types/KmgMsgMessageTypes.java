@@ -9,9 +9,9 @@ import kmg.core.infrastructure.common.KmgMessageTypes;
  * KMGメッセージメッセージの種類<br>
  *
  * @author KenichiroArai
- * 
+ *
  * @sine 0.1.0
- * 
+ *
  * @version 0.1.0
  */
 @SuppressWarnings("nls")
@@ -21,154 +21,154 @@ public enum KmgMsgMessageTypes implements KmgMessageTypes {
 
     /**
      * 指定無し
-     * 
+     *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      */
     NONE("指定無し"),
 
     /**
      * {0}がありません。
-     * 
+     *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      */
     KMGMSGE11100("{0}がありません。"),
 
     /**
      * フィールドの取得に失敗しました。フィールド名=[{0}]、対象のクラス=[{1}]、最後に取得したフィールド=[{2}]
-     * 
+     *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      */
     KMGMSGE11200("フィールドの取得に失敗しました。フィールド名=[{0}]、対象のクラス=[{1}]、最後に取得したフィールド=[{2}]"),
 
     /**
      * フィールドの値の取得に失敗しました。フィールド名=[{0}]、対象のクラス=[{1}]、最後に取得したフィールド=[{2}]
-     * 
+     *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      */
     KMGMSGE11201("フィールドの値の取得に失敗しました。フィールド名=[{0}]、対象のクラス=[{1}]、最後に取得したフィールド=[{2}]"),
 
     /**
      * フィールドの値の取得に失敗しました。フィールド名=[{0}]、対象のクラス=[{1}]、最後に取得したフィールド=[{2}]
-     * 
+     *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      */
     KMGMSGE11202("フィールドの値の取得に失敗しました。フィールド名=[{0}]、対象のクラス=[{1}]、最後に取得したフィールド=[{2}]"),
 
     /**
      * メソッドの取得に失敗しました。メソッド名=[{0}]、対象のクラス=[{1}]
-     * 
+     *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      */
     KMGMSGE11203("メソッドの取得に失敗しました。メソッド名=[{0}]、対象のクラス=[{1}]"),
 
     /**
      * メソッドの値の取得に失敗しました。メソッド名=[{0}]、対象のクラス=[{1}]
-     * 
+     *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      */
     KMGMSGE11204("メソッドの値の取得に失敗しました。メソッド名=[{0}]、対象のクラス=[{1}]"),
 
     /**
      * メソッドの値の取得に失敗しました。メソッド名=[{0}]、対象のクラス=[{1}]
-     * 
+     *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      */
     KMGMSGE11205("メソッドの値の取得に失敗しました。メソッド名=[{0}]、対象のクラス=[{1}]"),
 
     /**
      * メソッドの値の取得に失敗しました。メソッド名=[{0}]、対象のクラス=[{1}]
-     * 
+     *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      */
     KMGMSGE11206("メソッドの値の取得に失敗しました。メソッド名=[{0}]、対象のクラス=[{1}]"),
 
     /**
      * メソッドの値の取得に失敗しました。メソッド名=[{0}]、対象のクラス=[{1}]
-     * 
+     *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      */
     KMGMSGE11207("メソッドの値の取得に失敗しました。メソッド名=[{0}]、対象のクラス=[{1}]"),
 
     /**
      * フィールドの取得に失敗しました。フィールド名=[{0}]、対象のクラス=[{1}]、最後に取得したフィールド=[{2}]
-     * 
+     *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      */
     KMGMSGE11209("フィールドの取得に失敗しました。フィールド名=[{0}]、対象のクラス=[{1}]、最後に取得したフィールド=[{2}]"),
 
     /**
      * フィールドの値の設定に失敗しました。フィールド名=[{0}]、対象のクラス=[{1}]、最後に取得したフィールド=[{2}]
-     * 
+     *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      */
     KMGMSGE11210("フィールドの値の設定に失敗しました。フィールド名=[{0}]、対象のクラス=[{1}]、最後に取得したフィールド=[{2}]"),
 
     /**
      * フィールドの値の設定に失敗しました。フィールド名=[{0}]、対象のクラス=[{1}]、最後に取得したフィールド=[{2}]
-     * 
+     *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      */
     KMGMSGE11211("フィールドの値の設定に失敗しました。フィールド名=[{0}]、対象のクラス=[{1}]、最後に取得したフィールド=[{2}]"),
 
     /**
      * クラスからビルドバスの取得に失敗しました。クラス=[{0}]
-     * 
+     *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      */
     KMGMSGE24000("クラスからビルドバスの取得に失敗しました。クラス=[{0}]"),
@@ -178,11 +178,11 @@ public enum KmgMsgMessageTypes implements KmgMessageTypes {
 
     /**
      * 種類のマップ
-     * 
+     *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      */
     private static final Map<String, KmgMsgMessageTypes> VALUES_MAP = new HashMap<>();
@@ -200,44 +200,44 @@ public enum KmgMsgMessageTypes implements KmgMessageTypes {
 
     /**
      * 表示名
-     * 
+     *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      */
     private final String displayName;
 
     /**
      * メッセージのキー
-     * 
+     *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      */
     private final String key;
 
     /**
      * メッセージの値
-     * 
+     *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      */
     private final String value;
 
     /**
      * 詳細情報
-     * 
+     *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      */
     private final String detail;
@@ -246,9 +246,9 @@ public enum KmgMsgMessageTypes implements KmgMessageTypes {
      * デフォルトの種類を返す<br>
      *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      *
      * @return デフォルト値
@@ -267,9 +267,9 @@ public enum KmgMsgMessageTypes implements KmgMessageTypes {
      * </p>
      *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      *
      * @param key
@@ -294,9 +294,9 @@ public enum KmgMsgMessageTypes implements KmgMessageTypes {
      * 初期値の種類を返す<br>
      *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      *
      * @return 初期値
@@ -312,9 +312,9 @@ public enum KmgMsgMessageTypes implements KmgMessageTypes {
      * コンストラクタ<br>
      *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      *
      * @param displayName
@@ -331,12 +331,12 @@ public enum KmgMsgMessageTypes implements KmgMessageTypes {
 
     /**
      * メッセージのキーを返す。<br>
-     * 
+     *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
-     * @version 0.1.0 このメソッドは{@link #getKey()}のエイリアスです。
+     *
+     * @version 0.1.0
      *
      * @return メッセージのキー
      *
@@ -352,12 +352,12 @@ public enum KmgMsgMessageTypes implements KmgMessageTypes {
 
     /**
      * メッセージのキーを返す。<br>
-     * 
+     *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
-     * @version 0.1.0 このメソッドは{@link #getKey()}のエイリアスです。
+     *
+     * @version 0.1.0
      *
      * @return メッセージのキー
      *
@@ -375,11 +375,11 @@ public enum KmgMsgMessageTypes implements KmgMessageTypes {
      * 詳細情報を返す。<br>
      *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
-     * 
+     *
      * @return 詳細情報
      */
     @Override
@@ -397,11 +397,11 @@ public enum KmgMsgMessageTypes implements KmgMessageTypes {
      * </p>
      *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
-     * 
+     *
      * @return 表示名
      */
     @Override
@@ -416,11 +416,11 @@ public enum KmgMsgMessageTypes implements KmgMessageTypes {
      * メッセージのキーを返す。<br>
      *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
-     * 
+     *
      * @return メッセージのキー
      */
     @Override
@@ -435,11 +435,11 @@ public enum KmgMsgMessageTypes implements KmgMessageTypes {
      * メッセージの値を返す。
      *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
-     * 
+     *
      * @return メッセージの値
      */
     @Override
@@ -452,12 +452,12 @@ public enum KmgMsgMessageTypes implements KmgMessageTypes {
 
     /**
      * メッセージのキーを返す。<br>
-     * 
+     *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
-     * @version 0.1.0 このメソッドは{@link #getKey()}のエイリアスです。
+     *
+     * @version 0.1.0
      *
      * @return メッセージのキー
      *

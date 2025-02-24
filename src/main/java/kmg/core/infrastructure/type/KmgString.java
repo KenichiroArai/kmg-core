@@ -7,64 +7,64 @@ import kmg.core.infrastructure.utils.KmgArrayUtils;
  * KMG文字列
  *
  * @author KenichiroArai
- * 
+ *
  * @sine 0.1.0
- * 
+ *
  * @version 0.1.0
  */
 public class KmgString {
 
     /**
      * 空文字列
-     * 
+     *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      */
     public static final String EMPTY = ""; //$NON-NLS-1$
 
     /**
      * 半角スペース
-     * 
+     *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      */
     public static final String HALF_SPACE = " "; //$NON-NLS-1$
 
     /**
      * 全角スペース
-     * 
+     *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      */
     public static final String ALL_SPACE = "　"; //$NON-NLS-1$
 
     /**
      * 改行
-     * 
+     *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      */
     public static final String LINE_SEPARATOR = System.lineSeparator();
 
     /**
      * 値
-     * 
+     *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      */
     private String value;
@@ -73,9 +73,9 @@ public class KmgString {
      * コンストラクタ
      *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      *
      * @param value
@@ -91,9 +91,9 @@ public class KmgString {
      * 値を返す。
      *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      *
      * @return 値
@@ -109,9 +109,9 @@ public class KmgString {
      * 対象文字列が空文字かどうかを返す<br>
      *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      *
      * @param target
@@ -131,9 +131,9 @@ public class KmgString {
      * 対象文字列が空文字ではないかどうかを返す<br>
      *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      *
      * @param target
@@ -152,9 +152,9 @@ public class KmgString {
      * 文字列を結合して返す<br>
      *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      *
      * @param target
@@ -191,9 +191,9 @@ public class KmgString {
      * キャピタライズを返す<br>
      *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      *
      * @param target
@@ -232,9 +232,9 @@ public class KmgString {
      * </p>
      *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      *
      * @param target
@@ -316,9 +316,9 @@ public class KmgString {
      * </p>
      *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      *
      * @param target
@@ -376,9 +376,9 @@ public class KmgString {
      * </p>
      *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      *
      * @param target
@@ -444,9 +444,9 @@ public class KmgString {
      * </p>
      *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      *
      * @param str1
@@ -482,9 +482,9 @@ public class KmgString {
      * 大文字小文字区別しないで一致するか<br>
      *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      *
      * @param str1
@@ -520,9 +520,9 @@ public class KmgString {
      * 空文字かどうかを返す<br>
      *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      *
      * @return true：空文字である、false：空文字ではない
@@ -552,9 +552,9 @@ public class KmgString {
      * 空文字ではないかどうかを返す<br>
      *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      *
      * @return true：空文字である、false：空文字ではない
@@ -573,9 +573,9 @@ public class KmgString {
      * </p>
      *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      *
      * @return スネークケースの文字列
@@ -594,9 +594,9 @@ public class KmgString {
      * </p>
      *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      */
     public void fromSnakeCase() {
@@ -612,9 +612,9 @@ public class KmgString {
      * </p>
      *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      *
      * @return キャメルケースの文字列
@@ -633,9 +633,9 @@ public class KmgString {
      * </p>
      *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      */
     public void fromCamelCase() {
@@ -648,11 +648,11 @@ public class KmgString {
      * 置換対象文字列を置換文字列に置換する。
      *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
-     * 
+     *
      * @param target
      *                   置換対象文字列
      * @param replacemen
@@ -668,9 +668,9 @@ public class KmgString {
      * 文字列を返す<br>
      *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      */
     @Override

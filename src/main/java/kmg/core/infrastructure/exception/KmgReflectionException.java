@@ -7,31 +7,31 @@ import kmg.core.infrastructure.model.KmgReflectionModel;
  * KMGリフレクション例外<br>
  *
  * @author KenichiroArai
- * 
+ *
  * @sine 0.1.0
- * 
+ *
  * @version 0.1.0
  */
 public class KmgReflectionException extends KmgDomainException {
 
     /**
      * デフォルトシリアルバージョンＵＩＤ
-     * 
+     *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      */
     private static final long serialVersionUID = 1L;
 
     /**
      * KMGリフレクションモデル
-     * 
+     *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      */
     private final KmgReflectionModel kmgReflectionModel;
@@ -40,9 +40,9 @@ public class KmgReflectionException extends KmgDomainException {
      * コンストラクタ<br>
      *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      *
      * @param kmgReflectionModel
@@ -60,9 +60,9 @@ public class KmgReflectionException extends KmgDomainException {
      * コンストラクタ<br>
      *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      *
      * @param kmgReflectionModel
@@ -83,9 +83,9 @@ public class KmgReflectionException extends KmgDomainException {
      * コンストラクタ<br>
      *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      *
      * @param kmgReflectionModel
@@ -109,9 +109,9 @@ public class KmgReflectionException extends KmgDomainException {
      * コンストラクタ<br>
      *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      *
      * @param kmgReflectionModel
@@ -132,9 +132,9 @@ public class KmgReflectionException extends KmgDomainException {
      * KMGリフレクションモデルを返す<br>
      *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      *
      * @return KMGリフレクションモデル

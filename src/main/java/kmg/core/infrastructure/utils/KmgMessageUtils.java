@@ -12,31 +12,31 @@ import kmg.core.infrastructure.type.KmgString;
  * KMGメッセージユーティリティ<br>
  *
  * @author KenichiroArai
- * 
+ *
  * @sine 0.1.0
- * 
+ *
  * @version 0.1.0
  */
 public final class KmgMessageUtils {
 
     /**
      * リソースバンドルマップ
-     * 
+     *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      */
     private static final Map<String, ResourceBundle> bundleMap;
 
     /**
      * プロパティファイル名の配列
-     * 
+     *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      */
     @SuppressWarnings("nls")
@@ -62,9 +62,9 @@ public final class KmgMessageUtils {
      * メッセージパターンの引数の数と実際の引数の数が一致しているかチェックする<br>
      *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      *
      * @param messagePattern
@@ -119,9 +119,9 @@ public final class KmgMessageUtils {
      * メッセージを取得する<br>
      *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      *
      * @param type
@@ -166,9 +166,9 @@ public final class KmgMessageUtils {
      * メッセージパターンを取得する<br>
      *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      *
      * @param type
@@ -218,9 +218,9 @@ public final class KmgMessageUtils {
      * メッセージパターンの引数の数を取得する<br>
      *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      *
      * @param messagePattern
@@ -258,9 +258,9 @@ public final class KmgMessageUtils {
      * コンストラクタ<br>
      *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      */
     private KmgMessageUtils() {

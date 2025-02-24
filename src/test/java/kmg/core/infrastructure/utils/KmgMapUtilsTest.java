@@ -10,9 +10,9 @@ import org.junit.jupiter.api.Test;
  * KMGマップユーティリティテスト<br>
  *
  * @author KenichiroArai
- * 
+ *
  * @sine 0.1.0
- * 
+ *
  * @version 0.1.0
  */
 @SuppressWarnings({
@@ -22,11 +22,11 @@ public class KmgMapUtilsTest {
 
     /**
      * isEmpty メソッドのテスト - 異常系:nullの場合
-     * 
+     *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      */
     @Test
@@ -48,11 +48,11 @@ public class KmgMapUtilsTest {
 
     /**
      * isEmpty メソッドのテスト - 正常系:要素がある場合
-     * 
+     *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      */
     @Test
@@ -75,11 +75,11 @@ public class KmgMapUtilsTest {
 
     /**
      * isEmpty メソッドのテスト - 準正常系:空マップの場合
-     * 
+     *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      */
     @Test
@@ -101,11 +101,11 @@ public class KmgMapUtilsTest {
 
     /**
      * isNotEmpty メソッドのテスト - 異常系:nullの場合
-     * 
+     *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      */
     @Test
@@ -127,11 +127,11 @@ public class KmgMapUtilsTest {
 
     /**
      * isNotEmpty メソッドのテスト - 正常系:要素がある場合
-     * 
+     *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      */
     @Test
@@ -154,11 +154,11 @@ public class KmgMapUtilsTest {
 
     /**
      * isNotEmpty メソッドのテスト - 準正常系:空マップの場合
-     * 
+     *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      */
     @Test

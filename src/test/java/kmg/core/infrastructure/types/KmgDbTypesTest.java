@@ -7,9 +7,9 @@ import org.junit.jupiter.api.Test;
  * KMGＤＢの種類のテスト<br>
  *
  * @author KenichiroArai
- * 
+ *
  * @sine 0.1.0
- * 
+ *
  * @version 0.1.0
  */
 @SuppressWarnings({
@@ -19,11 +19,11 @@ public class KmgDbTypesTest {
 
     /**
      * get メソッドのテスト - 正常系:基本的な値の取得
-     * 
+     *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      */
     @Test
@@ -45,11 +45,11 @@ public class KmgDbTypesTest {
 
     /**
      * getAliasArray メソッドのテスト - 正常系:別名配列の取得
-     * 
+     *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      */
     @Test
@@ -73,11 +73,11 @@ public class KmgDbTypesTest {
 
     /**
      * getDefault メソッドのテスト - 正常系:デフォルト値の取得
-     * 
+     *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      */
     @Test
@@ -96,11 +96,11 @@ public class KmgDbTypesTest {
 
     /**
      * getDetail メソッドのテスト - 正常系:基本的な詳細情報の取得
-     * 
+     *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      */
     @Test
@@ -122,11 +122,11 @@ public class KmgDbTypesTest {
 
     /**
      * getDisplayName メソッドのテスト - 正常系:基本的な表示名の取得
-     * 
+     *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      */
     @Test
@@ -148,11 +148,11 @@ public class KmgDbTypesTest {
 
     /**
      * getEnum メソッドのテスト - 正常系:存在する値の取得
-     * 
+     *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      */
     @Test
@@ -174,11 +174,11 @@ public class KmgDbTypesTest {
 
     /**
      * getEnum メソッドのテスト - 準正常系:存在しない値の取得
-     * 
+     *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      */
     @Test
@@ -200,11 +200,11 @@ public class KmgDbTypesTest {
 
     /**
      * getEnum メソッドのテスト - 準正常系:nullの場合の取得
-     * 
+     *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      */
     @Test
@@ -226,11 +226,11 @@ public class KmgDbTypesTest {
 
     /**
      * getEnumByTarget メソッドのテスト - 正常系:別名による検索
-     * 
+     *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      */
     @Test
@@ -252,11 +252,11 @@ public class KmgDbTypesTest {
 
     /**
      * getEnumByTarget メソッドのテスト - 正常系:値による検索
-     * 
+     *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      */
     @Test
@@ -278,11 +278,11 @@ public class KmgDbTypesTest {
 
     /**
      * getEnumByTarget メソッドのテスト - 正常系:大文字小文字を区別しない比較
-     * 
+     *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      */
     @Test
@@ -304,11 +304,11 @@ public class KmgDbTypesTest {
 
     /**
      * getEnumByTarget メソッドのテスト - 正常系:別名が存在しない場合の検索
-     * 
+     *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      */
     @Test
@@ -330,11 +330,11 @@ public class KmgDbTypesTest {
 
     /**
      * getEnumByTarget メソッドのテスト - 正常系:値の大文字小文字を区別しない比較
-     * 
+     *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      */
     @Test
@@ -356,11 +356,11 @@ public class KmgDbTypesTest {
 
     /**
      * getEnumByTarget メソッドのテスト - 準正常系:別名が一致しない場合の取得
-     * 
+     *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      */
     @Test
@@ -382,11 +382,11 @@ public class KmgDbTypesTest {
 
     /**
      * getEnumByTarget メソッドのテスト - 準正常系:存在しない対象の検索
-     * 
+     *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      */
     @Test
@@ -408,11 +408,11 @@ public class KmgDbTypesTest {
 
     /**
      * getInitValue メソッドのテスト - 正常系:初期値の取得
-     * 
+     *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      */
     @Test
@@ -431,11 +431,11 @@ public class KmgDbTypesTest {
 
     /**
      * toString メソッドのテスト - 正常系:MySQLの文字列表現
-     * 
+     *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      */
     @Test
@@ -457,11 +457,11 @@ public class KmgDbTypesTest {
 
     /**
      * toString メソッドのテスト - 正常系:NONEの文字列表現
-     * 
+     *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      */
     @Test
@@ -483,11 +483,11 @@ public class KmgDbTypesTest {
 
     /**
      * toString メソッドのテスト - 正常系:PostgreSQLの文字列表現
-     * 
+     *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      */
     @Test

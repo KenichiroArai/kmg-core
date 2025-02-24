@@ -14,20 +14,20 @@ import kmg.core.infrastructure.type.KmgString;
  * KMGSQLパスモデル<br>
  *
  * @author KenichiroArai
- * 
+ *
  * @sine 0.1.0
- * 
+ *
  * @version 0.1.0
  */
 public class KmgSqlPathModelImpl implements KmgSqlPathModel {
 
     /**
      * SQLファイルパス
-     * 
+     *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      */
     private final Path sqlFilePath;
@@ -39,9 +39,9 @@ public class KmgSqlPathModelImpl implements KmgSqlPathModel {
      * </p>
      *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      *
      * @param str
@@ -71,9 +71,9 @@ public class KmgSqlPathModelImpl implements KmgSqlPathModel {
      * コンストラクタ<br>
      *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      *
      * @param zlass
@@ -91,9 +91,9 @@ public class KmgSqlPathModelImpl implements KmgSqlPathModel {
      * コンストラクタ<br>
      *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      *
      * @param object
@@ -119,9 +119,9 @@ public class KmgSqlPathModelImpl implements KmgSqlPathModel {
      * </p>
      *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      *
      * @return SQLにして返す

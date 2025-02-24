@@ -14,9 +14,9 @@ import kmg.core.infrastructure.type.KmgString;
  * KMGＤＢ型の種類<br>
  *
  * @author KenichiroArai
- * 
+ *
  * @sine 0.1.0
- * 
+ *
  * @version 0.1.0
  */
 @SuppressWarnings("nls")
@@ -26,121 +26,121 @@ public enum KmgDbDataTypeTypes implements KmgTypes<String> {
 
     /**
      * 指定無し
-     * 
+     *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      */
     NONE("指定無し", KmgString.EMPTY, null),
 
     /**
      * 4バイト整数
-     * 
+     *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      */
     INTEGER("4バイト整数", "4バイト整数", Integer.class),
 
     /**
      * 8バイト整数
-     * 
+     *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      */
     LONG("8バイト整数", "8バイト整数", Long.class),
 
     /**
      * 日付型
-     * 
+     *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      */
     DATE("日付型", "日付型", LocalDate.class),
 
     /**
      * 日時型
-     * 
+     *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      */
     TIME("日時型", "日時型", LocalDateTime.class),
 
     /**
      * 文字列型
-     * 
+     *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      */
     STRING("文字列型", "文字列型", String.class),
 
     /**
      * 自動4バイト
-     * 
+     *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      */
     SMALLSERIAL("自動4バイト", "自動4バイト", Integer.class),
 
     /**
      * 自動8バイト
-     * 
+     *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      */
     SERIAL("自動8バイト", "自動8バイト", Long.class),
 
     /**
      * 4バイト実数
-     * 
+     *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      */
     FLOAT("4バイト実数", "4バイト実数", Float.class),
 
     /**
      * 8バイト実数
-     * 
+     *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      */
     DOUBLE("8バイト実数", "8バイト実数", Double.class),
 
     /**
      * 8バイト実数
-     * 
+     *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      */
     BIG_DECIMAL("8バイト実数", "8バイト実数", BigDecimal.class),
@@ -150,11 +150,11 @@ public enum KmgDbDataTypeTypes implements KmgTypes<String> {
 
     /**
      * 種類のマップ
-     * 
+     *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      */
     private static final Map<String, KmgDbDataTypeTypes> VALUES_MAP = new HashMap<>();
@@ -172,44 +172,44 @@ public enum KmgDbDataTypeTypes implements KmgTypes<String> {
 
     /**
      * 表示名
-     * 
+     *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      */
     private final String displayName;
 
     /**
      * キー
-     * 
+     *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      */
     private final String key;
 
     /**
      * 詳細情報
-     * 
+     *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      */
     private final String detail;
 
     /**
      * 型
-     * 
+     *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      */
     private final Type type;
@@ -218,9 +218,9 @@ public enum KmgDbDataTypeTypes implements KmgTypes<String> {
      * デフォルトの種類を返す<br>
      *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      *
      * @return デフォルト値
@@ -239,9 +239,9 @@ public enum KmgDbDataTypeTypes implements KmgTypes<String> {
      * </p>
      *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      *
      * @param key
@@ -266,9 +266,9 @@ public enum KmgDbDataTypeTypes implements KmgTypes<String> {
      * 初期値の種類を返す<br>
      *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      *
      * @return 初期値
@@ -284,9 +284,9 @@ public enum KmgDbDataTypeTypes implements KmgTypes<String> {
      * コンストラクタ<br>
      *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      *
      * @param displayName
@@ -307,12 +307,12 @@ public enum KmgDbDataTypeTypes implements KmgTypes<String> {
 
     /**
      * キーを返す。<br>
-     * 
+     *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
-     * @version 0.1.0 このメソッドは{@link #getKey()}のエイリアスです。
+     *
+     * @version 0.1.0
      *
      * @return キー
      *
@@ -330,11 +330,11 @@ public enum KmgDbDataTypeTypes implements KmgTypes<String> {
      * 詳細情報を返す。<br>
      *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
-     * 
+     *
      * @return 詳細情報
      */
     @Override
@@ -352,11 +352,11 @@ public enum KmgDbDataTypeTypes implements KmgTypes<String> {
      * </p>
      *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
-     * 
+     *
      * @return 表示名
      */
     @Override
@@ -371,11 +371,11 @@ public enum KmgDbDataTypeTypes implements KmgTypes<String> {
      * キーを返す。<br>
      *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
-     * 
+     *
      * @return キー
      */
     @Override
@@ -390,11 +390,11 @@ public enum KmgDbDataTypeTypes implements KmgTypes<String> {
      * 型を返す<br>
      *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
-     * 
+     *
      * @return 型
      */
     public Type getType() {
@@ -406,12 +406,12 @@ public enum KmgDbDataTypeTypes implements KmgTypes<String> {
 
     /**
      * キーを返す。<br>
-     * 
+     *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
-     * @version 0.1.0 このメソッドは{@link #getKey()}のエイリアスです。
+     *
+     * @version 0.1.0
      *
      * @return キー
      *

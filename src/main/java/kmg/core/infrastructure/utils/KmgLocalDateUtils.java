@@ -11,20 +11,20 @@ import kmg.core.infrastructure.type.KmgString;
  * KMGローカル日付ユーティリティ<br>
  *
  * @author KenichiroArai
- * 
+ *
  * @sine 0.1.0
- * 
+ *
  * @version 0.1.0
  */
 public final class KmgLocalDateUtils {
 
     /**
      * フォーマッタパターン（yyyy/MM/dd）
-     * 
+     *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      */
     private static final String FORMATTER_PATTERN_YYYY_MM_DD = "yyyy/MM/dd"; //$NON-NLS-1$
@@ -33,9 +33,9 @@ public final class KmgLocalDateUtils {
      * デフォルトコンストラクタ<br>
      *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      */
     private KmgLocalDateUtils() {
@@ -50,9 +50,9 @@ public final class KmgLocalDateUtils {
      * </p>
      *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      *
      * @param dateStr
@@ -81,9 +81,9 @@ public final class KmgLocalDateUtils {
      * </p>
      *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      *
      * @param date
@@ -112,9 +112,9 @@ public final class KmgLocalDateUtils {
      * </p>
      *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      *
      * @param localDate
@@ -143,9 +143,9 @@ public final class KmgLocalDateUtils {
      * </p>
      *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      *
      * @param date

@@ -15,9 +15,9 @@ import kmg.core.infrastructure.model.KmgReflectionModel;
  * KMGリフレクション例外テスト<br>
  *
  * @author KenichiroArai
- * 
+ *
  * @sine 0.1.0
- * 
+ *
  * @version 0.1.0
  */
 @SuppressWarnings({
@@ -28,11 +28,11 @@ public class KmgReflectionExceptionTest {
 
     /**
      * KMGリフレクションモデル
-     * 
+     *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      */
     @Mock
@@ -40,33 +40,33 @@ public class KmgReflectionExceptionTest {
 
     /**
      * メッセージタイプ
-     * 
+     *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      */
     private KmgMessageTypes messageTypes;
 
     /**
      * メッセージ
-     * 
+     *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      */
     private String message;
 
     /**
      * 初期化処理<br>
-     * 
+     *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      */
     @BeforeEach
@@ -80,11 +80,11 @@ public class KmgReflectionExceptionTest {
 
     /**
      * constructor メソッドのテスト - 正常系：メッセージタイプとKMGリフレクションモデルを指定した場合
-     * 
+     *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      */
     @Test
@@ -108,11 +108,11 @@ public class KmgReflectionExceptionTest {
 
     /**
      * constructor メソッドのテスト - 正常系：メッセージタイプ、メッセージ引数、KMGリフレクションモデルを指定した場合
-     * 
+     *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      */
     @Test
@@ -144,11 +144,11 @@ public class KmgReflectionExceptionTest {
 
     /**
      * constructor メソッドのテスト - 正常系：メッセージタイプ、原因、KMGリフレクションモデルを指定した場合
-     * 
+     *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      */
     @Test
@@ -177,11 +177,11 @@ public class KmgReflectionExceptionTest {
 
     /**
      * constructor メソッドのテスト - 正常系：メッセージタイプ、メッセージ引数、原因、KMGリフレクションモデルを指定した場合
-     * 
+     *
      * @author KenichiroArai
-     * 
+     *
      * @sine 0.1.0
-     * 
+     *
      * @version 0.1.0
      */
     @Test
