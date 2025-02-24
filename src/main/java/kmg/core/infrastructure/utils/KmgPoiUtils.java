@@ -19,21 +19,7 @@ import kmg.core.infrastructure.type.KmgString;
 public final class KmgPoiUtils {
 
     /**
-     * デフォルトコンストラクタ<br>
-     *
-     * @author KenichiroArai
-     *
-     * @since 0.1.0
-     *
-     * @version 0.1.0
-     */
-    private KmgPoiUtils() {
-
-        // 処理無し
-    }
-
-    /**
-     * セルの値を返す<br>
+     * セルを返す<br>
      *
      * @author KenichiroArai
      *
@@ -41,48 +27,28 @@ public final class KmgPoiUtils {
      *
      * @version 0.1.0
      *
-     * @param cell
-     *             セル
+     * @param sheet
+     *                    シート
+     * @param rowIndex
+     *                    行番号
+     * @param columnIndex
+     *                    カラム番号
      *
-     * @return セルの値
+     * @return セル
      */
-    public static String getStringValue(final Cell cell) {
+    public static Cell getCell(final Sheet sheet, final int rowIndex, final int columnIndex) {
 
-        String result = null;
+        Cell result = null;
 
-        if (cell == null) {
+        final Row row = sheet.getRow(rowIndex);
+
+        if (row == null) {
 
             return result;
 
         }
 
-        switch (cell.getCellType()) {
-
-            case STRING:
-                result = cell.getStringCellValue();
-                break;
-
-            case NUMERIC:
-                result = Double.toString(cell.getNumericCellValue());
-                break;
-
-            case BOOLEAN:
-                result = Boolean.toString(cell.getBooleanCellValue());
-                break;
-
-            case FORMULA:
-                result = KmgPoiUtils.getStringFormulaValue(cell);
-                break;
-
-            case BLANK:
-                result = KmgPoiUtils.getStringRangeValue(cell);
-                break;
-
-            case ERROR:
-            case _NONE:
-                break;
-
-        }
+        result = row.getCell(columnIndex);
         return result;
 
     }
@@ -173,7 +139,7 @@ public final class KmgPoiUtils {
     }
 
     /**
-     * セルを返す<br>
+     * セルの値を返す<br>
      *
      * @author KenichiroArai
      *
@@ -181,28 +147,48 @@ public final class KmgPoiUtils {
      *
      * @version 0.1.0
      *
-     * @param sheet
-     *                    シート
-     * @param rowIndex
-     *                    行番号
-     * @param columnIndex
-     *                    カラム番号
+     * @param cell
+     *             セル
      *
-     * @return セル
+     * @return セルの値
      */
-    public static Cell getCell(final Sheet sheet, final int rowIndex, final int columnIndex) {
+    public static String getStringValue(final Cell cell) {
 
-        Cell result = null;
+        String result = null;
 
-        final Row row = sheet.getRow(rowIndex);
-
-        if (row == null) {
+        if (cell == null) {
 
             return result;
 
         }
 
-        result = row.getCell(columnIndex);
+        switch (cell.getCellType()) {
+
+            case STRING:
+                result = cell.getStringCellValue();
+                break;
+
+            case NUMERIC:
+                result = Double.toString(cell.getNumericCellValue());
+                break;
+
+            case BOOLEAN:
+                result = Boolean.toString(cell.getBooleanCellValue());
+                break;
+
+            case FORMULA:
+                result = KmgPoiUtils.getStringFormulaValue(cell);
+                break;
+
+            case BLANK:
+                result = KmgPoiUtils.getStringRangeValue(cell);
+                break;
+
+            case ERROR:
+            case _NONE:
+                break;
+
+        }
         return result;
 
     }
@@ -240,6 +226,20 @@ public final class KmgPoiUtils {
         result = false;
         return result;
 
+    }
+
+    /**
+     * デフォルトコンストラクタ<br>
+     *
+     * @author KenichiroArai
+     *
+     * @since 0.1.0
+     *
+     * @version 0.1.0
+     */
+    private KmgPoiUtils() {
+
+        // 処理無し
     }
 
 }

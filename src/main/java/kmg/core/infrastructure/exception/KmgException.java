@@ -245,6 +245,24 @@ public class KmgException extends Exception {
     }
 
     /**
+     * メッセージパターンを返す。<br>
+     *
+     * @author KenichiroArai
+     *
+     * @since 0.1.0
+     *
+     * @version 0.1.0
+     *
+     * @return メッセージパターン
+     */
+    public String getMessagePattern() {
+
+        final String result = this.messagePattern;
+        return result;
+
+    }
+
+    /**
      * メッセージパターンの引数の数を返す。<br>
      *
      * @author KenichiroArai
@@ -294,24 +312,6 @@ public class KmgException extends Exception {
     public boolean isMatchMessageArgsCount() {
 
         final boolean result = this.isMatchMessageArgsCount;
-        return result;
-
-    }
-
-    /**
-     * メッセージパターンを返す。<br>
-     *
-     * @author KenichiroArai
-     *
-     * @since 0.1.0
-     *
-     * @version 0.1.0
-     *
-     * @return メッセージパターン
-     */
-    public String getMessagePattern() {
-
-        final String result = this.messagePattern;
         return result;
 
     }

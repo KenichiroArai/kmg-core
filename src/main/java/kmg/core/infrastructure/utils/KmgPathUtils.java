@@ -20,55 +20,6 @@ import kmg.core.infrastructure.type.KmgString;
 public final class KmgPathUtils {
 
     /**
-     * デフォルトコンストラクタ<br>
-     *
-     * @author KenichiroArai
-     *
-     * @since 0.1.0
-     *
-     * @version 0.1.0
-     */
-    private KmgPathUtils() {
-
-        // 処理無し
-    }
-
-    /**
-     * ファイル名のみを返す<br>
-     * <p>
-     * ファイルパスがnullの場合は、nullを返す。<br>
-     * 拡張子のないファイル名のみを返す。<br>
-     * ファイルパスがディレクトリの場合はファイルパスをそのまま返す。<br>
-     * </p>
-     *
-     * @author KenichiroArai
-     *
-     * @since 0.1.0
-     *
-     * @version 0.1.0
-     *
-     * @param filePath
-     *                 ファイルパス
-     *
-     * @return true：ファイル名のみ
-     */
-    public static String getFileNameOnly(final Path filePath) {
-
-        String result = null;
-
-        if (filePath == null) {
-
-            return result;
-
-        }
-
-        final String fileNameTmp = filePath.getFileName().toString();
-        result = fileNameTmp.substring(0, fileNameTmp.lastIndexOf('.'));
-        return result;
-
-    }
-
-    /**
      * ビルドパスを返す<br>
      * <p>
      * クラスのビルドパスを返す。<br>
@@ -117,42 +68,6 @@ public final class KmgPathUtils {
     }
 
     /**
-     * クラスのコードソースの場所を取得する<br>
-     * <p>
-     * クラスのコードソースの場所をパスとして返す。<br>
-     * </p>
-     *
-     * @author KenichiroArai
-     *
-     * @since 0.1.0
-     *
-     * @version 0.1.0
-     *
-     * @param zlass
-     *              クラス
-     *
-     * @return コードソースの場所
-     *
-     * @throws URISyntaxException
-     *                            URI構文例外
-     */
-    protected static Path getCodeSourceLocation(final Class<?> zlass) throws URISyntaxException {
-
-        Path result = null;
-
-        if (zlass == null) {
-
-            return result;
-
-        }
-
-        result = Paths.get(zlass.getProtectionDomain().getCodeSource().getLocation().toURI());
-
-        return result;
-
-    }
-
-    /**
      * ビルドパスを返す<br>
      * <p>
      * オブジェクトのビルドパスを返す。<br>
@@ -184,6 +99,45 @@ public final class KmgPathUtils {
 
         result = KmgPathUtils.getBinPath(obj.getClass());
 
+        return result;
+
+    }
+
+    /**
+     * クラスとファイル名からクラスのフルパスを返す<br>
+     * <p>
+     * 例：パッケージ名に「com.sample」、クラス名に「SampleDao」、ファイル名に「sample.sql」の場合、 「ビルドパス/com/sample/sample_dao/sample.sql」を返す。<br>
+     * クラス名が空の場合は、空を返す。<br>
+     * </p>
+     *
+     * @author KenichiroArai
+     *
+     * @since 0.1.0
+     *
+     * @version 0.1.0
+     *
+     * @param zlass
+     *                 クラス
+     * @param fileName
+     *                 ファイル名
+     *
+     * @return クラスのフルパス
+     *
+     * @throws KmgDomainException
+     *                            KMGドメイン例外
+     */
+    public static Path getClassFullPath(final Class<?> zlass, final Path fileName) throws KmgDomainException {
+
+        Path result = null;
+
+        if (zlass == null) {
+
+            return result;
+
+        }
+
+        final Path binPath = KmgPathUtils.getBinPath(zlass);
+        result = KmgPathUtils.getClassFullPath(binPath, zlass.getPackageName(), zlass.getSimpleName(), fileName);
         return result;
 
     }
@@ -239,10 +193,44 @@ public final class KmgPathUtils {
     }
 
     /**
-     * クラスとファイル名からクラスのフルパスを返す<br>
+     * ファイル名のみを返す<br>
      * <p>
-     * 例：パッケージ名に「com.sample」、クラス名に「SampleDao」、ファイル名に「sample.sql」の場合、 「ビルドパス/com/sample/sample_dao/sample.sql」を返す。<br>
-     * クラス名が空の場合は、空を返す。<br>
+     * ファイルパスがnullの場合は、nullを返す。<br>
+     * 拡張子のないファイル名のみを返す。<br>
+     * ファイルパスがディレクトリの場合はファイルパスをそのまま返す。<br>
+     * </p>
+     *
+     * @author KenichiroArai
+     *
+     * @since 0.1.0
+     *
+     * @version 0.1.0
+     *
+     * @param filePath
+     *                 ファイルパス
+     *
+     * @return true：ファイル名のみ
+     */
+    public static String getFileNameOnly(final Path filePath) {
+
+        String result = null;
+
+        if (filePath == null) {
+
+            return result;
+
+        }
+
+        final String fileNameTmp = filePath.getFileName().toString();
+        result = fileNameTmp.substring(0, fileNameTmp.lastIndexOf('.'));
+        return result;
+
+    }
+
+    /**
+     * クラスのコードソースの場所を取得する<br>
+     * <p>
+     * クラスのコードソースの場所をパスとして返す。<br>
      * </p>
      *
      * @author KenichiroArai
@@ -252,16 +240,14 @@ public final class KmgPathUtils {
      * @version 0.1.0
      *
      * @param zlass
-     *                 クラス
-     * @param fileName
-     *                 ファイル名
+     *              クラス
      *
-     * @return クラスのフルパス
+     * @return コードソースの場所
      *
-     * @throws KmgDomainException
-     *                            KMGドメイン例外
+     * @throws URISyntaxException
+     *                            URI構文例外
      */
-    public static Path getClassFullPath(final Class<?> zlass, final Path fileName) throws KmgDomainException {
+    protected static Path getCodeSourceLocation(final Class<?> zlass) throws URISyntaxException {
 
         Path result = null;
 
@@ -271,8 +257,8 @@ public final class KmgPathUtils {
 
         }
 
-        final Path binPath = KmgPathUtils.getBinPath(zlass);
-        result = KmgPathUtils.getClassFullPath(binPath, zlass.getPackageName(), zlass.getSimpleName(), fileName);
+        result = Paths.get(zlass.getProtectionDomain().getCodeSource().getLocation().toURI());
+
         return result;
 
     }
@@ -337,5 +323,19 @@ public final class KmgPathUtils {
 
         return result;
 
+    }
+
+    /**
+     * デフォルトコンストラクタ<br>
+     *
+     * @author KenichiroArai
+     *
+     * @since 0.1.0
+     *
+     * @version 0.1.0
+     */
+    private KmgPathUtils() {
+
+        // 処理無し
     }
 }

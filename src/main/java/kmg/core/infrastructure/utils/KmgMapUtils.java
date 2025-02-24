@@ -14,20 +14,6 @@ import java.util.Map;
 public final class KmgMapUtils {
 
     /**
-     * デフォルトコンストラクタ<br>
-     *
-     * @author KenichiroArai
-     *
-     * @since 0.1.0
-     *
-     * @version 0.1.0
-     */
-    private KmgMapUtils() {
-
-        // 処理無し
-    }
-
-    /**
      * 対象が空か<br>
      *
      * @author KenichiroArai
@@ -81,5 +67,19 @@ public final class KmgMapUtils {
         final boolean result = !KmgMapUtils.isEmpty(target);
         return result;
 
+    }
+
+    /**
+     * デフォルトコンストラクタ<br>
+     *
+     * @author KenichiroArai
+     *
+     * @since 0.1.0
+     *
+     * @version 0.1.0
+     */
+    private KmgMapUtils() {
+
+        // 処理無し
     }
 }

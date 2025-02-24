@@ -12,20 +12,6 @@ package kmg.core.infrastructure.utils;
 public final class KmgArrayUtils {
 
     /**
-     * デフォルトコンストラクタ<br>
-     *
-     * @author KenichiroArai
-     *
-     * @since 0.1.0
-     *
-     * @version 0.1.0
-     */
-    private KmgArrayUtils() {
-
-        // 処理無し
-    }
-
-    /**
      * 対象が空か<br>
      *
      * @author KenichiroArai
@@ -79,5 +65,19 @@ public final class KmgArrayUtils {
         final boolean result = !KmgArrayUtils.isEmpty(target);
         return result;
 
+    }
+
+    /**
+     * デフォルトコンストラクタ<br>
+     *
+     * @author KenichiroArai
+     *
+     * @since 0.1.0
+     *
+     * @version 0.1.0
+     */
+    private KmgArrayUtils() {
+
+        // 処理無し
     }
 }

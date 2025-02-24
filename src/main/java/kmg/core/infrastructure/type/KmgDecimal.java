@@ -92,6 +92,32 @@ public class KmgDecimal {
     private BigDecimal value;
 
     /**
+     * 除算する<br>
+     * <p>
+     * num1 ÷ num2
+     * </p>
+     *
+     * @author KenichiroArai
+     *
+     * @since 0.1.0
+     *
+     * @version 0.1.0
+     *
+     * @param num1
+     *             数値１
+     * @param num2
+     *             数値２
+     *
+     * @return 除算結果
+     */
+    public static BigDecimal divide(final BigDecimal num1, final BigDecimal num2) {
+
+        final BigDecimal result = num1.divide(num2, KmgDecimal.CALC_SCALE, KmgDecimal.CALC_ROUNDING_MODE);
+        return result;
+
+    }
+
+    /**
      * 計算用のスケールを設定する<br>
      *
      * @author KenichiroArai
@@ -171,32 +197,6 @@ public class KmgDecimal {
     public static BigDecimal setResultScale(final double value) {
 
         final BigDecimal result = KmgDecimal.setResultScale(new BigDecimal(value));
-        return result;
-
-    }
-
-    /**
-     * 除算する<br>
-     * <p>
-     * num1 ÷ num2
-     * </p>
-     *
-     * @author KenichiroArai
-     *
-     * @since 0.1.0
-     *
-     * @version 0.1.0
-     *
-     * @param num1
-     *             数値１
-     * @param num2
-     *             数値２
-     *
-     * @return 除算結果
-     */
-    public static BigDecimal divide(final BigDecimal num1, final BigDecimal num2) {
-
-        final BigDecimal result = num1.divide(num2, KmgDecimal.CALC_SCALE, KmgDecimal.CALC_ROUNDING_MODE);
         return result;
 
     }

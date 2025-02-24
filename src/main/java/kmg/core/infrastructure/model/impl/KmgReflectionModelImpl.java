@@ -522,6 +522,31 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
     }
 
     /**
+     * 宣言されているメソッドを返す<br>
+     *
+     * @author KenichiroArai
+     *
+     * @since 0.1.0
+     *
+     * @version 0.1.0
+     *
+     * @param targetClazz
+     *                    クラス
+     *
+     * @return 宣言されているメソッド
+     *
+     * @throws SecurityException
+     *                           セキュリティ例外
+     */
+    @SuppressWarnings("static-method")
+    protected Method[] getDeclaredMethods(final Class<?> targetClazz) throws SecurityException {
+
+        final Method[] result = targetClazz.getDeclaredMethods();
+        return result;
+
+    }
+
+    /**
      * フィールド名に該当するフィールドを返す<br>
      *
      * @author KenichiroArai
@@ -641,31 +666,6 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
         throws SecurityException, IllegalAccessException {
 
         field.set(targetObject, value);
-
-    }
-
-    /**
-     * 宣言されているメソッドを返す<br>
-     *
-     * @author KenichiroArai
-     *
-     * @since 0.1.0
-     *
-     * @version 0.1.0
-     *
-     * @param targetClazz
-     *                    クラス
-     *
-     * @return 宣言されているメソッド
-     *
-     * @throws SecurityException
-     *                           セキュリティ例外
-     */
-    @SuppressWarnings("static-method")
-    protected Method[] getDeclaredMethods(final Class<?> targetClazz) throws SecurityException {
-
-        final Method[] result = targetClazz.getDeclaredMethods();
-        return result;
 
     }
 }

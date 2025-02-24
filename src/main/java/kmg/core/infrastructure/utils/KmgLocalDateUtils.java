@@ -30,54 +30,9 @@ public final class KmgLocalDateUtils {
     private static final String FORMATTER_PATTERN_YYYY_MM_DD = "yyyy/MM/dd"; //$NON-NLS-1$
 
     /**
-     * デフォルトコンストラクタ<br>
-     *
-     * @author KenichiroArai
-     *
-     * @since 0.1.0
-     *
-     * @version 0.1.0
-     */
-    private KmgLocalDateUtils() {
-
-        // 処理無し
-    }
-
-    /**
-     * 解析yyyy/MM/dd<br>
+     * フォーマットyyyy/MM/dd<br>
      * <p>
-     * 日付文字列（yyyy/MM/dd）を解析し、ローカル日付にして返す。
-     * </p>
-     *
-     * @author KenichiroArai
-     *
-     * @since 0.1.0
-     *
-     * @version 0.1.0
-     *
-     * @param dateStr
-     *                日付文字列（yyyy/MM/dd）
-     *
-     * @return ローカル日付
-     */
-    public static LocalDate parseYyyyMmDd(final String dateStr) {
-
-        LocalDate result = null;
-
-        if (KmgString.isEmpty(dateStr)) {
-
-            return result;
-
-        }
-        result = LocalDate.parse(dateStr, DateTimeFormatter.ofPattern(KmgLocalDateUtils.FORMATTER_PATTERN_YYYY_MM_DD));
-        return result;
-
-    }
-
-    /**
-     * 日付からローカル日付へ/dd<br>
-     * <p>
-     * 日付をからローカル日付にして返す。
+     * 日付を日付文字列（yyyy/MM/dd）にして返す。
      * </p>
      *
      * @author KenichiroArai
@@ -89,18 +44,19 @@ public final class KmgLocalDateUtils {
      * @param date
      *             日付
      *
-     * @return ローカル日付
+     * @return 日付文字列（yyyy/MM/dd）
      */
-    public static LocalDate from(final Date date) {
+    public static String formatYyyyMmDd(final Date date) {
 
-        LocalDate result = null;
+        String result = null;
 
         if (date == null) {
 
             return result;
 
         }
-        result = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        final LocalDate localDate = KmgLocalDateUtils.from(date);
+        result = localDate.format(DateTimeFormatter.ofPattern(KmgLocalDateUtils.FORMATTER_PATTERN_YYYY_MM_DD));
         return result;
 
     }
@@ -137,9 +93,9 @@ public final class KmgLocalDateUtils {
     }
 
     /**
-     * フォーマットyyyy/MM/dd<br>
+     * 日付からローカル日付へ/dd<br>
      * <p>
-     * 日付を日付文字列（yyyy/MM/dd）にして返す。
+     * 日付をからローカル日付にして返す。
      * </p>
      *
      * @author KenichiroArai
@@ -151,20 +107,64 @@ public final class KmgLocalDateUtils {
      * @param date
      *             日付
      *
-     * @return 日付文字列（yyyy/MM/dd）
+     * @return ローカル日付
      */
-    public static String formatYyyyMmDd(final Date date) {
+    public static LocalDate from(final Date date) {
 
-        String result = null;
+        LocalDate result = null;
 
         if (date == null) {
 
             return result;
 
         }
-        final LocalDate localDate = KmgLocalDateUtils.from(date);
-        result = localDate.format(DateTimeFormatter.ofPattern(KmgLocalDateUtils.FORMATTER_PATTERN_YYYY_MM_DD));
+        result = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
         return result;
 
+    }
+
+    /**
+     * 解析yyyy/MM/dd<br>
+     * <p>
+     * 日付文字列（yyyy/MM/dd）を解析し、ローカル日付にして返す。
+     * </p>
+     *
+     * @author KenichiroArai
+     *
+     * @since 0.1.0
+     *
+     * @version 0.1.0
+     *
+     * @param dateStr
+     *                日付文字列（yyyy/MM/dd）
+     *
+     * @return ローカル日付
+     */
+    public static LocalDate parseYyyyMmDd(final String dateStr) {
+
+        LocalDate result = null;
+
+        if (KmgString.isEmpty(dateStr)) {
+
+            return result;
+
+        }
+        result = LocalDate.parse(dateStr, DateTimeFormatter.ofPattern(KmgLocalDateUtils.FORMATTER_PATTERN_YYYY_MM_DD));
+        return result;
+
+    }
+
+    /**
+     * デフォルトコンストラクタ<br>
+     *
+     * @author KenichiroArai
+     *
+     * @since 0.1.0
+     *
+     * @version 0.1.0
+     */
+    private KmgLocalDateUtils() {
+
+        // 処理無し
     }
 }

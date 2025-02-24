@@ -163,6 +163,46 @@ public final class KmgMessageUtils {
     }
 
     /**
+     * メッセージパターンの引数の数を取得する<br>
+     *
+     * @author KenichiroArai
+     *
+     * @since 0.1.0
+     *
+     * @version 0.1.0
+     *
+     * @param messagePattern
+     *                       メッセージパターン
+     *
+     * @return メッセージパターンの引数の数
+     */
+    public static int getMessageArgsCount(final String messagePattern) {
+
+        int result = 0;
+
+        /* 引数のチェック */
+        if (messagePattern == null) {
+
+            return result;
+
+        }
+
+        /* メッセージパターンの引数の数をカウントする */
+        try {
+
+            final MessageFormat messageFormat = new MessageFormat(messagePattern);
+            result = messageFormat.getFormatsByArgumentIndex().length;
+
+        } catch (@SuppressWarnings("unused") final IllegalArgumentException e) {
+
+            // 処理なし
+        }
+
+        return result;
+
+    }
+
+    /**
      * メッセージパターンを取得する<br>
      *
      * @author KenichiroArai
@@ -208,46 +248,6 @@ public final class KmgMessageUtils {
 
             }
 
-        }
-
-        return result;
-
-    }
-
-    /**
-     * メッセージパターンの引数の数を取得する<br>
-     *
-     * @author KenichiroArai
-     *
-     * @since 0.1.0
-     *
-     * @version 0.1.0
-     *
-     * @param messagePattern
-     *                       メッセージパターン
-     *
-     * @return メッセージパターンの引数の数
-     */
-    public static int getMessageArgsCount(final String messagePattern) {
-
-        int result = 0;
-
-        /* 引数のチェック */
-        if (messagePattern == null) {
-
-            return result;
-
-        }
-
-        /* メッセージパターンの引数の数をカウントする */
-        try {
-
-            final MessageFormat messageFormat = new MessageFormat(messagePattern);
-            result = messageFormat.getFormatsByArgumentIndex().length;
-
-        } catch (@SuppressWarnings("unused") final IllegalArgumentException e) {
-
-            // 処理なし
         }
 
         return result;
