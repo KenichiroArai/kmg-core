@@ -10,7 +10,7 @@ import kmg.core.infrastructure.common.KmgTypes;
  *
  * @author KenichiroArai
  *
- * @sine 0.1.0
+ * @since 0.1.0
  *
  * @version 0.1.0
  */
@@ -24,7 +24,7 @@ public enum KmgTemplateTypes implements KmgTypes<String> {
      *
      * @author KenichiroArai
      *
-     * @sine 0.1.0
+     * @since 0.1.0
      *
      * @version 0.1.0
      */
@@ -38,7 +38,7 @@ public enum KmgTemplateTypes implements KmgTypes<String> {
      *
      * @author KenichiroArai
      *
-     * @sine 0.1.0
+     * @since 0.1.0
      *
      * @version 0.1.0
      */
@@ -60,7 +60,7 @@ public enum KmgTemplateTypes implements KmgTypes<String> {
      *
      * @author KenichiroArai
      *
-     * @sine 0.1.0
+     * @since 0.1.0
      *
      * @version 0.1.0
      */
@@ -71,7 +71,7 @@ public enum KmgTemplateTypes implements KmgTypes<String> {
      *
      * @author KenichiroArai
      *
-     * @sine 0.1.0
+     * @since 0.1.0
      *
      * @version 0.1.0
      */
@@ -82,7 +82,7 @@ public enum KmgTemplateTypes implements KmgTypes<String> {
      *
      * @author KenichiroArai
      *
-     * @sine 0.1.0
+     * @since 0.1.0
      *
      * @version 0.1.0
      */
@@ -93,7 +93,7 @@ public enum KmgTemplateTypes implements KmgTypes<String> {
      *
      * @author KenichiroArai
      *
-     * @sine 0.1.0
+     * @since 0.1.0
      *
      * @version 0.1.0
      *
@@ -114,7 +114,7 @@ public enum KmgTemplateTypes implements KmgTypes<String> {
      *
      * @author KenichiroArai
      *
-     * @sine 0.1.0
+     * @since 0.1.0
      *
      * @version 0.1.0
      *
@@ -141,7 +141,7 @@ public enum KmgTemplateTypes implements KmgTypes<String> {
      *
      * @author KenichiroArai
      *
-     * @sine 0.1.0
+     * @since 0.1.0
      *
      * @version 0.1.0
      *
@@ -159,7 +159,7 @@ public enum KmgTemplateTypes implements KmgTypes<String> {
      *
      * @author KenichiroArai
      *
-     * @sine 0.1.0
+     * @since 0.1.0
      *
      * @version 0.1.0
      *
@@ -183,7 +183,7 @@ public enum KmgTemplateTypes implements KmgTypes<String> {
      *
      * @author KenichiroArai
      *
-     * @sine 0.1.0
+     * @since 0.1.0
      *
      * @version 0.1.0
      *
@@ -204,7 +204,7 @@ public enum KmgTemplateTypes implements KmgTypes<String> {
      *
      * @author KenichiroArai
      *
-     * @sine 0.1.0
+     * @since 0.1.0
      *
      * @version 0.1.0
      *
@@ -226,7 +226,7 @@ public enum KmgTemplateTypes implements KmgTypes<String> {
      *
      * @author KenichiroArai
      *
-     * @sine 0.1.0
+     * @since 0.1.0
      *
      * @version 0.1.0
      *
@@ -245,7 +245,7 @@ public enum KmgTemplateTypes implements KmgTypes<String> {
      *
      * @author KenichiroArai
      *
-     * @sine 0.1.0
+     * @since 0.1.0
      *
      * @version 0.1.0
      *
@@ -264,7 +264,7 @@ public enum KmgTemplateTypes implements KmgTypes<String> {
      *
      * @author KenichiroArai
      *
-     * @sine 0.1.0
+     * @since 0.1.0
      *
      * @version 0.1.0
      *

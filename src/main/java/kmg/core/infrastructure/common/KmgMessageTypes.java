@@ -5,7 +5,7 @@ package kmg.core.infrastructure.common;
  *
  * @author KenichiroArai
  *
- * @sine 0.1.0
+ * @since 0.1.0
  *
  * @version 0.1.0
  */
@@ -16,7 +16,7 @@ public interface KmgMessageTypes extends KmgTypes<String> {
      *
      * @author KenichiroArai
      *
-     * @sine 0.1.0
+     * @since 0.1.0
      *
      * @version 0.1.0
      *
@@ -32,7 +32,7 @@ public interface KmgMessageTypes extends KmgTypes<String> {
      *
      * @author KenichiroArai
      *
-     * @sine 0.1.0
+     * @since 0.1.0
      *
      * @version 0.1.0
      *
@@ -47,7 +47,7 @@ public interface KmgMessageTypes extends KmgTypes<String> {
      *
      * @author KenichiroArai
      *
-     * @sine 0.1.0
+     * @since 0.1.0
      *
      * @version 0.1.0
      *
@@ -61,7 +61,7 @@ public interface KmgMessageTypes extends KmgTypes<String> {
      *
      * @author KenichiroArai
      *
-     * @sine 0.1.0
+     * @since 0.1.0
      *
      * @version 0.1.0
      *
@@ -74,7 +74,7 @@ public interface KmgMessageTypes extends KmgTypes<String> {
      *
      * @author KenichiroArai
      *
-     * @sine 0.1.0
+     * @since 0.1.0
      *
      * @version 0.1.0
      *

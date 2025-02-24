@@ -16,7 +16,7 @@ import kmg.core.infrastructure.model.KmgReflectionModel;
  *
  * @author KenichiroArai
  *
- * @sine 0.1.0
+ * @since 0.1.0
  *
  * @version 0.1.0
  */
@@ -31,7 +31,7 @@ public class KmgReflectionExceptionTest {
      *
      * @author KenichiroArai
      *
-     * @sine 0.1.0
+     * @since 0.1.0
      *
      * @version 0.1.0
      */
@@ -43,7 +43,7 @@ public class KmgReflectionExceptionTest {
      *
      * @author KenichiroArai
      *
-     * @sine 0.1.0
+     * @since 0.1.0
      *
      * @version 0.1.0
      */
@@ -54,7 +54,7 @@ public class KmgReflectionExceptionTest {
      *
      * @author KenichiroArai
      *
-     * @sine 0.1.0
+     * @since 0.1.0
      *
      * @version 0.1.0
      */
@@ -65,7 +65,7 @@ public class KmgReflectionExceptionTest {
      *
      * @author KenichiroArai
      *
-     * @sine 0.1.0
+     * @since 0.1.0
      *
      * @version 0.1.0
      */
@@ -83,7 +83,7 @@ public class KmgReflectionExceptionTest {
      *
      * @author KenichiroArai
      *
-     * @sine 0.1.0
+     * @since 0.1.0
      *
      * @version 0.1.0
      */
@@ -111,7 +111,7 @@ public class KmgReflectionExceptionTest {
      *
      * @author KenichiroArai
      *
-     * @sine 0.1.0
+     * @since 0.1.0
      *
      * @version 0.1.0
      */
@@ -147,7 +147,7 @@ public class KmgReflectionExceptionTest {
      *
      * @author KenichiroArai
      *
-     * @sine 0.1.0
+     * @since 0.1.0
      *
      * @version 0.1.0
      */
@@ -180,7 +180,7 @@ public class KmgReflectionExceptionTest {
      *
      * @author KenichiroArai
      *
-     * @sine 0.1.0
+     * @since 0.1.0
      *
      * @version 0.1.0
      */
