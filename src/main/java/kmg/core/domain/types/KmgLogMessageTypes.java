@@ -10,26 +10,50 @@ import kmg.core.infrastructure.common.KmgMessageTypes;
  *
  * @author KenichiroArai
  *
- * @sine 1.0.0
+ * @sine 0.1.0
  *
- * @version 1.0.0
+ * @version 0.1.0
  */
 @SuppressWarnings("nls")
 public enum KmgLogMessageTypes implements KmgMessageTypes {
 
     /* 定義：開始 */
 
-    /** 指定無し */
+    /**
+     * 指定無し
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
+     */
     NONE("指定無し"),
 
     // TODO 2021/06/08 不要なので削除する
-    /** サンプル */
+    /**
+     * サンプル
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
+     */
     I00001("サンプル"),
 
     /* 定義：終了 */
     ;
 
-    /** 種類のマップ */
+    /**
+     * 種類のマップ
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
+     */
     private static final Map<String, KmgLogMessageTypes> VALUES_MAP = new HashMap<>();
 
     static {
@@ -43,16 +67,48 @@ public enum KmgLogMessageTypes implements KmgMessageTypes {
 
     }
 
-    /** 表示名 */
+    /**
+     * 表示名
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
+     */
     private final String displayName;
 
-    /** メッセージのキー */
+    /**
+     * メッセージのキー
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
+     */
     private final String key;
 
-    /** メッセージの値 */
+    /**
+     * メッセージの値
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
+     */
     private final String value;
 
-    /** 詳細情報 */
+    /**
+     * 詳細情報
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
+     */
     private final String detail;
 
     /**
@@ -60,9 +116,9 @@ public enum KmgLogMessageTypes implements KmgMessageTypes {
      *
      * @author KenichiroArai
      *
-     * @sine 1.0.0
+     * @sine 0.1.0
      *
-     * @version 1.0.0
+     * @version 0.1.0
      *
      * @return デフォルト値
      */
@@ -81,9 +137,9 @@ public enum KmgLogMessageTypes implements KmgMessageTypes {
      *
      * @author KenichiroArai
      *
-     * @sine 1.0.0
+     * @sine 0.1.0
      *
-     * @version 1.0.0
+     * @version 0.1.0
      *
      * @param key
      *            キー
@@ -108,9 +164,9 @@ public enum KmgLogMessageTypes implements KmgMessageTypes {
      *
      * @author KenichiroArai
      *
-     * @sine 1.0.0
+     * @sine 0.1.0
      *
-     * @version 1.0.0
+     * @version 0.1.0
      *
      * @return 初期値
      */
@@ -126,9 +182,9 @@ public enum KmgLogMessageTypes implements KmgMessageTypes {
      *
      * @author KenichiroArai
      *
-     * @sine 1.0.0
+     * @sine 0.1.0
      *
-     * @version 1.0.0
+     * @version 0.1.0
      *
      * @param displayName
      *                    表示名
@@ -144,7 +200,12 @@ public enum KmgLogMessageTypes implements KmgMessageTypes {
 
     /**
      * メッセージのキーを返す。<br>
-     * このメソッドは{@link #getKey()}のエイリアスです。
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
      *
      * @return メッセージのキー
      *
@@ -160,7 +221,12 @@ public enum KmgLogMessageTypes implements KmgMessageTypes {
 
     /**
      * メッセージのキーを返す。<br>
-     * このメソッドは{@link #getKey()}のエイリアスです。
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
      *
      * @return メッセージのキー
      *
@@ -176,6 +242,12 @@ public enum KmgLogMessageTypes implements KmgMessageTypes {
 
     /**
      * 詳細情報を返す。<br>
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
      *
      * @return 詳細情報
      */
@@ -193,6 +265,12 @@ public enum KmgLogMessageTypes implements KmgMessageTypes {
      * 識別するための表示名を返す。
      * </p>
      *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
+     *
      * @return 表示名
      */
     @Override
@@ -205,6 +283,12 @@ public enum KmgLogMessageTypes implements KmgMessageTypes {
 
     /**
      * メッセージのキーを返す。<br>
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
      *
      * @return メッセージのキー
      */
@@ -219,6 +303,12 @@ public enum KmgLogMessageTypes implements KmgMessageTypes {
     /**
      * メッセージの値を返す。
      *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
+     *
      * @return メッセージの値
      */
     @Override
@@ -231,7 +321,12 @@ public enum KmgLogMessageTypes implements KmgMessageTypes {
 
     /**
      * メッセージのキーを返す。<br>
-     * このメソッドは{@link #getKey()}のエイリアスです。
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
      *
      * @return メッセージのキー
      *

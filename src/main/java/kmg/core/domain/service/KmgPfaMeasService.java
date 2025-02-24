@@ -5,9 +5,9 @@ package kmg.core.domain.service;
  *
  * @author KenichiroArai
  *
- * @sine 1.0.0
+ * @sine 0.1.0
  *
- * @version 1.0.0
+ * @version 0.1.0
  */
 public interface KmgPfaMeasService {
 
@@ -16,9 +16,9 @@ public interface KmgPfaMeasService {
      *
      * @author KenichiroArai
      *
-     * @sine 1.0.0
+     * @sine 0.1.0
      *
-     * @version 1.0.0
+     * @version 0.1.0
      */
     void start();
 
@@ -27,9 +27,9 @@ public interface KmgPfaMeasService {
      *
      * @author KenichiroArai
      *
-     * @sine 1.0.0
+     * @sine 0.1.0
      *
-     * @version 1.0.0
+     * @version 0.1.0
      */
     void end();
 

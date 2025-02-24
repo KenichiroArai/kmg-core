@@ -12,30 +12,70 @@ import kmg.core.infrastructure.utils.KmgArrayUtils;
  *
  * @author KenichiroArai
  *
- * @sine 1.0.0
+ * @sine 0.1.0
  *
- * @version 1.0.0
+ * @version 0.1.0
  */
 @SuppressWarnings("nls")
 public enum KmgDbTypes implements KmgTypes<String> {
 
     /* 定義：開始 */
 
-    /** 指定無し */
+    /**
+     * 指定無し
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
+     */
     NONE("指定無し", null, null),
 
-    /** PostgreSQL */
+    /**
+     * PostgreSQL
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
+     */
     POSTGRE_SQL("PostgreSQL", "PostgreSQL", new String[] {
         "Postgres"
     }),
 
-    /** MySQL */
+    /**
+     * MySQL
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
+     */
     MYSQL("MySQL", "MySQL", null),
 
-    /** Oracle */
+    /**
+     * Oracle
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
+     */
     ORACLE("Oracle", "Oracle", null),
 
-    /** SQL Server */
+    /**
+     * SQL Server
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
+     */
     SQL_SERVER("SQL Server", "SQL Server", new String[] {
         "MS SQL"
     }),
@@ -43,7 +83,15 @@ public enum KmgDbTypes implements KmgTypes<String> {
     /* 定義：終了 */
     ;
 
-    /** 種類のマップ */
+    /**
+     * 種類のマップ
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
+     */
     private static final Map<String, KmgDbTypes> VALUES_MAP = new HashMap<>();
 
     static {
@@ -57,16 +105,48 @@ public enum KmgDbTypes implements KmgTypes<String> {
 
     }
 
-    /** 表示名 */
+    /**
+     * 表示名
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
+     */
     private final String displayName;
 
-    /** キー */
+    /**
+     * キー
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
+     */
     private final String key;
 
-    /** 詳細情報 */
+    /**
+     * 詳細情報
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
+     */
     private final String detail;
 
-    /** 別名の配列 */
+    /**
+     * 別名の配列
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
+     */
     private final String[] aliasArray;
 
     /**
@@ -74,9 +154,9 @@ public enum KmgDbTypes implements KmgTypes<String> {
      *
      * @author KenichiroArai
      *
-     * @sine 1.0.0
+     * @sine 0.1.0
      *
-     * @version 1.0.0
+     * @version 0.1.0
      *
      * @return デフォルト値
      */
@@ -95,9 +175,9 @@ public enum KmgDbTypes implements KmgTypes<String> {
      *
      * @author KenichiroArai
      *
-     * @sine 1.0.0
+     * @sine 0.1.0
      *
-     * @version 1.0.0
+     * @version 0.1.0
      *
      * @param key
      *            キー
@@ -126,9 +206,9 @@ public enum KmgDbTypes implements KmgTypes<String> {
      *
      * @author KenichiroArai
      *
-     * @sine 1.0.0
+     * @sine 0.1.0
      *
-     * @version 1.0.0
+     * @version 0.1.0
      *
      * @param target
      *               対象
@@ -184,9 +264,9 @@ public enum KmgDbTypes implements KmgTypes<String> {
      *
      * @author KenichiroArai
      *
-     * @sine 1.0.0
+     * @sine 0.1.0
      *
-     * @version 1.0.0
+     * @version 0.1.0
      *
      * @return 初期値
      */
@@ -202,9 +282,9 @@ public enum KmgDbTypes implements KmgTypes<String> {
      *
      * @author KenichiroArai
      *
-     * @sine 1.0.0
+     * @sine 0.1.0
      *
-     * @version 1.0.0
+     * @version 0.1.0
      *
      * @param displayName
      *                    表示名
@@ -224,7 +304,12 @@ public enum KmgDbTypes implements KmgTypes<String> {
 
     /**
      * キーを返す。<br>
-     * このメソッドは{@link #getKey()}のエイリアスです。
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
      *
      * @return キー
      *
@@ -243,9 +328,9 @@ public enum KmgDbTypes implements KmgTypes<String> {
      *
      * @author KenichiroArai
      *
-     * @sine 1.0.0
+     * @sine 0.1.0
      *
-     * @version 1.0.0
+     * @version 0.1.0
      *
      * @return 別名の配列
      */
@@ -258,6 +343,12 @@ public enum KmgDbTypes implements KmgTypes<String> {
 
     /**
      * 詳細情報を返す。<br>
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
      *
      * @return 詳細情報
      */
@@ -275,6 +366,12 @@ public enum KmgDbTypes implements KmgTypes<String> {
      * 識別するための表示名を返す。
      * </p>
      *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
+     *
      * @return 表示名
      */
     @Override
@@ -288,6 +385,12 @@ public enum KmgDbTypes implements KmgTypes<String> {
     /**
      * キーを返す。<br>
      *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
+     *
      * @return キー
      */
     @Override
@@ -300,7 +403,12 @@ public enum KmgDbTypes implements KmgTypes<String> {
 
     /**
      * キーを返す。<br>
-     * このメソッドは{@link #getKey()}のエイリアスです。
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
      *
      * @return キー
      *

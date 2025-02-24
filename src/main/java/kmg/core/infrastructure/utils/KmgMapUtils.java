@@ -7,9 +7,9 @@ import java.util.Map;
  *
  * @author KenichiroArai
  *
- * @sine 1.0.0
+ * @sine 0.1.0
  *
- * @version 1.0.0
+ * @version 0.1.0
  */
 public final class KmgMapUtils {
 
@@ -18,9 +18,9 @@ public final class KmgMapUtils {
      *
      * @author KenichiroArai
      *
-     * @sine 1.0.0
+     * @sine 0.1.0
      *
-     * @version 1.0.0
+     * @version 0.1.0
      */
     private KmgMapUtils() {
 
@@ -32,9 +32,9 @@ public final class KmgMapUtils {
      *
      * @author KenichiroArai
      *
-     * @sine 1.0.0
+     * @sine 0.1.0
      *
-     * @version 1.0.0
+     * @version 0.1.0
      *
      * @param target
      *               対象
@@ -67,9 +67,9 @@ public final class KmgMapUtils {
      *
      * @author KenichiroArai
      *
-     * @sine 1.0.0
+     * @sine 0.1.0
      *
-     * @version 1.0.0
+     * @version 0.1.0
      *
      * @param target
      *               対象

@@ -8,9 +8,9 @@ import org.junit.jupiter.api.Test;
  *
  * @author KenichiroArai
  *
- * @sine 1.0.0
+ * @sine 0.1.0
  *
- * @version 1.0.0
+ * @version 0.1.0
  */
 @SuppressWarnings({
     "nls", "static-method"
@@ -19,6 +19,12 @@ public class KmgStringTest {
 
     /**
      * camelCase メソッドのテスト - 異常系：引数がnullの場合
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
      */
     @Test
     public void testCamelCase_errorNull() {
@@ -39,6 +45,12 @@ public class KmgStringTest {
 
     /**
      * camelCase メソッドのテスト - 正常系：スネークケースからキャメルケースへの変換
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
      */
     @Test
     public void testCamelCase_normalFromSnakeCase() {
@@ -59,6 +71,12 @@ public class KmgStringTest {
 
     /**
      * camelCase メソッドのテスト - 準正常系：大文字の1文字の場合
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
      */
     @Test
     public void testCamelCase_semiSingleBigChar() {
@@ -79,6 +97,12 @@ public class KmgStringTest {
 
     /**
      * camelCase メソッドのテスト - 準正常系：小文字の1文字の場合
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
      */
     @Test
     public void testCamelCase_semiSingleLowerChar() {
@@ -99,6 +123,12 @@ public class KmgStringTest {
 
     /**
      * capitalize メソッドのテスト - 正常系：通常の文字列の場合
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
      */
     @Test
     public void testCapitalize_normalString() {
@@ -119,6 +149,12 @@ public class KmgStringTest {
 
     /**
      * capitalize メソッドのテスト - 準正常系：空文字の場合
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
      */
     @Test
     public void testCapitalize_semiEmptyString() {
@@ -139,6 +175,12 @@ public class KmgStringTest {
 
     /**
      * concat メソッドのテスト - 正常系：複数の文字列を結合する場合
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
      */
     @Test
     public void testConcat_normalMultipleStrings() {
@@ -161,6 +203,12 @@ public class KmgStringTest {
 
     /**
      * concat メソッドのテスト - 準正常系：空の配列の場合
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
      */
     @Test
     public void testConcat_semiEmptyArray() {
@@ -181,6 +229,12 @@ public class KmgStringTest {
 
     /**
      * equals メソッドのテスト - 異常系：str1がnull文字列の場合
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
      */
     @Test
     public void testEquals_errorStr1NullStrings() {
@@ -202,6 +256,12 @@ public class KmgStringTest {
 
     /**
      * equals メソッドのテスト - 異常系：str2がnull文字列の場合
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
      */
     @Test
     public void testEquals_errorStr2NullStrings() {
@@ -223,6 +283,12 @@ public class KmgStringTest {
 
     /**
      * equals メソッドのテスト - 正常系：同じ文字列の場合
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
      */
     @Test
     public void testEquals_normalSameStrings() {
@@ -244,6 +310,12 @@ public class KmgStringTest {
 
     /**
      * equals メソッドのテスト - 準正常系：異なる文字列の場合
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
      */
     @Test
     public void testEquals_semiDifferentStrings() {
@@ -265,6 +337,12 @@ public class KmgStringTest {
 
     /**
      * equalsIgnoreCase メソッドのテスト - 異常系：両方がnullの場合
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
      */
     @Test
     public void testEqualsIgnoreCase_errorBothNull() {
@@ -286,6 +364,12 @@ public class KmgStringTest {
 
     /**
      * equalsIgnoreCase メソッドのテスト - 異常系：str1がnullの場合
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
      */
     @Test
     public void testEqualsIgnoreCase_errorStr1NullStrings() {
@@ -307,6 +391,12 @@ public class KmgStringTest {
 
     /**
      * equalsIgnoreCase メソッドのテスト - 異常系：str2がnullの場合
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
      */
     @Test
     public void testEqualsIgnoreCase_errorStr2NullStrings() {
@@ -328,6 +418,12 @@ public class KmgStringTest {
 
     /**
      * equalsIgnoreCase メソッドのテスト - 正常系：大文字小文字が異なる場合
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
      */
     @Test
     public void testEqualsIgnoreCase_normalDifferentCase() {
@@ -349,6 +445,12 @@ public class KmgStringTest {
 
     /**
      * equalsIgnoreCase メソッドのテスト - 正常系：同じ文字列の場合
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
      */
     @Test
     public void testEqualsIgnoreCase_normalSameStrings() {
@@ -370,6 +472,12 @@ public class KmgStringTest {
 
     /**
      * equalsIgnoreCase メソッドのテスト - 準正常系：異なる文字列の場合
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
      */
     @Test
     public void testEqualsIgnoreCase_semiDifferentStrings() {
@@ -391,6 +499,12 @@ public class KmgStringTest {
 
     /**
      * fromCamelCase メソッドのテスト - 正常系：キャメルケースからスネークケースへの変換
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
      */
     @Test
     public void testFromCamelCase_normalConversion() {
@@ -411,6 +525,12 @@ public class KmgStringTest {
 
     /**
      * fromSnakeCase メソッドのテスト - 正常系：スネークケースからキャメルケースへの変換
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
      */
     @Test
     public void testFromSnakeCase_normalConversion() {
@@ -431,6 +551,12 @@ public class KmgStringTest {
 
     /**
      * getValue メソッドのテスト - 正常系：初期値の取得
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
      */
     @Test
     public void testGetValue_normalInitialValue() {
@@ -451,6 +577,12 @@ public class KmgStringTest {
 
     /**
      * インスタンスメソッド - 正常系：isEmpty
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
      */
     @Test
     public void testInstance_normalIsEmpty() {
@@ -471,6 +603,12 @@ public class KmgStringTest {
 
     /**
      * インスタンスメソッド - 正常系：isNotEmpty
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
      */
     @Test
     public void testInstance_normalIsNotEmpty() {
@@ -491,6 +629,12 @@ public class KmgStringTest {
 
     /**
      * isEmpty メソッドのテスト - 異常系：nullの場合
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
      */
     @Test
     public void testIsEmpty_errorNull() {
@@ -511,6 +655,12 @@ public class KmgStringTest {
 
     /**
      * isEmpty メソッドのテスト - 正常系：引数が空文字の場合
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
      */
     @Test
     public void testIsEmpty_normalEmptyString() {
@@ -531,6 +681,12 @@ public class KmgStringTest {
 
     /**
      * isEmpty メソッドのテスト - 準正常系：非空文字列の場合
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
      */
     @Test
     public void testIsEmpty_semiNonEmptyString() {
@@ -551,6 +707,12 @@ public class KmgStringTest {
 
     /**
      * isNotEmpty メソッドのテスト - 異常系：nullの場合
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
      */
     @Test
     public void testIsNotEmpty_errorNull() {
@@ -571,6 +733,12 @@ public class KmgStringTest {
 
     /**
      * isNotEmpty メソッドのテスト - 正常系：文字列が存在する場合
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
      */
     @Test
     public void testIsNotEmpty_normalExistString() {
@@ -591,6 +759,12 @@ public class KmgStringTest {
 
     /**
      * isNotEmpty メソッドのテスト - 準正常系：空文字の場合
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
      */
     @Test
     public void testIsNotEmpty_semiEmptyString() {
@@ -611,6 +785,12 @@ public class KmgStringTest {
 
     /**
      * replace メソッドのテスト - 正常系：文字列の置換
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
      */
     @Test
     public void testReplace_normalReplacement() {
@@ -631,6 +811,12 @@ public class KmgStringTest {
 
     /**
      * shouldAddUnderscore メソッドのテスト - 正常系：文字列の最後の大文字の場合
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
      */
     @Test
     public void testShouldAddUnderscore_normalLastUpperCase() {
@@ -651,6 +837,12 @@ public class KmgStringTest {
 
     /**
      * shouldAddUnderscore メソッドのテスト - 正常系：次の文字が小文字の場合
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
      */
     @Test
     public void testShouldAddUnderscore_normalNextCharLowerCase() {
@@ -671,6 +863,12 @@ public class KmgStringTest {
 
     /**
      * shouldAddUnderscore メソッドのテスト - 正常系：次の文字が大文字の場合
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
      */
     @Test
     public void testShouldAddUnderscore_normalNextCharUpperCase() {
@@ -691,6 +889,12 @@ public class KmgStringTest {
 
     /**
      * snakeCase メソッドのテスト - 異常系：空文字の場合
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
      */
     @Test
     public void testSnakeCase_errorEmptyString() {
@@ -711,6 +915,12 @@ public class KmgStringTest {
 
     /**
      * snakeCase メソッドのテスト - 正常系：既にスネークケース形式の場合
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
      */
     @Test
     public void testSnakeCase_normalAlreadySnakeCase() {
@@ -731,6 +941,12 @@ public class KmgStringTest {
 
     /**
      * snakeCase メソッドのテスト - 正常系：連続する大文字の処理
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
      */
     @Test
     public void testSnakeCase_normalConsecutiveUpperCase() {
@@ -751,6 +967,12 @@ public class KmgStringTest {
 
     /**
      * snakeCase メソッドのテスト - 正常系：キャメルケースからスネークケースへの変換
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
      */
     @Test
     public void testSnakeCase_normalFromCamelCase() {
@@ -771,6 +993,12 @@ public class KmgStringTest {
 
     /**
      * snakeCase メソッドのテスト - 正常系：最後の文字が大文字の場合
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
      */
     @Test
     public void testSnakeCase_normalLastCharUpperCase() {
@@ -791,6 +1019,12 @@ public class KmgStringTest {
 
     /**
      * snakeCase メソッドのテスト - 準正常系：1文字の場合
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
      */
     @Test
     public void testSnakeCase_semiSingleChar() {
@@ -811,6 +1045,12 @@ public class KmgStringTest {
 
     /**
      * toCamelCase メソッドのテスト - 正常系：スネークケースからキャメルケースへの変換
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
      */
     @Test
     public void testToCamelCase_normalFromSnakeCase() {
@@ -831,6 +1071,12 @@ public class KmgStringTest {
 
     /**
      * toSnakeCase メソッドのテスト - 正常系：キャメルケースからスネークケースへの変換
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
      */
     @Test
     public void testToSnakeCase_normalFromCamelCase() {
@@ -851,6 +1097,12 @@ public class KmgStringTest {
 
     /**
      * toString メソッドのテスト - 正常系：文字列表現の取得
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
      */
     @Test
     public void testToString_normalGetString() {

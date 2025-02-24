@@ -5,9 +5,9 @@ package kmg.core.infrastructure.utils;
  *
  * @author KenichiroArai
  *
- * @sine 1.0.0
+ * @sine 0.1.0
  *
- * @version 1.0.0
+ * @version 0.1.0
  */
 public final class KmgArrayUtils {
 
@@ -16,9 +16,9 @@ public final class KmgArrayUtils {
      *
      * @author KenichiroArai
      *
-     * @sine 1.0.0
+     * @sine 0.1.0
      *
-     * @version 1.0.0
+     * @version 0.1.0
      */
     private KmgArrayUtils() {
 
@@ -30,9 +30,9 @@ public final class KmgArrayUtils {
      *
      * @author KenichiroArai
      *
-     * @sine 1.0.0
+     * @sine 0.1.0
      *
-     * @version 1.0.0
+     * @version 0.1.0
      *
      * @param target
      *               対象
@@ -65,9 +65,9 @@ public final class KmgArrayUtils {
      *
      * @author KenichiroArai
      *
-     * @sine 1.0.0
+     * @sine 0.1.0
      *
-     * @version 1.0.0
+     * @version 0.1.0
      *
      * @param target
      *               対象

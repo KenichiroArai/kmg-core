@@ -21,9 +21,9 @@ import kmg.core.test.AbstractKmgTest;
  *
  * @author KenichiroArai
  *
- * @sine 1.0.0
+ * @sine 0.1.0
  *
- * @version 1.0.0
+ * @version 0.1.0
  */
 @SuppressWarnings({
     "nls", "static-method"
@@ -33,21 +33,57 @@ public class KmgReflectionModelImplTest extends AbstractKmgTest {
 
     /**
      * テスト用のクラス<br>
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
      */
     @SuppressWarnings("unused")
     private static class TestClass {
 
-        /** パブリックフィールド */
+        /**
+         * パブリックフィールド
+         *
+         * @author KenichiroArai
+         *
+         * @sine 0.1.0
+         *
+         * @version 0.1.0
+         */
         public String publicField;
 
-        /** BigDecimalフィールド */
+        /**
+         * BigDecimalフィールド
+         *
+         * @author KenichiroArai
+         *
+         * @sine 0.1.0
+         *
+         * @version 0.1.0
+         */
         private BigDecimal decimalField;
 
-        /** プライベートフィールド */
+        /**
+         * プライベートフィールド
+         *
+         * @author KenichiroArai
+         *
+         * @sine 0.1.0
+         *
+         * @version 0.1.0
+         */
         private String privateField;
 
         /**
          * プライベートフィールドを取得する<br>
+         *
+         * @author KenichiroArai
+         *
+         * @sine 0.1.0
+         *
+         * @version 0.1.0
          *
          * @return プライベートフィールド
          */
@@ -61,6 +97,12 @@ public class KmgReflectionModelImplTest extends AbstractKmgTest {
         /**
          * プライベートフィールドを設定する<br>
          *
+         * @author KenichiroArai
+         *
+         * @sine 0.1.0
+         *
+         * @version 0.1.0
+         *
          * @param privateField
          *                     プライベートフィールド
          */
@@ -72,6 +114,12 @@ public class KmgReflectionModelImplTest extends AbstractKmgTest {
 
         /**
          * テストメソッド<br>
+         *
+         * @author KenichiroArai
+         *
+         * @sine 0.1.0
+         *
+         * @version 0.1.0
          *
          * @param param
          *              パラメータ
@@ -88,6 +136,12 @@ public class KmgReflectionModelImplTest extends AbstractKmgTest {
 
     /**
      * get メソッドのテスト - 異常系:getValue呼び出し時のIllegalAccessException
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
      *
      * @throws KmgReflectionException
      *                                KMGドメイン例外
@@ -130,6 +184,12 @@ public class KmgReflectionModelImplTest extends AbstractKmgTest {
     /**
      * get メソッドのテスト - 異常系:getValue呼び出し時のSecurityException
      *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
+     *
      * @throws KmgReflectionException
      *                                KMGドメイン例外
      */
@@ -169,6 +229,12 @@ public class KmgReflectionModelImplTest extends AbstractKmgTest {
 
     /**
      * get メソッドのテスト - SecurityException発生時<br>
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
      *
      * @throws KmgReflectionException
      *                                KMGドメイン例外
@@ -210,6 +276,12 @@ public class KmgReflectionModelImplTest extends AbstractKmgTest {
     /**
      * get メソッドのテスト - 正常系：BigDecimalフィールドの値を取得<br>
      *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
+     *
      * @throws KmgReflectionException
      *                                KMGドメイン例外
      */
@@ -237,6 +309,12 @@ public class KmgReflectionModelImplTest extends AbstractKmgTest {
 
     /**
      * get メソッドのテスト - 正常系:連続呼び出し時のlastGetFieldの状態確認
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
      *
      * @throws KmgReflectionException
      *                                  KMGドメイン例外
@@ -290,6 +368,12 @@ public class KmgReflectionModelImplTest extends AbstractKmgTest {
     /**
      * get メソッドのテスト - 正常系:存在しないフィールドへのアクセス
      *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
+     *
      * @throws KmgReflectionException
      *                                KMGドメイン例外
      */
@@ -315,6 +399,12 @@ public class KmgReflectionModelImplTest extends AbstractKmgTest {
     /**
      * get メソッドのテスト - 正常系:nullフィールド名を指定
      *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
+     *
      * @throws KmgReflectionException
      *                                KMGドメイン例外
      */
@@ -336,6 +426,12 @@ public class KmgReflectionModelImplTest extends AbstractKmgTest {
 
     /**
      * get メソッドのテスト - 正常系:プライベートフィールドの値を取得
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
      *
      * @throws KmgReflectionException
      *                                KMGドメイン例外
@@ -365,6 +461,12 @@ public class KmgReflectionModelImplTest extends AbstractKmgTest {
     /**
      * get メソッドのテスト - 正常系:パブリックフィールドの値を取得
      *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
+     *
      * @throws KmgReflectionException
      *                                KMGドメイン例外
      */
@@ -392,6 +494,12 @@ public class KmgReflectionModelImplTest extends AbstractKmgTest {
 
     /**
      * getDeclaredMethods メソッドのテスト - SecurityException発生時<br>
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
      *
      * @throws KmgReflectionException
      *                                KMGドメイン例外
@@ -440,6 +548,12 @@ public class KmgReflectionModelImplTest extends AbstractKmgTest {
     /**
      * getDeclaredMethods メソッドのテスト - 正常系<br>
      *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
+     *
      * @throws KmgReflectionException
      *                                KMGドメイン例外
      */
@@ -467,6 +581,12 @@ public class KmgReflectionModelImplTest extends AbstractKmgTest {
     /**
      * getLastGetField メソッドのテスト - フィールド取得前<br>
      *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
+     *
      * @throws KmgReflectionException
      *                                KMGドメイン例外
      */
@@ -493,6 +613,12 @@ public class KmgReflectionModelImplTest extends AbstractKmgTest {
 
     /**
      * getMethod メソッドのテスト - 異常系：IllegalAccessException発生時<br>
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
      *
      * @throws KmgReflectionException
      *                                KMGドメイン例外
@@ -532,6 +658,12 @@ public class KmgReflectionModelImplTest extends AbstractKmgTest {
     /**
      * getMethod メソッドのテスト - 異常系：IllegalArgumentException発生時<br>
      *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
+     *
      * @throws KmgReflectionException
      *                                KMGドメイン例外
      */
@@ -569,6 +701,12 @@ public class KmgReflectionModelImplTest extends AbstractKmgTest {
 
     /**
      * getMethod メソッドのテスト - 異常系：InvocationTargetException発生時<br>
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
      *
      * @throws KmgReflectionException
      *                                KMGドメイン例外
@@ -608,6 +746,12 @@ public class KmgReflectionModelImplTest extends AbstractKmgTest {
     /**
      * getMethod メソッドのテスト - 正常系：privateメソッドへのアクセス<br>
      *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
+     *
      * @throws KmgReflectionException
      *                                KMGドメイン例外
      */
@@ -645,6 +789,12 @@ public class KmgReflectionModelImplTest extends AbstractKmgTest {
     /**
      * getMethod メソッドのテスト - 正常系：パラメータありのメソッド呼び出し<br>
      *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
+     *
      * @throws KmgReflectionException
      *                                KMGドメイン例外
      */
@@ -671,6 +821,12 @@ public class KmgReflectionModelImplTest extends AbstractKmgTest {
 
     /**
      * getMethod メソッドのテスト - 準正常系：パラメータ数が一致しない場合<br>
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
      *
      * @throws KmgReflectionException
      *                                KMGドメイン例外
@@ -699,6 +855,12 @@ public class KmgReflectionModelImplTest extends AbstractKmgTest {
     /**
      * getMethod メソッドのテスト - 準正常系：パラメータの型が一致しない場合<br>
      *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
+     *
      * @throws KmgReflectionException
      *                                KMGドメイン例外
      */
@@ -725,6 +887,12 @@ public class KmgReflectionModelImplTest extends AbstractKmgTest {
 
     /**
      * getMethod メソッドのテスト - 準正常系：存在しないメソッドへのアクセス<br>
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
      *
      * @throws KmgReflectionException
      *                                KMGドメイン例外
@@ -753,6 +921,12 @@ public class KmgReflectionModelImplTest extends AbstractKmgTest {
     /**
      * getMethod メソッドのテスト - 準正常系：メソッド名がnullの場合<br>
      *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
+     *
      * @throws KmgReflectionException
      *                                KMGドメイン例外
      */
@@ -779,6 +953,12 @@ public class KmgReflectionModelImplTest extends AbstractKmgTest {
 
     /**
      * invoke メソッドのテスト - 異常系：SecurityException発生時<br>
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
      *
      * @throws KmgReflectionException
      *                                KMGドメイン例外
@@ -817,6 +997,12 @@ public class KmgReflectionModelImplTest extends AbstractKmgTest {
     /**
      * invoke メソッドのテスト - 正常系：メソッドが正しく呼び出されること<br>
      *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
+     *
      * @throws KmgReflectionException
      *                                KMGドメイン例外
      */
@@ -843,6 +1029,12 @@ public class KmgReflectionModelImplTest extends AbstractKmgTest {
 
     /**
      * set メソッドのテスト - 異常系：IllegalAccessException発生時<br>
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
      *
      * @throws KmgReflectionException
      *                                KMGドメイン例外
@@ -884,6 +1076,12 @@ public class KmgReflectionModelImplTest extends AbstractKmgTest {
     /**
      * set メソッドのテスト - 異常系：BigDecimalに変換できない値の場合<br>
      *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
+     *
      * @throws KmgReflectionException
      *                                KMGドメイン例外
      */
@@ -913,6 +1111,12 @@ public class KmgReflectionModelImplTest extends AbstractKmgTest {
 
     /**
      * set メソッドのテスト - 異常系：SecurityException発生時<br>
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
      *
      * @throws KmgReflectionException
      *                                KMGドメイン例外
@@ -952,6 +1156,12 @@ public class KmgReflectionModelImplTest extends AbstractKmgTest {
     /**
      * set メソッドのテスト - 正常系：BigDecimalフィールドへの値の設定<br>
      *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
+     *
      * @throws KmgReflectionException
      *                                KMGドメイン例外
      */
@@ -978,6 +1188,12 @@ public class KmgReflectionModelImplTest extends AbstractKmgTest {
 
     /**
      * set メソッドのテスト - 正常系：値がnullの場合<br>
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
      *
      * @throws KmgReflectionException
      *                                KMGドメイン例外
@@ -1006,6 +1222,12 @@ public class KmgReflectionModelImplTest extends AbstractKmgTest {
     /**
      * set メソッドのテスト - 正常系：プライベートフィールドへの値の設定<br>
      *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
+     *
      * @throws KmgReflectionException
      *                                KMGドメイン例外
      */
@@ -1032,6 +1254,12 @@ public class KmgReflectionModelImplTest extends AbstractKmgTest {
 
     /**
      * set メソッドのテスト - 正常系：パブリックフィールドへの値の設定<br>
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
      *
      * @throws KmgReflectionException
      *                                KMGドメイン例外
@@ -1060,6 +1288,12 @@ public class KmgReflectionModelImplTest extends AbstractKmgTest {
     /**
      * set メソッドのテスト - 準正常系：存在しないフィールドへの値の設定<br>
      *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
+     *
      * @throws KmgReflectionException
      *                                KMGドメイン例外
      */
@@ -1086,6 +1320,12 @@ public class KmgReflectionModelImplTest extends AbstractKmgTest {
 
     /**
      * set メソッドのテスト - 準正常系：nullフィールド名を指定<br>
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
      *
      * @throws KmgReflectionException
      *                                KMGドメイン例外

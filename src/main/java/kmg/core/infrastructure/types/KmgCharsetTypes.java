@@ -12,28 +12,60 @@ import kmg.core.infrastructure.type.KmgString;
  *
  * @author KenichiroArai
  *
- * @sine 1.0.0
+ * @sine 0.1.0
  *
- * @version 1.0.0
+ * @version 0.1.0
  */
 @SuppressWarnings("nls")
 public enum KmgCharsetTypes implements KmgTypes<String> {
 
     /* 定義：開始 */
 
-    /** 指定無し */
+    /**
+     * 指定無し
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
+     */
     NONE("指定無し", null),
 
-    /** MS932 */
+    /**
+     * MS932
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
+     */
     MS932("MS932", "MS932"),
 
-    /** UTF-8 */
+    /**
+     * UTF-8
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
+     */
     UTF8("UTF-8", "UTF-8"),
 
     /* 定義：終了 */
     ;
 
-    /** 種類のマップ */
+    /**
+     * 種類のマップ
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
+     */
     private static final Map<String, KmgCharsetTypes> VALUES_MAP = new HashMap<>();
 
     static {
@@ -47,16 +79,48 @@ public enum KmgCharsetTypes implements KmgTypes<String> {
 
     }
 
-    /** 表示名 */
+    /**
+     * 表示名
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
+     */
     private final String displayName;
 
-    /** キー */
+    /**
+     * キー
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
+     */
     private final String key;
 
-    /** 詳細情報 */
+    /**
+     * 詳細情報
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
+     */
     private final String detail;
 
-    /** 文字セット */
+    /**
+     * 文字セット
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
+     */
     private Charset charset;
 
     /**
@@ -64,9 +128,9 @@ public enum KmgCharsetTypes implements KmgTypes<String> {
      *
      * @author KenichiroArai
      *
-     * @sine 1.0.0
+     * @sine 0.1.0
      *
-     * @version 1.0.0
+     * @version 0.1.0
      *
      * @return デフォルト値
      */
@@ -85,9 +149,9 @@ public enum KmgCharsetTypes implements KmgTypes<String> {
      *
      * @author KenichiroArai
      *
-     * @sine 1.0.0
+     * @sine 0.1.0
      *
-     * @version 1.0.0
+     * @version 0.1.0
      *
      * @param key
      *            キー
@@ -112,9 +176,9 @@ public enum KmgCharsetTypes implements KmgTypes<String> {
      *
      * @author KenichiroArai
      *
-     * @sine 1.0.0
+     * @sine 0.1.0
      *
-     * @version 1.0.0
+     * @version 0.1.0
      *
      * @return 初期値
      */
@@ -130,9 +194,9 @@ public enum KmgCharsetTypes implements KmgTypes<String> {
      *
      * @author KenichiroArai
      *
-     * @sine 1.0.0
+     * @sine 0.1.0
      *
-     * @version 1.0.0
+     * @version 0.1.0
      *
      * @param displayName
      *                    表示名
@@ -159,7 +223,12 @@ public enum KmgCharsetTypes implements KmgTypes<String> {
 
     /**
      * キーを返す。<br>
-     * このメソッドは{@link #getKey()}のエイリアスです。
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
      *
      * @return キー
      *
@@ -175,6 +244,12 @@ public enum KmgCharsetTypes implements KmgTypes<String> {
 
     /**
      * 詳細情報を返す。<br>
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
      *
      * @return 詳細情報
      */
@@ -192,6 +267,12 @@ public enum KmgCharsetTypes implements KmgTypes<String> {
      * 識別するための表示名を返す。
      * </p>
      *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
+     *
      * @return 表示名
      */
     @Override
@@ -204,6 +285,12 @@ public enum KmgCharsetTypes implements KmgTypes<String> {
 
     /**
      * キーを返す。<br>
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
      *
      * @return キー
      */
@@ -223,9 +310,9 @@ public enum KmgCharsetTypes implements KmgTypes<String> {
      *
      * @author KenichiroArai
      *
-     * @sine 1.0.0
+     * @sine 0.1.0
      *
-     * @version 1.0.0
+     * @version 0.1.0
      *
      * @return 文字セット
      */
@@ -238,7 +325,12 @@ public enum KmgCharsetTypes implements KmgTypes<String> {
 
     /**
      * キーを返す。<br>
-     * このメソッドは{@link #getKey()}のエイリアスです。
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
      *
      * @return キー
      *

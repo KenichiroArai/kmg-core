@@ -10,22 +10,38 @@ import kmg.core.infrastructure.common.KmgTypes;
  *
  * @author KenichiroArai
  *
- * @sine 1.0.0
+ * @sine 0.1.0
  *
- * @version 1.0.0
+ * @version 0.1.0
  */
 @SuppressWarnings("nls")
 public enum KmgTemplateTypes implements KmgTypes<String> {
 
     /* 定義：開始 */
 
-    /** 指定無し */
+    /**
+     * 指定無し
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
+     */
     NONE("指定無し", "None", "指定無し"),
 
     /* 定義：終了 */
     ;
 
-    /** 種類のマップ */
+    /**
+     * 種類のマップ
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
+     */
     private static final Map<String, KmgTemplateTypes> VALUES_MAP = new HashMap<>();
 
     static {
@@ -39,13 +55,37 @@ public enum KmgTemplateTypes implements KmgTypes<String> {
 
     }
 
-    /** 表示名 */
+    /**
+     * 表示名
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
+     */
     private final String displayName;
 
-    /** キー */
+    /**
+     * キー
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
+     */
     private final String key;
 
-    /** 詳細情報 */
+    /**
+     * 詳細情報
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
+     */
     private final String detail;
 
     /**
@@ -53,9 +93,9 @@ public enum KmgTemplateTypes implements KmgTypes<String> {
      *
      * @author KenichiroArai
      *
-     * @sine 1.0.0
+     * @sine 0.1.0
      *
-     * @version 1.0.0
+     * @version 0.1.0
      *
      * @return デフォルト値
      */
@@ -74,9 +114,9 @@ public enum KmgTemplateTypes implements KmgTypes<String> {
      *
      * @author KenichiroArai
      *
-     * @sine 1.0.0
+     * @sine 0.1.0
      *
-     * @version 1.0.0
+     * @version 0.1.0
      *
      * @param key
      *            キー
@@ -101,9 +141,9 @@ public enum KmgTemplateTypes implements KmgTypes<String> {
      *
      * @author KenichiroArai
      *
-     * @sine 1.0.0
+     * @sine 0.1.0
      *
-     * @version 1.0.0
+     * @version 0.1.0
      *
      * @return 初期値
      */
@@ -119,9 +159,9 @@ public enum KmgTemplateTypes implements KmgTypes<String> {
      *
      * @author KenichiroArai
      *
-     * @sine 1.0.0
+     * @sine 0.1.0
      *
-     * @version 1.0.0
+     * @version 0.1.0
      *
      * @param displayName
      *                    表示名
@@ -140,7 +180,12 @@ public enum KmgTemplateTypes implements KmgTypes<String> {
 
     /**
      * キーを返す。<br>
-     * このメソッドは{@link #getKey()}のエイリアスです。
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
      *
      * @return キー
      *
@@ -156,6 +201,12 @@ public enum KmgTemplateTypes implements KmgTypes<String> {
 
     /**
      * 詳細情報を返す。<br>
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
      *
      * @return 詳細情報
      */
@@ -173,6 +224,12 @@ public enum KmgTemplateTypes implements KmgTypes<String> {
      * 識別するための表示名を返す。
      * </p>
      *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
+     *
      * @return 表示名
      */
     @Override
@@ -186,6 +243,12 @@ public enum KmgTemplateTypes implements KmgTypes<String> {
     /**
      * キーを返す。<br>
      *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
+     *
      * @return キー
      */
     @Override
@@ -198,7 +261,12 @@ public enum KmgTemplateTypes implements KmgTypes<String> {
 
     /**
      * キーを返す。<br>
-     * このメソッドは{@link #getKey()}のエイリアスです。
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
      *
      * @return キー
      *

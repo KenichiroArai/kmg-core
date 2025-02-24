@@ -10,15 +10,21 @@ import kmg.core.infrastructure.exception.KmgException;
  *
  * @author KenichiroArai
  *
- * @sine 1.0.0
+ * @sine 0.1.0
  *
- * @version 1.0.0
+ * @version 0.1.0
  */
 @SuppressWarnings("nls")
 public abstract class AbstractKmgTest {
 
     /**
      * KMG例外の検証を行う<br>
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
      *
      * @param actualException
      *                              実際の例外

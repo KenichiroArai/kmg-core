@@ -8,34 +8,98 @@ import kmg.core.infrastructure.utils.KmgMessageUtils;
  *
  * @author KenichiroArai
  *
- * @sine 1.0.0
+ * @sine 0.1.0
  *
- * @version 1.0.0
+ * @version 0.1.0
  */
 public class KmgException extends Exception {
 
-    /** デフォルトシリアルバージョンUID */
+    /**
+     * デフォルトシリアルバージョンUID
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
+     */
     private static final long serialVersionUID = 1L;
 
-    /** メッセージメッセージの種類 */
+    /**
+     * メッセージメッセージの種類
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
+     */
     private final KmgMessageTypes messageTypes;
 
-    /** メッセージメッセージの引数 */
+    /**
+     * メッセージメッセージの引数
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
+     */
     private final Object[] messageArgs;
 
-    /** メッセージ */
+    /**
+     * メッセージ
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
+     */
     private final String message;
 
-    /** メッセージ引数の数 */
+    /**
+     * メッセージ引数の数
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
+     */
     private int messageArgsCount;
 
-    /** メッセージパターンの引数の数 */
+    /**
+     * メッセージパターンの引数の数
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
+     */
     private int messagePatternArgsCount;
 
-    /** メッセージ引数の数が一致しているか */
+    /**
+     * メッセージ引数の数が一致しているか
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
+     */
     private boolean isMatchMessageArgsCount;
 
-    /** メッセージパターン */
+    /**
+     * メッセージパターン
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
+     */
     private final String messagePattern;
 
     /**
@@ -43,9 +107,9 @@ public class KmgException extends Exception {
      *
      * @author KenichiroArai
      *
-     * @sine 1.0.0
+     * @sine 0.1.0
      *
-     * @version 1.0.0
+     * @version 0.1.0
      *
      * @param messageTypes
      *                     メッセージの種類
@@ -61,9 +125,9 @@ public class KmgException extends Exception {
      *
      * @author KenichiroArai
      *
-     * @sine 1.0.0
+     * @sine 0.1.0
      *
-     * @version 1.0.0
+     * @version 0.1.0
      *
      * @param messageTypes
      *                     メッセージの種類
@@ -81,9 +145,9 @@ public class KmgException extends Exception {
      *
      * @author KenichiroArai
      *
-     * @sine 1.0.0
+     * @sine 0.1.0
      *
-     * @version 1.0.0
+     * @version 0.1.0
      *
      * @param messageTypes
      *                     メッセージの種類
@@ -110,9 +174,9 @@ public class KmgException extends Exception {
      *
      * @author KenichiroArai
      *
-     * @sine 1.0.0
+     * @sine 0.1.0
      *
-     * @version 1.0.0
+     * @version 0.1.0
      *
      * @param messageTypes
      *                     メッセージの種類
@@ -130,9 +194,9 @@ public class KmgException extends Exception {
      *
      * @author KenichiroArai
      *
-     * @sine 1.0.0
+     * @sine 0.1.0
      *
-     * @version 1.0.0
+     * @version 0.1.0
      *
      * @return メッセージ
      */
@@ -149,9 +213,9 @@ public class KmgException extends Exception {
      *
      * @author KenichiroArai
      *
-     * @sine 1.0.0
+     * @sine 0.1.0
      *
-     * @version 1.0.0
+     * @version 0.1.0
      *
      * @return メッセージの引数
      */
@@ -167,9 +231,9 @@ public class KmgException extends Exception {
      *
      * @author KenichiroArai
      *
-     * @sine 1.0.0
+     * @sine 0.1.0
      *
-     * @version 1.0.0
+     * @version 0.1.0
      *
      * @return メッセージ引数の数
      */
@@ -185,9 +249,9 @@ public class KmgException extends Exception {
      *
      * @author KenichiroArai
      *
-     * @sine 1.0.0
+     * @sine 0.1.0
      *
-     * @version 1.0.0
+     * @version 0.1.0
      *
      * @return メッセージパターンの引数の数
      */
@@ -203,9 +267,9 @@ public class KmgException extends Exception {
      *
      * @author KenichiroArai
      *
-     * @sine 1.0.0
+     * @sine 0.1.0
      *
-     * @version 1.0.0
+     * @version 0.1.0
      *
      * @return メッセージの種類
      */
@@ -221,9 +285,9 @@ public class KmgException extends Exception {
      *
      * @author KenichiroArai
      *
-     * @sine 1.0.0
+     * @sine 0.1.0
      *
-     * @version 1.0.0
+     * @version 0.1.0
      *
      * @return メッセージ引数の数が一致しているか
      */
@@ -239,9 +303,9 @@ public class KmgException extends Exception {
      *
      * @author KenichiroArai
      *
-     * @sine 1.0.0
+     * @sine 0.1.0
      *
-     * @version 1.0.0
+     * @version 0.1.0
      *
      * @return メッセージパターン
      */
@@ -257,9 +321,9 @@ public class KmgException extends Exception {
      *
      * @author KenichiroArai
      *
-     * @sine 1.0.0
+     * @sine 0.1.0
      *
-     * @version 1.0.0
+     * @version 0.1.0
      */
     private void setMessageCounts() {
 

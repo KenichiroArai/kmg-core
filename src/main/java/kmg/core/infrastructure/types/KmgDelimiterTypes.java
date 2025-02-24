@@ -12,64 +12,203 @@ import kmg.core.infrastructure.type.KmgString;
  *
  * @author KenichiroArai
  *
- * @sine 1.0.0
+ * @sine 0.1.0
  *
- * @version 1.0.0
+ * @version 0.1.0
  */
 @SuppressWarnings("nls")
 public enum KmgDelimiterTypes implements KmgTypes<String> {
 
     /* 定義：開始 */
 
-    /** 指定無し */
+    /**
+     * 指定無し
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
+     */
     NONE("指定無し", null),
 
-    /** ピリオド */
+    /**
+     * ピリオド
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
+     */
     PERIOD("ピリオド", "."),
 
-    /** カンマ */
+    /**
+     * カンマ
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
+     */
     COMMA("カンマ", ","),
 
-    /** コロン */
+    /**
+     * コロン
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
+     */
     COLON("コロン", "."),
 
-    /** バーティカルバー */
+    /**
+     * バーティカルバー
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
+     */
     VERTICAL_BAR("バーティカルバー", "|"),
 
-    /** アンダースコア */
+    /**
+     * アンダースコア
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
+     */
     UNDERSCORE("アンダースコア", "_"),
 
-    /** スラッシュ */
+    /**
+     * スラッシュ
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
+     */
     SLASH("スラッシュ", "/"),
 
-    /** ハイフン */
+    /**
+     * ハイフン
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
+     */
     HYPHEN("ハイフン", "-"),
 
-    /** 半角スペース */
+    /**
+     * 半角スペース
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
+     */
     HALF_SPACE("半角スペース", KmgString.HALF_SPACE),
 
-    /** プラス */
+    /**
+     * プラス
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
+     */
     PLUS("プラス", "+"),
 
-    /** 全角コロン */
+    /**
+     * 全角コロン
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
+     */
     ALL_COLON("全角コロン", "："),
 
-    /** 全角読点 */
+    /**
+     * 全角読点
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
+     */
     ALL_IDEOGRAPHIC("全角読点", "、"),
 
-    /** 連続半角スペース */
+    /**
+     * 連続半角スペース
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
+     */
     SERIES_HALF_SPACE("連続半角スペース", "\\s+"),
 
-    /** 改行 */
+    /**
+     * 改行
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
+     */
     LINE_SEPARATOR("改行", KmgString.LINE_SEPARATOR),
 
-    /** 半角イコール */
+    /**
+     * 半角イコール
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
+     */
     HALF_EQUAL("半角イコール", "="),
+
+    /**
+     * 半角アットマーク
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
+     */
+    HALF_AT_SIGN("半角アットマーク", "@"),
 
     /* 定義：終了 */
     ;
 
-    /** 種類のマップ */
+    /**
+     * 種類のマップ
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
+     */
     private static final Map<String, KmgDelimiterTypes> VALUES_MAP = new HashMap<>();
 
     static {
@@ -83,13 +222,37 @@ public enum KmgDelimiterTypes implements KmgTypes<String> {
 
     }
 
-    /** 表示名 */
+    /**
+     * 表示名
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
+     */
     private final String displayName;
 
-    /** キー */
+    /**
+     * キー
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
+     */
     private final String key;
 
-    /** 詳細情報 */
+    /**
+     * 詳細情報
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
+     */
     private final String detail;
 
     /**
@@ -97,9 +260,9 @@ public enum KmgDelimiterTypes implements KmgTypes<String> {
      *
      * @author KenichiroArai
      *
-     * @sine 1.0.0
+     * @sine 0.1.0
      *
-     * @version 1.0.0
+     * @version 0.1.0
      *
      * @return デフォルト値
      */
@@ -118,9 +281,9 @@ public enum KmgDelimiterTypes implements KmgTypes<String> {
      *
      * @author KenichiroArai
      *
-     * @sine 1.0.0
+     * @sine 0.1.0
      *
-     * @version 1.0.0
+     * @version 0.1.0
      *
      * @param key
      *            キー
@@ -145,9 +308,9 @@ public enum KmgDelimiterTypes implements KmgTypes<String> {
      *
      * @author KenichiroArai
      *
-     * @sine 1.0.0
+     * @sine 0.1.0
      *
-     * @version 1.0.0
+     * @version 0.1.0
      *
      * @return 初期値
      */
@@ -163,9 +326,9 @@ public enum KmgDelimiterTypes implements KmgTypes<String> {
      *
      * @author KenichiroArai
      *
-     * @sine 1.0.0
+     * @sine 0.1.0
      *
-     * @version 1.0.0
+     * @version 0.1.0
      *
      * @param displayName
      *                    表示名
@@ -182,7 +345,12 @@ public enum KmgDelimiterTypes implements KmgTypes<String> {
 
     /**
      * キーを返す。<br>
-     * このメソッドは{@link #getKey()}のエイリアスです。
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
      *
      * @return キー
      *
@@ -198,6 +366,12 @@ public enum KmgDelimiterTypes implements KmgTypes<String> {
 
     /**
      * 詳細情報を返す。<br>
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
      *
      * @return 詳細情報
      */
@@ -215,6 +389,12 @@ public enum KmgDelimiterTypes implements KmgTypes<String> {
      * 識別するための表示名を返す。
      * </p>
      *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
+     *
      * @return 表示名
      */
     @Override
@@ -227,6 +407,12 @@ public enum KmgDelimiterTypes implements KmgTypes<String> {
 
     /**
      * キーを返す。<br>
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
      *
      * @return キー
      */
@@ -246,9 +432,9 @@ public enum KmgDelimiterTypes implements KmgTypes<String> {
      *
      * @author KenichiroArai
      *
-     * @sine 1.0.0
+     * @sine 0.1.0
      *
-     * @version 1.0.0
+     * @version 0.1.0
      *
      * @param <T>
      *                   結合する文字列の型
@@ -273,9 +459,9 @@ public enum KmgDelimiterTypes implements KmgTypes<String> {
      *
      * @author KenichiroArai
      *
-     * @sine 1.0.0
+     * @sine 0.1.0
      *
-     * @version 1.0.0
+     * @version 0.1.0
      *
      * @param targets
      *                結合する文字列
@@ -332,9 +518,9 @@ public enum KmgDelimiterTypes implements KmgTypes<String> {
      *
      * @author KenichiroArai
      *
-     * @sine 1.0.0
+     * @sine 0.1.0
      *
-     * @version 1.0.0
+     * @version 0.1.0
      *
      * @param targets
      *                結合する文字列
@@ -392,9 +578,9 @@ public enum KmgDelimiterTypes implements KmgTypes<String> {
      *
      * @author KenichiroArai
      *
-     * @sine 1.0.0
+     * @sine 0.1.0
      *
-     * @version 1.0.0
+     * @version 0.1.0
      *
      * @param target
      *               分割する文字列
@@ -422,9 +608,9 @@ public enum KmgDelimiterTypes implements KmgTypes<String> {
      *
      * @author KenichiroArai
      *
-     * @sine 1.0.0
+     * @sine 0.1.0
      *
-     * @version 1.0.0
+     * @version 0.1.0
      *
      * @param target
      *               分割する文字列
@@ -451,7 +637,12 @@ public enum KmgDelimiterTypes implements KmgTypes<String> {
 
     /**
      * キーを返す。<br>
-     * このメソッドは{@link #getKey()}のエイリアスです。
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
      *
      * @return キー
      *

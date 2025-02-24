@@ -7,22 +7,54 @@ import kmg.core.infrastructure.types.KmgTimeUnitTypes;
  *
  * @author KenichiroArai
  *
- * @sine 1.0.0
+ * @sine 0.1.0
  *
- * @version 1.0.0
+ * @version 0.1.0
  */
 public class KmgPfaMeasModel {
 
-    /** 開始時間 */
+    /**
+     * 開始時間
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
+     */
     private long startTime;
 
-    /** 終了時間 */
+    /**
+     * 終了時間
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
+     */
     private long endTime;
 
-    /** 経過時間 */
+    /**
+     * 経過時間
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
+     */
     private double elapsedTime;
 
-    /** 時間単位 */
+    /**
+     * 時間単位
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
+     */
     private KmgTimeUnitTypes timeUnit;
 
     /**
@@ -30,9 +62,9 @@ public class KmgPfaMeasModel {
      *
      * @author KenichiroArai
      *
-     * @sine 1.0.0
+     * @sine 0.1.0
      *
-     * @version 1.0.0
+     * @version 0.1.0
      */
     public void start() {
 
@@ -45,9 +77,9 @@ public class KmgPfaMeasModel {
      *
      * @author KenichiroArai
      *
-     * @sine 1.0.0
+     * @sine 0.1.0
      *
-     * @version 1.0.0
+     * @version 0.1.0
      */
     public void end() {
 
@@ -88,9 +120,9 @@ public class KmgPfaMeasModel {
      *
      * @author KenichiroArai
      *
-     * @sine 1.0.0
+     * @sine 0.1.0
      *
-     * @version 1.0.0
+     * @version 0.1.0
      *
      * @return 開始時間
      */
@@ -106,9 +138,9 @@ public class KmgPfaMeasModel {
      *
      * @author KenichiroArai
      *
-     * @sine 1.0.0
+     * @sine 0.1.0
      *
-     * @version 1.0.0
+     * @version 0.1.0
      *
      * @return 終了時間
      */
@@ -124,9 +156,9 @@ public class KmgPfaMeasModel {
      *
      * @author KenichiroArai
      *
-     * @sine 1.0.0
+     * @sine 0.1.0
      *
-     * @version 1.0.0
+     * @version 0.1.0
      *
      * @return 経過時間
      */
@@ -142,9 +174,9 @@ public class KmgPfaMeasModel {
      *
      * @author KenichiroArai
      *
-     * @sine 1.0.0
+     * @sine 0.1.0
      *
-     * @version 1.0.0
+     * @version 0.1.0
      *
      * @return 時間単位
      */
@@ -157,6 +189,12 @@ public class KmgPfaMeasModel {
 
     /**
      * 現在時刻を返す<br>
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
      *
      * @return 現在時刻
      */

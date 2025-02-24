@@ -14,9 +14,9 @@ import kmg.core.infrastructure.model.impl.KmgReflectionModelImpl;
  *
  * @author KenichiroArai
  *
- * @sine 1.0.0
+ * @sine 0.1.0
  *
- * @version 1.0.0
+ * @version 0.1.0
  */
 @SuppressWarnings({
     "nls", "static-method"
@@ -26,6 +26,12 @@ public class KmgExceptionTest {
 
     /**
      * コンストラクタのテスト - 正常系：メッセージタイプとメッセージ引数を指定した場合
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
      */
     @Test
     public void testConstructor_normalWithMessageTypesAndArgs() {
@@ -54,6 +60,12 @@ public class KmgExceptionTest {
 
     /**
      * コンストラクタのテスト - 正常系：メッセージタイプと原因を指定した場合
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
      */
     @Test
     public void testConstructor_normalWithMessageTypesAndCause() {
@@ -80,6 +92,12 @@ public class KmgExceptionTest {
 
     /**
      * コンストラクタのテスト - 正常系：メッセージタイプ、メッセージ引数、原因を指定した場合
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
      */
     @Test
     public void testConstructor_normalWithMessageTypesArgsAndCause() {
@@ -111,6 +129,12 @@ public class KmgExceptionTest {
 
     /**
      * コンストラクタのテスト - 正常系：メッセージタイプのみを指定した場合
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
      */
     @Test
     public void testConstructor_normalWithMessageTypesOnly() {
@@ -134,6 +158,12 @@ public class KmgExceptionTest {
 
     /**
      * getMessageArgsCount メソッドのテスト - 正常系：メッセージ引数がある場合
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
      */
     @Test
     public void testGetMessageArgsCount_normalWithArgs() {
@@ -159,6 +189,12 @@ public class KmgExceptionTest {
 
     /**
      * getMessageArgsCount メソッドのテスト - 準正常系：メッセージ引数がnullの場合
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
      */
     @Test
     public void testGetMessageArgsCount_semiWithNullArgs() {
@@ -179,6 +215,12 @@ public class KmgExceptionTest {
 
     /**
      * getMessagePattern メソッドのテスト - 正常系：メッセージパターンを取得する場合
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
      */
     @Test
     public void testGetMessagePattern_normalGetPattern() {
@@ -199,6 +241,12 @@ public class KmgExceptionTest {
 
     /**
      * getMessagePatternArgsCount メソッドのテスト - 正常系：メッセージパターンの引数の数を取得する場合
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
      */
     @Test
     public void testGetMessagePatternArgsCount_normalGetCount() {
@@ -219,6 +267,12 @@ public class KmgExceptionTest {
 
     /**
      * isMatchMessageArgsCount メソッドのテスト - 正常系：メッセージ引数の数が一致する場合
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
      */
     @Test
     public void testIsMatchMessageArgsCount_normalMatching() {
@@ -243,6 +297,12 @@ public class KmgExceptionTest {
 
     /**
      * isMatchMessageArgsCount メソッドのテスト - 準正常系：メッセージ引数の数が一致しない場合
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
      */
     @Test
     public void testIsMatchMessageArgsCount_semiNotMatching() {
@@ -268,6 +328,12 @@ public class KmgExceptionTest {
 
     /**
      * setMessageCounts メソッドのテスト - 準正常系：メッセージパターンが空の場合
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
      *
      * @throws Exception
      *                   リフレクション操作で発生する可能性のある例外

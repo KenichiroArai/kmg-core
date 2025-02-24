@@ -7,9 +7,9 @@ import kmg.core.infrastructure.exception.KmgDomainException;
  *
  * @author KenichiroArai
  *
- * @sine 1.0.0
+ * @sine 0.1.0
  *
- * @version 1.0.0
+ * @version 0.1.0
  */
 public interface KmgSqlPathModel {
 
@@ -25,9 +25,9 @@ public interface KmgSqlPathModel {
      *
      * @author KenichiroArai
      *
-     * @sine 1.0.0
+     * @sine 0.1.0
      *
-     * @version 1.0.0
+     * @version 0.1.0
      *
      * @return ＳＱＬにして返す
      *

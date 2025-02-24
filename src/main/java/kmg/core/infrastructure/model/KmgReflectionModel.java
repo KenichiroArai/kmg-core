@@ -9,9 +9,9 @@ import kmg.core.infrastructure.exception.KmgDomainException;
  *
  * @author KenichiroArai
  *
- * @sine 1.0.0
+ * @sine 0.1.0
  *
- * @version 1.0.0
+ * @version 0.1.0
  */
 public interface KmgReflectionModel {
 
@@ -20,9 +20,9 @@ public interface KmgReflectionModel {
      *
      * @author KenichiroArai
      *
-     * @sine 1.0.0
+     * @sine 0.1.0
      *
-     * @version 1.0.0
+     * @version 0.1.0
      *
      * @return 最後に取得したフィールド
      */
@@ -33,9 +33,9 @@ public interface KmgReflectionModel {
      *
      * @author KenichiroArai
      *
-     * @sine 1.0.0
+     * @sine 0.1.0
      *
-     * @version 1.0.0
+     * @version 0.1.0
      *
      * @param fieldName
      *                  フィールド名
@@ -52,9 +52,9 @@ public interface KmgReflectionModel {
      *
      * @author KenichiroArai
      *
-     * @sine 1.0.0
+     * @sine 0.1.0
      *
-     * @version 1.0.0
+     * @version 0.1.0
      *
      * @param fieldName
      *                  フィールド名
@@ -71,9 +71,9 @@ public interface KmgReflectionModel {
      *
      * @author KenichiroArai
      *
-     * @sine 1.0.0
+     * @sine 0.1.0
      *
-     * @version 1.0.0
+     * @version 0.1.0
      *
      * @param methodName
      *                   メソッド名

@@ -8,9 +8,9 @@ import org.junit.jupiter.api.Test;
  *
  * @author KenichiroArai
  *
- * @sine 1.0.0
+ * @sine 0.1.0
  *
- * @version 1.0.0
+ * @version 0.1.0
  */
 @SuppressWarnings({
     "nls", "static-method"
@@ -19,6 +19,12 @@ public class KmgTemplateTypesTest {
 
     /**
      * get メソッドのテスト - 正常系:値の取得
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
      */
     @Test
     public void testGet_normalBasicValue() {
@@ -39,6 +45,12 @@ public class KmgTemplateTypesTest {
 
     /**
      * getDefault メソッドのテスト - 正常系:デフォルト値の取得
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
      */
     @Test
     public void testGetDefault_normalDefaultValue() {
@@ -56,6 +68,12 @@ public class KmgTemplateTypesTest {
 
     /**
      * getDetail メソッドのテスト - 正常系:詳細情報の取得
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
      */
     @Test
     public void testGetDetail_normalBasicDetail() {
@@ -76,6 +94,12 @@ public class KmgTemplateTypesTest {
 
     /**
      * getDisplayName メソッドのテスト - 正常系:表示名の取得
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
      */
     @Test
     public void testGetDisplayName_normalBasicName() {
@@ -96,6 +120,12 @@ public class KmgTemplateTypesTest {
 
     /**
      * getEnum メソッドのテスト - 正常系:存在する値の取得
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
      */
     @Test
     public void testGetEnum_normalExistingValue() {
@@ -116,6 +146,12 @@ public class KmgTemplateTypesTest {
 
     /**
      * getEnum メソッドのテスト - 準正常系:存在しない値の取得
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
      */
     @Test
     public void testGetEnum_semiNonExistingValue() {
@@ -136,6 +172,12 @@ public class KmgTemplateTypesTest {
 
     /**
      * getEnum メソッドのテスト - 準正常系:null値の取得
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
      */
     @Test
     public void testGetEnum_semiNullValue() {
@@ -156,6 +198,12 @@ public class KmgTemplateTypesTest {
 
     /**
      * getInitValue メソッドのテスト - 正常系:初期値の取得
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
      */
     @Test
     public void testGetInitValue_normalInitialValue() {
@@ -173,6 +221,12 @@ public class KmgTemplateTypesTest {
 
     /**
      * toString メソッドのテスト - 正常系:NONEの文字列表現
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
      */
     @Test
     public void testToString_normalNone() {

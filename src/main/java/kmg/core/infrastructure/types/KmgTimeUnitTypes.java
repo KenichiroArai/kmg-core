@@ -11,34 +11,82 @@ import kmg.core.infrastructure.common.KmgTypes;
  *
  * @author KenichiroArai
  *
- * @sine 1.0.0
+ * @sine 0.1.0
  *
- * @version 1.0.0
+ * @version 0.1.0
  */
 @SuppressWarnings("nls")
 public enum KmgTimeUnitTypes implements KmgTypes<String> {
 
     /* 定義：開始 */
 
-    /** 指定無し */
+    /**
+     * 指定無し
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
+     */
     NONE("指定無し", null, "指定無し", BigDecimal.ZERO),
 
-    /** 秒 */
+    /**
+     * 秒
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
+     */
     SECONDS("秒", "seconds", "秒", BigDecimal.ONE),
 
-    /** ミリ秒 */
+    /**
+     * ミリ秒
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
+     */
     MILLISECOND("ミリ秒", "millisecond,", "ミリ秒", new BigDecimal("0.001")),
 
-    /** マイクロ秒 */
+    /**
+     * マイクロ秒
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
+     */
     MICROSECONDS("マイクロ秒", "microseconds", "マイクロ秒", new BigDecimal("0.000001")),
 
-    /** ナノ秒 */
+    /**
+     * ナノ秒
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
+     */
     NANOSECONDS("ナノ秒", "nanoseconds", "ナノ秒", new BigDecimal("0.000000001")),
 
     /* 定義：終了 */
     ;
 
-    /** 種類のマップ */
+    /**
+     * 種類のマップ
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
+     */
     private static final Map<String, KmgTimeUnitTypes> VALUES_MAP = new HashMap<>();
 
     static {
@@ -52,19 +100,59 @@ public enum KmgTimeUnitTypes implements KmgTypes<String> {
 
     }
 
-    /** 表示名 */
+    /**
+     * 表示名
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
+     */
     private final String displayName;
 
-    /** キー */
+    /**
+     * キー
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
+     */
     private final String key;
 
-    /** 詳細情報 */
+    /**
+     * 詳細情報
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
+     */
     private final String detail;
 
-    /** 単位名 */
+    /**
+     * 単位名
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
+     */
     private final String unitName;
 
-    /** 単位値 */
+    /**
+     * 単位値
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
+     */
     private final BigDecimal unitValue;
 
     /**
@@ -72,9 +160,9 @@ public enum KmgTimeUnitTypes implements KmgTypes<String> {
      *
      * @author KenichiroArai
      *
-     * @sine 1.0.0
+     * @sine 0.1.0
      *
-     * @version 1.0.0
+     * @version 0.1.0
      *
      * @return デフォルト値
      */
@@ -93,9 +181,9 @@ public enum KmgTimeUnitTypes implements KmgTypes<String> {
      *
      * @author KenichiroArai
      *
-     * @sine 1.0.0
+     * @sine 0.1.0
      *
-     * @version 1.0.0
+     * @version 0.1.0
      *
      * @param key
      *            キー
@@ -120,9 +208,9 @@ public enum KmgTimeUnitTypes implements KmgTypes<String> {
      *
      * @author KenichiroArai
      *
-     * @sine 1.0.0
+     * @sine 0.1.0
      *
-     * @version 1.0.0
+     * @version 0.1.0
      *
      * @return 初期値
      */
@@ -138,9 +226,9 @@ public enum KmgTimeUnitTypes implements KmgTypes<String> {
      *
      * @author KenichiroArai
      *
-     * @sine 1.0.0
+     * @sine 0.1.0
      *
-     * @version 1.0.0
+     * @version 0.1.0
      *
      * @param displayName
      *                    表示名
@@ -163,7 +251,12 @@ public enum KmgTimeUnitTypes implements KmgTypes<String> {
 
     /**
      * キーを返す。<br>
-     * このメソッドは{@link #getKey()}のエイリアスです。
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
      *
      * @return キー
      *
@@ -179,6 +272,12 @@ public enum KmgTimeUnitTypes implements KmgTypes<String> {
 
     /**
      * 詳細情報を返す。<br>
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
      *
      * @return 詳細情報
      */
@@ -196,6 +295,12 @@ public enum KmgTimeUnitTypes implements KmgTypes<String> {
      * 識別するための表示名を返す。
      * </p>
      *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
+     *
      * @return 表示名
      */
     @Override
@@ -208,6 +313,12 @@ public enum KmgTimeUnitTypes implements KmgTypes<String> {
 
     /**
      * キーを返す。<br>
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
      *
      * @return キー
      */
@@ -224,9 +335,9 @@ public enum KmgTimeUnitTypes implements KmgTypes<String> {
      *
      * @author KenichiroArai
      *
-     * @sine 1.0.0
+     * @sine 0.1.0
      *
-     * @version 1.0.0
+     * @version 0.1.0
      *
      * @return 単位名
      */
@@ -242,9 +353,9 @@ public enum KmgTimeUnitTypes implements KmgTypes<String> {
      *
      * @author KenichiroArai
      *
-     * @sine 1.0.0
+     * @sine 0.1.0
      *
-     * @version 1.0.0
+     * @version 0.1.0
      *
      * @return 単位値
      */
@@ -257,7 +368,12 @@ public enum KmgTimeUnitTypes implements KmgTypes<String> {
 
     /**
      * キーを返す。<br>
-     * このメソッドは{@link #getKey()}のエイリアスです。
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
      *
      * @return キー
      *

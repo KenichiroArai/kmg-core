@@ -7,13 +7,21 @@ import kmg.core.infrastructure.common.KmgMessageTypes;
  *
  * @author KenichiroArai
  *
- * @sine 1.0.0
+ * @sine 0.1.0
  *
- * @version 1.0.0
+ * @version 0.1.0
  */
 public class KmgDomainException extends KmgException {
 
-    /** デフォルトシリアルバージョンＵＩＤ */
+    /**
+     * デフォルトシリアルバージョンＵＩＤ
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
+     */
     private static final long serialVersionUID = 1L;
 
     /**
@@ -21,9 +29,9 @@ public class KmgDomainException extends KmgException {
      *
      * @author KenichiroArai
      *
-     * @sine 1.0.0
+     * @sine 0.1.0
      *
-     * @version 1.0.0
+     * @version 0.1.0
      *
      * @param messageTypes
      *                     メッセージの種類
@@ -39,9 +47,9 @@ public class KmgDomainException extends KmgException {
      *
      * @author KenichiroArai
      *
-     * @sine 1.0.0
+     * @sine 0.1.0
      *
-     * @version 1.0.0
+     * @version 0.1.0
      *
      * @param messageTypes
      *                     メッセージの種類
@@ -59,9 +67,9 @@ public class KmgDomainException extends KmgException {
      *
      * @author KenichiroArai
      *
-     * @sine 1.0.0
+     * @sine 0.1.0
      *
-     * @version 1.0.0
+     * @version 0.1.0
      *
      * @param messageTypes
      *                     メッセージの種類
@@ -81,9 +89,9 @@ public class KmgDomainException extends KmgException {
      *
      * @author KenichiroArai
      *
-     * @sine 1.0.0
+     * @sine 0.1.0
      *
-     * @version 1.0.0
+     * @version 0.1.0
      *
      * @param messageTypes
      *                     メッセージの種類

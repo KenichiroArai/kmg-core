@@ -8,16 +8,32 @@ import kmg.core.infrastructure.model.KmgPfaMeasModel;
  *
  * @author KenichiroArai
  *
- * @sine 1.0.0
+ * @sine 0.1.0
  *
- * @version 1.0.0
+ * @version 0.1.0
  */
 public class KmgPfaMeasServiceImpl implements KmgPfaMeasService {
 
-    /** 名称 */
+    /**
+     * 名称
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
+     */
     private final String name;
 
-    /** KMG性能測定モデル */
+    /**
+     * KMG性能測定モデル
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
+     */
     private final KmgPfaMeasModel kmgPfaMeasModel;
 
     /**
@@ -25,9 +41,9 @@ public class KmgPfaMeasServiceImpl implements KmgPfaMeasService {
      *
      * @author KenichiroArai
      *
-     * @sine 1.0.0
+     * @sine 0.1.0
      *
-     * @version 1.0.0
+     * @version 0.1.0
      *
      * @param name
      *             名称
@@ -44,9 +60,9 @@ public class KmgPfaMeasServiceImpl implements KmgPfaMeasService {
      *
      * @author KenichiroArai
      *
-     * @sine 1.0.0
+     * @sine 0.1.0
      *
-     * @version 1.0.0
+     * @version 0.1.0
      */
     @Override
     public void end() {
@@ -63,9 +79,9 @@ public class KmgPfaMeasServiceImpl implements KmgPfaMeasService {
      *
      * @author KenichiroArai
      *
-     * @sine 1.0.0
+     * @sine 0.1.0
      *
-     * @version 1.0.0
+     * @version 0.1.0
      */
     @Override
     public void start() {
@@ -81,9 +97,9 @@ public class KmgPfaMeasServiceImpl implements KmgPfaMeasService {
      *
      * @author KenichiroArai
      *
-     * @sine 1.0.0
+     * @sine 0.1.0
      *
-     * @version 1.0.0
+     * @version 0.1.0
      *
      * @return KMG性能測定モデル
      */

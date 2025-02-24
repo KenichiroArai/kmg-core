@@ -13,9 +13,9 @@ import kmg.core.infrastructure.type.KmgString;
  *
  * @author KenichiroArai
  *
- * @sine 1.0.0
+ * @sine 0.1.0
  *
- * @version 1.0.0
+ * @version 0.1.0
  */
 public final class KmgPathUtils {
 
@@ -24,9 +24,9 @@ public final class KmgPathUtils {
      *
      * @author KenichiroArai
      *
-     * @sine 1.0.0
+     * @sine 0.1.0
      *
-     * @version 1.0.0
+     * @version 0.1.0
      */
     private KmgPathUtils() {
 
@@ -43,9 +43,9 @@ public final class KmgPathUtils {
      *
      * @author KenichiroArai
      *
-     * @sine 1.0.0
+     * @sine 0.1.0
      *
-     * @version 1.0.0
+     * @version 0.1.0
      *
      * @param filePath
      *                 ファイルパス
@@ -76,9 +76,9 @@ public final class KmgPathUtils {
      *
      * @author KenichiroArai
      *
-     * @sine 1.0.0
+     * @sine 0.1.0
      *
-     * @version 1.0.0
+     * @version 0.1.0
      *
      * @param zlass
      *              クラス
@@ -124,9 +124,9 @@ public final class KmgPathUtils {
      *
      * @author KenichiroArai
      *
-     * @sine 1.0.0
+     * @sine 0.1.0
      *
-     * @version 1.0.0
+     * @version 0.1.0
      *
      * @param zlass
      *              クラス
@@ -160,9 +160,9 @@ public final class KmgPathUtils {
      *
      * @author KenichiroArai
      *
-     * @sine 1.0.0
+     * @sine 0.1.0
      *
-     * @version 1.0.0
+     * @version 0.1.0
      *
      * @param obj
      *            オブジェクト
@@ -197,9 +197,9 @@ public final class KmgPathUtils {
      *
      * @author KenichiroArai
      *
-     * @sine 1.0.0
+     * @sine 0.1.0
      *
-     * @version 1.0.0
+     * @version 0.1.0
      *
      * @param object
      *                 オブジェクト
@@ -247,9 +247,9 @@ public final class KmgPathUtils {
      *
      * @author KenichiroArai
      *
-     * @sine 1.0.0
+     * @sine 0.1.0
      *
-     * @version 1.0.0
+     * @version 0.1.0
      *
      * @param zlass
      *                 クラス
@@ -286,9 +286,9 @@ public final class KmgPathUtils {
      *
      * @author KenichiroArai
      *
-     * @sine 1.0.0
+     * @sine 0.1.0
      *
-     * @version 1.0.0
+     * @version 0.1.0
      *
      * @param binPath
      *                    ビルドパス

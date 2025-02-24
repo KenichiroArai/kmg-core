@@ -13,16 +13,32 @@ import kmg.core.infrastructure.type.KmgString;
  *
  * @author KenichiroArai
  *
- * @sine 1.0.0
+ * @sine 0.1.0
  *
- * @version 1.0.0
+ * @version 0.1.0
  */
 public final class KmgMessageUtils {
 
-    /** リソースバンドルマップ */
+    /**
+     * リソースバンドルマップ
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
+     */
     private static final Map<String, ResourceBundle> bundleMap;
 
-    /** プロパティファイル名の配列 */
+    /**
+     * プロパティファイル名の配列
+     *
+     * @author KenichiroArai
+     *
+     * @sine 0.1.0
+     *
+     * @version 0.1.0
+     */
     @SuppressWarnings("nls")
     private static final String[] PROPERTY_FILES = {
         "messages", "messages-log"
@@ -47,9 +63,9 @@ public final class KmgMessageUtils {
      *
      * @author KenichiroArai
      *
-     * @sine 1.0.0
+     * @sine 0.1.0
      *
-     * @version 1.0.0
+     * @version 0.1.0
      *
      * @param messagePattern
      *                       メッセージパターン
@@ -104,9 +120,9 @@ public final class KmgMessageUtils {
      *
      * @author KenichiroArai
      *
-     * @sine 1.0.0
+     * @sine 0.1.0
      *
-     * @version 1.0.0
+     * @version 0.1.0
      *
      * @param type
      *                    メッセージの種類
@@ -151,9 +167,9 @@ public final class KmgMessageUtils {
      *
      * @author KenichiroArai
      *
-     * @sine 1.0.0
+     * @sine 0.1.0
      *
-     * @version 1.0.0
+     * @version 0.1.0
      *
      * @param type
      *             メッセージの種類
@@ -203,9 +219,9 @@ public final class KmgMessageUtils {
      *
      * @author KenichiroArai
      *
-     * @sine 1.0.0
+     * @sine 0.1.0
      *
-     * @version 1.0.0
+     * @version 0.1.0
      *
      * @param messagePattern
      *                       メッセージパターン
@@ -243,9 +259,9 @@ public final class KmgMessageUtils {
      *
      * @author KenichiroArai
      *
-     * @sine 1.0.0
+     * @sine 0.1.0
      *
-     * @version 1.0.0
+     * @version 0.1.0
      */
     private KmgMessageUtils() {
 

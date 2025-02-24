@@ -12,9 +12,9 @@ import kmg.core.infrastructure.type.KmgString;
  *
  * @author KenichiroArai
  *
- * @sine 1.0.0
+ * @sine 0.1.0
  *
- * @version 1.0.0
+ * @version 0.1.0
  */
 public final class KmgPoiUtils {
 
@@ -23,9 +23,9 @@ public final class KmgPoiUtils {
      *
      * @author KenichiroArai
      *
-     * @sine 1.0.0
+     * @sine 0.1.0
      *
-     * @version 1.0.0
+     * @version 0.1.0
      */
     private KmgPoiUtils() {
 
@@ -37,9 +37,9 @@ public final class KmgPoiUtils {
      *
      * @author KenichiroArai
      *
-     * @sine 1.0.0
+     * @sine 0.1.0
      *
-     * @version 1.0.0
+     * @version 0.1.0
      *
      * @param cell
      *             セル
@@ -92,9 +92,9 @@ public final class KmgPoiUtils {
      *
      * @author KenichiroArai
      *
-     * @sine 1.0.0
+     * @sine 0.1.0
      *
-     * @version 1.0.0
+     * @version 0.1.0
      *
      * @param cell
      *             セル
@@ -135,9 +135,9 @@ public final class KmgPoiUtils {
      *
      * @author KenichiroArai
      *
-     * @sine 1.0.0
+     * @sine 0.1.0
      *
-     * @version 1.0.0
+     * @version 0.1.0
      *
      * @param cell
      *             セル
@@ -177,9 +177,9 @@ public final class KmgPoiUtils {
      *
      * @author KenichiroArai
      *
-     * @sine 1.0.0
+     * @sine 0.1.0
      *
-     * @version 1.0.0
+     * @version 0.1.0
      *
      * @param sheet
      *                    シート
@@ -212,9 +212,9 @@ public final class KmgPoiUtils {
      *
      * @author KenichiroArai
      *
-     * @sine 1.0.0
+     * @sine 0.1.0
      *
-     * @version 1.0.0
+     * @version 0.1.0
      *
      * @param cell
      *             セル
