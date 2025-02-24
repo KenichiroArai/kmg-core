@@ -63,6 +63,21 @@ jobs:
                   path: target/site/jacoco/
                   retention-days: 7
 
+            # Javadocの生成
+            - name: Javadocの生成
+              run: |
+                  echo "Javadocの生成を開始します..."
+                  mvn javadoc:javadoc
+                  echo "Javadocの生成が完了しました"
+
+            # Javadocのアップロード
+            - name: Javadocのアップロード
+              uses: actions/upload-artifact@v4
+              with:
+                  name: javadoc
+                  path: target/site/apidocs/
+                  retention-days: 7
+
             # GitHub Packagesへの公開
             - name: Publish to GitHub Packages
               run: |

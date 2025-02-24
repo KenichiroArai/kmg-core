@@ -8,7 +8,7 @@ import java.math.RoundingMode;
  *
  * @author KenichiroArai
  *
- * @sine 0.1.0
+ * @since 0.1.0
  *
  * @version 0.1.0
  */
@@ -19,7 +19,7 @@ public class KmgDecimal {
      *
      * @author KenichiroArai
      *
-     * @sine 0.1.0
+     * @since 0.1.0
      *
      * @version 0.1.0
      */
@@ -30,7 +30,7 @@ public class KmgDecimal {
      *
      * @author KenichiroArai
      *
-     * @sine 0.1.0
+     * @since 0.1.0
      *
      * @version 0.1.0
      */
@@ -41,7 +41,7 @@ public class KmgDecimal {
      *
      * @author KenichiroArai
      *
-     * @sine 0.1.0
+     * @since 0.1.0
      *
      * @version 0.1.0
      */
@@ -52,7 +52,7 @@ public class KmgDecimal {
      *
      * @author KenichiroArai
      *
-     * @sine 0.1.0
+     * @since 0.1.0
      *
      * @version 0.1.0
      */
@@ -63,7 +63,7 @@ public class KmgDecimal {
      *
      * @author KenichiroArai
      *
-     * @sine 0.1.0
+     * @since 0.1.0
      *
      * @version 0.1.0
      */
@@ -74,7 +74,7 @@ public class KmgDecimal {
      *
      * @author KenichiroArai
      *
-     * @sine 0.1.0
+     * @since 0.1.0
      *
      * @version 0.1.0
      */
@@ -85,18 +85,44 @@ public class KmgDecimal {
      *
      * @author KenichiroArai
      *
-     * @sine 0.1.0
+     * @since 0.1.0
      *
      * @version 0.1.0
      */
     private BigDecimal value;
 
     /**
+     * 除算する<br>
+     * <p>
+     * num1 ÷ num2
+     * </p>
+     *
+     * @author KenichiroArai
+     *
+     * @since 0.1.0
+     *
+     * @version 0.1.0
+     *
+     * @param num1
+     *             数値１
+     * @param num2
+     *             数値２
+     *
+     * @return 除算結果
+     */
+    public static BigDecimal divide(final BigDecimal num1, final BigDecimal num2) {
+
+        final BigDecimal result = num1.divide(num2, KmgDecimal.CALC_SCALE, KmgDecimal.CALC_ROUNDING_MODE);
+        return result;
+
+    }
+
+    /**
      * 計算用のスケールを設定する<br>
      *
      * @author KenichiroArai
      *
-     * @sine 0.1.0
+     * @since 0.1.0
      *
      * @version 0.1.0
      *
@@ -117,7 +143,7 @@ public class KmgDecimal {
      *
      * @author KenichiroArai
      *
-     * @sine 0.1.0
+     * @since 0.1.0
      *
      * @version 0.1.0
      *
@@ -138,7 +164,7 @@ public class KmgDecimal {
      *
      * @author KenichiroArai
      *
-     * @sine 0.1.0
+     * @since 0.1.0
      *
      * @version 0.1.0
      *
@@ -159,7 +185,7 @@ public class KmgDecimal {
      *
      * @author KenichiroArai
      *
-     * @sine 0.1.0
+     * @since 0.1.0
      *
      * @version 0.1.0
      *
@@ -176,37 +202,11 @@ public class KmgDecimal {
     }
 
     /**
-     * 除算する<br>
-     * <p>
-     * num1 ÷ num2
-     * </p>
-     *
-     * @author KenichiroArai
-     *
-     * @sine 0.1.0
-     *
-     * @version 0.1.0
-     *
-     * @param num1
-     *             数値１
-     * @param num2
-     *             数値２
-     *
-     * @return 除算結果
-     */
-    public static BigDecimal divide(final BigDecimal num1, final BigDecimal num2) {
-
-        final BigDecimal result = num1.divide(num2, KmgDecimal.CALC_SCALE, KmgDecimal.CALC_ROUNDING_MODE);
-        return result;
-
-    }
-
-    /**
      * コンストラクタ<br>
      *
      * @author KenichiroArai
      *
-     * @sine 0.1.0
+     * @since 0.1.0
      *
      * @version 0.1.0
      *
@@ -225,7 +225,7 @@ public class KmgDecimal {
      *
      * @author KenichiroArai
      *
-     * @sine 0.1.0
+     * @since 0.1.0
      *
      * @version 0.1.0
      *
@@ -245,7 +245,7 @@ public class KmgDecimal {
      *
      * @author KenichiroArai
      *
-     * @sine 0.1.0
+     * @since 0.1.0
      *
      * @version 0.1.0
      *
@@ -263,7 +263,7 @@ public class KmgDecimal {
      *
      * @author KenichiroArai
      *
-     * @sine 0.1.0
+     * @since 0.1.0
      *
      * @version 0.1.0
      */

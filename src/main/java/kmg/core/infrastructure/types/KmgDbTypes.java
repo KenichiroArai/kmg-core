@@ -12,7 +12,7 @@ import kmg.core.infrastructure.utils.KmgArrayUtils;
  *
  * @author KenichiroArai
  *
- * @sine 0.1.0
+ * @since 0.1.0
  *
  * @version 0.1.0
  */
@@ -26,7 +26,7 @@ public enum KmgDbTypes implements KmgTypes<String> {
      *
      * @author KenichiroArai
      *
-     * @sine 0.1.0
+     * @since 0.1.0
      *
      * @version 0.1.0
      */
@@ -37,7 +37,7 @@ public enum KmgDbTypes implements KmgTypes<String> {
      *
      * @author KenichiroArai
      *
-     * @sine 0.1.0
+     * @since 0.1.0
      *
      * @version 0.1.0
      */
@@ -50,7 +50,7 @@ public enum KmgDbTypes implements KmgTypes<String> {
      *
      * @author KenichiroArai
      *
-     * @sine 0.1.0
+     * @since 0.1.0
      *
      * @version 0.1.0
      */
@@ -61,7 +61,7 @@ public enum KmgDbTypes implements KmgTypes<String> {
      *
      * @author KenichiroArai
      *
-     * @sine 0.1.0
+     * @since 0.1.0
      *
      * @version 0.1.0
      */
@@ -72,7 +72,7 @@ public enum KmgDbTypes implements KmgTypes<String> {
      *
      * @author KenichiroArai
      *
-     * @sine 0.1.0
+     * @since 0.1.0
      *
      * @version 0.1.0
      */
@@ -88,7 +88,7 @@ public enum KmgDbTypes implements KmgTypes<String> {
      *
      * @author KenichiroArai
      *
-     * @sine 0.1.0
+     * @since 0.1.0
      *
      * @version 0.1.0
      */
@@ -110,7 +110,7 @@ public enum KmgDbTypes implements KmgTypes<String> {
      *
      * @author KenichiroArai
      *
-     * @sine 0.1.0
+     * @since 0.1.0
      *
      * @version 0.1.0
      */
@@ -121,7 +121,7 @@ public enum KmgDbTypes implements KmgTypes<String> {
      *
      * @author KenichiroArai
      *
-     * @sine 0.1.0
+     * @since 0.1.0
      *
      * @version 0.1.0
      */
@@ -132,7 +132,7 @@ public enum KmgDbTypes implements KmgTypes<String> {
      *
      * @author KenichiroArai
      *
-     * @sine 0.1.0
+     * @since 0.1.0
      *
      * @version 0.1.0
      */
@@ -143,7 +143,7 @@ public enum KmgDbTypes implements KmgTypes<String> {
      *
      * @author KenichiroArai
      *
-     * @sine 0.1.0
+     * @since 0.1.0
      *
      * @version 0.1.0
      */
@@ -154,7 +154,7 @@ public enum KmgDbTypes implements KmgTypes<String> {
      *
      * @author KenichiroArai
      *
-     * @sine 0.1.0
+     * @since 0.1.0
      *
      * @version 0.1.0
      *
@@ -175,7 +175,7 @@ public enum KmgDbTypes implements KmgTypes<String> {
      *
      * @author KenichiroArai
      *
-     * @sine 0.1.0
+     * @since 0.1.0
      *
      * @version 0.1.0
      *
@@ -206,7 +206,7 @@ public enum KmgDbTypes implements KmgTypes<String> {
      *
      * @author KenichiroArai
      *
-     * @sine 0.1.0
+     * @since 0.1.0
      *
      * @version 0.1.0
      *
@@ -264,7 +264,7 @@ public enum KmgDbTypes implements KmgTypes<String> {
      *
      * @author KenichiroArai
      *
-     * @sine 0.1.0
+     * @since 0.1.0
      *
      * @version 0.1.0
      *
@@ -282,7 +282,7 @@ public enum KmgDbTypes implements KmgTypes<String> {
      *
      * @author KenichiroArai
      *
-     * @sine 0.1.0
+     * @since 0.1.0
      *
      * @version 0.1.0
      *
@@ -307,7 +307,7 @@ public enum KmgDbTypes implements KmgTypes<String> {
      *
      * @author KenichiroArai
      *
-     * @sine 0.1.0
+     * @since 0.1.0
      *
      * @version 0.1.0
      *
@@ -328,7 +328,7 @@ public enum KmgDbTypes implements KmgTypes<String> {
      *
      * @author KenichiroArai
      *
-     * @sine 0.1.0
+     * @since 0.1.0
      *
      * @version 0.1.0
      *
@@ -346,7 +346,7 @@ public enum KmgDbTypes implements KmgTypes<String> {
      *
      * @author KenichiroArai
      *
-     * @sine 0.1.0
+     * @since 0.1.0
      *
      * @version 0.1.0
      *
@@ -368,7 +368,7 @@ public enum KmgDbTypes implements KmgTypes<String> {
      *
      * @author KenichiroArai
      *
-     * @sine 0.1.0
+     * @since 0.1.0
      *
      * @version 0.1.0
      *
@@ -387,7 +387,7 @@ public enum KmgDbTypes implements KmgTypes<String> {
      *
      * @author KenichiroArai
      *
-     * @sine 0.1.0
+     * @since 0.1.0
      *
      * @version 0.1.0
      *
@@ -406,7 +406,7 @@ public enum KmgDbTypes implements KmgTypes<String> {
      *
      * @author KenichiroArai
      *
-     * @sine 0.1.0
+     * @since 0.1.0
      *
      * @version 0.1.0
      *

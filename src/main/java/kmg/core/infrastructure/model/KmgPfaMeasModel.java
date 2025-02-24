@@ -7,7 +7,7 @@ import kmg.core.infrastructure.types.KmgTimeUnitTypes;
  *
  * @author KenichiroArai
  *
- * @sine 0.1.0
+ * @since 0.1.0
  *
  * @version 0.1.0
  */
@@ -18,7 +18,7 @@ public class KmgPfaMeasModel {
      *
      * @author KenichiroArai
      *
-     * @sine 0.1.0
+     * @since 0.1.0
      *
      * @version 0.1.0
      */
@@ -29,7 +29,7 @@ public class KmgPfaMeasModel {
      *
      * @author KenichiroArai
      *
-     * @sine 0.1.0
+     * @since 0.1.0
      *
      * @version 0.1.0
      */
@@ -40,7 +40,7 @@ public class KmgPfaMeasModel {
      *
      * @author KenichiroArai
      *
-     * @sine 0.1.0
+     * @since 0.1.0
      *
      * @version 0.1.0
      */
@@ -51,33 +51,18 @@ public class KmgPfaMeasModel {
      *
      * @author KenichiroArai
      *
-     * @sine 0.1.0
+     * @since 0.1.0
      *
      * @version 0.1.0
      */
     private KmgTimeUnitTypes timeUnit;
 
     /**
-     * 開始<br>
-     *
-     * @author KenichiroArai
-     *
-     * @sine 0.1.0
-     *
-     * @version 0.1.0
-     */
-    public void start() {
-
-        this.startTime = this.getNow();
-
-    }
-
-    /**
      * 終了<br>
      *
      * @author KenichiroArai
      *
-     * @sine 0.1.0
+     * @since 0.1.0
      *
      * @version 0.1.0
      */
@@ -116,47 +101,11 @@ public class KmgPfaMeasModel {
     }
 
     /**
-     * 開始時間を返す<br>
-     *
-     * @author KenichiroArai
-     *
-     * @sine 0.1.0
-     *
-     * @version 0.1.0
-     *
-     * @return 開始時間
-     */
-    public long getStartTime() {
-
-        final long result = this.startTime;
-        return result;
-
-    }
-
-    /**
-     * 終了時間を返す<br>
-     *
-     * @author KenichiroArai
-     *
-     * @sine 0.1.0
-     *
-     * @version 0.1.0
-     *
-     * @return 終了時間
-     */
-    public long getEndTime() {
-
-        final long result = this.endTime;
-        return result;
-
-    }
-
-    /**
      * 経過時間を返す<br>
      *
      * @author KenichiroArai
      *
-     * @sine 0.1.0
+     * @since 0.1.0
      *
      * @version 0.1.0
      *
@@ -170,11 +119,47 @@ public class KmgPfaMeasModel {
     }
 
     /**
+     * 終了時間を返す<br>
+     *
+     * @author KenichiroArai
+     *
+     * @since 0.1.0
+     *
+     * @version 0.1.0
+     *
+     * @return 終了時間
+     */
+    public long getEndTime() {
+
+        final long result = this.endTime;
+        return result;
+
+    }
+
+    /**
+     * 開始時間を返す<br>
+     *
+     * @author KenichiroArai
+     *
+     * @since 0.1.0
+     *
+     * @version 0.1.0
+     *
+     * @return 開始時間
+     */
+    public long getStartTime() {
+
+        final long result = this.startTime;
+        return result;
+
+    }
+
+    /**
      * 時間単位を返す<br>
      *
      * @author KenichiroArai
      *
-     * @sine 0.1.0
+     * @since 0.1.0
      *
      * @version 0.1.0
      *
@@ -188,11 +173,26 @@ public class KmgPfaMeasModel {
     }
 
     /**
+     * 開始<br>
+     *
+     * @author KenichiroArai
+     *
+     * @since 0.1.0
+     *
+     * @version 0.1.0
+     */
+    public void start() {
+
+        this.startTime = this.getNow();
+
+    }
+
+    /**
      * 現在時刻を返す<br>
      *
      * @author KenichiroArai
      *
-     * @sine 0.1.0
+     * @since 0.1.0
      *
      * @version 0.1.0
      *

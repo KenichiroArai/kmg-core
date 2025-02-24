@@ -8,7 +8,7 @@ import kmg.core.infrastructure.utils.KmgMessageUtils;
  *
  * @author KenichiroArai
  *
- * @sine 0.1.0
+ * @since 0.1.0
  *
  * @version 0.1.0
  */
@@ -19,7 +19,7 @@ public class KmgException extends Exception {
      *
      * @author KenichiroArai
      *
-     * @sine 0.1.0
+     * @since 0.1.0
      *
      * @version 0.1.0
      */
@@ -30,7 +30,7 @@ public class KmgException extends Exception {
      *
      * @author KenichiroArai
      *
-     * @sine 0.1.0
+     * @since 0.1.0
      *
      * @version 0.1.0
      */
@@ -41,7 +41,7 @@ public class KmgException extends Exception {
      *
      * @author KenichiroArai
      *
-     * @sine 0.1.0
+     * @since 0.1.0
      *
      * @version 0.1.0
      */
@@ -52,7 +52,7 @@ public class KmgException extends Exception {
      *
      * @author KenichiroArai
      *
-     * @sine 0.1.0
+     * @since 0.1.0
      *
      * @version 0.1.0
      */
@@ -63,7 +63,7 @@ public class KmgException extends Exception {
      *
      * @author KenichiroArai
      *
-     * @sine 0.1.0
+     * @since 0.1.0
      *
      * @version 0.1.0
      */
@@ -74,7 +74,7 @@ public class KmgException extends Exception {
      *
      * @author KenichiroArai
      *
-     * @sine 0.1.0
+     * @since 0.1.0
      *
      * @version 0.1.0
      */
@@ -85,7 +85,7 @@ public class KmgException extends Exception {
      *
      * @author KenichiroArai
      *
-     * @sine 0.1.0
+     * @since 0.1.0
      *
      * @version 0.1.0
      */
@@ -96,7 +96,7 @@ public class KmgException extends Exception {
      *
      * @author KenichiroArai
      *
-     * @sine 0.1.0
+     * @since 0.1.0
      *
      * @version 0.1.0
      */
@@ -107,7 +107,7 @@ public class KmgException extends Exception {
      *
      * @author KenichiroArai
      *
-     * @sine 0.1.0
+     * @since 0.1.0
      *
      * @version 0.1.0
      *
@@ -125,7 +125,7 @@ public class KmgException extends Exception {
      *
      * @author KenichiroArai
      *
-     * @sine 0.1.0
+     * @since 0.1.0
      *
      * @version 0.1.0
      *
@@ -145,7 +145,7 @@ public class KmgException extends Exception {
      *
      * @author KenichiroArai
      *
-     * @sine 0.1.0
+     * @since 0.1.0
      *
      * @version 0.1.0
      *
@@ -174,7 +174,7 @@ public class KmgException extends Exception {
      *
      * @author KenichiroArai
      *
-     * @sine 0.1.0
+     * @since 0.1.0
      *
      * @version 0.1.0
      *
@@ -194,7 +194,7 @@ public class KmgException extends Exception {
      *
      * @author KenichiroArai
      *
-     * @sine 0.1.0
+     * @since 0.1.0
      *
      * @version 0.1.0
      *
@@ -213,7 +213,7 @@ public class KmgException extends Exception {
      *
      * @author KenichiroArai
      *
-     * @sine 0.1.0
+     * @since 0.1.0
      *
      * @version 0.1.0
      *
@@ -231,7 +231,7 @@ public class KmgException extends Exception {
      *
      * @author KenichiroArai
      *
-     * @sine 0.1.0
+     * @since 0.1.0
      *
      * @version 0.1.0
      *
@@ -245,11 +245,29 @@ public class KmgException extends Exception {
     }
 
     /**
+     * メッセージパターンを返す。<br>
+     *
+     * @author KenichiroArai
+     *
+     * @since 0.1.0
+     *
+     * @version 0.1.0
+     *
+     * @return メッセージパターン
+     */
+    public String getMessagePattern() {
+
+        final String result = this.messagePattern;
+        return result;
+
+    }
+
+    /**
      * メッセージパターンの引数の数を返す。<br>
      *
      * @author KenichiroArai
      *
-     * @sine 0.1.0
+     * @since 0.1.0
      *
      * @version 0.1.0
      *
@@ -267,7 +285,7 @@ public class KmgException extends Exception {
      *
      * @author KenichiroArai
      *
-     * @sine 0.1.0
+     * @since 0.1.0
      *
      * @version 0.1.0
      *
@@ -285,7 +303,7 @@ public class KmgException extends Exception {
      *
      * @author KenichiroArai
      *
-     * @sine 0.1.0
+     * @since 0.1.0
      *
      * @version 0.1.0
      *
@@ -299,29 +317,11 @@ public class KmgException extends Exception {
     }
 
     /**
-     * メッセージパターンを返す。<br>
-     *
-     * @author KenichiroArai
-     *
-     * @sine 0.1.0
-     *
-     * @version 0.1.0
-     *
-     * @return メッセージパターン
-     */
-    public String getMessagePattern() {
-
-        final String result = this.messagePattern;
-        return result;
-
-    }
-
-    /**
      * メッセージカウントを設定する<br>
      *
      * @author KenichiroArai
      *
-     * @sine 0.1.0
+     * @since 0.1.0
      *
      * @version 0.1.0
      */

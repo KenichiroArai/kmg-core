@@ -7,32 +7,18 @@ import java.util.List;
  *
  * @author KenichiroArai
  *
- * @sine 0.1.0
+ * @since 0.1.0
  *
  * @version 0.1.0
  */
 public final class KmgListUtils {
 
     /**
-     * デフォルトコンストラクタ<br>
-     *
-     * @author KenichiroArai
-     *
-     * @sine 0.1.0
-     *
-     * @version 0.1.0
-     */
-    private KmgListUtils() {
-
-        // 処理無し
-    }
-
-    /**
      * 対象が空か<br>
      *
      * @author KenichiroArai
      *
-     * @sine 0.1.0
+     * @since 0.1.0
      *
      * @version 0.1.0
      *
@@ -67,7 +53,7 @@ public final class KmgListUtils {
      *
      * @author KenichiroArai
      *
-     * @sine 0.1.0
+     * @since 0.1.0
      *
      * @version 0.1.0
      *
@@ -81,5 +67,19 @@ public final class KmgListUtils {
         final boolean result = !KmgListUtils.isEmpty(target);
         return result;
 
+    }
+
+    /**
+     * デフォルトコンストラクタ<br>
+     *
+     * @author KenichiroArai
+     *
+     * @since 0.1.0
+     *
+     * @version 0.1.0
+     */
+    private KmgListUtils() {
+
+        // 処理無し
     }
 }
