@@ -47,6 +47,21 @@ jobs:
                   name: coverage-report
                   path: target/site/jacoco/
 
+            # Javadoc生成
+            - name: Generate Javadoc
+              run: |
+                  echo "Javadocの生成を開始します..."
+                  mvn javadoc:javadoc
+                  echo "Javadocの生成が完了しました"
+
+            # Javadocのアップロード
+            - name: Upload Javadoc
+              uses: actions/upload-artifact@v4
+              with:
+                  name: javadoc
+                  path: target/site/apidocs/
+                  retention-days: 7
+
             - name: Dependency Review
               uses: actions/dependency-review-action@v3
               with:
