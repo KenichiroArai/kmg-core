@@ -2,11 +2,8 @@ package kmg.core.domain.service.impl;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import kmg.core.infrastructure.model.KmgPfaMeasModel;
 import kmg.core.infrastructure.types.KmgTimeUnitTypes;
@@ -24,26 +21,6 @@ import kmg.core.infrastructure.types.KmgTimeUnitTypes;
     "nls", "static-method"
 })
 public class KmgPfaMeasServiceImplTest {
-
-    /** ロガー */
-    private Logger logger;
-
-    /**
-     * テスト前処理<br>
-     *
-     * @author KenichiroArai
-     *
-     * @since 0.1.0
-     *
-     * @version 0.1.0
-     */
-    @BeforeEach
-    public void setUp() {
-
-        /* ロガーの設定 */
-        this.logger = LoggerFactory.getLogger(KmgPfaMeasServiceImpl.class);
-
-    }
 
     /**
      * テスト後処理<br>
