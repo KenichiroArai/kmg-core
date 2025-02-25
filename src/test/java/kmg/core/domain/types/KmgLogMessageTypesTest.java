@@ -30,16 +30,16 @@ public class KmgLogMessageTypesTest {
     public void testGet_normalBasicValue() {
 
         /* 期待値の定義 */
-        final String expected = "I00001";
+        final String expected = "KMGLOGI12000"; //$NON-NLS-1$
 
         /* 準備 */
-        final KmgLogMessageTypes testType = KmgLogMessageTypes.I00001;
+        final KmgLogMessageTypes testType = KmgLogMessageTypes.KMGLOGI12000;
 
         /* テスト対象の実行 */
         final String actual = testType.get();
 
         /* 検証の実施 */
-        Assertions.assertEquals(expected, actual, "取得値が一致しません");
+        Assertions.assertEquals(expected, actual, "取得値が一致しません"); //$NON-NLS-1$
 
     }
 
@@ -56,16 +56,16 @@ public class KmgLogMessageTypesTest {
     public void testGetCode_normalBasicCode() {
 
         /* 期待値の定義 */
-        final String expected = "I00001";
+        final String expected = "KMGLOGI12000"; //$NON-NLS-1$
 
         /* 準備 */
-        final KmgLogMessageTypes testType = KmgLogMessageTypes.I00001;
+        final KmgLogMessageTypes testType = KmgLogMessageTypes.KMGLOGI12000;
 
         /* テスト対象の実行 */
         final String actual = testType.getCode();
 
         /* 検証の実施 */
-        Assertions.assertEquals(expected, actual, "getCodeの返り値が一致しません");
+        Assertions.assertEquals(expected, actual, "取得値が一致しません"); //$NON-NLS-1$
 
     }
 
@@ -105,16 +105,16 @@ public class KmgLogMessageTypesTest {
     public void testGetDetail_normalBasicDetail() {
 
         /* 期待値の定義 */
-        final String expected = "サンプル";
+        final String expected = "KMGLOGI12000"; //$NON-NLS-1$
 
         /* 準備 */
-        final KmgLogMessageTypes testType = KmgLogMessageTypes.I00001;
+        final KmgLogMessageTypes testType = KmgLogMessageTypes.KMGLOGI12000;
 
         /* テスト対象の実行 */
         final String actual = testType.getDetail();
 
         /* 検証の実施 */
-        Assertions.assertEquals(expected, actual, "詳細情報が一致しません");
+        Assertions.assertEquals(expected, actual, "取得値が一致しません"); //$NON-NLS-1$
 
     }
 
@@ -131,16 +131,16 @@ public class KmgLogMessageTypesTest {
     public void testGetDisplayName_normalBasicDisplayName() {
 
         /* 期待値の定義 */
-        final String expected = "サンプル";
+        final String expected = "KMGLOGI12000"; //$NON-NLS-1$
 
         /* 準備 */
-        final KmgLogMessageTypes testType = KmgLogMessageTypes.I00001;
+        final KmgLogMessageTypes testType = KmgLogMessageTypes.KMGLOGI12000;
 
         /* テスト対象の実行 */
         final String actual = testType.getDisplayName();
 
         /* 検証の実施 */
-        Assertions.assertEquals(expected, actual, "表示名が一致しません");
+        Assertions.assertEquals(expected, actual, "取得値が一致しません"); //$NON-NLS-1$
 
     }
 
@@ -157,16 +157,16 @@ public class KmgLogMessageTypesTest {
     public void testGetEnum_normalExistingValue() {
 
         /* 期待値の定義 */
-        final KmgLogMessageTypes expected = KmgLogMessageTypes.I00001;
+        final KmgLogMessageTypes expected = KmgLogMessageTypes.KMGLOGI12000;
 
         /* 準備 */
-        final String testValue = "I00001";
+        final String key = "KMGLOGI12000"; //$NON-NLS-1$
 
         /* テスト対象の実行 */
-        final KmgLogMessageTypes actual = KmgLogMessageTypes.getEnum(testValue);
+        final KmgLogMessageTypes actual = KmgLogMessageTypes.getEnum(key);
 
         /* 検証の実施 */
-        Assertions.assertEquals(expected, actual, "値が一致しません");
+        Assertions.assertEquals(expected, actual, "取得値が一致しません"); //$NON-NLS-1$
 
     }
 
@@ -232,21 +232,21 @@ public class KmgLogMessageTypesTest {
     public void testGetValue_normalBasicValue() {
 
         /* 期待値の定義 */
-        final String expected = "サンプル";
+        final String expected = "KMGLOGI12000"; //$NON-NLS-1$
 
         /* 準備 */
-        final KmgLogMessageTypes testType = KmgLogMessageTypes.I00001;
+        final KmgLogMessageTypes testType = KmgLogMessageTypes.KMGLOGI12000;
 
         /* テスト対象の実行 */
         final String actual = testType.getValue();
 
         /* 検証の実施 */
-        Assertions.assertEquals(expected, actual, "値が一致しません");
+        Assertions.assertEquals(expected, actual, "取得値が一致しません"); //$NON-NLS-1$
 
     }
 
     /**
-     * toString メソッドのテスト - 正常系:I00001の文字列表現
+     * toString メソッドのテスト - 正常系:KMGLOGI12000の文字列表現
      *
      * @author KenichiroArai
      *
@@ -255,19 +255,19 @@ public class KmgLogMessageTypesTest {
      * @version 0.1.0
      */
     @Test
-    public void testToString_normalI00001() {
+    public void testToString_normalKMGLOGI12000() {
 
         /* 期待値の定義 */
-        final String expected = "I00001";
+        final String expected = "KMGLOGI12000"; //$NON-NLS-1$
 
         /* 準備 */
-        final KmgLogMessageTypes testType = KmgLogMessageTypes.I00001;
+        final KmgLogMessageTypes testType = KmgLogMessageTypes.KMGLOGI12000;
 
         /* テスト対象の実行 */
         final String actual = testType.toString();
 
         /* 検証の実施 */
-        Assertions.assertEquals(expected, actual, "I00001の場合、'I00001'が返されること");
+        Assertions.assertEquals(expected, actual, "取得値が一致しません"); //$NON-NLS-1$
 
     }
 

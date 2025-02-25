@@ -21,6 +21,18 @@ import kmg.core.infrastructure.type.KmgString;
  */
 public class KmgSqlPathModelImpl implements KmgSqlPathModel {
 
+    /** パラメータ抽出用の正規表現 */
+    @SuppressWarnings("nls")
+    private static final String PARAM_EXTRACT_REGEX = "/\\*(.+)\\*/.*";
+
+    /** パラメータ抽出用の置換パターン */
+    @SuppressWarnings("nls")
+    private static final String PARAM_EXTRACT_REPLACE = "$1";
+
+    /** 末尾改行削除用の正規表現 */
+    @SuppressWarnings("nls")
+    private static final String TRAILING_NEWLINE_REGEX = "\\R+$";
+
     /**
      * SQLファイルパス
      *
@@ -60,8 +72,7 @@ public class KmgSqlPathModelImpl implements KmgSqlPathModel {
 
         }
 
-        // TODO KenichiroArai 2025/02/11 定数化
-        result = str.replaceAll("/\\*(.+)\\*/.*", "$1"); //$NON-NLS-1$ //$NON-NLS-2$
+        result = str.replaceAll(KmgSqlPathModelImpl.PARAM_EXTRACT_REGEX, KmgSqlPathModelImpl.PARAM_EXTRACT_REPLACE);
 
         return result;
 
@@ -156,8 +167,7 @@ public class KmgSqlPathModelImpl implements KmgSqlPathModel {
 
         }
 
-        // TODO KenichiroArai 2025/02/11 定数化
-        final String result = sqlTmp.toString().replaceAll("\\R+$", KmgString.EMPTY); //$NON-NLS-1$
+        final String result = sqlTmp.toString().replaceAll(KmgSqlPathModelImpl.TRAILING_NEWLINE_REGEX, KmgString.EMPTY);
 
         return result;
 

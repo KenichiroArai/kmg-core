@@ -10,6 +10,7 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
 import kmg.core.infrastructure.model.KmgPfaMeasModel;
+import kmg.core.infrastructure.type.KmgString;
 import kmg.core.infrastructure.types.KmgTimeUnitTypes;
 
 /**
@@ -106,10 +107,10 @@ public class KmgPfaMeasServiceImplTest {
         testTarget.start();
 
         /* 検証の準備 */
-        final String actualOutput = this.outContent.toString();
+        final String actualOutput = this.outContent.toString().trim();
 
         /* 検証の実施 */
-        Assertions.assertTrue(actualOutput.contains(expectedName), "名称が出力に含まれていること");
+        Assertions.assertEquals(expectedName, actualOutput, "名称が出力に含まれていること");
 
     }
 
@@ -153,11 +154,10 @@ public class KmgPfaMeasServiceImplTest {
         testTarget.end();
 
         /* 検証の準備 */
-        final String[] actualOutputLines = this.outContent.toString().trim().split(System.lineSeparator());
-        final String   actualEndMessage  = actualOutputLines[actualOutputLines.length - 1];
+        final String actualOutput = this.outContent.toString().trim();
 
         /* 検証の実施 */
-        Assertions.assertEquals(expectedOutput, actualEndMessage, "終了メッセージが期待値と一致すること");
+        Assertions.assertEquals(expectedOutput, actualOutput, "終了メッセージが期待値と一致すること");
         Mockito.verify(mockModel).start();
         Mockito.verify(mockModel).end();
 
@@ -177,7 +177,7 @@ public class KmgPfaMeasServiceImplTest {
 
         /* 期待値の定義 */
         final String expectedName   = "テスト測定";
-        final String expectedOutput = expectedName + "：開始";
+        final String expectedOutput = KmgString.concat(expectedName, "：開始");
 
         /* 準備 */
         final KmgPfaMeasServiceImpl testTarget = new KmgPfaMeasServiceImpl(expectedName);
