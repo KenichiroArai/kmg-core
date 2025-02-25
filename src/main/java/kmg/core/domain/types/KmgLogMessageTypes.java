@@ -30,9 +30,8 @@ public enum KmgLogMessageTypes implements KmgMessageTypes {
      */
     NONE("指定無し"),
 
-    // TODO 2021/06/08 不要なので削除する
     /**
-     * サンプル
+     * {0}：開始
      *
      * @author KenichiroArai
      *
@@ -40,7 +39,18 @@ public enum KmgLogMessageTypes implements KmgMessageTypes {
      *
      * @version 0.1.0
      */
-    I00001("サンプル"),
+    KMGLOGI12000("KMGLOGI12000"),
+
+    /**
+     * {0}：終了。経過時間=[{1}{2}]
+     *
+     * @author KenichiroArai
+     *
+     * @since 0.1.0
+     *
+     * @version 0.1.0
+     */
+    KMGLOGI12001("KMGLOGI12001"),
 
     /* 定義：終了 */
     ;

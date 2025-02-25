@@ -1,7 +1,12 @@
 package kmg.core.domain.service.impl;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import kmg.core.domain.service.KmgPfaMeasService;
+import kmg.core.domain.types.KmgLogMessageTypes;
 import kmg.core.infrastructure.model.KmgPfaMeasModel;
+import kmg.core.infrastructure.utils.KmgMessageUtils;
 
 /**
  * KMG性能測定サービス<br>
@@ -13,6 +18,9 @@ import kmg.core.infrastructure.model.KmgPfaMeasModel;
  * @version 0.1.0
  */
 public class KmgPfaMeasServiceImpl implements KmgPfaMeasService {
+
+    /** ロガー */
+    private static final Logger LOG = LoggerFactory.getLogger(KmgPfaMeasServiceImpl.class);
 
     /**
      * 名称
@@ -67,10 +75,28 @@ public class KmgPfaMeasServiceImpl implements KmgPfaMeasService {
     @Override
     public void end() {
 
+        /* 測定終了 */
         this.kmgPfaMeasModel.end();
-        // TODO 2025/02/02 KenichiroArai KMGLOGI12001={0}：終了。経過時間=[{1}{2}]
-        System.out.println(String.format("%s：終了。経過時間=[%f%s]", this.name, this.kmgPfaMeasModel.getElapsedTime(), //$NON-NLS-1$
-            this.kmgPfaMeasModel.getTimeUnit().getUnitName()));
+
+        /* ログの出力 */
+        final KmgLogMessageTypes logType     = KmgLogMessageTypes.KMGLOGI12001;
+        final Object[]           messageArgs = {
+            this.name, this.kmgPfaMeasModel.getElapsedTime(), this.kmgPfaMeasModel.getTimeUnit().getUnitName(),
+        };
+        final String             msg         = KmgMessageUtils.getMessage(logType, messageArgs);
+        KmgPfaMeasServiceImpl.LOG.info(msg);
+
+    }
+
+    /**
+     * 名称
+     *
+     * @return name 名称
+     */
+    public String getName() {
+
+        final String result = this.name;
+        return result;
 
     }
 
@@ -86,8 +112,14 @@ public class KmgPfaMeasServiceImpl implements KmgPfaMeasService {
     @Override
     public void start() {
 
-        // TODO 2025/02/02 KenichiroArai KMGLOGI12000={0}：開始
-        System.out.println(String.format("%s：開始", this.name)); //$NON-NLS-1$
+        /* ログの出力 */
+        final KmgLogMessageTypes logType     = KmgLogMessageTypes.KMGLOGI12000;
+        final Object[]           messageArgs = {
+            this.name,
+        };
+        final String             msg         = KmgMessageUtils.getMessage(logType, messageArgs);
+        KmgPfaMeasServiceImpl.LOG.info(msg);
+
         this.kmgPfaMeasModel.start();
 
     }
