@@ -184,13 +184,38 @@ public class KmgPfaMeasServiceImplTest {
         /* 期待値の定義 */
         final String expectedName = "テスト測定";
 
+        // 期待されるログメッセージ
+        final KmgLogMessageTypes logType            = KmgLogMessageTypes.KMGLOGI12000;
+        final Object[]           messageArgs        = {
+            expectedName,
+        };
+        final String             expectedLogMessage = KmgMessageUtils.getMessage(logType, messageArgs);
+
         /* 準備 */
-        final KmgPfaMeasServiceImpl testTarget = new KmgPfaMeasServiceImpl(expectedName);
+        final KmgPfaMeasModel mockModel = Mockito.mock(KmgPfaMeasModel.class);
+
+        final KmgPfaMeasServiceImpl testTarget = new KmgPfaMeasServiceImpl(expectedName) {
+
+            @Override
+            protected KmgPfaMeasModel createKmgPfaMeasModel() {
+
+                final KmgPfaMeasModel result = mockModel;
+                return result;
+
+            }
+        };
 
         /* テスト対象の実行 */
         testTarget.start();
 
+        /* 検証の準備 */
+        final String actualLogMessage = this.listAppender.list.get(0).getMessage();
+
         /* 検証の実施 */
+        Mockito.verify(mockModel).start();
+
+        // ログメッセージの検証
+        Assertions.assertEquals(expectedLogMessage, actualLogMessage, "開始メッセージが正しく出力されていること");
 
     }
 }
