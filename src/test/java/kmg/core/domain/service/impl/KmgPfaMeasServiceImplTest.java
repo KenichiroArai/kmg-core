@@ -2,11 +2,18 @@ package kmg.core.domain.service.impl;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
+import org.slf4j.LoggerFactory;
 
+import ch.qos.logback.classic.Logger;
+import ch.qos.logback.classic.spi.ILoggingEvent;
+import ch.qos.logback.core.read.ListAppender;
+import kmg.core.domain.types.KmgLogMessageTypes;
 import kmg.core.infrastructure.model.KmgPfaMeasModel;
 import kmg.core.infrastructure.types.KmgTimeUnitTypes;
+import kmg.core.infrastructure.utils.KmgMessageUtils;
 
 /**
  * KMG性能測定サービス実装のテスト<br>
@@ -22,6 +29,32 @@ import kmg.core.infrastructure.types.KmgTimeUnitTypes;
 })
 public class KmgPfaMeasServiceImplTest {
 
+    /** リストアペンダー */
+    private ListAppender<ILoggingEvent> listAppender;
+
+    /** ロガー */
+    private Logger logger;
+
+    /**
+     * テスト前処理<br>
+     *
+     * @author KenichiroArai
+     *
+     * @since 0.1.0
+     *
+     * @version 0.1.0
+     */
+    @BeforeEach
+    public void setUp() {
+
+        /* ロガーの設定 */
+        this.logger = (Logger) LoggerFactory.getLogger(KmgPfaMeasServiceImpl.class);
+        this.listAppender = new ListAppender<>();
+        this.listAppender.start();
+        this.logger.addAppender(this.listAppender);
+
+    }
+
     /**
      * テスト後処理<br>
      *
@@ -34,7 +67,20 @@ public class KmgPfaMeasServiceImplTest {
     @AfterEach
     public void tearDown() {
 
-        /* 処理なし */
+        /* ロガーの後処理 */
+        if (this.logger == null) {
+
+            return;
+
+        }
+
+        if (this.listAppender == null) {
+
+            return;
+
+        }
+
+        this.logger.detachAppender(this.listAppender);
 
     }
 
@@ -84,6 +130,13 @@ public class KmgPfaMeasServiceImplTest {
         final double           expectedElapsedTime = 1.5;
         final KmgTimeUnitTypes expectedTimeUnit    = KmgTimeUnitTypes.SECONDS;
 
+        // 期待されるログメッセージ
+        final KmgLogMessageTypes logType            = KmgLogMessageTypes.KMGLOGI12001;
+        final Object[]           messageArgs        = {
+            expectedName, expectedElapsedTime, expectedTimeUnit.getUnitName(),
+        };
+        final String             expectedLogMessage = KmgMessageUtils.getMessage(logType, messageArgs);
+
         /* 準備 */
         final KmgPfaMeasModel mockModel = Mockito.mock(KmgPfaMeasModel.class);
         Mockito.when(mockModel.getElapsedTime()).thenReturn(expectedElapsedTime);
@@ -104,9 +157,15 @@ public class KmgPfaMeasServiceImplTest {
         testTarget.start();
         testTarget.end();
 
+        /* 検証の準備 */
+        final String actualLogMessage = this.listAppender.list.get(1).getMessage();
+
         /* 検証の実施 */
         Mockito.verify(mockModel).start();
         Mockito.verify(mockModel).end();
+
+        // ログメッセージの検証
+        Assertions.assertEquals(expectedLogMessage, actualLogMessage, "終了メッセージが正しく出力されていること");
 
     }
 
