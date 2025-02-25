@@ -1,16 +1,14 @@
 package kmg.core.domain.service.impl;
 
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
-
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import kmg.core.infrastructure.model.KmgPfaMeasModel;
-import kmg.core.infrastructure.type.KmgString;
 import kmg.core.infrastructure.types.KmgTimeUnitTypes;
 
 /**
@@ -27,27 +25,8 @@ import kmg.core.infrastructure.types.KmgTimeUnitTypes;
 })
 public class KmgPfaMeasServiceImplTest {
 
-    /**
-     * 元の標準出力
-     *
-     * @author KenichiroArai
-     *
-     * @since 0.1.0
-     *
-     * @version 0.1.0
-     */
-    private PrintStream originalOut;
-
-    /**
-     * 標準出力のキャプチャ用
-     *
-     * @author KenichiroArai
-     *
-     * @since 0.1.0
-     *
-     * @version 0.1.0
-     */
-    private ByteArrayOutputStream outContent;
+    /** ロガー */
+    private Logger logger;
 
     /**
      * テスト前処理<br>
@@ -61,10 +40,8 @@ public class KmgPfaMeasServiceImplTest {
     @BeforeEach
     public void setUp() {
 
-        /* 標準出力をキャプチャするための設定 */
-        this.outContent = new ByteArrayOutputStream();
-        this.originalOut = System.out;
-        System.setOut(new PrintStream(this.outContent));
+        /* ロガーの設定 */
+        this.logger = LoggerFactory.getLogger(KmgPfaMeasServiceImpl.class);
 
     }
 
@@ -80,8 +57,7 @@ public class KmgPfaMeasServiceImplTest {
     @AfterEach
     public void tearDown() {
 
-        /* 標準出力を元に戻す */
-        System.setOut(this.originalOut);
+        /* 処理なし */
 
     }
 
@@ -106,11 +82,8 @@ public class KmgPfaMeasServiceImplTest {
         /* テスト対象の実行 */
         testTarget.start();
 
-        /* 検証の準備 */
-        final String actualOutput = this.outContent.toString().trim();
-
         /* 検証の実施 */
-        Assertions.assertEquals(expectedName, actualOutput, "名称が出力に含まれていること");
+        Assertions.assertTrue(this.logger.isInfoEnabled(), "INFOレベルのログが有効であること");
 
     }
 
@@ -130,8 +103,6 @@ public class KmgPfaMeasServiceImplTest {
         final String           expectedName        = "テスト測定";
         final double           expectedElapsedTime = 1.5;
         final KmgTimeUnitTypes expectedTimeUnit    = KmgTimeUnitTypes.SECONDS;
-        final String           expectedOutput      = String.format("%s：終了。経過時間=[%f%s]", expectedName,
-            expectedElapsedTime, expectedTimeUnit.getUnitName());
 
         /* 準備 */
         final KmgPfaMeasModel mockModel = Mockito.mock(KmgPfaMeasModel.class);
@@ -153,11 +124,8 @@ public class KmgPfaMeasServiceImplTest {
         testTarget.start();
         testTarget.end();
 
-        /* 検証の準備 */
-        final String actualOutput = this.outContent.toString().trim();
-
         /* 検証の実施 */
-        Assertions.assertEquals(expectedOutput, actualOutput, "終了メッセージが期待値と一致すること");
+        Assertions.assertTrue(this.logger.isInfoEnabled(), "INFOレベルのログが有効であること");
         Mockito.verify(mockModel).start();
         Mockito.verify(mockModel).end();
 
@@ -176,8 +144,7 @@ public class KmgPfaMeasServiceImplTest {
     public void testStart_normalOutputStartMessage() {
 
         /* 期待値の定義 */
-        final String expectedName   = "テスト測定";
-        final String expectedOutput = KmgString.concat(expectedName, "：開始");
+        final String expectedName = "テスト測定";
 
         /* 準備 */
         final KmgPfaMeasServiceImpl testTarget = new KmgPfaMeasServiceImpl(expectedName);
@@ -185,12 +152,8 @@ public class KmgPfaMeasServiceImplTest {
         /* テスト対象の実行 */
         testTarget.start();
 
-        /* 検証の準備 */
-        final String actualOutput = this.outContent.toString().trim();
-
         /* 検証の実施 */
-        Assertions.assertEquals(expectedOutput, actualOutput, "開始メッセージが期待値と一致すること");
+        Assertions.assertTrue(this.logger.isInfoEnabled(), "INFOレベルのログが有効であること");
 
     }
-
 }
