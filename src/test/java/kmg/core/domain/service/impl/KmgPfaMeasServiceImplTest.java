@@ -21,7 +21,7 @@ import kmg.core.infrastructure.types.KmgTimeUnitTypes;
  * @version 0.1.0
  */
 @SuppressWarnings({
-    "nls",
+    "nls", "static-method"
 })
 public class KmgPfaMeasServiceImplTest {
 
@@ -82,8 +82,11 @@ public class KmgPfaMeasServiceImplTest {
         /* テスト対象の実行 */
         testTarget.start();
 
+        /* 検証の準備 */
+        final String actualName = testTarget.getName();
+
         /* 検証の実施 */
-        Assertions.assertTrue(this.logger.isInfoEnabled(), "INFOレベルのログが有効であること");
+        Assertions.assertEquals(expectedName, actualName, "名称が正しく設定されていること");
 
     }
 
@@ -125,7 +128,6 @@ public class KmgPfaMeasServiceImplTest {
         testTarget.end();
 
         /* 検証の実施 */
-        Assertions.assertTrue(this.logger.isInfoEnabled(), "INFOレベルのログが有効であること");
         Mockito.verify(mockModel).start();
         Mockito.verify(mockModel).end();
 
@@ -153,7 +155,6 @@ public class KmgPfaMeasServiceImplTest {
         testTarget.start();
 
         /* 検証の実施 */
-        Assertions.assertTrue(this.logger.isInfoEnabled(), "INFOレベルのログが有効であること");
 
     }
 }

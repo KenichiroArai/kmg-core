@@ -89,6 +89,18 @@ public class KmgPfaMeasServiceImpl implements KmgPfaMeasService {
     }
 
     /**
+     * 名称
+     *
+     * @return name 名称
+     */
+    public String getName() {
+
+        final String result = this.name;
+        return result;
+
+    }
+
+    /**
      * 開始<br>
      *
      * @author KenichiroArai
