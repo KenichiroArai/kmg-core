@@ -63,7 +63,7 @@ public enum KmgDelimiterTypes implements KmgTypes<String> {
      *
      * @version 0.1.0
      */
-    COLON("コロン", "."),
+    COLON("コロン", ":"),
 
     /**
      * バーティカルバー
