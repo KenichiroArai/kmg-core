@@ -4,27 +4,30 @@ import kmg.core.infrastructure.types.KmgDelimiterTypes;
 import kmg.core.infrastructure.utils.KmgArrayUtils;
 
 /**
- * KMG文字列ユーティリティクラス。
+ * 文字列操作ユーティリティクラス。
  * <p>
- * 文字列操作に関するユーティリティメソッドを提供します。 主な機能：
- * <ul>
- * <li>文字列の変換（キャメルケース、スネークケース）</li>
- * <li>文字列の検証（空文字チェック）</li>
- * <li>文字列の操作（結合、置換）</li>
- * </ul>
+ * このクラスは、文字列の変換、検証、操作に関するユーティリティメソッドを提供します。
  * </p>
  * <p>
+ * 主な機能は以下のとおりです。
+ * </p>
+ * <ul>
+ * <li>キャメルケースとスネークケースの相互変換</li>
+ * <li>文字列が空であるかのチェック</li>
+ * <li>文字列の結合と置換</li>
+ * </ul>
+ * <p>
  * 使用例：
+ * </p>
  *
  * <pre>
  *
- * // キャメルケース変換
- * String camel = KmgString.camelCase("test_string");
+ * // キャメルケースに変換
+ * String camel = KmgString.camelCase("test_string"); // "testString"
  *
- * // 空文字チェック
- * boolean isEmpty = KmgString.isEmpty("");
+ * // 文字列が空であるかチェック
+ * boolean isEmpty = KmgString.isEmpty(""); // true
  * </pre>
- * </p>
  *
  * @author KenichiroArai
  *
@@ -70,20 +73,20 @@ public class KmgString {
     private String value;
 
     /**
-     * スネークケース文字列をキャメルケースに変換します。
+     * スネークケースの文字列をキャメルケースに変換します。
      * <p>
      * 変換ルール：
+     * </p>
      * <ul>
-     * <li>アンダースコア(_)で区切られた各部分の先頭を大文字にする</li>
-     * <li>最初の単語は小文字のまま</li>
+     * <li>アンダースコア(_)で区切られた各部分の先頭を大文字にします。</li>
+     * <li>最初の単語は小文字のままにします。</li>
      * <li>例："test_string" → "testString"</li>
      * </ul>
-     * </p>
      *
      * @param target
      *               変換対象の文字列。nullまたは空文字の場合はnullを返します。
      *
-     * @return 変換後のキャメルケース文字列。変換できない場合はnull。
+     * @return 変換後のキャメルケース文字列。変換できない場合はnullを返します。
      *
      * @throws IllegalArgumentException
      *                                  無効な文字列形式が指定された場合
@@ -144,14 +147,14 @@ public class KmgString {
     }
 
     /**
-     * キャピタライズを返す<br>
-     *
-     * @since 0.1.0
+     * 文字列の最初の文字を大文字に変換します。
      *
      * @param target
      *               対象文字列
      *
-     * @return キャピタライズ
+     * @return 最初の文字が大文字に変換された文字列
+     *
+     * @since 0.1.0
      */
     public static String capitalize(final String target) {
 
@@ -178,14 +181,14 @@ public class KmgString {
     }
 
     /**
-     * 文字列を結合して返す<br>
-     *
-     * @since 0.1.0
+     * 複数の文字列を結合して1つの文字列にします。
      *
      * @param target
-     *               対象文字列
+     *               結合する文字列の配列
      *
-     * @return 結合した文字列
+     * @return 結合された文字列
+     *
+     * @since 0.1.0
      */
     public static String concat(final String... target) {
 
@@ -213,19 +216,16 @@ public class KmgString {
     }
 
     /**
-     * 一致するか<br>
-     * <p>
-     * 文字列１と文字列２が一致するか
-     * </p>
-     *
-     * @since 0.1.0
+     * 2つの文字列が等しいかどうかを比較します。
      *
      * @param str1
-     *             文字列１
+     *             最初の文字列
      * @param str2
-     *             文字列２
+     *             2番目の文字列
      *
-     * @return true：一致、false：一致しない
+     * @return 文字列が等しい場合はtrue、そうでない場合はfalse
+     *
+     * @since 0.1.0
      */
     public static boolean equals(final String str1, final String str2) {
 
@@ -250,16 +250,16 @@ public class KmgString {
     }
 
     /**
-     * 大文字小文字区別しないで一致するか<br>
-     *
-     * @since 0.1.0
+     * 2つの文字列が、大文字と小文字を区別せずに等しいかどうかを比較します。
      *
      * @param str1
-     *             文字列１
+     *             最初の文字列
      * @param str2
-     *             文字列２
+     *             2番目の文字列
      *
-     * @return true：一致、false：一致しない
+     * @return 文字列が等しい場合はtrue、そうでない場合はfalse
+     *
+     * @since 0.1.0
      */
     public static boolean equalsIgnoreCase(final String str1, final String str2) {
 
@@ -284,19 +284,12 @@ public class KmgString {
     }
 
     /**
-     * 指定された文字列が空かどうかを判定します。
-     * <p>
-     * 以下の場合にtrueを返します：
-     * <ul>
-     * <li>文字列がnull</li>
-     * <li>文字列の長さが0</li>
-     * </ul>
-     * </p>
+     * 文字列がnullまたは空であるかどうかを確認します。
      *
      * @param target
-     *               検査対象の文字列
+     *               確認する文字列
      *
-     * @return 文字列が空の場合はtrue、それ以外はfalse
+     * @return 文字列がnullまたは空の場合はtrue、そうでない場合はfalse
      *
      * @since 0.1.0
      *
@@ -311,14 +304,14 @@ public class KmgString {
     }
 
     /**
-     * 対象文字列が空文字ではないかどうかを返す<br>
-     *
-     * @since 0.1.0
+     * 文字列がnullまたは空でないかどうかを確認します。
      *
      * @param target
-     *               対象文字列
+     *               確認する文字列
      *
-     * @return true：空文字ではない、false：空文字列
+     * @return 文字列がnullまたは空でない場合はtrue、そうでない場合はfalse
+     *
+     * @since 0.1.0
      */
     public static boolean isNotEmpty(final String target) {
 
@@ -328,20 +321,20 @@ public class KmgString {
     }
 
     /**
-     * キャメルケース文字列をスネークケースに変換します。
+     * キャメルケースの文字列をスネークケースに変換します。
      * <p>
      * 変換ルール：
+     * </p>
      * <ul>
-     * <li>大文字の前にアンダースコア(_)を挿入</li>
-     * <li>全ての文字を小文字に変換</li>
+     * <li>大文字の前にアンダースコア(_)を挿入します。</li>
+     * <li>すべての文字を小文字に変換します。</li>
      * <li>例："testString" → "test_string"</li>
      * </ul>
-     * </p>
      *
      * @param target
      *               変換対象の文字列。nullまたは空文字の場合はnullを返します。
      *
-     * @return 変換後のスネークケース文字列。変換できない場合はnull。
+     * @return 変換後のスネークケース文字列。変換できない場合はnullを返します。
      *
      * @throws IllegalArgumentException
      *                                  無効な文字列形式が指定された場合
@@ -418,23 +411,20 @@ public class KmgString {
     }
 
     /**
-     * アンダースコアを追加するかどうかを判定する<br>
-     * <p>
-     * 現在の文字が大文字でない場合は早期リターン
-     * </p>
-     *
-     * @since 0.1.0
+     * 文字列内の特定の位置にアンダースコアを追加する必要があるかどうかを判断します。
      *
      * @param target
-     *                     対象文字列
+     *                     文字列
      * @param currentIndex
-     *                     現在の位置
+     *                     現在のインデックス
      * @param currentChar
      *                     現在の文字
      * @param prevChar
      *                     前の文字
      *
-     * @return true：アンダースコアを追加する、false：アンダースコアを追加しない
+     * @return アンダースコアを追加する必要がある場合はtrue、そうでない場合はfalse
+     *
+     * @since 0.1.0
      */
     private static boolean shouldAddUnderscore(final String target, final int currentIndex, final char currentChar,
         final char prevChar) {
@@ -488,7 +478,7 @@ public class KmgString {
     }
 
     /**
-     * スネークケースに変換する。<br>
+     * キャメルケースに変換します。
      * <p>
      * 例：aaa_bbb_ccc→aaaBbbCcc
      * </p>
@@ -502,7 +492,7 @@ public class KmgString {
     }
 
     /**
-     * スネークケースに変換する。<br>
+     * スネークケースに変換します。
      * <p>
      * 例：aaaBbbCcc→aaa_bbb_ccc
      * </p>
@@ -516,11 +506,11 @@ public class KmgString {
     }
 
     /**
-     * 値を返す。
-     *
-     * @since 0.1.0
+     * 値を取得します。
      *
      * @return 値
+     *
+     * @since 0.1.0
      */
     public String getValue() {
 
@@ -530,11 +520,11 @@ public class KmgString {
     }
 
     /**
-     * 空文字かどうかを返す<br>
+     * 文字列が空かどうかを判定します。
+     *
+     * @return 文字列が空の場合はtrue、そうでない場合はfalse
      *
      * @since 0.1.0
-     *
-     * @return true：空文字である、false：空文字ではない
      */
     public boolean isEmpty() {
 
@@ -558,11 +548,11 @@ public class KmgString {
     }
 
     /**
-     * 空文字ではないかどうかを返す<br>
+     * 文字列が空でないかどうかを判定します。
+     *
+     * @return 文字列が空でない場合はtrue、そうでない場合はfalse
      *
      * @since 0.1.0
-     *
-     * @return true：空文字である、false：空文字ではない
      */
     public boolean isNotEmpty() {
 
@@ -572,14 +562,14 @@ public class KmgString {
     }
 
     /**
-     * 置換対象文字列を置換文字列に置換する。
-     *
-     * @since 0.1.0
+     * 文字列を別の文字列に置換します。
      *
      * @param target
      *                   置換対象文字列
      * @param replacemen
      *                   置換文字列
+     *
+     * @since 0.1.0
      */
     public void replace(final CharSequence target, final CharSequence replacemen) {
 
@@ -588,14 +578,14 @@ public class KmgString {
     }
 
     /**
-     * キャメルケースで返す。<br>
+     * キャメルケースの文字列を返します。
      * <p>
      * 例：aaa_bbb_ccc→aaaBbbCcc
      * </p>
      *
-     * @since 0.1.0
-     *
      * @return キャメルケースの文字列
+     *
+     * @since 0.1.0
      */
     public String toCamelCase() {
 
@@ -605,14 +595,14 @@ public class KmgString {
     }
 
     /**
-     * スネークケースで返す。<br>
+     * スネークケースの文字列を返します。
      * <p>
      * 例：aaaBbbCcc→aaa_bbb_ccc
      * </p>
      *
-     * @since 0.1.0
-     *
      * @return スネークケースの文字列
+     *
+     * @since 0.1.0
      */
     public String toSnakeCase() {
 
@@ -622,7 +612,9 @@ public class KmgString {
     }
 
     /**
-     * 文字列を返す<br>
+     * 文字列表現を返します。
+     *
+     * @return 文字列表現
      *
      * @since 0.1.0
      */
