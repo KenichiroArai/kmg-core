@@ -56,16 +56,6 @@ public class KmgPathUtilsTest extends AbstractKmgTest {
     }
 
     /**
-     * テスト用のディレクトリパス
-     */
-    private Path testDirPath;
-
-    /**
-     * テスト用のファイルパス
-     */
-    private Path testFilePath;
-
-    /**
      * デフォルトコンストラクタ<br>
      *
      * @since 0.1.0
