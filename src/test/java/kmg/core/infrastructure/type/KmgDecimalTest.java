@@ -20,6 +20,16 @@ import org.junit.jupiter.api.Test;
 public class KmgDecimalTest {
 
     /**
+     * デフォルトコンストラクタ<br>
+     *
+     * @since 0.1.0
+     */
+    public KmgDecimalTest() {
+
+        // 処理なし
+    }
+
+    /**
      * CALC_ZERO定数のテスト - 正常系：計算用ゼロ値の確認
      *
      * @since 0.1.0

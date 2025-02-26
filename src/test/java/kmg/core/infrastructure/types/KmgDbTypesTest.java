@@ -18,6 +18,16 @@ import org.junit.jupiter.api.Test;
 public class KmgDbTypesTest {
 
     /**
+     * デフォルトコンストラクタ<br>
+     *
+     * @since 0.1.0
+     */
+    public KmgDbTypesTest() {
+
+        // 処理なし
+    }
+
+    /**
      * get メソッドのテスト - 正常系:基本的な値の取得
      *
      * @since 0.1.0

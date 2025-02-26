@@ -23,6 +23,16 @@ import org.junit.jupiter.api.Test;
 public class KmgLocalDateTimeUtilsTest {
 
     /**
+     * デフォルトコンストラクタ<br>
+     *
+     * @since 0.1.0
+     */
+    public KmgLocalDateTimeUtilsTest() {
+
+        // 処理なし
+    }
+
+    /**
      * formatYyyyMmDdHhMmSsSss メソッドのテスト - 異常系:nullの場合（Date）
      *
      * @since 0.1.0

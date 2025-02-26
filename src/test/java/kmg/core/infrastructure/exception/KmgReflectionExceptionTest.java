@@ -49,6 +49,16 @@ public class KmgReflectionExceptionTest {
     private String message;
 
     /**
+     * デフォルトコンストラクタ<br>
+     *
+     * @since 0.1.0
+     */
+    public KmgReflectionExceptionTest() {
+
+        // 処理なし
+    }
+
+    /**
      * 初期化処理<br>
      *
      * @since 0.1.0

@@ -24,6 +24,16 @@ import kmg.core.infrastructure.common.KmgMessageTypes;
 public class KmgSystemExceptionTest {
 
     /**
+     * デフォルトコンストラクタ<br>
+     *
+     * @since 0.1.0
+     */
+    public KmgSystemExceptionTest() {
+
+        // 処理なし
+    }
+
+    /**
      * コンストラクタ メソッドのテスト - 正常系：メッセージタイプのみを指定した場合
      *
      * @since 0.1.0

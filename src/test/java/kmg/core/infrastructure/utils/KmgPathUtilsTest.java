@@ -34,7 +34,7 @@ import kmg.core.test.AbstractKmgTest;
 public class KmgPathUtilsTest extends AbstractKmgTest {
 
     /**
-     * テストクラス
+     * テストクラス<br>
      *
      * @author KenichiroArai
      *
@@ -43,6 +43,35 @@ public class KmgPathUtilsTest extends AbstractKmgTest {
      * @version 0.1.0
      */
     private static class TestClass {
+
+        /**
+         * デフォルトコンストラクタ<br>
+         *
+         * @since 0.1.0
+         */
+        private TestClass() {
+
+            // 処理なし
+        }
+    }
+
+    /**
+     * テスト用のディレクトリパス
+     */
+    private Path testDirPath;
+
+    /**
+     * テスト用のファイルパス
+     */
+    private Path testFilePath;
+
+    /**
+     * デフォルトコンストラクタ<br>
+     *
+     * @since 0.1.0
+     */
+    public KmgPathUtilsTest() {
+
         // 処理なし
     }
 

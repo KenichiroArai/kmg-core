@@ -18,6 +18,16 @@ import org.junit.jupiter.api.Test;
 public class KmgMsgMessageTypesTest {
 
     /**
+     * デフォルトコンストラクタ<br>
+     *
+     * @since 0.1.0
+     */
+    public KmgMsgMessageTypesTest() {
+
+        // 処理なし
+    }
+
+    /**
      * get メソッドのテスト - 正常系:基本的な値の取得
      *
      * @since 0.1.0

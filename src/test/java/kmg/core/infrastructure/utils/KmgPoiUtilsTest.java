@@ -25,6 +25,16 @@ import org.junit.jupiter.api.Test;
 public class KmgPoiUtilsTest {
 
     /**
+     * デフォルトコンストラクタ<br>
+     *
+     * @since 0.1.0
+     */
+    public KmgPoiUtilsTest() {
+
+        // 処理なし
+    }
+
+    /**
      * getCell メソッドのテスト - 異常系:行が存在しない場合
      *
      * @since 0.1.0

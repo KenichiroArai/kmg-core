@@ -25,6 +25,16 @@ import kmg.core.infrastructure.model.impl.KmgReflectionModelImpl;
 public class KmgExceptionTest {
 
     /**
+     * デフォルトコンストラクタ<br>
+     *
+     * @since 0.1.0
+     */
+    public KmgExceptionTest() {
+
+        // 処理なし
+    }
+
+    /**
      * コンストラクタのテスト - 正常系：メッセージタイプとメッセージ引数を指定した場合
      *
      * @since 0.1.0

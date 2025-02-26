@@ -22,6 +22,16 @@ import kmg.core.infrastructure.type.KmgString;
 public class KmgMessageUtilsTest {
 
     /**
+     * デフォルトコンストラクタ<br>
+     *
+     * @since 0.1.0
+     */
+    public KmgMessageUtilsTest() {
+
+        // 処理なし
+    }
+
+    /**
      * checkMessageArgsCount メソッドのテスト - 異常系:不正なメッセージパターンの場合
      *
      * @since 0.1.0

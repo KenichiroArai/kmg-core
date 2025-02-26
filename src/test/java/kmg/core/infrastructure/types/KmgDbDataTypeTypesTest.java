@@ -25,6 +25,16 @@ import kmg.core.infrastructure.type.KmgString;
 public class KmgDbDataTypeTypesTest {
 
     /**
+     * デフォルトコンストラクタ<br>
+     *
+     * @since 0.1.0
+     */
+    public KmgDbDataTypeTypesTest() {
+
+        // 処理なし
+    }
+
+    /**
      * get メソッドのテスト - 正常系：値の取得
      *
      * @since 0.1.0
