@@ -18,6 +18,16 @@ import kmg.core.infrastructure.exception.KmgException;
 public abstract class AbstractKmgTest {
 
     /**
+     * デフォルトコンストラクタ<br>
+     *
+     * @since 0.1.0
+     */
+    protected AbstractKmgTest() {
+
+        // 処理なし
+    }
+
+    /**
      * KMG例外の検証を行う<br>
      *
      * @since 0.1.0

@@ -18,6 +18,16 @@ import org.junit.jupiter.api.Test;
 public class KmgArrayUtilsTest {
 
     /**
+     * デフォルトコンストラクタ<br>
+     *
+     * @since 0.1.0
+     */
+    public KmgArrayUtilsTest() {
+
+        // 処理なし
+    }
+
+    /**
      * isEmpty メソッドのテスト - 異常系:nullの場合
      *
      * @since 0.1.0
