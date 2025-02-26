@@ -22,11 +22,7 @@ public class KmgDecimalTest {
     /**
      * CALC_ZERO定数のテスト - 正常系：計算用ゼロ値の確認
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testCalcZero_normalZeroValue() {
@@ -42,11 +38,7 @@ public class KmgDecimalTest {
     /**
      * コンストラクタのテスト - 正常系：BigDecimal値で初期化する場合
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testConstructor_normalBigDecimalValue() {
@@ -71,11 +63,7 @@ public class KmgDecimalTest {
     /**
      * コンストラクタのテスト - 正常系：double値で初期化する場合
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testConstructor_normalDoubleValue() {
@@ -100,11 +88,7 @@ public class KmgDecimalTest {
     /**
      * コンストラクタのテスト - 準正常系：BigDecimal値がnullの場合
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testConstructor_semiNullBigDecimalValue() {
@@ -124,11 +108,7 @@ public class KmgDecimalTest {
     /**
      * divide メソッドのテスト - 正常系：通常の除算の場合
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testDivide_normalDivision() {
@@ -151,11 +131,7 @@ public class KmgDecimalTest {
     /**
      * divide メソッドのテスト - 準正常系：引数がnullの場合
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testDivide_semiNullArguments() {
@@ -176,11 +152,7 @@ public class KmgDecimalTest {
     /**
      * divide メソッドのテスト - 準正常系：ゼロ除算の場合
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testDivide_semiZeroDivision() {
@@ -201,11 +173,7 @@ public class KmgDecimalTest {
     /**
      * RESULT_ZERO定数のテスト - 正常系：結果用ゼロ値の確認
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testResultZero_normalZeroValue() {
@@ -221,11 +189,7 @@ public class KmgDecimalTest {
     /**
      * setCalcScale メソッドのテスト - 正常系：BigDecimalの値で計算用スケールを設定する場合
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testSetCalcScale_normalBigDecimalValue() {
@@ -247,11 +211,7 @@ public class KmgDecimalTest {
     /**
      * setCalcScale メソッドのテスト - 正常系：double値で計算用スケールを設定する場合
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testSetCalcScale_normalDoubleValue() {
@@ -273,11 +233,7 @@ public class KmgDecimalTest {
     /**
      * setCalcScale メソッドのテスト - 準正常系：BigDecimalの値がnullの場合
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testSetCalcScale_semiNullBigDecimalValue() {
@@ -297,11 +253,7 @@ public class KmgDecimalTest {
     /**
      * setResultScale メソッドのテスト - 正常系：BigDecimalの値で結果用スケールを設定する場合
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testSetResultScale_normalBigDecimalValue() {
@@ -323,11 +275,7 @@ public class KmgDecimalTest {
     /**
      * setResultScale メソッドのテスト - 正常系：double値で結果用スケールを設定する場合
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testSetResultScale_normalDoubleValue() {
@@ -349,11 +297,7 @@ public class KmgDecimalTest {
     /**
      * setResultScale メソッドのテスト - 準正常系：BigDecimalの値がnullの場合
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testSetResultScale_semiNullBigDecimalValue() {

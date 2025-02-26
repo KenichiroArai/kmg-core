@@ -25,11 +25,7 @@ public class KmgDelimiterTypesTest {
     /**
      * get メソッドのテスト - 正常系:基本的な値の取得
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testGet_normalBasicValue() {
@@ -51,11 +47,7 @@ public class KmgDelimiterTypesTest {
     /**
      * getDefault メソッドのテスト - 正常系:デフォルト値の取得
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testGetDefault_normalDefaultValue() {
@@ -74,11 +66,7 @@ public class KmgDelimiterTypesTest {
     /**
      * getDetail メソッドのテスト - 正常系:基本的な詳細情報の取得
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testGetDetail_normalBasicDetail() {
@@ -100,11 +88,7 @@ public class KmgDelimiterTypesTest {
     /**
      * getDisplayName メソッドのテスト - 正常系:基本的な表示名の取得
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testGetDisplayName_normalBasicName() {
@@ -126,11 +110,7 @@ public class KmgDelimiterTypesTest {
     /**
      * getEnum メソッドのテスト - 正常系:存在する値の取得
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testGetEnum_normalExistingValue() {
@@ -152,11 +132,7 @@ public class KmgDelimiterTypesTest {
     /**
      * getEnum メソッドのテスト - 準正常系:存在しないキーの取得
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testGetEnum_semiNonExistingKey() {
@@ -178,11 +154,7 @@ public class KmgDelimiterTypesTest {
     /**
      * getEnum メソッドのテスト - 準正常系:存在しない値の取得
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testGetEnum_semiNonExistingValue() {
@@ -204,11 +176,7 @@ public class KmgDelimiterTypesTest {
     /**
      * getInitValue メソッドのテスト - 正常系:初期値の取得
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testGetInitValue_normalInitialValue() {
@@ -227,11 +195,7 @@ public class KmgDelimiterTypesTest {
     /**
      * getKey メソッドのテスト - 正常系:基本的なキーの取得
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testGetKey_normalBasicKey() {
@@ -253,11 +217,7 @@ public class KmgDelimiterTypesTest {
     /**
      * join メソッドのテスト - 正常系:基本的な結合
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testJoin_normalBasicCase() {
@@ -285,11 +245,7 @@ public class KmgDelimiterTypesTest {
     /**
      * join メソッドのテスト - 正常系:リストの結合
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testJoin_normalList() {
@@ -312,11 +268,7 @@ public class KmgDelimiterTypesTest {
     /**
      * join メソッドのテスト - 正常系:単一要素の結合
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testJoin_normalSingleElement() {
@@ -344,11 +296,7 @@ public class KmgDelimiterTypesTest {
     /**
      * join メソッドのテスト - 正常系:可変引数の結合
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testJoin_normalVarargs() {
@@ -370,11 +318,7 @@ public class KmgDelimiterTypesTest {
     /**
      * join メソッドのテスト - 準正常系:空文字を含む配列の結合
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testJoin_semiContainsEmptyString() {
@@ -402,11 +346,7 @@ public class KmgDelimiterTypesTest {
     /**
      * join メソッドのテスト - 準正常系:nullを含む配列の結合
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testJoin_semiContainsNull() {
@@ -434,11 +374,7 @@ public class KmgDelimiterTypesTest {
     /**
      * join メソッドのテスト - 準正常系:空配列の結合
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testJoin_semiEmptyArray() {
@@ -464,11 +400,7 @@ public class KmgDelimiterTypesTest {
     /**
      * join メソッドのテスト - 準正常系:null配列の結合
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testJoin_semiNullArray() {
@@ -494,11 +426,7 @@ public class KmgDelimiterTypesTest {
     /**
      * join メソッドのテスト - 準正常系:空文字を含む可変引数の結合
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testJoin_semiVarargsWithEmpty() {
@@ -520,11 +448,7 @@ public class KmgDelimiterTypesTest {
     /**
      * join メソッドのテスト - 準正常系:nullを含む可変引数の結合
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testJoin_semiVarargsWithNull() {
@@ -546,11 +470,7 @@ public class KmgDelimiterTypesTest {
     /**
      * joinAll メソッドのテスト - 正常系:基本的な結合
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testJoinAll_normalBasicCase() {
@@ -578,11 +498,7 @@ public class KmgDelimiterTypesTest {
     /**
      * joinAll メソッドのテスト - 正常系:リストの結合
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testJoinAll_normalList() {
@@ -605,11 +521,7 @@ public class KmgDelimiterTypesTest {
     /**
      * joinAll メソッドのテスト - 正常系:複数の単一文字要素の結合
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testJoinAll_normalMultipleSingleCharElements() {
@@ -637,11 +549,7 @@ public class KmgDelimiterTypesTest {
     /**
      * joinAll メソッドのテスト - 正常系:単一文字要素の結合
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testJoinAll_normalSingleCharElement() {
@@ -669,11 +577,7 @@ public class KmgDelimiterTypesTest {
     /**
      * joinAll メソッドのテスト - 正常系:単一要素の結合
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testJoinAll_normalSingleElement() {
@@ -701,11 +605,7 @@ public class KmgDelimiterTypesTest {
     /**
      * joinAll メソッドのテスト - 正常系:可変引数の結合
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testJoinAll_normalVarargs() {
@@ -727,11 +627,7 @@ public class KmgDelimiterTypesTest {
     /**
      * joinAll メソッドのテスト - 準正常系:空文字を含む配列の結合
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testJoinAll_semiContainsEmptyString() {
@@ -759,11 +655,7 @@ public class KmgDelimiterTypesTest {
     /**
      * joinAll メソッドのテスト - 準正常系:nullを含む配列の結合
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testJoinAll_semiContainsNull() {
@@ -791,11 +683,7 @@ public class KmgDelimiterTypesTest {
     /**
      * joinAll メソッドのテスト - 準正常系:空配列の結合
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testJoinAll_semiEmptyArray() {
@@ -821,11 +709,7 @@ public class KmgDelimiterTypesTest {
     /**
      * joinAll メソッドのテスト - 準正常系:空文字要素の結合
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testJoinAll_semiEmptyStringElement() {
@@ -853,11 +737,7 @@ public class KmgDelimiterTypesTest {
     /**
      * joinAll メソッドのテスト - 準正常系:null配列の結合
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testJoinAll_semiNullArray() {
@@ -883,11 +763,7 @@ public class KmgDelimiterTypesTest {
     /**
      * split メソッドのテスト - 正常系:基本的な分割
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testSplit_normalBasicCase() {
@@ -912,11 +788,7 @@ public class KmgDelimiterTypesTest {
     /**
      * split メソッドのテスト - 正常系:大きな制限値での分割
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testSplit_normalWithLargerLimit() {
@@ -942,11 +814,7 @@ public class KmgDelimiterTypesTest {
     /**
      * split メソッドのテスト - 正常系:制限付きの分割
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testSplit_normalWithLimit() {
@@ -972,11 +840,7 @@ public class KmgDelimiterTypesTest {
     /**
      * split メソッドのテスト - 準正常系:空文字列の分割
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testSplit_semiEmpty() {
@@ -999,11 +863,7 @@ public class KmgDelimiterTypesTest {
     /**
      * split メソッドのテスト - 準正常系:制限付きの空文字列分割
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testSplit_semiWithLimitEmpty() {
@@ -1027,11 +887,7 @@ public class KmgDelimiterTypesTest {
     /**
      * toString メソッドのテスト - 正常系:半角スペースの文字列表現
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testToString_normalHalfSpace() {
@@ -1053,11 +909,7 @@ public class KmgDelimiterTypesTest {
     /**
      * toString メソッドのテスト - 正常系:NONEの文字列表現
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testToString_normalNone() {
@@ -1079,11 +931,7 @@ public class KmgDelimiterTypesTest {
     /**
      * toString メソッドのテスト - 正常系:ピリオドの文字列表現
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testToString_normalPeriod() {

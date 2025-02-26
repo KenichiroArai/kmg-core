@@ -17,33 +17,21 @@ public class KmgReflectionException extends KmgDomainException {
     /**
      * デフォルトシリアルバージョンＵＩＤ
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     private static final long serialVersionUID = 1L;
 
     /**
      * KMGリフレクションモデル
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     private final KmgReflectionModel kmgReflectionModel;
 
     /**
      * コンストラクタ<br>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      *
      * @param kmgReflectionModel
      *                           KMGリフレクションモデル
@@ -59,11 +47,7 @@ public class KmgReflectionException extends KmgDomainException {
     /**
      * コンストラクタ<br>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      *
      * @param kmgReflectionModel
      *                           KMGリフレクションモデル
@@ -82,11 +66,7 @@ public class KmgReflectionException extends KmgDomainException {
     /**
      * コンストラクタ<br>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      *
      * @param kmgReflectionModel
      *                           KMGリフレクションモデル
@@ -108,11 +88,7 @@ public class KmgReflectionException extends KmgDomainException {
     /**
      * コンストラクタ<br>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      *
      * @param kmgReflectionModel
      *                           KMGリフレクションモデル
@@ -131,11 +107,7 @@ public class KmgReflectionException extends KmgDomainException {
     /**
      * KMGリフレクションモデルを返す<br>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      *
      * @return KMGリフレクションモデル
      */

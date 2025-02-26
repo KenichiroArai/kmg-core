@@ -23,11 +23,7 @@ public final class KmgLocalDateTimeUtils {
     /**
      * フォーマッタパターン（yyyy/MM/dd HH:mm:ss.SSS）
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     private static final String FORMATTER_PATTERN_YYYY_MM_DD_HH_MM_SS_SSS = "yyyy/MM/dd HH:mm:ss.SSS"; //$NON-NLS-1$
 
@@ -37,11 +33,7 @@ public final class KmgLocalDateTimeUtils {
      * 日付を日時文字列（yyyy/MM/dd HH:mm:ss.SSS）にして返す。
      * </p>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      *
      * @param date
      *             日付
@@ -70,11 +62,7 @@ public final class KmgLocalDateTimeUtils {
      * ローカル日時を日時文字列（yyyy/MM/dd HH:mm:ss.SSS）にして返す。
      * </p>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      *
      * @param localDateTime
      *                      ローカル日時
@@ -102,11 +90,7 @@ public final class KmgLocalDateTimeUtils {
      * 日付をからローカル日時にして返す。
      * </p>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      *
      * @param date
      *             日付
@@ -133,11 +117,7 @@ public final class KmgLocalDateTimeUtils {
      * 日時文字列（yyyy/MM/dd HH:mm:ss.SSS）を解析し、ローカル日時にして返す。
      * </p>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      *
      * @param dateTimeStr
      *                    日時文字列（yyyy/MM/dd HH:mm:ss.SSS）
@@ -162,11 +142,7 @@ public final class KmgLocalDateTimeUtils {
     /**
      * デフォルトコンストラクタ<br>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     private KmgLocalDateTimeUtils() {
 

@@ -25,11 +25,7 @@ public class KmgLocalDateTimeUtilsTest {
     /**
      * formatYyyyMmDdHhMmSsSss メソッドのテスト - 異常系:nullの場合（Date）
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testFormatYyyyMmDdHhMmSsSss_errorNullDate() {
@@ -51,11 +47,7 @@ public class KmgLocalDateTimeUtilsTest {
     /**
      * formatYyyyMmDdHhMmSsSss メソッドのテスト - 異常系:nullの場合（LocalDateTime）
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testFormatYyyyMmDdHhMmSsSss_errorNullLocalDateTime() {
@@ -77,11 +69,7 @@ public class KmgLocalDateTimeUtilsTest {
     /**
      * formatYyyyMmDdHhMmSsSss メソッドのテスト - 正常系:正常な日付の場合（Date）
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testFormatYyyyMmDdHhMmSsSss_normalValidDate() {
@@ -104,11 +92,7 @@ public class KmgLocalDateTimeUtilsTest {
     /**
      * formatYyyyMmDdHhMmSsSss メソッドのテスト - 正常系:正常な日時の場合（LocalDateTime）
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testFormatYyyyMmDdHhMmSsSss_normalValidLocalDateTime() {
@@ -130,11 +114,7 @@ public class KmgLocalDateTimeUtilsTest {
     /**
      * from メソッドのテスト - 異常系:nullの場合
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testFrom_errorNull() {
@@ -156,11 +136,7 @@ public class KmgLocalDateTimeUtilsTest {
     /**
      * from メソッドのテスト - 正常系:正常な日付の場合
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testFrom_normalValidDate() {
@@ -183,11 +159,7 @@ public class KmgLocalDateTimeUtilsTest {
     /**
      * parseYyyyMmDdHhMmSsSss メソッドのテスト - 異常系:nullの場合
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testParseYyyyMmDdHhMmSsSss_errorNull() {
@@ -209,11 +181,7 @@ public class KmgLocalDateTimeUtilsTest {
     /**
      * parseYyyyMmDdHhMmSsSss メソッドのテスト - 正常系:正常な日時文字列の場合
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testParseYyyyMmDdHhMmSsSss_normalValidDateTime() {
@@ -235,11 +203,7 @@ public class KmgLocalDateTimeUtilsTest {
     /**
      * parseYyyyMmDdHhMmSsSss メソッドのテスト - 準正常系:空文字の場合
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testParseYyyyMmDdHhMmSsSss_semiEmpty() {

@@ -20,11 +20,7 @@ public class KmgMsgMessageTypesTest {
     /**
      * get メソッドのテスト - 正常系:基本的な値の取得
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testGet_normalBasicValue() {
@@ -46,11 +42,7 @@ public class KmgMsgMessageTypesTest {
     /**
      * getCode メソッドのテスト - 正常系:コードの取得
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testGetCode_normalBasicCode() {
@@ -72,11 +64,7 @@ public class KmgMsgMessageTypesTest {
     /**
      * getDefault メソッドのテスト - 正常系:デフォルト値の取得
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testGetDefault_normalDefaultValue() {
@@ -95,11 +83,7 @@ public class KmgMsgMessageTypesTest {
     /**
      * getDetail メソッドのテスト - 正常系:詳細情報の取得
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testGetDetail_normalBasicDetail() {
@@ -121,11 +105,7 @@ public class KmgMsgMessageTypesTest {
     /**
      * getDisplayName メソッドのテスト - 正常系:表示名の取得
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testGetDisplayName_normalBasicDisplayName() {
@@ -147,11 +127,7 @@ public class KmgMsgMessageTypesTest {
     /**
      * getEnum メソッドのテスト - 正常系:存在する値の取得
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testGetEnum_normalExistingValue() {
@@ -173,11 +149,7 @@ public class KmgMsgMessageTypesTest {
     /**
      * getEnum メソッドのテスト - 準正常系:存在しない値の取得
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testGetEnum_semiNonExistingValue() {
@@ -199,11 +171,7 @@ public class KmgMsgMessageTypesTest {
     /**
      * getInitValue メソッドのテスト - 正常系:初期値の取得
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testGetInitValue_normalInitialValue() {
@@ -222,11 +190,7 @@ public class KmgMsgMessageTypesTest {
     /**
      * getValue メソッドのテスト - 正常系:値の取得
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testGetValue_normalBasicValue() {
@@ -248,11 +212,7 @@ public class KmgMsgMessageTypesTest {
     /**
      * toString メソッドのテスト - 正常系:KMGMSGE11100の文字列表現
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testToString_normalKmgmsge11100() {
@@ -274,11 +234,7 @@ public class KmgMsgMessageTypesTest {
     /**
      * toString メソッドのテスト - 正常系:NONEの文字列表現
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testToString_normalNone() {

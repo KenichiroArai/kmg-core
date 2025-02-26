@@ -20,11 +20,7 @@ public class KmgDbTypesTest {
     /**
      * get メソッドのテスト - 正常系:基本的な値の取得
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testGet_normalBasicValue() {
@@ -46,11 +42,7 @@ public class KmgDbTypesTest {
     /**
      * getAliasArray メソッドのテスト - 正常系:別名配列の取得
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testGetAliasArray_normalBasicArray() {
@@ -74,11 +66,7 @@ public class KmgDbTypesTest {
     /**
      * getDefault メソッドのテスト - 正常系:デフォルト値の取得
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testGetDefault_normalDefaultValue() {
@@ -97,11 +85,7 @@ public class KmgDbTypesTest {
     /**
      * getDetail メソッドのテスト - 正常系:基本的な詳細情報の取得
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testGetDetail_normalBasicValue() {
@@ -123,11 +107,7 @@ public class KmgDbTypesTest {
     /**
      * getDisplayName メソッドのテスト - 正常系:基本的な表示名の取得
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testGetDisplayName_normalBasicValue() {
@@ -149,11 +129,7 @@ public class KmgDbTypesTest {
     /**
      * getEnum メソッドのテスト - 正常系:存在する値の取得
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testGetEnum_normalExistingValue() {
@@ -175,11 +151,7 @@ public class KmgDbTypesTest {
     /**
      * getEnum メソッドのテスト - 準正常系:存在しない値の取得
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testGetEnum_semiNonExistingValue() {
@@ -201,11 +173,7 @@ public class KmgDbTypesTest {
     /**
      * getEnum メソッドのテスト - 準正常系:nullの場合の取得
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testGetEnum_semiNullValue() {
@@ -227,11 +195,7 @@ public class KmgDbTypesTest {
     /**
      * getEnumByTarget メソッドのテスト - 正常系:別名による検索
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testGetEnumByTarget_normalByAlias() {
@@ -253,11 +217,7 @@ public class KmgDbTypesTest {
     /**
      * getEnumByTarget メソッドのテスト - 正常系:値による検索
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testGetEnumByTarget_normalByValue() {
@@ -279,11 +239,7 @@ public class KmgDbTypesTest {
     /**
      * getEnumByTarget メソッドのテスト - 正常系:大文字小文字を区別しない比較
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testGetEnumByTarget_normalCaseInsensitive() {
@@ -305,11 +261,7 @@ public class KmgDbTypesTest {
     /**
      * getEnumByTarget メソッドのテスト - 正常系:別名が存在しない場合の検索
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testGetEnumByTarget_normalNoAlias() {
@@ -331,11 +283,7 @@ public class KmgDbTypesTest {
     /**
      * getEnumByTarget メソッドのテスト - 正常系:値の大文字小文字を区別しない比較
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testGetEnumByTarget_normalValueIgnoreCase() {
@@ -357,11 +305,7 @@ public class KmgDbTypesTest {
     /**
      * getEnumByTarget メソッドのテスト - 準正常系:別名が一致しない場合の取得
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testGetEnumByTarget_semiAliasNotMatch() {
@@ -383,11 +327,7 @@ public class KmgDbTypesTest {
     /**
      * getEnumByTarget メソッドのテスト - 準正常系:存在しない対象の検索
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testGetEnumByTarget_semiNonExistingTarget() {
@@ -409,11 +349,7 @@ public class KmgDbTypesTest {
     /**
      * getInitValue メソッドのテスト - 正常系:初期値の取得
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testGetInitValue_normalBasicValue() {
@@ -432,11 +368,7 @@ public class KmgDbTypesTest {
     /**
      * toString メソッドのテスト - 正常系:MySQLの文字列表現
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testToString_normalMysql() {
@@ -458,11 +390,7 @@ public class KmgDbTypesTest {
     /**
      * toString メソッドのテスト - 正常系:NONEの文字列表現
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testToString_normalNone() {
@@ -484,11 +412,7 @@ public class KmgDbTypesTest {
     /**
      * toString メソッドのテスト - 正常系:PostgreSQLの文字列表現
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testToString_normalPostgresql() {

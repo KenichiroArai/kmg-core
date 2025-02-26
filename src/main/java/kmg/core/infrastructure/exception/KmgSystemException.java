@@ -16,22 +16,14 @@ public class KmgSystemException extends KmgException {
     /**
      * デフォルトシリアルバージョンＵＩＤ
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     private static final long serialVersionUID = 1L;
 
     /**
      * コンストラクタ<br>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      *
      * @param messageTypes
      *                     メッセージの種類
@@ -45,11 +37,7 @@ public class KmgSystemException extends KmgException {
     /**
      * コンストラクタ<br>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      *
      * @param messageTypes
      *                     メッセージの種類
@@ -65,11 +53,7 @@ public class KmgSystemException extends KmgException {
     /**
      * コンストラクタ<br>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      *
      * @param messageTypes
      *                     メッセージの種類
@@ -87,11 +71,7 @@ public class KmgSystemException extends KmgException {
     /**
      * コンストラクタ<br>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      *
      * @param messageTypes
      *                     メッセージの種類

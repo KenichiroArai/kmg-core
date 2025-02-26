@@ -58,11 +58,7 @@ public enum KmgLogMessageTypes implements KmgMessageTypes {
     /**
      * 種類のマップ
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     private static final Map<String, KmgLogMessageTypes> VALUES_MAP = new HashMap<>();
 
@@ -80,55 +76,35 @@ public enum KmgLogMessageTypes implements KmgMessageTypes {
     /**
      * 表示名
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     private final String displayName;
 
     /**
      * メッセージのキー
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     private final String key;
 
     /**
      * メッセージの値
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     private final String value;
 
     /**
      * 詳細情報
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     private final String detail;
 
     /**
      * デフォルトの種類を返す<br>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      *
      * @return デフォルト値
      */
@@ -145,11 +121,7 @@ public enum KmgLogMessageTypes implements KmgMessageTypes {
      * 但し、キーが存在しない場合は、指定無し（NONE）を返す。
      * </p>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      *
      * @param key
      *            キー
@@ -172,11 +144,7 @@ public enum KmgLogMessageTypes implements KmgMessageTypes {
     /**
      * 初期値の種類を返す<br>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      *
      * @return 初期値
      */
@@ -190,11 +158,7 @@ public enum KmgLogMessageTypes implements KmgMessageTypes {
     /**
      * コンストラクタ<br>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      *
      * @param displayName
      *                    表示名
@@ -211,11 +175,7 @@ public enum KmgLogMessageTypes implements KmgMessageTypes {
     /**
      * メッセージのキーを返す。<br>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      *
      * @return メッセージのキー
      *
@@ -232,11 +192,7 @@ public enum KmgLogMessageTypes implements KmgMessageTypes {
     /**
      * メッセージのキーを返す。<br>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      *
      * @return メッセージのキー
      *
@@ -253,11 +209,7 @@ public enum KmgLogMessageTypes implements KmgMessageTypes {
     /**
      * 詳細情報を返す。<br>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      *
      * @return 詳細情報
      */
@@ -275,11 +227,7 @@ public enum KmgLogMessageTypes implements KmgMessageTypes {
      * 識別するための表示名を返す。
      * </p>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      *
      * @return 表示名
      */
@@ -294,11 +242,7 @@ public enum KmgLogMessageTypes implements KmgMessageTypes {
     /**
      * メッセージのキーを返す。<br>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      *
      * @return メッセージのキー
      */
@@ -313,11 +257,7 @@ public enum KmgLogMessageTypes implements KmgMessageTypes {
     /**
      * メッセージの値を返す。
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      *
      * @return メッセージの値
      */
@@ -332,11 +272,7 @@ public enum KmgLogMessageTypes implements KmgMessageTypes {
     /**
      * メッセージのキーを返す。<br>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      *
      * @return メッセージのキー
      *

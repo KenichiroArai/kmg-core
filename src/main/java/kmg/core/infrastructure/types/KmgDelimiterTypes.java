@@ -203,11 +203,7 @@ public enum KmgDelimiterTypes implements KmgTypes<String> {
     /**
      * 種類のマップ
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     private static final Map<String, KmgDelimiterTypes> VALUES_MAP = new HashMap<>();
 
@@ -225,44 +221,28 @@ public enum KmgDelimiterTypes implements KmgTypes<String> {
     /**
      * 表示名
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     private final String displayName;
 
     /**
      * キー
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     private final String key;
 
     /**
      * 詳細情報
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     private final String detail;
 
     /**
      * デフォルトの種類を返す<br>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      *
      * @return デフォルト値
      */
@@ -279,11 +259,7 @@ public enum KmgDelimiterTypes implements KmgTypes<String> {
      * 但し、キーが存在しない場合は、指定無し（NONE）を返す。
      * </p>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      *
      * @param key
      *            キー
@@ -306,11 +282,7 @@ public enum KmgDelimiterTypes implements KmgTypes<String> {
     /**
      * 初期値の種類を返す<br>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      *
      * @return 初期値
      */
@@ -324,11 +296,7 @@ public enum KmgDelimiterTypes implements KmgTypes<String> {
     /**
      * コンストラクタ<br>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      *
      * @param displayName
      *                    表示名
@@ -346,11 +314,7 @@ public enum KmgDelimiterTypes implements KmgTypes<String> {
     /**
      * キーを返す。<br>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      *
      * @return キー
      *
@@ -367,11 +331,7 @@ public enum KmgDelimiterTypes implements KmgTypes<String> {
     /**
      * 詳細情報を返す。<br>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      *
      * @return 詳細情報
      */
@@ -389,11 +349,7 @@ public enum KmgDelimiterTypes implements KmgTypes<String> {
      * 識別するための表示名を返す。
      * </p>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      *
      * @return 表示名
      */
@@ -408,11 +364,7 @@ public enum KmgDelimiterTypes implements KmgTypes<String> {
     /**
      * キーを返す。<br>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      *
      * @return キー
      */
@@ -430,11 +382,7 @@ public enum KmgDelimiterTypes implements KmgTypes<String> {
      * 但し、結合する文字列がnullまたは空文字の場合は結合しない
      * </p>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      *
      * @param <T>
      *                   結合する文字列の型
@@ -457,11 +405,7 @@ public enum KmgDelimiterTypes implements KmgTypes<String> {
      * 結合する文字列がnullの場合は空文字を返す。<br>
      * </p>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      *
      * @param targets
      *                結合する文字列
@@ -516,11 +460,7 @@ public enum KmgDelimiterTypes implements KmgTypes<String> {
      * 結合する文字列がnullの場合は空文字を返す。<br>
      * </p>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      *
      * @param targets
      *                結合する文字列
@@ -576,11 +516,7 @@ public enum KmgDelimiterTypes implements KmgTypes<String> {
     /**
      * 分割する文字列を分割し、文字列の配列にして返す。<br>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      *
      * @param target
      *               分割する文字列
@@ -606,11 +542,7 @@ public enum KmgDelimiterTypes implements KmgTypes<String> {
     /**
      * 分割する文字列を分割し、文字列の配列にして返す。<br>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      *
      * @param target
      *               分割する文字列
@@ -638,11 +570,7 @@ public enum KmgDelimiterTypes implements KmgTypes<String> {
     /**
      * キーを返す。<br>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      *
      * @return キー
      *

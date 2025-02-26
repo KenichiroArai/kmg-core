@@ -24,11 +24,7 @@ public class KmgListUtilsTest {
     /**
      * isEmpty メソッドのテスト - 異常系:nullの場合
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testIsEmpty_errorNull() {
@@ -50,11 +46,7 @@ public class KmgListUtilsTest {
     /**
      * isEmpty メソッドのテスト - 正常系:要素がある場合
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testIsEmpty_normalHasElements() {
@@ -76,11 +68,7 @@ public class KmgListUtilsTest {
     /**
      * isEmpty メソッドのテスト - 準正常系:空リストの場合
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testIsEmpty_semiEmptyList() {
@@ -102,11 +90,7 @@ public class KmgListUtilsTest {
     /**
      * isNotEmpty メソッドのテスト - 異常系:nullの場合
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testIsNotEmpty_errorNull() {
@@ -128,11 +112,7 @@ public class KmgListUtilsTest {
     /**
      * isNotEmpty メソッドのテスト - 正常系:要素がある場合
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testIsNotEmpty_normalHasElements() {
@@ -154,11 +134,7 @@ public class KmgListUtilsTest {
     /**
      * isNotEmpty メソッドのテスト - 準正常系:空リストの場合
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testIsNotEmpty_semiEmptyList() {

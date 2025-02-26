@@ -20,11 +20,7 @@ public abstract class AbstractKmgTest {
     /**
      * KMG例外の検証を行う<br>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      *
      * @param actualException
      *                              実際の例外

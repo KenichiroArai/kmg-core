@@ -16,55 +16,35 @@ public class KmgPfaMeasModel {
     /**
      * 開始時間
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     private long startTime;
 
     /**
      * 終了時間
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     private long endTime;
 
     /**
      * 経過時間
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     private double elapsedTime;
 
     /**
      * 時間単位
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     private KmgTimeUnitTypes timeUnit;
 
     /**
      * 終了<br>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     public void end() {
 
@@ -103,11 +83,7 @@ public class KmgPfaMeasModel {
     /**
      * 経過時間を返す<br>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      *
      * @return 経過時間
      */
@@ -121,11 +97,7 @@ public class KmgPfaMeasModel {
     /**
      * 終了時間を返す<br>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      *
      * @return 終了時間
      */
@@ -139,11 +111,7 @@ public class KmgPfaMeasModel {
     /**
      * 開始時間を返す<br>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      *
      * @return 開始時間
      */
@@ -157,11 +125,7 @@ public class KmgPfaMeasModel {
     /**
      * 時間単位を返す<br>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      *
      * @return 時間単位
      */
@@ -175,11 +139,7 @@ public class KmgPfaMeasModel {
     /**
      * 開始<br>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     public void start() {
 
@@ -190,11 +150,7 @@ public class KmgPfaMeasModel {
     /**
      * 現在時刻を返す<br>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      *
      * @return 現在時刻
      */

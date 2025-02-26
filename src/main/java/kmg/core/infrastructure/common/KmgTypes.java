@@ -19,11 +19,7 @@ public interface KmgTypes<T> extends Supplier<T> {
     /**
      * キーを返す。<br>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      *
      * @return キー
      *
@@ -35,11 +31,7 @@ public interface KmgTypes<T> extends Supplier<T> {
     /**
      * 詳細情報を返す。<br>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      *
      * @return 詳細情報
      */
@@ -51,11 +43,7 @@ public interface KmgTypes<T> extends Supplier<T> {
      * 識別するための表示名を返す。
      * </p>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      *
      * @return 表示名
      */
@@ -64,11 +52,7 @@ public interface KmgTypes<T> extends Supplier<T> {
     /**
      * キーを返す。<br>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      *
      * @return キー
      */
@@ -77,11 +61,7 @@ public interface KmgTypes<T> extends Supplier<T> {
     /**
      * キーを返す。<br>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      *
      * @return キー
      *

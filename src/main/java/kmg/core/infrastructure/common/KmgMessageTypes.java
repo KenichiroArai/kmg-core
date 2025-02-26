@@ -14,11 +14,7 @@ public interface KmgMessageTypes extends KmgTypes<String> {
     /**
      * メッセージのキーを返す。<br>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      *
      * @return メッセージのキー
      *
@@ -30,11 +26,7 @@ public interface KmgMessageTypes extends KmgTypes<String> {
     /**
      * メッセージのキーを返す。<br>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      *
      * @return メッセージのキー
      *
@@ -45,11 +37,7 @@ public interface KmgMessageTypes extends KmgTypes<String> {
     /**
      * メッセージのキーを返す。<br>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      *
      * @return メッセージのキー
      */
@@ -59,11 +47,7 @@ public interface KmgMessageTypes extends KmgTypes<String> {
     /**
      * メッセージの値を返す。
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      *
      * @return メッセージの値
      */
@@ -72,11 +56,7 @@ public interface KmgMessageTypes extends KmgTypes<String> {
     /**
      * メッセージのキーを返す。<br>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      *
      * @return メッセージのキー
      *

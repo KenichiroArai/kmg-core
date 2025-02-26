@@ -22,11 +22,7 @@ public class KmgCharsetTypesTest {
     /**
      * get メソッドのテスト - 正常系：UTF-8の値を取得する場合
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testGet_normalGetUtf8Value() {
@@ -48,11 +44,7 @@ public class KmgCharsetTypesTest {
     /**
      * getDefault メソッドのテスト - 正常系：デフォルト値を取得する場合
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testGetDefault_normalGetDefaultValue() {
@@ -71,11 +63,7 @@ public class KmgCharsetTypesTest {
     /**
      * getDetail メソッドのテスト - 正常系：MS932の詳細情報を取得する場合
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testGetDetail_normalGetMs932Detail() {
@@ -97,11 +85,7 @@ public class KmgCharsetTypesTest {
     /**
      * getDetail メソッドのテスト - 正常系：UTF-8の詳細情報を取得する場合
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testGetDetail_normalGetUtf8Detail() {
@@ -123,11 +107,7 @@ public class KmgCharsetTypesTest {
     /**
      * getDetail メソッドのテスト - 準正常系：NONEの詳細情報を取得する場合
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testGetDetail_semiGetNoneDetail() {
@@ -149,11 +129,7 @@ public class KmgCharsetTypesTest {
     /**
      * getDisplayName メソッドのテスト - 正常系：UTF-8の名称を取得する場合
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testGetDisplayName_normalGetUtf8Name() {
@@ -175,11 +151,7 @@ public class KmgCharsetTypesTest {
     /**
      * getEnum メソッドのテスト - 正常系：存在する値を取得する場合
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testGetEnum_normalGetExistingValue() {
@@ -201,11 +173,7 @@ public class KmgCharsetTypesTest {
     /**
      * getEnum メソッドのテスト - 準正常系：存在しない値を取得する場合
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testGetEnum_semiGetNonExistingValue() {
@@ -227,11 +195,7 @@ public class KmgCharsetTypesTest {
     /**
      * getInitValue メソッドのテスト - 正常系：初期値を取得する場合
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testGetInitValue_normalGetInitialValue() {
@@ -250,11 +214,7 @@ public class KmgCharsetTypesTest {
     /**
      * toCharset メソッドのテスト - 正常系：有効な文字セットの場合
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testToCharset_normalValidCharset() {
@@ -276,11 +236,7 @@ public class KmgCharsetTypesTest {
     /**
      * toCharset メソッドのテスト - 準正常系：NONEの場合
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testToCharset_semiNone() {
@@ -302,11 +258,7 @@ public class KmgCharsetTypesTest {
     /**
      * toString メソッドのテスト - 正常系：MS932の場合
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testToString_normalMs932() {
@@ -328,11 +280,7 @@ public class KmgCharsetTypesTest {
     /**
      * toString メソッドのテスト - 正常系：UTF8の場合
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testToString_normalUtf8() {
@@ -354,11 +302,7 @@ public class KmgCharsetTypesTest {
     /**
      * toString メソッドのテスト - 準正常系：NONEの場合
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testToString_semiNone() {

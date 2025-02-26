@@ -36,11 +36,7 @@ public class KmgSqlPathModelImpl implements KmgSqlPathModel {
     /**
      * SQLファイルパス
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     private final Path sqlFilePath;
 
@@ -50,11 +46,7 @@ public class KmgSqlPathModelImpl implements KmgSqlPathModel {
      * 変換する文字列が空の場合は、変換する文字列をそのまま返す。
      * </p>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      *
      * @param str
      *            変換する文字列
@@ -81,11 +73,7 @@ public class KmgSqlPathModelImpl implements KmgSqlPathModel {
     /**
      * コンストラクタ<br>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      *
      * @param zlass
      *                        クラス
@@ -101,11 +89,7 @@ public class KmgSqlPathModelImpl implements KmgSqlPathModel {
     /**
      * コンストラクタ<br>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      *
      * @param object
      *                        オブジェクト
@@ -129,11 +113,7 @@ public class KmgSqlPathModelImpl implements KmgSqlPathModel {
      * 例：&#047;*:sampleId*&#047;123→:sampleId<br>
      * </p>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      *
      * @return SQLにして返す
      *
