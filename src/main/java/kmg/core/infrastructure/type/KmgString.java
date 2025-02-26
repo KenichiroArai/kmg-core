@@ -4,7 +4,27 @@ import kmg.core.infrastructure.types.KmgDelimiterTypes;
 import kmg.core.infrastructure.utils.KmgArrayUtils;
 
 /**
- * KMG文字列
+ * KMG文字列ユーティリティクラス。
+ * <p>
+ * 文字列操作に関するユーティリティメソッドを提供します。 主な機能：
+ * <ul>
+ * <li>文字列の変換（キャメルケース、スネークケース）</li>
+ * <li>文字列の検証（空文字チェック）</li>
+ * <li>文字列の操作（結合、置換）</li>
+ * </ul>
+ * </p>
+ * <p>
+ * 使用例：
+ *
+ * <pre>
+ *
+ * // キャメルケース変換
+ * String camel = KmgString.camelCase("test_string");
+ *
+ * // 空文字チェック
+ * boolean isEmpty = KmgString.isEmpty("");
+ * </pre>
+ * </p>
  *
  * @author KenichiroArai
  *
@@ -50,17 +70,27 @@ public class KmgString {
     private String value;
 
     /**
-     * キャメルケースで返す。<br>
+     * スネークケース文字列をキャメルケースに変換します。
      * <p>
-     * 例：aaa_bbb_ccc→aaaBbbCcc
+     * 変換ルール：
+     * <ul>
+     * <li>アンダースコア(_)で区切られた各部分の先頭を大文字にする</li>
+     * <li>最初の単語は小文字のまま</li>
+     * <li>例："test_string" → "testString"</li>
+     * </ul>
      * </p>
+     *
+     * @param target
+     *               変換対象の文字列。nullまたは空文字の場合はnullを返します。
+     *
+     * @return 変換後のキャメルケース文字列。変換できない場合はnull。
+     *
+     * @throws IllegalArgumentException
+     *                                  無効な文字列形式が指定された場合
      *
      * @since 0.1.0
      *
-     * @param target
-     *               対象文字列
-     *
-     * @return キャメルケースの文字列
+     * @see #snakeCase(String)
      */
     public static String camelCase(final String target) {
 
@@ -254,14 +284,23 @@ public class KmgString {
     }
 
     /**
-     * 対象文字列が空文字かどうかを返す<br>
+     * 指定された文字列が空かどうかを判定します。
+     * <p>
+     * 以下の場合にtrueを返します：
+     * <ul>
+     * <li>文字列がnull</li>
+     * <li>文字列の長さが0</li>
+     * </ul>
+     * </p>
+     *
+     * @param target
+     *               検査対象の文字列
+     *
+     * @return 文字列が空の場合はtrue、それ以外はfalse
      *
      * @since 0.1.0
      *
-     * @param target
-     *               対象文字列
-     *
-     * @return true：空文字列、false：空文字ではない
+     * @see #isNotEmpty(String)
      */
     public static boolean isEmpty(final String target) {
 
@@ -289,17 +328,27 @@ public class KmgString {
     }
 
     /**
-     * スネークケースで返す。<br>
+     * キャメルケース文字列をスネークケースに変換します。
      * <p>
-     * 例：aaaBbbCcc→aaa_bbb_ccc
+     * 変換ルール：
+     * <ul>
+     * <li>大文字の前にアンダースコア(_)を挿入</li>
+     * <li>全ての文字を小文字に変換</li>
+     * <li>例："testString" → "test_string"</li>
+     * </ul>
      * </p>
+     *
+     * @param target
+     *               変換対象の文字列。nullまたは空文字の場合はnullを返します。
+     *
+     * @return 変換後のスネークケース文字列。変換できない場合はnull。
+     *
+     * @throws IllegalArgumentException
+     *                                  無効な文字列形式が指定された場合
      *
      * @since 0.1.0
      *
-     * @param target
-     *               対象文字列
-     *
-     * @return スネークケースの文字列
+     * @see #camelCase(String)
      */
     public static String snakeCase(final String target) {
 
