@@ -14,16 +14,6 @@ import kmg.core.infrastructure.types.KmgTimeUnitTypes;
 public class KmgPfaMeasModel {
 
     /**
-     * デフォルトコンストラクタ<br>
-     *
-     * @since 0.1.0
-     */
-    public KmgPfaMeasModel() {
-
-        // 処理なし
-    }
-
-    /**
      * 開始時間
      *
      * @since 0.1.0
@@ -50,6 +40,16 @@ public class KmgPfaMeasModel {
      * @since 0.1.0
      */
     private KmgTimeUnitTypes timeUnit;
+
+    /**
+     * デフォルトコンストラクタ<br>
+     *
+     * @since 0.1.0
+     */
+    public KmgPfaMeasModel() {
+
+        // 処理なし
+    }
 
     /**
      * 終了<br>

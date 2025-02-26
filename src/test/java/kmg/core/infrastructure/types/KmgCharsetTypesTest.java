@@ -20,6 +20,16 @@ import org.junit.jupiter.api.Test;
 public class KmgCharsetTypesTest {
 
     /**
+     * デフォルトコンストラクタ<br>
+     *
+     * @since 0.1.0
+     */
+    public KmgCharsetTypesTest() {
+
+        // 処理なし
+    }
+
+    /**
      * get メソッドのテスト - 正常系：UTF-8の値を取得する場合
      *
      * @since 0.1.0

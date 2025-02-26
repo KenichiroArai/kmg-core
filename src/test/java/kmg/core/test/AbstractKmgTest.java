@@ -22,7 +22,7 @@ public abstract class AbstractKmgTest {
      *
      * @since 0.1.0
      */
-    protected AbstractKmgTest() {
+    public AbstractKmgTest() {
 
         // 処理なし
     }
