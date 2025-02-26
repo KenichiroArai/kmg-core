@@ -38,34 +38,32 @@ public class KmgSqlPathModelImplTest extends AbstractKmgTest {
     /**
      * テスト対象
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     private KmgSqlPathModelImpl target;
 
     /**
      * 一時ディレクトリ
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @TempDir
     private Path tempDir;
 
     /**
-     * セットアップ<br>
-     *
-     * @author KenichiroArai
+     * デフォルトコンストラクタ<br>
      *
      * @since 0.1.0
+     */
+    public KmgSqlPathModelImplTest() {
+
+        // 処理なし
+    }
+
+    /**
+     * セットアップ<br>
      *
-     * @version 0.1.0
+     * @since 0.1.0
      */
     @BeforeEach
     public void setUp() {
@@ -79,11 +77,7 @@ public class KmgSqlPathModelImplTest extends AbstractKmgTest {
     /**
      * コンストラクタのテスト - 正常系：クラスを使用したコンストラクタ<br>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      *
      * @throws Exception
      *                   例外
@@ -113,11 +107,7 @@ public class KmgSqlPathModelImplTest extends AbstractKmgTest {
     /**
      * convertParameters メソッドのテスト - 正常系：空文字列<br>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      *
      * @throws Exception
      *                   例外
@@ -147,11 +137,7 @@ public class KmgSqlPathModelImplTest extends AbstractKmgTest {
     /**
      * toSql メソッドのテスト - 異常系：ファイルが存在しない<br>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testToSql_errorFileNotFound() {
@@ -178,11 +164,7 @@ public class KmgSqlPathModelImplTest extends AbstractKmgTest {
     /**
      * toSql メソッドのテスト - 正常系：空のSQL<br>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      *
      * @throws Exception
      *                   例外
@@ -212,11 +194,7 @@ public class KmgSqlPathModelImplTest extends AbstractKmgTest {
     /**
      * toSql メソッドのテスト - 正常系：パラメータ変換<br>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      *
      * @throws Exception
      *                   例外

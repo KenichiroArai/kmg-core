@@ -151,11 +151,7 @@ public enum KmgDbDataTypeTypes implements KmgTypes<String> {
     /**
      * 種類のマップ
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     private static final Map<String, KmgDbDataTypeTypes> VALUES_MAP = new HashMap<>();
 
@@ -173,55 +169,35 @@ public enum KmgDbDataTypeTypes implements KmgTypes<String> {
     /**
      * 表示名
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     private final String displayName;
 
     /**
      * キー
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     private final String key;
 
     /**
      * 詳細情報
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     private final String detail;
 
     /**
      * 型
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     private final Type type;
 
     /**
      * デフォルトの種類を返す<br>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      *
      * @return デフォルト値
      */
@@ -238,11 +214,7 @@ public enum KmgDbDataTypeTypes implements KmgTypes<String> {
      * 但し、キーが存在しない場合は、指定無し（NONE）を返す。
      * </p>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      *
      * @param key
      *            キー
@@ -265,11 +237,7 @@ public enum KmgDbDataTypeTypes implements KmgTypes<String> {
     /**
      * 初期値の種類を返す<br>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      *
      * @return 初期値
      */
@@ -283,11 +251,7 @@ public enum KmgDbDataTypeTypes implements KmgTypes<String> {
     /**
      * コンストラクタ<br>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      *
      * @param displayName
      *                    表示名
@@ -308,11 +272,7 @@ public enum KmgDbDataTypeTypes implements KmgTypes<String> {
     /**
      * キーを返す。<br>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      *
      * @return キー
      *
@@ -329,11 +289,7 @@ public enum KmgDbDataTypeTypes implements KmgTypes<String> {
     /**
      * 詳細情報を返す。<br>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      *
      * @return 詳細情報
      */
@@ -351,11 +307,7 @@ public enum KmgDbDataTypeTypes implements KmgTypes<String> {
      * 識別するための表示名を返す。
      * </p>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      *
      * @return 表示名
      */
@@ -370,11 +322,7 @@ public enum KmgDbDataTypeTypes implements KmgTypes<String> {
     /**
      * キーを返す。<br>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      *
      * @return キー
      */
@@ -389,11 +337,7 @@ public enum KmgDbDataTypeTypes implements KmgTypes<String> {
     /**
      * 型を返す<br>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      *
      * @return 型
      */
@@ -407,11 +351,7 @@ public enum KmgDbDataTypeTypes implements KmgTypes<String> {
     /**
      * キーを返す。<br>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      *
      * @return キー
      *

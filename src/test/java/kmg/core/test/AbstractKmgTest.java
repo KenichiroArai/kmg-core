@@ -18,13 +18,19 @@ import kmg.core.infrastructure.exception.KmgException;
 public abstract class AbstractKmgTest {
 
     /**
-     * KMG例外の検証を行う<br>
-     *
-     * @author KenichiroArai
+     * デフォルトコンストラクタ<br>
      *
      * @since 0.1.0
+     */
+    public AbstractKmgTest() {
+
+        // 処理なし
+    }
+
+    /**
+     * KMG例外の検証を行う<br>
      *
-     * @version 0.1.0
+     * @since 0.1.0
      *
      * @param actualException
      *                              実際の例外

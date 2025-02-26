@@ -81,11 +81,7 @@ public enum KmgTimeUnitTypes implements KmgTypes<String> {
     /**
      * 種類のマップ
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     private static final Map<String, KmgTimeUnitTypes> VALUES_MAP = new HashMap<>();
 
@@ -103,66 +99,42 @@ public enum KmgTimeUnitTypes implements KmgTypes<String> {
     /**
      * 表示名
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     private final String displayName;
 
     /**
      * キー
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     private final String key;
 
     /**
      * 詳細情報
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     private final String detail;
 
     /**
      * 単位名
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     private final String unitName;
 
     /**
      * 単位値
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     private final BigDecimal unitValue;
 
     /**
      * デフォルトの種類を返す<br>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      *
      * @return デフォルト値
      */
@@ -179,11 +151,7 @@ public enum KmgTimeUnitTypes implements KmgTypes<String> {
      * 但し、キーが存在しない場合は、指定無し（NONE）を返す。
      * </p>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      *
      * @param key
      *            キー
@@ -206,11 +174,7 @@ public enum KmgTimeUnitTypes implements KmgTypes<String> {
     /**
      * 初期値の種類を返す<br>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      *
      * @return 初期値
      */
@@ -224,11 +188,7 @@ public enum KmgTimeUnitTypes implements KmgTypes<String> {
     /**
      * コンストラクタ<br>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      *
      * @param displayName
      *                    表示名
@@ -252,11 +212,7 @@ public enum KmgTimeUnitTypes implements KmgTypes<String> {
     /**
      * キーを返す。<br>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      *
      * @return キー
      *
@@ -273,11 +229,7 @@ public enum KmgTimeUnitTypes implements KmgTypes<String> {
     /**
      * 詳細情報を返す。<br>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      *
      * @return 詳細情報
      */
@@ -295,11 +247,7 @@ public enum KmgTimeUnitTypes implements KmgTypes<String> {
      * 識別するための表示名を返す。
      * </p>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      *
      * @return 表示名
      */
@@ -314,11 +262,7 @@ public enum KmgTimeUnitTypes implements KmgTypes<String> {
     /**
      * キーを返す。<br>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      *
      * @return キー
      */
@@ -333,11 +277,7 @@ public enum KmgTimeUnitTypes implements KmgTypes<String> {
     /**
      * 単位名を返す<br>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      *
      * @return 単位名
      */
@@ -351,11 +291,7 @@ public enum KmgTimeUnitTypes implements KmgTypes<String> {
     /**
      * 単位値を返す<br>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      *
      * @return 単位値
      */
@@ -369,11 +305,7 @@ public enum KmgTimeUnitTypes implements KmgTypes<String> {
     /**
      * キーを返す。<br>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      *
      * @return キー
      *

@@ -36,13 +36,19 @@ public class KmgPfaMeasServiceImplTest {
     private Logger logger;
 
     /**
-     * テスト前処理<br>
-     *
-     * @author KenichiroArai
+     * デフォルトコンストラクタ<br>
      *
      * @since 0.1.0
+     */
+    public KmgPfaMeasServiceImplTest() {
+
+        // 処理なし
+    }
+
+    /**
+     * テスト前処理<br>
      *
-     * @version 0.1.0
+     * @since 0.1.0
      */
     @BeforeEach
     public void setUp() {
@@ -58,11 +64,7 @@ public class KmgPfaMeasServiceImplTest {
     /**
      * テスト後処理<br>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @AfterEach
     public void tearDown() {
@@ -87,11 +89,7 @@ public class KmgPfaMeasServiceImplTest {
     /**
      * コンストラクタのテスト - 正常系:名称が正しく設定されることの確認
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testConstructor_normalSetName() {
@@ -116,11 +114,7 @@ public class KmgPfaMeasServiceImplTest {
     /**
      * end メソッドのテスト - 正常系:終了メッセージが正しく出力されることの確認
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testEnd_normalOutputEndMessage() {
@@ -172,11 +166,7 @@ public class KmgPfaMeasServiceImplTest {
     /**
      * start メソッドのテスト - 正常系:開始メッセージが正しく出力されることの確認
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testStart_normalOutputStartMessage() {

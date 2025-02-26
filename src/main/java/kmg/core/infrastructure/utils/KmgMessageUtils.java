@@ -22,22 +22,14 @@ public final class KmgMessageUtils {
     /**
      * リソースバンドルマップ
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     private static final Map<String, ResourceBundle> bundleMap;
 
     /**
      * プロパティファイル名の配列
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @SuppressWarnings("nls")
     private static final String[] PROPERTY_FILES = {
@@ -61,11 +53,7 @@ public final class KmgMessageUtils {
     /**
      * メッセージパターンの引数の数と実際の引数の数が一致しているかチェックする<br>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      *
      * @param messagePattern
      *                       メッセージパターン
@@ -118,11 +106,7 @@ public final class KmgMessageUtils {
     /**
      * メッセージを取得する<br>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      *
      * @param type
      *                    メッセージの種類
@@ -165,11 +149,7 @@ public final class KmgMessageUtils {
     /**
      * メッセージパターンの引数の数を取得する<br>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      *
      * @param messagePattern
      *                       メッセージパターン
@@ -205,11 +185,7 @@ public final class KmgMessageUtils {
     /**
      * メッセージパターンを取得する<br>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      *
      * @param type
      *             メッセージの種類
@@ -257,11 +233,7 @@ public final class KmgMessageUtils {
     /**
      * コンストラクタ<br>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     private KmgMessageUtils() {
 

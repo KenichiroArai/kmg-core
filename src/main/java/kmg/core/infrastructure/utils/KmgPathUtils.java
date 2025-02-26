@@ -25,11 +25,7 @@ public final class KmgPathUtils {
      * クラスのビルドパスを返す。<br>
      * </p>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      *
      * @param zlass
      *              クラス
@@ -73,11 +69,7 @@ public final class KmgPathUtils {
      * オブジェクトのビルドパスを返す。<br>
      * </p>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      *
      * @param obj
      *            オブジェクト
@@ -110,11 +102,7 @@ public final class KmgPathUtils {
      * クラス名が空の場合は、空を返す。<br>
      * </p>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      *
      * @param zlass
      *                 クラス
@@ -149,11 +137,7 @@ public final class KmgPathUtils {
      * クラス名が空の場合は、空を返す。<br>
      * </p>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      *
      * @param object
      *                 オブジェクト
@@ -200,11 +184,7 @@ public final class KmgPathUtils {
      * ファイルパスがディレクトリの場合はファイルパスをそのまま返す。<br>
      * </p>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      *
      * @param filePath
      *                 ファイルパス
@@ -233,11 +213,7 @@ public final class KmgPathUtils {
      * クラスのコードソースの場所をパスとして返す。<br>
      * </p>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      *
      * @param zlass
      *              クラス
@@ -270,11 +246,7 @@ public final class KmgPathUtils {
      * クラス名が空の場合は、空を返す。<br>
      * </p>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      *
      * @param binPath
      *                    ビルドパス
@@ -328,11 +300,7 @@ public final class KmgPathUtils {
     /**
      * デフォルトコンストラクタ<br>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     private KmgPathUtils() {
 

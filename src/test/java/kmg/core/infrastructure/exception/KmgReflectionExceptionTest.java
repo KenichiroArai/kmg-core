@@ -29,11 +29,7 @@ public class KmgReflectionExceptionTest {
     /**
      * KMGリフレクションモデル
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Mock
     private KmgReflectionModel kmgReflectionModel;
@@ -41,33 +37,31 @@ public class KmgReflectionExceptionTest {
     /**
      * メッセージタイプ
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     private KmgMessageTypes messageTypes;
 
     /**
      * メッセージ
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     private String message;
 
     /**
-     * 初期化処理<br>
-     *
-     * @author KenichiroArai
+     * デフォルトコンストラクタ<br>
      *
      * @since 0.1.0
+     */
+    public KmgReflectionExceptionTest() {
+
+        // 処理なし
+    }
+
+    /**
+     * 初期化処理<br>
      *
-     * @version 0.1.0
+     * @since 0.1.0
      */
     @BeforeEach
     public void setUp() {
@@ -81,11 +75,7 @@ public class KmgReflectionExceptionTest {
     /**
      * constructor メソッドのテスト - 正常系：メッセージタイプ、メッセージ引数、原因、KMGリフレクションモデルを指定した場合
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testConstructor_normalWithMessageTypesAndArgsAndCauseAndModel() {
@@ -120,11 +110,7 @@ public class KmgReflectionExceptionTest {
     /**
      * constructor メソッドのテスト - 正常系：メッセージタイプ、メッセージ引数、KMGリフレクションモデルを指定した場合
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testConstructor_normalWithMessageTypesAndArgsAndModel() {
@@ -156,11 +142,7 @@ public class KmgReflectionExceptionTest {
     /**
      * constructor メソッドのテスト - 正常系：メッセージタイプ、原因、KMGリフレクションモデルを指定した場合
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testConstructor_normalWithMessageTypesAndCauseAndModel() {
@@ -189,11 +171,7 @@ public class KmgReflectionExceptionTest {
     /**
      * constructor メソッドのテスト - 正常系：メッセージタイプとKMGリフレクションモデルを指定した場合
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testConstructor_normalWithMessageTypesAndModel() {

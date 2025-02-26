@@ -22,13 +22,19 @@ import org.junit.jupiter.api.Test;
 public class KmgLocalDateUtilsTest {
 
     /**
-     * formatYyyyMmDd メソッドのテスト - 異常系:nullの場合（Date）
-     *
-     * @author KenichiroArai
+     * デフォルトコンストラクタ<br>
      *
      * @since 0.1.0
+     */
+    public KmgLocalDateUtilsTest() {
+
+        // 処理なし
+    }
+
+    /**
+     * formatYyyyMmDd メソッドのテスト - 異常系:nullの場合（Date）
      *
-     * @version 0.1.0
+     * @since 0.1.0
      */
     @Test
     public void testFormatYyyyMmDd_errorNullDate() {
@@ -50,11 +56,7 @@ public class KmgLocalDateUtilsTest {
     /**
      * formatYyyyMmDd メソッドのテスト - 異常系:nullの場合（LocalDate）
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testFormatYyyyMmDd_errorNullLocalDate() {
@@ -76,11 +78,7 @@ public class KmgLocalDateUtilsTest {
     /**
      * formatYyyyMmDd メソッドのテスト - 正常系:正常な日付の場合（Date）
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testFormatYyyyMmDd_normalValidDate() {
@@ -103,11 +101,7 @@ public class KmgLocalDateUtilsTest {
     /**
      * formatYyyyMmDd メソッドのテスト - 正常系:正常な日付の場合（LocalDate）
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testFormatYyyyMmDd_normalValidLocalDate() {
@@ -129,11 +123,7 @@ public class KmgLocalDateUtilsTest {
     /**
      * from メソッドのテスト - 異常系:nullの場合
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testFrom_errorNull() {
@@ -155,11 +145,7 @@ public class KmgLocalDateUtilsTest {
     /**
      * from メソッドのテスト - 正常系:正常な日付の場合
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testFrom_normalValidDate() {
@@ -182,11 +168,7 @@ public class KmgLocalDateUtilsTest {
     /**
      * parseYyyyMmDd メソッドのテスト - 異常系:nullの場合
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testParseYyyyMmDd_errorNull() {
@@ -208,11 +190,7 @@ public class KmgLocalDateUtilsTest {
     /**
      * parseYyyyMmDd メソッドのテスト - 正常系:正常な日付文字列の場合
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testParseYyyyMmDd_normalValidDate() {
@@ -234,11 +212,7 @@ public class KmgLocalDateUtilsTest {
     /**
      * parseYyyyMmDd メソッドのテスト - 準正常系:空文字の場合
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testParseYyyyMmDd_semiEmpty() {

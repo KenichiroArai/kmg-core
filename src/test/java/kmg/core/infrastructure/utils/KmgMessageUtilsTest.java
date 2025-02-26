@@ -22,13 +22,19 @@ import kmg.core.infrastructure.type.KmgString;
 public class KmgMessageUtilsTest {
 
     /**
-     * checkMessageArgsCount メソッドのテスト - 異常系:不正なメッセージパターンの場合
-     *
-     * @author KenichiroArai
+     * デフォルトコンストラクタ<br>
      *
      * @since 0.1.0
+     */
+    public KmgMessageUtilsTest() {
+
+        // 処理なし
+    }
+
+    /**
+     * checkMessageArgsCount メソッドのテスト - 異常系:不正なメッセージパターンの場合
      *
-     * @version 0.1.0
+     * @since 0.1.0
      */
     @Test
     public void testCheckMessageArgsCount_errorInvalidPattern() {
@@ -52,11 +58,7 @@ public class KmgMessageUtilsTest {
     /**
      * checkMessageArgsCount メソッドのテスト - 異常系:メッセージパターンがnullの場合
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testCheckMessageArgsCount_errorNullPattern() {
@@ -81,11 +83,7 @@ public class KmgMessageUtilsTest {
     /**
      * checkMessageArgsCount メソッドのテスト - 異常系:引数の数が一致しない場合
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testCheckMessageArgsCount_errorUnmatchCount() {
@@ -109,11 +107,7 @@ public class KmgMessageUtilsTest {
     /**
      * checkMessageArgsCount メソッドのテスト - 正常系:引数の数が一致する場合
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testCheckMessageArgsCount_normalMatchCount() {
@@ -137,11 +131,7 @@ public class KmgMessageUtilsTest {
     /**
      * checkMessageArgsCount メソッドのテスト - 正常系:引数を含まないメッセージパターンの場合
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testCheckMessageArgsCount_normalNoArgs() {
@@ -163,11 +153,7 @@ public class KmgMessageUtilsTest {
     /**
      * checkMessageArgsCount メソッドのテスト - 準正常系:メッセージ引数がnullの場合
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testCheckMessageArgsCount_semiNullArgs() {
@@ -190,11 +176,7 @@ public class KmgMessageUtilsTest {
     /**
      * getMessage メソッドのテスト - 異常系:messageArgsがnullの場合
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testGetMessage_errorArgsNull() {
@@ -218,11 +200,7 @@ public class KmgMessageUtilsTest {
     /**
      * getMessage メソッドのテスト - 異常系:引数の数が不一致の場合
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testGetMessage_errorArgumentMismatch() {
@@ -250,11 +228,7 @@ public class KmgMessageUtilsTest {
     /**
      * getMessage メソッドのテスト - 異常系:type.getCodeがnullの場合
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testGetMessage_errorCodeNull() {
@@ -282,11 +256,7 @@ public class KmgMessageUtilsTest {
     /**
      * getMessage メソッドのテスト - 異常系:フィールドアクセス失敗の場合
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testGetMessage_errorFieldAccessFailure() {
@@ -313,11 +283,7 @@ public class KmgMessageUtilsTest {
     /**
      * getMessage メソッドのテスト - 異常系:メッセージパターンがnullの場合
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testGetMessage_errorMessagePatternNull() {
@@ -395,11 +361,7 @@ public class KmgMessageUtilsTest {
     /**
      * getMessage メソッドのテスト - 異常系:存在しないコードの場合
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testGetMessage_errorNonExistentCode() {
@@ -427,11 +389,7 @@ public class KmgMessageUtilsTest {
     /**
      * getMessage メソッドのテスト - 異常系:リソースバンドル例外の場合
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testGetMessage_errorResourceBundleException() {
@@ -459,11 +417,7 @@ public class KmgMessageUtilsTest {
     /**
      * getMessage メソッドのテスト - 異常系:タイプがnullの場合
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testGetMessage_errorTypeNull() {
@@ -490,11 +444,7 @@ public class KmgMessageUtilsTest {
     /**
      * getMessage メソッドのテスト - 正常系：メッセージと引数が正しく設定される場合
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testGetMessage_normalCase() {
@@ -521,11 +471,7 @@ public class KmgMessageUtilsTest {
     /**
      * getMessage メソッドのテスト - 正常系:引数に空文字列を含む場合
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testGetMessage_normalEmptyStringArg() {
@@ -552,11 +498,7 @@ public class KmgMessageUtilsTest {
     /**
      * getMessage メソッドのテスト - 正常系:メッセージフォーマット成功の場合
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testGetMessage_normalMessageFormatSuccess() {
@@ -583,11 +525,7 @@ public class KmgMessageUtilsTest {
     /**
      * getMessage メソッドのテスト - 正常系:複数の引数がある場合
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testGetMessage_normalMultipleArgs() {
@@ -614,11 +552,7 @@ public class KmgMessageUtilsTest {
     /**
      * getMessage メソッドのテスト - 正常系:引数にnullを含む場合
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testGetMessage_normalNullArg() {
@@ -645,11 +579,7 @@ public class KmgMessageUtilsTest {
     /**
      * getMessage メソッドのテスト - 正常系:特殊文字を含む場合
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testGetMessage_normalSpecialCharacters() {
@@ -676,11 +606,7 @@ public class KmgMessageUtilsTest {
     /**
      * getMessage メソッドのテスト - 準正常系:messageArgsが空配列の場合
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testGetMessage_semiArgsEmpty() {
@@ -705,11 +631,7 @@ public class KmgMessageUtilsTest {
     /**
      * getMessage メソッドのテスト - 準正常系:引数が不足している場合
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testGetMessage_semiInsufficientArgs() {
@@ -736,11 +658,7 @@ public class KmgMessageUtilsTest {
     /**
      * getMessageArgsCount メソッドのテスト - 異常系:不正なパターンの場合
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testGetMessageArgsCount_errorInvalidPattern() {
@@ -762,11 +680,7 @@ public class KmgMessageUtilsTest {
     /**
      * getMessageArgsCount メソッドのテスト - 異常系:パターンがnullの場合
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testGetMessageArgsCount_errorNullPattern() {
@@ -788,11 +702,7 @@ public class KmgMessageUtilsTest {
     /**
      * getMessagePattern メソッドのテスト - 異常系:存在しないコードの場合
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testGetMessagePattern_errorNonExistentCode() {
@@ -814,11 +724,7 @@ public class KmgMessageUtilsTest {
     /**
      * getMessagePattern メソッドのテスト - 異常系:type.getKeyがnullの場合
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testGetMessagePattern_errorNullKey() {
@@ -893,11 +799,7 @@ public class KmgMessageUtilsTest {
     /**
      * getMessagePattern メソッドのテスト - 異常系:タイプがnullの場合
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testGetMessagePattern_errorNullType() {

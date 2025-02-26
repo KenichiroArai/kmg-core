@@ -18,11 +18,7 @@ public interface KmgReflectionModel {
     /**
      * フィールド名に該当するフィールドに値を返す<br>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      *
      * @param fieldName
      *                  フィールド名
@@ -37,11 +33,7 @@ public interface KmgReflectionModel {
     /**
      * 最後に取得したフィールドを返す<br>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      *
      * @return 最後に取得したフィールド
      */
@@ -50,11 +42,7 @@ public interface KmgReflectionModel {
     /**
      * メソッド名に該当するメソッドを呼び出す<br>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      *
      * @param methodName
      *                   メソッド名
@@ -71,11 +59,7 @@ public interface KmgReflectionModel {
     /**
      * フィールド名に該当するフィールドに値を設定する<br>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      *
      * @param fieldName
      *                  フィールド名

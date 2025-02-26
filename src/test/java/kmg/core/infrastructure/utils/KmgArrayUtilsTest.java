@@ -18,13 +18,19 @@ import org.junit.jupiter.api.Test;
 public class KmgArrayUtilsTest {
 
     /**
-     * isEmpty メソッドのテスト - 異常系:nullの場合
-     *
-     * @author KenichiroArai
+     * デフォルトコンストラクタ<br>
      *
      * @since 0.1.0
+     */
+    public KmgArrayUtilsTest() {
+
+        // 処理なし
+    }
+
+    /**
+     * isEmpty メソッドのテスト - 異常系:nullの場合
      *
-     * @version 0.1.0
+     * @since 0.1.0
      */
     @Test
     public void testIsEmpty_errorNull() {
@@ -46,11 +52,7 @@ public class KmgArrayUtilsTest {
     /**
      * isEmpty メソッドのテスト - 正常系:要素がある場合
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testIsEmpty_normalHasElements() {
@@ -74,11 +76,7 @@ public class KmgArrayUtilsTest {
     /**
      * isEmpty メソッドのテスト - 準正常系:空配列の場合
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testIsEmpty_semiEmptyArray() {
@@ -100,11 +98,7 @@ public class KmgArrayUtilsTest {
     /**
      * isNotEmpty メソッドのテスト - 異常系:nullの場合
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testIsNotEmpty_errorNull() {
@@ -126,11 +120,7 @@ public class KmgArrayUtilsTest {
     /**
      * isNotEmpty メソッドのテスト - 正常系:要素がある場合
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testIsNotEmpty_normalHasElements() {
@@ -154,11 +144,7 @@ public class KmgArrayUtilsTest {
     /**
      * isNotEmpty メソッドのテスト - 準正常系:空配列の場合
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testIsNotEmpty_semiEmptyArray() {

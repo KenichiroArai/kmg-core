@@ -21,11 +21,7 @@ public final class KmgPoiUtils {
     /**
      * セルを返す<br>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      *
      * @param sheet
      *                    シート
@@ -56,11 +52,7 @@ public final class KmgPoiUtils {
     /**
      * セルの数式を計算し、値を返す（String型）<br>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      *
      * @param cell
      *             セル
@@ -99,11 +91,7 @@ public final class KmgPoiUtils {
     /**
      * 結合セルの値を返す（String型）<br>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      *
      * @param cell
      *             セル
@@ -141,11 +129,7 @@ public final class KmgPoiUtils {
     /**
      * セルの値を返す<br>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      *
      * @param cell
      *             セル
@@ -196,11 +180,7 @@ public final class KmgPoiUtils {
     /**
      * セルが空か<br>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      *
      * @param cell
      *             セル
@@ -231,11 +211,7 @@ public final class KmgPoiUtils {
     /**
      * デフォルトコンストラクタ<br>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     private KmgPoiUtils() {
 

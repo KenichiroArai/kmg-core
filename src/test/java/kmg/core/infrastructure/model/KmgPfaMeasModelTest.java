@@ -23,22 +23,24 @@ public class KmgPfaMeasModelTest {
     /**
      * 許容誤差
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     private static final double DELTA = 0.001;
 
     /**
-     * end メソッドのテスト - 正常系:マイクロ秒の経過時間が正しく計算されることの確認
-     *
-     * @author KenichiroArai
+     * デフォルトコンストラクタ<br>
      *
      * @since 0.1.0
+     */
+    public KmgPfaMeasModelTest() {
+
+        // 処理なし
+    }
+
+    /**
+     * end メソッドのテスト - 正常系:マイクロ秒の経過時間が正しく計算されることの確認
      *
-     * @version 0.1.0
+     * @since 0.1.0
      */
     @Test
     public void testEnd_normalCalculateElapsedTimeInMicroseconds() {
@@ -69,11 +71,7 @@ public class KmgPfaMeasModelTest {
     /**
      * end メソッドのテスト - 正常系:ミリ秒の経過時間が正しく計算されることの確認
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testEnd_normalCalculateElapsedTimeInMilliseconds() {
@@ -104,11 +102,7 @@ public class KmgPfaMeasModelTest {
     /**
      * end メソッドのテスト - 正常系:ナノ秒の経過時間が正しく計算されることの確認
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testEnd_normalCalculateElapsedTimeInNanoseconds() {
@@ -143,11 +137,7 @@ public class KmgPfaMeasModelTest {
     /**
      * end メソッドのテスト - 正常系:秒の経過時間が正しく計算されることの確認
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testEnd_normalCalculateElapsedTimeInSeconds() {
@@ -178,11 +168,7 @@ public class KmgPfaMeasModelTest {
     /**
      * start メソッドのテスト - 正常系:開始時間が正しく記録されることの確認
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testStart_normalRecordStartTime() {
@@ -210,11 +196,7 @@ public class KmgPfaMeasModelTest {
      * このメソッドは KmgPfaMeasModel のスパイオブジェクトを作成し、getNow() が呼び出されたときに 返される連続的な時間値を設定します。
      * </p>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      *
      * @param times
      *              getNow() メソッドが返す連続的なタイムスタンプを表す可変長の long 値。 空の場合、モック化されていないスパイオブジェクトを返します。

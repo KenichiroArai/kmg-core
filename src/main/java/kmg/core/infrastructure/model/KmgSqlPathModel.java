@@ -23,11 +23,7 @@ public interface KmgSqlPathModel {
      * 例：&#047;*:sampleId*&#047;123→:sampleId<br>
      * </p>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      *
      * @return ＳＱＬにして返す
      *

@@ -25,13 +25,19 @@ import kmg.core.infrastructure.type.KmgString;
 public class KmgDbDataTypeTypesTest {
 
     /**
-     * get メソッドのテスト - 正常系：値の取得
-     *
-     * @author KenichiroArai
+     * デフォルトコンストラクタ<br>
      *
      * @since 0.1.0
+     */
+    public KmgDbDataTypeTypesTest() {
+
+        // 処理なし
+    }
+
+    /**
+     * get メソッドのテスト - 正常系：値の取得
      *
-     * @version 0.1.0
+     * @since 0.1.0
      */
     @Test
     public void testGet_normalValue() {
@@ -53,11 +59,7 @@ public class KmgDbDataTypeTypesTest {
     /**
      * getDefault メソッドのテスト - 正常系：デフォルト値の取得
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testGetDefault_normalValue() {
@@ -76,11 +78,7 @@ public class KmgDbDataTypeTypesTest {
     /**
      * getDetail メソッドのテスト - 正常系：詳細情報の取得
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testGetDetail_normalValue() {
@@ -102,11 +100,7 @@ public class KmgDbDataTypeTypesTest {
     /**
      * getDisplayName メソッドのテスト - 正常系：表示名の取得
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testGetDisplayName_normalValue() {
@@ -128,11 +122,7 @@ public class KmgDbDataTypeTypesTest {
     /**
      * getEnum メソッドのテスト - 正常系：存在する値の取得
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testGetEnum_normalExistingValue() {
@@ -154,11 +144,7 @@ public class KmgDbDataTypeTypesTest {
     /**
      * getEnum メソッドのテスト - 準正常系：存在しない値の取得
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testGetEnum_semiNonExistingValue() {
@@ -180,11 +166,7 @@ public class KmgDbDataTypeTypesTest {
     /**
      * getInitValue メソッドのテスト - 正常系：初期値の取得
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testGetInitValue_normalValue() {
@@ -203,11 +185,7 @@ public class KmgDbDataTypeTypesTest {
     /**
      * getKey メソッドのテスト - 正常系：キーの取得
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testGetKey_normalValue() {
@@ -229,11 +207,7 @@ public class KmgDbDataTypeTypesTest {
     /**
      * getType メソッドのテスト - 正常系：BIG_DECIMAL型の型情報取得
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testGetType_normalBigDecimal() {
@@ -255,11 +229,7 @@ public class KmgDbDataTypeTypesTest {
     /**
      * getType メソッドのテスト - 正常系：DATE型の型情報取得
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testGetType_normalDate() {
@@ -281,11 +251,7 @@ public class KmgDbDataTypeTypesTest {
     /**
      * getType メソッドのテスト - 正常系：INTEGER型の型情報取得
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testGetType_normalInteger() {
@@ -307,11 +273,7 @@ public class KmgDbDataTypeTypesTest {
     /**
      * getType メソッドのテスト - 正常系：NONE型の型情報取得
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testGetType_normalNone() {
@@ -333,11 +295,7 @@ public class KmgDbDataTypeTypesTest {
     /**
      * getType メソッドのテスト - 正常系：TIME型の型情報取得
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testGetType_normalTime() {
@@ -359,11 +317,7 @@ public class KmgDbDataTypeTypesTest {
     /**
      * toString メソッドのテスト - 正常系：INTEGER型の文字列表現の取得
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testToString_normalInteger() {
@@ -385,11 +339,7 @@ public class KmgDbDataTypeTypesTest {
     /**
      * toString メソッドのテスト - 正常系：LONG型の文字列表現の取得
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testToString_normalLong() {
@@ -411,11 +361,7 @@ public class KmgDbDataTypeTypesTest {
     /**
      * toString メソッドのテスト - 正常系：NONE型の文字列表現の取得
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Test
     public void testToString_normalNone() {

@@ -17,99 +17,63 @@ public class KmgException extends Exception {
     /**
      * デフォルトシリアルバージョンUID
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     private static final long serialVersionUID = 1L;
 
     /**
      * メッセージメッセージの種類
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     private final KmgMessageTypes messageTypes;
 
     /**
      * メッセージメッセージの引数
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     private final Object[] messageArgs;
 
     /**
      * メッセージ
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     private final String message;
 
     /**
      * メッセージ引数の数
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     private int messageArgsCount;
 
     /**
      * メッセージパターンの引数の数
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     private int messagePatternArgsCount;
 
     /**
      * メッセージ引数の数が一致しているか
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     private boolean isMatchMessageArgsCount;
 
     /**
      * メッセージパターン
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     private final String messagePattern;
 
     /**
      * コンストラクタ<br>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      *
      * @param messageTypes
      *                     メッセージの種類
@@ -123,11 +87,7 @@ public class KmgException extends Exception {
     /**
      * コンストラクタ<br>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      *
      * @param messageTypes
      *                     メッセージの種類
@@ -143,11 +103,7 @@ public class KmgException extends Exception {
     /**
      * コンストラクタ<br>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      *
      * @param messageTypes
      *                     メッセージの種類
@@ -172,11 +128,7 @@ public class KmgException extends Exception {
     /**
      * コンストラクタ<br>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      *
      * @param messageTypes
      *                     メッセージの種類
@@ -192,11 +144,7 @@ public class KmgException extends Exception {
     /**
      * メッセージを返す。<br>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      *
      * @return メッセージ
      */
@@ -211,11 +159,7 @@ public class KmgException extends Exception {
     /**
      * メッセージの引数を返す。<br>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      *
      * @return メッセージの引数
      */
@@ -229,11 +173,7 @@ public class KmgException extends Exception {
     /**
      * メッセージ引数の数を返す。<br>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      *
      * @return メッセージ引数の数
      */
@@ -247,11 +187,7 @@ public class KmgException extends Exception {
     /**
      * メッセージパターンを返す。<br>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      *
      * @return メッセージパターン
      */
@@ -265,11 +201,7 @@ public class KmgException extends Exception {
     /**
      * メッセージパターンの引数の数を返す。<br>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      *
      * @return メッセージパターンの引数の数
      */
@@ -283,11 +215,7 @@ public class KmgException extends Exception {
     /**
      * メッセージの種類を返す。<br>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      *
      * @return メッセージの種類
      */
@@ -301,11 +229,7 @@ public class KmgException extends Exception {
     /**
      * メッセージ引数の数が一致しているかを返す。<br>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      *
      * @return メッセージ引数の数が一致しているか
      */
@@ -319,11 +243,7 @@ public class KmgException extends Exception {
     /**
      * メッセージカウントを設定する<br>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     private void setMessageCounts() {
 

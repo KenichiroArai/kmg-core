@@ -25,33 +25,21 @@ public class KmgPfaMeasServiceImpl implements KmgPfaMeasService {
     /**
      * 名称
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     private final String name;
 
     /**
      * KMG性能測定モデル
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     private final KmgPfaMeasModel kmgPfaMeasModel;
 
     /**
      * コンストラクタ<br>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      *
      * @param name
      *             名称
@@ -66,11 +54,7 @@ public class KmgPfaMeasServiceImpl implements KmgPfaMeasService {
     /**
      * 終了<br>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Override
     public void end() {
@@ -103,11 +87,7 @@ public class KmgPfaMeasServiceImpl implements KmgPfaMeasService {
     /**
      * 開始<br>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     @Override
     public void start() {
@@ -127,11 +107,7 @@ public class KmgPfaMeasServiceImpl implements KmgPfaMeasService {
     /**
      * KMG性能測定モデルを生成する<br>
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      *
      * @return KMG性能測定モデル
      */
