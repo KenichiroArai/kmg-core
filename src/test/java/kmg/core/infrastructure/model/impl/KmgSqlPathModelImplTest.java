@@ -51,6 +51,16 @@ public class KmgSqlPathModelImplTest extends AbstractKmgTest {
     private Path tempDir;
 
     /**
+     * デフォルトコンストラクタ<br>
+     *
+     * @since 0.1.0
+     */
+    public KmgSqlPathModelImplTest() {
+
+        // 処理なし
+    }
+
+    /**
      * セットアップ<br>
      *
      * @since 0.1.0

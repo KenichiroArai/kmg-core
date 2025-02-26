@@ -28,6 +28,16 @@ public class KmgPfaMeasModelTest {
     private static final double DELTA = 0.001;
 
     /**
+     * デフォルトコンストラクタ<br>
+     *
+     * @since 0.1.0
+     */
+    public KmgPfaMeasModelTest() {
+
+        // 処理なし
+    }
+
+    /**
      * end メソッドのテスト - 正常系:マイクロ秒の経過時間が正しく計算されることの確認
      *
      * @since 0.1.0

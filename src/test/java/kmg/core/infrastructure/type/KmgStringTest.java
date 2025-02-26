@@ -18,6 +18,16 @@ import org.junit.jupiter.api.Test;
 public class KmgStringTest {
 
     /**
+     * デフォルトコンストラクタ<br>
+     *
+     * @since 0.1.0
+     */
+    public KmgStringTest() {
+
+        // 処理なし
+    }
+
+    /**
      * camelCase メソッドのテスト - 異常系：引数がnullの場合
      *
      * @since 0.1.0

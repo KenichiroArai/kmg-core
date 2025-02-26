@@ -36,6 +36,16 @@ public class KmgPfaMeasServiceImplTest {
     private Logger logger;
 
     /**
+     * デフォルトコンストラクタ<br>
+     *
+     * @since 0.1.0
+     */
+    public KmgPfaMeasServiceImplTest() {
+
+        // 処理なし
+    }
+
+    /**
      * テスト前処理<br>
      *
      * @since 0.1.0

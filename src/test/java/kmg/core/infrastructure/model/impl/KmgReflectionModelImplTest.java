@@ -65,6 +65,16 @@ public class KmgReflectionModelImplTest extends AbstractKmgTest {
         private String privateField;
 
         /**
+         * デフォルトコンストラクタ<br>
+         *
+         * @since 0.1.0
+         */
+        public TestClass() {
+
+            // 処理なし
+        }
+
+        /**
          * プライベートフィールドを取得する<br>
          *
          * @since 0.1.0
@@ -108,6 +118,16 @@ public class KmgReflectionModelImplTest extends AbstractKmgTest {
             return result;
 
         }
+    }
+
+    /**
+     * デフォルトコンストラクタ<br>
+     *
+     * @since 0.1.0
+     */
+    public KmgReflectionModelImplTest() {
+
+        // 処理なし
     }
 
     /**

@@ -18,6 +18,16 @@ import org.junit.jupiter.api.Test;
 public class KmgTemplateTypesTest {
 
     /**
+     * デフォルトコンストラクタ<br>
+     *
+     * @since 0.1.0
+     */
+    public KmgTemplateTypesTest() {
+
+        // 処理なし
+    }
+
+    /**
      * get メソッドのテスト - 正常系:値の取得
      *
      * @since 0.1.0
