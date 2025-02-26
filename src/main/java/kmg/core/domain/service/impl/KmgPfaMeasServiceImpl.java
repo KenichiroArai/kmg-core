@@ -9,7 +9,10 @@ import kmg.core.infrastructure.model.KmgPfaMeasModel;
 import kmg.core.infrastructure.utils.KmgMessageUtils;
 
 /**
- * KMG性能測定サービス<br>
+ * KMG性能測定サービスの実装クラス。
+ * <p>
+ * このクラスは、KMG性能測定サービスを提供します。
+ * </p>
  *
  * @author KenichiroArai
  *
@@ -52,7 +55,10 @@ public class KmgPfaMeasServiceImpl implements KmgPfaMeasService {
     }
 
     /**
-     * 終了<br>
+     * 測定を終了します。
+     * <p>
+     * 測定を終了し、経過時間をログに出力します。
+     * </p>
      *
      * @since 0.1.0
      */
@@ -73,9 +79,9 @@ public class KmgPfaMeasServiceImpl implements KmgPfaMeasService {
     }
 
     /**
-     * 名称
+     * 名称を取得します。
      *
-     * @return name 名称
+     * @return 名称
      */
     public String getName() {
 
@@ -85,7 +91,10 @@ public class KmgPfaMeasServiceImpl implements KmgPfaMeasService {
     }
 
     /**
-     * 開始<br>
+     * 測定を開始します。
+     * <p>
+     * 測定を開始し、開始メッセージをログに出力します。
+     * </p>
      *
      * @since 0.1.0
      */
@@ -105,9 +114,10 @@ public class KmgPfaMeasServiceImpl implements KmgPfaMeasService {
     }
 
     /**
-     * KMG性能測定モデルを生成する<br>
-     *
-     * @since 0.1.0
+     * KMG性能測定モデルを生成します。
+     * <p>
+     * 新しいKMG性能測定モデルを生成して返します。
+     * </p>
      *
      * @return KMG性能測定モデル
      */
