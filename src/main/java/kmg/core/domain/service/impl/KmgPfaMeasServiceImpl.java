@@ -74,7 +74,7 @@ public class KmgPfaMeasServiceImpl implements KmgPfaMeasService {
             this.name, this.kmgPfaMeasModel.getElapsedTime(), this.kmgPfaMeasModel.getTimeUnit().getUnitName(),
         };
         final String             msg         = KmgMessageUtils.getMessage(logType, messageArgs);
-        KmgPfaMeasServiceImpl.LOG.info(msg);
+        this.getLogger().info(msg);
 
     }
 
@@ -107,7 +107,7 @@ public class KmgPfaMeasServiceImpl implements KmgPfaMeasService {
             this.name,
         };
         final String             msg         = KmgMessageUtils.getMessage(logType, messageArgs);
-        KmgPfaMeasServiceImpl.LOG.info(msg);
+        this.getLogger().info(msg);
 
         this.kmgPfaMeasModel.start();
 
@@ -125,6 +125,24 @@ public class KmgPfaMeasServiceImpl implements KmgPfaMeasService {
     protected KmgPfaMeasModel createKmgPfaMeasModel() {
 
         final KmgPfaMeasModel result = new KmgPfaMeasModel();
+        return result;
+
+    }
+
+    /**
+     * ロガーを取得します。
+     * <p>
+     * このメソッドはテスト時にオーバーライド可能です。
+     * </p>
+     *
+     * @return ロガー
+     *
+     * @since 0.1.0
+     */
+    @SuppressWarnings("static-method")
+    protected Logger getLogger() {
+
+        final Logger result = KmgPfaMeasServiceImpl.LOG;
         return result;
 
     }
