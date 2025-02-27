@@ -22,8 +22,12 @@ import kmg.core.infrastructure.utils.KmgMessageUtils;
  */
 public class KmgPfaMeasServiceImpl implements KmgPfaMeasService {
 
-    /** ロガー */
-    private static final Logger LOG = LoggerFactory.getLogger(KmgPfaMeasServiceImpl.class);
+    /**
+     * ロガー
+     *
+     * @since 0.1.0
+     */
+    private final Logger logger;
 
     /**
      * 名称
@@ -49,7 +53,24 @@ public class KmgPfaMeasServiceImpl implements KmgPfaMeasService {
      */
     public KmgPfaMeasServiceImpl(final String name) {
 
+        this(name, LoggerFactory.getLogger(KmgPfaMeasServiceImpl.class));
+
+    }
+
+    /**
+     * テスト用コンストラクタ<br>
+     *
+     * @since 0.1.0
+     *
+     * @param name
+     *               名称
+     * @param logger
+     *               ロガー
+     */
+    public KmgPfaMeasServiceImpl(final String name, final Logger logger) {
+
         this.name = name;
+        this.logger = logger;
         this.kmgPfaMeasModel = this.createKmgPfaMeasModel();
 
     }
@@ -74,7 +95,7 @@ public class KmgPfaMeasServiceImpl implements KmgPfaMeasService {
             this.name, this.kmgPfaMeasModel.getElapsedTime(), this.kmgPfaMeasModel.getTimeUnit().getUnitName(),
         };
         final String             msg         = KmgMessageUtils.getMessage(logType, messageArgs);
-        this.getLogger().info(msg);
+        this.logger.info(msg);
 
     }
 
@@ -107,7 +128,7 @@ public class KmgPfaMeasServiceImpl implements KmgPfaMeasService {
             this.name,
         };
         final String             msg         = KmgMessageUtils.getMessage(logType, messageArgs);
-        this.getLogger().info(msg);
+        this.logger.info(msg);
 
         this.kmgPfaMeasModel.start();
 
@@ -128,23 +149,4 @@ public class KmgPfaMeasServiceImpl implements KmgPfaMeasService {
         return result;
 
     }
-
-    /**
-     * ロガーを取得します。
-     * <p>
-     * このメソッドはテスト時にオーバーライド可能です。
-     * </p>
-     *
-     * @return ロガー
-     *
-     * @since 0.1.0
-     */
-    @SuppressWarnings("static-method")
-    protected Logger getLogger() {
-
-        final Logger result = KmgPfaMeasServiceImpl.LOG;
-        return result;
-
-    }
-
 }

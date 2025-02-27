@@ -46,7 +46,8 @@ public class KmgPfaMeasServiceImplTest {
         final String expectedName = "テスト測定";
 
         /* 準備 */
-        final KmgPfaMeasServiceImpl testTarget = new KmgPfaMeasServiceImpl(expectedName);
+        final Logger                mockLogger = Mockito.mock(Logger.class);
+        final KmgPfaMeasServiceImpl testTarget = new KmgPfaMeasServiceImpl(expectedName, mockLogger);
 
         /* テスト対象の実行 */
         testTarget.start();
@@ -85,20 +86,12 @@ public class KmgPfaMeasServiceImplTest {
         Mockito.when(mockModel.getElapsedTime()).thenReturn(expectedElapsedTime);
         Mockito.when(mockModel.getTimeUnit()).thenReturn(expectedTimeUnit);
 
-        final KmgPfaMeasServiceImpl testTarget = new KmgPfaMeasServiceImpl(expectedName) {
+        final KmgPfaMeasServiceImpl testTarget = new KmgPfaMeasServiceImpl(expectedName, mockLogger) {
 
             @Override
             protected KmgPfaMeasModel createKmgPfaMeasModel() {
 
                 final KmgPfaMeasModel result = mockModel;
-                return result;
-
-            }
-
-            @Override
-            protected Logger getLogger() {
-
-                final Logger result = mockLogger;
                 return result;
 
             }
@@ -139,20 +132,12 @@ public class KmgPfaMeasServiceImplTest {
         final Logger          mockLogger = Mockito.mock(Logger.class);
         final KmgPfaMeasModel mockModel  = Mockito.mock(KmgPfaMeasModel.class);
 
-        final KmgPfaMeasServiceImpl testTarget = new KmgPfaMeasServiceImpl(expectedName) {
+        final KmgPfaMeasServiceImpl testTarget = new KmgPfaMeasServiceImpl(expectedName, mockLogger) {
 
             @Override
             protected KmgPfaMeasModel createKmgPfaMeasModel() {
 
                 final KmgPfaMeasModel result = mockModel;
-                return result;
-
-            }
-
-            @Override
-            protected Logger getLogger() {
-
-                final Logger result = mockLogger;
                 return result;
 
             }
