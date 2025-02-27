@@ -36,6 +36,9 @@ public class KmgPfaMeasServiceImplTest {
 
     /**
      * コンストラクタのテスト - 正常系:名称が正しく設定されることの確認
+     * <p>
+     * 保護された（protected）コンストラクタが同じパッケージ内から正しくアクセスできることを確認します。
+     * </p>
      *
      * @since 0.1.0
      */
@@ -57,6 +60,34 @@ public class KmgPfaMeasServiceImplTest {
 
         /* 検証の実施 */
         Assertions.assertEquals(expectedName, actualName, "名称が正しく設定されていること");
+
+    }
+
+    /**
+     * コンストラクタ（名前のみ）のテスト - 正常系:名称が正しく設定されることの確認
+     * <p>
+     * 名前のみのコンストラクタを使用した場合に、名称が正しく設定されることを確認します。
+     * </p>
+     *
+     * @since 0.1.0
+     */
+    @Test
+    public void testConstructorWithOnlyName_normalSetName() {
+
+        /* 期待値の定義 */
+        final String expectedName = "テスト測定（名前のみ）";
+
+        /* 準備 */
+        final KmgPfaMeasServiceImpl testTarget = new KmgPfaMeasServiceImpl(expectedName);
+
+        /* テスト対象の実行 */
+        testTarget.start();
+
+        /* 検証の準備 */
+        final String actualName = testTarget.getName();
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expectedName, actualName, "名前のみのコンストラクタで名称が正しく設定されていること");
 
     }
 

@@ -67,7 +67,7 @@ public class KmgPfaMeasServiceImpl implements KmgPfaMeasService {
      * @param logger
      *               ロガー
      */
-    public KmgPfaMeasServiceImpl(final String name, final Logger logger) {
+    protected KmgPfaMeasServiceImpl(final String name, final Logger logger) {
 
         this.name = name;
         this.logger = logger;
