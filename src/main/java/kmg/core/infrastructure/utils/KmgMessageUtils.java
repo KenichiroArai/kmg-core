@@ -33,7 +33,7 @@ public final class KmgMessageUtils {
      */
     @SuppressWarnings("nls")
     private static final String[] PROPERTY_FILES = {
-        "messages", "messages-log"
+        "kmg-core-messages", "kmg-core-messages-log"
     };
 
     static {
