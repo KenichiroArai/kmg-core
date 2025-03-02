@@ -12,7 +12,7 @@ import kmg.core.infrastructure.common.KmgMessageTypes;
  *
  * @since 0.1.0
  *
- * @version 0.1.0
+ * @version 0.2.0
  */
 @SuppressWarnings("nls")
 public enum KmgLogMessageTypes implements KmgMessageTypes {
@@ -51,6 +51,39 @@ public enum KmgLogMessageTypes implements KmgMessageTypes {
      * @version 0.1.0
      */
     KMGLOGI12001("KMGLOGI12001"),
+
+    /**
+     * {0}：エラー。経過時間=[{1}{2}]
+     *
+     * @author KenichiroArai
+     *
+     * @since 0.2.0
+     *
+     * @version 0.2.0
+     */
+    KMGLOGI12002("KMGLOGI12002"),
+
+    /**
+     * {0}：情報。経過時間=[{1}{2}]
+     *
+     * @author KenichiroArai
+     *
+     * @since 0.2.0
+     *
+     * @version 0.2.0
+     */
+    KMGLOGI12003("KMGLOGI12003"),
+
+    /**
+     * {0}：警告。経過時間=[{1}{2}]
+     *
+     * @author KenichiroArai
+     *
+     * @since 0.2.0
+     *
+     * @version 0.2.0
+     */
+    KMGLOGI12004("KMGLOGI12004"),
 
     /* 定義：終了 */
     ;
