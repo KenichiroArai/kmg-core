@@ -86,11 +86,8 @@ public class KmgPfaMeasServiceImpl implements KmgPfaMeasService {
     @Override
     public void end() {
 
-        /* 終了時間を記録 */
-        this.kmgPfaMeasModel.recordEndTime();
-
-        /* 経過時間を計算 */
-        this.kmgPfaMeasModel.calculateElapsedTime();
+        /* 測定終了 */
+        this.kmgPfaMeasModel.end();
 
         /* ログの出力 */
         final KmgLogMessageTypes logType     = KmgLogMessageTypes.KMGLOGI12001;
@@ -113,11 +110,8 @@ public class KmgPfaMeasServiceImpl implements KmgPfaMeasService {
     @Override
     public void error() {
 
-        /* 終了時間を記録 */
-        this.kmgPfaMeasModel.recordEndTime();
-
-        /* 経過時間を計算 */
-        this.kmgPfaMeasModel.calculateElapsedTime();
+        /* 測定中間 */
+        this.kmgPfaMeasModel.intermediate();
 
         /* ログの出力 */
         final KmgLogMessageTypes logType     = KmgLogMessageTypes.KMGLOGI12002;
@@ -152,11 +146,8 @@ public class KmgPfaMeasServiceImpl implements KmgPfaMeasService {
     @Override
     public void info() {
 
-        /* 終了時間を記録 */
-        this.kmgPfaMeasModel.recordEndTime();
-
-        /* 経過時間を計算 */
-        this.kmgPfaMeasModel.calculateElapsedTime();
+        /* 測定中間 */
+        this.kmgPfaMeasModel.intermediate();
 
         /* ログの出力 */
         final KmgLogMessageTypes logType     = KmgLogMessageTypes.KMGLOGI12003;
@@ -187,6 +178,7 @@ public class KmgPfaMeasServiceImpl implements KmgPfaMeasService {
         final String             msg         = KmgMessageUtils.getMessage(logType, messageArgs);
         this.logger.info(msg);
 
+        /* 測定開始 */
         this.kmgPfaMeasModel.start();
 
     }
@@ -202,11 +194,8 @@ public class KmgPfaMeasServiceImpl implements KmgPfaMeasService {
     @Override
     public void warn() {
 
-        /* 終了時間を記録 */
-        this.kmgPfaMeasModel.recordEndTime();
-
-        /* 経過時間を計算 */
-        this.kmgPfaMeasModel.calculateElapsedTime();
+        /* 測定中間 */
+        this.kmgPfaMeasModel.intermediate();
 
         /* ログの出力 */
         final KmgLogMessageTypes logType     = KmgLogMessageTypes.KMGLOGI12004;

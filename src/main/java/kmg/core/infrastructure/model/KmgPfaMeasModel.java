@@ -21,6 +21,13 @@ public class KmgPfaMeasModel {
     private long startTime;
 
     /**
+     * 中間時間
+     *
+     * @since 0.2.0
+     */
+    private long intermediateTime;
+
+    /**
      * 終了時間
      *
      * @since 0.1.0
@@ -58,56 +65,11 @@ public class KmgPfaMeasModel {
      */
     public void end() {
 
-        this.recordEndTime();
+        // 中間時間と終了時間の設定
+        this.intermediateTime = this.getNow();
+        this.endTime = this.intermediateTime;
+
         this.calculateElapsedTime();
-
-    }
-
-    /**
-     * 終了時間を記録します。<br>
-     *
-     * @since 0.2.0
-     */
-    public void recordEndTime() {
-
-        this.endTime = this.getNow();
-
-    }
-
-    /**
-     * 経過時間と時間単位を計算します。<br>
-     *
-     * @since 0.2.0
-     */
-    public void calculateElapsedTime() {
-
-        /* 経過時間と時間単位を求める */
-        double           timeTmp     = this.endTime - this.startTime;
-        KmgTimeUnitTypes timeUnitTmp = KmgTimeUnitTypes.NANOSECONDS;
-
-        if (timeTmp >= 1000.0) {
-
-            timeTmp /= 1000.0;
-            timeUnitTmp = KmgTimeUnitTypes.MICROSECONDS;
-
-        }
-
-        if (timeTmp >= 1000.0) {
-
-            timeTmp /= 1000.0;
-            timeUnitTmp = KmgTimeUnitTypes.MILLISECOND;
-
-        }
-
-        if (timeTmp >= 1000.0) {
-
-            timeTmp /= 1000.0;
-            timeUnitTmp = KmgTimeUnitTypes.SECONDS;
-
-        }
-
-        this.elapsedTime = timeTmp;
-        this.timeUnit = timeUnitTmp;
 
     }
 
@@ -168,6 +130,19 @@ public class KmgPfaMeasModel {
     }
 
     /**
+     * 中間<br>
+     *
+     * @since 0.2.0
+     */
+    public void intermediate() {
+
+        this.intermediateTime = this.getNow();
+
+        this.calculateElapsedTime();
+
+    }
+
+    /**
      * 開始<br>
      *
      * @since 0.1.0
@@ -191,6 +166,42 @@ public class KmgPfaMeasModel {
         final long result = System.nanoTime();
 
         return result;
+
+    }
+
+    /**
+     * 中間時間から経過時間と時間単位を計算します。<br>
+     *
+     * @since 0.2.0
+     */
+    private void calculateElapsedTime() {
+
+        double           elapsedTimeTmp = this.intermediateTime - this.startTime;
+        KmgTimeUnitTypes timeUnitTmp    = KmgTimeUnitTypes.NANOSECONDS;
+
+        if (elapsedTimeTmp >= 1000.0) {
+
+            elapsedTimeTmp /= 1000.0;
+            timeUnitTmp = KmgTimeUnitTypes.MICROSECONDS;
+
+        }
+
+        if (elapsedTimeTmp >= 1000.0) {
+
+            elapsedTimeTmp /= 1000.0;
+            timeUnitTmp = KmgTimeUnitTypes.MILLISECOND;
+
+        }
+
+        if (elapsedTimeTmp >= 1000.0) {
+
+            elapsedTimeTmp /= 1000.0;
+            timeUnitTmp = KmgTimeUnitTypes.SECONDS;
+
+        }
+
+        this.elapsedTime = elapsedTimeTmp;
+        this.timeUnit = timeUnitTmp;
 
     }
 
