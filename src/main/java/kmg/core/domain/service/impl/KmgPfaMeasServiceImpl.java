@@ -110,8 +110,8 @@ public class KmgPfaMeasServiceImpl implements KmgPfaMeasService {
     @Override
     public void error() {
 
-        /* 測定中間 */
-        this.kmgPfaMeasModel.intermediate();
+        /* チェックポイント */
+        this.kmgPfaMeasModel.checkpoint();
 
         /* ログの出力 */
         final KmgLogMessageTypes logType     = KmgLogMessageTypes.KMGLOGI12002;
@@ -119,7 +119,7 @@ public class KmgPfaMeasServiceImpl implements KmgPfaMeasService {
             this.name, this.kmgPfaMeasModel.getElapsedTime(), this.kmgPfaMeasModel.getTimeUnit().getUnitName(),
         };
         final String             msg         = KmgMessageUtils.getMessage(logType, messageArgs);
-        this.logger.info(msg);
+        this.logger.error(msg);
 
     }
 
@@ -146,8 +146,8 @@ public class KmgPfaMeasServiceImpl implements KmgPfaMeasService {
     @Override
     public void info() {
 
-        /* 測定中間 */
-        this.kmgPfaMeasModel.intermediate();
+        /* チェックポイント */
+        this.kmgPfaMeasModel.checkpoint();
 
         /* ログの出力 */
         final KmgLogMessageTypes logType     = KmgLogMessageTypes.KMGLOGI12003;
@@ -194,8 +194,8 @@ public class KmgPfaMeasServiceImpl implements KmgPfaMeasService {
     @Override
     public void warn() {
 
-        /* 測定中間 */
-        this.kmgPfaMeasModel.intermediate();
+        /* チェックポイント */
+        this.kmgPfaMeasModel.checkpoint();
 
         /* ログの出力 */
         final KmgLogMessageTypes logType     = KmgLogMessageTypes.KMGLOGI12004;
@@ -203,7 +203,7 @@ public class KmgPfaMeasServiceImpl implements KmgPfaMeasService {
             this.name, this.kmgPfaMeasModel.getElapsedTime(), this.kmgPfaMeasModel.getTimeUnit().getUnitName(),
         };
         final String             msg         = KmgMessageUtils.getMessage(logType, messageArgs);
-        this.logger.info(msg);
+        this.logger.warn(msg);
 
     }
 
