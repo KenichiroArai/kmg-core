@@ -86,8 +86,11 @@ public class KmgPfaMeasServiceImpl implements KmgPfaMeasService {
     @Override
     public void end() {
 
-        /* 測定終了 */
-        this.kmgPfaMeasModel.end();
+        /* 終了時間を記録 */
+        this.kmgPfaMeasModel.recordEndTime();
+
+        /* 経過時間を計算 */
+        this.kmgPfaMeasModel.calculateElapsedTime();
 
         /* ログの出力 */
         final KmgLogMessageTypes logType     = KmgLogMessageTypes.KMGLOGI12001;
@@ -110,8 +113,11 @@ public class KmgPfaMeasServiceImpl implements KmgPfaMeasService {
     @Override
     public void error() {
 
-        /* 測定終了 */
-        this.kmgPfaMeasModel.end();
+        /* 終了時間を記録 */
+        this.kmgPfaMeasModel.recordEndTime();
+
+        /* 経過時間を計算 */
+        this.kmgPfaMeasModel.calculateElapsedTime();
 
         /* ログの出力 */
         final KmgLogMessageTypes logType     = KmgLogMessageTypes.KMGLOGI12002;
@@ -146,8 +152,11 @@ public class KmgPfaMeasServiceImpl implements KmgPfaMeasService {
     @Override
     public void info() {
 
-        /* 測定終了 */
-        this.kmgPfaMeasModel.end();
+        /* 終了時間を記録 */
+        this.kmgPfaMeasModel.recordEndTime();
+
+        /* 経過時間を計算 */
+        this.kmgPfaMeasModel.calculateElapsedTime();
 
         /* ログの出力 */
         final KmgLogMessageTypes logType     = KmgLogMessageTypes.KMGLOGI12003;
@@ -193,8 +202,11 @@ public class KmgPfaMeasServiceImpl implements KmgPfaMeasService {
     @Override
     public void warn() {
 
-        /* 測定終了 */
-        this.kmgPfaMeasModel.end();
+        /* 終了時間を記録 */
+        this.kmgPfaMeasModel.recordEndTime();
+
+        /* 経過時間を計算 */
+        this.kmgPfaMeasModel.calculateElapsedTime();
 
         /* ログの出力 */
         final KmgLogMessageTypes logType     = KmgLogMessageTypes.KMGLOGI12004;

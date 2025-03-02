@@ -9,7 +9,7 @@ import kmg.core.infrastructure.types.KmgTimeUnitTypes;
  *
  * @since 0.1.0
  *
- * @version 0.1.0
+ * @version 0.2.0
  */
 public class KmgPfaMeasModel {
 
@@ -58,7 +58,28 @@ public class KmgPfaMeasModel {
      */
     public void end() {
 
+        this.recordEndTime();
+        this.calculateElapsedTime();
+
+    }
+
+    /**
+     * 終了時間を記録します。<br>
+     *
+     * @since 0.2.0
+     */
+    public void recordEndTime() {
+
         this.endTime = this.getNow();
+
+    }
+
+    /**
+     * 経過時間と時間単位を計算します。<br>
+     *
+     * @since 0.2.0
+     */
+    public void calculateElapsedTime() {
 
         /* 経過時間と時間単位を求める */
         double           timeTmp     = this.endTime - this.startTime;
