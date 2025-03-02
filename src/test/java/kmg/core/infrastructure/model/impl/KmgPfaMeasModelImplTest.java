@@ -1,4 +1,4 @@
-package kmg.core.infrastructure.model;
+package kmg.core.infrastructure.model.impl;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -13,12 +13,12 @@ import kmg.core.infrastructure.types.KmgTimeUnitTypes;
  *
  * @since 0.1.0
  *
- * @version 0.1.0
+ * @version 0.2.0
  */
 @SuppressWarnings({
     "nls", "static-method"
 })
-public class KmgPfaMeasModelTest {
+public class KmgPfaMeasModelImplTest {
 
     /**
      * 許容誤差
@@ -32,7 +32,7 @@ public class KmgPfaMeasModelTest {
      *
      * @since 0.1.0
      */
-    public KmgPfaMeasModelTest() {
+    public KmgPfaMeasModelImplTest() {
 
         // 処理なし
     }
@@ -52,7 +52,7 @@ public class KmgPfaMeasModelTest {
         final KmgTimeUnitTypes expectedTimeUnit    = KmgTimeUnitTypes.MICROSECONDS;
 
         /* 準備 */
-        final KmgPfaMeasModel testTarget = this.createMockedModel(expectedStartTime, expectedEndTime);
+        final KmgPfaMeasModelImpl testTarget = this.createKmgPfaMeasModelImpl(expectedStartTime, expectedEndTime);
 
         /* テスト対象の実行 */
         testTarget.start();
@@ -63,7 +63,8 @@ public class KmgPfaMeasModelTest {
         final KmgTimeUnitTypes actualTimeUnit    = testTarget.getTimeUnit();
 
         /* 検証の実施 */
-        Assertions.assertEquals(expectedElapsedTime, actualElapsedTime, KmgPfaMeasModelTest.DELTA, "経過時間が期待値と一致すること");
+        Assertions.assertEquals(expectedElapsedTime, actualElapsedTime, KmgPfaMeasModelImplTest.DELTA,
+            "経過時間が期待値と一致すること");
         Assertions.assertEquals(expectedTimeUnit, actualTimeUnit, "時間単位がマイクロ秒であること");
 
     }
@@ -83,7 +84,7 @@ public class KmgPfaMeasModelTest {
         final KmgTimeUnitTypes expectedTimeUnit    = KmgTimeUnitTypes.MILLISECOND;
 
         /* 準備 */
-        final KmgPfaMeasModel testTarget = this.createMockedModel(expectedStartTime, expectedEndTime);
+        final KmgPfaMeasModelImpl testTarget = this.createKmgPfaMeasModelImpl(expectedStartTime, expectedEndTime);
 
         /* テスト対象の実行 */
         testTarget.start();
@@ -94,7 +95,8 @@ public class KmgPfaMeasModelTest {
         final KmgTimeUnitTypes actualTimeUnit    = testTarget.getTimeUnit();
 
         /* 検証の実施 */
-        Assertions.assertEquals(expectedElapsedTime, actualElapsedTime, KmgPfaMeasModelTest.DELTA, "経過時間が期待値と一致すること");
+        Assertions.assertEquals(expectedElapsedTime, actualElapsedTime, KmgPfaMeasModelImplTest.DELTA,
+            "経過時間が期待値と一致すること");
         Assertions.assertEquals(expectedTimeUnit, actualTimeUnit, "時間単位がミリ秒であること");
 
     }
@@ -114,7 +116,7 @@ public class KmgPfaMeasModelTest {
         final KmgTimeUnitTypes expectedTimeUnit    = KmgTimeUnitTypes.NANOSECONDS;
 
         /* 準備 */
-        final KmgPfaMeasModel testTarget = this.createMockedModel(expectedStartTime, expectedEndTime);
+        final KmgPfaMeasModelImpl testTarget = this.createKmgPfaMeasModelImpl(expectedStartTime, expectedEndTime);
 
         /* テスト対象の実行 */
         testTarget.start();
@@ -129,7 +131,8 @@ public class KmgPfaMeasModelTest {
         /* 検証の実施 */
         Assertions.assertEquals(expectedStartTime, actualStartTime, "開始時間が期待値と一致すること");
         Assertions.assertEquals(expectedEndTime, actualEndTime, "終了時間が期待値と一致すること");
-        Assertions.assertEquals(expectedElapsedTime, actualElapsedTime, KmgPfaMeasModelTest.DELTA, "経過時間が期待値と一致すること");
+        Assertions.assertEquals(expectedElapsedTime, actualElapsedTime, KmgPfaMeasModelImplTest.DELTA,
+            "経過時間が期待値と一致すること");
         Assertions.assertEquals(expectedTimeUnit, actualTimeUnit, "時間単位がナノ秒であること");
 
     }
@@ -149,7 +152,7 @@ public class KmgPfaMeasModelTest {
         final KmgTimeUnitTypes expectedTimeUnit    = KmgTimeUnitTypes.SECONDS;
 
         /* 準備 */
-        final KmgPfaMeasModel testTarget = this.createMockedModel(expectedStartTime, expectedEndTime);
+        final KmgPfaMeasModelImpl testTarget = this.createKmgPfaMeasModelImpl(expectedStartTime, expectedEndTime);
 
         /* テスト対象の実行 */
         testTarget.start();
@@ -160,7 +163,8 @@ public class KmgPfaMeasModelTest {
         final KmgTimeUnitTypes actualTimeUnit    = testTarget.getTimeUnit();
 
         /* 検証の実施 */
-        Assertions.assertEquals(expectedElapsedTime, actualElapsedTime, KmgPfaMeasModelTest.DELTA, "経過時間が期待値と一致すること");
+        Assertions.assertEquals(expectedElapsedTime, actualElapsedTime, KmgPfaMeasModelImplTest.DELTA,
+            "経過時間が期待値と一致すること");
         Assertions.assertEquals(expectedTimeUnit, actualTimeUnit, "時間単位が秒であること");
 
     }
@@ -177,7 +181,7 @@ public class KmgPfaMeasModelTest {
         final long expectedStartTime = 1000L;
 
         /* 準備 */
-        final KmgPfaMeasModel testTarget = this.createMockedModel(expectedStartTime);
+        final KmgPfaMeasModelImpl testTarget = this.createKmgPfaMeasModelImpl(expectedStartTime);
 
         /* テスト対象の実行 */
         testTarget.start();
@@ -191,9 +195,9 @@ public class KmgPfaMeasModelTest {
     }
 
     /**
-     * 指定された時間値でモック化された KmgPfaMeasModel を作成する。
+     * 指定された時間値でモック化された KmgPfaMeasModelImpl を作成する。
      * <p>
-     * このメソッドは KmgPfaMeasModel のスパイオブジェクトを作成し、getNow() が呼び出されたときに 返される連続的な時間値を設定します。
+     * このメソッドは KmgPfaMeasModelImpl のスパイオブジェクトを作成し、getNow() が呼び出されたときに 返される連続的な時間値を設定します。
      * </p>
      *
      * @since 0.1.0
@@ -201,11 +205,11 @@ public class KmgPfaMeasModelTest {
      * @param times
      *              getNow() メソッドが返す連続的なタイムスタンプを表す可変長の long 値。 空の場合、モック化されていないスパイオブジェクトを返します。
      *
-     * @return モック化された getNow() の動作を持つ KmgPfaMeasModel のスパイオブジェクト
+     * @return モック化された getNow() の動作を持つ KmgPfaMeasModelImpl のスパイオブジェクト
      */
-    private KmgPfaMeasModel createMockedModel(final Long... times) {
+    private KmgPfaMeasModelImpl createKmgPfaMeasModelImpl(final Long... times) {
 
-        final KmgPfaMeasModel result = Mockito.spy(new KmgPfaMeasModel());
+        final KmgPfaMeasModelImpl result = Mockito.spy(new KmgPfaMeasModelImpl());
 
         if (times.length <= 0) {
 

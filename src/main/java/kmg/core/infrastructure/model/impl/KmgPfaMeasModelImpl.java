@@ -1,5 +1,6 @@
-package kmg.core.infrastructure.model;
+package kmg.core.infrastructure.model.impl;
 
+import kmg.core.infrastructure.model.KmgPfaMeasModel;
 import kmg.core.infrastructure.types.KmgTimeUnitTypes;
 
 /**
@@ -31,11 +32,64 @@ import kmg.core.infrastructure.types.KmgTimeUnitTypes;
  *
  * @author KenichiroArai
  *
- * @since 0.1.0
+ * @since 0.2.0
  *
  * @version 0.2.0
  */
-public interface KmgPfaMeasModel {
+public class KmgPfaMeasModelImpl implements KmgPfaMeasModel {
+
+    /**
+     * 開始時間<br>
+     * {@link #start()}メソッドが呼ばれたときのシステム時間（ナノ秒）
+     *
+     * @since 0.2.0
+     */
+    private long startTime;
+
+    /**
+     * チェックポイント時間<br>
+     * {@link #checkpoint()}または{@link #end()}メソッドが呼ばれたときのシステム時間（ナノ秒）
+     *
+     * @since 0.2.0
+     */
+    private long checkpointTime;
+
+    /**
+     * 終了時間<br>
+     * {@link #end()}メソッドが呼ばれたときのシステム時間（ナノ秒）
+     *
+     * @since 0.2.0
+     */
+    private long endTime;
+
+    /**
+     * 経過時間<br>
+     * 計測開始から最後のチェックポイントまたは終了時点までの経過時間<br>
+     * 時間単位は{@link #timeUnit}によって決定される
+     *
+     * @since 0.2.0
+     */
+    private double elapsedTime;
+
+    /**
+     * 時間単位<br>
+     * 経過時間の単位（ナノ秒、マイクロ秒、ミリ秒、秒）<br>
+     * 経過時間の大きさに応じて自動的に適切な単位が選択される
+     *
+     * @since 0.2.0
+     */
+    private KmgTimeUnitTypes timeUnit;
+
+    /**
+     * デフォルトコンストラクタ<br>
+     * 計測の準備をします。実際の計測を開始するには{@link #start()}メソッドを呼び出してください。
+     *
+     * @since 0.2.0
+     */
+    public KmgPfaMeasModelImpl() {
+
+        // 処理なし
+    }
 
     /**
      * チェックポイント<br>
@@ -46,7 +100,14 @@ public interface KmgPfaMeasModel {
      *
      * @since 0.2.0
      */
-    void checkpoint();
+    @Override
+    public void checkpoint() {
+
+        this.checkpointTime = this.getNow();
+
+        this.calculateElapsedTime();
+
+    }
 
     /**
      * 終了<br>
@@ -55,9 +116,18 @@ public interface KmgPfaMeasModel {
      * <br>
      * 注：計測の途中経過を知りたい場合は{@link #checkpoint()}メソッドを使用してください。
      *
-     * @since 0.1.0
+     * @since 0.2.0
      */
-    void end();
+    @Override
+    public void end() {
+
+        // チェックポイント時間と終了時間の設定
+        this.checkpointTime = this.getNow();
+        this.endTime = this.checkpointTime;
+
+        this.calculateElapsedTime();
+
+    }
 
     /**
      * 経過時間を返す<br>
@@ -66,11 +136,17 @@ public interface KmgPfaMeasModel {
      * <br>
      * 注：このメソッドを呼び出す前に、{@link #start()}と{@link #checkpoint()}または{@link #end()}を 呼び出す必要があります。
      *
-     * @since 0.1.0
+     * @since 0.2.0
      *
      * @return 経過時間（単位は{@link #getTimeUnit()}で取得可能）
      */
-    double getElapsedTime();
+    @Override
+    public double getElapsedTime() {
+
+        final double result = this.elapsedTime;
+        return result;
+
+    }
 
     /**
      * 終了時間を返す<br>
@@ -78,11 +154,17 @@ public interface KmgPfaMeasModel {
      * <br>
      * 注：このメソッドを呼び出す前に{@link #end()}を呼び出す必要があります。
      *
-     * @since 0.1.0
+     * @since 0.2.0
      *
      * @return 終了時間（ナノ秒）
      */
-    long getEndTime();
+    @Override
+    public long getEndTime() {
+
+        final long result = this.endTime;
+        return result;
+
+    }
 
     /**
      * 開始時間を返す<br>
@@ -90,11 +172,17 @@ public interface KmgPfaMeasModel {
      * <br>
      * 注：このメソッドを呼び出す前に{@link #start()}を呼び出す必要があります。
      *
-     * @since 0.1.0
+     * @since 0.2.0
      *
      * @return 開始時間（ナノ秒）
      */
-    long getStartTime();
+    @Override
+    public long getStartTime() {
+
+        final long result = this.startTime;
+        return result;
+
+    }
 
     /**
      * 時間単位を返す<br>
@@ -103,11 +191,17 @@ public interface KmgPfaMeasModel {
      * <br>
      * 注：このメソッドを呼び出す前に、{@link #start()}と{@link #checkpoint()}または{@link #end()}を 呼び出す必要があります。
      *
-     * @since 0.1.0
+     * @since 0.2.0
      *
      * @return 時間単位（{@link KmgTimeUnitTypes}の値）
      */
-    KmgTimeUnitTypes getTimeUnit();
+    @Override
+    public KmgTimeUnitTypes getTimeUnit() {
+
+        final KmgTimeUnitTypes result = this.timeUnit;
+        return result;
+
+    }
 
     /**
      * 開始<br>
@@ -116,8 +210,70 @@ public interface KmgPfaMeasModel {
      * <br>
      * 注：このメソッドを呼び出した後、{@link #checkpoint()}または{@link #end()}を呼び出すまで 経過時間は計算されません。
      *
-     * @since 0.1.0
+     * @since 0.2.0
      */
-    void start();
+    @Override
+    public void start() {
+
+        this.startTime = this.getNow();
+
+    }
+
+    /**
+     * 現在時刻を返す<br>
+     * システムのナノ秒精度の現在時刻を取得します。<br>
+     * このメソッドは内部で使用され、{@link System#nanoTime()}を呼び出します。
+     *
+     * @since 0.2.0
+     *
+     * @return 現在時刻（ナノ秒）
+     */
+    @SuppressWarnings("static-method")
+    protected long getNow() {
+
+        final long result = System.nanoTime();
+
+        return result;
+
+    }
+
+    /**
+     * チェックポイント時間から経過時間と時間単位を計算します。<br>
+     * 開始時間からチェックポイント時間までの経過時間を計算し、 その大きさに応じて適切な時間単位（ナノ秒、マイクロ秒、ミリ秒、秒）を設定します。<br>
+     * <br>
+     * 計算結果は{@link #elapsedTime}と{@link #timeUnit}に保存され、 それぞれ{@link #getElapsedTime()}と{@link #getTimeUnit()}で取得できます。
+     *
+     * @since 0.2.0
+     */
+    private void calculateElapsedTime() {
+
+        double           elapsedTimeTmp = this.checkpointTime - this.startTime;
+        KmgTimeUnitTypes timeUnitTmp    = KmgTimeUnitTypes.NANOSECONDS;
+
+        if (elapsedTimeTmp >= 1000.0) {
+
+            elapsedTimeTmp /= 1000.0;
+            timeUnitTmp = KmgTimeUnitTypes.MICROSECONDS;
+
+        }
+
+        if (elapsedTimeTmp >= 1000.0) {
+
+            elapsedTimeTmp /= 1000.0;
+            timeUnitTmp = KmgTimeUnitTypes.MILLISECOND;
+
+        }
+
+        if (elapsedTimeTmp >= 1000.0) {
+
+            elapsedTimeTmp /= 1000.0;
+            timeUnitTmp = KmgTimeUnitTypes.SECONDS;
+
+        }
+
+        this.elapsedTime = elapsedTimeTmp;
+        this.timeUnit = timeUnitTmp;
+
+    }
 
 }

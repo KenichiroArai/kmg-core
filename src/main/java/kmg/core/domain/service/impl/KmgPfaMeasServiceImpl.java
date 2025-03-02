@@ -6,6 +6,7 @@ import org.slf4j.LoggerFactory;
 import kmg.core.domain.service.KmgPfaMeasService;
 import kmg.core.domain.types.KmgLogMessageTypes;
 import kmg.core.infrastructure.model.KmgPfaMeasModel;
+import kmg.core.infrastructure.model.impl.KmgPfaMeasModelImpl;
 import kmg.core.infrastructure.utils.KmgMessageUtils;
 
 /**
@@ -218,7 +219,7 @@ public class KmgPfaMeasServiceImpl implements KmgPfaMeasService {
     @SuppressWarnings("static-method")
     protected KmgPfaMeasModel createKmgPfaMeasModel() {
 
-        final KmgPfaMeasModel result = new KmgPfaMeasModel();
+        final KmgPfaMeasModel result = new KmgPfaMeasModelImpl();
         return result;
 
     }
