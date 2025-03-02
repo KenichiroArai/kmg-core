@@ -21,11 +21,11 @@ public class KmgPfaMeasModel {
     private long startTime;
 
     /**
-     * 中間時間
+     * チェックポイント時間
      *
      * @since 0.2.0
      */
-    private long intermediateTime;
+    private long checkpointTime;
 
     /**
      * 終了時間
@@ -59,15 +59,28 @@ public class KmgPfaMeasModel {
     }
 
     /**
+     * チェックポイント<br>
+     *
+     * @since 0.2.0
+     */
+    public void checkpoint() {
+
+        this.checkpointTime = this.getNow();
+
+        this.calculateElapsedTime();
+
+    }
+
+    /**
      * 終了<br>
      *
      * @since 0.1.0
      */
     public void end() {
 
-        // 中間時間と終了時間の設定
-        this.intermediateTime = this.getNow();
-        this.endTime = this.intermediateTime;
+        // チェックポイント時間と終了時間の設定
+        this.checkpointTime = this.getNow();
+        this.endTime = this.checkpointTime;
 
         this.calculateElapsedTime();
 
@@ -130,19 +143,6 @@ public class KmgPfaMeasModel {
     }
 
     /**
-     * 中間<br>
-     *
-     * @since 0.2.0
-     */
-    public void intermediate() {
-
-        this.intermediateTime = this.getNow();
-
-        this.calculateElapsedTime();
-
-    }
-
-    /**
      * 開始<br>
      *
      * @since 0.1.0
@@ -170,13 +170,13 @@ public class KmgPfaMeasModel {
     }
 
     /**
-     * 中間時間から経過時間と時間単位を計算します。<br>
+     * チェックポイント時間から経過時間と時間単位を計算します。<br>
      *
      * @since 0.2.0
      */
     private void calculateElapsedTime() {
 
-        double           elapsedTimeTmp = this.intermediateTime - this.startTime;
+        double           elapsedTimeTmp = this.checkpointTime - this.startTime;
         KmgTimeUnitTypes timeUnitTmp    = KmgTimeUnitTypes.NANOSECONDS;
 
         if (elapsedTimeTmp >= 1000.0) {
