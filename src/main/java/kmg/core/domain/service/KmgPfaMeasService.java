@@ -32,6 +32,21 @@ public interface KmgPfaMeasService {
     void error(String msgContents);
 
     /**
+     * エラーメッセージを出力します。
+     * <p>
+     * 経過時間をログに出力します。
+     * </p>
+     *
+     * @since 0.2.0
+     *
+     * @param msgContents
+     *                    メッセージ内容
+     * @param throwable
+     *                    例外
+     */
+    void error(String msgContents, Throwable throwable);
+
+    /**
      * 情報メッセージを出力します。
      * <p>
      * 経過時間をログに出力します。

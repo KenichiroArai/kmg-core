@@ -114,6 +114,26 @@ public class KmgPfaMeasServiceImpl implements KmgPfaMeasService {
     @Override
     public void error(final String msgContents) {
 
+        this.error(msgContents, null);
+
+    }
+
+    /**
+     * エラーメッセージを出力します。
+     * <p>
+     * 経過時間をログに出力します。
+     * </p>
+     *
+     * @since 0.2.0
+     *
+     * @param msgContents
+     *                    メッセージ内容
+     * @param throwable
+     *                    例外
+     */
+    @Override
+    public void error(final String msgContents, final Throwable throwable) {
+
         /* チェックポイント */
         this.kmgPfaMeasModel.checkpoint();
 
@@ -124,7 +144,7 @@ public class KmgPfaMeasServiceImpl implements KmgPfaMeasService {
             this.kmgPfaMeasModel.getTimeUnit().getUnitName(),
         };
         final String             msg         = KmgMessageUtils.getMessage(logType, messageArgs);
-        this.logger.error(msg);
+        this.logger.error(msg, throwable);
 
     }
 
