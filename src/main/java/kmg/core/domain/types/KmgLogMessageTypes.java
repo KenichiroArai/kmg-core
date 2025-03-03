@@ -53,7 +53,7 @@ public enum KmgLogMessageTypes implements KmgMessageTypes {
     KMGLOGI12001("KMGLOGI12001"),
 
     /**
-     * {0}：エラー。経過時間=[{1}{2}]
+     * {0}：{1}。経過時間=[{2}{3}]
      *
      * @author KenichiroArai
      *
@@ -61,10 +61,10 @@ public enum KmgLogMessageTypes implements KmgMessageTypes {
      *
      * @version 0.2.0
      */
-    KMGLOGI12002("KMGLOGI12002"),
+    KMGLOGE12002("KMGLOGE12002"),
 
     /**
-     * {0}：情報。経過時間=[{1}{2}]
+     * {0}：{1}。経過時間=[{2}{3}]
      *
      * @author KenichiroArai
      *
@@ -75,7 +75,7 @@ public enum KmgLogMessageTypes implements KmgMessageTypes {
     KMGLOGI12003("KMGLOGI12003"),
 
     /**
-     * {0}：警告。経過時間=[{1}{2}]
+     * {0}：{1}。経過時間=[{2}{3}]
      *
      * @author KenichiroArai
      *
@@ -83,7 +83,7 @@ public enum KmgLogMessageTypes implements KmgMessageTypes {
      *
      * @version 0.2.0
      */
-    KMGLOGI12004("KMGLOGI12004"),
+    KMGLOGW12004("KMGLOGW12004"),
 
     /* 定義：終了 */
     ;

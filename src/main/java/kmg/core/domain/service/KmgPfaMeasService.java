@@ -25,8 +25,11 @@ public interface KmgPfaMeasService {
      * </p>
      *
      * @since 0.2.0
+     *
+     * @param msgContents
+     *                    メッセージ内容
      */
-    void error();
+    void error(String msgContents);
 
     /**
      * 情報メッセージを出力します。
@@ -35,8 +38,11 @@ public interface KmgPfaMeasService {
      * </p>
      *
      * @since 0.2.0
+     *
+     * @param msgContents
+     *                    メッセージ内容
      */
-    void info();
+    void info(String msgContents);
 
     /**
      * 開始<br>
@@ -52,7 +58,10 @@ public interface KmgPfaMeasService {
      * </p>
      *
      * @since 0.2.0
+     *
+     * @param msgContents
+     *                    メッセージ内容
      */
-    void warn();
+    void warn(String msgContents);
 
 }

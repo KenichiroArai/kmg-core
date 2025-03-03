@@ -107,17 +107,21 @@ public class KmgPfaMeasServiceImpl implements KmgPfaMeasService {
      * </p>
      *
      * @since 0.2.0
+     *
+     * @param msgContents
+     *                    メッセージ内容
      */
     @Override
-    public void error() {
+    public void error(final String msgContents) {
 
         /* チェックポイント */
         this.kmgPfaMeasModel.checkpoint();
 
         /* ログの出力 */
-        final KmgLogMessageTypes logType     = KmgLogMessageTypes.KMGLOGI12002;
+        final KmgLogMessageTypes logType     = KmgLogMessageTypes.KMGLOGE12002;
         final Object[]           messageArgs = {
-            this.name, this.kmgPfaMeasModel.getElapsedTime(), this.kmgPfaMeasModel.getTimeUnit().getUnitName(),
+            this.name, msgContents, this.kmgPfaMeasModel.getElapsedTime(),
+            this.kmgPfaMeasModel.getTimeUnit().getUnitName(),
         };
         final String             msg         = KmgMessageUtils.getMessage(logType, messageArgs);
         this.logger.error(msg);
@@ -142,10 +146,13 @@ public class KmgPfaMeasServiceImpl implements KmgPfaMeasService {
      * 経過時間をログに出力します。
      * </p>
      *
+     * @param msgContents
+     *                    メッセージ内容
+     *
      * @since 0.2.0
      */
     @Override
-    public void info() {
+    public void info(final String msgContents) {
 
         /* チェックポイント */
         this.kmgPfaMeasModel.checkpoint();
@@ -153,7 +160,8 @@ public class KmgPfaMeasServiceImpl implements KmgPfaMeasService {
         /* ログの出力 */
         final KmgLogMessageTypes logType     = KmgLogMessageTypes.KMGLOGI12003;
         final Object[]           messageArgs = {
-            this.name, this.kmgPfaMeasModel.getElapsedTime(), this.kmgPfaMeasModel.getTimeUnit().getUnitName(),
+            this.name, msgContents, this.kmgPfaMeasModel.getElapsedTime(),
+            this.kmgPfaMeasModel.getTimeUnit().getUnitName(),
         };
         final String             msg         = KmgMessageUtils.getMessage(logType, messageArgs);
         this.logger.info(msg);
@@ -190,18 +198,22 @@ public class KmgPfaMeasServiceImpl implements KmgPfaMeasService {
      * 経過時間をログに出力します。
      * </p>
      *
+     * @param msgContents
+     *                    メッセージ内容
+     *
      * @since 0.2.0
      */
     @Override
-    public void warn() {
+    public void warn(final String msgContents) {
 
         /* チェックポイント */
         this.kmgPfaMeasModel.checkpoint();
 
         /* ログの出力 */
-        final KmgLogMessageTypes logType     = KmgLogMessageTypes.KMGLOGI12004;
+        final KmgLogMessageTypes logType     = KmgLogMessageTypes.KMGLOGW12004;
         final Object[]           messageArgs = {
-            this.name, this.kmgPfaMeasModel.getElapsedTime(), this.kmgPfaMeasModel.getTimeUnit().getUnitName(),
+            this.name, msgContents, this.kmgPfaMeasModel.getElapsedTime(),
+            this.kmgPfaMeasModel.getTimeUnit().getUnitName(),
         };
         final String             msg         = KmgMessageUtils.getMessage(logType, messageArgs);
         this.logger.warn(msg);
