@@ -8,10 +8,11 @@ import kmg.core.infrastructure.types.KmgTimeUnitTypes;
  * このクラスは、処理の実行時間を計測し、結果を適切な時間単位（ナノ秒、マイクロ秒、ミリ秒、秒）で表示するための機能を提供します。<br>
  * <br>
  * 【使用方法】<br>
- * 1. {@link #start()}メソッドを呼び出して計測を開始します。<br>
- * 2. 計測途中の時間を取得する場合は{@link #checkpoint()}メソッドを呼び出します。<br>
- * 3. 計測を終了する場合は{@link #end()}メソッドを呼び出します。<br>
- * 4. {@link #getElapsedTime()}と{@link #getTimeUnit()}で経過時間と単位を取得できます。<br>
+ * 1. インスタンスを生成し、計測の準備を行います。（この時点でチェックポイント時間が初期化されます）<br>
+ * 2. {@link #start()}メソッドを呼び出して計測を開始します。<br>
+ * 3. 計測途中の時間を取得する場合は{@link #checkpoint()}メソッドを呼び出します。<br>
+ * 4. 計測を終了する場合は{@link #end()}メソッドを呼び出します。<br>
+ * 5. {@link #getElapsedTime()}と{@link #getTimeUnit()}で経過時間と単位を取得できます。<br>
  * <br>
  * 【使用例】<br>
  *
@@ -82,13 +83,17 @@ public class KmgPfaMeasModelImpl implements KmgPfaMeasModel {
 
     /**
      * デフォルトコンストラクタ<br>
-     * 計測の準備をします。実際の計測を開始するには{@link #start()}メソッドを呼び出してください。
+     * 計測の準備をします。チェックポイント時間を現在時刻で初期化します。<br>
+     * 実際の計測を開始するには{@link #start()}メソッドを呼び出してください。<br>
+     * <br>
+     * 注：コンストラクタ実行時に{@link #checkpointTime}が現在時刻で初期化されます。
      *
      * @since 0.2.0
      */
     public KmgPfaMeasModelImpl() {
 
-        // 処理なし
+        this.checkpointTime = this.getNow();
+
     }
 
     /**
@@ -134,7 +139,7 @@ public class KmgPfaMeasModelImpl implements KmgPfaMeasModel {
      * 最後に{@link #checkpoint()}または{@link #end()}が呼ばれた時点での 開始時点からの経過時間を返します。<br>
      * 時間の単位は{@link #getTimeUnit()}メソッドで取得できます。<br>
      * <br>
-     * 注：このメソッドを呼び出す前に、{@link #start()}と{@link #checkpoint()}または{@link #end()}を 呼び出す必要があります。
+     * 注：このメソッドを呼び出す前に、インスタンスを生成し、{@link #start()}と{@link #checkpoint()}または{@link #end()}を 呼び出す必要があります。
      *
      * @since 0.2.0
      *
