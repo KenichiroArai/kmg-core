@@ -95,7 +95,7 @@ public class KmgPfaMeasServiceImpl implements KmgPfaMeasService {
         final Object[]           messageArgs = {
             this.name, this.kmgPfaMeasModel.getElapsedTime(), this.kmgPfaMeasModel.getTimeUnit().getUnitName(),
         };
-        final String             msg         = KmgMessageUtils.getMessage(logType, messageArgs);
+        final String             msg         = KmgMessageUtils.getLogMessage(logType, messageArgs);
         this.logger.info(msg);
 
     }
@@ -143,7 +143,7 @@ public class KmgPfaMeasServiceImpl implements KmgPfaMeasService {
             this.name, msgContents, this.kmgPfaMeasModel.getElapsedTime(),
             this.kmgPfaMeasModel.getTimeUnit().getUnitName(),
         };
-        final String             msg         = KmgMessageUtils.getMessage(logType, messageArgs);
+        final String             msg         = KmgMessageUtils.getLogMessage(logType, messageArgs);
         this.logger.error(msg, throwable);
 
     }
@@ -183,7 +183,7 @@ public class KmgPfaMeasServiceImpl implements KmgPfaMeasService {
             this.name, msgContents, this.kmgPfaMeasModel.getElapsedTime(),
             this.kmgPfaMeasModel.getTimeUnit().getUnitName(),
         };
-        final String             msg         = KmgMessageUtils.getMessage(logType, messageArgs);
+        final String             msg         = KmgMessageUtils.getLogMessage(logType, messageArgs);
         this.logger.info(msg);
 
     }
@@ -204,7 +204,7 @@ public class KmgPfaMeasServiceImpl implements KmgPfaMeasService {
         final Object[]           messageArgs = {
             this.name,
         };
-        final String             msg         = KmgMessageUtils.getMessage(logType, messageArgs);
+        final String             msg         = KmgMessageUtils.getLogMessage(logType, messageArgs);
         this.logger.info(msg);
 
         /* 測定開始 */
@@ -235,7 +235,7 @@ public class KmgPfaMeasServiceImpl implements KmgPfaMeasService {
             this.name, msgContents, this.kmgPfaMeasModel.getElapsedTime(),
             this.kmgPfaMeasModel.getTimeUnit().getUnitName(),
         };
-        final String             msg         = KmgMessageUtils.getMessage(logType, messageArgs);
+        final String             msg         = KmgMessageUtils.getLogMessage(logType, messageArgs);
         this.logger.warn(msg);
 
     }

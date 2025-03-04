@@ -111,7 +111,7 @@ public final class KmgMessageUtils {
     }
 
     /**
-     * メッセージを取得する<br>
+     * ログメッセージを取得する<br>
      * メッセージタイプに対応するメッセージパターンを取得し、指定された引数で置換します。 このメソッドは {@link #getMessage(KmgMessageTypes, Object[], boolean)} を
      * コード埋め込みフラグをtrueに設定して呼び出す便利メソッドです。
      *
@@ -127,10 +127,36 @@ public final class KmgMessageUtils {
      * @see #getMessage(KmgMessageTypes, Object[], boolean)
      * @see KmgMessageTypes
      */
-    public static String getMessage(final KmgMessageTypes type, final Object[] messageArgs) {
+    public static String getLogMessage(final KmgMessageTypes type, final Object[] messageArgs) {
 
         /* コード埋め込みフラグをtrueに設定して、メッセージを取得 */
         final String result = KmgMessageUtils.getMessage(type, messageArgs, true);
+
+        return result;
+
+    }
+
+    /**
+     * メッセージを取得する<br>
+     * メッセージタイプに対応するメッセージパターンを取得し、指定された引数で置換します。 このメソッドは {@link #getMessage(KmgMessageTypes, Object[], boolean)} を
+     * コード埋め込みフラグをfalseに設定して呼び出す便利メソッドです。
+     *
+     * @since 0.1.0
+     *
+     * @param type
+     *                    メッセージの種類。対応するリソースからメッセージパターンを取得するために使用されます。
+     * @param messageArgs
+     *                    メッセージの引数。メッセージパターン内のプレースホルダーを置換するために使用されます。 nullの場合、メッセージパターンをそのまま返します。
+     *
+     * @return メッセージ。メッセージコードは埋め込まれません。
+     *
+     * @see #getMessage(KmgMessageTypes, Object[], boolean)
+     * @see KmgMessageTypes
+     */
+    public static String getMessage(final KmgMessageTypes type, final Object[] messageArgs) {
+
+        /* コード埋め込みフラグをfalseに設定して、メッセージを取得 */
+        final String result = KmgMessageUtils.getMessage(type, messageArgs, false);
 
         return result;
 
