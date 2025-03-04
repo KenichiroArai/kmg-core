@@ -5,7 +5,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.ResourceBundle;
 
-import kmg.core.infrastructure.common.KmgMessageTypes;
+import kmg.core.infrastructure.common.KmgCommonLogMessageTypes;
+import kmg.core.infrastructure.common.KmgCommonMessageTypes;
+import kmg.core.infrastructure.common.KmgCommonMsgMessageTypes;
 import kmg.core.infrastructure.type.KmgString;
 
 /**
@@ -112,7 +114,7 @@ public final class KmgMessageUtils {
 
     /**
      * ログメッセージを取得する<br>
-     * メッセージタイプに対応するメッセージパターンを取得し、指定された引数で置換します。 このメソッドは {@link #getMessage(KmgMessageTypes, Object[], boolean)} を
+     * メッセージタイプに対応するメッセージパターンを取得し、指定された引数で置換します。 このメソッドは {@link #getMessage(KmgCommonMessageTypes, Object[], boolean)} を
      * コード埋め込みフラグをtrueに設定して呼び出す便利メソッドです。
      *
      * @since 0.1.0
@@ -124,39 +126,13 @@ public final class KmgMessageUtils {
      *
      * @return メッセージ。メッセージコードが先頭に埋め込まれます（例：「[E001] エラーメッセージ」）。
      *
-     * @see #getMessage(KmgMessageTypes, Object[], boolean)
-     * @see KmgMessageTypes
+     * @see #getMessage(KmgCommonMessageTypes, Object[], boolean)
+     * @see KmgCommonMsgMessageTypes
      */
-    public static String getLogMessage(final KmgMessageTypes type, final Object[] messageArgs) {
+    public static String getLogMessage(final KmgCommonLogMessageTypes type, final Object[] messageArgs) {
 
         /* コード埋め込みフラグをtrueに設定して、メッセージを取得 */
         final String result = KmgMessageUtils.getMessage(type, messageArgs, true);
-
-        return result;
-
-    }
-
-    /**
-     * メッセージを取得する<br>
-     * メッセージタイプに対応するメッセージパターンを取得し、指定された引数で置換します。 このメソッドは {@link #getMessage(KmgMessageTypes, Object[], boolean)} を
-     * コード埋め込みフラグをfalseに設定して呼び出す便利メソッドです。
-     *
-     * @since 0.1.0
-     *
-     * @param type
-     *                    メッセージの種類。対応するリソースからメッセージパターンを取得するために使用されます。
-     * @param messageArgs
-     *                    メッセージの引数。メッセージパターン内のプレースホルダーを置換するために使用されます。 nullの場合、メッセージパターンをそのまま返します。
-     *
-     * @return メッセージ。メッセージコードは埋め込まれません。
-     *
-     * @see #getMessage(KmgMessageTypes, Object[], boolean)
-     * @see KmgMessageTypes
-     */
-    public static String getMessage(final KmgMessageTypes type, final Object[] messageArgs) {
-
-        /* コード埋め込みフラグをfalseに設定して、メッセージを取得 */
-        final String result = KmgMessageUtils.getMessage(type, messageArgs, false);
 
         return result;
 
@@ -178,11 +154,11 @@ public final class KmgMessageUtils {
      *
      * @return メッセージ。メッセージパターンが空の場合は空文字列を返します。
      *
-     * @see KmgMessageTypes
-     * @see #getMessagePattern(KmgMessageTypes)
+     * @see KmgCommonMsgMessageTypes
+     * @see #getMessagePattern(KmgCommonMessageTypes)
      * @see #checkMessageArgsCount(String, Object[])
      */
-    public static String getMessage(final KmgMessageTypes type, final Object[] messageArgs,
+    public static String getMessage(final KmgCommonMessageTypes type, final Object[] messageArgs,
         final boolean codeEmbeddingFlag) {
 
         String       result         = KmgString.EMPTY;
@@ -226,6 +202,32 @@ public final class KmgMessageUtils {
         }
 
         result = message;
+        return result;
+
+    }
+
+    /**
+     * メッセージを取得する<br>
+     * メッセージタイプに対応するメッセージパターンを取得し、指定された引数で置換します。 このメソッドは {@link #getMessage(KmgCommonMessageTypes, Object[], boolean)} を
+     * コード埋め込みフラグをfalseに設定して呼び出す便利メソッドです。
+     *
+     * @since 0.1.0
+     *
+     * @param type
+     *                    メッセージの種類。対応するリソースからメッセージパターンを取得するために使用されます。
+     * @param messageArgs
+     *                    メッセージの引数。メッセージパターン内のプレースホルダーを置換するために使用されます。 nullの場合、メッセージパターンをそのまま返します。
+     *
+     * @return メッセージ。メッセージコードは埋め込まれません。
+     *
+     * @see #getMessage(KmgCommonMessageTypes, Object[], boolean)
+     * @see KmgCommonMsgMessageTypes
+     */
+    public static String getMessage(final KmgCommonMsgMessageTypes type, final Object[] messageArgs) {
+
+        /* コード埋め込みフラグをfalseに設定して、メッセージを取得 */
+        final String result = KmgMessageUtils.getMessage(type, messageArgs, false);
+
         return result;
 
     }
@@ -276,7 +278,7 @@ public final class KmgMessageUtils {
      *
      * @return メッセージパターン。見つからない場合は空文字
      */
-    public static String getMessagePattern(final KmgMessageTypes type) {
+    public static String getMessagePattern(final KmgCommonMessageTypes type) {
 
         String result = KmgString.EMPTY;
 

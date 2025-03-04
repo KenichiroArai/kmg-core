@@ -17,7 +17,7 @@ import kmg.core.infrastructure.utils.KmgMessageUtils;
  *
  * @since 0.1.0
  *
- * @version 0.1.0
+ * @version 0.2.0
  */
 @SuppressWarnings({
     "nls", "static-method"
@@ -109,7 +109,7 @@ public class KmgPfaMeasServiceImplTest {
         final Object[]           messageArgs        = {
             expectedName, expectedElapsedTime, expectedTimeUnit.getUnitName(),
         };
-        final String             expectedLogMessage = KmgMessageUtils.getMessage(logType, messageArgs);
+        final String             expectedLogMessage = KmgMessageUtils.getLogMessage(logType, messageArgs);
 
         /* 準備 */
         final Logger          mockLogger = Mockito.mock(Logger.class);
@@ -157,7 +157,7 @@ public class KmgPfaMeasServiceImplTest {
         final Object[]           messageArgs        = {
             expectedName,
         };
-        final String             expectedLogMessage = KmgMessageUtils.getMessage(logType, messageArgs);
+        final String             expectedLogMessage = KmgMessageUtils.getLogMessage(logType, messageArgs);
 
         /* 準備 */
         final Logger          mockLogger = Mockito.mock(Logger.class);

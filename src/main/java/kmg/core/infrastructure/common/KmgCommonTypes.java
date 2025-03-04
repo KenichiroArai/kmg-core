@@ -3,7 +3,7 @@ package kmg.core.infrastructure.common;
 import java.util.function.Supplier;
 
 /**
- * KMG種類共通のインタフェース
+ * KMG共通種類のインタフェース
  *
  * @author KenichiroArai
  *

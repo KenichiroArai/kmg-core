@@ -11,7 +11,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import kmg.core.domain.types.KmgMsgMessageTypes;
-import kmg.core.infrastructure.common.KmgMessageTypes;
+import kmg.core.infrastructure.common.KmgCommonMsgMessageTypes;
 import kmg.core.infrastructure.exception.KmgReflectionException;
 import kmg.core.infrastructure.type.KmgString;
 import kmg.core.test.AbstractKmgTest;
@@ -23,7 +23,7 @@ import kmg.core.test.AbstractKmgTest;
  *
  * @since 0.1.0
  *
- * @version 0.1.0
+ * @version 0.2.0
  */
 @SuppressWarnings({
     "nls", "static-method"
@@ -490,7 +490,7 @@ public class KmgReflectionModelImplTest extends AbstractKmgTest {
         final Throwable       actualCause         = actualException.getCause();
         final String          actualMessage       = actualCause.getMessage();
         final String          actualDomainMessage = actualException.getMessage();
-        final KmgMessageTypes actualMessageTypes  = actualException.getMessageTypes();
+        final KmgMsgMessageTypes actualMessageTypes  = actualException.getMessageTypes();
 
         /* 検証の実施 */
         Assertions.assertTrue(actualCause instanceof SecurityException,

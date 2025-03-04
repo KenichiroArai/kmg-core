@@ -1,6 +1,6 @@
 package kmg.core.infrastructure.exception;
 
-import kmg.core.infrastructure.common.KmgMessageTypes;
+import kmg.core.infrastructure.common.KmgCommonMsgMessageTypes;
 import kmg.core.infrastructure.model.KmgReflectionModel;
 
 /**
@@ -10,7 +10,7 @@ import kmg.core.infrastructure.model.KmgReflectionModel;
  *
  * @since 0.1.0
  *
- * @version 0.1.0
+ * @version 0.2.0
  */
 public class KmgReflectionException extends KmgDomainException {
 
@@ -38,7 +38,7 @@ public class KmgReflectionException extends KmgDomainException {
      * @param messageTypes
      *                           メッセージの種類
      */
-    public KmgReflectionException(final KmgReflectionModel kmgReflectionModel, final KmgMessageTypes messageTypes) {
+    public KmgReflectionException(final KmgReflectionModel kmgReflectionModel, final KmgCommonMsgMessageTypes messageTypes) {
 
         this(kmgReflectionModel, messageTypes, null, null);
 
@@ -56,7 +56,7 @@ public class KmgReflectionException extends KmgDomainException {
      * @param messageArgs
      *                           メッセージの引数
      */
-    public KmgReflectionException(final KmgReflectionModel kmgReflectionModel, final KmgMessageTypes messageTypes,
+    public KmgReflectionException(final KmgReflectionModel kmgReflectionModel, final KmgCommonMsgMessageTypes messageTypes,
         final Object[] messageArgs) {
 
         this(kmgReflectionModel, messageTypes, messageArgs, null);
@@ -77,7 +77,7 @@ public class KmgReflectionException extends KmgDomainException {
      * @param cause
      *                           原因
      */
-    public KmgReflectionException(final KmgReflectionModel kmgReflectionModel, final KmgMessageTypes messageTypes,
+    public KmgReflectionException(final KmgReflectionModel kmgReflectionModel, final KmgCommonMsgMessageTypes messageTypes,
         final Object[] messageArgs, final Throwable cause) {
 
         super(messageTypes, messageArgs, cause);
@@ -97,7 +97,7 @@ public class KmgReflectionException extends KmgDomainException {
      * @param cause
      *                           原因
      */
-    public KmgReflectionException(final KmgReflectionModel kmgReflectionModel, final KmgMessageTypes messageTypes,
+    public KmgReflectionException(final KmgReflectionModel kmgReflectionModel, final KmgCommonMsgMessageTypes messageTypes,
         final Throwable cause) {
 
         this(kmgReflectionModel, messageTypes, null, cause);

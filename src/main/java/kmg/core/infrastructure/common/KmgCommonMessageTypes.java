@@ -1,7 +1,7 @@
 package kmg.core.infrastructure.common;
 
 /**
- * メッセージ共通の種類のインタフェース
+ * KMGメッセージ共通の種類のインタフェース
  *
  * @author KenichiroArai
  *
