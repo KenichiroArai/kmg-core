@@ -112,18 +112,24 @@ public final class KmgMessageUtils {
 
     /**
      * メッセージを取得する<br>
+     * メッセージタイプに対応するメッセージパターンを取得し、指定された引数で置換します。 このメソッドは {@link #getMessage(KmgMessageTypes, Object[], boolean)} を
+     * コード埋め込みフラグをtrueに設定して呼び出す便利メソッドです。
      *
      * @since 0.1.0
      *
      * @param type
-     *                    メッセージの種類
+     *                    メッセージの種類。対応するリソースからメッセージパターンを取得するために使用されます。
      * @param messageArgs
-     *                    メッセージの引数
+     *                    メッセージの引数。メッセージパターン内のプレースホルダーを置換するために使用されます。 nullの場合、メッセージパターンをそのまま返します。
      *
-     * @return メッセージ
+     * @return メッセージ。メッセージコードが先頭に埋め込まれます（例：「[E001] エラーメッセージ」）。
+     *
+     * @see #getMessage(KmgMessageTypes, Object[], boolean)
+     * @see KmgMessageTypes
      */
     public static String getMessage(final KmgMessageTypes type, final Object[] messageArgs) {
 
+        /* コード埋め込みフラグをtrueに設定して、メッセージを取得 */
         final String result = KmgMessageUtils.getMessage(type, messageArgs, true);
 
         return result;
@@ -132,17 +138,23 @@ public final class KmgMessageUtils {
 
     /**
      * コード埋め込みフラグを設定してメッセージを取得する<br>
+     * メッセージタイプに対応するメッセージパターンを取得し、指定された引数で置換します。 コード埋め込みフラグがtrueの場合、メッセージコードをメッセージの先頭に付加します。
      *
      * @since 0.2.0
      *
      * @param type
-     *                          メッセージの種類
+     *                          メッセージの種類。対応するリソースからメッセージパターンを取得するために使用されます。
      * @param messageArgs
-     *                          メッセージの引数
+     *                          メッセージの引数。メッセージパターン内のプレースホルダーを置換するために使用されます。 nullの場合、メッセージパターンをそのまま返します。
+     *                          空の配列や必要な引数数が不足している場合は、利用可能な引数のみで置換します。
      * @param codeEmbeddingFlag
-     *                          コード埋め込みフラグ
+     *                          コード埋め込みフラグ。trueの場合、メッセージコードをメッセージの先頭に追加します。 例: "[E001] エラーメッセージ"
      *
-     * @return メッセージ
+     * @return メッセージ。メッセージパターンが空の場合は空文字列を返します。
+     *
+     * @see KmgMessageTypes
+     * @see #getMessagePattern(KmgMessageTypes)
+     * @see #checkMessageArgsCount(String, Object[])
      */
     public static String getMessage(final KmgMessageTypes type, final Object[] messageArgs,
         final boolean codeEmbeddingFlag) {
@@ -150,34 +162,44 @@ public final class KmgMessageUtils {
         String       result         = KmgString.EMPTY;
         final String messagePattern = KmgMessageUtils.getMessagePattern(type);
 
-        if (KmgString.EMPTY.equals(messagePattern)) {
+        /* 引数のチェック */
+
+        // メッセージパターンが空の場合か
+        if (KmgString.isEmpty(messagePattern)) {
+            // 空の場合
+
+            // 空文字列を返す
 
             return result;
 
         }
 
-        if (messageArgs == null) {
+        // メッセージの引数が空の場合か/
+        if (KmgArrayUtils.isEmpty(messageArgs)) {
+            // 空の場合
+
+            // メッセージパターンをそのまま返す
 
             result = messagePattern;
             return result;
 
         }
 
-        if (messageArgs.length <= 0) {
+        /* メッセージの取得 */
 
-            result = messagePattern;
-            return result;
+        // メッセージパターンと引数を使用してメッセージをフォーマットする
+        String message = MessageFormat.format(messagePattern, messageArgs);
 
-        }
-
-        final String message = MessageFormat.format(messagePattern, messageArgs);
-
+        // コード埋め込みフラグがtrueか
         if (codeEmbeddingFlag) {
+            // trueの場合
 
-            result = String.format(KmgMessageUtils.CODE_EMBEDDING_FORMAT, type.getCode(), message);
+            // メッセージコードを先頭に付加する
+            message = String.format(KmgMessageUtils.CODE_EMBEDDING_FORMAT, type.getCode(), message);
 
         }
 
+        result = message;
         return result;
 
     }
