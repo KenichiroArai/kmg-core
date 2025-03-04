@@ -3,7 +3,7 @@ package kmg.core.infrastructure.types.template;
 import java.util.HashMap;
 import java.util.Map;
 
-import kmg.core.infrastructure.common.KmgTypes;
+import kmg.core.infrastructure.common.KmgCommonTypes;
 
 /**
  * KMGテンプレートの種類<br>
@@ -12,10 +12,10 @@ import kmg.core.infrastructure.common.KmgTypes;
  *
  * @since 0.1.0
  *
- * @version 0.1.0
+ * @version 0.2.0
  */
 @SuppressWarnings("nls")
-public enum KmgTemplateTypes implements KmgTypes<String> {
+public enum KmgTemplateTypes implements KmgCommonTypes<String> {
 
     /* 定義：開始 */
 

@@ -7,20 +7,20 @@ import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
 
-import kmg.core.infrastructure.common.KmgTypes;
+import kmg.core.infrastructure.common.KmgCommonTypes;
 import kmg.core.infrastructure.type.KmgString;
 
 /**
- * KMGＤＢ型の種類<br>
+ * KMGDB型の種類<br>
  *
  * @author KenichiroArai
  *
  * @since 0.1.0
  *
- * @version 0.1.0
+ * @version 0.2.0
  */
 @SuppressWarnings("nls")
-public enum KmgDbDataTypeTypes implements KmgTypes<String> {
+public enum KmgDbDataTypeTypes implements KmgCommonTypes<String> {
 
     /* 定義：開始 */
 

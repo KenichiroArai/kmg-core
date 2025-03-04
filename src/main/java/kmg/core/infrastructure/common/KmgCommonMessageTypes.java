@@ -7,9 +7,9 @@ package kmg.core.infrastructure.common;
  *
  * @since 0.1.0
  *
- * @version 0.1.0
+ * @version 0.2.0
  */
-public interface KmgCommonMessageTypes extends KmgTypes<String> {
+public interface KmgCommonMessageTypes extends KmgCommonTypes<String> {
 
     /**
      * メッセージのキーを返す。<br>

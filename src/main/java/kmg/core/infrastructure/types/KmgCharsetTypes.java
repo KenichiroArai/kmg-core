@@ -4,7 +4,7 @@ import java.nio.charset.Charset;
 import java.util.HashMap;
 import java.util.Map;
 
-import kmg.core.infrastructure.common.KmgTypes;
+import kmg.core.infrastructure.common.KmgCommonTypes;
 import kmg.core.infrastructure.type.KmgString;
 
 /**
@@ -14,10 +14,10 @@ import kmg.core.infrastructure.type.KmgString;
  *
  * @since 0.1.0
  *
- * @version 0.1.0
+ * @version 0.2.0
  */
 @SuppressWarnings("nls")
-public enum KmgCharsetTypes implements KmgTypes<String> {
+public enum KmgCharsetTypes implements KmgCommonTypes<String> {
 
     /* 定義：開始 */
 

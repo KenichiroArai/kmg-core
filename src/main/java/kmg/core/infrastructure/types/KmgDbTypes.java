@@ -3,21 +3,21 @@ package kmg.core.infrastructure.types;
 import java.util.HashMap;
 import java.util.Map;
 
-import kmg.core.infrastructure.common.KmgTypes;
+import kmg.core.infrastructure.common.KmgCommonTypes;
 import kmg.core.infrastructure.type.KmgString;
 import kmg.core.infrastructure.utils.KmgArrayUtils;
 
 /**
- * KMGＤＢの種類<br>
+ * KMGDBの種類<br>
  *
  * @author KenichiroArai
  *
  * @since 0.1.0
  *
- * @version 0.1.0
+ * @version 0.2.0
  */
 @SuppressWarnings("nls")
-public enum KmgDbTypes implements KmgTypes<String> {
+public enum KmgDbTypes implements KmgCommonTypes<String> {
 
     /* 定義：開始 */
 
