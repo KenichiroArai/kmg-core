@@ -20,6 +20,13 @@ import kmg.core.infrastructure.type.KmgString;
 public final class KmgMessageUtils {
 
     /**
+     * コード埋め込みフォーマット
+     *
+     * @since 0.2.0
+     */
+    private static final String CODE_EMBEDDING_FORMAT = "[%s] %s"; //$NON-NLS-1$
+
+    /**
      * リソースバンドルマップ
      *
      * @since 0.1.0
@@ -117,6 +124,29 @@ public final class KmgMessageUtils {
      */
     public static String getMessage(final KmgMessageTypes type, final Object[] messageArgs) {
 
+        final String result = KmgMessageUtils.getMessage(type, messageArgs, true);
+
+        return result;
+
+    }
+
+    /**
+     * コード埋め込みフラグを設定してメッセージを取得する<br>
+     *
+     * @since 0.2.0
+     *
+     * @param type
+     *                          メッセージの種類
+     * @param messageArgs
+     *                          メッセージの引数
+     * @param codeEmbeddingFlag
+     *                          コード埋め込みフラグ
+     *
+     * @return メッセージ
+     */
+    public static String getMessage(final KmgMessageTypes type, final Object[] messageArgs,
+        final boolean codeEmbeddingFlag) {
+
         String       result         = KmgString.EMPTY;
         final String messagePattern = KmgMessageUtils.getMessagePattern(type);
 
@@ -126,7 +156,6 @@ public final class KmgMessageUtils {
 
         }
 
-        /* メッセージの引数を埋め込みメッセージを作成する */
         if (messageArgs == null) {
 
             result = messagePattern;
@@ -141,7 +170,14 @@ public final class KmgMessageUtils {
 
         }
 
-        result = MessageFormat.format(messagePattern, messageArgs);
+        final String message = MessageFormat.format(messagePattern, messageArgs);
+
+        if (codeEmbeddingFlag) {
+
+            result = String.format(KmgMessageUtils.CODE_EMBEDDING_FORMAT, type.getCode(), message);
+
+        }
+
         return result;
 
     }
