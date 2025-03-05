@@ -17,6 +17,7 @@ import kmg.core.infrastructure.type.KmgString;
  *
  * @version 0.2.0
  */
+@SuppressWarnings("nls")
 public final class KmgPathUtils {
 
     /**
@@ -52,7 +53,7 @@ public final class KmgPathUtils {
         } catch (final URISyntaxException e) {
 
             final KmgCoreGenMessageTypes msgTypes = KmgCoreGenMessageTypes.KMGCOREGEN24000;
-            final Object[]           msgArgs  = {
+            final Object[]               msgArgs  = {
                 zlass.getName()
             };
             throw new KmgDomainException(msgTypes, msgArgs, e);
@@ -208,6 +209,47 @@ public final class KmgPathUtils {
     }
 
     /**
+     * シンプルなクラス名を返す<br>
+     * <p>
+     * クラスのシンプルな名前を返す。<br>
+     * クラス名に「$$」が含まれている場合は、その前の部分だけを返す。<br>
+     * </p>
+     *
+     * @since 0.2.0
+     *
+     * @param zlass
+     *              クラス
+     *
+     * @return シンプルなクラス名
+     */
+    public static String getSimpleClassName(final Class<?> zlass) {
+
+        String result = null;
+
+        if (zlass == null) {
+
+            return result;
+
+        }
+
+        result = zlass.getSimpleName();
+
+        // $$があるか
+        if (result.contains("$$")) {
+
+            // $$がある場合
+
+            // $$の前の部分だけを使用する
+
+            result = result.substring(0, result.indexOf("$$"));
+
+        }
+
+        return result;
+
+    }
+
+    /**
      * クラスのコードソースの場所を取得する<br>
      * <p>
      * クラスのコードソースの場所をパスとして返す。<br>
@@ -281,7 +323,7 @@ public final class KmgPathUtils {
         }
 
         classFullPath = KmgString.snakeCase(classFullPath);
-        classFullPath = KmgString.concat(packageName.replace('.', '/'), "/", classFullPath); //$NON-NLS-1$
+        classFullPath = KmgString.concat(packageName.replace('.', '/'), "/", classFullPath);
 
         String binPathStr = KmgString.EMPTY;
 
@@ -291,7 +333,7 @@ public final class KmgPathUtils {
 
         }
 
-        result = Paths.get(String.format("%s/%s/%s", binPathStr, classFullPath, fileName)); //$NON-NLS-1$
+        result = Paths.get(String.format("%s/%s/%s", binPathStr, classFullPath, fileName));
 
         return result;
 
