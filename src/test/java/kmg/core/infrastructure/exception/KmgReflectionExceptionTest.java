@@ -67,7 +67,7 @@ public class KmgReflectionExceptionTest {
     public void setUp() {
 
         /* 期待値の定義 */
-        this.messageTypes = KmgCoreGenMessageTypes.KMGCOREMSG11100;
+        this.messageTypes = KmgCoreGenMessageTypes.KMGCOREGEN11100;
         this.message = "{0}がありません。";
 
     }

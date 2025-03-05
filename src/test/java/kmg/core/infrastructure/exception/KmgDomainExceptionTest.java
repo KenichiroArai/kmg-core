@@ -42,7 +42,7 @@ public class KmgDomainExceptionTest {
     public void testConstructor_normalWithMessageTypes() {
 
         /* 期待値の定義 */
-        final KmgCoreGenMessageTypes expectedMsgTypes = KmgCoreGenMessageTypes.KMGCOREMSG11100;
+        final KmgCoreGenMessageTypes expectedMsgTypes = KmgCoreGenMessageTypes.KMGCOREGEN11100;
         final String             expectedMessage  = "{0}がありません。";
 
         /* テスト対象の実行 */
@@ -67,7 +67,7 @@ public class KmgDomainExceptionTest {
     public void testConstructor_normalWithMessageTypesAndArgs() {
 
         /* 期待値の定義 */
-        final KmgCoreGenMessageTypes expectedMsgTypes = KmgCoreGenMessageTypes.KMGCOREMSG11100;
+        final KmgCoreGenMessageTypes expectedMsgTypes = KmgCoreGenMessageTypes.KMGCOREGEN11100;
         final Object[]           expectedMsgArgs  = {
             "テスト引数1", "テスト引数2"
         };
@@ -97,7 +97,7 @@ public class KmgDomainExceptionTest {
     public void testConstructor_normalWithMessageTypesAndCause() {
 
         /* 期待値の定義 */
-        final KmgCoreGenMessageTypes expectedMsgTypes = KmgCoreGenMessageTypes.KMGCOREMSG11100;
+        final KmgCoreGenMessageTypes expectedMsgTypes = KmgCoreGenMessageTypes.KMGCOREGEN11100;
         final String             expectedMessage  = "{0}がありません。";
         final Throwable          expectedCause    = new RuntimeException("テスト原因");
 
