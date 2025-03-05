@@ -4,7 +4,7 @@ import java.net.URISyntaxException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-import kmg.core.domain.types.KmgGenMessageTypes;
+import kmg.core.domain.types.KmgCoreGenMessageTypes;
 import kmg.core.infrastructure.exception.KmgDomainException;
 import kmg.core.infrastructure.type.KmgString;
 
@@ -51,7 +51,7 @@ public final class KmgPathUtils {
 
         } catch (final URISyntaxException e) {
 
-            final KmgGenMessageTypes msgTypes = KmgGenMessageTypes.KMGMSGE24000;
+            final KmgCoreGenMessageTypes msgTypes = KmgCoreGenMessageTypes.KMGMSGE24000;
             final Object[]           msgArgs  = {
                 zlass.getName()
             };

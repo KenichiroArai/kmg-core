@@ -6,7 +6,7 @@ import java.util.Map;
 import kmg.core.infrastructure.common.KmgComGenMessageTypes;
 
 /**
- * KMG一般メッセージの種類<br>
+ * KMGコア一般メッセージの種類<br>
  *
  * @author KenichiroArai
  *
@@ -15,7 +15,7 @@ import kmg.core.infrastructure.common.KmgComGenMessageTypes;
  * @version 0.2.0
  */
 @SuppressWarnings("nls")
-public enum KmgGenMessageTypes implements KmgComGenMessageTypes {
+public enum KmgCoreGenMessageTypes implements KmgComGenMessageTypes {
 
     /* 定義：開始 */
 
@@ -181,14 +181,14 @@ public enum KmgGenMessageTypes implements KmgComGenMessageTypes {
      *
      * @since 0.1.0
      */
-    private static final Map<String, KmgGenMessageTypes> VALUES_MAP = new HashMap<>();
+    private static final Map<String, KmgCoreGenMessageTypes> VALUES_MAP = new HashMap<>();
 
     static {
 
         /* 種類のマップにプット */
-        for (final KmgGenMessageTypes type : KmgGenMessageTypes.values()) {
+        for (final KmgCoreGenMessageTypes type : KmgCoreGenMessageTypes.values()) {
 
-            KmgGenMessageTypes.VALUES_MAP.put(type.get(), type);
+            KmgCoreGenMessageTypes.VALUES_MAP.put(type.get(), type);
 
         }
 
@@ -229,9 +229,9 @@ public enum KmgGenMessageTypes implements KmgComGenMessageTypes {
      *
      * @return デフォルト値
      */
-    public static KmgGenMessageTypes getDefault() {
+    public static KmgCoreGenMessageTypes getDefault() {
 
-        final KmgGenMessageTypes result = NONE;
+        final KmgCoreGenMessageTypes result = NONE;
         return result;
 
     }
@@ -249,9 +249,9 @@ public enum KmgGenMessageTypes implements KmgComGenMessageTypes {
      *
      * @return 種類。指定無し（NONE）：キーが存在しない場合。
      */
-    public static KmgGenMessageTypes getEnum(final String key) {
+    public static KmgCoreGenMessageTypes getEnum(final String key) {
 
-        KmgGenMessageTypes result = KmgGenMessageTypes.VALUES_MAP.get(key);
+        KmgCoreGenMessageTypes result = KmgCoreGenMessageTypes.VALUES_MAP.get(key);
 
         if (result == null) {
 
@@ -269,9 +269,9 @@ public enum KmgGenMessageTypes implements KmgComGenMessageTypes {
      *
      * @return 初期値
      */
-    public static KmgGenMessageTypes getInitValue() {
+    public static KmgCoreGenMessageTypes getInitValue() {
 
-        final KmgGenMessageTypes result = NONE;
+        final KmgCoreGenMessageTypes result = NONE;
         return result;
 
     }
@@ -284,7 +284,7 @@ public enum KmgGenMessageTypes implements KmgComGenMessageTypes {
      * @param displayName
      *                    表示名
      */
-    KmgGenMessageTypes(final String displayName) {
+    KmgCoreGenMessageTypes(final String displayName) {
 
         this.displayName = displayName;
         this.key = super.name();

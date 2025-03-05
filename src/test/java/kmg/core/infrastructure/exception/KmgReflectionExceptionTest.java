@@ -7,7 +7,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import kmg.core.domain.types.KmgGenMessageTypes;
+import kmg.core.domain.types.KmgCoreGenMessageTypes;
 import kmg.core.infrastructure.common.KmgComGenMessageTypes;
 import kmg.core.infrastructure.model.KmgReflectionModel;
 
@@ -39,7 +39,7 @@ public class KmgReflectionExceptionTest {
      *
      * @since 0.1.0
      */
-    private KmgGenMessageTypes messageTypes;
+    private KmgCoreGenMessageTypes messageTypes;
 
     /**
      * メッセージ
@@ -67,7 +67,7 @@ public class KmgReflectionExceptionTest {
     public void setUp() {
 
         /* 期待値の定義 */
-        this.messageTypes = KmgGenMessageTypes.KMGMSGE11100;
+        this.messageTypes = KmgCoreGenMessageTypes.KMGMSGE11100;
         this.message = "{0}がありません。";
 
     }
