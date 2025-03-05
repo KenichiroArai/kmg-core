@@ -10,6 +10,35 @@ import kmg.core.infrastructure.type.KmgString;
 
 /**
  * KMGパスユーティリティ<br>
+ * <p>
+ * このクラスはファイルパスの操作に関するユーティリティメソッド群を提供します。<br>
+ * 特にJavaクラスおよびオブジェクトに関連するパス操作（ビルドパスの取得、クラスの完全パスの取得など）、 ファイル名の抽出、内部クラスやプロキシクラスの処理などの機能を持っています。<br>
+ * 全てのメソッドは静的（static）で、インスタンス化せずに使用することができます。<br>
+ * </p>
+ * <p>
+ * 主な機能：
+ * <ul>
+ * <li>クラスまたはオブジェクトからビルドパスを取得</li>
+ * <li>クラスとファイル名から完全パスを生成</li>
+ * <li>ファイルパスからファイル名のみを抽出</li>
+ * <li>プロキシクラスやInner Classに対応したシンプルなクラス名の取得</li>
+ * </ul>
+ * </p>
+ * <p>
+ * 使用例：
+ *
+ * <pre>
+ *
+ * // クラスのビルドパスを取得
+ * Path binPath = KmgPathUtils.getBinPath(MyClass.class);
+ *
+ * // ファイル名のみを取得
+ * String fileName = KmgPathUtils.getFileNameOnly(Paths.get("path/to/file.txt"));
+ *
+ * // クラスとファイル名からフルパスを取得
+ * Path fullPath = KmgPathUtils.getClassFullPath(MyClass.class, Paths.get("config.xml"));
+ * </pre>
+ * </p>
  *
  * @author KenichiroArai
  *
