@@ -37,9 +37,9 @@ public enum KmgCoreLogMessageTypes implements KmgComLogMessageTypes {
      *
      * @since 0.1.0
      *
-     * @version 0.1.0
+     * @version 0.2.0
      */
-    KMGLOGI12000("KMGLOGI12000"),
+    KMGCORELOGI12000("KMGCORELOGI12000"),
 
     /**
      * {0}：終了。経過時間=[{1}{2}]
@@ -48,9 +48,9 @@ public enum KmgCoreLogMessageTypes implements KmgComLogMessageTypes {
      *
      * @since 0.1.0
      *
-     * @version 0.1.0
+     * @version 0.2.0
      */
-    KMGLOGI12001("KMGLOGI12001"),
+    KMGCORELOGI12001("KMGCORELOGI12001"),
 
     /**
      * {0}：{1}。経過時間=[{2}{3}]
@@ -61,7 +61,7 @@ public enum KmgCoreLogMessageTypes implements KmgComLogMessageTypes {
      *
      * @version 0.2.0
      */
-    KMGLOGE12002("KMGLOGE12002"),
+    KMGCORELOGE12002("KMGCORELOGE12002"),
 
     /**
      * {0}：{1}。経過時間=[{2}{3}]
@@ -72,7 +72,7 @@ public enum KmgCoreLogMessageTypes implements KmgComLogMessageTypes {
      *
      * @version 0.2.0
      */
-    KMGLOGI12003("KMGLOGI12003"),
+    KMGCORELOGI12003("KMGCORELOGI12003"),
 
     /**
      * {0}：{1}。経過時間=[{2}{3}]
@@ -83,7 +83,7 @@ public enum KmgCoreLogMessageTypes implements KmgComLogMessageTypes {
      *
      * @version 0.2.0
      */
-    KMGLOGW12004("KMGLOGW12004"),
+    KMGCORELOGW12004("KMGCORELOGW12004"),
 
     /* 定義：終了 */
     ;

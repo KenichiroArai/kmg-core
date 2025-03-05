@@ -91,7 +91,7 @@ public class KmgPfaMeasServiceImpl implements KmgPfaMeasService {
         this.kmgPfaMeasModel.end();
 
         /* ログの出力 */
-        final KmgCoreLogMessageTypes logType     = KmgCoreLogMessageTypes.KMGLOGI12001;
+        final KmgCoreLogMessageTypes logType     = KmgCoreLogMessageTypes.KMGCORELOGI12001;
         final Object[]           messageArgs = {
             this.name, this.kmgPfaMeasModel.getElapsedTime(), this.kmgPfaMeasModel.getTimeUnit().getUnitName(),
         };
@@ -138,7 +138,7 @@ public class KmgPfaMeasServiceImpl implements KmgPfaMeasService {
         this.kmgPfaMeasModel.checkpoint();
 
         /* ログの出力 */
-        final KmgCoreLogMessageTypes logType     = KmgCoreLogMessageTypes.KMGLOGE12002;
+        final KmgCoreLogMessageTypes logType     = KmgCoreLogMessageTypes.KMGCORELOGE12002;
         final Object[]           messageArgs = {
             this.name, msgContents, this.kmgPfaMeasModel.getElapsedTime(),
             this.kmgPfaMeasModel.getTimeUnit().getUnitName(),
@@ -178,7 +178,7 @@ public class KmgPfaMeasServiceImpl implements KmgPfaMeasService {
         this.kmgPfaMeasModel.checkpoint();
 
         /* ログの出力 */
-        final KmgCoreLogMessageTypes logType     = KmgCoreLogMessageTypes.KMGLOGI12003;
+        final KmgCoreLogMessageTypes logType     = KmgCoreLogMessageTypes.KMGCORELOGI12003;
         final Object[]           messageArgs = {
             this.name, msgContents, this.kmgPfaMeasModel.getElapsedTime(),
             this.kmgPfaMeasModel.getTimeUnit().getUnitName(),
@@ -200,7 +200,7 @@ public class KmgPfaMeasServiceImpl implements KmgPfaMeasService {
     public void start() {
 
         /* ログの出力 */
-        final KmgCoreLogMessageTypes logType     = KmgCoreLogMessageTypes.KMGLOGI12000;
+        final KmgCoreLogMessageTypes logType     = KmgCoreLogMessageTypes.KMGCORELOGI12000;
         final Object[]           messageArgs = {
             this.name,
         };
@@ -230,7 +230,7 @@ public class KmgPfaMeasServiceImpl implements KmgPfaMeasService {
         this.kmgPfaMeasModel.checkpoint();
 
         /* ログの出力 */
-        final KmgCoreLogMessageTypes logType     = KmgCoreLogMessageTypes.KMGLOGW12004;
+        final KmgCoreLogMessageTypes logType     = KmgCoreLogMessageTypes.KMGCORELOGW12004;
         final Object[]           messageArgs = {
             this.name, msgContents, this.kmgPfaMeasModel.getElapsedTime(),
             this.kmgPfaMeasModel.getTimeUnit().getUnitName(),
