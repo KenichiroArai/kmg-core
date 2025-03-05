@@ -6,7 +6,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import kmg.core.domain.types.KmgGenMessageTypes;
-import kmg.core.infrastructure.common.KmgCommonGenMessageTypes;
+import kmg.core.infrastructure.common.KmgComGenMessageTypes;
 
 /**
  * KMGドメイン例外テスト<br>
@@ -50,7 +50,7 @@ public class KmgDomainExceptionTest {
 
         /* 検証の準備 */
         final String                   actualMessage  = testException.getMessage();
-        final KmgCommonGenMessageTypes actualMsgTypes = testException.getMessageTypes();
+        final KmgComGenMessageTypes actualMsgTypes = testException.getMessageTypes();
 
         /* 検証の実施 */
         Assertions.assertEquals(expectedMsgTypes, actualMsgTypes, "メッセージタイプが一致しません");
@@ -78,7 +78,7 @@ public class KmgDomainExceptionTest {
 
         /* 検証の準備 */
         final String                   actualMessage  = testException.getMessage();
-        final KmgCommonGenMessageTypes actualMsgTypes = testException.getMessageTypes();
+        final KmgComGenMessageTypes actualMsgTypes = testException.getMessageTypes();
         final Object[]                 actualMsgArgs  = testException.getMessageArgs();
 
         /* 検証の実施 */
@@ -106,7 +106,7 @@ public class KmgDomainExceptionTest {
 
         /* 検証の準備 */
         final String                   actualMessage  = testException.getMessage();
-        final KmgCommonGenMessageTypes actualMsgTypes = testException.getMessageTypes();
+        final KmgComGenMessageTypes actualMsgTypes = testException.getMessageTypes();
         final Throwable                actualCause    = testException.getCause();
 
         /* 検証の実施 */

@@ -9,7 +9,7 @@ package kmg.core.infrastructure.common;
  *
  * @version 0.2.0
  */
-public interface KmgCommonLogMessageTypes extends KmgCommonMessageTypes {
+public interface KmgComLogMessageTypes extends KmgComMessageTypes {
 
     // 処理なし
 

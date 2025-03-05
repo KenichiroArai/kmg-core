@@ -3,7 +3,7 @@ package kmg.core.domain.types;
 import java.util.HashMap;
 import java.util.Map;
 
-import kmg.core.infrastructure.common.KmgCommonGenMessageTypes;
+import kmg.core.infrastructure.common.KmgComGenMessageTypes;
 
 /**
  * KMG一般メッセージの種類<br>
@@ -15,7 +15,7 @@ import kmg.core.infrastructure.common.KmgCommonGenMessageTypes;
  * @version 0.2.0
  */
 @SuppressWarnings("nls")
-public enum KmgGenMessageTypes implements KmgCommonGenMessageTypes {
+public enum KmgGenMessageTypes implements KmgComGenMessageTypes {
 
     /* 定義：開始 */
 

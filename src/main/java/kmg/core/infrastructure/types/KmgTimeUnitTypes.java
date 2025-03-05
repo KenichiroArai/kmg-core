@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
 
-import kmg.core.infrastructure.common.KmgCommonTypes;
+import kmg.core.infrastructure.common.KmgComTypes;
 
 /**
  * KMG時間単位の種類<br>
@@ -16,7 +16,7 @@ import kmg.core.infrastructure.common.KmgCommonTypes;
  * @version 0.2.0
  */
 @SuppressWarnings("nls")
-public enum KmgTimeUnitTypes implements KmgCommonTypes<String> {
+public enum KmgTimeUnitTypes implements KmgComTypes<String> {
 
     /* 定義：開始 */
 

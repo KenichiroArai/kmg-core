@@ -3,7 +3,7 @@ package kmg.core.infrastructure.types;
 import java.util.HashMap;
 import java.util.Map;
 
-import kmg.core.infrastructure.common.KmgCommonTypes;
+import kmg.core.infrastructure.common.KmgComTypes;
 import kmg.core.infrastructure.type.KmgString;
 import kmg.core.infrastructure.utils.KmgArrayUtils;
 
@@ -17,7 +17,7 @@ import kmg.core.infrastructure.utils.KmgArrayUtils;
  * @version 0.2.0
  */
 @SuppressWarnings("nls")
-public enum KmgDbTypes implements KmgCommonTypes<String> {
+public enum KmgDbTypes implements KmgComTypes<String> {
 
     /* 定義：開始 */
 

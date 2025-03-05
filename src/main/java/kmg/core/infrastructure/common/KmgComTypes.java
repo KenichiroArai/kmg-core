@@ -14,7 +14,7 @@ import java.util.function.Supplier;
  * @param <T>
  *            列挙型の型パラメータ
  */
-public interface KmgCommonTypes<T> extends Supplier<T> {
+public interface KmgComTypes<T> extends Supplier<T> {
 
     /**
      * キーを返す。<br>

@@ -1,6 +1,6 @@
 package kmg.core.infrastructure.exception;
 
-import kmg.core.infrastructure.common.KmgCommonGenMessageTypes;
+import kmg.core.infrastructure.common.KmgComGenMessageTypes;
 
 /**
  * KMGシステム例外<br>
@@ -28,7 +28,7 @@ public class KmgSystemException extends KmgException {
      * @param messageTypes
      *                     メッセージの種類
      */
-    public KmgSystemException(final KmgCommonGenMessageTypes messageTypes) {
+    public KmgSystemException(final KmgComGenMessageTypes messageTypes) {
 
         this(messageTypes, null, null);
 
@@ -44,7 +44,7 @@ public class KmgSystemException extends KmgException {
      * @param messageArgs
      *                     メッセージの引数
      */
-    public KmgSystemException(final KmgCommonGenMessageTypes messageTypes, final Object[] messageArgs) {
+    public KmgSystemException(final KmgComGenMessageTypes messageTypes, final Object[] messageArgs) {
 
         this(messageTypes, messageArgs, null);
 
@@ -62,7 +62,7 @@ public class KmgSystemException extends KmgException {
      * @param cause
      *                     原因
      */
-    public KmgSystemException(final KmgCommonGenMessageTypes messageTypes, final Object[] messageArgs,
+    public KmgSystemException(final KmgComGenMessageTypes messageTypes, final Object[] messageArgs,
         final Throwable cause) {
 
         super(messageTypes, messageArgs, cause);
@@ -79,7 +79,7 @@ public class KmgSystemException extends KmgException {
      * @param cause
      *                     原因
      */
-    public KmgSystemException(final KmgCommonGenMessageTypes messageTypes, final Throwable cause) {
+    public KmgSystemException(final KmgComGenMessageTypes messageTypes, final Throwable cause) {
 
         this(messageTypes, null, cause);
 
