@@ -139,7 +139,7 @@ public class KmgSqlPathModelImpl implements KmgSqlPathModel {
 
         } catch (final IOException e) {
 
-            final KmgCoreGenMessageTypes msgTypes = KmgCoreGenMessageTypes.KMGMSGE11100;
+            final KmgCoreGenMessageTypes msgTypes = KmgCoreGenMessageTypes.KMGCOREMSG11100;
             final Object[]           msgArgs  = {
                 this.sqlFilePath
             };
