@@ -4,25 +4,25 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 /**
- * KMGメッセージメッセージの種類のテスト<br>
+ * KMG一般メッセージの種類のテスト<br>
  *
  * @author KenichiroArai
  *
  * @since 0.1.0
  *
- * @version 0.1.0
+ * @version 0.2.0
  */
 @SuppressWarnings({
     "nls", "static-method"
 })
-public class KmgMsgMessageTypesTest {
+public class KmgGenMessageTypesTest {
 
     /**
      * デフォルトコンストラクタ<br>
      *
      * @since 0.1.0
      */
-    public KmgMsgMessageTypesTest() {
+    public KmgGenMessageTypesTest() {
 
         // 処理なし
     }
@@ -39,7 +39,7 @@ public class KmgMsgMessageTypesTest {
         final String expected = "KMGMSGE11100";
 
         /* 準備 */
-        final KmgMsgMessageTypes testType = KmgMsgMessageTypes.KMGMSGE11100;
+        final KmgGenMessageTypes testType = KmgGenMessageTypes.KMGMSGE11100;
 
         /* テスト対象の実行 */
         final String actual = testType.get();
@@ -61,7 +61,7 @@ public class KmgMsgMessageTypesTest {
         final String expected = "KMGMSGE11100";
 
         /* 準備 */
-        final KmgMsgMessageTypes testType = KmgMsgMessageTypes.KMGMSGE11100;
+        final KmgGenMessageTypes testType = KmgGenMessageTypes.KMGMSGE11100;
 
         /* テスト対象の実行 */
         final String actual = testType.getCode();
@@ -80,10 +80,10 @@ public class KmgMsgMessageTypesTest {
     public void testGetDefault_normalDefaultValue() {
 
         /* 期待値の定義 */
-        final KmgMsgMessageTypes expected = KmgMsgMessageTypes.NONE;
+        final KmgGenMessageTypes expected = KmgGenMessageTypes.NONE;
 
         /* テスト対象の実行 */
-        final KmgMsgMessageTypes actual = KmgMsgMessageTypes.getDefault();
+        final KmgGenMessageTypes actual = KmgGenMessageTypes.getDefault();
 
         /* 検証の実施 */
         Assertions.assertEquals(expected, actual, "デフォルト値が一致しません");
@@ -102,7 +102,7 @@ public class KmgMsgMessageTypesTest {
         final String expected = "{0}がありません。";
 
         /* 準備 */
-        final KmgMsgMessageTypes testType = KmgMsgMessageTypes.KMGMSGE11100;
+        final KmgGenMessageTypes testType = KmgGenMessageTypes.KMGMSGE11100;
 
         /* テスト対象の実行 */
         final String actual = testType.getDetail();
@@ -124,7 +124,7 @@ public class KmgMsgMessageTypesTest {
         final String expected = "{0}がありません。";
 
         /* 準備 */
-        final KmgMsgMessageTypes testType = KmgMsgMessageTypes.KMGMSGE11100;
+        final KmgGenMessageTypes testType = KmgGenMessageTypes.KMGMSGE11100;
 
         /* テスト対象の実行 */
         final String actual = testType.getDisplayName();
@@ -143,13 +143,13 @@ public class KmgMsgMessageTypesTest {
     public void testGetEnum_normalExistingValue() {
 
         /* 期待値の定義 */
-        final KmgMsgMessageTypes expected = KmgMsgMessageTypes.KMGMSGE11100;
+        final KmgGenMessageTypes expected = KmgGenMessageTypes.KMGMSGE11100;
 
         /* 準備 */
         final String testValue = "KMGMSGE11100";
 
         /* テスト対象の実行 */
-        final KmgMsgMessageTypes actual = KmgMsgMessageTypes.getEnum(testValue);
+        final KmgGenMessageTypes actual = KmgGenMessageTypes.getEnum(testValue);
 
         /* 検証の実施 */
         Assertions.assertEquals(expected, actual, "値が一致しません");
@@ -165,13 +165,13 @@ public class KmgMsgMessageTypesTest {
     public void testGetEnum_semiNonExistingValue() {
 
         /* 期待値の定義 */
-        final KmgMsgMessageTypes expected = KmgMsgMessageTypes.NONE;
+        final KmgGenMessageTypes expected = KmgGenMessageTypes.NONE;
 
         /* 準備 */
         final String testValue = "INVALID";
 
         /* テスト対象の実行 */
-        final KmgMsgMessageTypes actual = KmgMsgMessageTypes.getEnum(testValue);
+        final KmgGenMessageTypes actual = KmgGenMessageTypes.getEnum(testValue);
 
         /* 検証の実施 */
         Assertions.assertEquals(expected, actual, "値が一致しません");
@@ -187,10 +187,10 @@ public class KmgMsgMessageTypesTest {
     public void testGetInitValue_normalInitialValue() {
 
         /* 期待値の定義 */
-        final KmgMsgMessageTypes expected = KmgMsgMessageTypes.NONE;
+        final KmgGenMessageTypes expected = KmgGenMessageTypes.NONE;
 
         /* テスト対象の実行 */
-        final KmgMsgMessageTypes actual = KmgMsgMessageTypes.getInitValue();
+        final KmgGenMessageTypes actual = KmgGenMessageTypes.getInitValue();
 
         /* 検証の実施 */
         Assertions.assertEquals(expected, actual, "初期値が一致しません");
@@ -209,7 +209,7 @@ public class KmgMsgMessageTypesTest {
         final String expected = "{0}がありません。";
 
         /* 準備 */
-        final KmgMsgMessageTypes testType = KmgMsgMessageTypes.KMGMSGE11100;
+        final KmgGenMessageTypes testType = KmgGenMessageTypes.KMGMSGE11100;
 
         /* テスト対象の実行 */
         final String actual = testType.getValue();
@@ -231,7 +231,7 @@ public class KmgMsgMessageTypesTest {
         final String expected = "KMGMSGE11100";
 
         /* 準備 */
-        final KmgMsgMessageTypes testType = KmgMsgMessageTypes.KMGMSGE11100;
+        final KmgGenMessageTypes testType = KmgGenMessageTypes.KMGMSGE11100;
 
         /* テスト対象の実行 */
         final String actual = testType.toString();
@@ -253,7 +253,7 @@ public class KmgMsgMessageTypesTest {
         final String expected = "NONE";
 
         /* 準備 */
-        final KmgMsgMessageTypes testType = KmgMsgMessageTypes.NONE;
+        final KmgGenMessageTypes testType = KmgGenMessageTypes.NONE;
 
         /* テスト対象の実行 */
         final String actual = testType.toString();

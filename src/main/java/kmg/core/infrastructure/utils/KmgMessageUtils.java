@@ -7,7 +7,7 @@ import java.util.ResourceBundle;
 
 import kmg.core.infrastructure.common.KmgCommonLogMessageTypes;
 import kmg.core.infrastructure.common.KmgCommonMessageTypes;
-import kmg.core.infrastructure.common.KmgCommonMsgMessageTypes;
+import kmg.core.infrastructure.common.KmgCommonGenMessageTypes;
 import kmg.core.infrastructure.type.KmgString;
 
 /**
@@ -127,7 +127,7 @@ public final class KmgMessageUtils {
      * @return メッセージ。メッセージコードが先頭に埋め込まれます（例：「[E001] エラーメッセージ」）。
      *
      * @see #getMessage(KmgCommonMessageTypes, Object[], boolean)
-     * @see KmgCommonMsgMessageTypes
+     * @see KmgCommonGenMessageTypes
      */
     public static String getLogMessage(final KmgCommonLogMessageTypes type, final Object[] messageArgs) {
 
@@ -154,7 +154,7 @@ public final class KmgMessageUtils {
      *
      * @return メッセージ。メッセージパターンが空の場合は空文字列を返します。
      *
-     * @see KmgCommonMsgMessageTypes
+     * @see KmgCommonGenMessageTypes
      * @see #getMessagePattern(KmgCommonMessageTypes)
      * @see #checkMessageArgsCount(String, Object[])
      */
@@ -221,9 +221,9 @@ public final class KmgMessageUtils {
      * @return メッセージ。メッセージコードは埋め込まれません。
      *
      * @see #getMessage(KmgCommonMessageTypes, Object[], boolean)
-     * @see KmgCommonMsgMessageTypes
+     * @see KmgCommonGenMessageTypes
      */
-    public static String getMessage(final KmgCommonMsgMessageTypes type, final Object[] messageArgs) {
+    public static String getMessage(final KmgCommonGenMessageTypes type, final Object[] messageArgs) {
 
         /* コード埋め込みフラグをfalseに設定して、メッセージを取得 */
         final String result = KmgMessageUtils.getMessage(type, messageArgs, false);
@@ -317,7 +317,7 @@ public final class KmgMessageUtils {
     }
 
     /**
-     * メッセージメッセージを取得する<br>
+     * 一般メッセージを取得する<br>
      * メッセージタイプに対応するメッセージパターンを取得し、指定された引数で置換します。 このメソッドは {@link #getMessage(KmgCommonMessageTypes, Object[], boolean)} を
      * コード埋め込みフラグをfalseに設定して呼び出す便利メソッドです。
      *
@@ -331,9 +331,9 @@ public final class KmgMessageUtils {
      * @return メッセージ。メッセージコードは埋め込まれません。
      *
      * @see #getMessage(KmgCommonMessageTypes, Object[], boolean)
-     * @see KmgCommonMsgMessageTypes
+     * @see KmgCommonGenMessageTypes
      */
-    public static String getMsgMessage(final KmgCommonMsgMessageTypes type, final Object[] messageArgs) {
+    public static String getMsgMessage(final KmgCommonGenMessageTypes type, final Object[] messageArgs) {
 
         /* コード埋め込みフラグをfalseに設定して、メッセージを取得 */
         final String result = KmgMessageUtils.getMessage(type, messageArgs, false);

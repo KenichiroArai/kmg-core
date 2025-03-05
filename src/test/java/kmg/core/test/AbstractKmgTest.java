@@ -2,7 +2,7 @@ package kmg.core.test;
 
 import org.junit.jupiter.api.Assertions;
 
-import kmg.core.infrastructure.common.KmgCommonMsgMessageTypes;
+import kmg.core.infrastructure.common.KmgCommonGenMessageTypes;
 import kmg.core.infrastructure.exception.KmgException;
 
 /**
@@ -43,12 +43,12 @@ public abstract class AbstractKmgTest {
      */
     @SuppressWarnings("static-method")
     protected void verifyKmgException(final KmgException actualException, final Class<?> expectedCauseClass,
-        final String expectedDomainMessage, final KmgCommonMsgMessageTypes expectedMessageTypes) {
+        final String expectedDomainMessage, final KmgCommonGenMessageTypes expectedMessageTypes) {
 
         /* 検証の準備 */
         final Throwable       actualCause                   = actualException.getCause();                // 実際の例外の原因
         final String          actualDomainMessage           = actualException.getMessage();              // 実際のドメインメッセージ
-        final KmgCommonMsgMessageTypes actualMessageTypes            = actualException.getMessageTypes();         // 実際のメッセージタイプ
+        final KmgCommonGenMessageTypes actualMessageTypes            = actualException.getMessageTypes();         // 実際のメッセージタイプ
         final boolean         actualIsMatchMessageArgsCount = actualException.isMatchMessageArgsCount(); // 実際のメッセージ引数の数
 
         /* 検証の実施 */

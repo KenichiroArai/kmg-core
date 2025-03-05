@@ -3,10 +3,10 @@ package kmg.core.domain.types;
 import java.util.HashMap;
 import java.util.Map;
 
-import kmg.core.infrastructure.common.KmgCommonMsgMessageTypes;
+import kmg.core.infrastructure.common.KmgCommonGenMessageTypes;
 
 /**
- * KMGメッセージメッセージの種類<br>
+ * KMG一般メッセージの種類<br>
  *
  * @author KenichiroArai
  *
@@ -15,7 +15,7 @@ import kmg.core.infrastructure.common.KmgCommonMsgMessageTypes;
  * @version 0.2.0
  */
 @SuppressWarnings("nls")
-public enum KmgMsgMessageTypes implements KmgCommonMsgMessageTypes {
+public enum KmgGenMessageTypes implements KmgCommonGenMessageTypes {
 
     /* 定義：開始 */
 
@@ -181,14 +181,14 @@ public enum KmgMsgMessageTypes implements KmgCommonMsgMessageTypes {
      *
      * @since 0.1.0
      */
-    private static final Map<String, KmgMsgMessageTypes> VALUES_MAP = new HashMap<>();
+    private static final Map<String, KmgGenMessageTypes> VALUES_MAP = new HashMap<>();
 
     static {
 
         /* 種類のマップにプット */
-        for (final KmgMsgMessageTypes type : KmgMsgMessageTypes.values()) {
+        for (final KmgGenMessageTypes type : KmgGenMessageTypes.values()) {
 
-            KmgMsgMessageTypes.VALUES_MAP.put(type.get(), type);
+            KmgGenMessageTypes.VALUES_MAP.put(type.get(), type);
 
         }
 
@@ -229,9 +229,9 @@ public enum KmgMsgMessageTypes implements KmgCommonMsgMessageTypes {
      *
      * @return デフォルト値
      */
-    public static KmgMsgMessageTypes getDefault() {
+    public static KmgGenMessageTypes getDefault() {
 
-        final KmgMsgMessageTypes result = NONE;
+        final KmgGenMessageTypes result = NONE;
         return result;
 
     }
@@ -249,9 +249,9 @@ public enum KmgMsgMessageTypes implements KmgCommonMsgMessageTypes {
      *
      * @return 種類。指定無し（NONE）：キーが存在しない場合。
      */
-    public static KmgMsgMessageTypes getEnum(final String key) {
+    public static KmgGenMessageTypes getEnum(final String key) {
 
-        KmgMsgMessageTypes result = KmgMsgMessageTypes.VALUES_MAP.get(key);
+        KmgGenMessageTypes result = KmgGenMessageTypes.VALUES_MAP.get(key);
 
         if (result == null) {
 
@@ -269,9 +269,9 @@ public enum KmgMsgMessageTypes implements KmgCommonMsgMessageTypes {
      *
      * @return 初期値
      */
-    public static KmgMsgMessageTypes getInitValue() {
+    public static KmgGenMessageTypes getInitValue() {
 
-        final KmgMsgMessageTypes result = NONE;
+        final KmgGenMessageTypes result = NONE;
         return result;
 
     }
@@ -284,7 +284,7 @@ public enum KmgMsgMessageTypes implements KmgCommonMsgMessageTypes {
      * @param displayName
      *                    表示名
      */
-    KmgMsgMessageTypes(final String displayName) {
+    KmgGenMessageTypes(final String displayName) {
 
         this.displayName = displayName;
         this.key = super.name();

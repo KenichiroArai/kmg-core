@@ -5,8 +5,8 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import kmg.core.domain.types.KmgMsgMessageTypes;
-import kmg.core.infrastructure.common.KmgCommonMsgMessageTypes;
+import kmg.core.domain.types.KmgGenMessageTypes;
+import kmg.core.infrastructure.common.KmgCommonGenMessageTypes;
 
 /**
  * KMGドメイン例外テスト<br>
@@ -42,7 +42,7 @@ public class KmgDomainExceptionTest {
     public void testConstructor_normalWithMessageTypes() {
 
         /* 期待値の定義 */
-        final KmgMsgMessageTypes expectedMsgTypes = KmgMsgMessageTypes.KMGMSGE11100;
+        final KmgGenMessageTypes expectedMsgTypes = KmgGenMessageTypes.KMGMSGE11100;
         final String             expectedMessage  = "{0}がありません。";
 
         /* テスト対象の実行 */
@@ -50,7 +50,7 @@ public class KmgDomainExceptionTest {
 
         /* 検証の準備 */
         final String                   actualMessage  = testException.getMessage();
-        final KmgCommonMsgMessageTypes actualMsgTypes = testException.getMessageTypes();
+        final KmgCommonGenMessageTypes actualMsgTypes = testException.getMessageTypes();
 
         /* 検証の実施 */
         Assertions.assertEquals(expectedMsgTypes, actualMsgTypes, "メッセージタイプが一致しません");
@@ -67,7 +67,7 @@ public class KmgDomainExceptionTest {
     public void testConstructor_normalWithMessageTypesAndArgs() {
 
         /* 期待値の定義 */
-        final KmgMsgMessageTypes expectedMsgTypes = KmgMsgMessageTypes.KMGMSGE11100;
+        final KmgGenMessageTypes expectedMsgTypes = KmgGenMessageTypes.KMGMSGE11100;
         final Object[]           expectedMsgArgs  = {
             "テスト引数1", "テスト引数2"
         };
@@ -78,7 +78,7 @@ public class KmgDomainExceptionTest {
 
         /* 検証の準備 */
         final String                   actualMessage  = testException.getMessage();
-        final KmgCommonMsgMessageTypes actualMsgTypes = testException.getMessageTypes();
+        final KmgCommonGenMessageTypes actualMsgTypes = testException.getMessageTypes();
         final Object[]                 actualMsgArgs  = testException.getMessageArgs();
 
         /* 検証の実施 */
@@ -97,7 +97,7 @@ public class KmgDomainExceptionTest {
     public void testConstructor_normalWithMessageTypesAndCause() {
 
         /* 期待値の定義 */
-        final KmgMsgMessageTypes expectedMsgTypes = KmgMsgMessageTypes.KMGMSGE11100;
+        final KmgGenMessageTypes expectedMsgTypes = KmgGenMessageTypes.KMGMSGE11100;
         final String             expectedMessage  = "{0}がありません。";
         final Throwable          expectedCause    = new RuntimeException("テスト原因");
 
@@ -106,7 +106,7 @@ public class KmgDomainExceptionTest {
 
         /* 検証の準備 */
         final String                   actualMessage  = testException.getMessage();
-        final KmgCommonMsgMessageTypes actualMsgTypes = testException.getMessageTypes();
+        final KmgCommonGenMessageTypes actualMsgTypes = testException.getMessageTypes();
         final Throwable                actualCause    = testException.getCause();
 
         /* 検証の実施 */

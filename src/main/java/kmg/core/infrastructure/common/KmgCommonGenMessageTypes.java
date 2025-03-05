@@ -1,7 +1,7 @@
 package kmg.core.infrastructure.common;
 
 /**
- * KMG共通メッセージメッセージの種類のインタフェース
+ * KMG共通一般メッセージの種類のインタフェース
  *
  * @author KenichiroArai
  *
@@ -9,7 +9,7 @@ package kmg.core.infrastructure.common;
  *
  * @version 0.2.0
  */
-public interface KmgCommonMsgMessageTypes extends KmgCommonMessageTypes {
+public interface KmgCommonGenMessageTypes extends KmgCommonMessageTypes {
 
     // 処理なし
 
