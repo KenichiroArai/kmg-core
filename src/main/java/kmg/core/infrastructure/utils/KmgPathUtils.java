@@ -21,6 +21,48 @@ import kmg.core.infrastructure.type.KmgString;
 public final class KmgPathUtils {
 
     /**
+     * プロキシクラスの区切り文字
+     *
+     * @since 0.2.0
+     */
+    private static final String PROXY_CLASS_SEPARATOR = "$$";
+
+    /**
+     * 内部クラス区切り文字
+     *
+     * @since 0.2.0
+     */
+    private static final char INNER_CLASS_SEPARATOR = '$';
+
+    /**
+     * ファイル拡張子区切り文字
+     *
+     * @since 0.2.0
+     */
+    private static final char FILE_EXTENSION_SEPARATOR = '.';
+
+    /**
+     * パス区切り文字
+     *
+     * @since 0.2.0
+     */
+    private static final char PATH_SEPARATOR = '/';
+
+    /**
+     * パス区切り文字（文字列）
+     *
+     * @since 0.2.0
+     */
+    private static final String PATH_SEPARATOR_STR = "/";
+
+    /**
+     * クラスパスフォーマット
+     *
+     * @since 0.2.0
+     */
+    private static final String CLASS_PATH_FORMAT = "%s/%s/%s";
+
+    /**
      * ビルドパスを返す<br>
      * <p>
      * クラスのビルドパスを返す。<br>
@@ -203,7 +245,7 @@ public final class KmgPathUtils {
         }
 
         final String fileNameTmp = filePath.getFileName().toString();
-        result = fileNameTmp.substring(0, fileNameTmp.lastIndexOf('.'));
+        result = fileNameTmp.substring(0, fileNameTmp.lastIndexOf(KmgPathUtils.FILE_EXTENSION_SEPARATOR));
         return result;
 
     }
@@ -235,13 +277,13 @@ public final class KmgPathUtils {
         result = zlass.getSimpleName();
 
         // $$があるか
-        if (result.contains("$$")) {
+        if (result.contains(KmgPathUtils.PROXY_CLASS_SEPARATOR)) {
 
             // $$がある場合
 
             // $$の前の部分だけを使用する
 
-            result = result.substring(0, result.indexOf("$$"));
+            result = result.substring(0, result.indexOf(KmgPathUtils.PROXY_CLASS_SEPARATOR));
 
         }
 
@@ -314,7 +356,7 @@ public final class KmgPathUtils {
 
         String classFullPath = className;
         // $が含まれている場合は$より前のクラスを取得する
-        final int dollarIndex = classFullPath.indexOf('$');
+        final int dollarIndex = classFullPath.indexOf(KmgPathUtils.INNER_CLASS_SEPARATOR);
 
         if (dollarIndex > 0) {
 
@@ -323,7 +365,9 @@ public final class KmgPathUtils {
         }
 
         classFullPath = KmgString.snakeCase(classFullPath);
-        classFullPath = KmgString.concat(packageName.replace('.', '/'), "/", classFullPath);
+        classFullPath
+            = KmgString.concat(packageName.replace(KmgPathUtils.FILE_EXTENSION_SEPARATOR, KmgPathUtils.PATH_SEPARATOR),
+                KmgPathUtils.PATH_SEPARATOR_STR, classFullPath);
 
         String binPathStr = KmgString.EMPTY;
 
@@ -333,7 +377,7 @@ public final class KmgPathUtils {
 
         }
 
-        result = Paths.get(String.format("%s/%s/%s", binPathStr, classFullPath, fileName));
+        result = Paths.get(String.format(KmgPathUtils.CLASS_PATH_FORMAT, binPathStr, classFullPath, fileName));
 
         return result;
 
