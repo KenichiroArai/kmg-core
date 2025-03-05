@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.slf4j.Logger;
 
-import kmg.core.domain.types.KmgLogMessageTypes;
+import kmg.core.domain.types.KmgCoreLogMessageTypes;
 import kmg.core.infrastructure.model.KmgPfaMeasModel;
 import kmg.core.infrastructure.types.KmgTimeUnitTypes;
 import kmg.core.infrastructure.utils.KmgMessageUtils;
@@ -105,7 +105,7 @@ public class KmgPfaMeasServiceImplTest {
         final KmgTimeUnitTypes expectedTimeUnit    = KmgTimeUnitTypes.SECONDS;
 
         // 期待されるログメッセージ
-        final KmgLogMessageTypes logType            = KmgLogMessageTypes.KMGLOGI12001;
+        final KmgCoreLogMessageTypes logType            = KmgCoreLogMessageTypes.KMGLOGI12001;
         final Object[]           messageArgs        = {
             expectedName, expectedElapsedTime, expectedTimeUnit.getUnitName(),
         };
@@ -153,7 +153,7 @@ public class KmgPfaMeasServiceImplTest {
         final String expectedName = "テスト測定";
 
         // 期待されるログメッセージ
-        final KmgLogMessageTypes logType            = KmgLogMessageTypes.KMGLOGI12000;
+        final KmgCoreLogMessageTypes logType            = KmgCoreLogMessageTypes.KMGLOGI12000;
         final Object[]           messageArgs        = {
             expectedName,
         };
