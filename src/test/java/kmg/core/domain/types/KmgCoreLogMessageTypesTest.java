@@ -36,10 +36,10 @@ public class KmgCoreLogMessageTypesTest {
     public void testGet_normalBasicValue() {
 
         /* 期待値の定義 */
-        final String expected = "KMGCORE_LOGI12000"; //$NON-NLS-1$
+        final String expected = "KMGCORE_LOG12000"; //$NON-NLS-1$
 
         /* 準備 */
-        final KmgCoreLogMessageTypes testType = KmgCoreLogMessageTypes.KMGCORE_LOGI12000;
+        final KmgCoreLogMessageTypes testType = KmgCoreLogMessageTypes.KMGCORE_LOG12000;
 
         /* テスト対象の実行 */
         final String actual = testType.get();
@@ -58,10 +58,10 @@ public class KmgCoreLogMessageTypesTest {
     public void testGetCode_normalBasicCode() {
 
         /* 期待値の定義 */
-        final String expected = "KMGCORE_LOGI12000"; //$NON-NLS-1$
+        final String expected = "KMGCORE_LOG12000"; //$NON-NLS-1$
 
         /* 準備 */
-        final KmgCoreLogMessageTypes testType = KmgCoreLogMessageTypes.KMGCORE_LOGI12000;
+        final KmgCoreLogMessageTypes testType = KmgCoreLogMessageTypes.KMGCORE_LOG12000;
 
         /* テスト対象の実行 */
         final String actual = testType.getCode();
@@ -99,10 +99,10 @@ public class KmgCoreLogMessageTypesTest {
     public void testGetDetail_normalBasicDetail() {
 
         /* 期待値の定義 */
-        final String expected = "KMGCORE_LOGI12000"; //$NON-NLS-1$
+        final String expected = "KMGCORE_LOG12000"; //$NON-NLS-1$
 
         /* 準備 */
-        final KmgCoreLogMessageTypes testType = KmgCoreLogMessageTypes.KMGCORE_LOGI12000;
+        final KmgCoreLogMessageTypes testType = KmgCoreLogMessageTypes.KMGCORE_LOG12000;
 
         /* テスト対象の実行 */
         final String actual = testType.getDetail();
@@ -121,10 +121,10 @@ public class KmgCoreLogMessageTypesTest {
     public void testGetDisplayName_normalBasicDisplayName() {
 
         /* 期待値の定義 */
-        final String expected = "KMGCORE_LOGI12000"; //$NON-NLS-1$
+        final String expected = "KMGCORE_LOG12000"; //$NON-NLS-1$
 
         /* 準備 */
-        final KmgCoreLogMessageTypes testType = KmgCoreLogMessageTypes.KMGCORE_LOGI12000;
+        final KmgCoreLogMessageTypes testType = KmgCoreLogMessageTypes.KMGCORE_LOG12000;
 
         /* テスト対象の実行 */
         final String actual = testType.getDisplayName();
@@ -143,10 +143,10 @@ public class KmgCoreLogMessageTypesTest {
     public void testGetEnum_normalExistingValue() {
 
         /* 期待値の定義 */
-        final KmgCoreLogMessageTypes expected = KmgCoreLogMessageTypes.KMGCORE_LOGI12000;
+        final KmgCoreLogMessageTypes expected = KmgCoreLogMessageTypes.KMGCORE_LOG12000;
 
         /* 準備 */
-        final String key = "KMGCORE_LOGI12000"; //$NON-NLS-1$
+        final String key = "KMGCORE_LOG12000"; //$NON-NLS-1$
 
         /* テスト対象の実行 */
         final KmgCoreLogMessageTypes actual = KmgCoreLogMessageTypes.getEnum(key);
@@ -206,10 +206,10 @@ public class KmgCoreLogMessageTypesTest {
     public void testGetValue_normalBasicValue() {
 
         /* 期待値の定義 */
-        final String expected = "KMGCORE_LOGI12000"; //$NON-NLS-1$
+        final String expected = "KMGCORE_LOG12000"; //$NON-NLS-1$
 
         /* 準備 */
-        final KmgCoreLogMessageTypes testType = KmgCoreLogMessageTypes.KMGCORE_LOGI12000;
+        final KmgCoreLogMessageTypes testType = KmgCoreLogMessageTypes.KMGCORE_LOG12000;
 
         /* テスト対象の実行 */
         final String actual = testType.getValue();
@@ -220,18 +220,18 @@ public class KmgCoreLogMessageTypesTest {
     }
 
     /**
-     * toString メソッドのテスト - 正常系:KMGCORE_LOGI12000の文字列表現
+     * toString メソッドのテスト - 正常系:KMGCORE_LOG12000の文字列表現
      *
      * @since 0.1.0
      */
     @Test
-    public void testToString_normalKMGCORE_LOGI12000() {
+    public void testToString_normalKMGCORE_LOG12000() {
 
         /* 期待値の定義 */
-        final String expected = "KMGCORE_LOGI12000"; //$NON-NLS-1$
+        final String expected = "KMGCORE_LOG12000"; //$NON-NLS-1$
 
         /* 準備 */
-        final KmgCoreLogMessageTypes testType = KmgCoreLogMessageTypes.KMGCORE_LOGI12000;
+        final KmgCoreLogMessageTypes testType = KmgCoreLogMessageTypes.KMGCORE_LOG12000;
 
         /* テスト対象の実行 */
         final String actual = testType.toString();
