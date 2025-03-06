@@ -39,7 +39,7 @@ public enum KmgCoreLogMessageTypes implements KmgComLogMessageTypes {
      *
      * @version 0.2.0
      */
-    KMGCORE_LOG12000("KMGCORE_LOG12000"),
+    KMGCORE_LOG12000("{0}：開始"),
 
     /**
      * {0}：終了。経過時間=[{1}{2}]
@@ -50,7 +50,7 @@ public enum KmgCoreLogMessageTypes implements KmgComLogMessageTypes {
      *
      * @version 0.2.0
      */
-    KMGCORE_LOG12001("KMGCORE_LOG12001"),
+    KMGCORE_LOG12001("{0}：終了。経過時間=[{1}{2}]"),
 
     /**
      * {0}：{1}。経過時間=[{2}{3}]
@@ -61,7 +61,7 @@ public enum KmgCoreLogMessageTypes implements KmgComLogMessageTypes {
      *
      * @version 0.2.0
      */
-    KMGCORE_LOG12002("KMGCORE_LOG12002"),
+    KMGCORE_LOG12002("{0}：{1}。経過時間=[{2}{3}]"),
 
     /**
      * {0}：{1}。経過時間=[{2}{3}]
@@ -72,7 +72,7 @@ public enum KmgCoreLogMessageTypes implements KmgComLogMessageTypes {
      *
      * @version 0.2.0
      */
-    KMGCORE_LOG12003("KMGCORE_LOG12003"),
+    KMGCORE_LOG12003("{0}：{1}。経過時間=[{2}{3}]"),
 
     /**
      * {0}：{1}。経過時間=[{2}{3}]
@@ -83,7 +83,7 @@ public enum KmgCoreLogMessageTypes implements KmgComLogMessageTypes {
      *
      * @version 0.2.0
      */
-    KMGCORE_LOG12004("KMGCORE_LOG12004"),
+    KMGCORE_LOG12004("{0}：{1}。経過時間=[{2}{3}]"),
 
     /* 定義：終了 */
     ;
