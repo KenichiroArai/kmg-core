@@ -39,7 +39,7 @@ public enum KmgCoreGenMessageTypes implements KmgComGenMessageTypes {
      *
      * @version 0.2.0
      */
-    KMGCOREGEN11100("{0}がありません。"),
+    KMGCORE_GEN11100("{0}がありません。"),
 
     /**
      * フィールドの取得に失敗しました。フィールド名=[{0}]、対象のクラス=[{1}]、最後に取得したフィールド=[{2}]
@@ -50,7 +50,7 @@ public enum KmgCoreGenMessageTypes implements KmgComGenMessageTypes {
      *
      * @version 0.2.0
      */
-    KMGCOREGEN11200("フィールドの取得に失敗しました。フィールド名=[{0}]、対象のクラス=[{1}]、最後に取得したフィールド=[{2}]"),
+    KMGCORE_GEN11200("フィールドの取得に失敗しました。フィールド名=[{0}]、対象のクラス=[{1}]、最後に取得したフィールド=[{2}]"),
 
     /**
      * フィールドの値の取得に失敗しました。フィールド名=[{0}]、対象のクラス=[{1}]、最後に取得したフィールド=[{2}]
@@ -61,7 +61,7 @@ public enum KmgCoreGenMessageTypes implements KmgComGenMessageTypes {
      *
      * @version 0.2.0
      */
-    KMGCOREGEN11201("フィールドの値の取得に失敗しました。フィールド名=[{0}]、対象のクラス=[{1}]、最後に取得したフィールド=[{2}]"),
+    KMGCORE_GEN11201("フィールドの値の取得に失敗しました。フィールド名=[{0}]、対象のクラス=[{1}]、最後に取得したフィールド=[{2}]"),
 
     /**
      * フィールドの値の取得に失敗しました。フィールド名=[{0}]、対象のクラス=[{1}]、最後に取得したフィールド=[{2}]
@@ -72,7 +72,7 @@ public enum KmgCoreGenMessageTypes implements KmgComGenMessageTypes {
      *
      * @version 0.2.0
      */
-    KMGCOREGEN11202("フィールドの値の取得に失敗しました。フィールド名=[{0}]、対象のクラス=[{1}]、最後に取得したフィールド=[{2}]"),
+    KMGCORE_GEN11202("フィールドの値の取得に失敗しました。フィールド名=[{0}]、対象のクラス=[{1}]、最後に取得したフィールド=[{2}]"),
 
     /**
      * メソッドの取得に失敗しました。メソッド名=[{0}]、対象のクラス=[{1}]
@@ -83,7 +83,7 @@ public enum KmgCoreGenMessageTypes implements KmgComGenMessageTypes {
      *
      * @version 0.2.0
      */
-    KMGCOREGEN11203("メソッドの取得に失敗しました。メソッド名=[{0}]、対象のクラス=[{1}]"),
+    KMGCORE_GEN11203("メソッドの取得に失敗しました。メソッド名=[{0}]、対象のクラス=[{1}]"),
 
     /**
      * メソッドの値の取得に失敗しました。メソッド名=[{0}]、対象のクラス=[{1}]
@@ -94,7 +94,7 @@ public enum KmgCoreGenMessageTypes implements KmgComGenMessageTypes {
      *
      * @version 0.2.0
      */
-    KMGCOREGEN11204("メソッドの値の取得に失敗しました。メソッド名=[{0}]、対象のクラス=[{1}]"),
+    KMGCORE_GEN11204("メソッドの値の取得に失敗しました。メソッド名=[{0}]、対象のクラス=[{1}]"),
 
     /**
      * メソッドの値の取得に失敗しました。メソッド名=[{0}]、対象のクラス=[{1}]
@@ -105,7 +105,7 @@ public enum KmgCoreGenMessageTypes implements KmgComGenMessageTypes {
      *
      * @version 0.2.0
      */
-    KMGCOREGEN11205("メソッドの値の取得に失敗しました。メソッド名=[{0}]、対象のクラス=[{1}]"),
+    KMGCORE_GEN11205("メソッドの値の取得に失敗しました。メソッド名=[{0}]、対象のクラス=[{1}]"),
 
     /**
      * メソッドの値の取得に失敗しました。メソッド名=[{0}]、対象のクラス=[{1}]
@@ -116,7 +116,7 @@ public enum KmgCoreGenMessageTypes implements KmgComGenMessageTypes {
      *
      * @version 0.2.0
      */
-    KMGCOREGEN11206("メソッドの値の取得に失敗しました。メソッド名=[{0}]、対象のクラス=[{1}]"),
+    KMGCORE_GEN11206("メソッドの値の取得に失敗しました。メソッド名=[{0}]、対象のクラス=[{1}]"),
 
     /**
      * メソッドの値の取得に失敗しました。メソッド名=[{0}]、対象のクラス=[{1}]
@@ -127,7 +127,7 @@ public enum KmgCoreGenMessageTypes implements KmgComGenMessageTypes {
      *
      * @version 0.2.0
      */
-    KMGCOREGEN11207("メソッドの値の取得に失敗しました。メソッド名=[{0}]、対象のクラス=[{1}]"),
+    KMGCORE_GEN11207("メソッドの値の取得に失敗しました。メソッド名=[{0}]、対象のクラス=[{1}]"),
 
     /**
      * フィールドの取得に失敗しました。フィールド名=[{0}]、対象のクラス=[{1}]、最後に取得したフィールド=[{2}]
@@ -138,7 +138,7 @@ public enum KmgCoreGenMessageTypes implements KmgComGenMessageTypes {
      *
      * @version 0.2.0
      */
-    KMGCOREGEN11209("フィールドの取得に失敗しました。フィールド名=[{0}]、対象のクラス=[{1}]、最後に取得したフィールド=[{2}]"),
+    KMGCORE_GEN11209("フィールドの取得に失敗しました。フィールド名=[{0}]、対象のクラス=[{1}]、最後に取得したフィールド=[{2}]"),
 
     /**
      * フィールドの値の設定に失敗しました。フィールド名=[{0}]、対象のクラス=[{1}]、最後に取得したフィールド=[{2}]
@@ -149,7 +149,7 @@ public enum KmgCoreGenMessageTypes implements KmgComGenMessageTypes {
      *
      * @version 0.2.0
      */
-    KMGCOREGEN11210("フィールドの値の設定に失敗しました。フィールド名=[{0}]、対象のクラス=[{1}]、最後に取得したフィールド=[{2}]"),
+    KMGCORE_GEN11210("フィールドの値の設定に失敗しました。フィールド名=[{0}]、対象のクラス=[{1}]、最後に取得したフィールド=[{2}]"),
 
     /**
      * フィールドの値の設定に失敗しました。フィールド名=[{0}]、対象のクラス=[{1}]、最後に取得したフィールド=[{2}]
@@ -160,7 +160,7 @@ public enum KmgCoreGenMessageTypes implements KmgComGenMessageTypes {
      *
      * @version 0.2.0
      */
-    KMGCOREGEN11211("フィールドの値の設定に失敗しました。フィールド名=[{0}]、対象のクラス=[{1}]、最後に取得したフィールド=[{2}]"),
+    KMGCORE_GEN11211("フィールドの値の設定に失敗しました。フィールド名=[{0}]、対象のクラス=[{1}]、最後に取得したフィールド=[{2}]"),
 
     /**
      * クラスからビルドバスの取得に失敗しました。クラス=[{0}]
@@ -171,7 +171,7 @@ public enum KmgCoreGenMessageTypes implements KmgComGenMessageTypes {
      *
      * @version 0.2.0
      */
-    KMGCOREGEN24000("クラスからビルドバスの取得に失敗しました。クラス=[{0}]"),
+    KMGCORE_GEN24000("クラスからビルドバスの取得に失敗しました。クラス=[{0}]"),
 
     /* 定義：終了 */
     ;

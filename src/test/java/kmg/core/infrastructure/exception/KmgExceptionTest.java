@@ -43,7 +43,7 @@ public class KmgExceptionTest {
     public void testConstructor_normalWithMessageTypesAndArgs() {
 
         /* 期待値の定義 */
-        final KmgCoreGenMessageTypes expectedMsgTypes = KmgCoreGenMessageTypes.KMGCOREGEN11100;
+        final KmgCoreGenMessageTypes expectedMsgTypes = KmgCoreGenMessageTypes.KMGCORE_GEN11100;
         final Object[]           expectedMsgArgs  = {
             "テスト引数1", "テスト引数2"
         };
@@ -73,7 +73,7 @@ public class KmgExceptionTest {
     public void testConstructor_normalWithMessageTypesAndCause() {
 
         /* 期待値の定義 */
-        final KmgCoreGenMessageTypes expectedMsgTypes = KmgCoreGenMessageTypes.KMGCOREGEN11100;
+        final KmgCoreGenMessageTypes expectedMsgTypes = KmgCoreGenMessageTypes.KMGCORE_GEN11100;
         final String             expectedMessage  = "{0}がありません。";
         final Throwable          expectedCause    = new RuntimeException("テスト原因");
 
@@ -101,7 +101,7 @@ public class KmgExceptionTest {
     public void testConstructor_normalWithMessageTypesArgsAndCause() {
 
         /* 期待値の定義 */
-        final KmgCoreGenMessageTypes expectedMsgTypes = KmgCoreGenMessageTypes.KMGCOREGEN11100;
+        final KmgCoreGenMessageTypes expectedMsgTypes = KmgCoreGenMessageTypes.KMGCORE_GEN11100;
         final Object[]           expectedMsgArgs  = {
             "テスト引数1", "テスト引数2"
         };
@@ -134,7 +134,7 @@ public class KmgExceptionTest {
     public void testConstructor_normalWithMessageTypesOnly() {
 
         /* 期待値の定義 */
-        final KmgCoreGenMessageTypes expectedMsgTypes = KmgCoreGenMessageTypes.KMGCOREGEN11100;
+        final KmgCoreGenMessageTypes expectedMsgTypes = KmgCoreGenMessageTypes.KMGCORE_GEN11100;
         final String             expectedMessage  = "{0}がありません。";
 
         /* テスト対象の実行 */
@@ -167,7 +167,7 @@ public class KmgExceptionTest {
         };
 
         /* テスト対象の実行 */
-        final KmgException testException = new KmgException(KmgCoreGenMessageTypes.KMGCOREGEN11100, testMsgArgs);
+        final KmgException testException = new KmgException(KmgCoreGenMessageTypes.KMGCORE_GEN11100, testMsgArgs);
 
         /* 検証の準備 */
         final int actualCount = testException.getMessageArgsCount();
@@ -189,7 +189,7 @@ public class KmgExceptionTest {
         final int expectedCount = 0;
 
         /* テスト対象の実行 */
-        final KmgException testException = new KmgException(KmgCoreGenMessageTypes.KMGCOREGEN11100);
+        final KmgException testException = new KmgException(KmgCoreGenMessageTypes.KMGCORE_GEN11100);
 
         /* 検証の準備 */
         final int actualCount = testException.getMessageArgsCount();
@@ -211,7 +211,7 @@ public class KmgExceptionTest {
         final String expectedPattern = "{0}がありません。";
 
         /* テスト対象の実行 */
-        final KmgException testException = new KmgException(KmgCoreGenMessageTypes.KMGCOREGEN11100);
+        final KmgException testException = new KmgException(KmgCoreGenMessageTypes.KMGCORE_GEN11100);
 
         /* 検証の準備 */
         final String actualPattern = testException.getMessagePattern();
@@ -233,7 +233,7 @@ public class KmgExceptionTest {
         final int expectedCount = 1;
 
         /* テスト対象の実行 */
-        final KmgException testException = new KmgException(KmgCoreGenMessageTypes.KMGCOREGEN11100);
+        final KmgException testException = new KmgException(KmgCoreGenMessageTypes.KMGCORE_GEN11100);
 
         /* 検証の準備 */
         final int actualCount = testException.getMessagePatternArgsCount();
@@ -259,7 +259,7 @@ public class KmgExceptionTest {
         };
 
         /* テスト対象の実行 */
-        final KmgException testException = new KmgException(KmgCoreGenMessageTypes.KMGCOREGEN11100, testMsgArgs);
+        final KmgException testException = new KmgException(KmgCoreGenMessageTypes.KMGCORE_GEN11100, testMsgArgs);
 
         /* 検証の準備 */
         final boolean actualIsMatch = testException.isMatchMessageArgsCount();
@@ -286,7 +286,7 @@ public class KmgExceptionTest {
         };
 
         /* テスト対象の実行 */
-        final KmgException testException = new KmgException(KmgCoreGenMessageTypes.KMGCOREGEN11100, testMsgArgs);
+        final KmgException testException = new KmgException(KmgCoreGenMessageTypes.KMGCORE_GEN11100, testMsgArgs);
 
         /* 検証の準備 */
         final boolean actualIsMatch = testException.isMatchMessageArgsCount();
@@ -312,7 +312,7 @@ public class KmgExceptionTest {
         final int expectedMessagePatternArgsCount = 0;
 
         /* 準備 */
-        final KmgException           testException   = new KmgException(KmgCoreGenMessageTypes.KMGCOREGEN11100);
+        final KmgException           testException   = new KmgException(KmgCoreGenMessageTypes.KMGCORE_GEN11100);
         final KmgReflectionModelImpl reflectionModel = new KmgReflectionModelImpl(testException);
 
         // privateフィールドのmessagePatternを空文字列に設定

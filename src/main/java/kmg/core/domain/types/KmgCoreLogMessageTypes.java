@@ -39,7 +39,7 @@ public enum KmgCoreLogMessageTypes implements KmgComLogMessageTypes {
      *
      * @version 0.2.0
      */
-    KMGCORELOGI12000("KMGCORELOGI12000"),
+    KMGCORE_LOGI12000("KMGCORE_LOGI12000"),
 
     /**
      * {0}：終了。経過時間=[{1}{2}]
@@ -50,7 +50,7 @@ public enum KmgCoreLogMessageTypes implements KmgComLogMessageTypes {
      *
      * @version 0.2.0
      */
-    KMGCORELOGI12001("KMGCORELOGI12001"),
+    KMGCORE_LOGI12001("KMGCORE_LOGI12001"),
 
     /**
      * {0}：{1}。経過時間=[{2}{3}]
@@ -72,7 +72,7 @@ public enum KmgCoreLogMessageTypes implements KmgComLogMessageTypes {
      *
      * @version 0.2.0
      */
-    KMGCORELOGI12003("KMGCORELOGI12003"),
+    KMGCORE_LOGI12003("KMGCORE_LOGI12003"),
 
     /**
      * {0}：{1}。経過時間=[{2}{3}]

@@ -187,7 +187,7 @@ public class KmgMessageUtilsTest {
         /* 準備 */
 
         /* テスト対象の実行 */
-        final String testResult = KmgMessageUtils.getMessage(KmgCoreGenMessageTypes.KMGCOREGEN11100, null);
+        final String testResult = KmgMessageUtils.getMessage(KmgCoreGenMessageTypes.KMGCORE_GEN11100, null);
 
         /* 検証の準備 */
         final String actualMessage = testResult;
@@ -214,7 +214,7 @@ public class KmgMessageUtilsTest {
         };
 
         /* テスト対象の実行 */
-        final String testResult = KmgMessageUtils.getMessage(KmgCoreGenMessageTypes.KMGCOREGEN11200, testArgs);
+        final String testResult = KmgMessageUtils.getMessage(KmgCoreGenMessageTypes.KMGCORE_GEN11200, testArgs);
 
         /* 検証の準備 */
         final String actualMessage = testResult;
@@ -270,7 +270,7 @@ public class KmgMessageUtilsTest {
         };
 
         /* テスト対象の実行 */
-        final String testResult = KmgMessageUtils.getMessage(KmgCoreGenMessageTypes.KMGCOREGEN11200, testArgs);
+        final String testResult = KmgMessageUtils.getMessage(KmgCoreGenMessageTypes.KMGCORE_GEN11200, testArgs);
 
         /* 検証の準備 */
         final String actualMessage = testResult;
@@ -458,7 +458,7 @@ public class KmgMessageUtilsTest {
         };
 
         /* テスト対象の実行 */
-        final String testResult = KmgMessageUtils.getMessage(KmgCoreGenMessageTypes.KMGCOREGEN11100, testArgs);
+        final String testResult = KmgMessageUtils.getMessage(KmgCoreGenMessageTypes.KMGCORE_GEN11100, testArgs);
 
         /* 検証の準備 */
         final String actualMessage = testResult;
@@ -485,7 +485,7 @@ public class KmgMessageUtilsTest {
         };
 
         /* テスト対象の実行 */
-        final String testResult = KmgMessageUtils.getMessage(KmgCoreGenMessageTypes.KMGCOREGEN11100, testArgs);
+        final String testResult = KmgMessageUtils.getMessage(KmgCoreGenMessageTypes.KMGCORE_GEN11100, testArgs);
 
         /* 検証の準備 */
         final String actualMessage = testResult;
@@ -512,7 +512,7 @@ public class KmgMessageUtilsTest {
         };
 
         /* テスト対象の実行 */
-        final String testResult = KmgMessageUtils.getMessage(KmgCoreGenMessageTypes.KMGCOREGEN11200, testArgs);
+        final String testResult = KmgMessageUtils.getMessage(KmgCoreGenMessageTypes.KMGCORE_GEN11200, testArgs);
 
         /* 検証の準備 */
         final String actualMessage = testResult;
@@ -539,7 +539,7 @@ public class KmgMessageUtilsTest {
         };
 
         /* テスト対象の実行 */
-        final String testResult = KmgMessageUtils.getMessage(KmgCoreGenMessageTypes.KMGCOREGEN11200, testArgs);
+        final String testResult = KmgMessageUtils.getMessage(KmgCoreGenMessageTypes.KMGCORE_GEN11200, testArgs);
 
         /* 検証の準備 */
         final String actualMessage = testResult;
@@ -566,7 +566,7 @@ public class KmgMessageUtilsTest {
         };
 
         /* テスト対象の実行 */
-        final String testResult = KmgMessageUtils.getMessage(KmgCoreGenMessageTypes.KMGCOREGEN11100, testArgs);
+        final String testResult = KmgMessageUtils.getMessage(KmgCoreGenMessageTypes.KMGCORE_GEN11100, testArgs);
 
         /* 検証の準備 */
         final String actualMessage = testResult;
@@ -593,7 +593,7 @@ public class KmgMessageUtilsTest {
         };
 
         /* テスト対象の実行 */
-        final String testResult = KmgMessageUtils.getMessage(KmgCoreGenMessageTypes.KMGCOREGEN11100, testArgs);
+        final String testResult = KmgMessageUtils.getMessage(KmgCoreGenMessageTypes.KMGCORE_GEN11100, testArgs);
 
         /* 検証の準備 */
         final String actualMessage = testResult;
@@ -618,7 +618,7 @@ public class KmgMessageUtilsTest {
         final Object[] testArgs = {};
 
         /* テスト対象の実行 */
-        final String testResult = KmgMessageUtils.getMessage(KmgCoreGenMessageTypes.KMGCOREGEN11100, testArgs);
+        final String testResult = KmgMessageUtils.getMessage(KmgCoreGenMessageTypes.KMGCORE_GEN11100, testArgs);
 
         /* 検証の準備 */
         final String actualMessage = testResult;
@@ -645,7 +645,7 @@ public class KmgMessageUtilsTest {
         };
 
         /* テスト対象の実行 */
-        final String testResult = KmgMessageUtils.getMessage(KmgCoreGenMessageTypes.KMGCOREGEN11200, testArgs);
+        final String testResult = KmgMessageUtils.getMessage(KmgCoreGenMessageTypes.KMGCORE_GEN11200, testArgs);
 
         /* 検証の準備 */
         final String actualMessage = testResult;

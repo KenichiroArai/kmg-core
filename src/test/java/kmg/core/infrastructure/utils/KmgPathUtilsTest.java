@@ -128,7 +128,7 @@ public class KmgPathUtilsTest extends AbstractKmgTest {
         /* 期待値の定義 */
         final String          expectedDomainMessage = String.format("クラスからビルドバスの取得に失敗しました。クラス=[%s]",
             "kmg.core.infrastructure.utils.KmgPathUtilsTest$TestClass");
-        final KmgCoreGenMessageTypes expectedMessageTypes  = KmgCoreGenMessageTypes.KMGCOREGEN24000;
+        final KmgCoreGenMessageTypes expectedMessageTypes  = KmgCoreGenMessageTypes.KMGCORE_GEN24000;
 
         /* 準備 */
         final Class<TestClass>   testTarget    = TestClass.class;

@@ -91,7 +91,7 @@ public class KmgPfaMeasServiceImpl implements KmgPfaMeasService {
         this.kmgPfaMeasModel.end();
 
         /* ログの出力 */
-        final KmgCoreLogMessageTypes logType     = KmgCoreLogMessageTypes.KMGCORELOGI12001;
+        final KmgCoreLogMessageTypes logType     = KmgCoreLogMessageTypes.KMGCORE_LOGI12001;
         final Object[]           messageArgs = {
             this.name, this.kmgPfaMeasModel.getElapsedTime(), this.kmgPfaMeasModel.getTimeUnit().getUnitName(),
         };
@@ -178,7 +178,7 @@ public class KmgPfaMeasServiceImpl implements KmgPfaMeasService {
         this.kmgPfaMeasModel.checkpoint();
 
         /* ログの出力 */
-        final KmgCoreLogMessageTypes logType     = KmgCoreLogMessageTypes.KMGCORELOGI12003;
+        final KmgCoreLogMessageTypes logType     = KmgCoreLogMessageTypes.KMGCORE_LOGI12003;
         final Object[]           messageArgs = {
             this.name, msgContents, this.kmgPfaMeasModel.getElapsedTime(),
             this.kmgPfaMeasModel.getTimeUnit().getUnitName(),
@@ -200,7 +200,7 @@ public class KmgPfaMeasServiceImpl implements KmgPfaMeasService {
     public void start() {
 
         /* ログの出力 */
-        final KmgCoreLogMessageTypes logType     = KmgCoreLogMessageTypes.KMGCORELOGI12000;
+        final KmgCoreLogMessageTypes logType     = KmgCoreLogMessageTypes.KMGCORE_LOGI12000;
         final Object[]           messageArgs = {
             this.name,
         };

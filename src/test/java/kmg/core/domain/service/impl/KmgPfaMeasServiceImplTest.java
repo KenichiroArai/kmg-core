@@ -105,7 +105,7 @@ public class KmgPfaMeasServiceImplTest {
         final KmgTimeUnitTypes expectedTimeUnit    = KmgTimeUnitTypes.SECONDS;
 
         // 期待されるログメッセージ
-        final KmgCoreLogMessageTypes logType            = KmgCoreLogMessageTypes.KMGCORELOGI12001;
+        final KmgCoreLogMessageTypes logType            = KmgCoreLogMessageTypes.KMGCORE_LOGI12001;
         final Object[]           messageArgs        = {
             expectedName, expectedElapsedTime, expectedTimeUnit.getUnitName(),
         };
@@ -153,7 +153,7 @@ public class KmgPfaMeasServiceImplTest {
         final String expectedName = "テスト測定";
 
         // 期待されるログメッセージ
-        final KmgCoreLogMessageTypes logType            = KmgCoreLogMessageTypes.KMGCORELOGI12000;
+        final KmgCoreLogMessageTypes logType            = KmgCoreLogMessageTypes.KMGCORE_LOGI12000;
         final Object[]           messageArgs        = {
             expectedName,
         };

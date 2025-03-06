@@ -123,7 +123,7 @@ public final class KmgPathUtils {
 
         } catch (final URISyntaxException e) {
 
-            final KmgCoreGenMessageTypes msgTypes = KmgCoreGenMessageTypes.KMGCOREGEN24000;
+            final KmgCoreGenMessageTypes msgTypes = KmgCoreGenMessageTypes.KMGCORE_GEN24000;
             final Object[]               msgArgs  = {
                 zlass.getName()
             };

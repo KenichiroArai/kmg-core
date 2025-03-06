@@ -126,7 +126,7 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
 
         } catch (final SecurityException e) {
 
-            final KmgCoreGenMessageTypes msgTypes = KmgCoreGenMessageTypes.KMGCOREGEN11200;
+            final KmgCoreGenMessageTypes msgTypes = KmgCoreGenMessageTypes.KMGCORE_GEN11200;
             final Object[]           msgArgs  = {
                 fieldName, targetClazz, this.lastGetField
             };
@@ -148,7 +148,7 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
 
         } catch (final SecurityException e) {
 
-            final KmgCoreGenMessageTypes msgTypes = KmgCoreGenMessageTypes.KMGCOREGEN11201;
+            final KmgCoreGenMessageTypes msgTypes = KmgCoreGenMessageTypes.KMGCORE_GEN11201;
             final Object[]           msgArgs  = {
                 fieldName, targetClazz, this.lastGetField
             };
@@ -156,7 +156,7 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
 
         } catch (final IllegalAccessException e) {
 
-            final KmgCoreGenMessageTypes msgTypes = KmgCoreGenMessageTypes.KMGCOREGEN11202;
+            final KmgCoreGenMessageTypes msgTypes = KmgCoreGenMessageTypes.KMGCORE_GEN11202;
             final Object[]           msgArgs  = {
                 fieldName, targetClazz, this.lastGetField
             };
@@ -226,7 +226,7 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
 
             } catch (final SecurityException e) {
 
-                final KmgCoreGenMessageTypes msgTypes = KmgCoreGenMessageTypes.KMGCOREGEN11203;
+                final KmgCoreGenMessageTypes msgTypes = KmgCoreGenMessageTypes.KMGCORE_GEN11203;
                 final Object[]           msgArgs  = {
                     methodName, targetClazz
                 };
@@ -307,7 +307,7 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
 
         } catch (final SecurityException e) {
 
-            final KmgCoreGenMessageTypes msgTypes = KmgCoreGenMessageTypes.KMGCOREGEN11204;
+            final KmgCoreGenMessageTypes msgTypes = KmgCoreGenMessageTypes.KMGCORE_GEN11204;
             final Object[]           msgArgs  = {
                 methodName, targetClazz
             };
@@ -315,7 +315,7 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
 
         } catch (final IllegalAccessException e) {
 
-            final KmgCoreGenMessageTypes msgTypes = KmgCoreGenMessageTypes.KMGCOREGEN11205;
+            final KmgCoreGenMessageTypes msgTypes = KmgCoreGenMessageTypes.KMGCORE_GEN11205;
             final Object[]           msgArgs  = {
                 methodName, targetClazz
             };
@@ -323,7 +323,7 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
 
         } catch (final IllegalArgumentException e) {
 
-            final KmgCoreGenMessageTypes msgTypes = KmgCoreGenMessageTypes.KMGCOREGEN11206;
+            final KmgCoreGenMessageTypes msgTypes = KmgCoreGenMessageTypes.KMGCORE_GEN11206;
             final Object[]           msgArgs  = {
                 methodName, targetClazz
             };
@@ -331,7 +331,7 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
 
         } catch (final InvocationTargetException e) {
 
-            final KmgCoreGenMessageTypes msgTypes = KmgCoreGenMessageTypes.KMGCOREGEN11207;
+            final KmgCoreGenMessageTypes msgTypes = KmgCoreGenMessageTypes.KMGCORE_GEN11207;
             final Object[]           msgArgs  = {
                 methodName, targetClazz
             };
@@ -406,7 +406,7 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
 
         } catch (final SecurityException e) {
 
-            final KmgCoreGenMessageTypes msgTypes = KmgCoreGenMessageTypes.KMGCOREGEN11209;
+            final KmgCoreGenMessageTypes msgTypes = KmgCoreGenMessageTypes.KMGCORE_GEN11209;
             final Object[]           msgArgs  = {
                 fieldName, targetClazz, this.lastGetField
             };
@@ -435,7 +435,7 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
 
                 } catch (final NumberFormatException e) {
 
-                    final KmgCoreGenMessageTypes msgTypes = KmgCoreGenMessageTypes.KMGCOREGEN11210;
+                    final KmgCoreGenMessageTypes msgTypes = KmgCoreGenMessageTypes.KMGCORE_GEN11210;
                     final Object[]           msgArgs  = {
                         fieldName, targetClazz, this.lastGetField
                     };
@@ -448,7 +448,7 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
 
         } catch (final IllegalAccessException e) {
 
-            final KmgCoreGenMessageTypes msgTypes = KmgCoreGenMessageTypes.KMGCOREGEN11211;
+            final KmgCoreGenMessageTypes msgTypes = KmgCoreGenMessageTypes.KMGCORE_GEN11211;
             final Object[]           msgArgs  = {
                 fieldName, targetClazz, this.lastGetField
             };
