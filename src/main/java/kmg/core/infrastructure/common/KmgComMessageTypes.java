@@ -1,15 +1,15 @@
 package kmg.core.infrastructure.common;
 
 /**
- * メッセージの種類のインタフェース
+ * KMG共通メッセージの種類のインタフェース
  *
  * @author KenichiroArai
  *
  * @since 0.1.0
  *
- * @version 0.1.0
+ * @version 0.2.0
  */
-public interface KmgMessageTypes extends KmgTypes<String> {
+public interface KmgComMessageTypes extends KmgComTypes<String> {
 
     /**
      * メッセージのキーを返す。<br>

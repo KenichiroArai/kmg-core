@@ -11,8 +11,7 @@ import org.mockito.MockedStatic;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import kmg.core.domain.types.KmgMsgMessageTypes;
-import kmg.core.infrastructure.common.KmgMessageTypes;
+import kmg.core.domain.types.KmgCoreGenMessageTypes;
 import kmg.core.infrastructure.exception.KmgDomainException;
 import kmg.core.infrastructure.model.KmgReflectionModel;
 import kmg.core.infrastructure.model.impl.KmgReflectionModelImpl;
@@ -25,7 +24,7 @@ import kmg.core.test.AbstractKmgTest;
  *
  * @since 0.1.0
  *
- * @version 0.1.0
+ * @version 0.2.0
  */
 @SuppressWarnings({
     "nls", "static-method"
@@ -129,7 +128,7 @@ public class KmgPathUtilsTest extends AbstractKmgTest {
         /* 期待値の定義 */
         final String          expectedDomainMessage = String.format("クラスからビルドバスの取得に失敗しました。クラス=[%s]",
             "kmg.core.infrastructure.utils.KmgPathUtilsTest$TestClass");
-        final KmgMessageTypes expectedMessageTypes  = KmgMsgMessageTypes.KMGMSGE24000;
+        final KmgCoreGenMessageTypes expectedMessageTypes  = KmgCoreGenMessageTypes.KMGCORE_GEN24000;
 
         /* 準備 */
         final Class<TestClass>   testTarget    = TestClass.class;

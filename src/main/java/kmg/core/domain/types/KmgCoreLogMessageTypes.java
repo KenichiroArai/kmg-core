@@ -3,19 +3,19 @@ package kmg.core.domain.types;
 import java.util.HashMap;
 import java.util.Map;
 
-import kmg.core.infrastructure.common.KmgMessageTypes;
+import kmg.core.infrastructure.common.KmgComLogMessageTypes;
 
 /**
- * KMGログメッセージの種類<br>
+ * KMGコアログメッセージの種類<br>
  *
  * @author KenichiroArai
  *
  * @since 0.1.0
  *
- * @version 0.1.0
+ * @version 0.2.0
  */
 @SuppressWarnings("nls")
-public enum KmgLogMessageTypes implements KmgMessageTypes {
+public enum KmgCoreLogMessageTypes implements KmgComLogMessageTypes {
 
     /* 定義：開始 */
 
@@ -37,9 +37,9 @@ public enum KmgLogMessageTypes implements KmgMessageTypes {
      *
      * @since 0.1.0
      *
-     * @version 0.1.0
+     * @version 0.2.0
      */
-    KMGLOGI12000("KMGLOGI12000"),
+    KMGCORE_LOG12000("{0}：開始"),
 
     /**
      * {0}：終了。経過時間=[{1}{2}]
@@ -48,9 +48,42 @@ public enum KmgLogMessageTypes implements KmgMessageTypes {
      *
      * @since 0.1.0
      *
-     * @version 0.1.0
+     * @version 0.2.0
      */
-    KMGLOGI12001("KMGLOGI12001"),
+    KMGCORE_LOG12001("{0}：終了。経過時間=[{1}{2}]"),
+
+    /**
+     * {0}：{1}。経過時間=[{2}{3}]
+     *
+     * @author KenichiroArai
+     *
+     * @since 0.2.0
+     *
+     * @version 0.2.0
+     */
+    KMGCORE_LOG12002("{0}：{1}。経過時間=[{2}{3}]"),
+
+    /**
+     * {0}：{1}。経過時間=[{2}{3}]
+     *
+     * @author KenichiroArai
+     *
+     * @since 0.2.0
+     *
+     * @version 0.2.0
+     */
+    KMGCORE_LOG12003("{0}：{1}。経過時間=[{2}{3}]"),
+
+    /**
+     * {0}：{1}。経過時間=[{2}{3}]
+     *
+     * @author KenichiroArai
+     *
+     * @since 0.2.0
+     *
+     * @version 0.2.0
+     */
+    KMGCORE_LOG12004("{0}：{1}。経過時間=[{2}{3}]"),
 
     /* 定義：終了 */
     ;
@@ -60,14 +93,14 @@ public enum KmgLogMessageTypes implements KmgMessageTypes {
      *
      * @since 0.1.0
      */
-    private static final Map<String, KmgLogMessageTypes> VALUES_MAP = new HashMap<>();
+    private static final Map<String, KmgCoreLogMessageTypes> VALUES_MAP = new HashMap<>();
 
     static {
 
         /* 種類のマップにプット */
-        for (final KmgLogMessageTypes type : KmgLogMessageTypes.values()) {
+        for (final KmgCoreLogMessageTypes type : KmgCoreLogMessageTypes.values()) {
 
-            KmgLogMessageTypes.VALUES_MAP.put(type.get(), type);
+            KmgCoreLogMessageTypes.VALUES_MAP.put(type.get(), type);
 
         }
 
@@ -108,9 +141,9 @@ public enum KmgLogMessageTypes implements KmgMessageTypes {
      *
      * @return デフォルト値
      */
-    public static KmgLogMessageTypes getDefault() {
+    public static KmgCoreLogMessageTypes getDefault() {
 
-        final KmgLogMessageTypes result = NONE;
+        final KmgCoreLogMessageTypes result = NONE;
         return result;
 
     }
@@ -128,9 +161,9 @@ public enum KmgLogMessageTypes implements KmgMessageTypes {
      *
      * @return 種類。指定無し（NONE）：キーが存在しない場合。
      */
-    public static KmgLogMessageTypes getEnum(final String key) {
+    public static KmgCoreLogMessageTypes getEnum(final String key) {
 
-        KmgLogMessageTypes result = KmgLogMessageTypes.VALUES_MAP.get(key);
+        KmgCoreLogMessageTypes result = KmgCoreLogMessageTypes.VALUES_MAP.get(key);
 
         if (result == null) {
 
@@ -148,9 +181,9 @@ public enum KmgLogMessageTypes implements KmgMessageTypes {
      *
      * @return 初期値
      */
-    public static KmgLogMessageTypes getInitValue() {
+    public static KmgCoreLogMessageTypes getInitValue() {
 
-        final KmgLogMessageTypes result = NONE;
+        final KmgCoreLogMessageTypes result = NONE;
         return result;
 
     }
@@ -163,7 +196,7 @@ public enum KmgLogMessageTypes implements KmgMessageTypes {
      * @param displayName
      *                    表示名
      */
-    KmgLogMessageTypes(final String displayName) {
+    KmgCoreLogMessageTypes(final String displayName) {
 
         this.displayName = displayName;
         this.key = super.name();

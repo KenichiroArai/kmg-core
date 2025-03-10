@@ -3,18 +3,18 @@ package kmg.core.infrastructure.common;
 import java.util.function.Supplier;
 
 /**
- * 種類のインタフェース
+ * KMG共通種類のインタフェース
  *
  * @author KenichiroArai
  *
  * @since 0.1.0
  *
- * @version 0.1.0
+ * @version 0.2.0
  *
  * @param <T>
  *            列挙型の型パラメータ
  */
-public interface KmgTypes<T> extends Supplier<T> {
+public interface KmgComTypes<T> extends Supplier<T> {
 
     /**
      * キーを返す。<br>

@@ -12,8 +12,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.mockito.junit.jupiter.MockitoSettings;
 import org.mockito.quality.Strictness;
 
-import kmg.core.domain.types.KmgMsgMessageTypes;
-import kmg.core.infrastructure.common.KmgMessageTypes;
+import kmg.core.domain.types.KmgCoreGenMessageTypes;
 import kmg.core.infrastructure.exception.KmgDomainException;
 import kmg.core.infrastructure.model.KmgReflectionModel;
 import kmg.core.infrastructure.type.KmgString;
@@ -26,7 +25,7 @@ import kmg.core.test.AbstractKmgTest;
  *
  * @since 0.1.0
  *
- * @version 0.1.0
+ * @version 0.2.0
  */
 @ExtendWith(MockitoExtension.class)
 @MockitoSettings(strictness = Strictness.LENIENT)
@@ -145,7 +144,7 @@ public class KmgSqlPathModelImplTest extends AbstractKmgTest {
         /* 期待値の定義 */
         final String          expectedDomainMessage = KmgString
             .concat(this.tempDir.resolve("not_exists.sql").toString(), "がありません。");
-        final KmgMessageTypes expectedMessageTypes  = KmgMsgMessageTypes.KMGMSGE11100;
+        final KmgCoreGenMessageTypes expectedMessageTypes  = KmgCoreGenMessageTypes.KMGCORE_GEN11100;
 
         /* 準備 */
         final Path testFile = this.tempDir.resolve("not_exists.sql");

@@ -4,25 +4,25 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 /**
- * KMGメッセージメッセージの種類のテスト<br>
+ * KMG一般メッセージの種類のテスト<br>
  *
  * @author KenichiroArai
  *
  * @since 0.1.0
  *
- * @version 0.1.0
+ * @version 0.2.0
  */
 @SuppressWarnings({
     "nls", "static-method"
 })
-public class KmgMsgMessageTypesTest {
+public class KmgCoreGenMessageTypesTest {
 
     /**
      * デフォルトコンストラクタ<br>
      *
      * @since 0.1.0
      */
-    public KmgMsgMessageTypesTest() {
+    public KmgCoreGenMessageTypesTest() {
 
         // 処理なし
     }
@@ -36,10 +36,10 @@ public class KmgMsgMessageTypesTest {
     public void testGet_normalBasicValue() {
 
         /* 期待値の定義 */
-        final String expected = "KMGMSGE11100";
+        final String expected = "KMGCORE_GEN11100";
 
         /* 準備 */
-        final KmgMsgMessageTypes testType = KmgMsgMessageTypes.KMGMSGE11100;
+        final KmgCoreGenMessageTypes testType = KmgCoreGenMessageTypes.KMGCORE_GEN11100;
 
         /* テスト対象の実行 */
         final String actual = testType.get();
@@ -58,10 +58,10 @@ public class KmgMsgMessageTypesTest {
     public void testGetCode_normalBasicCode() {
 
         /* 期待値の定義 */
-        final String expected = "KMGMSGE11100";
+        final String expected = "KMGCORE_GEN11100";
 
         /* 準備 */
-        final KmgMsgMessageTypes testType = KmgMsgMessageTypes.KMGMSGE11100;
+        final KmgCoreGenMessageTypes testType = KmgCoreGenMessageTypes.KMGCORE_GEN11100;
 
         /* テスト対象の実行 */
         final String actual = testType.getCode();
@@ -80,10 +80,10 @@ public class KmgMsgMessageTypesTest {
     public void testGetDefault_normalDefaultValue() {
 
         /* 期待値の定義 */
-        final KmgMsgMessageTypes expected = KmgMsgMessageTypes.NONE;
+        final KmgCoreGenMessageTypes expected = KmgCoreGenMessageTypes.NONE;
 
         /* テスト対象の実行 */
-        final KmgMsgMessageTypes actual = KmgMsgMessageTypes.getDefault();
+        final KmgCoreGenMessageTypes actual = KmgCoreGenMessageTypes.getDefault();
 
         /* 検証の実施 */
         Assertions.assertEquals(expected, actual, "デフォルト値が一致しません");
@@ -102,7 +102,7 @@ public class KmgMsgMessageTypesTest {
         final String expected = "{0}がありません。";
 
         /* 準備 */
-        final KmgMsgMessageTypes testType = KmgMsgMessageTypes.KMGMSGE11100;
+        final KmgCoreGenMessageTypes testType = KmgCoreGenMessageTypes.KMGCORE_GEN11100;
 
         /* テスト対象の実行 */
         final String actual = testType.getDetail();
@@ -124,7 +124,7 @@ public class KmgMsgMessageTypesTest {
         final String expected = "{0}がありません。";
 
         /* 準備 */
-        final KmgMsgMessageTypes testType = KmgMsgMessageTypes.KMGMSGE11100;
+        final KmgCoreGenMessageTypes testType = KmgCoreGenMessageTypes.KMGCORE_GEN11100;
 
         /* テスト対象の実行 */
         final String actual = testType.getDisplayName();
@@ -143,13 +143,13 @@ public class KmgMsgMessageTypesTest {
     public void testGetEnum_normalExistingValue() {
 
         /* 期待値の定義 */
-        final KmgMsgMessageTypes expected = KmgMsgMessageTypes.KMGMSGE11100;
+        final KmgCoreGenMessageTypes expected = KmgCoreGenMessageTypes.KMGCORE_GEN11100;
 
         /* 準備 */
-        final String testValue = "KMGMSGE11100";
+        final String testValue = "KMGCORE_GEN11100";
 
         /* テスト対象の実行 */
-        final KmgMsgMessageTypes actual = KmgMsgMessageTypes.getEnum(testValue);
+        final KmgCoreGenMessageTypes actual = KmgCoreGenMessageTypes.getEnum(testValue);
 
         /* 検証の実施 */
         Assertions.assertEquals(expected, actual, "値が一致しません");
@@ -165,13 +165,13 @@ public class KmgMsgMessageTypesTest {
     public void testGetEnum_semiNonExistingValue() {
 
         /* 期待値の定義 */
-        final KmgMsgMessageTypes expected = KmgMsgMessageTypes.NONE;
+        final KmgCoreGenMessageTypes expected = KmgCoreGenMessageTypes.NONE;
 
         /* 準備 */
         final String testValue = "INVALID";
 
         /* テスト対象の実行 */
-        final KmgMsgMessageTypes actual = KmgMsgMessageTypes.getEnum(testValue);
+        final KmgCoreGenMessageTypes actual = KmgCoreGenMessageTypes.getEnum(testValue);
 
         /* 検証の実施 */
         Assertions.assertEquals(expected, actual, "値が一致しません");
@@ -187,10 +187,10 @@ public class KmgMsgMessageTypesTest {
     public void testGetInitValue_normalInitialValue() {
 
         /* 期待値の定義 */
-        final KmgMsgMessageTypes expected = KmgMsgMessageTypes.NONE;
+        final KmgCoreGenMessageTypes expected = KmgCoreGenMessageTypes.NONE;
 
         /* テスト対象の実行 */
-        final KmgMsgMessageTypes actual = KmgMsgMessageTypes.getInitValue();
+        final KmgCoreGenMessageTypes actual = KmgCoreGenMessageTypes.getInitValue();
 
         /* 検証の実施 */
         Assertions.assertEquals(expected, actual, "初期値が一致しません");
@@ -209,7 +209,7 @@ public class KmgMsgMessageTypesTest {
         final String expected = "{0}がありません。";
 
         /* 準備 */
-        final KmgMsgMessageTypes testType = KmgMsgMessageTypes.KMGMSGE11100;
+        final KmgCoreGenMessageTypes testType = KmgCoreGenMessageTypes.KMGCORE_GEN11100;
 
         /* テスト対象の実行 */
         final String actual = testType.getValue();
@@ -220,7 +220,7 @@ public class KmgMsgMessageTypesTest {
     }
 
     /**
-     * toString メソッドのテスト - 正常系:KMGMSGE11100の文字列表現
+     * toString メソッドのテスト - 正常系:KMGCORE_GEN11100の文字列表現
      *
      * @since 0.1.0
      */
@@ -228,16 +228,16 @@ public class KmgMsgMessageTypesTest {
     public void testToString_normalKmgmsge11100() {
 
         /* 期待値の定義 */
-        final String expected = "KMGMSGE11100";
+        final String expected = "KMGCORE_GEN11100";
 
         /* 準備 */
-        final KmgMsgMessageTypes testType = KmgMsgMessageTypes.KMGMSGE11100;
+        final KmgCoreGenMessageTypes testType = KmgCoreGenMessageTypes.KMGCORE_GEN11100;
 
         /* テスト対象の実行 */
         final String actual = testType.toString();
 
         /* 検証の実施 */
-        Assertions.assertEquals(expected, actual, "KMGMSGE11100の場合、'KMGMSGE11100'が返されること");
+        Assertions.assertEquals(expected, actual, "KMGCORE_GEN11100の場合、'KMGCORE_GEN11100'が返されること");
 
     }
 
@@ -253,7 +253,7 @@ public class KmgMsgMessageTypesTest {
         final String expected = "NONE";
 
         /* 準備 */
-        final KmgMsgMessageTypes testType = KmgMsgMessageTypes.NONE;
+        final KmgCoreGenMessageTypes testType = KmgCoreGenMessageTypes.NONE;
 
         /* テスト対象の実行 */
         final String actual = testType.toString();

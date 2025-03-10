@@ -3,19 +3,19 @@ package kmg.core.domain.types;
 import java.util.HashMap;
 import java.util.Map;
 
-import kmg.core.infrastructure.common.KmgMessageTypes;
+import kmg.core.infrastructure.common.KmgComGenMessageTypes;
 
 /**
- * KMGメッセージメッセージの種類<br>
+ * KMGコア一般メッセージの種類<br>
  *
  * @author KenichiroArai
  *
  * @since 0.1.0
  *
- * @version 0.1.0
+ * @version 0.2.0
  */
 @SuppressWarnings("nls")
-public enum KmgMsgMessageTypes implements KmgMessageTypes {
+public enum KmgCoreGenMessageTypes implements KmgComGenMessageTypes {
 
     /* 定義：開始 */
 
@@ -26,7 +26,7 @@ public enum KmgMsgMessageTypes implements KmgMessageTypes {
      *
      * @since 0.1.0
      *
-     * @version 0.1.0
+     * @version 0.2.0
      */
     NONE("指定無し"),
 
@@ -37,9 +37,9 @@ public enum KmgMsgMessageTypes implements KmgMessageTypes {
      *
      * @since 0.1.0
      *
-     * @version 0.1.0
+     * @version 0.2.0
      */
-    KMGMSGE11100("{0}がありません。"),
+    KMGCORE_GEN11100("{0}がありません。"),
 
     /**
      * フィールドの取得に失敗しました。フィールド名=[{0}]、対象のクラス=[{1}]、最後に取得したフィールド=[{2}]
@@ -48,9 +48,9 @@ public enum KmgMsgMessageTypes implements KmgMessageTypes {
      *
      * @since 0.1.0
      *
-     * @version 0.1.0
+     * @version 0.2.0
      */
-    KMGMSGE11200("フィールドの取得に失敗しました。フィールド名=[{0}]、対象のクラス=[{1}]、最後に取得したフィールド=[{2}]"),
+    KMGCORE_GEN11200("フィールドの取得に失敗しました。フィールド名=[{0}]、対象のクラス=[{1}]、最後に取得したフィールド=[{2}]"),
 
     /**
      * フィールドの値の取得に失敗しました。フィールド名=[{0}]、対象のクラス=[{1}]、最後に取得したフィールド=[{2}]
@@ -59,9 +59,9 @@ public enum KmgMsgMessageTypes implements KmgMessageTypes {
      *
      * @since 0.1.0
      *
-     * @version 0.1.0
+     * @version 0.2.0
      */
-    KMGMSGE11201("フィールドの値の取得に失敗しました。フィールド名=[{0}]、対象のクラス=[{1}]、最後に取得したフィールド=[{2}]"),
+    KMGCORE_GEN11201("フィールドの値の取得に失敗しました。フィールド名=[{0}]、対象のクラス=[{1}]、最後に取得したフィールド=[{2}]"),
 
     /**
      * フィールドの値の取得に失敗しました。フィールド名=[{0}]、対象のクラス=[{1}]、最後に取得したフィールド=[{2}]
@@ -70,9 +70,9 @@ public enum KmgMsgMessageTypes implements KmgMessageTypes {
      *
      * @since 0.1.0
      *
-     * @version 0.1.0
+     * @version 0.2.0
      */
-    KMGMSGE11202("フィールドの値の取得に失敗しました。フィールド名=[{0}]、対象のクラス=[{1}]、最後に取得したフィールド=[{2}]"),
+    KMGCORE_GEN11202("フィールドの値の取得に失敗しました。フィールド名=[{0}]、対象のクラス=[{1}]、最後に取得したフィールド=[{2}]"),
 
     /**
      * メソッドの取得に失敗しました。メソッド名=[{0}]、対象のクラス=[{1}]
@@ -81,9 +81,9 @@ public enum KmgMsgMessageTypes implements KmgMessageTypes {
      *
      * @since 0.1.0
      *
-     * @version 0.1.0
+     * @version 0.2.0
      */
-    KMGMSGE11203("メソッドの取得に失敗しました。メソッド名=[{0}]、対象のクラス=[{1}]"),
+    KMGCORE_GEN11203("メソッドの取得に失敗しました。メソッド名=[{0}]、対象のクラス=[{1}]"),
 
     /**
      * メソッドの値の取得に失敗しました。メソッド名=[{0}]、対象のクラス=[{1}]
@@ -92,9 +92,9 @@ public enum KmgMsgMessageTypes implements KmgMessageTypes {
      *
      * @since 0.1.0
      *
-     * @version 0.1.0
+     * @version 0.2.0
      */
-    KMGMSGE11204("メソッドの値の取得に失敗しました。メソッド名=[{0}]、対象のクラス=[{1}]"),
+    KMGCORE_GEN11204("メソッドの値の取得に失敗しました。メソッド名=[{0}]、対象のクラス=[{1}]"),
 
     /**
      * メソッドの値の取得に失敗しました。メソッド名=[{0}]、対象のクラス=[{1}]
@@ -103,9 +103,9 @@ public enum KmgMsgMessageTypes implements KmgMessageTypes {
      *
      * @since 0.1.0
      *
-     * @version 0.1.0
+     * @version 0.2.0
      */
-    KMGMSGE11205("メソッドの値の取得に失敗しました。メソッド名=[{0}]、対象のクラス=[{1}]"),
+    KMGCORE_GEN11205("メソッドの値の取得に失敗しました。メソッド名=[{0}]、対象のクラス=[{1}]"),
 
     /**
      * メソッドの値の取得に失敗しました。メソッド名=[{0}]、対象のクラス=[{1}]
@@ -114,9 +114,9 @@ public enum KmgMsgMessageTypes implements KmgMessageTypes {
      *
      * @since 0.1.0
      *
-     * @version 0.1.0
+     * @version 0.2.0
      */
-    KMGMSGE11206("メソッドの値の取得に失敗しました。メソッド名=[{0}]、対象のクラス=[{1}]"),
+    KMGCORE_GEN11206("メソッドの値の取得に失敗しました。メソッド名=[{0}]、対象のクラス=[{1}]"),
 
     /**
      * メソッドの値の取得に失敗しました。メソッド名=[{0}]、対象のクラス=[{1}]
@@ -125,9 +125,9 @@ public enum KmgMsgMessageTypes implements KmgMessageTypes {
      *
      * @since 0.1.0
      *
-     * @version 0.1.0
+     * @version 0.2.0
      */
-    KMGMSGE11207("メソッドの値の取得に失敗しました。メソッド名=[{0}]、対象のクラス=[{1}]"),
+    KMGCORE_GEN11207("メソッドの値の取得に失敗しました。メソッド名=[{0}]、対象のクラス=[{1}]"),
 
     /**
      * フィールドの取得に失敗しました。フィールド名=[{0}]、対象のクラス=[{1}]、最後に取得したフィールド=[{2}]
@@ -136,9 +136,9 @@ public enum KmgMsgMessageTypes implements KmgMessageTypes {
      *
      * @since 0.1.0
      *
-     * @version 0.1.0
+     * @version 0.2.0
      */
-    KMGMSGE11209("フィールドの取得に失敗しました。フィールド名=[{0}]、対象のクラス=[{1}]、最後に取得したフィールド=[{2}]"),
+    KMGCORE_GEN11209("フィールドの取得に失敗しました。フィールド名=[{0}]、対象のクラス=[{1}]、最後に取得したフィールド=[{2}]"),
 
     /**
      * フィールドの値の設定に失敗しました。フィールド名=[{0}]、対象のクラス=[{1}]、最後に取得したフィールド=[{2}]
@@ -147,9 +147,9 @@ public enum KmgMsgMessageTypes implements KmgMessageTypes {
      *
      * @since 0.1.0
      *
-     * @version 0.1.0
+     * @version 0.2.0
      */
-    KMGMSGE11210("フィールドの値の設定に失敗しました。フィールド名=[{0}]、対象のクラス=[{1}]、最後に取得したフィールド=[{2}]"),
+    KMGCORE_GEN11210("フィールドの値の設定に失敗しました。フィールド名=[{0}]、対象のクラス=[{1}]、最後に取得したフィールド=[{2}]"),
 
     /**
      * フィールドの値の設定に失敗しました。フィールド名=[{0}]、対象のクラス=[{1}]、最後に取得したフィールド=[{2}]
@@ -158,9 +158,9 @@ public enum KmgMsgMessageTypes implements KmgMessageTypes {
      *
      * @since 0.1.0
      *
-     * @version 0.1.0
+     * @version 0.2.0
      */
-    KMGMSGE11211("フィールドの値の設定に失敗しました。フィールド名=[{0}]、対象のクラス=[{1}]、最後に取得したフィールド=[{2}]"),
+    KMGCORE_GEN11211("フィールドの値の設定に失敗しました。フィールド名=[{0}]、対象のクラス=[{1}]、最後に取得したフィールド=[{2}]"),
 
     /**
      * クラスからビルドバスの取得に失敗しました。クラス=[{0}]
@@ -169,9 +169,9 @@ public enum KmgMsgMessageTypes implements KmgMessageTypes {
      *
      * @since 0.1.0
      *
-     * @version 0.1.0
+     * @version 0.2.0
      */
-    KMGMSGE24000("クラスからビルドバスの取得に失敗しました。クラス=[{0}]"),
+    KMGCORE_GEN24000("クラスからビルドバスの取得に失敗しました。クラス=[{0}]"),
 
     /* 定義：終了 */
     ;
@@ -181,14 +181,14 @@ public enum KmgMsgMessageTypes implements KmgMessageTypes {
      *
      * @since 0.1.0
      */
-    private static final Map<String, KmgMsgMessageTypes> VALUES_MAP = new HashMap<>();
+    private static final Map<String, KmgCoreGenMessageTypes> VALUES_MAP = new HashMap<>();
 
     static {
 
         /* 種類のマップにプット */
-        for (final KmgMsgMessageTypes type : KmgMsgMessageTypes.values()) {
+        for (final KmgCoreGenMessageTypes type : KmgCoreGenMessageTypes.values()) {
 
-            KmgMsgMessageTypes.VALUES_MAP.put(type.get(), type);
+            KmgCoreGenMessageTypes.VALUES_MAP.put(type.get(), type);
 
         }
 
@@ -229,9 +229,9 @@ public enum KmgMsgMessageTypes implements KmgMessageTypes {
      *
      * @return デフォルト値
      */
-    public static KmgMsgMessageTypes getDefault() {
+    public static KmgCoreGenMessageTypes getDefault() {
 
-        final KmgMsgMessageTypes result = NONE;
+        final KmgCoreGenMessageTypes result = NONE;
         return result;
 
     }
@@ -249,9 +249,9 @@ public enum KmgMsgMessageTypes implements KmgMessageTypes {
      *
      * @return 種類。指定無し（NONE）：キーが存在しない場合。
      */
-    public static KmgMsgMessageTypes getEnum(final String key) {
+    public static KmgCoreGenMessageTypes getEnum(final String key) {
 
-        KmgMsgMessageTypes result = KmgMsgMessageTypes.VALUES_MAP.get(key);
+        KmgCoreGenMessageTypes result = KmgCoreGenMessageTypes.VALUES_MAP.get(key);
 
         if (result == null) {
 
@@ -269,9 +269,9 @@ public enum KmgMsgMessageTypes implements KmgMessageTypes {
      *
      * @return 初期値
      */
-    public static KmgMsgMessageTypes getInitValue() {
+    public static KmgCoreGenMessageTypes getInitValue() {
 
-        final KmgMsgMessageTypes result = NONE;
+        final KmgCoreGenMessageTypes result = NONE;
         return result;
 
     }
@@ -284,7 +284,7 @@ public enum KmgMsgMessageTypes implements KmgMessageTypes {
      * @param displayName
      *                    表示名
      */
-    KmgMsgMessageTypes(final String displayName) {
+    KmgCoreGenMessageTypes(final String displayName) {
 
         this.displayName = displayName;
         this.key = super.name();
