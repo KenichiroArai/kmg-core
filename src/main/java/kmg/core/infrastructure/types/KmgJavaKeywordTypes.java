@@ -6,7 +6,7 @@ import java.util.Map;
 import kmg.core.infrastructure.common.KmgComTypes;
 
 /**
- * KMGキーワードの種類<br>
+ * KMGJavaキーワードの種類<br>
  *
  * @author KenichiroArai
  *
