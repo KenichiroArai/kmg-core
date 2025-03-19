@@ -117,8 +117,8 @@ public class KmgException extends Exception {
         super(cause);
         this.messageTypes = messageTypes;
         this.messageArgs = messageArgs;
-        this.messagePattern = KmgMessageUtils.getMessagePattern(messageTypes);
-        this.message = KmgMessageUtils.getMessage(messageTypes, messageArgs);
+        this.messagePattern = this.createMessagePattern();
+        this.message = this.createMessage();
 
         /* メッセージカウントの初期化 */
         this.setMessageCounts();
@@ -236,6 +236,34 @@ public class KmgException extends Exception {
     public boolean isMatchMessageArgsCount() {
 
         final boolean result = this.isMatchMessageArgsCount;
+        return result;
+
+    }
+
+    /**
+     * メッセージを作成し、返す。
+     *
+     * @since 0.2.0
+     *
+     * @return メッセージ
+     */
+    protected String createMessage() {
+
+        final String result = KmgMessageUtils.getMessage(this.messageTypes, this.messageArgs);
+        return result;
+
+    }
+
+    /**
+     * メッセージパターンを作成し、返す。
+     *
+     * @since 0.2.0
+     *
+     * @return メッセージパターン
+     */
+    protected String createMessagePattern() {
+
+        final String result = this.messageTypes.getValue();
         return result;
 
     }
