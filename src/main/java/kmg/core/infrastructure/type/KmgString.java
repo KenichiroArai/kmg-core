@@ -284,6 +284,47 @@ public class KmgString {
     }
 
     /**
+     * 文字列がnull、空文字、または空白文字のみで構成されているかどうかを確認します。
+     *
+     * @param target
+     *               確認する文字列
+     *
+     * @return 文字列がnull、空文字、または空白文字のみの場合はtrue、そうでない場合はfalse
+     *
+     * @since 0.2.0
+     */
+    public static boolean isBlank(final String target) {
+
+        boolean result = true;
+
+        /* 事前チェック */
+        // 値が空か
+        if (KmgString.isEmpty(target)) {
+            // 空の場合
+
+            return result;
+
+        }
+
+        /* 空白文字のチェック */
+        for (int i = 0; i < target.length(); i++) {
+
+            // 空白文字以外が含まれているか
+            if (!Character.isWhitespace(target.charAt(i))) {
+                // 空白文字以外が含まれている場合
+
+                result = false;
+                return result;
+
+            }
+
+        }
+
+        return result;
+
+    }
+
+    /**
      * 文字列がnullまたは空であるかどうかを確認します。
      *
      * @param target
@@ -299,6 +340,23 @@ public class KmgString {
 
         final KmgString kmgString = new KmgString(target);
         final boolean   result    = kmgString.isEmpty();
+        return result;
+
+    }
+
+    /**
+     * 文字列がnull、空文字、または空白文字のみで構成されていないかどうかを確認します。
+     *
+     * @param target
+     *               確認する文字列
+     *
+     * @return 文字列がnull、空文字、または空白文字のみでない場合はtrue、そうでない場合はfalse
+     *
+     * @since 0.2.0
+     */
+    public static boolean isNotBlank(final String target) {
+
+        final boolean result = !KmgString.isBlank(target);
         return result;
 
     }
@@ -520,6 +578,20 @@ public class KmgString {
     }
 
     /**
+     * 文字列がnull、空文字、または空白文字のみで構成されているかどうかを確認します。
+     *
+     * @return 文字列がnull、空文字、または空白文字のみの場合はtrue、そうでない場合はfalse
+     *
+     * @since 0.2.0
+     */
+    public boolean isBlank() {
+
+        final boolean result = KmgString.isBlank(this.value);
+        return result;
+
+    }
+
+    /**
      * 文字列が空かどうかを判定します。
      *
      * @return 文字列が空の場合はtrue、そうでない場合はfalse
@@ -543,6 +615,20 @@ public class KmgString {
         }
 
         result = false;
+        return result;
+
+    }
+
+    /**
+     * 文字列がnull、空文字、または空白文字のみで構成されていないかどうかを確認します。
+     *
+     * @return 文字列がnull、空文字、または空白文字のみでない場合はtrue、そうでない場合はfalse
+     *
+     * @since 0.2.0
+     */
+    public boolean isNotBlank() {
+
+        final boolean result = !this.isBlank();
         return result;
 
     }
