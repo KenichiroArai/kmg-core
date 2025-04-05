@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.regex.Pattern;
 
 import kmg.core.infrastructure.common.KmgComTypes;
 
@@ -322,6 +323,20 @@ public enum KmgJavadocTagTypes implements KmgComTypes<String> {
     /* 定義：終了 */
     ;
 
+    /**
+     * Javadocタグを抽出する正規表現パターン
+     *
+     * @since 0.2.0
+     */
+    private static final String TAG_PATTERN = "\\s+\\*\\s+(@\\w+)\\s+([^\\s\\n]+)(?:\\s+([^@\\n]+))?";
+
+    /**
+     * コンパイル済みのJavadocタグパターン
+     *
+     * @since 0.2.0
+     */
+    private static final Pattern COMPILED_TAG_PATTERN = Pattern.compile(KmgJavadocTagTypes.TAG_PATTERN);
+
     /** 種類のマップ */
     private static final Map<String, KmgJavadocTagTypes> VALUES_MAP = new HashMap<>();
 
@@ -363,6 +378,22 @@ public enum KmgJavadocTagTypes implements KmgComTypes<String> {
      * @since 0.2.0
      */
     private final List<KmgJavadocLocationTypes> locations;
+
+    /**
+     * コンパイル済みのJavadocタグパターンを返す<br>
+     *
+     * @author KenichiroArai
+     *
+     * @since 0.2.0
+     *
+     * @return コンパイル済みのJavadocタグパターン
+     */
+    public static Pattern getCompiledTagPattern() {
+
+        final Pattern result = KmgJavadocTagTypes.COMPILED_TAG_PATTERN;
+        return result;
+
+    }
 
     /**
      * デフォルトの種類を返す<br>
@@ -414,6 +445,22 @@ public enum KmgJavadocTagTypes implements KmgComTypes<String> {
     public static KmgJavadocTagTypes getInitValue() {
 
         final KmgJavadocTagTypes result = NONE;
+        return result;
+
+    }
+
+    /**
+     * Javadocタグを抽出する正規表現パターンを返す<br>
+     *
+     * @author KenichiroArai
+     *
+     * @since 0.2.0
+     *
+     * @return Javadocタグを抽出する正規表現パターン
+     */
+    public static String getTagPattern() {
+
+        final String result = KmgJavadocTagTypes.TAG_PATTERN;
         return result;
 
     }
