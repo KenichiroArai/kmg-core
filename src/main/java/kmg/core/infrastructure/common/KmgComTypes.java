@@ -56,7 +56,7 @@ public interface KmgComTypes<T> extends Supplier<T> {
      *
      * @return キー
      */
-    String getKey();
+    T getKey();
 
     /**
      * キーを返す。<br>
