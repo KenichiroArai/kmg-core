@@ -522,6 +522,91 @@ public enum KmgJavadocTagTypes implements KmgComTypes<String> {
     }
 
     /**
+     * バージョン値かどうかを返す。<br>
+     *
+     * @since 0.2.0
+     *
+     * @return バージョン値かどうか。true：バージョン値、false：バージョン値以外。
+     */
+    public boolean isVersionValue() {
+
+        boolean result = false;
+
+        /* バージョン値かどうかの判定 */
+        switch (this) {
+
+            case VERSION:
+                /* バージョン */
+            case SINCE:
+                /* シンス（導入バージョン） */
+                result = true;
+                break;
+
+            case NONE:
+                /* 指定無し */
+            case AUTHOR:
+                /* 著者 */
+            case SEE:
+                /* 参照 */
+            case DEPRECATED:
+                /* 非推奨 */
+            case PARAM:
+                /* パラメータ */
+            case RETURN:
+                /* 戻り値 */
+            case THROWS:
+                /* 例外 */
+            case EXCEPTION:
+                /* 例外（別名） */
+            case SERIAL_DATA:
+                /* シリアルデータ */
+            case SERIAL_FIELD:
+                /* シリアルフィールド */
+            case SERIAL:
+                /* 直列化可能 */
+            case INHERIT_DOC:
+                /* 継承Doc */
+            case CODE:
+                /* コード */
+            case LINK:
+                /* リンク */
+            case LINK_PLAIN:
+                /* リンクプレーン */
+            case LITERAL:
+                /* リテラル */
+            case VALUE:
+                /* 値 */
+            case DOC_ROOT:
+                /* ドキトート */
+            case HIDDEN:
+                /* 隠し */
+            case SUMMARY:
+                /* 要約 */
+            case INDEX:
+                /* インデックス */
+            case API_NOTE:
+                /* 内部API */
+            case IMPL_SPEC:
+                /* 実装詳細 */
+            case IMPL_NOTE:
+                /* 実装ノート */
+            case SYSTEM_PROPERTY:
+                /* システムプロパティ */
+            case SNIPPET:
+                /* スニペット */
+            case PROVIDES:
+                /* 許可された宣言的アクセス */
+            case USES:
+                /* 使用サービス */
+                break;
+
+        }
+
+        return result;
+
+    }
+
+    /**
      * キーを返す。<br>
      *
      * @since 0.2.0
