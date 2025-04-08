@@ -21,6 +21,8 @@ public enum KmgJavadocTagTypes implements KmgComTypes<String> {
 
     /* 定義：開始 */
 
+    // TODO KenichiroArai 2025/04/08 タグは列挙型にする
+
     /**
      * 指定無し
      *
