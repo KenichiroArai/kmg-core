@@ -85,7 +85,7 @@ public enum JavaClassificationTypes implements KmgComTypes<String> {
      *
      * @since 0.2.0
      */
-    FIELD("フィールド", "field", "フィールド", "^\\s*\\w+\\s+\\w+.*"),
+    FIELD("フィールド", "field", "フィールド", "^\\s*(\\w+\\s+)*\\w+\\s+\\w+.*"),
 
     /**
      * メソッド
