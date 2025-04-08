@@ -152,6 +152,66 @@ public enum KmgJavadocLocationTypes implements KmgComTypes<String> {
     private final String detail;
 
     /**
+     * Java区分からJavadoc配置場所の種類を返す<br>
+     *
+     * @author KenichiroArai
+     *
+     * @since 0.2.0
+     *
+     * @param javaClassification
+     *                           Java区分
+     *
+     * @return Javadoc配置場所の種類
+     */
+    public static KmgJavadocLocationTypes fromJavaClassification(final JavaClassificationTypes javaClassification) {
+
+        // TODO KenichiroArai 2025/04/08 仕組みを考える
+
+        KmgJavadocLocationTypes result = NONE;
+
+        if (javaClassification == null) {
+
+            return result;
+
+        }
+
+        switch (javaClassification) {
+
+            case NONE:
+                /* 指定無し */
+
+            case CLASS:
+                /* クラス */
+                result = CLASS;
+                break;
+
+            case INTERFACE:
+                /* インターフェース */
+                result = INTERFACE;
+                break;
+
+            case ENUM:
+                /* 列挙型 */
+                result = ENUM;
+                break;
+
+            case METHOD:
+                /* メソッド */
+                result = METHOD;
+                break;
+
+            case FIELD:
+                /* フィールド */
+                result = FIELD;
+                break;
+
+        }
+
+        return result;
+
+    }
+
+    /**
      * デフォルトの種類を返す<br>
      *
      * @since 0.2.0
