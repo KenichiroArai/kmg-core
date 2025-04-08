@@ -2,6 +2,8 @@ package kmg.core.infrastructure.types;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import kmg.core.infrastructure.common.KmgComTypes;
 import kmg.core.infrastructure.type.KmgString;
@@ -36,7 +38,7 @@ public enum JavaClassificationTypes implements KmgComTypes<String> {
      *
      * @since 0.2.0
      */
-    CLASS("クラス", "class", "クラス", "^\\s*class\\s+\\w+.*"),
+    CLASS("クラス", "class", "クラス", "^\\s*(public|private|protected|abstract|final)\\s+(class)\\s+\\w+.*"),
 
     /**
      * インターフェース
@@ -241,13 +243,15 @@ public enum JavaClassificationTypes implements KmgComTypes<String> {
             }
 
             // 判定対象の文字列が区分判定パターンにマッチしないか
-            if (!text.matches(type.getClassificationPattern())) {
-                // マッチしない場合
+            final Pattern pattern = Pattern.compile(type.getClassificationPattern());
+            final Matcher matcher = pattern.matcher(text);
 
+            if (!matcher.find()) {
+
+                // マッチしない場合
                 continue;
 
             }
-
             result = type;
             break;
 
