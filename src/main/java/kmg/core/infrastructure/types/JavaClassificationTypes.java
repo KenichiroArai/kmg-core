@@ -25,6 +25,8 @@ public enum JavaClassificationTypes implements KmgComTypes<String> {
     /**
      * 指定無し
      *
+     * @version 0.2.0
+     *
      * @author KenichiroArai
      *
      * @since 0.2.0
@@ -33,6 +35,8 @@ public enum JavaClassificationTypes implements KmgComTypes<String> {
 
     /**
      * クラス
+     *
+     * @version 0.2.0
      *
      * @author KenichiroArai
      *
@@ -43,29 +47,36 @@ public enum JavaClassificationTypes implements KmgComTypes<String> {
     /**
      * インターフェース
      *
+     * @version 0.2.0
+     *
      * @author KenichiroArai
      *
      * @since 0.2.0
      */
-    INTERFACE("インターフェース", "interface", "インターフェース", "^\\s*interface\\s+\\w+.*"),
+    INTERFACE("インターフェース", "interface", "インターフェース", "^\\s*(public|private|protected)\\s+(interface)\\s+\\w+.*"),
 
     /**
      * 列挙型
      *
+     * @version 0.2.0
+     *
      * @author KenichiroArai
      *
      * @since 0.2.0
      */
-    ENUM("列挙型", "enum", "列挙型", "^\\s*enum\\s+\\w+.*"),
+    ENUM("列挙型", "enum", "列挙型", "^\\s*(public|private|protected)\\s+(enum)\\s+\\w+.*"),
 
     /**
      * アノテーション定義
      *
+     * @version 0.2.0
+     *
      * @author KenichiroArai
      *
      * @since 0.2.0
      */
-    ANNOTATION_DEFINITION("アノテーション定義", "annotation_definition", "アノテーション定義", "^\\s*@interface\\s+\\w+.*"),
+    ANNOTATION_DEFINITION("アノテーション定義", "annotation_definition", "アノテーション定義",
+        "^\\s*(public|private|protected)\\s+@interface\\s+\\w+.*"),
 
     /**
      * アノテーション使用<br>
@@ -73,30 +84,37 @@ public enum JavaClassificationTypes implements KmgComTypes<String> {
      * Javadocのタグと区別するため、区分判定パターンで除外している。
      * </p>
      *
+     * @version 0.2.0
+     *
      * @author KenichiroArai
      *
      * @since 0.2.0
      */
     ANNOTATION_USAGE("アノテーション使用", "annotation_usage", "アノテーション使用",
-        "^\\s*@(?!author|since|version|param|return|throws|see|deprecated)\\w+.*"),
+        "^\\s*@(?!author|since|version|param|return|throws|see|deprecated|Override)\\w+.*"),
 
     /**
      * フィールド
      *
+     * @version 0.2.0
+     *
      * @author KenichiroArai
      *
      * @since 0.2.0
      */
-    FIELD("フィールド", "field", "フィールド", "^\\s*(\\w+\\s+)*\\w+\\s+\\w+.*"),
+    FIELD("フィールド", "field", "フィールド", "^\\s*(public|private|protected|static|final)\\s+((\\w+\\s+)*\\w+\\s+\\w+.*;)"),
 
     /**
      * メソッド
      *
+     * @version 0.2.0
+     *
      * @author KenichiroArai
      *
      * @since 0.2.0
      */
-    METHOD("メソッド", "method", "メソッド", "^\\s*\\w+\\s+\\w+\\(.*\\).*"),
+    METHOD("メソッド", "method", "メソッド",
+        "^\\s*(public|private|protected|static|final|abstract|synchronized)\\s+([\\w<>\\[\\]]+\\s+)?\\w+\\s*\\(.*\\).*"),
 
     /* 定義：終了 */
     ;
@@ -167,6 +185,10 @@ public enum JavaClassificationTypes implements KmgComTypes<String> {
      * 但し、キーが存在しない場合は、指定無し（NONE）を返す。
      * </p>
      *
+     * @author KenichiroArai
+     *
+     * @version 0.2.0
+     *
      * @since 0.2.0
      *
      * @param key
@@ -203,8 +225,6 @@ public enum JavaClassificationTypes implements KmgComTypes<String> {
 
     /**
      * 判定対象の文字列からJava区分を判別する<br>
-     *
-     * @author KenichiroArai
      *
      * @since 0.2.0
      *
@@ -263,6 +283,10 @@ public enum JavaClassificationTypes implements KmgComTypes<String> {
 
     /**
      * コンストラクタ<br>
+     *
+     * @author KenichiroArai
+     *
+     * @version 0.2.0
      *
      * @since 0.2.0
      *
@@ -367,8 +391,6 @@ public enum JavaClassificationTypes implements KmgComTypes<String> {
     /**
      * Javadoc対象の区分かを判定する<br>
      *
-     * @author KenichiroArai
-     *
      * @since 0.2.0
      *
      * @return true：Javadoc対象の区分、false：Javadoc対象外の区分
@@ -391,8 +413,6 @@ public enum JavaClassificationTypes implements KmgComTypes<String> {
 
     /**
      * Javadoc対象外の区分かを判定する<br>
-     *
-     * @author KenichiroArai
      *
      * @since 0.2.0
      *
