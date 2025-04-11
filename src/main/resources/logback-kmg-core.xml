@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE logback>
+<configuration>
+    <!-- プロジェクト固有のプロパティ -->
+    <property name="PROJECT_NAME" value="kmg-core" />
+
+    <!-- ベース設定を読み込み -->
+    <include resource="logback-kmg-base.xml" />
+
+    <!-- プロジェクト固有のロガー設定 -->
+    <logger name="kmg.core" level="DEBUG" additivity="false">
+        <appender-ref ref="STDOUT" />
+        <appender-ref ref="APPLIATION_LOG" />
+    </logger>
+
+    <root level="INFO">
+        <appender-ref ref="STDOUT" />
+        <appender-ref ref="APPLIATION_LOG" />
+    </root>
+</configuration>

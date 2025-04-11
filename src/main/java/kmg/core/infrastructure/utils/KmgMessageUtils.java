@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.ResourceBundle;
 
+import kmg.core.infrastructure.common.KmgComExcMessageTypes;
 import kmg.core.infrastructure.common.KmgComGenMessageTypes;
 import kmg.core.infrastructure.common.KmgComLogMessageTypes;
 import kmg.core.infrastructure.common.KmgComMessageTypes;
@@ -108,6 +109,54 @@ public final class KmgMessageUtils {
         /* メッセージパターンの引数の数とメッセージの引数の数が一致しているかチェックする */
         result = patternCount == argsCount;
 
+        return result;
+
+    }
+
+    /**
+     * 例外用メッセージを取得する<br>
+     * メッセージタイプに対応するメッセージパターンを取得します。 このメソッドは {@link #getMessage(KmgComMessageTypes, Object[], boolean)} を
+     * コード埋め込みフラグをtrueに設定して呼び出す便利メソッドです。
+     *
+     * @since 0.2.0
+     *
+     * @param type
+     *             メッセージの種類。対応するリソースからメッセージパターンを取得するために使用されます。
+     *
+     * @return メッセージ。メッセージコードが先頭に埋め込まれます（例：「[E001] エラーメッセージ」）。
+     *
+     * @see #getMessage(KmgComMessageTypes, Object[], boolean)
+     * @see KmgComGenMessageTypes
+     */
+    public static String getExcMessage(final KmgComExcMessageTypes type) {
+
+        /* コード埋め込みフラグをfalseに設定して、メッセージを取得 */
+        final String result = KmgMessageUtils.getMessage(type, null, true);
+        return result;
+
+    }
+
+    /**
+     * 例外用メッセージを取得する<br>
+     * メッセージタイプに対応するメッセージパターンを取得し、指定された引数で置換します。 このメソッドは {@link #getMessage(KmgComMessageTypes, Object[], boolean)} を
+     * コード埋め込みフラグをtrueに設定して呼び出す便利メソッドです。
+     *
+     * @since 0.2.0
+     *
+     * @param type
+     *             メッセージの種類。対応するリソースからメッセージパターンを取得するために使用されます。
+     * @param args
+     *             メッセージの引数。メッセージパターン内のプレースホルダーを置換するために使用されます。 nullの場合、メッセージパターンをそのまま返します。
+     *
+     * @return メッセージ。メッセージコードが先頭に埋め込まれます（例：「[E001] エラーメッセージ」）。
+     *
+     * @see #getMessage(KmgComMessageTypes, Object[], boolean)
+     * @see KmgComGenMessageTypes
+     */
+    public static String getExcMessage(final KmgComExcMessageTypes type, final Object[] args) {
+
+        /* コード埋め込みフラグをfalseに設定して、メッセージを取得 */
+        final String result = KmgMessageUtils.getMessage(type, args, true);
         return result;
 
     }

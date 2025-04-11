@@ -176,6 +176,17 @@ public enum KmgDelimiterTypes implements KmgComTypes<String> {
     LINE_SEPARATOR("改行", KmgString.LINE_SEPARATOR),
 
     /**
+     * 正規表現による改行
+     *
+     * @author KenichiroArai
+     *
+     * @since 0.2.0
+     *
+     * @version 0.2.0
+     */
+    REGEX_LINE_SEPARATOR("正規表現による改行", "\\r?\\n|\\r"),
+
+    /**
      * 半角イコール
      *
      * @author KenichiroArai

@@ -1,6 +1,6 @@
 package kmg.core.infrastructure.exception;
 
-import kmg.core.infrastructure.common.KmgComGenMessageTypes;
+import kmg.core.infrastructure.common.KmgComExcMessageTypes;
 import kmg.core.infrastructure.utils.KmgMessageUtils;
 
 /**
@@ -22,14 +22,14 @@ public class KmgException extends Exception {
     private static final long serialVersionUID = 1L;
 
     /**
-     * 一般メッセージの種類
+     * 例外メッセージの種類
      *
      * @since 0.1.0
      */
-    private final KmgComGenMessageTypes messageTypes;
+    private final KmgComExcMessageTypes messageTypes;
 
     /**
-     * 一般メッセージの引数
+     * 例外メッセージの引数
      *
      * @since 0.1.0
      */
@@ -78,7 +78,7 @@ public class KmgException extends Exception {
      * @param messageTypes
      *                     メッセージの種類
      */
-    public KmgException(final KmgComGenMessageTypes messageTypes) {
+    public KmgException(final KmgComExcMessageTypes messageTypes) {
 
         this(messageTypes, null, null);
 
@@ -94,7 +94,7 @@ public class KmgException extends Exception {
      * @param messageArgs
      *                     メッセージの引数
      */
-    public KmgException(final KmgComGenMessageTypes messageTypes, final Object[] messageArgs) {
+    public KmgException(final KmgComExcMessageTypes messageTypes, final Object[] messageArgs) {
 
         this(messageTypes, messageArgs, null);
 
@@ -112,13 +112,16 @@ public class KmgException extends Exception {
      * @param cause
      *                     原因
      */
-    public KmgException(final KmgComGenMessageTypes messageTypes, final Object[] messageArgs, final Throwable cause) {
+    public KmgException(final KmgComExcMessageTypes messageTypes, final Object[] messageArgs, final Throwable cause) {
 
         super(cause);
         this.messageTypes = messageTypes;
         this.messageArgs = messageArgs;
-        this.messagePattern = KmgMessageUtils.getMessagePattern(messageTypes);
-        this.message = KmgMessageUtils.getMessage(messageTypes, messageArgs);
+
+        this.createMessageSource();
+
+        this.messagePattern = this.createMessagePattern();
+        this.message = this.createMessage();
 
         /* メッセージカウントの初期化 */
         this.setMessageCounts();
@@ -135,7 +138,7 @@ public class KmgException extends Exception {
      * @param cause
      *                     原因
      */
-    public KmgException(final KmgComGenMessageTypes messageTypes, final Throwable cause) {
+    public KmgException(final KmgComExcMessageTypes messageTypes, final Throwable cause) {
 
         this(messageTypes, null, cause);
 
@@ -219,9 +222,9 @@ public class KmgException extends Exception {
      *
      * @return メッセージの種類
      */
-    public KmgComGenMessageTypes getMessageTypes() {
+    public KmgComExcMessageTypes getMessageTypes() {
 
-        final KmgComGenMessageTypes result = this.messageTypes;
+        final KmgComExcMessageTypes result = this.messageTypes;
         return result;
 
     }
@@ -238,6 +241,44 @@ public class KmgException extends Exception {
         final boolean result = this.isMatchMessageArgsCount;
         return result;
 
+    }
+
+    /**
+     * メッセージを作成し、返す。
+     *
+     * @since 0.2.0
+     *
+     * @return メッセージ
+     */
+    protected String createMessage() {
+
+        final String result = KmgMessageUtils.getExcMessage(this.messageTypes, this.messageArgs);
+        return result;
+
+    }
+
+    /**
+     * メッセージパターンを作成し、返す。
+     *
+     * @since 0.2.0
+     *
+     * @return メッセージパターン
+     */
+    protected String createMessagePattern() {
+
+        final String result = this.messageTypes.getValue();
+        return result;
+
+    }
+
+    /**
+     * メッセージソースを作成する。
+     *
+     * @since 0.2.0
+     */
+    protected void createMessageSource() {
+
+        // KmgMessageUtilsを使用するため、処理なし
     }
 
     /**
