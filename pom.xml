@@ -18,7 +18,7 @@
         <junit-jupiter.version>5.10.2</junit-jupiter.version>
         <apache-poi.version>5.4.0</apache-poi.version>
         <mockito.version>5.11.0</mockito.version>
-        <slf4j.version>2.0.16</slf4j.version>
+        <slf4j.version>2.0.17</slf4j.version>
     </properties>
 
     <scm>
