@@ -3,7 +3,7 @@ package kmg.core.infrastructure.model;
 import kmg.core.infrastructure.exception.KmgDomainException;
 
 /**
- * KMGＳＱＬパスモデルインタフェース<br>
+ * KMGSQLパスモデルインタフェース<br>
  *
  * @author KenichiroArai
  *
@@ -14,9 +14,9 @@ import kmg.core.infrastructure.exception.KmgDomainException;
 public interface KmgSqlPathModel {
 
     /**
-     * ＳＱＬにして返す<br>
+     * SQLにして返す<br>
      * <p>
-     * ＳＱＬパスで受け取ったファイルの中身をＳＱＬにして返す。<br>
+     * SQLパスで受け取ったファイルの中身をSQLにして返す。<br>
      * コメントに埋め込まれたパラメータをパラメータに変換する。<br>
      * コメントの後にあるサンプル値を削除する。<br>
      * 例：&#047;*:sampleId*&#047;'サンプル'→:sampleId<br>
@@ -25,7 +25,7 @@ public interface KmgSqlPathModel {
      *
      * @since 0.1.0
      *
-     * @return ＳＱＬにして返す
+     * @return SQLにして返す
      *
      * @throws KmgDomainException
      *                            KMGドメイン例外
