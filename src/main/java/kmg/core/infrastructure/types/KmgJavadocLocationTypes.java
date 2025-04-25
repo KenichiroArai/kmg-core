@@ -165,7 +165,7 @@ public enum KmgJavadocLocationTypes implements KmgComTypes<String> {
      */
     public static KmgJavadocLocationTypes fromJavaClassification(final JavaClassificationTypes javaClassification) {
 
-        // TODO TODO KenichiroArai 2025/04/25 【優先度：中】：仕組みを考える
+        // TODO KenichiroArai 2025/04/25 【優先度：中】：仕組みを考える
 
         KmgJavadocLocationTypes result = NONE;
 
