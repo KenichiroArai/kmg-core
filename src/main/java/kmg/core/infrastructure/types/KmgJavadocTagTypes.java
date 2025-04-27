@@ -30,7 +30,7 @@ public enum KmgJavadocTagTypes implements KmgComTypes<String> {
      *
      * @since 0.2.0
      */
-    NONE("指定無し", "None", "指定無し", null),
+    NONE("指定無し", "None", "指定無し", List.of()),
 
     /**
      * 著者
@@ -292,7 +292,8 @@ public enum KmgJavadocTagTypes implements KmgComTypes<String> {
      *
      * @since 0.2.0
      */
-    SYSTEM_PROPERTY("システムプロパティ", "{@systemProperty}", "Javaシステムプロパティを参照する", Arrays.asList(JavaClassificationTypes.NONE)),
+    SYSTEM_PROPERTY("システムプロパティ", "{@systemProperty}", "Javaシステムプロパティを参照する",
+        Arrays.asList(JavaClassificationTypes.NONE)),
 
     /**
      * スニペット
@@ -432,7 +433,7 @@ public enum KmgJavadocTagTypes implements KmgComTypes<String> {
      * @param detail
      *                    詳細情報
      * @param locations
-     *                    設定可能な場所のリスト。null：指定可能な場所無し。リストにNONEあり：全ての場所で指定可能。
+     *                    設定可能な場所のリスト。リストが空：指定可能な場所無し。リストにNONEあり：全ての場所で指定可能。
      */
     KmgJavadocTagTypes(final String displayName, final String key, final String detail,
         final List<JavaClassificationTypes> locations) {
