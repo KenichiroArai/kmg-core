@@ -116,6 +116,28 @@ public enum JavaClassificationTypes implements KmgComTypes<String> {
     METHOD("メソッド", "method", "メソッド",
         "^\\s*(public|private|protected|static|final|abstract|synchronized)\\s+([\\w<>\\[\\]]+\\s+)?\\w+\\s*\\(.*\\).*"),
 
+    /**
+     * コンストラクタ
+     *
+     * @version 0.2.0
+     *
+     * @author KenichiroArai
+     *
+     * @since 0.2.0
+     */
+    CONSTRUCTOR("コンストラクタ", "constructor", "コンストラクタ", "^\\s*(public|private|protected)\\s+\\w+\\s*\\(.*\\)\\s*\\{.*$"),
+
+    /**
+     * モジュール
+     *
+     * @version 0.2.0
+     *
+     * @author KenichiroArai
+     *
+     * @since 0.2.0
+     */
+    MODULE("モジュール", "module", "モジュール", "^\\s*module\\s+\\w+\\s*\\{.*$"),
+
     /* 定義：終了 */
     ;
 
@@ -400,7 +422,7 @@ public enum JavaClassificationTypes implements KmgComTypes<String> {
         final boolean result = switch (this) {
 
             // Javadoc対象
-            case CLASS, INTERFACE, ENUM, ANNOTATION_DEFINITION, FIELD, METHOD -> true;
+            case CLASS, INTERFACE, ENUM, ANNOTATION_DEFINITION, FIELD, METHOD, CONSTRUCTOR, MODULE -> true;
 
             // Javadoc対象外
             case NONE, ANNOTATION_USAGE -> false;

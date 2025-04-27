@@ -30,7 +30,7 @@ public enum KmgJavadocTagTypes implements KmgComTypes<String> {
      *
      * @since 0.2.0
      */
-    NONE("指定無し", "None", "指定無し", Arrays.asList(KmgJavadocLocationTypes.NONE)),
+    NONE("指定無し", "None", "指定無し", null),
 
     /**
      * 著者
@@ -40,8 +40,8 @@ public enum KmgJavadocTagTypes implements KmgComTypes<String> {
      * @since 0.2.0
      */
     AUTHOR("著者", "@author", "クラスやインタフェースの作成者を示す",
-        Arrays.asList(KmgJavadocLocationTypes.CLASS, KmgJavadocLocationTypes.INTERFACE, KmgJavadocLocationTypes.ENUM,
-            KmgJavadocLocationTypes.ANNOTATION)),
+        Arrays.asList(JavaClassificationTypes.CLASS, JavaClassificationTypes.INTERFACE, JavaClassificationTypes.ENUM,
+            JavaClassificationTypes.ANNOTATION_USAGE)),
 
     /**
      * バージョン
@@ -51,8 +51,8 @@ public enum KmgJavadocTagTypes implements KmgComTypes<String> {
      * @since 0.2.0
      */
     VERSION("バージョン", "@version", "クラスやインタフェースのバージョンを示す",
-        Arrays.asList(KmgJavadocLocationTypes.CLASS, KmgJavadocLocationTypes.INTERFACE, KmgJavadocLocationTypes.ENUM,
-            KmgJavadocLocationTypes.ANNOTATION)),
+        Arrays.asList(JavaClassificationTypes.CLASS, JavaClassificationTypes.INTERFACE, JavaClassificationTypes.ENUM,
+            JavaClassificationTypes.ANNOTATION_USAGE)),
 
     /**
      * 参照
@@ -62,9 +62,9 @@ public enum KmgJavadocTagTypes implements KmgComTypes<String> {
      * @since 0.2.0
      */
     SEE("参照", "@see", "関連する他のクラス、メソッド、フィールドへの参照を示す",
-        Arrays.asList(KmgJavadocLocationTypes.CLASS, KmgJavadocLocationTypes.INTERFACE, KmgJavadocLocationTypes.ENUM,
-            KmgJavadocLocationTypes.ANNOTATION, KmgJavadocLocationTypes.METHOD, KmgJavadocLocationTypes.FIELD,
-            KmgJavadocLocationTypes.CONSTRUCTOR)),
+        Arrays.asList(JavaClassificationTypes.CLASS, JavaClassificationTypes.INTERFACE, JavaClassificationTypes.ENUM,
+            JavaClassificationTypes.ANNOTATION_USAGE, JavaClassificationTypes.METHOD, JavaClassificationTypes.FIELD,
+            JavaClassificationTypes.CONSTRUCTOR)),
 
     /**
      * シンス（導入バージョン）
@@ -74,9 +74,9 @@ public enum KmgJavadocTagTypes implements KmgComTypes<String> {
      * @since 0.2.0
      */
     SINCE("シンス", "@since", "機能が導入されたバージョンを示す",
-        Arrays.asList(KmgJavadocLocationTypes.CLASS, KmgJavadocLocationTypes.INTERFACE, KmgJavadocLocationTypes.ENUM,
-            KmgJavadocLocationTypes.ANNOTATION, KmgJavadocLocationTypes.METHOD, KmgJavadocLocationTypes.FIELD,
-            KmgJavadocLocationTypes.CONSTRUCTOR)),
+        Arrays.asList(JavaClassificationTypes.CLASS, JavaClassificationTypes.INTERFACE, JavaClassificationTypes.ENUM,
+            JavaClassificationTypes.ANNOTATION_USAGE, JavaClassificationTypes.METHOD, JavaClassificationTypes.FIELD,
+            JavaClassificationTypes.CONSTRUCTOR)),
 
     /**
      * 非推奨
@@ -86,9 +86,9 @@ public enum KmgJavadocTagTypes implements KmgComTypes<String> {
      * @since 0.2.0
      */
     DEPRECATED("非推奨", "@deprecated", "非推奨の機能であることを示す",
-        Arrays.asList(KmgJavadocLocationTypes.CLASS, KmgJavadocLocationTypes.INTERFACE, KmgJavadocLocationTypes.ENUM,
-            KmgJavadocLocationTypes.ANNOTATION, KmgJavadocLocationTypes.METHOD, KmgJavadocLocationTypes.FIELD,
-            KmgJavadocLocationTypes.CONSTRUCTOR)),
+        Arrays.asList(JavaClassificationTypes.CLASS, JavaClassificationTypes.INTERFACE, JavaClassificationTypes.ENUM,
+            JavaClassificationTypes.ANNOTATION_USAGE, JavaClassificationTypes.METHOD, JavaClassificationTypes.FIELD,
+            JavaClassificationTypes.CONSTRUCTOR)),
 
     /**
      * パラメータ
@@ -98,7 +98,7 @@ public enum KmgJavadocTagTypes implements KmgComTypes<String> {
      * @since 0.2.0
      */
     PARAM("パラメータ", "@param", "メソッドや構築子のパラメータについて説明する",
-        Arrays.asList(KmgJavadocLocationTypes.METHOD, KmgJavadocLocationTypes.CONSTRUCTOR)),
+        Arrays.asList(JavaClassificationTypes.METHOD, JavaClassificationTypes.CONSTRUCTOR)),
 
     /**
      * 戻り値
@@ -107,7 +107,7 @@ public enum KmgJavadocTagTypes implements KmgComTypes<String> {
      *
      * @since 0.2.0
      */
-    RETURN("戻り値", "@return", "メソッドの戻り値について説明する", Arrays.asList(KmgJavadocLocationTypes.METHOD)),
+    RETURN("戻り値", "@return", "メソッドの戻り値について説明する", Arrays.asList(JavaClassificationTypes.METHOD)),
 
     /**
      * 例外
@@ -117,7 +117,7 @@ public enum KmgJavadocTagTypes implements KmgComTypes<String> {
      * @since 0.2.0
      */
     THROWS("例外", "@throws", "メソッドが発生させる可能性のある例外について説明する",
-        Arrays.asList(KmgJavadocLocationTypes.METHOD, KmgJavadocLocationTypes.CONSTRUCTOR)),
+        Arrays.asList(JavaClassificationTypes.METHOD, JavaClassificationTypes.CONSTRUCTOR)),
 
     /**
      * 例外（別名）
@@ -127,7 +127,7 @@ public enum KmgJavadocTagTypes implements KmgComTypes<String> {
      * @since 0.2.0
      */
     EXCEPTION("例外（別名）", "@exception", "@throwsと同じ",
-        Arrays.asList(KmgJavadocLocationTypes.METHOD, KmgJavadocLocationTypes.CONSTRUCTOR)),
+        Arrays.asList(JavaClassificationTypes.METHOD, JavaClassificationTypes.CONSTRUCTOR)),
 
     /**
      * シリアルデータ
@@ -137,7 +137,7 @@ public enum KmgJavadocTagTypes implements KmgComTypes<String> {
      * @since 0.2.0
      */
     SERIAL_DATA("シリアルデータ", "@serialData", "ObjectStreamMethodの書き込みメソッドによって書き込まれるデータを説明する",
-        Arrays.asList(KmgJavadocLocationTypes.METHOD)),
+        Arrays.asList(JavaClassificationTypes.METHOD)),
 
     /**
      * シリアルフィールド
@@ -147,7 +147,7 @@ public enum KmgJavadocTagTypes implements KmgComTypes<String> {
      * @since 0.2.0
      */
     SERIAL_FIELD("シリアルフィールド", "@serialField", "ObjectStreamFieldコンポーネントを文書化する",
-        Arrays.asList(KmgJavadocLocationTypes.FIELD)),
+        Arrays.asList(JavaClassificationTypes.FIELD)),
 
     /**
      * 直列化可能
@@ -156,7 +156,7 @@ public enum KmgJavadocTagTypes implements KmgComTypes<String> {
      *
      * @since 0.2.0
      */
-    SERIAL("直列化可能", "@serial", "直列化可能なクラスの非transientインスタンス変数を文書化する", Arrays.asList(KmgJavadocLocationTypes.FIELD)),
+    SERIAL("直列化可能", "@serial", "直列化可能なクラスの非transientインスタンス変数を文書化する", Arrays.asList(JavaClassificationTypes.FIELD)),
 
     /**
      * 継承Doc
@@ -165,7 +165,7 @@ public enum KmgJavadocTagTypes implements KmgComTypes<String> {
      *
      * @since 0.2.0
      */
-    INHERIT_DOC("継承Doc", "{@inheritDoc}", "スーパークラスからドキュメントコメントを継承する", Arrays.asList(KmgJavadocLocationTypes.METHOD)),
+    INHERIT_DOC("継承Doc", "{@inheritDoc}", "スーパークラスからドキュメントコメントを継承する", Arrays.asList(JavaClassificationTypes.METHOD)),
 
     /**
      * コード
@@ -174,7 +174,7 @@ public enum KmgJavadocTagTypes implements KmgComTypes<String> {
      *
      * @since 0.2.0
      */
-    CODE("コード", "{@code}", "コードサンプルを示す", Arrays.asList(KmgJavadocLocationTypes.ALL)),
+    CODE("コード", "{@code}", "コードサンプルを示す", Arrays.asList(JavaClassificationTypes.NONE)),
 
     /**
      * リンク
@@ -183,7 +183,7 @@ public enum KmgJavadocTagTypes implements KmgComTypes<String> {
      *
      * @since 0.2.0
      */
-    LINK("リンク", "{@link}", "他のクラスやメソッドへのリンクを作成する", Arrays.asList(KmgJavadocLocationTypes.ALL)),
+    LINK("リンク", "{@link}", "他のクラスやメソッドへのリンクを作成する", Arrays.asList(JavaClassificationTypes.NONE)),
 
     /**
      * リンクプレーン
@@ -192,7 +192,7 @@ public enum KmgJavadocTagTypes implements KmgComTypes<String> {
      *
      * @since 0.2.0
      */
-    LINK_PLAIN("リンクプレーン", "{@linkplain}", "プレーンテキストフォントでリンクを表示する", Arrays.asList(KmgJavadocLocationTypes.ALL)),
+    LINK_PLAIN("リンクプレーン", "{@linkplain}", "プレーンテキストフォントでリンクを表示する", Arrays.asList(JavaClassificationTypes.NONE)),
 
     /**
      * リテラル
@@ -201,7 +201,7 @@ public enum KmgJavadocTagTypes implements KmgComTypes<String> {
      *
      * @since 0.2.0
      */
-    LITERAL("リテラル", "{@literal}", "特殊文字やHTMLマークアップを無視して表示する", Arrays.asList(KmgJavadocLocationTypes.ALL)),
+    LITERAL("リテラル", "{@literal}", "特殊文字やHTMLマークアップを無視して表示する", Arrays.asList(JavaClassificationTypes.NONE)),
 
     /**
      * 値
@@ -210,7 +210,7 @@ public enum KmgJavadocTagTypes implements KmgComTypes<String> {
      *
      * @since 0.2.0
      */
-    VALUE("値", "{@value}", "静的フィールドの値を表示する", Arrays.asList(KmgJavadocLocationTypes.ALL)),
+    VALUE("値", "{@value}", "静的フィールドの値を表示する", Arrays.asList(JavaClassificationTypes.NONE)),
 
     /**
      * ドキトート
@@ -219,7 +219,7 @@ public enum KmgJavadocTagTypes implements KmgComTypes<String> {
      *
      * @since 0.2.0
      */
-    DOC_ROOT("ドキトート", "{@docRoot}", "ドキュメントルートへの相対パスを生成する", Arrays.asList(KmgJavadocLocationTypes.ALL)),
+    DOC_ROOT("ドキトート", "{@docRoot}", "ドキュメントルートへの相対パスを生成する", Arrays.asList(JavaClassificationTypes.NONE)),
 
     /**
      * 隠し
@@ -229,9 +229,9 @@ public enum KmgJavadocTagTypes implements KmgComTypes<String> {
      * @since 0.2.0
      */
     HIDDEN("隠し", "@hidden", "ドキュメント生成から要素を除外する",
-        Arrays.asList(KmgJavadocLocationTypes.CLASS, KmgJavadocLocationTypes.INTERFACE, KmgJavadocLocationTypes.ENUM,
-            KmgJavadocLocationTypes.ANNOTATION, KmgJavadocLocationTypes.METHOD, KmgJavadocLocationTypes.FIELD,
-            KmgJavadocLocationTypes.CONSTRUCTOR)),
+        Arrays.asList(JavaClassificationTypes.CLASS, JavaClassificationTypes.INTERFACE, JavaClassificationTypes.ENUM,
+            JavaClassificationTypes.ANNOTATION_USAGE, JavaClassificationTypes.METHOD, JavaClassificationTypes.FIELD,
+            JavaClassificationTypes.CONSTRUCTOR)),
 
     /**
      * 要約
@@ -240,7 +240,7 @@ public enum KmgJavadocTagTypes implements KmgComTypes<String> {
      *
      * @since 0.2.0
      */
-    SUMMARY("要約", "@summary", "要約説明を提供する", Arrays.asList(KmgJavadocLocationTypes.ALL)),
+    SUMMARY("要約", "@summary", "要約説明を提供する", Arrays.asList(JavaClassificationTypes.NONE)),
 
     /**
      * インデックス
@@ -249,7 +249,7 @@ public enum KmgJavadocTagTypes implements KmgComTypes<String> {
      *
      * @since 0.2.0
      */
-    INDEX("インデックス", "{@index}", "検索インデックスに項目を追加する", Arrays.asList(KmgJavadocLocationTypes.ALL)),
+    INDEX("インデックス", "{@index}", "検索インデックスに項目を追加する", Arrays.asList(JavaClassificationTypes.NONE)),
 
     /**
      * 内部API
@@ -259,9 +259,9 @@ public enum KmgJavadocTagTypes implements KmgComTypes<String> {
      * @since 0.2.0
      */
     API_NOTE("内部API", "@apiNote", "APIに関する注意事項を記述する",
-        Arrays.asList(KmgJavadocLocationTypes.CLASS, KmgJavadocLocationTypes.INTERFACE, KmgJavadocLocationTypes.ENUM,
-            KmgJavadocLocationTypes.ANNOTATION, KmgJavadocLocationTypes.METHOD, KmgJavadocLocationTypes.FIELD,
-            KmgJavadocLocationTypes.CONSTRUCTOR)),
+        Arrays.asList(JavaClassificationTypes.CLASS, JavaClassificationTypes.INTERFACE, JavaClassificationTypes.ENUM,
+            JavaClassificationTypes.ANNOTATION_USAGE, JavaClassificationTypes.METHOD, JavaClassificationTypes.FIELD,
+            JavaClassificationTypes.CONSTRUCTOR)),
 
     /**
      * 実装詳細
@@ -271,8 +271,8 @@ public enum KmgJavadocTagTypes implements KmgComTypes<String> {
      * @since 0.2.0
      */
     IMPL_SPEC("実装詳細", "@implSpec", "実装に関する仕様を記述する",
-        Arrays.asList(KmgJavadocLocationTypes.CLASS, KmgJavadocLocationTypes.INTERFACE, KmgJavadocLocationTypes.ENUM,
-            KmgJavadocLocationTypes.ANNOTATION, KmgJavadocLocationTypes.METHOD)),
+        Arrays.asList(JavaClassificationTypes.CLASS, JavaClassificationTypes.INTERFACE, JavaClassificationTypes.ENUM,
+            JavaClassificationTypes.ANNOTATION_USAGE, JavaClassificationTypes.METHOD)),
 
     /**
      * 実装ノート
@@ -282,8 +282,8 @@ public enum KmgJavadocTagTypes implements KmgComTypes<String> {
      * @since 0.2.0
      */
     IMPL_NOTE("実装ノート", "@implNote", "実装に関する注意事項を記述する",
-        Arrays.asList(KmgJavadocLocationTypes.CLASS, KmgJavadocLocationTypes.INTERFACE, KmgJavadocLocationTypes.ENUM,
-            KmgJavadocLocationTypes.ANNOTATION, KmgJavadocLocationTypes.METHOD)),
+        Arrays.asList(JavaClassificationTypes.CLASS, JavaClassificationTypes.INTERFACE, JavaClassificationTypes.ENUM,
+            JavaClassificationTypes.ANNOTATION_USAGE, JavaClassificationTypes.METHOD)),
 
     /**
      * システムプロパティ
@@ -292,7 +292,7 @@ public enum KmgJavadocTagTypes implements KmgComTypes<String> {
      *
      * @since 0.2.0
      */
-    SYSTEM_PROPERTY("システムプロパティ", "{@systemProperty}", "Javaシステムプロパティを参照する", Arrays.asList(KmgJavadocLocationTypes.ALL)),
+    SYSTEM_PROPERTY("システムプロパティ", "{@systemProperty}", "Javaシステムプロパティを参照する", Arrays.asList(JavaClassificationTypes.NONE)),
 
     /**
      * スニペット
@@ -301,7 +301,7 @@ public enum KmgJavadocTagTypes implements KmgComTypes<String> {
      *
      * @since 0.2.0
      */
-    SNIPPET("スニペット", "{@snippet}", "コードスニペットを挿入する", Arrays.asList(KmgJavadocLocationTypes.ALL)),
+    SNIPPET("スニペット", "{@snippet}", "コードスニペットを挿入する", Arrays.asList(JavaClassificationTypes.NONE)),
 
     /**
      * 許可された宣言的アクセス
@@ -310,7 +310,7 @@ public enum KmgJavadocTagTypes implements KmgComTypes<String> {
      *
      * @since 0.2.0
      */
-    PROVIDES("許可された宣言的アクセス", "@provides", "モジュールが提供するサービスを示す", Arrays.asList(KmgJavadocLocationTypes.MODULE)),
+    PROVIDES("許可された宣言的アクセス", "@provides", "モジュールが提供するサービスを示す", Arrays.asList(JavaClassificationTypes.MODULE)),
 
     /**
      * 使用サービス
@@ -319,7 +319,7 @@ public enum KmgJavadocTagTypes implements KmgComTypes<String> {
      *
      * @since 0.2.0
      */
-    USES("使用サービス", "@uses", "モジュールが使用するサービスを示す", Arrays.asList(KmgJavadocLocationTypes.MODULE)),
+    USES("使用サービス", "@uses", "モジュールが使用するサービスを示す", Arrays.asList(JavaClassificationTypes.MODULE)),
 
     /* 定義：終了 */
     ;
@@ -364,7 +364,7 @@ public enum KmgJavadocTagTypes implements KmgComTypes<String> {
      *
      * @since 0.2.0
      */
-    private final List<KmgJavadocLocationTypes> locations;
+    private final List<JavaClassificationTypes> locations;
 
     /**
      * デフォルトの種類を返す<br>
@@ -432,10 +432,10 @@ public enum KmgJavadocTagTypes implements KmgComTypes<String> {
      * @param detail
      *                    詳細情報
      * @param locations
-     *                    設定可能な場所のリスト
+     *                    設定可能な場所のリスト。null：指定可能な場所無し。リストにNONEあり：全ての場所で指定可能。
      */
     KmgJavadocTagTypes(final String displayName, final String key, final String detail,
-        final List<KmgJavadocLocationTypes> locations) {
+        final List<JavaClassificationTypes> locations) {
 
         this.displayName = displayName;
         this.key = key;
@@ -516,9 +516,9 @@ public enum KmgJavadocTagTypes implements KmgComTypes<String> {
      *
      * @return 設定可能な場所のリスト
      */
-    public List<KmgJavadocLocationTypes> getLocations() {
+    public List<JavaClassificationTypes> getLocations() {
 
-        final List<KmgJavadocLocationTypes> result = this.locations;
+        final List<JavaClassificationTypes> result = this.locations;
         return result;
 
     }
