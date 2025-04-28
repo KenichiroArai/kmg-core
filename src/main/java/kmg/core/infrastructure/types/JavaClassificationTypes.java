@@ -164,6 +164,11 @@ public enum JavaClassificationTypes implements KmgComTypes<String> {
     }
 
     /**
+     * グループ名：要素名
+     */
+    private static final String GROUP_ELEMENT_NAME = "elementName";
+
+    /**
      * 表示名
      *
      * @since 0.2.0
@@ -448,10 +453,9 @@ public enum JavaClassificationTypes implements KmgComTypes<String> {
         }
 
         // 要素名を設定する
-        // TODO KenichiroArai 2025/04/29 ハードコード
         try {
 
-            result = matcher.group("elementName");
+            result = matcher.group(JavaClassificationTypes.GROUP_ELEMENT_NAME);
 
         } catch (final IllegalArgumentException e) {
 
