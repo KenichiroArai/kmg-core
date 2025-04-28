@@ -206,24 +206,6 @@ public enum JavaClassificationTypes implements KmgComTypes<String> {
     }
 
     /**
-     * 判定対象の文字列から要素名を返す。<br>
-     *
-     * @since 0.2.0
-     *
-     * @param text
-     *             判定対象の文字列
-     *
-     * @return 要素名
-     */
-    public static String getElementName(final String text) {
-
-        // TODO KenichiroArai 2025/04/29 未実装
-        final String result = KmgString.EMPTY;
-        return result;
-
-    }
-
-    /**
      * キーに該当する種類を返す<br>
      * <p>
      * 但し、キーが存在しない場合は、指定無し（NONE）を返す。
@@ -413,6 +395,61 @@ public enum JavaClassificationTypes implements KmgComTypes<String> {
     public String getDisplayName() {
 
         final String result = this.displayName;
+        return result;
+
+    }
+
+    /**
+     * 判定対象の文字列から要素名を返す。<br>
+     *
+     * @since 0.2.0
+     *
+     * @param text
+     *             判定対象の文字列
+     *
+     * @return 要素名
+     */
+    public String getElementName(final String text) {
+
+        String result = KmgString.EMPTY;
+
+        // 引数チェック
+        if (KmgString.isEmpty(text)) {
+
+            return result;
+
+        }
+
+        // NONEか
+        if (this == NONE) {
+            // NONEの場合
+
+            return result;
+
+        }
+
+        // 区分判定パターンがnullか
+        if (this.getClassificationPattern() == null) {
+            // nullの場合
+
+            return result;
+
+        }
+
+        // 判定対象の文字列が区分判定パターンにマッチしないか
+        final Pattern pattern = Pattern.compile(this.getClassificationPattern());
+        final Matcher matcher = pattern.matcher(text);
+
+        if (!matcher.find()) {
+            // マッチしない場合
+
+            return result;
+
+        }
+
+        // 要素名を設定する
+        result = ""; // TODO グループの最後を取得する
+
         return result;
 
     }
