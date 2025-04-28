@@ -43,7 +43,7 @@ public enum JavaClassificationTypes implements KmgComTypes<String> {
      * @since 0.2.0
      */
     CLASS("クラス", KmgJavaKeywordTypes.CLASS, "クラス",
-        "^\\s*(public|private|protected|abstract|final)\\s+(class)\\s+\\w+.*"),
+        "^\\s*(public|private|protected|abstract|final)\\s+(class)\\s+(?<elementName>\\w+).*"),
 
     /**
      * インターフェース
@@ -55,7 +55,7 @@ public enum JavaClassificationTypes implements KmgComTypes<String> {
      * @since 0.2.0
      */
     INTERFACE("インターフェース", KmgJavaKeywordTypes.INTERFACE, "インターフェース",
-        "^\\s*(public|private|protected)\\s+(interface)\\s+\\w+.*"),
+        "^\\s*(public|private|protected)\\s+(interface)\\s+(?<elementName>\\w+).*"),
 
     /**
      * 列挙型
@@ -66,7 +66,7 @@ public enum JavaClassificationTypes implements KmgComTypes<String> {
      *
      * @since 0.2.0
      */
-    ENUM("列挙型", KmgJavaKeywordTypes.ENUM, "列挙型", "^\\s*(public|private|protected)\\s+(enum)\\s+\\w+.*"),
+    ENUM("列挙型", KmgJavaKeywordTypes.ENUM, "列挙型", "^\\s*(public|private|protected)\\s+(enum)\\s+(?<elementName>\\w+).*"),
 
     /**
      * アノテーション定義
@@ -78,7 +78,7 @@ public enum JavaClassificationTypes implements KmgComTypes<String> {
      * @since 0.2.0
      */
     ANNOTATION_DEFINITION("アノテーション定義", KmgJavaKeywordTypes.NONE, "アノテーション定義",
-        "^\\s*(public|private|protected)\\s+@interface\\s+\\w+.*"),
+        "^\\s*(public|private|protected)\\s+@interface\\s+(?<elementName>\\w+).*"),
 
     /**
      * アノテーション使用<br>
@@ -93,7 +93,7 @@ public enum JavaClassificationTypes implements KmgComTypes<String> {
      * @since 0.2.0
      */
     ANNOTATION_USAGE("アノテーション使用", KmgJavaKeywordTypes.NONE, "アノテーション使用",
-        "^\\s*@(?!(author|since|version|param|return|throws|see|deprecated|Override))\\w+.*"),
+        "^\\s*@(?!(author|since|version|param|return|throws|see|deprecated|Override))(?<elementName>\\w+).*"),
 
     /**
      * フィールド
@@ -105,7 +105,7 @@ public enum JavaClassificationTypes implements KmgComTypes<String> {
      * @since 0.2.0
      */
     FIELD("フィールド", KmgJavaKeywordTypes.NONE, "フィールド",
-        "^\\s*(public|private|protected|static|final)\\s+((\\w+\\s+)*\\w+\\s+\\w+.*;)"),
+        "^\\s*(public|private|protected|static|final)\\s+((\\w+\\s+)*\\w+\\s+)(?<elementName>\\w+)\\s*;"),
 
     /**
      * メソッド
@@ -117,7 +117,7 @@ public enum JavaClassificationTypes implements KmgComTypes<String> {
      * @since 0.2.0
      */
     METHOD("メソッド", KmgJavaKeywordTypes.NONE, "メソッド",
-        "^\\s*(public|private|protected|static|final|abstract|synchronized)\\s+([\\w<>\\[\\]]+\\s+)?\\w+\\s*\\(.*\\).*"),
+        "^\\s*(public|private|protected|static|final|abstract|synchronized)\\s+([\\w<>\\[\\]]+\\s+)?(?<elementName>\\w+)\\s*\\(.*\\).*"),
 
     /**
      * コンストラクタ
@@ -129,7 +129,7 @@ public enum JavaClassificationTypes implements KmgComTypes<String> {
      * @since 0.2.0
      */
     CONSTRUCTOR("コンストラクタ", KmgJavaKeywordTypes.NONE, "コンストラクタ",
-        "^\\s*(public|private|protected)\\s+\\w+\\s*\\(.*\\)\\s*\\{.*$"),
+        "^\\s*(public|private|protected)\\s+(?<elementName>\\w+)\\s*\\(.*\\)\\s*\\{.*$"),
 
     /**
      * モジュール
@@ -140,7 +140,7 @@ public enum JavaClassificationTypes implements KmgComTypes<String> {
      *
      * @since 0.2.0
      */
-    MODULE("モジュール", KmgJavaKeywordTypes.MODULE, "モジュール", "^\\s*module\\s+\\w+\\s*\\{.*$"),
+    MODULE("モジュール", KmgJavaKeywordTypes.MODULE, "モジュール", "^\\s*module\\s+(?<elementName>\\w+)\\s*\\{.*$"),
 
     /* 定義：終了 */
     ;
