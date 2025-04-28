@@ -448,7 +448,17 @@ public enum JavaClassificationTypes implements KmgComTypes<String> {
         }
 
         // 要素名を設定する
-        result = ""; // TODO グループの最後を取得する
+        // TODO KenichiroArai 2025/04/29 ハードコード
+        try {
+
+            result = matcher.group("elementName");
+
+        } catch (final IllegalArgumentException e) {
+
+            // TODO KenichiroArai 2025/04/29 例外処理
+            e.printStackTrace();
+
+        }
 
         return result;
 
