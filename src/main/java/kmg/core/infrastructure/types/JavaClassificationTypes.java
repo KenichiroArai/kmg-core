@@ -206,6 +206,24 @@ public enum JavaClassificationTypes implements KmgComTypes<String> {
     }
 
     /**
+     * 判定対象の文字列から要素名を返す。<br>
+     *
+     * @since 0.2.0
+     *
+     * @param text
+     *             判定対象の文字列
+     *
+     * @return 要素名
+     */
+    public static String getElementName(final String text) {
+
+        // TODO KenichiroArai 2025/04/29 未実装
+        final String result = KmgString.EMPTY;
+        return result;
+
+    }
+
+    /**
      * キーに該当する種類を返す<br>
      * <p>
      * 但し、キーが存在しない場合は、指定無し（NONE）を返す。
