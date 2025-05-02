@@ -3,7 +3,7 @@ package kmg.core.infrastructure.model.validation;
 import java.util.List;
 
 /**
- * KMGバリデーションモデルインタフェース<br>
+ * KMGバリデーション集合モデルインタフェース<br>
  *
  * @author KenichiroArai
  *
@@ -14,13 +14,13 @@ import java.util.List;
 public interface KmgValidationsModel {
 
     /**
-     * KMGバリデーションを返す。
+     * KMGバリデーションのリストを返す。
      *
      * @author KenichiroArai
      *
      * @since 0.2.0
      *
-     * @return KMGバリデーション
+     * @return KMGバリデーションのリスト
      */
     List<KmgValidationModel> getKmgValidations();
 
