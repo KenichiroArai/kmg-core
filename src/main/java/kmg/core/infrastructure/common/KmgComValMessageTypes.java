@@ -12,7 +12,7 @@ package kmg.core.infrastructure.common;
  *
  * @version 0.2.0
  */
-public interface KmgComValMessageTypes extends KmgComMessageTypes {
+public interface KmgComValMessageTypes extends KmgComExcMessageTypes {
 
     // 処理なし
 }
