@@ -14,14 +14,26 @@ import java.util.List;
 public interface KmgValidationsModel {
 
     /**
-     * KMGバリデーションのリストを返す。
+     * データを追加する。
+     *
+     * @param data
+     *             追加するデータ
+     *
+     * @author KenichiroArai
+     *
+     * @since 0.2.0
+     */
+    void addData(KmgValidationDataModel data);
+
+    /**
+     * データのリストを返す。
      *
      * @author KenichiroArai
      *
      * @since 0.2.0
      *
-     * @return KMGバリデーションのリスト
+     * @return データのリスト
      */
-    List<KmgValidationModel> getKmgValidations();
+    List<KmgValidationDataModel> getDatas();
 
 }
