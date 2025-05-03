@@ -126,7 +126,7 @@ public class KmgPathUtilsTest extends AbstractKmgTest {
     public void testGetBinPath_errorThrowsURISyntaxException() throws Exception {
 
         /* 期待値の定義 */
-        final String          expectedDomainMessage = String.format("クラスからビルドバスの取得に失敗しました。クラス=[%s]",
+        final String                 expectedDomainMessage = String.format("クラスからビルドバスの取得に失敗しました。クラス=[%s]",
             "kmg.core.infrastructure.utils.KmgPathUtilsTest$TestClass");
         final KmgCoreGenMessageTypes expectedMessageTypes  = KmgCoreGenMessageTypes.KMGCORE_GEN24000;
 
@@ -143,7 +143,7 @@ public class KmgPathUtilsTest extends AbstractKmgTest {
             /* 検証の実施 */
             final KmgDomainException actualException = Assertions.assertThrows(KmgDomainException.class,
                 () -> KmgPathUtils.getBinPath(testTarget), "URISyntaxExceptionが発生した場合、KmgDomainExceptionがスローされるべき");
-            this.verifyKmgException(actualException, URISyntaxException.class, expectedDomainMessage,
+            this.verifyKmgMsgException(actualException, URISyntaxException.class, expectedDomainMessage,
                 expectedMessageTypes);
 
         }

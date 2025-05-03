@@ -142,7 +142,7 @@ public class KmgSqlPathModelImplTest extends AbstractKmgTest {
     public void testToSql_errorFileNotFound() {
 
         /* 期待値の定義 */
-        final String          expectedDomainMessage = KmgString
+        final String                 expectedDomainMessage = KmgString
             .concat(this.tempDir.resolve("not_exists.sql").toString(), "がありません。");
         final KmgCoreGenMessageTypes expectedMessageTypes  = KmgCoreGenMessageTypes.KMGCORE_GEN11100;
 
@@ -155,7 +155,7 @@ public class KmgSqlPathModelImplTest extends AbstractKmgTest {
             = Assertions.assertThrows(KmgDomainException.class, () -> this.target.toSql());
 
         /* 検証の実施 */
-        this.verifyKmgException(actualException, java.nio.file.NoSuchFileException.class, expectedDomainMessage,
+        this.verifyKmgMsgException(actualException, java.nio.file.NoSuchFileException.class, expectedDomainMessage,
             expectedMessageTypes);
 
     }

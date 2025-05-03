@@ -11,7 +11,7 @@ import kmg.core.infrastructure.model.validation.KmgValidationsModel;
  *
  * @version 0.2.0
  */
-public class KmgValidationException extends KmgException {
+public class KmgValidationException extends KmgMsgException {
 
     /**
      * デフォルトシリアルバージョンＵＩＤ

@@ -4,81 +4,81 @@ import kmg.core.infrastructure.common.KmgComExcMessageTypes;
 import kmg.core.infrastructure.utils.KmgMessageUtils;
 
 /**
- * KMG例外<br>
+ * KMGメッセージ例外<br>
  *
  * @author KenichiroArai
  *
- * @since 0.1.0
+ * @since 0.2.0
  *
  * @version 0.2.0
  */
-public class KmgException extends Exception {
+public class KmgMsgException extends Exception {
 
     /**
      * デフォルトシリアルバージョンUID
      *
-     * @since 0.1.0
+     * @since 0.2.0
      */
     private static final long serialVersionUID = 1L;
 
     /**
      * 例外メッセージの種類
      *
-     * @since 0.1.0
+     * @since 0.2.0
      */
     private final KmgComExcMessageTypes messageTypes;
 
     /**
      * 例外メッセージの引数
      *
-     * @since 0.1.0
+     * @since 0.2.0
      */
     private final Object[] messageArgs;
 
     /**
      * メッセージ
      *
-     * @since 0.1.0
+     * @since 0.2.0
      */
     private final String message;
 
     /**
      * メッセージ引数の数
      *
-     * @since 0.1.0
+     * @since 0.2.0
      */
     private int messageArgsCount;
 
     /**
      * メッセージパターンの引数の数
      *
-     * @since 0.1.0
+     * @since 0.2.0
      */
     private int messagePatternArgsCount;
 
     /**
      * メッセージ引数の数が一致しているか
      *
-     * @since 0.1.0
+     * @since 0.2.0
      */
     private boolean isMatchMessageArgsCount;
 
     /**
      * メッセージパターン
      *
-     * @since 0.1.0
+     * @since 0.2.0
      */
     private final String messagePattern;
 
     /**
      * コンストラクタ<br>
      *
-     * @since 0.1.0
+     * @since 0.2.0
      *
      * @param messageTypes
      *                     メッセージの種類
      */
-    public KmgException(final KmgComExcMessageTypes messageTypes) {
+    public KmgMsgException(final KmgComExcMessageTypes messageTypes) {
 
         this(messageTypes, null, null);
 
@@ -87,14 +87,14 @@ public class KmgException extends Exception {
     /**
      * コンストラクタ<br>
      *
-     * @since 0.1.0
+     * @since 0.2.0
      *
      * @param messageTypes
      *                     メッセージの種類
      * @param messageArgs
      *                     メッセージの引数
      */
-    public KmgException(final KmgComExcMessageTypes messageTypes, final Object[] messageArgs) {
+    public KmgMsgException(final KmgComExcMessageTypes messageTypes, final Object[] messageArgs) {
 
         this(messageTypes, messageArgs, null);
 
@@ -103,7 +103,7 @@ public class KmgException extends Exception {
     /**
      * コンストラクタ<br>
      *
-     * @since 0.1.0
+     * @since 0.2.0
      *
      * @param messageTypes
      *                     メッセージの種類
@@ -112,7 +112,8 @@ public class KmgException extends Exception {
      * @param cause
      *                     原因
      */
-    public KmgException(final KmgComExcMessageTypes messageTypes, final Object[] messageArgs, final Throwable cause) {
+    public KmgMsgException(final KmgComExcMessageTypes messageTypes, final Object[] messageArgs,
+        final Throwable cause) {
 
         super(cause);
         this.messageTypes = messageTypes;
@@ -131,14 +132,14 @@ public class KmgException extends Exception {
     /**
      * コンストラクタ<br>
      *
-     * @since 0.1.0
+     * @since 0.2.0
      *
      * @param messageTypes
      *                     メッセージの種類
      * @param cause
      *                     原因
      */
-    public KmgException(final KmgComExcMessageTypes messageTypes, final Throwable cause) {
+    public KmgMsgException(final KmgComExcMessageTypes messageTypes, final Throwable cause) {
 
         this(messageTypes, null, cause);
 
@@ -147,7 +148,7 @@ public class KmgException extends Exception {
     /**
      * メッセージを返す。<br>
      *
-     * @since 0.1.0
+     * @since 0.2.0
      *
      * @return メッセージ
      */
@@ -162,7 +163,7 @@ public class KmgException extends Exception {
     /**
      * メッセージの引数を返す。<br>
      *
-     * @since 0.1.0
+     * @since 0.2.0
      *
      * @return メッセージの引数
      */
@@ -176,7 +177,7 @@ public class KmgException extends Exception {
     /**
      * メッセージ引数の数を返す。<br>
      *
-     * @since 0.1.0
+     * @since 0.2.0
      *
      * @return メッセージ引数の数
      */
@@ -190,7 +191,7 @@ public class KmgException extends Exception {
     /**
      * メッセージパターンを返す。<br>
      *
-     * @since 0.1.0
+     * @since 0.2.0
      *
      * @return メッセージパターン
      */
@@ -204,7 +205,7 @@ public class KmgException extends Exception {
     /**
      * メッセージパターンの引数の数を返す。<br>
      *
-     * @since 0.1.0
+     * @since 0.2.0
      *
      * @return メッセージパターンの引数の数
      */
@@ -218,7 +219,7 @@ public class KmgException extends Exception {
     /**
      * メッセージの種類を返す。<br>
      *
-     * @since 0.1.0
+     * @since 0.2.0
      *
      * @return メッセージの種類
      */
@@ -232,7 +233,7 @@ public class KmgException extends Exception {
     /**
      * メッセージ引数の数が一致しているかを返す。<br>
      *
-     * @since 0.1.0
+     * @since 0.2.0
      *
      * @return メッセージ引数の数が一致しているか
      */
@@ -284,7 +285,7 @@ public class KmgException extends Exception {
     /**
      * メッセージカウントを設定する<br>
      *
-     * @since 0.1.0
+     * @since 0.2.0
      */
     private void setMessageCounts() {
 

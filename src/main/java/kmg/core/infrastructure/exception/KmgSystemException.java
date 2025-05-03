@@ -11,7 +11,7 @@ import kmg.core.infrastructure.common.KmgComExcMessageTypes;
  *
  * @version 0.2.0
  */
-public class KmgSystemException extends KmgException {
+public class KmgSystemException extends KmgMsgException {
 
     /**
      * デフォルトシリアルバージョンＵＩＤ
