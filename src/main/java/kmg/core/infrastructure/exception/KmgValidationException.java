@@ -1,6 +1,6 @@
 package kmg.core.infrastructure.exception;
 
-import kmg.core.infrastructure.common.KmgComValMessageTypes;
+import kmg.core.infrastructure.model.validation.KmgValidationsModel;
 
 /**
  * KMGバリデーション例外<br>
@@ -20,17 +20,20 @@ public class KmgValidationException extends KmgException {
      */
     private static final long serialVersionUID = 1L;
 
+    /** KMGバリデーション集合モデル */
+    private final KmgValidationsModel validationsModel;
+
     /**
      * コンストラクタ<br>
      *
      * @since 0.2.0
      *
-     * @param messageTypes
-     *                     メッセージの種類
+     * @param validationsModel
+     *                         KMGバリデーション集合モデル
      */
-    public KmgValidationException(final KmgComValMessageTypes messageTypes) {
+    public KmgValidationException(final KmgValidationsModel validationsModel) {
 
-        this(messageTypes, null, null);
+        this(validationsModel, null);
 
     }
 
@@ -39,49 +42,30 @@ public class KmgValidationException extends KmgException {
      *
      * @since 0.2.0
      *
-     * @param messageTypes
-     *                     メッセージの種類
-     * @param messageArgs
-     *                     メッセージの引数
-     */
-    public KmgValidationException(final KmgComValMessageTypes messageTypes, final Object[] messageArgs) {
-
-        this(messageTypes, messageArgs, null);
-
-    }
-
-    /**
-     * コンストラクタ<br>
-     *
-     * @since 0.2.0
-     *
-     * @param messageTypes
-     *                     メッセージの種類
-     * @param messageArgs
-     *                     メッセージの引数
+     * @param validationsModel
+     *                         KMGバリデーション集合モデル
      * @param cause
-     *                     原因
+     *                         原因
      */
-    public KmgValidationException(final KmgComValMessageTypes messageTypes, final Object[] messageArgs,
-        final Throwable cause) {
+    public KmgValidationException(final KmgValidationsModel validationsModel, final Throwable cause) {
 
-        super(messageTypes, messageArgs, cause);
+        super(null, cause);
+
+        this.validationsModel = validationsModel;
 
     }
 
     /**
-     * コンストラクタ<br>
+     * KMGバリデーション集合モデルを返す<br>
      *
      * @since 0.2.0
      *
-     * @param messageTypes
-     *                     メッセージの種類
-     * @param cause
-     *                     原因
+     * @return KMGバリデーション集合モデル
      */
-    public KmgValidationException(final KmgComValMessageTypes messageTypes, final Throwable cause) {
+    public KmgValidationsModel getValidationsModel() {
 
-        this(messageTypes, null, cause);
+        final KmgValidationsModel result = this.validationsModel;
+        return result;
 
     }
 
