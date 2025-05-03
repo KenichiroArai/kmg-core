@@ -2,6 +2,7 @@ package kmg.core.infrastructure.model.validation.impl;
 
 import kmg.core.infrastructure.common.KmgComValMessageTypes;
 import kmg.core.infrastructure.model.validation.KmgValidationDataModel;
+import kmg.core.infrastructure.utils.KmgMessageUtils;
 
 /**
  * KMGバリデーションデータモデル<br>
@@ -15,10 +16,13 @@ import kmg.core.infrastructure.model.validation.KmgValidationDataModel;
 public class KmgValidationDataModelImpl implements KmgValidationDataModel {
 
     /** メッセージの種類 */
-    private final KmgComValMessageTypes msgTypes;
+    private final KmgComValMessageTypes messageTypes;
 
     /** メッセージの引数 */
     private final Object[] messageArgs;
+
+    /** メッセージ */
+    private final String message;
 
     /**
      * コンストラクタ<br>
@@ -27,15 +31,32 @@ public class KmgValidationDataModelImpl implements KmgValidationDataModel {
      *
      * @since 0.2.0
      *
-     * @param msgTypes
-     *                    メッセージの種類
+     * @param messageTypes
+     *                     メッセージの種類
      * @param messageArgs
-     *                    メッセージの引数
+     *                     メッセージの引数
      */
-    public KmgValidationDataModelImpl(final KmgComValMessageTypes msgTypes, final Object[] messageArgs) {
+    public KmgValidationDataModelImpl(final KmgComValMessageTypes messageTypes, final Object[] messageArgs) {
 
-        this.msgTypes = msgTypes;
+        this.messageTypes = messageTypes;
         this.messageArgs = messageArgs;
+
+        this.message = this.createMessage();
+
+    }
+
+    /**
+     * メッセージを返す。
+     *
+     * @return メッセージ
+     *
+     * @since 0.2.0
+     */
+    @Override
+    public String getMessage() {
+
+        final String result = this.message;
+        return result;
 
     }
 
@@ -66,9 +87,23 @@ public class KmgValidationDataModelImpl implements KmgValidationDataModel {
      * @return メッセージの種類
      */
     @Override
-    public KmgComValMessageTypes getMsgTypes() {
+    public KmgComValMessageTypes getMessageTypes() {
 
-        final KmgComValMessageTypes result = this.msgTypes;
+        final KmgComValMessageTypes result = this.messageTypes;
+        return result;
+
+    }
+
+    /**
+     * メッセージを作成し、返す。
+     *
+     * @since 0.2.0
+     *
+     * @return メッセージ
+     */
+    protected String createMessage() {
+
+        final String result = KmgMessageUtils.getExcMessage(this.messageTypes, this.messageArgs);
         return result;
 
     }

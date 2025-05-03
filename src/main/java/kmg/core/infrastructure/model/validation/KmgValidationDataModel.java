@@ -14,6 +14,15 @@ import kmg.core.infrastructure.common.KmgComValMessageTypes;
 public interface KmgValidationDataModel {
 
     /**
+     * メッセージを返す。
+     *
+     * @return メッセージ
+     *
+     * @since 0.2.0
+     */
+    String getMessage();
+
+    /**
      * メッセージの引数を返す<br>
      *
      * @author KenichiroArai
@@ -33,6 +42,6 @@ public interface KmgValidationDataModel {
      *
      * @return メッセージの種類
      */
-    KmgComValMessageTypes getMsgTypes();
+    KmgComValMessageTypes getMessageTypes();
 
 }
