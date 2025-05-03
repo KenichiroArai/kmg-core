@@ -12,7 +12,7 @@ import kmg.core.infrastructure.utils.KmgMessageUtils;
  *
  * @version 0.2.0
  */
-public class KmgMsgException extends Exception {
+public class KmgMsgException extends KmgException {
 
     /**
      * デフォルトシリアルバージョンUID
