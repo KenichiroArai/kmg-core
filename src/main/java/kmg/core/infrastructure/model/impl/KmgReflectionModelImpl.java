@@ -78,7 +78,7 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
      * @return 値
      *
      * @throws KmgReflectionException
-     *                                KMGドメイン例外
+     *                                KMGリフレクション例外
      */
     @Override
     public Object get(final String fieldName) throws KmgReflectionException {
@@ -196,7 +196,7 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
      * @return 返却値
      *
      * @throws KmgReflectionException
-     *                                KMGドメイン例外
+     *                                KMGリフレクション例外
      */
     @Override
     public Object getMethod(final String methodName, final Object... parameters) throws KmgReflectionException {
@@ -354,7 +354,7 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
      *                  値
      *
      * @throws KmgReflectionException
-     *                                KMGドメイン例外
+     *                                KMGリフレクション例外
      */
     @Override
     public void set(final String fieldName, final Object value) throws KmgReflectionException {

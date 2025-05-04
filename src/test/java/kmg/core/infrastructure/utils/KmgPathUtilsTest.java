@@ -12,7 +12,7 @@ import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import kmg.core.domain.types.KmgCoreGenMessageTypes;
-import kmg.core.infrastructure.exception.KmgDomainException;
+import kmg.core.infrastructure.exception.KmgMsgException;
 import kmg.core.infrastructure.model.KmgReflectionModel;
 import kmg.core.infrastructure.model.impl.KmgReflectionModelImpl;
 import kmg.core.test.AbstractKmgTest;
@@ -94,11 +94,11 @@ public class KmgPathUtilsTest extends AbstractKmgTest {
      *
      * @since 0.1.0
      *
-     * @throws KmgDomainException
-     *                            失敗
+     * @throws KmgMsgException
+     *                         KMGメッセージ例外
      */
     @Test
-    public void testGetBinPath_errorNullObject() throws KmgDomainException {
+    public void testGetBinPath_errorNullObject() throws KmgMsgException {
 
         /* 期待値の定義 */
         final Path expected = null;
@@ -141,8 +141,8 @@ public class KmgPathUtilsTest extends AbstractKmgTest {
             mockedStatic.when(() -> KmgPathUtils.getBinPath(testTarget)).thenCallRealMethod();
 
             /* 検証の実施 */
-            final KmgDomainException actualException = Assertions.assertThrows(KmgDomainException.class,
-                () -> KmgPathUtils.getBinPath(testTarget), "URISyntaxExceptionが発生した場合、KmgDomainExceptionがスローされるべき");
+            final KmgMsgException actualException = Assertions.assertThrows(KmgMsgException.class,
+                () -> KmgPathUtils.getBinPath(testTarget), "URISyntaxExceptionが発生した場合、KmgMsgExceptionがスローされるべき");
             this.verifyKmgMsgException(actualException, URISyntaxException.class, expectedDomainMessage,
                 expectedMessageTypes);
 
@@ -155,11 +155,11 @@ public class KmgPathUtilsTest extends AbstractKmgTest {
      *
      * @since 0.1.0
      *
-     * @throws KmgDomainException
-     *                            失敗
+     * @throws KmgMsgException
+     *                         KMGメッセージ例外
      */
     @Test
-    public void testGetBinPath_normalValidClass() throws KmgDomainException {
+    public void testGetBinPath_normalValidClass() throws KmgMsgException {
 
         /* 準備 */
         final Class<?> testTarget = TestClass.class;
@@ -178,11 +178,11 @@ public class KmgPathUtilsTest extends AbstractKmgTest {
      *
      * @since 0.1.0
      *
-     * @throws KmgDomainException
-     *                            失敗
+     * @throws KmgMsgException
+     *                         KMGメッセージ例外
      */
     @Test
-    public void testGetBinPath_normalValidObject() throws KmgDomainException {
+    public void testGetBinPath_normalValidObject() throws KmgMsgException {
 
         /* 準備 */
         final Object testTarget = new KmgPathUtilsTest();
@@ -201,11 +201,11 @@ public class KmgPathUtilsTest extends AbstractKmgTest {
      *
      * @since 0.1.0
      *
-     * @throws KmgDomainException
-     *                            KMGドメイン例外
+     * @throws KmgMsgException
+     *                         KMGメッセージ例外
      */
     @Test
-    public void testGetClassFullPath_errorEmptyClassName() throws KmgDomainException {
+    public void testGetClassFullPath_errorEmptyClassName() throws KmgMsgException {
 
         /* 期待値の定義 */
         final Path expected = null;
@@ -231,11 +231,11 @@ public class KmgPathUtilsTest extends AbstractKmgTest {
      *
      * @since 0.1.0
      *
-     * @throws KmgDomainException
-     *                            KMGドメイン例外
+     * @throws KmgMsgException
+     *                         KMGメッセージ例外
      */
     @Test
-    public void testGetClassFullPath_errorNullClass() throws KmgDomainException {
+    public void testGetClassFullPath_errorNullClass() throws KmgMsgException {
 
         /* 期待値の定義 */
         final Path expected = null;
@@ -257,11 +257,11 @@ public class KmgPathUtilsTest extends AbstractKmgTest {
      *
      * @since 0.1.0
      *
-     * @throws KmgDomainException
-     *                            KMGドメイン例外
+     * @throws KmgMsgException
+     *                         KMGメッセージ例外
      */
     @Test
-    public void testGetClassFullPath_errorNullObject() throws KmgDomainException {
+    public void testGetClassFullPath_errorNullObject() throws KmgMsgException {
 
         /* 期待値の定義 */
         final Path expected = null;
@@ -283,11 +283,11 @@ public class KmgPathUtilsTest extends AbstractKmgTest {
      *
      * @since 0.1.0
      *
-     * @throws KmgDomainException
-     *                            KMGドメイン例外
+     * @throws KmgMsgException
+     *                         KMGメッセージ例外
      */
     @Test
-    public void testGetClassFullPath_normalFullPathCombination() throws KmgDomainException {
+    public void testGetClassFullPath_normalFullPathCombination() throws KmgMsgException {
 
         /* 期待値の定義 */
         final Path binPath  = Paths.get("build/classes");
@@ -314,11 +314,11 @@ public class KmgPathUtilsTest extends AbstractKmgTest {
      *
      * @since 0.1.0
      *
-     * @throws KmgDomainException
-     *                            KMGドメイン例外
+     * @throws KmgMsgException
+     *                         KMGメッセージ例外
      */
     @Test
-    public void testGetClassFullPath_normalNullBinPath() throws KmgDomainException {
+    public void testGetClassFullPath_normalNullBinPath() throws KmgMsgException {
 
         /* 期待値の定義 */
         final Path expected = Paths.get("/kmg/core/infrastructure/utils/test_class/test.txt");
@@ -344,11 +344,11 @@ public class KmgPathUtilsTest extends AbstractKmgTest {
      *
      * @since 0.1.0
      *
-     * @throws KmgDomainException
-     *                            KMGドメイン例外
+     * @throws KmgMsgException
+     *                         KMGメッセージ例外
      */
     @Test
-    public void testGetClassFullPath_normalObjectIsClassInstance() throws KmgDomainException {
+    public void testGetClassFullPath_normalObjectIsClassInstance() throws KmgMsgException {
 
         /* 期待値の定義 */
         final Path binPath  = KmgPathUtils.getBinPath(TestClass.class);
@@ -372,11 +372,11 @@ public class KmgPathUtilsTest extends AbstractKmgTest {
      *
      * @since 0.1.0
      *
-     * @throws KmgDomainException
-     *                            KMGドメイン例外
+     * @throws KmgMsgException
+     *                         KMGメッセージ例外
      */
     @Test
-    public void testGetClassFullPath_normalObjectIsNormalInstance() throws KmgDomainException {
+    public void testGetClassFullPath_normalObjectIsNormalInstance() throws KmgMsgException {
 
         /* 期待値の定義 */
         final Path binPath  = KmgPathUtils.getBinPath(TestClass.class);
@@ -400,11 +400,11 @@ public class KmgPathUtilsTest extends AbstractKmgTest {
      *
      * @since 0.1.0
      *
-     * @throws KmgDomainException
-     *                            KMGドメイン例外
+     * @throws KmgMsgException
+     *                         KMGメッセージ例外
      */
     @Test
-    public void testGetClassFullPath_normalPackageNameConversion() throws KmgDomainException {
+    public void testGetClassFullPath_normalPackageNameConversion() throws KmgMsgException {
 
         /* 期待値の定義 */
         final Path binPath  = Paths.get("test-classes");
@@ -458,11 +458,11 @@ public class KmgPathUtilsTest extends AbstractKmgTest {
      *
      * @since 0.1.0
      *
-     * @throws KmgDomainException
-     *                            KMGドメイン例外
+     * @throws KmgMsgException
+     *                         KMGメッセージ例外
      */
     @Test
-    public void testGetClassFullPath_normalValidObject() throws KmgDomainException {
+    public void testGetClassFullPath_normalValidObject() throws KmgMsgException {
 
         /* 期待値の定義 */
 
@@ -490,11 +490,11 @@ public class KmgPathUtilsTest extends AbstractKmgTest {
      *
      * @since 0.1.0
      *
-     * @throws KmgDomainException
-     *                            KMGドメイン例外
+     * @throws KmgMsgException
+     *                         KMGメッセージ例外
      */
     @Test
-    public void testGetClassFullPath_semiClassNameWithDollar() throws KmgDomainException {
+    public void testGetClassFullPath_semiClassNameWithDollar() throws KmgMsgException {
 
         /* 期待値の定義 */
         final Path binPath  = Paths.get("test-classes");

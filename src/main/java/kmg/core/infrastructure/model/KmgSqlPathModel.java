@@ -1,6 +1,6 @@
 package kmg.core.infrastructure.model;
 
-import kmg.core.infrastructure.exception.KmgDomainException;
+import kmg.core.infrastructure.exception.KmgMsgException;
 
 /**
  * KMGSQLパスモデルインタフェース<br>
@@ -9,7 +9,7 @@ import kmg.core.infrastructure.exception.KmgDomainException;
  *
  * @since 0.1.0
  *
- * @version 0.1.0
+ * @version 0.2.0
  */
 public interface KmgSqlPathModel {
 
@@ -27,9 +27,9 @@ public interface KmgSqlPathModel {
      *
      * @return SQLにして返す
      *
-     * @throws KmgDomainException
-     *                            KMGドメイン例外
+     * @throws KmgMsgException
+     *                         KMGメッセージ例外
      */
-    String toSql() throws KmgDomainException;
+    String toSql() throws KmgMsgException;
 
 }

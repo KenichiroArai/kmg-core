@@ -13,7 +13,7 @@ import org.mockito.junit.jupiter.MockitoSettings;
 import org.mockito.quality.Strictness;
 
 import kmg.core.domain.types.KmgCoreGenMessageTypes;
-import kmg.core.infrastructure.exception.KmgDomainException;
+import kmg.core.infrastructure.exception.KmgMsgException;
 import kmg.core.infrastructure.model.KmgReflectionModel;
 import kmg.core.infrastructure.type.KmgString;
 import kmg.core.test.AbstractKmgTest;
@@ -151,8 +151,8 @@ public class KmgSqlPathModelImplTest extends AbstractKmgTest {
         this.target = new KmgSqlPathModelImpl(this, testFile);
 
         /* テスト対象の実行 */
-        final KmgDomainException actualException
-            = Assertions.assertThrows(KmgDomainException.class, () -> this.target.toSql());
+        final KmgMsgException actualException
+            = Assertions.assertThrows(KmgMsgException.class, () -> this.target.toSql());
 
         /* 検証の実施 */
         this.verifyKmgMsgException(actualException, java.nio.file.NoSuchFileException.class, expectedDomainMessage,

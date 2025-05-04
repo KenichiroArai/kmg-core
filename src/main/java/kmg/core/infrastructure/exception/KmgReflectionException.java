@@ -12,7 +12,7 @@ import kmg.core.infrastructure.model.KmgReflectionModel;
  *
  * @version 0.2.0
  */
-public class KmgReflectionException extends KmgDomainException {
+public class KmgReflectionException extends KmgMsgException {
 
     /**
      * デフォルトシリアルバージョンＵＩＤ
