@@ -416,7 +416,7 @@ public class KmgString {
 
         /* 一文字の処理 */
         // 一文字か
-        if (target.length() == 1) {
+        if (target.length() > 0) {
             // 一文字の場合
 
             result = target.toLowerCase();

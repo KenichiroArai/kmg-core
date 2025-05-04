@@ -106,10 +106,10 @@ public class KmgPfaMeasServiceImplTest {
 
         // 期待されるログメッセージ
         final KmgCoreLogMessageTypes logType            = KmgCoreLogMessageTypes.KMGCORE_LOG12001;
-        final Object[]           messageArgs        = {
+        final Object[]               messageArgs        = {
             expectedName, expectedElapsedTime, expectedTimeUnit.getUnitName(),
         };
-        final String             expectedLogMessage = KmgMessageUtils.getLogMessage(logType, messageArgs);
+        final String                 expectedLogMessage = KmgMessageUtils.getLogMessage(logType, messageArgs);
 
         /* 準備 */
         final Logger          mockLogger = Mockito.mock(Logger.class);
@@ -154,10 +154,10 @@ public class KmgPfaMeasServiceImplTest {
 
         // 期待されるログメッセージ
         final KmgCoreLogMessageTypes logType            = KmgCoreLogMessageTypes.KMGCORE_LOG12000;
-        final Object[]           messageArgs        = {
+        final Object[]               messageArgs        = {
             expectedName,
         };
-        final String             expectedLogMessage = KmgMessageUtils.getLogMessage(logType, messageArgs);
+        final String                 expectedLogMessage = KmgMessageUtils.getLogMessage(logType, messageArgs);
 
         /* 準備 */
         final Logger          mockLogger = Mockito.mock(Logger.class);

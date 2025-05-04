@@ -237,7 +237,7 @@ public class KmgMessageUtilsTest {
         final String expectedMessage = KmgString.EMPTY;
 
         /* 準備 */
-        final Object[]           testArgs = {
+        final Object[]               testArgs = {
             "test"
         };
         final KmgCoreGenMessageTypes testType = KmgCoreGenMessageTypes.NONE;
@@ -370,7 +370,7 @@ public class KmgMessageUtilsTest {
         final String expectedMessage = KmgString.EMPTY;
 
         /* 準備 */
-        final Object[]           testArgs = {
+        final Object[]               testArgs = {
             "test"
         };
         final KmgCoreGenMessageTypes testType = KmgCoreGenMessageTypes.NONE;
@@ -398,7 +398,7 @@ public class KmgMessageUtilsTest {
         final String expectedMessage = KmgString.EMPTY;
 
         /* 準備 */
-        final Object[]           testArgs = {
+        final Object[]               testArgs = {
             "test"
         };
         final KmgCoreGenMessageTypes testType = KmgCoreGenMessageTypes.NONE;
