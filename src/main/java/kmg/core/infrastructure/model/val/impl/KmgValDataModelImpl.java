@@ -44,6 +44,8 @@ public class KmgValDataModelImpl implements KmgValDataModel {
         this.messageTypes = messageTypes;
         this.messageArgs = messageArgs;
 
+        this.createMessageSource();
+
         this.message = this.createMessage();
 
     }
@@ -109,6 +111,16 @@ public class KmgValDataModelImpl implements KmgValDataModel {
         final String result = KmgMessageUtils.getExcMessage(this.messageTypes, this.messageArgs);
         return result;
 
+    }
+
+    /**
+     * メッセージソースを作成する。
+     *
+     * @since 0.2.0
+     */
+    protected void createMessageSource() {
+
+        // KmgMessageUtilsを使用するため、処理なし
     }
 
 }
