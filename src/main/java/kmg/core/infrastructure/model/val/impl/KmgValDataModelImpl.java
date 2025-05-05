@@ -1,7 +1,7 @@
-package kmg.core.infrastructure.model.validation.impl;
+package kmg.core.infrastructure.model.val.impl;
 
 import kmg.core.infrastructure.common.KmgComValMessageTypes;
-import kmg.core.infrastructure.model.validation.KmgValDataModel;
+import kmg.core.infrastructure.model.val.KmgValDataModel;
 import kmg.core.infrastructure.utils.KmgMessageUtils;
 
 /**

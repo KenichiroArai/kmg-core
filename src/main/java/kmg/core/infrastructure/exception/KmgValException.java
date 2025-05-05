@@ -1,9 +1,12 @@
 package kmg.core.infrastructure.exception;
 
-import kmg.core.infrastructure.model.validation.KmgValsModel;
+import kmg.core.infrastructure.model.val.KmgValsModel;
 
 /**
  * KMGバリデーション例外<br>
+ * <p>
+ * Valは、Validationの略。
+ * </p>
  *
  * @author KenichiroArai
  *
@@ -11,7 +14,7 @@ import kmg.core.infrastructure.model.validation.KmgValsModel;
  *
  * @version 0.2.0
  */
-public class KmgValidationException extends KmgException {
+public class KmgValException extends KmgException {
 
     /**
      * デフォルトシリアルバージョンＵＩＤ
@@ -31,7 +34,7 @@ public class KmgValidationException extends KmgException {
      * @param validationsModel
      *                         KMGバリデーション集合モデル
      */
-    public KmgValidationException(final KmgValsModel validationsModel) {
+    public KmgValException(final KmgValsModel validationsModel) {
 
         this(validationsModel, null);
 
@@ -47,7 +50,7 @@ public class KmgValidationException extends KmgException {
      * @param cause
      *                         原因
      */
-    public KmgValidationException(final KmgValsModel validationsModel, final Throwable cause) {
+    public KmgValException(final KmgValsModel validationsModel, final Throwable cause) {
 
         super(cause);
 

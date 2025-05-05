@@ -1,4 +1,4 @@
-package kmg.core.infrastructure.model.validation;
+package kmg.core.infrastructure.model.val;
 
 import java.util.List;
 

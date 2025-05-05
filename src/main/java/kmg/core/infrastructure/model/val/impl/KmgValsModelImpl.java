@@ -1,10 +1,10 @@
-package kmg.core.infrastructure.model.validation.impl;
+package kmg.core.infrastructure.model.val.impl;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import kmg.core.infrastructure.model.validation.KmgValDataModel;
-import kmg.core.infrastructure.model.validation.KmgValsModel;
+import kmg.core.infrastructure.model.val.KmgValDataModel;
+import kmg.core.infrastructure.model.val.KmgValsModel;
 
 /**
  * KMGバリデーション集合モデル<br>
