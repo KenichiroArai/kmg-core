@@ -3,11 +3,14 @@ package kmg.core.infrastructure.model.validation.impl;
 import java.util.ArrayList;
 import java.util.List;
 
-import kmg.core.infrastructure.model.validation.KmgValidationDataModel;
-import kmg.core.infrastructure.model.validation.KmgValidationsModel;
+import kmg.core.infrastructure.model.validation.KmgValDataModel;
+import kmg.core.infrastructure.model.validation.KmgValsModel;
 
 /**
  * KMGバリデーション集合モデル<br>
+ * <p>
+ * valは、Validationの略。
+ * </p>
  *
  * @author KenichiroArai
  *
@@ -15,12 +18,12 @@ import kmg.core.infrastructure.model.validation.KmgValidationsModel;
  *
  * @version 0.2.0
  */
-public class KmgValidationsModelImpl implements KmgValidationsModel {
+public class KmgValsModelImpl implements KmgValsModel {
 
     /**
      * データのリスト
      */
-    private final List<KmgValidationDataModel> datas;
+    private final List<KmgValDataModel> datas;
 
     /**
      * コンストラクタ
@@ -29,7 +32,7 @@ public class KmgValidationsModelImpl implements KmgValidationsModel {
      *
      * @since 0.2.0
      */
-    public KmgValidationsModelImpl() {
+    public KmgValsModelImpl() {
 
         this.datas = new ArrayList<>();
 
@@ -46,7 +49,7 @@ public class KmgValidationsModelImpl implements KmgValidationsModel {
      * @since 0.2.0
      */
     @Override
-    public void addData(final KmgValidationDataModel data) {
+    public void addData(final KmgValDataModel data) {
 
         /* 引数チェック */
         if (data == null) {
@@ -70,9 +73,9 @@ public class KmgValidationsModelImpl implements KmgValidationsModel {
      * @return データのリスト
      */
     @Override
-    public List<KmgValidationDataModel> getDatas() {
+    public List<KmgValDataModel> getDatas() {
 
-        final List<KmgValidationDataModel> result = this.datas;
+        final List<KmgValDataModel> result = this.datas;
         return result;
 
     }

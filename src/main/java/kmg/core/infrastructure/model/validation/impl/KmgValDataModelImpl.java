@@ -1,11 +1,14 @@
 package kmg.core.infrastructure.model.validation.impl;
 
 import kmg.core.infrastructure.common.KmgComValMessageTypes;
-import kmg.core.infrastructure.model.validation.KmgValidationDataModel;
+import kmg.core.infrastructure.model.validation.KmgValDataModel;
 import kmg.core.infrastructure.utils.KmgMessageUtils;
 
 /**
  * KMGバリデーションデータモデル<br>
+ * <p>
+ * valは、Validationの略。
+ * </p>
  *
  * @author KenichiroArai
  *
@@ -13,7 +16,7 @@ import kmg.core.infrastructure.utils.KmgMessageUtils;
  *
  * @version 0.2.0
  */
-public class KmgValidationDataModelImpl implements KmgValidationDataModel {
+public class KmgValDataModelImpl implements KmgValDataModel {
 
     /** メッセージの種類 */
     private final KmgComValMessageTypes messageTypes;
@@ -36,7 +39,7 @@ public class KmgValidationDataModelImpl implements KmgValidationDataModel {
      * @param messageArgs
      *                     メッセージの引数
      */
-    public KmgValidationDataModelImpl(final KmgComValMessageTypes messageTypes, final Object[] messageArgs) {
+    public KmgValDataModelImpl(final KmgComValMessageTypes messageTypes, final Object[] messageArgs) {
 
         this.messageTypes = messageTypes;
         this.messageArgs = messageArgs;

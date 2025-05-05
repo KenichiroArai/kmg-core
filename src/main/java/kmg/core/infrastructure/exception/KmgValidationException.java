@@ -1,6 +1,6 @@
 package kmg.core.infrastructure.exception;
 
-import kmg.core.infrastructure.model.validation.KmgValidationsModel;
+import kmg.core.infrastructure.model.validation.KmgValsModel;
 
 /**
  * KMGバリデーション例外<br>
@@ -21,7 +21,7 @@ public class KmgValidationException extends KmgException {
     private static final long serialVersionUID = 1L;
 
     /** KMGバリデーション集合モデル */
-    private final KmgValidationsModel validationsModel;
+    private final KmgValsModel validationsModel;
 
     /**
      * コンストラクタ<br>
@@ -31,7 +31,7 @@ public class KmgValidationException extends KmgException {
      * @param validationsModel
      *                         KMGバリデーション集合モデル
      */
-    public KmgValidationException(final KmgValidationsModel validationsModel) {
+    public KmgValidationException(final KmgValsModel validationsModel) {
 
         this(validationsModel, null);
 
@@ -47,7 +47,7 @@ public class KmgValidationException extends KmgException {
      * @param cause
      *                         原因
      */
-    public KmgValidationException(final KmgValidationsModel validationsModel, final Throwable cause) {
+    public KmgValidationException(final KmgValsModel validationsModel, final Throwable cause) {
 
         super(cause);
 
@@ -62,9 +62,9 @@ public class KmgValidationException extends KmgException {
      *
      * @return KMGバリデーション集合モデル
      */
-    public KmgValidationsModel getValidationsModel() {
+    public KmgValsModel getValidationsModel() {
 
-        final KmgValidationsModel result = this.validationsModel;
+        final KmgValsModel result = this.validationsModel;
         return result;
 
     }

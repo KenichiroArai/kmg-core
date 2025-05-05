@@ -4,6 +4,9 @@ import java.util.List;
 
 /**
  * KMGバリデーション集合モデルインタフェース<br>
+ * <p>
+ * valは、Validationの略。
+ * </p>
  *
  * @author KenichiroArai
  *
@@ -11,7 +14,7 @@ import java.util.List;
  *
  * @version 0.2.0
  */
-public interface KmgValidationsModel {
+public interface KmgValsModel {
 
     /**
      * データを追加する。
@@ -23,7 +26,7 @@ public interface KmgValidationsModel {
      *
      * @since 0.2.0
      */
-    void addData(KmgValidationDataModel data);
+    void addData(KmgValDataModel data);
 
     /**
      * データのリストを返す。
@@ -34,6 +37,6 @@ public interface KmgValidationsModel {
      *
      * @return データのリスト
      */
-    List<KmgValidationDataModel> getDatas();
+    List<KmgValDataModel> getDatas();
 
 }
