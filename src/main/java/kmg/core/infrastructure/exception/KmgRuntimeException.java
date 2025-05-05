@@ -245,7 +245,7 @@ public class KmgRuntimeException extends RuntimeException {
     }
 
     /**
-     * メッセージを作成し、返す。
+     * メッセージを作成して返す。
      *
      * @since 0.2.0
      *

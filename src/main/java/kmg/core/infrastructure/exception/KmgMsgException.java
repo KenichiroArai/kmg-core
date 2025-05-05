@@ -245,7 +245,7 @@ public class KmgMsgException extends KmgException {
     }
 
     /**
-     * メッセージを作成し、返す。
+     * メッセージを作成して返す。
      *
      * @since 0.2.0
      *
