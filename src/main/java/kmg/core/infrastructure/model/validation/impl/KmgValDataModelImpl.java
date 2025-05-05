@@ -7,7 +7,7 @@ import kmg.core.infrastructure.utils.KmgMessageUtils;
 /**
  * KMGバリデーションデータモデル<br>
  * <p>
- * valは、Validationの略。
+ * Valは、Validationの略。
  * </p>
  *
  * @author KenichiroArai

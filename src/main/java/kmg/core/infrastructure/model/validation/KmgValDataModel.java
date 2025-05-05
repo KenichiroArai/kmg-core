@@ -5,7 +5,7 @@ import kmg.core.infrastructure.common.KmgComValMessageTypes;
 /**
  * KMGバリデーションデータモデルインタフェース<br>
  * <p>
- * valは、Validationの略。
+ * Valは、Validationの略。
  * </p>
  *
  * @author KenichiroArai

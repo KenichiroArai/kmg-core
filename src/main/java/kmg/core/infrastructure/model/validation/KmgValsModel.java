@@ -5,7 +5,7 @@ import java.util.List;
 /**
  * KMGバリデーション集合モデルインタフェース<br>
  * <p>
- * valは、Validationの略。
+ * Valは、Validationの略。
  * </p>
  *
  * @author KenichiroArai

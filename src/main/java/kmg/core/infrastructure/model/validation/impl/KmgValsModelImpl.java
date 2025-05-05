@@ -9,7 +9,7 @@ import kmg.core.infrastructure.model.validation.KmgValsModel;
 /**
  * KMGバリデーション集合モデル<br>
  * <p>
- * valは、Validationの略。
+ * Valは、Validationの略。
  * </p>
  *
  * @author KenichiroArai
