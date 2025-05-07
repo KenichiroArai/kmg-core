@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 import kmg.core.infrastructure.common.KmgComTypes;
+import kmg.core.infrastructure.type.KmgString;
 
 /**
  * KMG Javadocタグの種類<br>
@@ -326,6 +327,15 @@ public enum KmgJavadocTagTypes implements KmgComTypes<String> {
     /** 種類のマップ */
     private static final Map<String, KmgJavadocTagTypes> VALUES_MAP = new HashMap<>();
 
+    /**
+     * Javadocタグのプレフィックス
+     *
+     * @author KenichiroArai
+     *
+     * @since 0.2.0
+     */
+    private static final String JAVADOC_TAG_PREFIX = "@";
+
     static {
 
         /* 種類のマップにプット */
@@ -366,6 +376,33 @@ public enum KmgJavadocTagTypes implements KmgComTypes<String> {
     private final List<JavaClassificationTypes> locations;
 
     /**
+     * 指定されたキーに基づいて検索用のキーを生成します。<br>
+     *
+     * @since 0.2.0
+     *
+     * @param key
+     *            検索対象のキー
+     *
+     * @return 検索用のキー。キーが「@」で始まる場合はそのまま返します。
+     */
+    public static String createSearchKey(final String key) {
+
+        String result;
+
+        if (key.startsWith(KmgJavadocTagTypes.JAVADOC_TAG_PREFIX)) {
+
+            result = key;
+            return result;
+
+        }
+
+        result = KmgString.concat(KmgJavadocTagTypes.JAVADOC_TAG_PREFIX, key);
+
+        return result;
+
+    }
+
+    /**
      * デフォルトの種類を返す<br>
      *
      * @since 0.2.0
@@ -382,7 +419,8 @@ public enum KmgJavadocTagTypes implements KmgComTypes<String> {
     /**
      * キーに該当する種類を返す<br>
      * <p>
-     * 但し、キーが存在しない場合は、指定無し（NONE）を返す。
+     * 但し、キーが存在しない場合は、指定無し（NONE）を返す。<br>
+     * キーが「@」始まりではない場合は、「@」を付加して検索します。
      * </p>
      *
      * @since 0.2.0
@@ -394,7 +432,10 @@ public enum KmgJavadocTagTypes implements KmgComTypes<String> {
      */
     public static KmgJavadocTagTypes getEnum(final String key) {
 
-        KmgJavadocTagTypes result = KmgJavadocTagTypes.VALUES_MAP.get(key);
+        KmgJavadocTagTypes result = NONE;
+
+        final String searchKey = KmgJavadocTagTypes.createSearchKey(key);
+        result = KmgJavadocTagTypes.VALUES_MAP.get(searchKey);
 
         if (result == null) {
 
