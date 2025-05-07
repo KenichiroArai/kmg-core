@@ -6,7 +6,7 @@ import java.nio.file.Paths;
 
 import kmg.core.infrastructure.exception.KmgMsgException;
 import kmg.core.infrastructure.type.KmgString;
-import kmg.core.infrastructure.types.msg.KmgCoreGenMessageTypes;
+import kmg.core.infrastructure.types.msg.KmgCoreGenMsgTypes;
 
 /**
  * KMGパスユーティリティ<br>
@@ -123,7 +123,7 @@ public final class KmgPathUtils {
 
         } catch (final URISyntaxException e) {
 
-            final KmgCoreGenMessageTypes msgTypes = KmgCoreGenMessageTypes.KMGCORE_GEN24000;
+            final KmgCoreGenMsgTypes msgTypes = KmgCoreGenMsgTypes.KMGCORE_GEN24000;
             final Object[]               msgArgs  = {
                 zlass.getName()
             };

@@ -7,7 +7,7 @@ import org.slf4j.Logger;
 
 import kmg.core.infrastructure.model.KmgPfaMeasModel;
 import kmg.core.infrastructure.types.KmgTimeUnitTypes;
-import kmg.core.infrastructure.types.msg.KmgCoreLogMessageTypes;
+import kmg.core.infrastructure.types.msg.KmgCoreLogMsgTypes;
 import kmg.core.infrastructure.utils.KmgMessageUtils;
 
 /**
@@ -105,7 +105,7 @@ public class KmgPfaMeasServiceImplTest {
         final KmgTimeUnitTypes expectedTimeUnit    = KmgTimeUnitTypes.SECONDS;
 
         // 期待されるログメッセージ
-        final KmgCoreLogMessageTypes logType            = KmgCoreLogMessageTypes.KMGCORE_LOG12001;
+        final KmgCoreLogMsgTypes logType            = KmgCoreLogMsgTypes.KMGCORE_LOG12001;
         final Object[]               messageArgs        = {
             expectedName, expectedElapsedTime, expectedTimeUnit.getUnitName(),
         };
@@ -153,7 +153,7 @@ public class KmgPfaMeasServiceImplTest {
         final String expectedName = "テスト測定";
 
         // 期待されるログメッセージ
-        final KmgCoreLogMessageTypes logType            = KmgCoreLogMessageTypes.KMGCORE_LOG12000;
+        final KmgCoreLogMsgTypes logType            = KmgCoreLogMsgTypes.KMGCORE_LOG12000;
         final Object[]               messageArgs        = {
             expectedName,
         };

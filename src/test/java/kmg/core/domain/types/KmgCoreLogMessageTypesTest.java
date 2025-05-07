@@ -3,7 +3,7 @@ package kmg.core.domain.types;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import kmg.core.infrastructure.types.msg.KmgCoreLogMessageTypes;
+import kmg.core.infrastructure.types.msg.KmgCoreLogMsgTypes;
 
 /**
  * KMGログメッセージの種類のテスト<br>
@@ -41,7 +41,7 @@ public class KmgCoreLogMessageTypesTest {
         final String expected = "KMGCORE_LOG12000"; //$NON-NLS-1$
 
         /* 準備 */
-        final KmgCoreLogMessageTypes testType = KmgCoreLogMessageTypes.KMGCORE_LOG12000;
+        final KmgCoreLogMsgTypes testType = KmgCoreLogMsgTypes.KMGCORE_LOG12000;
 
         /* テスト対象の実行 */
         final String actual = testType.get();
@@ -63,7 +63,7 @@ public class KmgCoreLogMessageTypesTest {
         final String expected = "KMGCORE_LOG12000"; //$NON-NLS-1$
 
         /* 準備 */
-        final KmgCoreLogMessageTypes testType = KmgCoreLogMessageTypes.KMGCORE_LOG12000;
+        final KmgCoreLogMsgTypes testType = KmgCoreLogMsgTypes.KMGCORE_LOG12000;
 
         /* テスト対象の実行 */
         final String actual = testType.getCode();
@@ -82,10 +82,10 @@ public class KmgCoreLogMessageTypesTest {
     public void testGetDefault_normalDefaultValue() {
 
         /* 期待値の定義 */
-        final KmgCoreLogMessageTypes expected = KmgCoreLogMessageTypes.NONE;
+        final KmgCoreLogMsgTypes expected = KmgCoreLogMsgTypes.NONE;
 
         /* テスト対象の実行 */
-        final KmgCoreLogMessageTypes actual = KmgCoreLogMessageTypes.getDefault();
+        final KmgCoreLogMsgTypes actual = KmgCoreLogMsgTypes.getDefault();
 
         /* 検証の実施 */
         Assertions.assertEquals(expected, actual, "デフォルト値が一致しません");
@@ -104,7 +104,7 @@ public class KmgCoreLogMessageTypesTest {
         final String expected = "KMGCORE_LOG12000"; //$NON-NLS-1$
 
         /* 準備 */
-        final KmgCoreLogMessageTypes testType = KmgCoreLogMessageTypes.KMGCORE_LOG12000;
+        final KmgCoreLogMsgTypes testType = KmgCoreLogMsgTypes.KMGCORE_LOG12000;
 
         /* テスト対象の実行 */
         final String actual = testType.getDetail();
@@ -126,7 +126,7 @@ public class KmgCoreLogMessageTypesTest {
         final String expected = "KMGCORE_LOG12000"; //$NON-NLS-1$
 
         /* 準備 */
-        final KmgCoreLogMessageTypes testType = KmgCoreLogMessageTypes.KMGCORE_LOG12000;
+        final KmgCoreLogMsgTypes testType = KmgCoreLogMsgTypes.KMGCORE_LOG12000;
 
         /* テスト対象の実行 */
         final String actual = testType.getDisplayName();
@@ -145,13 +145,13 @@ public class KmgCoreLogMessageTypesTest {
     public void testGetEnum_normalExistingValue() {
 
         /* 期待値の定義 */
-        final KmgCoreLogMessageTypes expected = KmgCoreLogMessageTypes.KMGCORE_LOG12000;
+        final KmgCoreLogMsgTypes expected = KmgCoreLogMsgTypes.KMGCORE_LOG12000;
 
         /* 準備 */
         final String key = "KMGCORE_LOG12000"; //$NON-NLS-1$
 
         /* テスト対象の実行 */
-        final KmgCoreLogMessageTypes actual = KmgCoreLogMessageTypes.getEnum(key);
+        final KmgCoreLogMsgTypes actual = KmgCoreLogMsgTypes.getEnum(key);
 
         /* 検証の実施 */
         Assertions.assertEquals(expected, actual, "取得値が一致しません"); //$NON-NLS-1$
@@ -167,13 +167,13 @@ public class KmgCoreLogMessageTypesTest {
     public void testGetEnum_semiNonExistingValue() {
 
         /* 期待値の定義 */
-        final KmgCoreLogMessageTypes expected = KmgCoreLogMessageTypes.NONE;
+        final KmgCoreLogMsgTypes expected = KmgCoreLogMsgTypes.NONE;
 
         /* 準備 */
         final String testValue = "INVALID";
 
         /* テスト対象の実行 */
-        final KmgCoreLogMessageTypes actual = KmgCoreLogMessageTypes.getEnum(testValue);
+        final KmgCoreLogMsgTypes actual = KmgCoreLogMsgTypes.getEnum(testValue);
 
         /* 検証の実施 */
         Assertions.assertEquals(expected, actual, "値が一致しません");
@@ -189,10 +189,10 @@ public class KmgCoreLogMessageTypesTest {
     public void testGetInitValue_normalInitialValue() {
 
         /* 期待値の定義 */
-        final KmgCoreLogMessageTypes expected = KmgCoreLogMessageTypes.NONE;
+        final KmgCoreLogMsgTypes expected = KmgCoreLogMsgTypes.NONE;
 
         /* テスト対象の実行 */
-        final KmgCoreLogMessageTypes actual = KmgCoreLogMessageTypes.getInitValue();
+        final KmgCoreLogMsgTypes actual = KmgCoreLogMsgTypes.getInitValue();
 
         /* 検証の実施 */
         Assertions.assertEquals(expected, actual, "初期値が一致しません");
@@ -211,7 +211,7 @@ public class KmgCoreLogMessageTypesTest {
         final String expected = "KMGCORE_LOG12000"; //$NON-NLS-1$
 
         /* 準備 */
-        final KmgCoreLogMessageTypes testType = KmgCoreLogMessageTypes.KMGCORE_LOG12000;
+        final KmgCoreLogMsgTypes testType = KmgCoreLogMsgTypes.KMGCORE_LOG12000;
 
         /* テスト対象の実行 */
         final String actual = testType.getValue();
@@ -233,7 +233,7 @@ public class KmgCoreLogMessageTypesTest {
         final String expected = "KMGCORE_LOG12000"; //$NON-NLS-1$
 
         /* 準備 */
-        final KmgCoreLogMessageTypes testType = KmgCoreLogMessageTypes.KMGCORE_LOG12000;
+        final KmgCoreLogMsgTypes testType = KmgCoreLogMsgTypes.KMGCORE_LOG12000;
 
         /* テスト対象の実行 */
         final String actual = testType.toString();
@@ -255,7 +255,7 @@ public class KmgCoreLogMessageTypesTest {
         final String expected = "NONE";
 
         /* 準備 */
-        final KmgCoreLogMessageTypes testType = KmgCoreLogMessageTypes.NONE;
+        final KmgCoreLogMsgTypes testType = KmgCoreLogMsgTypes.NONE;
 
         /* テスト対象の実行 */
         final String actual = testType.toString();

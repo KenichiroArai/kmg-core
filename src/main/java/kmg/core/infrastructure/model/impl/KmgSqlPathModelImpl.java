@@ -8,7 +8,7 @@ import java.nio.file.Path;
 import kmg.core.infrastructure.exception.KmgMsgException;
 import kmg.core.infrastructure.model.KmgSqlPathModel;
 import kmg.core.infrastructure.type.KmgString;
-import kmg.core.infrastructure.types.msg.KmgCoreGenMessageTypes;
+import kmg.core.infrastructure.types.msg.KmgCoreGenMsgTypes;
 
 /**
  * KMGSQLパスモデル<br>
@@ -139,7 +139,7 @@ public class KmgSqlPathModelImpl implements KmgSqlPathModel {
 
         } catch (final IOException e) {
 
-            final KmgCoreGenMessageTypes msgTypes = KmgCoreGenMessageTypes.KMGCORE_GEN11100;
+            final KmgCoreGenMsgTypes msgTypes = KmgCoreGenMsgTypes.KMGCORE_GEN11100;
             final Object[]               msgArgs  = {
                 this.sqlFilePath
             };

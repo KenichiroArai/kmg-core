@@ -15,7 +15,7 @@ import org.mockito.quality.Strictness;
 import kmg.core.infrastructure.exception.KmgMsgException;
 import kmg.core.infrastructure.model.KmgReflectionModel;
 import kmg.core.infrastructure.type.KmgString;
-import kmg.core.infrastructure.types.msg.KmgCoreGenMessageTypes;
+import kmg.core.infrastructure.types.msg.KmgCoreGenMsgTypes;
 import kmg.core.test.AbstractKmgTest;
 
 /**
@@ -144,7 +144,7 @@ public class KmgSqlPathModelImplTest extends AbstractKmgTest {
         /* 期待値の定義 */
         final String                 expectedDomainMessage = KmgString
             .concat(this.tempDir.resolve("not_exists.sql").toString(), "がありません。");
-        final KmgCoreGenMessageTypes expectedMessageTypes  = KmgCoreGenMessageTypes.KMGCORE_GEN11100;
+        final KmgCoreGenMsgTypes expectedMessageTypes  = KmgCoreGenMsgTypes.KMGCORE_GEN11100;
 
         /* 準備 */
         final Path testFile = this.tempDir.resolve("not_exists.sql");

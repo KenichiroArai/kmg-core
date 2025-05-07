@@ -8,7 +8,7 @@ import java.util.regex.Pattern;
 import kmg.core.infrastructure.common.KmgComTypes;
 import kmg.core.infrastructure.exception.KmgMsgException;
 import kmg.core.infrastructure.type.KmgString;
-import kmg.core.infrastructure.types.msg.KmgCoreGenMessageTypes;
+import kmg.core.infrastructure.types.msg.KmgCoreGenMsgTypes;
 
 /**
  * Java区分の種類<br>
@@ -465,7 +465,7 @@ public enum JavaClassificationTypes implements KmgComTypes<String> {
         } catch (final IllegalArgumentException e) {
 
             // TODO KenichiroArai 2025/05/08 例外処理
-            final KmgCoreGenMessageTypes msgTypes = KmgCoreGenMessageTypes.NONE;
+            final KmgCoreGenMsgTypes msgTypes = KmgCoreGenMsgTypes.NONE;
             final Object[]               msgArgs  = {};
 
             throw new KmgMsgException(msgTypes, msgArgs, e);

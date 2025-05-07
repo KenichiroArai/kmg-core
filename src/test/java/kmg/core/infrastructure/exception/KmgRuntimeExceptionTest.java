@@ -6,7 +6,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import kmg.core.infrastructure.common.KmgComExcMessageTypes;
-import kmg.core.infrastructure.types.msg.KmgCoreGenMessageTypes;
+import kmg.core.infrastructure.types.msg.KmgCoreGenMsgTypes;
 
 /**
  * KMG実行時例外テスト<br>
@@ -42,7 +42,7 @@ public class KmgRuntimeExceptionTest {
     public void testConstructor_normalMessageTypes() {
 
         /* 期待値の定義 */
-        final KmgCoreGenMessageTypes expectedMsgTypes = KmgCoreGenMessageTypes.KMGCORE_GEN11100;
+        final KmgCoreGenMsgTypes expectedMsgTypes = KmgCoreGenMsgTypes.KMGCORE_GEN11100;
         final String                 expectedMessage  = "{0}がありません。";
 
         /* テスト対象の実行 */
@@ -67,7 +67,7 @@ public class KmgRuntimeExceptionTest {
     public void testConstructor_normalMessageTypesAndArgs() {
 
         /* 期待値の定義 */
-        final KmgCoreGenMessageTypes expectedMsgTypes = KmgCoreGenMessageTypes.KMGCORE_GEN11100;
+        final KmgCoreGenMsgTypes expectedMsgTypes = KmgCoreGenMsgTypes.KMGCORE_GEN11100;
         final Object[]               expectedMsgArgs  = {
             "テスト引数1", "テスト引数2"
         };
@@ -97,7 +97,7 @@ public class KmgRuntimeExceptionTest {
     public void testConstructor_normalMessageTypesAndCause() {
 
         /* 期待値の定義 */
-        final KmgCoreGenMessageTypes expectedMsgTypes = KmgCoreGenMessageTypes.KMGCORE_GEN11100;
+        final KmgCoreGenMsgTypes expectedMsgTypes = KmgCoreGenMsgTypes.KMGCORE_GEN11100;
         final String                 expectedMessage  = "{0}がありません。";
         final Throwable              expectedCause    = new RuntimeException("テスト原因");
 

@@ -16,7 +16,7 @@ import kmg.core.infrastructure.common.KmgComGenMessageTypes;
  * @version 0.2.0
  */
 @SuppressWarnings("nls")
-public enum KmgCoreGenMessageTypes implements KmgComGenMessageTypes, KmgComExcMessageTypes {
+public enum KmgCoreGenMsgTypes implements KmgComGenMessageTypes, KmgComExcMessageTypes {
 
     /* 定義：開始 */
 
@@ -154,14 +154,14 @@ public enum KmgCoreGenMessageTypes implements KmgComGenMessageTypes, KmgComExcMe
      *
      * @since 0.2.0
      */
-    private static final Map<String, KmgCoreGenMessageTypes> VALUES_MAP = new HashMap<>();
+    private static final Map<String, KmgCoreGenMsgTypes> VALUES_MAP = new HashMap<>();
 
     static {
 
         /* 種類のマップにプット */
-        for (final KmgCoreGenMessageTypes type : KmgCoreGenMessageTypes.values()) {
+        for (final KmgCoreGenMsgTypes type : KmgCoreGenMsgTypes.values()) {
 
-            KmgCoreGenMessageTypes.VALUES_MAP.put(type.get(), type);
+            KmgCoreGenMsgTypes.VALUES_MAP.put(type.get(), type);
 
         }
 
@@ -202,9 +202,9 @@ public enum KmgCoreGenMessageTypes implements KmgComGenMessageTypes, KmgComExcMe
      *
      * @return デフォルト値
      */
-    public static KmgCoreGenMessageTypes getDefault() {
+    public static KmgCoreGenMsgTypes getDefault() {
 
-        final KmgCoreGenMessageTypes result = NONE;
+        final KmgCoreGenMsgTypes result = NONE;
         return result;
 
     }
@@ -222,9 +222,9 @@ public enum KmgCoreGenMessageTypes implements KmgComGenMessageTypes, KmgComExcMe
      *
      * @return 種類。指定無し（NONE）：キーが存在しない場合。
      */
-    public static KmgCoreGenMessageTypes getEnum(final String key) {
+    public static KmgCoreGenMsgTypes getEnum(final String key) {
 
-        KmgCoreGenMessageTypes result = KmgCoreGenMessageTypes.VALUES_MAP.get(key);
+        KmgCoreGenMsgTypes result = KmgCoreGenMsgTypes.VALUES_MAP.get(key);
 
         if (result == null) {
 
@@ -242,9 +242,9 @@ public enum KmgCoreGenMessageTypes implements KmgComGenMessageTypes, KmgComExcMe
      *
      * @return 初期値
      */
-    public static KmgCoreGenMessageTypes getInitValue() {
+    public static KmgCoreGenMsgTypes getInitValue() {
 
-        final KmgCoreGenMessageTypes result = NONE;
+        final KmgCoreGenMsgTypes result = NONE;
         return result;
 
     }
@@ -257,7 +257,7 @@ public enum KmgCoreGenMessageTypes implements KmgComGenMessageTypes, KmgComExcMe
      * @param displayName
      *                    表示名
      */
-    KmgCoreGenMessageTypes(final String displayName) {
+    KmgCoreGenMsgTypes(final String displayName) {
 
         this.displayName = displayName;
         this.key = super.name();
