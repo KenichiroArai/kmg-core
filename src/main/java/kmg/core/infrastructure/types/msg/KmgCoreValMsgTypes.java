@@ -7,6 +7,10 @@ import kmg.core.infrastructure.common.KmgComValMessageTypes;
 
 /**
  * KMGコアログメッセージの種類<br>
+ * <p>
+ * Genは、Generalの略。<br>
+ * Msgは、Messageの略。
+ * </p>
  *
  * @author KenichiroArai
  *

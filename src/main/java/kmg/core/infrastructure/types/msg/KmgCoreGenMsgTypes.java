@@ -8,6 +8,10 @@ import kmg.core.infrastructure.common.KmgComGenMessageTypes;
 
 /**
  * KMGコア一般メッセージの種類<br>
+ * <p>
+ * Genは、Generalの略。<br>
+ * Msgは、Messageの略。
+ * </p>
  *
  * @author KenichiroArai
  *
