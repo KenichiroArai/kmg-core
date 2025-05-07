@@ -2,8 +2,8 @@ package kmg.core.test;
 
 import org.junit.jupiter.api.Assertions;
 
-import kmg.core.infrastructure.common.KmgComExcMessageTypes;
-import kmg.core.infrastructure.common.KmgComGenMessageTypes;
+import kmg.core.infrastructure.common.msg.KmgComExcMessageTypes;
+import kmg.core.infrastructure.common.msg.KmgComGenMessageTypes;
 import kmg.core.infrastructure.exception.KmgMsgException;
 
 /**

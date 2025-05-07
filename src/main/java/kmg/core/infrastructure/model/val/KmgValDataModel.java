@@ -1,6 +1,6 @@
 package kmg.core.infrastructure.model.val;
 
-import kmg.core.infrastructure.common.KmgComValMessageTypes;
+import kmg.core.infrastructure.common.msg.KmgComValMessageTypes;
 
 /**
  * KMGバリデーションデータモデルインタフェース<br>

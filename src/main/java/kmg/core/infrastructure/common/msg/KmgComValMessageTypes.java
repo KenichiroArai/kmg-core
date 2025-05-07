@@ -1,4 +1,4 @@
-package kmg.core.infrastructure.common;
+package kmg.core.infrastructure.common.msg;
 
 /**
  * KMG共通バリデーションメッセージの種類のインタフェース<br>

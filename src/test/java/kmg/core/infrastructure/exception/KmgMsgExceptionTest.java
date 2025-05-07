@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import kmg.core.infrastructure.common.KmgComExcMessageTypes;
+import kmg.core.infrastructure.common.msg.KmgComExcMessageTypes;
 import kmg.core.infrastructure.model.impl.KmgReflectionModelImpl;
 import kmg.core.infrastructure.types.msg.KmgCoreGenMsgTypes;
 

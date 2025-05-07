@@ -5,10 +5,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.ResourceBundle;
 
-import kmg.core.infrastructure.common.KmgComExcMessageTypes;
-import kmg.core.infrastructure.common.KmgComGenMessageTypes;
-import kmg.core.infrastructure.common.KmgComLogMessageTypes;
-import kmg.core.infrastructure.common.KmgComMessageTypes;
+import kmg.core.infrastructure.common.msg.KmgComExcMessageTypes;
+import kmg.core.infrastructure.common.msg.KmgComGenMessageTypes;
+import kmg.core.infrastructure.common.msg.KmgComLogMessageTypes;
+import kmg.core.infrastructure.common.msg.KmgComMessageTypes;
 import kmg.core.infrastructure.type.KmgString;
 
 /**
