@@ -4,6 +4,10 @@ import kmg.core.infrastructure.common.KmgComTypes;
 
 /**
  * KMG共通メッセージの種類のインタフェース
+ * <p>
+ * Comは、Commonの略。<br>
+ * Msgは、Messageの略。
+ * </p>
  *
  * @author KenichiroArai
  *
@@ -11,7 +15,7 @@ import kmg.core.infrastructure.common.KmgComTypes;
  *
  * @version 0.2.0
  */
-public interface KmgComMessageTypes extends KmgComTypes<String> {
+public interface KmgComMsgTypes extends KmgComTypes<String> {
 
     /**
      * メッセージのキーを返す。<br>

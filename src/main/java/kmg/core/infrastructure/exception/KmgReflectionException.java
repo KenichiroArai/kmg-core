@@ -1,6 +1,6 @@
 package kmg.core.infrastructure.exception;
 
-import kmg.core.infrastructure.common.msg.KmgComExcMessageTypes;
+import kmg.core.infrastructure.common.msg.KmgComExcMsgTypes;
 import kmg.core.infrastructure.model.KmgReflectionModel;
 
 /**
@@ -39,7 +39,7 @@ public class KmgReflectionException extends KmgMsgException {
      *                           メッセージの種類
      */
     public KmgReflectionException(final KmgReflectionModel kmgReflectionModel,
-        final KmgComExcMessageTypes messageTypes) {
+        final KmgComExcMsgTypes messageTypes) {
 
         this(kmgReflectionModel, messageTypes, null, null);
 
@@ -57,7 +57,7 @@ public class KmgReflectionException extends KmgMsgException {
      * @param messageArgs
      *                           メッセージの引数
      */
-    public KmgReflectionException(final KmgReflectionModel kmgReflectionModel, final KmgComExcMessageTypes messageTypes,
+    public KmgReflectionException(final KmgReflectionModel kmgReflectionModel, final KmgComExcMsgTypes messageTypes,
         final Object[] messageArgs) {
 
         this(kmgReflectionModel, messageTypes, messageArgs, null);
@@ -78,7 +78,7 @@ public class KmgReflectionException extends KmgMsgException {
      * @param cause
      *                           原因
      */
-    public KmgReflectionException(final KmgReflectionModel kmgReflectionModel, final KmgComExcMessageTypes messageTypes,
+    public KmgReflectionException(final KmgReflectionModel kmgReflectionModel, final KmgComExcMsgTypes messageTypes,
         final Object[] messageArgs, final Throwable cause) {
 
         super(messageTypes, messageArgs, cause);
@@ -98,7 +98,7 @@ public class KmgReflectionException extends KmgMsgException {
      * @param cause
      *                           原因
      */
-    public KmgReflectionException(final KmgReflectionModel kmgReflectionModel, final KmgComExcMessageTypes messageTypes,
+    public KmgReflectionException(final KmgReflectionModel kmgReflectionModel, final KmgComExcMsgTypes messageTypes,
         final Throwable cause) {
 
         this(kmgReflectionModel, messageTypes, null, cause);

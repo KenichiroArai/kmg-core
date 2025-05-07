@@ -3,12 +3,11 @@ package kmg.core.infrastructure.types.msg;
 import java.util.HashMap;
 import java.util.Map;
 
-import kmg.core.infrastructure.common.msg.KmgComLogMessageTypes;
+import kmg.core.infrastructure.common.msg.KmgComLogMsgTypes;
 
 /**
  * KMGコアログメッセージの種類<br>
  * <p>
- * Genは、Generalの略。<br>
  * Msgは、Messageの略。
  * </p>
  *
@@ -19,7 +18,7 @@ import kmg.core.infrastructure.common.msg.KmgComLogMessageTypes;
  * @version 0.2.0
  */
 @SuppressWarnings("nls")
-public enum KmgCoreLogMsgTypes implements KmgComLogMessageTypes {
+public enum KmgCoreLogMsgTypes implements KmgComLogMsgTypes {
 
     /* 定義：開始 */
 

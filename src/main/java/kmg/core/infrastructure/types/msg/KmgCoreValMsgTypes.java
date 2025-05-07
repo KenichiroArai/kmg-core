@@ -3,12 +3,12 @@ package kmg.core.infrastructure.types.msg;
 import java.util.HashMap;
 import java.util.Map;
 
-import kmg.core.infrastructure.common.msg.KmgComValMessageTypes;
+import kmg.core.infrastructure.common.msg.KmgComValMsgTypes;
 
 /**
  * KMGコアログメッセージの種類<br>
  * <p>
- * Genは、Generalの略。<br>
+ * Valは、Validationの略。<br>
  * Msgは、Messageの略。
  * </p>
  *
@@ -19,7 +19,7 @@ import kmg.core.infrastructure.common.msg.KmgComValMessageTypes;
  * @version 0.2.0
  */
 @SuppressWarnings("nls")
-public enum KmgCoreValMsgTypes implements KmgComValMessageTypes {
+public enum KmgCoreValMsgTypes implements KmgComValMsgTypes {
 
     /* 定義：開始 */
 

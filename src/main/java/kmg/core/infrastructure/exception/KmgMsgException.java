@@ -1,6 +1,6 @@
 package kmg.core.infrastructure.exception;
 
-import kmg.core.infrastructure.common.msg.KmgComExcMessageTypes;
+import kmg.core.infrastructure.common.msg.KmgComExcMsgTypes;
 import kmg.core.infrastructure.utils.KmgMessageUtils;
 
 /**
@@ -26,7 +26,7 @@ public class KmgMsgException extends KmgException {
      *
      * @since 0.2.0
      */
-    private final KmgComExcMessageTypes messageTypes;
+    private final KmgComExcMsgTypes messageTypes;
 
     /**
      * 例外メッセージの引数
@@ -78,7 +78,7 @@ public class KmgMsgException extends KmgException {
      * @param messageTypes
      *                     メッセージの種類
      */
-    public KmgMsgException(final KmgComExcMessageTypes messageTypes) {
+    public KmgMsgException(final KmgComExcMsgTypes messageTypes) {
 
         this(messageTypes, null, null);
 
@@ -94,7 +94,7 @@ public class KmgMsgException extends KmgException {
      * @param messageArgs
      *                     メッセージの引数
      */
-    public KmgMsgException(final KmgComExcMessageTypes messageTypes, final Object[] messageArgs) {
+    public KmgMsgException(final KmgComExcMsgTypes messageTypes, final Object[] messageArgs) {
 
         this(messageTypes, messageArgs, null);
 
@@ -112,7 +112,7 @@ public class KmgMsgException extends KmgException {
      * @param cause
      *                     原因
      */
-    public KmgMsgException(final KmgComExcMessageTypes messageTypes, final Object[] messageArgs,
+    public KmgMsgException(final KmgComExcMsgTypes messageTypes, final Object[] messageArgs,
         final Throwable cause) {
 
         super(cause);
@@ -139,7 +139,7 @@ public class KmgMsgException extends KmgException {
      * @param cause
      *                     原因
      */
-    public KmgMsgException(final KmgComExcMessageTypes messageTypes, final Throwable cause) {
+    public KmgMsgException(final KmgComExcMsgTypes messageTypes, final Throwable cause) {
 
         this(messageTypes, null, cause);
 
@@ -223,9 +223,9 @@ public class KmgMsgException extends KmgException {
      *
      * @return メッセージの種類
      */
-    public KmgComExcMessageTypes getMessageTypes() {
+    public KmgComExcMsgTypes getMessageTypes() {
 
-        final KmgComExcMessageTypes result = this.messageTypes;
+        final KmgComExcMsgTypes result = this.messageTypes;
         return result;
 
     }

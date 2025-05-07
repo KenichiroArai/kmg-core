@@ -7,7 +7,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import kmg.core.infrastructure.common.msg.KmgComExcMessageTypes;
+import kmg.core.infrastructure.common.msg.KmgComExcMsgTypes;
 import kmg.core.infrastructure.model.KmgReflectionModel;
 import kmg.core.infrastructure.types.msg.KmgCoreGenMsgTypes;
 
@@ -93,7 +93,7 @@ public class KmgReflectionExceptionTest {
 
         /* 検証の準備 */
         final String                actualMessage  = testException.getMessage();
-        final KmgComExcMessageTypes actualMsgTypes = testException.getMessageTypes();
+        final KmgComExcMsgTypes actualMsgTypes = testException.getMessageTypes();
         final Object[]              actualMsgArgs  = testException.getMessageArgs();
         final Throwable             actualCause    = testException.getCause();
         final KmgReflectionModel    actualModel    = testException.getKmgReflectionModel();
@@ -127,7 +127,7 @@ public class KmgReflectionExceptionTest {
 
         /* 検証の準備 */
         final String                actualMessage  = testException.getMessage();
-        final KmgComExcMessageTypes actualMsgTypes = testException.getMessageTypes();
+        final KmgComExcMsgTypes actualMsgTypes = testException.getMessageTypes();
         final Object[]              actualMsgArgs  = testException.getMessageArgs();
         final KmgReflectionModel    actualModel    = testException.getKmgReflectionModel();
 
@@ -156,7 +156,7 @@ public class KmgReflectionExceptionTest {
 
         /* 検証の準備 */
         final String                actualMessage  = testException.getMessage();
-        final KmgComExcMessageTypes actualMsgTypes = testException.getMessageTypes();
+        final KmgComExcMsgTypes actualMsgTypes = testException.getMessageTypes();
         final Throwable             actualCause    = testException.getCause();
         final KmgReflectionModel    actualModel    = testException.getKmgReflectionModel();
 
@@ -182,7 +182,7 @@ public class KmgReflectionExceptionTest {
 
         /* 検証の準備 */
         final String                actualMessage  = testException.getMessage();
-        final KmgComExcMessageTypes actualMsgTypes = testException.getMessageTypes();
+        final KmgComExcMsgTypes actualMsgTypes = testException.getMessageTypes();
         final KmgReflectionModel    actualModel    = testException.getKmgReflectionModel();
 
         /* 検証の実施 */

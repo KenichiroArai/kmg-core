@@ -3,7 +3,7 @@ package kmg.core.infrastructure.utils;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import kmg.core.infrastructure.common.msg.KmgComGenMessageTypes;
+import kmg.core.infrastructure.common.msg.KmgComGenMsgTypes;
 import kmg.core.infrastructure.type.KmgString;
 import kmg.core.infrastructure.types.msg.KmgCoreGenMsgTypes;
 
@@ -296,7 +296,7 @@ public class KmgMessageUtilsTest {
             "テスト"
         };
         // 存在しないコードを返すKmgMessageTypesの実装
-        final KmgComGenMessageTypes mockType = new KmgComGenMessageTypes() {
+        final KmgComGenMsgTypes mockType = new KmgComGenMsgTypes() {
 
             @Override
             public String get() {
@@ -734,7 +734,7 @@ public class KmgMessageUtilsTest {
 
         /* 準備 */
         // nullを返すgetKeyを持つKmgComGenMessageTypesの実装
-        final KmgComGenMessageTypes mockType = new KmgComGenMessageTypes() {
+        final KmgComGenMsgTypes mockType = new KmgComGenMsgTypes() {
 
             @Override
             public String get() {

@@ -1,6 +1,6 @@
 package kmg.core.infrastructure.model.val.impl;
 
-import kmg.core.infrastructure.common.msg.KmgComValMessageTypes;
+import kmg.core.infrastructure.common.msg.KmgComValMsgTypes;
 import kmg.core.infrastructure.model.val.KmgValDataModel;
 import kmg.core.infrastructure.utils.KmgMessageUtils;
 
@@ -19,7 +19,7 @@ import kmg.core.infrastructure.utils.KmgMessageUtils;
 public class KmgValDataModelImpl implements KmgValDataModel {
 
     /** メッセージの種類 */
-    private final KmgComValMessageTypes messageTypes;
+    private final KmgComValMsgTypes messageTypes;
 
     /** メッセージの引数 */
     private final Object[] messageArgs;
@@ -39,7 +39,7 @@ public class KmgValDataModelImpl implements KmgValDataModel {
      * @param messageArgs
      *                     メッセージの引数
      */
-    public KmgValDataModelImpl(final KmgComValMessageTypes messageTypes, final Object[] messageArgs) {
+    public KmgValDataModelImpl(final KmgComValMsgTypes messageTypes, final Object[] messageArgs) {
 
         this.messageTypes = messageTypes;
         this.messageArgs = messageArgs;
@@ -92,9 +92,9 @@ public class KmgValDataModelImpl implements KmgValDataModel {
      * @return メッセージの種類
      */
     @Override
-    public KmgComValMessageTypes getMessageTypes() {
+    public KmgComValMsgTypes getMessageTypes() {
 
-        final KmgComValMessageTypes result = this.messageTypes;
+        final KmgComValMsgTypes result = this.messageTypes;
         return result;
 
     }
