@@ -5,7 +5,9 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import kmg.core.domain.types.KmgCoreGenMessageTypes;
 import kmg.core.infrastructure.common.KmgComTypes;
+import kmg.core.infrastructure.exception.KmgMsgException;
 import kmg.core.infrastructure.type.KmgString;
 
 /**
@@ -413,8 +415,11 @@ public enum JavaClassificationTypes implements KmgComTypes<String> {
      *             判定対象の文字列
      *
      * @return 要素名
+     *
+     * @throws KmgMsgException
+     *                         KMGメッセージ例外
      */
-    public String getElementName(final String text) {
+    public String getElementName(final String text) throws KmgMsgException {
 
         String result = KmgString.EMPTY;
 
@@ -459,8 +464,11 @@ public enum JavaClassificationTypes implements KmgComTypes<String> {
 
         } catch (final IllegalArgumentException e) {
 
-            // TODO KenichiroArai 2025/04/29 例外処理
-            e.printStackTrace();
+            // TODO KenichiroArai 2025/05/08 例外処理
+            final KmgCoreGenMessageTypes msgTypes = KmgCoreGenMessageTypes.NONE;
+            final Object[]               msgArgs  = {};
+
+            throw new KmgMsgException(msgTypes, msgArgs, e);
 
         }
 
