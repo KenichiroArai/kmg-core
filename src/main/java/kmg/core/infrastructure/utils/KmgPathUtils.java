@@ -4,9 +4,9 @@ import java.net.URISyntaxException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-import kmg.core.domain.types.KmgCoreGenMessageTypes;
 import kmg.core.infrastructure.exception.KmgMsgException;
 import kmg.core.infrastructure.type.KmgString;
+import kmg.core.infrastructure.types.msg.KmgCoreGenMessageTypes;
 
 /**
  * KMGパスユーティリティ<br>

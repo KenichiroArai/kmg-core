@@ -5,9 +5,9 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.slf4j.Logger;
 
-import kmg.core.domain.types.KmgCoreLogMessageTypes;
 import kmg.core.infrastructure.model.KmgPfaMeasModel;
 import kmg.core.infrastructure.types.KmgTimeUnitTypes;
+import kmg.core.infrastructure.types.msg.KmgCoreLogMessageTypes;
 import kmg.core.infrastructure.utils.KmgMessageUtils;
 
 /**

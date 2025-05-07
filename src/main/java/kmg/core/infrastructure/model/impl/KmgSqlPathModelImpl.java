@@ -5,10 +5,10 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
-import kmg.core.domain.types.KmgCoreGenMessageTypes;
 import kmg.core.infrastructure.exception.KmgMsgException;
 import kmg.core.infrastructure.model.KmgSqlPathModel;
 import kmg.core.infrastructure.type.KmgString;
+import kmg.core.infrastructure.types.msg.KmgCoreGenMessageTypes;
 
 /**
  * KMGSQLパスモデル<br>

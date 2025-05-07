@@ -3,6 +3,8 @@ package kmg.core.domain.types;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import kmg.core.infrastructure.types.msg.KmgCoreLogMessageTypes;
+
 /**
  * KMGログメッセージの種類のテスト<br>
  *

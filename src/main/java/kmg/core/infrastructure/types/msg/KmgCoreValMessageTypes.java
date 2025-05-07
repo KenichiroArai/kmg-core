@@ -1,21 +1,21 @@
-package kmg.core.domain.types;
+package kmg.core.infrastructure.types.msg;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import kmg.core.infrastructure.common.KmgComLogMessageTypes;
+import kmg.core.infrastructure.common.KmgComValMessageTypes;
 
 /**
  * KMGコアログメッセージの種類<br>
  *
  * @author KenichiroArai
  *
- * @since 0.1.0
+ * @since 0.2.0
  *
  * @version 0.2.0
  */
 @SuppressWarnings("nls")
-public enum KmgCoreLogMessageTypes implements KmgComLogMessageTypes {
+public enum KmgCoreValMessageTypes implements KmgComValMessageTypes {
 
     /* 定義：開始 */
 
@@ -24,63 +24,9 @@ public enum KmgCoreLogMessageTypes implements KmgComLogMessageTypes {
      *
      * @author KenichiroArai
      *
-     * @since 0.1.0
+     * @since 0.2.0
      */
     NONE("指定無し"),
-
-    /**
-     * {0}：開始
-     *
-     * @author KenichiroArai
-     *
-     * @since 0.1.0
-     */
-    KMGCORE_LOG12000("{0}：開始"),
-
-    /**
-     * {0}：終了。経過時間=[{1}{2}]
-     *
-     * @author KenichiroArai
-     *
-     * @since 0.1.0
-     */
-    KMGCORE_LOG12001("{0}：終了。経過時間=[{1}{2}]"),
-
-    /**
-     * {0}：{1}。経過時間=[{2}{3}]
-     *
-     * @author KenichiroArai
-     *
-     * @since 0.2.0
-     */
-    KMGCORE_LOG12002("{0}：{1}。経過時間=[{2}{3}]"),
-
-    /**
-     * {0}：{1}。経過時間=[{2}{3}]
-     *
-     * @author KenichiroArai
-     *
-     * @since 0.2.0
-     */
-    KMGCORE_LOG12003("{0}：{1}。経過時間=[{2}{3}]"),
-
-    /**
-     * {0}：{1}。経過時間=[{2}{3}]
-     *
-     * @author KenichiroArai
-     *
-     * @since 0.2.0
-     */
-    KMGCORE_LOG12004("{0}：{1}。経過時間=[{2}{3}]"),
-
-    /**
-     * {0}
-     *
-     * @author KenichiroArai
-     *
-     * @since 0.2.0
-     */
-    KMGCORE_LOG91100("{0}"),
 
     /* 定義：終了 */
     ;
@@ -88,16 +34,16 @@ public enum KmgCoreLogMessageTypes implements KmgComLogMessageTypes {
     /**
      * 種類のマップ
      *
-     * @since 0.1.0
+     * @since 0.2.0
      */
-    private static final Map<String, KmgCoreLogMessageTypes> VALUES_MAP = new HashMap<>();
+    private static final Map<String, KmgCoreValMessageTypes> VALUES_MAP = new HashMap<>();
 
     static {
 
         /* 種類のマップにプット */
-        for (final KmgCoreLogMessageTypes type : KmgCoreLogMessageTypes.values()) {
+        for (final KmgCoreValMessageTypes type : KmgCoreValMessageTypes.values()) {
 
-            KmgCoreLogMessageTypes.VALUES_MAP.put(type.get(), type);
+            KmgCoreValMessageTypes.VALUES_MAP.put(type.get(), type);
 
         }
 
@@ -106,41 +52,41 @@ public enum KmgCoreLogMessageTypes implements KmgComLogMessageTypes {
     /**
      * 表示名
      *
-     * @since 0.1.0
+     * @since 0.2.0
      */
     private final String displayName;
 
     /**
      * メッセージのキー
      *
-     * @since 0.1.0
+     * @since 0.2.0
      */
     private final String key;
 
     /**
      * メッセージの値
      *
-     * @since 0.1.0
+     * @since 0.2.0
      */
     private final String value;
 
     /**
      * 詳細情報
      *
-     * @since 0.1.0
+     * @since 0.2.0
      */
     private final String detail;
 
     /**
      * デフォルトの種類を返す<br>
      *
-     * @since 0.1.0
+     * @since 0.2.0
      *
      * @return デフォルト値
      */
-    public static KmgCoreLogMessageTypes getDefault() {
+    public static KmgCoreValMessageTypes getDefault() {
 
-        final KmgCoreLogMessageTypes result = NONE;
+        final KmgCoreValMessageTypes result = NONE;
         return result;
 
     }
@@ -151,16 +97,16 @@ public enum KmgCoreLogMessageTypes implements KmgComLogMessageTypes {
      * 但し、キーが存在しない場合は、指定無し（NONE）を返す。
      * </p>
      *
-     * @since 0.1.0
+     * @since 0.2.0
      *
      * @param key
      *            キー
      *
      * @return 種類。指定無し（NONE）：キーが存在しない場合。
      */
-    public static KmgCoreLogMessageTypes getEnum(final String key) {
+    public static KmgCoreValMessageTypes getEnum(final String key) {
 
-        KmgCoreLogMessageTypes result = KmgCoreLogMessageTypes.VALUES_MAP.get(key);
+        KmgCoreValMessageTypes result = KmgCoreValMessageTypes.VALUES_MAP.get(key);
 
         if (result == null) {
 
@@ -174,13 +120,13 @@ public enum KmgCoreLogMessageTypes implements KmgComLogMessageTypes {
     /**
      * 初期値の種類を返す<br>
      *
-     * @since 0.1.0
+     * @since 0.2.0
      *
      * @return 初期値
      */
-    public static KmgCoreLogMessageTypes getInitValue() {
+    public static KmgCoreValMessageTypes getInitValue() {
 
-        final KmgCoreLogMessageTypes result = NONE;
+        final KmgCoreValMessageTypes result = NONE;
         return result;
 
     }
@@ -188,12 +134,12 @@ public enum KmgCoreLogMessageTypes implements KmgComLogMessageTypes {
     /**
      * コンストラクタ<br>
      *
-     * @since 0.1.0
+     * @since 0.2.0
      *
      * @param displayName
      *                    表示名
      */
-    KmgCoreLogMessageTypes(final String displayName) {
+    KmgCoreValMessageTypes(final String displayName) {
 
         this.displayName = displayName;
         this.key = super.name();
@@ -205,7 +151,7 @@ public enum KmgCoreLogMessageTypes implements KmgComLogMessageTypes {
     /**
      * メッセージのキーを返す。<br>
      *
-     * @since 0.1.0
+     * @since 0.2.0
      *
      * @return メッセージのキー
      *
@@ -222,7 +168,7 @@ public enum KmgCoreLogMessageTypes implements KmgComLogMessageTypes {
     /**
      * メッセージのキーを返す。<br>
      *
-     * @since 0.1.0
+     * @since 0.2.0
      *
      * @return メッセージのキー
      *
@@ -239,7 +185,7 @@ public enum KmgCoreLogMessageTypes implements KmgComLogMessageTypes {
     /**
      * 詳細情報を返す。<br>
      *
-     * @since 0.1.0
+     * @since 0.2.0
      *
      * @return 詳細情報
      */
@@ -257,7 +203,7 @@ public enum KmgCoreLogMessageTypes implements KmgComLogMessageTypes {
      * 識別するための表示名を返す。
      * </p>
      *
-     * @since 0.1.0
+     * @since 0.2.0
      *
      * @return 表示名
      */
@@ -272,7 +218,7 @@ public enum KmgCoreLogMessageTypes implements KmgComLogMessageTypes {
     /**
      * メッセージのキーを返す。<br>
      *
-     * @since 0.1.0
+     * @since 0.2.0
      *
      * @return メッセージのキー
      */
@@ -287,7 +233,7 @@ public enum KmgCoreLogMessageTypes implements KmgComLogMessageTypes {
     /**
      * メッセージの値を返す。
      *
-     * @since 0.1.0
+     * @since 0.2.0
      *
      * @return メッセージの値
      */
@@ -302,7 +248,7 @@ public enum KmgCoreLogMessageTypes implements KmgComLogMessageTypes {
     /**
      * メッセージのキーを返す。<br>
      *
-     * @since 0.1.0
+     * @since 0.2.0
      *
      * @return メッセージのキー
      *

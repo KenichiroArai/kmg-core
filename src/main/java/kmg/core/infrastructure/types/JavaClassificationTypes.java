@@ -5,10 +5,10 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import kmg.core.domain.types.KmgCoreGenMessageTypes;
 import kmg.core.infrastructure.common.KmgComTypes;
 import kmg.core.infrastructure.exception.KmgMsgException;
 import kmg.core.infrastructure.type.KmgString;
+import kmg.core.infrastructure.types.msg.KmgCoreGenMessageTypes;
 
 /**
  * Java区分の種類<br>

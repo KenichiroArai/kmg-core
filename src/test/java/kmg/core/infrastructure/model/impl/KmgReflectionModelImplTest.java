@@ -10,9 +10,9 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import kmg.core.domain.types.KmgCoreGenMessageTypes;
 import kmg.core.infrastructure.exception.KmgReflectionException;
 import kmg.core.infrastructure.type.KmgString;
+import kmg.core.infrastructure.types.msg.KmgCoreGenMessageTypes;
 import kmg.core.test.AbstractKmgTest;
 
 /**

@@ -4,9 +4,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import kmg.core.domain.service.KmgPfaMeasService;
-import kmg.core.domain.types.KmgCoreLogMessageTypes;
 import kmg.core.infrastructure.model.KmgPfaMeasModel;
 import kmg.core.infrastructure.model.impl.KmgPfaMeasModelImpl;
+import kmg.core.infrastructure.types.msg.KmgCoreLogMessageTypes;
 import kmg.core.infrastructure.utils.KmgMessageUtils;
 
 /**

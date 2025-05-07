@@ -1,4 +1,4 @@
-package kmg.core.domain.types;
+package kmg.core.infrastructure.types.msg;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -11,7 +11,7 @@ import kmg.core.infrastructure.common.KmgComGenMessageTypes;
  *
  * @author KenichiroArai
  *
- * @since 0.1.0
+ * @since 0.2.0
  *
  * @version 0.2.0
  */
@@ -25,7 +25,7 @@ public enum KmgCoreGenMessageTypes implements KmgComGenMessageTypes, KmgComExcMe
      *
      * @author KenichiroArai
      *
-     * @since 0.1.0
+     * @since 0.2.0
      */
     NONE("指定無し"),
 
@@ -34,7 +34,7 @@ public enum KmgCoreGenMessageTypes implements KmgComGenMessageTypes, KmgComExcMe
      *
      * @author KenichiroArai
      *
-     * @since 0.1.0
+     * @since 0.2.0
      */
     KMGCORE_GEN11100("{0}がありません。"),
 
@@ -43,7 +43,7 @@ public enum KmgCoreGenMessageTypes implements KmgComGenMessageTypes, KmgComExcMe
      *
      * @author KenichiroArai
      *
-     * @since 0.1.0
+     * @since 0.2.0
      */
     KMGCORE_GEN11200("フィールドの取得に失敗しました。フィールド名=[{0}]、対象のクラス=[{1}]、最後に取得したフィールド=[{2}]"),
 
@@ -52,7 +52,7 @@ public enum KmgCoreGenMessageTypes implements KmgComGenMessageTypes, KmgComExcMe
      *
      * @author KenichiroArai
      *
-     * @since 0.1.0
+     * @since 0.2.0
      */
     KMGCORE_GEN11201("フィールドの値の取得に失敗しました。フィールド名=[{0}]、対象のクラス=[{1}]、最後に取得したフィールド=[{2}]"),
 
@@ -61,7 +61,7 @@ public enum KmgCoreGenMessageTypes implements KmgComGenMessageTypes, KmgComExcMe
      *
      * @author KenichiroArai
      *
-     * @since 0.1.0
+     * @since 0.2.0
      */
     KMGCORE_GEN11202("フィールドの値の取得に失敗しました。フィールド名=[{0}]、対象のクラス=[{1}]、最後に取得したフィールド=[{2}]"),
 
@@ -70,7 +70,7 @@ public enum KmgCoreGenMessageTypes implements KmgComGenMessageTypes, KmgComExcMe
      *
      * @author KenichiroArai
      *
-     * @since 0.1.0
+     * @since 0.2.0
      */
     KMGCORE_GEN11203("メソッドの取得に失敗しました。メソッド名=[{0}]、対象のクラス=[{1}]"),
 
@@ -79,7 +79,7 @@ public enum KmgCoreGenMessageTypes implements KmgComGenMessageTypes, KmgComExcMe
      *
      * @author KenichiroArai
      *
-     * @since 0.1.0
+     * @since 0.2.0
      */
     KMGCORE_GEN11204("メソッドの値の取得に失敗しました。メソッド名=[{0}]、対象のクラス=[{1}]"),
 
@@ -88,7 +88,7 @@ public enum KmgCoreGenMessageTypes implements KmgComGenMessageTypes, KmgComExcMe
      *
      * @author KenichiroArai
      *
-     * @since 0.1.0
+     * @since 0.2.0
      */
     KMGCORE_GEN11205("メソッドの値の取得に失敗しました。メソッド名=[{0}]、対象のクラス=[{1}]"),
 
@@ -97,7 +97,7 @@ public enum KmgCoreGenMessageTypes implements KmgComGenMessageTypes, KmgComExcMe
      *
      * @author KenichiroArai
      *
-     * @since 0.1.0
+     * @since 0.2.0
      */
     KMGCORE_GEN11206("メソッドの値の取得に失敗しました。メソッド名=[{0}]、対象のクラス=[{1}]"),
 
@@ -106,7 +106,7 @@ public enum KmgCoreGenMessageTypes implements KmgComGenMessageTypes, KmgComExcMe
      *
      * @author KenichiroArai
      *
-     * @since 0.1.0
+     * @since 0.2.0
      */
     KMGCORE_GEN11207("メソッドの値の取得に失敗しました。メソッド名=[{0}]、対象のクラス=[{1}]"),
 
@@ -115,7 +115,7 @@ public enum KmgCoreGenMessageTypes implements KmgComGenMessageTypes, KmgComExcMe
      *
      * @author KenichiroArai
      *
-     * @since 0.1.0
+     * @since 0.2.0
      */
     KMGCORE_GEN11209("フィールドの取得に失敗しました。フィールド名=[{0}]、対象のクラス=[{1}]、最後に取得したフィールド=[{2}]"),
 
@@ -124,7 +124,7 @@ public enum KmgCoreGenMessageTypes implements KmgComGenMessageTypes, KmgComExcMe
      *
      * @author KenichiroArai
      *
-     * @since 0.1.0
+     * @since 0.2.0
      */
     KMGCORE_GEN11210("フィールドの値の設定に失敗しました。フィールド名=[{0}]、対象のクラス=[{1}]、最後に取得したフィールド=[{2}]"),
 
@@ -133,7 +133,7 @@ public enum KmgCoreGenMessageTypes implements KmgComGenMessageTypes, KmgComExcMe
      *
      * @author KenichiroArai
      *
-     * @since 0.1.0
+     * @since 0.2.0
      */
     KMGCORE_GEN11211("フィールドの値の設定に失敗しました。フィールド名=[{0}]、対象のクラス=[{1}]、最後に取得したフィールド=[{2}]"),
 
@@ -142,7 +142,7 @@ public enum KmgCoreGenMessageTypes implements KmgComGenMessageTypes, KmgComExcMe
      *
      * @author KenichiroArai
      *
-     * @since 0.1.0
+     * @since 0.2.0
      */
     KMGCORE_GEN24000("クラスからビルドバスの取得に失敗しました。クラス=[{0}]"),
 
@@ -152,7 +152,7 @@ public enum KmgCoreGenMessageTypes implements KmgComGenMessageTypes, KmgComExcMe
     /**
      * 種類のマップ
      *
-     * @since 0.1.0
+     * @since 0.2.0
      */
     private static final Map<String, KmgCoreGenMessageTypes> VALUES_MAP = new HashMap<>();
 
@@ -170,35 +170,35 @@ public enum KmgCoreGenMessageTypes implements KmgComGenMessageTypes, KmgComExcMe
     /**
      * 表示名
      *
-     * @since 0.1.0
+     * @since 0.2.0
      */
     private final String displayName;
 
     /**
      * メッセージのキー
      *
-     * @since 0.1.0
+     * @since 0.2.0
      */
     private final String key;
 
     /**
      * メッセージの値
      *
-     * @since 0.1.0
+     * @since 0.2.0
      */
     private final String value;
 
     /**
      * 詳細情報
      *
-     * @since 0.1.0
+     * @since 0.2.0
      */
     private final String detail;
 
     /**
      * デフォルトの種類を返す<br>
      *
-     * @since 0.1.0
+     * @since 0.2.0
      *
      * @return デフォルト値
      */
@@ -215,7 +215,7 @@ public enum KmgCoreGenMessageTypes implements KmgComGenMessageTypes, KmgComExcMe
      * 但し、キーが存在しない場合は、指定無し（NONE）を返す。
      * </p>
      *
-     * @since 0.1.0
+     * @since 0.2.0
      *
      * @param key
      *            キー
@@ -238,7 +238,7 @@ public enum KmgCoreGenMessageTypes implements KmgComGenMessageTypes, KmgComExcMe
     /**
      * 初期値の種類を返す<br>
      *
-     * @since 0.1.0
+     * @since 0.2.0
      *
      * @return 初期値
      */
@@ -252,7 +252,7 @@ public enum KmgCoreGenMessageTypes implements KmgComGenMessageTypes, KmgComExcMe
     /**
      * コンストラクタ<br>
      *
-     * @since 0.1.0
+     * @since 0.2.0
      *
      * @param displayName
      *                    表示名
@@ -269,7 +269,7 @@ public enum KmgCoreGenMessageTypes implements KmgComGenMessageTypes, KmgComExcMe
     /**
      * メッセージのキーを返す。<br>
      *
-     * @since 0.1.0
+     * @since 0.2.0
      *
      * @return メッセージのキー
      *
@@ -286,7 +286,7 @@ public enum KmgCoreGenMessageTypes implements KmgComGenMessageTypes, KmgComExcMe
     /**
      * メッセージのキーを返す。<br>
      *
-     * @since 0.1.0
+     * @since 0.2.0
      *
      * @return メッセージのキー
      *
@@ -303,7 +303,7 @@ public enum KmgCoreGenMessageTypes implements KmgComGenMessageTypes, KmgComExcMe
     /**
      * 詳細情報を返す。<br>
      *
-     * @since 0.1.0
+     * @since 0.2.0
      *
      * @return 詳細情報
      */
@@ -321,7 +321,7 @@ public enum KmgCoreGenMessageTypes implements KmgComGenMessageTypes, KmgComExcMe
      * 識別するための表示名を返す。
      * </p>
      *
-     * @since 0.1.0
+     * @since 0.2.0
      *
      * @return 表示名
      */
@@ -336,7 +336,7 @@ public enum KmgCoreGenMessageTypes implements KmgComGenMessageTypes, KmgComExcMe
     /**
      * メッセージのキーを返す。<br>
      *
-     * @since 0.1.0
+     * @since 0.2.0
      *
      * @return メッセージのキー
      */
@@ -351,7 +351,7 @@ public enum KmgCoreGenMessageTypes implements KmgComGenMessageTypes, KmgComExcMe
     /**
      * メッセージの値を返す。
      *
-     * @since 0.1.0
+     * @since 0.2.0
      *
      * @return メッセージの値
      */
@@ -366,7 +366,7 @@ public enum KmgCoreGenMessageTypes implements KmgComGenMessageTypes, KmgComExcMe
     /**
      * メッセージのキーを返す。<br>
      *
-     * @since 0.1.0
+     * @since 0.2.0
      *
      * @return メッセージのキー
      *
