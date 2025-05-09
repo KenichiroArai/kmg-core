@@ -5,9 +5,9 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.slf4j.Logger;
 
-import kmg.core.domain.types.KmgCoreLogMessageTypes;
 import kmg.core.infrastructure.model.KmgPfaMeasModel;
 import kmg.core.infrastructure.types.KmgTimeUnitTypes;
+import kmg.core.infrastructure.types.msg.KmgCoreLogMsgTypes;
 import kmg.core.infrastructure.utils.KmgMessageUtils;
 
 /**
@@ -105,11 +105,11 @@ public class KmgPfaMeasServiceImplTest {
         final KmgTimeUnitTypes expectedTimeUnit    = KmgTimeUnitTypes.SECONDS;
 
         // 期待されるログメッセージ
-        final KmgCoreLogMessageTypes logType            = KmgCoreLogMessageTypes.KMGCORE_LOG12001;
-        final Object[]           messageArgs        = {
+        final KmgCoreLogMsgTypes logType            = KmgCoreLogMsgTypes.KMGCORE_LOG12001;
+        final Object[]               messageArgs        = {
             expectedName, expectedElapsedTime, expectedTimeUnit.getUnitName(),
         };
-        final String             expectedLogMessage = KmgMessageUtils.getLogMessage(logType, messageArgs);
+        final String                 expectedLogMessage = KmgMessageUtils.getLogMessage(logType, messageArgs);
 
         /* 準備 */
         final Logger          mockLogger = Mockito.mock(Logger.class);
@@ -153,11 +153,11 @@ public class KmgPfaMeasServiceImplTest {
         final String expectedName = "テスト測定";
 
         // 期待されるログメッセージ
-        final KmgCoreLogMessageTypes logType            = KmgCoreLogMessageTypes.KMGCORE_LOG12000;
-        final Object[]           messageArgs        = {
+        final KmgCoreLogMsgTypes logType            = KmgCoreLogMsgTypes.KMGCORE_LOG12000;
+        final Object[]               messageArgs        = {
             expectedName,
         };
-        final String             expectedLogMessage = KmgMessageUtils.getLogMessage(logType, messageArgs);
+        final String                 expectedLogMessage = KmgMessageUtils.getLogMessage(logType, messageArgs);
 
         /* 準備 */
         final Logger          mockLogger = Mockito.mock(Logger.class);

@@ -2,7 +2,7 @@ package kmg.core.infrastructure.model;
 
 import java.lang.reflect.Field;
 
-import kmg.core.infrastructure.exception.KmgDomainException;
+import kmg.core.infrastructure.exception.KmgReflectionException;
 
 /**
  * KMGリフレクションモデルインタフェース<br>
@@ -11,7 +11,7 @@ import kmg.core.infrastructure.exception.KmgDomainException;
  *
  * @since 0.1.0
  *
- * @version 0.1.0
+ * @version 0.2.0
  */
 public interface KmgReflectionModel {
 
@@ -25,10 +25,10 @@ public interface KmgReflectionModel {
      *
      * @return 値
      *
-     * @throws KmgDomainException
-     *                            KMGドメイン例外
+     * @throws KmgReflectionException
+     *                                KMGリフレクション例外
      */
-    Object get(final String fieldName) throws KmgDomainException;
+    Object get(final String fieldName) throws KmgReflectionException;
 
     /**
      * 最後に取得したフィールドを返す<br>
@@ -51,10 +51,10 @@ public interface KmgReflectionModel {
      *
      * @return 返却値
      *
-     * @throws KmgDomainException
-     *                            KMGドメイン例外
+     * @throws KmgReflectionException
+     *                                KMGリフレクション例外
      */
-    Object getMethod(final String methodName, final Object... parameters) throws KmgDomainException;
+    Object getMethod(final String methodName, final Object... parameters) throws KmgReflectionException;
 
     /**
      * フィールド名に該当するフィールドに値を設定する<br>
@@ -66,9 +66,9 @@ public interface KmgReflectionModel {
      * @param value
      *                  値
      *
-     * @throws KmgDomainException
-     *                            KMGドメイン例外
+     * @throws KmgReflectionException
+     *                                KMGリフレクション例外
      */
-    void set(final String fieldName, final Object value) throws KmgDomainException;
+    void set(final String fieldName, final Object value) throws KmgReflectionException;
 
 }

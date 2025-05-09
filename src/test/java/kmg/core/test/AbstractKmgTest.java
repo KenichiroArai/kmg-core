@@ -2,9 +2,9 @@ package kmg.core.test;
 
 import org.junit.jupiter.api.Assertions;
 
-import kmg.core.infrastructure.common.KmgComExcMessageTypes;
-import kmg.core.infrastructure.common.KmgComGenMessageTypes;
-import kmg.core.infrastructure.exception.KmgException;
+import kmg.core.infrastructure.common.msg.KmgComExcMsgTypes;
+import kmg.core.infrastructure.common.msg.KmgComGenMsgTypes;
+import kmg.core.infrastructure.exception.KmgMsgException;
 
 /**
  * KMGのテストの抽象クラス<br>
@@ -43,13 +43,13 @@ public abstract class AbstractKmgTest {
      *                              期待するメッセージの種類
      */
     @SuppressWarnings("static-method")
-    protected void verifyKmgException(final KmgException actualException, final Class<?> expectedCauseClass,
-        final String expectedDomainMessage, final KmgComGenMessageTypes expectedMessageTypes) {
+    protected void verifyKmgMsgException(final KmgMsgException actualException, final Class<?> expectedCauseClass,
+        final String expectedDomainMessage, final KmgComGenMsgTypes expectedMessageTypes) {
 
         /* 検証の準備 */
         final Throwable             actualCause                   = actualException.getCause();                // 実際の例外の原因
         final String                actualDomainMessage           = actualException.getMessage();              // 実際のドメインメッセージ
-        final KmgComExcMessageTypes actualMessageTypes            = actualException.getMessageTypes();         // 実際のメッセージタイプ
+        final KmgComExcMsgTypes actualMessageTypes            = actualException.getMessageTypes();         // 実際のメッセージタイプ
         final boolean               actualIsMatchMessageArgsCount = actualException.isMatchMessageArgsCount(); // 実際のメッセージ引数の数
 
         /* 検証の実施 */

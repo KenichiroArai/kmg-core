@@ -1,20 +1,26 @@
-package kmg.core.infrastructure.common;
+package kmg.core.infrastructure.common.msg;
+
+import kmg.core.infrastructure.common.KmgComTypes;
 
 /**
  * KMG共通メッセージの種類のインタフェース
+ * <p>
+ * Comは、Commonの略。<br>
+ * Msgは、Messageの略。
+ * </p>
  *
  * @author KenichiroArai
  *
- * @since 0.1.0
+ * @since 0.2.0
  *
  * @version 0.2.0
  */
-public interface KmgComMessageTypes extends KmgComTypes<String> {
+public interface KmgComMsgTypes extends KmgComTypes<String> {
 
     /**
      * メッセージのキーを返す。<br>
      *
-     * @since 0.1.0
+     * @since 0.2.0
      *
      * @return メッセージのキー
      *
@@ -26,7 +32,7 @@ public interface KmgComMessageTypes extends KmgComTypes<String> {
     /**
      * メッセージのキーを返す。<br>
      *
-     * @since 0.1.0
+     * @since 0.2.0
      *
      * @return メッセージのキー
      *
@@ -37,7 +43,7 @@ public interface KmgComMessageTypes extends KmgComTypes<String> {
     /**
      * メッセージのキーを返す。<br>
      *
-     * @since 0.1.0
+     * @since 0.2.0
      *
      * @return メッセージのキー
      */
@@ -47,7 +53,7 @@ public interface KmgComMessageTypes extends KmgComTypes<String> {
     /**
      * メッセージの値を返す。
      *
-     * @since 0.1.0
+     * @since 0.2.0
      *
      * @return メッセージの値
      */
@@ -56,7 +62,7 @@ public interface KmgComMessageTypes extends KmgComTypes<String> {
     /**
      * メッセージのキーを返す。<br>
      *
-     * @since 0.1.0
+     * @since 0.2.0
      *
      * @return メッセージのキー
      *
