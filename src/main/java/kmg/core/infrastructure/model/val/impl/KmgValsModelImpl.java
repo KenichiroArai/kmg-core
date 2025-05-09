@@ -22,6 +22,10 @@ public class KmgValsModelImpl implements KmgValsModel {
 
     /**
      * データのリスト
+     *
+     * @author KenichiroArai
+     *
+     * @since 0.2.0
      */
     private final List<KmgValDataModel> datas;
 
@@ -77,6 +81,57 @@ public class KmgValsModelImpl implements KmgValsModel {
 
         final List<KmgValDataModel> result = this.datas;
         return result;
+
+    }
+
+    /**
+     * データが空か。
+     *
+     * @author KenichiroArai
+     *
+     * @since 0.2.0
+     *
+     * @return true：空、false：空ではない
+     */
+    @Override
+    public boolean isEmpty() {
+
+        final boolean result = this.datas.isEmpty();
+        return result;
+
+    }
+
+    /**
+     * データが空ではないか。
+     *
+     * @author KenichiroArai
+     *
+     * @since 0.2.0
+     *
+     * @return true：空ではない、false：空である
+     */
+    @Override
+    public boolean isNotEmpty() {
+
+        final boolean result = !this.isEmpty();
+        return result;
+
+    }
+
+    /**
+     * KMGバリデーション集合モデルをマージする。
+     *
+     * @param valsModel
+     *                  KMGバリデーション集合モデル
+     *
+     * @author KenichiroArai
+     *
+     * @since 0.2.0
+     */
+    @Override
+    public void merge(final KmgValsModel valsModel) {
+
+        valsModel.getDatas().forEach(this::addData);
 
     }
 

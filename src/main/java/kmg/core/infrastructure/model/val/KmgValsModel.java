@@ -39,4 +39,38 @@ public interface KmgValsModel {
      */
     List<KmgValDataModel> getDatas();
 
+    /**
+     * データが空か。
+     *
+     * @author KenichiroArai
+     *
+     * @since 0.2.0
+     *
+     * @return true：空、false：空ではない
+     */
+    boolean isEmpty();
+
+    /**
+     * データが空ではないか。
+     *
+     * @author KenichiroArai
+     *
+     * @since 0.2.0
+     *
+     * @return true：空ではない、false：空である
+     */
+    boolean isNotEmpty();
+
+    /**
+     * KMGバリデーション集合モデルをマージする。
+     *
+     * @param valsModel
+     *                  KMGバリデーション集合モデル
+     *
+     * @author KenichiroArai
+     *
+     * @since 0.2.0
+     */
+    void merge(KmgValsModel valsModel);
+
 }
