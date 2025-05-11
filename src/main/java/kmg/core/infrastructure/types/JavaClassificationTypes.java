@@ -464,8 +464,7 @@ public enum JavaClassificationTypes implements KmgComTypes<String> {
 
         } catch (final IllegalArgumentException e) {
 
-            // TODO KenichiroArai 2025/05/11 メッセージ未設定。区分判定パターンに要素名が含まれていません。判定対象の文字列=[{0}]、区分判定パターン=[{1}]、要素名=[{2}]
-            final KmgCoreGenMsgTypes msgTypes = KmgCoreGenMsgTypes.NONE;
+            final KmgCoreGenMsgTypes msgTypes = KmgCoreGenMsgTypes.KMGCORE_GEN23000;
             final Object[]           msgArgs  = {
                 text, this.getClassificationPattern(), JavaClassificationTypes.GROUP_ELEMENT_NAME,
             };
