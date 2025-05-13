@@ -33,7 +33,7 @@ public enum JavaClassificationTypes implements KmgComTypes<String> {
      *
      * @since 0.2.0
      */
-    NONE("指定無し", KmgJavaKeywordTypes.NONE, "指定無し", null),
+    NONE("指定無し", "none", "指定無し", null),
 
     /**
      * クラス
@@ -44,8 +44,7 @@ public enum JavaClassificationTypes implements KmgComTypes<String> {
      *
      * @since 0.2.0
      */
-    CLASS("クラス", KmgJavaKeywordTypes.CLASS, "クラス",
-        "^\\s*(public|private|protected|abstract|final)\\s+(class)\\s+(?<elementName>\\w+).*"),
+    CLASS("クラス", "class", "クラス", "^\\s*(public|private|protected|abstract|final)\\s+(class)\\s+(?<elementName>\\w+).*"),
 
     /**
      * インターフェース
@@ -56,7 +55,7 @@ public enum JavaClassificationTypes implements KmgComTypes<String> {
      *
      * @since 0.2.0
      */
-    INTERFACE("インターフェース", KmgJavaKeywordTypes.INTERFACE, "インターフェース",
+    INTERFACE("インターフェース", "interface", "インターフェース",
         "^\\s*(public|private|protected)\\s+(interface)\\s+(?<elementName>\\w+).*"),
 
     /**
@@ -68,7 +67,7 @@ public enum JavaClassificationTypes implements KmgComTypes<String> {
      *
      * @since 0.2.0
      */
-    ENUM("列挙型", KmgJavaKeywordTypes.ENUM, "列挙型", "^\\s*(public|private|protected)\\s+(enum)\\s+(?<elementName>\\w+).*"),
+    ENUM("列挙型", "enum", "列挙型", "^\\s*(public|private|protected)\\s+(enum)\\s+(?<elementName>\\w+).*"),
 
     /**
      * アノテーション定義
@@ -79,7 +78,7 @@ public enum JavaClassificationTypes implements KmgComTypes<String> {
      *
      * @since 0.2.0
      */
-    ANNOTATION_DEFINITION("アノテーション定義", KmgJavaKeywordTypes.NONE, "アノテーション定義",
+    ANNOTATION_DEFINITION("アノテーション定義", "annotation_definition", "アノテーション定義",
         "^\\s*(public|private|protected)\\s+@interface\\s+(?<elementName>\\w+).*"),
 
     /**
@@ -94,7 +93,7 @@ public enum JavaClassificationTypes implements KmgComTypes<String> {
      *
      * @since 0.2.0
      */
-    ANNOTATION_USAGE("アノテーション使用", KmgJavaKeywordTypes.NONE, "アノテーション使用",
+    ANNOTATION_USAGE("アノテーション使用", "annotation_usage", "アノテーション使用",
         "^\\s*@(?!(author|since|version|param|return|throws|see|deprecated|Override))(?<elementName>\\w+).*"),
 
     /**
@@ -106,7 +105,7 @@ public enum JavaClassificationTypes implements KmgComTypes<String> {
      *
      * @since 0.2.0
      */
-    FIELD("フィールド", KmgJavaKeywordTypes.NONE, "フィールド",
+    FIELD("フィールド", "field", "フィールド",
         "^\\s*(public|private|protected|static|final)\\s+((\\w+\\s+)*\\w+\\s+)(?<elementName>\\w+)\\s*;"),
 
     /**
@@ -118,7 +117,7 @@ public enum JavaClassificationTypes implements KmgComTypes<String> {
      *
      * @since 0.2.0
      */
-    METHOD("メソッド", KmgJavaKeywordTypes.NONE, "メソッド",
+    METHOD("メソッド", "method", "メソッド",
         "^\\s*((?:public|private|protected|static|final|abstract|synchronized)\\s+)*([\\w<>\\[\\]]+\\s+)?(?<elementName>\\w+)\\s*\\(.*\\).*"),
 
     /**
@@ -130,7 +129,7 @@ public enum JavaClassificationTypes implements KmgComTypes<String> {
      *
      * @since 0.2.0
      */
-    CONSTRUCTOR("コンストラクタ", KmgJavaKeywordTypes.NONE, "コンストラクタ",
+    CONSTRUCTOR("コンストラクタ", "constructor", "コンストラクタ",
         "^\\s*(public|private|protected)\\s+(?<elementName>\\w+)\\s*\\(.*\\)\\s*\\{.*$"),
 
     /**
@@ -142,7 +141,7 @@ public enum JavaClassificationTypes implements KmgComTypes<String> {
      *
      * @since 0.2.0
      */
-    MODULE("モジュール", KmgJavaKeywordTypes.MODULE, "モジュール", "^\\s*module\\s+(?<elementName>\\w+)\\s*\\{.*$"),
+    MODULE("モジュール", "module", "モジュール", "^\\s*module\\s+(?<elementName>\\w+)\\s*\\{.*$"),
 
     /* 定義：終了 */
     ;
@@ -152,14 +151,14 @@ public enum JavaClassificationTypes implements KmgComTypes<String> {
      *
      * @since 0.2.0
      */
-    private static final Map<KmgJavaKeywordTypes, JavaClassificationTypes> VALUES_MAP = new HashMap<>();
+    private static final Map<String, JavaClassificationTypes> VALUES_MAP = new HashMap<>();
 
     static {
 
         /* 種類のマップにプット */
         for (final JavaClassificationTypes type : JavaClassificationTypes.values()) {
 
-            JavaClassificationTypes.VALUES_MAP.put(type.key, type);
+            JavaClassificationTypes.VALUES_MAP.put(type.get(), type);
 
         }
 
@@ -182,7 +181,7 @@ public enum JavaClassificationTypes implements KmgComTypes<String> {
      *
      * @since 0.2.0
      */
-    private final KmgJavaKeywordTypes key;
+    private final String key;
 
     /**
      * 詳細情報
@@ -332,7 +331,7 @@ public enum JavaClassificationTypes implements KmgComTypes<String> {
      * @param classificationPattern
      *                              区分判定パターン
      */
-    JavaClassificationTypes(final String displayName, final KmgJavaKeywordTypes key, final String detail,
+    JavaClassificationTypes(final String displayName, final String key, final String detail,
         final String classificationPattern) {
 
         this.displayName = displayName;
@@ -487,7 +486,7 @@ public enum JavaClassificationTypes implements KmgComTypes<String> {
     @Override
     public String getKey() {
 
-        final String result = this.key.getKey();
+        final String result = this.key;
         return result;
 
     }
