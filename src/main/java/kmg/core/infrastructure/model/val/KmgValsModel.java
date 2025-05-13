@@ -22,16 +22,12 @@ public interface KmgValsModel {
      * @param data
      *             追加するデータ
      *
-     * @author KenichiroArai
-     *
      * @since 0.2.0
      */
     void addData(KmgValDataModel data);
 
     /**
      * データのリストを返す。
-     *
-     * @author KenichiroArai
      *
      * @since 0.2.0
      *
@@ -42,8 +38,6 @@ public interface KmgValsModel {
     /**
      * データが空か。
      *
-     * @author KenichiroArai
-     *
      * @since 0.2.0
      *
      * @return true：空、false：空ではない
@@ -52,8 +46,6 @@ public interface KmgValsModel {
 
     /**
      * データが空ではないか。
-     *
-     * @author KenichiroArai
      *
      * @since 0.2.0
      *
@@ -66,8 +58,6 @@ public interface KmgValsModel {
      *
      * @param valsModel
      *                  KMGバリデーション集合モデル
-     *
-     * @author KenichiroArai
      *
      * @since 0.2.0
      */

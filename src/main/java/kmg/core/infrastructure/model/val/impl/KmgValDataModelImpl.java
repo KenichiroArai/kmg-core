@@ -18,19 +18,29 @@ import kmg.core.infrastructure.utils.KmgMessageUtils;
  */
 public class KmgValDataModelImpl implements KmgValDataModel {
 
-    /** メッセージの種類 */
+    /**
+     * メッセージの種類
+     *
+     * @since 0.2.0
+     */
     private final KmgComValMsgTypes messageTypes;
 
-    /** メッセージの引数 */
+    /**
+     * メッセージの引数
+     *
+     * @since 0.2.0
+     */
     private final Object[] messageArgs;
 
-    /** メッセージ */
+    /**
+     * メッセージ
+     *
+     * @since 0.2.0
+     */
     private final String message;
 
     /**
      * コンストラクタ<br>
-     *
-     * @author KenichiroArai
      *
      * @since 0.2.0
      *
@@ -68,8 +78,6 @@ public class KmgValDataModelImpl implements KmgValDataModel {
     /**
      * メッセージの引数を返す<br>
      *
-     * @author KenichiroArai
-     *
      * @since 0.2.0
      *
      * @return メッセージの引数
@@ -84,8 +92,6 @@ public class KmgValDataModelImpl implements KmgValDataModel {
 
     /**
      * メッセージの種類を返す<br>
-     *
-     * @author KenichiroArai
      *
      * @since 0.2.0
      *

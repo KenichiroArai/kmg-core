@@ -21,15 +21,27 @@ import kmg.core.infrastructure.types.msg.KmgCoreGenMsgTypes;
  */
 public class KmgSqlPathModelImpl implements KmgSqlPathModel {
 
-    /** パラメータ抽出用の正規表現 */
+    /**
+     * パラメータ抽出用の正規表現
+     *
+     * @since 0.1.0
+     */
     @SuppressWarnings("nls")
     private static final String PARAM_EXTRACT_REGEX = "/\\*(.+)\\*/.*";
 
-    /** パラメータ抽出用の置換パターン */
+    /**
+     * パラメータ抽出用の置換パターン
+     *
+     * @since 0.1.0
+     */
     @SuppressWarnings("nls")
     private static final String PARAM_EXTRACT_REPLACE = "$1";
 
-    /** 末尾改行削除用の正規表現 */
+    /**
+     * 末尾改行削除用の正規表現
+     *
+     * @since 0.1.0
+     */
     @SuppressWarnings("nls")
     private static final String TRAILING_NEWLINE_REGEX = "\\R+$";
 
