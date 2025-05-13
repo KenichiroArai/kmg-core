@@ -106,7 +106,7 @@ public enum JavaClassificationTypes implements KmgComTypes<String> {
      * @since 0.2.0
      */
     FIELD("フィールド", "field", "フィールド",
-        "^\\s*((?:public|private|protected|static|final)\\s+)*((?:\\w+\\s+)*\\w+)\\s+(?<elementName>\\w+)\\s*(=.*)?;"),
+        "^\\s*((?:public|private|protected|static|final)\\s+)*([\\w<>\\[\\]\\s]+)\\s+(?<elementName>\\w+)\\s*(=.*)?;"),
 
     /**
      * メソッド
