@@ -57,7 +57,7 @@ public enum JavaClassificationTypes implements KmgComTypes<String> {
      *
      * @since 0.2.0
      */
-    ENUM_CONST("列挙型の定数", "enum_const", "列挙型の定数", "^\\s*(\\w+)\\s*\\(\\s*\"([^\"]+)\"\\s*,.*"),
+    ENUM_CONST("列挙型の定数", "enum_const", "列挙型の定数", "^\\s*(?<elementName>\\w+)\\s*\\(\\s*\"([^\"]+)\"\\s*,.*"),
 
     /**
      * アノテーション定義
