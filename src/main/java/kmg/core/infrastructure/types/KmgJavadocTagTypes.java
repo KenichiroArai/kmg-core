@@ -405,6 +405,8 @@ public enum KmgJavadocTagTypes implements KmgComTypes<String> {
     /**
      * コンストラクタ<br>
      *
+     * @since 0.2.0
+     *
      * @param displayName
      *                    表示名
      * @param key
