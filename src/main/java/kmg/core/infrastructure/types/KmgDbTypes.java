@@ -31,11 +31,7 @@ public enum KmgDbTypes implements KmgComTypes<String> {
     /**
      * PostgreSQL
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     POSTGRE_SQL("PostgreSQL", "PostgreSQL", new String[] {
         "Postgres"
@@ -58,11 +54,7 @@ public enum KmgDbTypes implements KmgComTypes<String> {
     /**
      * SQL Server
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     SQL_SERVER("SQL Server", "SQL Server", new String[] {
         "MS SQL"
