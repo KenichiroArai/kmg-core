@@ -28,8 +28,6 @@ public interface KmgValDataModel {
     /**
      * メッセージの引数を返す<br>
      *
-     * @author KenichiroArai
-     *
      * @since 0.2.0
      *
      * @return メッセージの引数
@@ -38,8 +36,6 @@ public interface KmgValDataModel {
 
     /**
      * メッセージの種類を返す<br>
-     *
-     * @author KenichiroArai
      *
      * @since 0.2.0
      *

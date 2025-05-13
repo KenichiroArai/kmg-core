@@ -23,16 +23,12 @@ public class KmgValsModelImpl implements KmgValsModel {
     /**
      * データのリスト
      *
-     * @author KenichiroArai
-     *
      * @since 0.2.0
      */
     private final List<KmgValDataModel> datas;
 
     /**
      * コンストラクタ
-     *
-     * @author KenichiroArai
      *
      * @since 0.2.0
      */
@@ -47,8 +43,6 @@ public class KmgValsModelImpl implements KmgValsModel {
      *
      * @param data
      *             追加するデータ
-     *
-     * @author KenichiroArai
      *
      * @since 0.2.0
      */
@@ -70,8 +64,6 @@ public class KmgValsModelImpl implements KmgValsModel {
     /**
      * データのリストを返す。
      *
-     * @author KenichiroArai
-     *
      * @since 0.2.0
      *
      * @return データのリスト
@@ -87,8 +79,6 @@ public class KmgValsModelImpl implements KmgValsModel {
     /**
      * データが空か。
      *
-     * @author KenichiroArai
-     *
      * @since 0.2.0
      *
      * @return true：空、false：空ではない
@@ -103,8 +93,6 @@ public class KmgValsModelImpl implements KmgValsModel {
 
     /**
      * データが空ではないか。
-     *
-     * @author KenichiroArai
      *
      * @since 0.2.0
      *
@@ -123,8 +111,6 @@ public class KmgValsModelImpl implements KmgValsModel {
      *
      * @param valsModel
      *                  KMGバリデーション集合モデル
-     *
-     * @author KenichiroArai
      *
      * @since 0.2.0
      */
