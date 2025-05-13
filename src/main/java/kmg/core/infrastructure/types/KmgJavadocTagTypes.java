@@ -74,8 +74,8 @@ public enum KmgJavadocTagTypes implements KmgComTypes<String> {
      */
     SINCE("シンス", "@since", "機能が導入されたバージョンを示す",
         Arrays.asList(JavaClassificationTypes.CLASS, JavaClassificationTypes.INTERFACE, JavaClassificationTypes.ENUM,
-            JavaClassificationTypes.ANNOTATION_USAGE, JavaClassificationTypes.METHOD, JavaClassificationTypes.FIELD,
-            JavaClassificationTypes.CONSTRUCTOR)),
+            JavaClassificationTypes.ENUM_CONST, JavaClassificationTypes.ANNOTATION_USAGE,
+            JavaClassificationTypes.METHOD, JavaClassificationTypes.FIELD, JavaClassificationTypes.CONSTRUCTOR)),
 
     /**
      * 非推奨

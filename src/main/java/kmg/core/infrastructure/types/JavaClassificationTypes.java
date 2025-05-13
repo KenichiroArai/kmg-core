@@ -53,6 +53,13 @@ public enum JavaClassificationTypes implements KmgComTypes<String> {
     ENUM("列挙型", "enum", "列挙型", "^\\s*(public|private|protected)\\s+(enum)\\s+(?<elementName>\\w+).*"),
 
     /**
+     * 列挙型の定数
+     *
+     * @since 0.2.0
+     */
+    ENUM_CONST("列挙型の定数", "enum_const", "列挙型の定数", "^\\s*(\\w+)\\s*\\(\\s*\"([^\"]+)\"\\s*,.*"),
+
+    /**
      * アノテーション定義
      */
     ANNOTATION_DEFINITION("アノテーション定義", "annotation_definition", "アノテーション定義",
@@ -450,7 +457,7 @@ public enum JavaClassificationTypes implements KmgComTypes<String> {
         final boolean result = switch (this) {
 
             // Javadoc対象
-            case CLASS, INTERFACE, ENUM, ANNOTATION_DEFINITION, FIELD, METHOD, CONSTRUCTOR, MODULE -> true;
+            case CLASS, INTERFACE, ENUM, ENUM_CONST, ANNOTATION_DEFINITION, FIELD, METHOD, CONSTRUCTOR, MODULE -> true;
 
             // Javadoc対象外
             case NONE, ANNOTATION_USAGE -> false;
