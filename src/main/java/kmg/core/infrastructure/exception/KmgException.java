@@ -21,6 +21,8 @@ public class KmgException extends Exception {
     /**
      * コンストラクタ<br>
      *
+     * @since 0.1.0
+     *
      * @param cause
      *              原因
      */

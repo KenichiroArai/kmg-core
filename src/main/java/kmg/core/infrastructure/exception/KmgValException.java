@@ -23,7 +23,11 @@ public class KmgValException extends KmgException {
      */
     private static final long serialVersionUID = 1L;
 
-    /** KMGバリデーション集合モデル */
+    /**
+     * KMGバリデーション集合モデル
+     *
+     * @since 0.2.0
+     */
     private final KmgValsModel validationsModel;
 
     /**
