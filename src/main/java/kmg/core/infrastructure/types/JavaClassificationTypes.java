@@ -282,10 +282,6 @@ public enum JavaClassificationTypes implements KmgComTypes<String> {
     /**
      * コンストラクタ<br>
      *
-     * @author KenichiroArai
-     *
-     * @version 0.2.0
-     *
      * @since 0.2.0
      *
      * @param displayName
