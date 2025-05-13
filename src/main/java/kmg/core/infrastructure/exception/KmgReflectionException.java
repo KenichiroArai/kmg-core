@@ -38,8 +38,7 @@ public class KmgReflectionException extends KmgMsgException {
      * @param messageTypes
      *                           メッセージの種類
      */
-    public KmgReflectionException(final KmgReflectionModel kmgReflectionModel,
-        final KmgComExcMsgTypes messageTypes) {
+    public KmgReflectionException(final KmgReflectionModel kmgReflectionModel, final KmgComExcMsgTypes messageTypes) {
 
         this(kmgReflectionModel, messageTypes, null, null);
 

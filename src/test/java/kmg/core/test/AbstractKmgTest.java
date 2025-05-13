@@ -47,10 +47,10 @@ public abstract class AbstractKmgTest {
         final String expectedDomainMessage, final KmgComGenMsgTypes expectedMessageTypes) {
 
         /* 検証の準備 */
-        final Throwable             actualCause                   = actualException.getCause();                // 実際の例外の原因
-        final String                actualDomainMessage           = actualException.getMessage();              // 実際のドメインメッセージ
+        final Throwable         actualCause                   = actualException.getCause();                // 実際の例外の原因
+        final String            actualDomainMessage           = actualException.getMessage();              // 実際のドメインメッセージ
         final KmgComExcMsgTypes actualMessageTypes            = actualException.getMessageTypes();         // 実際のメッセージタイプ
-        final boolean               actualIsMatchMessageArgsCount = actualException.isMatchMessageArgsCount(); // 実際のメッセージ引数の数
+        final boolean           actualIsMatchMessageArgsCount = actualException.isMatchMessageArgsCount(); // 実際のメッセージ引数の数
 
         /* 検証の実施 */
         Assertions.assertTrue(expectedCauseClass.isInstance(actualCause),

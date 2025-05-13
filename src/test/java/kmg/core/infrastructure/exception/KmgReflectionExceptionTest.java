@@ -92,11 +92,11 @@ public class KmgReflectionExceptionTest {
             = new KmgReflectionException(this.kmgReflectionModel, this.messageTypes, expectedMsgArgs, expectedCause);
 
         /* 検証の準備 */
-        final String                actualMessage  = testException.getMessage();
-        final KmgComExcMsgTypes actualMsgTypes = testException.getMessageTypes();
-        final Object[]              actualMsgArgs  = testException.getMessageArgs();
-        final Throwable             actualCause    = testException.getCause();
-        final KmgReflectionModel    actualModel    = testException.getKmgReflectionModel();
+        final String             actualMessage  = testException.getMessage();
+        final KmgComExcMsgTypes  actualMsgTypes = testException.getMessageTypes();
+        final Object[]           actualMsgArgs  = testException.getMessageArgs();
+        final Throwable          actualCause    = testException.getCause();
+        final KmgReflectionModel actualModel    = testException.getKmgReflectionModel();
 
         /* 検証の実施 */
         Assertions.assertEquals(this.messageTypes, actualMsgTypes, "メッセージタイプが一致しません");
@@ -126,10 +126,10 @@ public class KmgReflectionExceptionTest {
             = new KmgReflectionException(this.kmgReflectionModel, this.messageTypes, expectedMsgArgs);
 
         /* 検証の準備 */
-        final String                actualMessage  = testException.getMessage();
-        final KmgComExcMsgTypes actualMsgTypes = testException.getMessageTypes();
-        final Object[]              actualMsgArgs  = testException.getMessageArgs();
-        final KmgReflectionModel    actualModel    = testException.getKmgReflectionModel();
+        final String             actualMessage  = testException.getMessage();
+        final KmgComExcMsgTypes  actualMsgTypes = testException.getMessageTypes();
+        final Object[]           actualMsgArgs  = testException.getMessageArgs();
+        final KmgReflectionModel actualModel    = testException.getKmgReflectionModel();
 
         /* 検証の実施 */
         Assertions.assertEquals(this.messageTypes, actualMsgTypes, "メッセージタイプが一致しません");
@@ -155,10 +155,10 @@ public class KmgReflectionExceptionTest {
             = new KmgReflectionException(this.kmgReflectionModel, this.messageTypes, expectedCause);
 
         /* 検証の準備 */
-        final String                actualMessage  = testException.getMessage();
-        final KmgComExcMsgTypes actualMsgTypes = testException.getMessageTypes();
-        final Throwable             actualCause    = testException.getCause();
-        final KmgReflectionModel    actualModel    = testException.getKmgReflectionModel();
+        final String             actualMessage  = testException.getMessage();
+        final KmgComExcMsgTypes  actualMsgTypes = testException.getMessageTypes();
+        final Throwable          actualCause    = testException.getCause();
+        final KmgReflectionModel actualModel    = testException.getKmgReflectionModel();
 
         /* 検証の実施 */
         Assertions.assertEquals(this.messageTypes, actualMsgTypes, "メッセージタイプが一致しません");
@@ -181,9 +181,9 @@ public class KmgReflectionExceptionTest {
             = new KmgReflectionException(this.kmgReflectionModel, this.messageTypes);
 
         /* 検証の準備 */
-        final String                actualMessage  = testException.getMessage();
-        final KmgComExcMsgTypes actualMsgTypes = testException.getMessageTypes();
-        final KmgReflectionModel    actualModel    = testException.getKmgReflectionModel();
+        final String             actualMessage  = testException.getMessage();
+        final KmgComExcMsgTypes  actualMsgTypes = testException.getMessageTypes();
+        final KmgReflectionModel actualModel    = testException.getKmgReflectionModel();
 
         /* 検証の実施 */
         Assertions.assertEquals(this.messageTypes, actualMsgTypes, "メッセージタイプが一致しません");

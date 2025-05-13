@@ -112,8 +112,7 @@ public class KmgMsgException extends KmgException {
      * @param cause
      *                     原因
      */
-    public KmgMsgException(final KmgComExcMsgTypes messageTypes, final Object[] messageArgs,
-        final Throwable cause) {
+    public KmgMsgException(final KmgComExcMsgTypes messageTypes, final Object[] messageArgs, final Throwable cause) {
 
         super(cause);
         this.messageTypes = messageTypes;
