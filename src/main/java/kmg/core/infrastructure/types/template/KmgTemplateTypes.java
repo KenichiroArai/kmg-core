@@ -22,11 +22,7 @@ public enum KmgTemplateTypes implements KmgComTypes<String> {
     /**
      * 指定無し
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     NONE("指定無し", "None", "指定無し"),
 

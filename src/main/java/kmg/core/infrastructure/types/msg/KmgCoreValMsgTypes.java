@@ -26,8 +26,6 @@ public enum KmgCoreValMsgTypes implements KmgComValMsgTypes {
     /**
      * 指定無し
      *
-     * @author KenichiroArai
-     *
      * @since 0.2.0
      */
     NONE("指定無し"),

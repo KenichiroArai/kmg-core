@@ -25,16 +25,12 @@ public enum KmgCoreLogMsgTypes implements KmgComLogMsgTypes {
     /**
      * 指定無し
      *
-     * @author KenichiroArai
-     *
      * @since 0.2.0
      */
     NONE("指定無し"),
 
     /**
      * {0}：開始
-     *
-     * @author KenichiroArai
      *
      * @since 0.2.0
      */
@@ -43,16 +39,12 @@ public enum KmgCoreLogMsgTypes implements KmgComLogMsgTypes {
     /**
      * {0}：終了。経過時間=[{1}{2}]
      *
-     * @author KenichiroArai
-     *
      * @since 0.2.0
      */
     KMGCORE_LOG12001("{0}：終了。経過時間=[{1}{2}]"),
 
     /**
      * {0}：{1}。経過時間=[{2}{3}]
-     *
-     * @author KenichiroArai
      *
      * @since 0.2.0
      */
@@ -61,8 +53,6 @@ public enum KmgCoreLogMsgTypes implements KmgComLogMsgTypes {
     /**
      * {0}：{1}。経過時間=[{2}{3}]
      *
-     * @author KenichiroArai
-     *
      * @since 0.2.0
      */
     KMGCORE_LOG12003("{0}：{1}。経過時間=[{2}{3}]"),
@@ -70,16 +60,12 @@ public enum KmgCoreLogMsgTypes implements KmgComLogMsgTypes {
     /**
      * {0}：{1}。経過時間=[{2}{3}]
      *
-     * @author KenichiroArai
-     *
      * @since 0.2.0
      */
     KMGCORE_LOG12004("{0}：{1}。経過時間=[{2}{3}]"),
 
     /**
      * {0}
-     *
-     * @author KenichiroArai
      *
      * @since 0.2.0
      */
