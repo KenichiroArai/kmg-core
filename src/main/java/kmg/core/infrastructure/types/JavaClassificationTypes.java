@@ -41,6 +41,8 @@ public enum JavaClassificationTypes implements KmgComTypes<String> {
 
     /**
      * インターフェース
+     *
+     * @since 0.2.0
      */
     INTERFACE("インターフェース", "interface", "インターフェース",
         "^\\s*(public|private|protected)\\s+(interface)\\s+(?<elementName>\\w+).*"),
@@ -61,6 +63,8 @@ public enum JavaClassificationTypes implements KmgComTypes<String> {
 
     /**
      * アノテーション定義
+     *
+     * @since 0.2.0
      */
     ANNOTATION_DEFINITION("アノテーション定義", "annotation_definition", "アノテーション定義",
         "^\\s*(public|private|protected)\\s+@interface\\s+(?<elementName>\\w+).*"),
@@ -70,24 +74,32 @@ public enum JavaClassificationTypes implements KmgComTypes<String> {
      * <p>
      * Javadocのタグと区別するため、区分判定パターンで除外している。
      * </p>
+     *
+     * @since 0.2.0
      */
     ANNOTATION_USAGE("アノテーション使用", "annotation_usage", "アノテーション使用",
         "^\\s*@(?!(author|since|version|param|return|throws|see|deprecated|Override))(?<elementName>\\w+).*"),
 
     /**
      * フィールド
+     *
+     * @since 0.2.0
      */
     FIELD("フィールド", "field", "フィールド",
         "^\\s*((?:public|private|protected|static|final)\\s+)*([\\w<>\\[\\]\\.,?\\s]+)\\s+(?<elementName>\\w+)\\s*(=.*)?;"),
 
     /**
      * メソッド
+     *
+     * @since 0.2.0
      */
     METHOD("メソッド", "method", "メソッド",
         "^\\s*((?:public|private|protected|static|final|abstract|synchronized)\\s+)*([\\w<>\\[\\]]+\\s+)?(?<elementName>\\w+)\\s*\\(.*\\).*"),
 
     /**
      * コンストラクタ
+     *
+     * @since 0.2.0
      */
     CONSTRUCTOR("コンストラクタ", "constructor", "コンストラクタ",
         "^\\s*(public|private|protected)\\s+(?<elementName>\\w+)\\s*\\(.*\\)\\s*\\{.*$"),
