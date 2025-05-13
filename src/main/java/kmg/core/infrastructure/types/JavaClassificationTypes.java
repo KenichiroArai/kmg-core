@@ -27,10 +27,6 @@ public enum JavaClassificationTypes implements KmgComTypes<String> {
     /**
      * 指定無し
      *
-     * @version 0.2.0
-     *
-     * @author KenichiroArai
-     *
      * @since 0.2.0
      */
     NONE("指定無し", "none", "指定無し", null),
@@ -38,22 +34,12 @@ public enum JavaClassificationTypes implements KmgComTypes<String> {
     /**
      * クラス
      *
-     * @version 0.2.0
-     *
-     * @author KenichiroArai
-     *
      * @since 0.2.0
      */
     CLASS("クラス", "class", "クラス", "^\\s*(public|private|protected|abstract|final)\\s+(class)\\s+(?<elementName>\\w+).*"),
 
     /**
      * インターフェース
-     *
-     * @version 0.2.0
-     *
-     * @author KenichiroArai
-     *
-     * @since 0.2.0
      */
     INTERFACE("インターフェース", "interface", "インターフェース",
         "^\\s*(public|private|protected)\\s+(interface)\\s+(?<elementName>\\w+).*"),
@@ -61,22 +47,12 @@ public enum JavaClassificationTypes implements KmgComTypes<String> {
     /**
      * 列挙型
      *
-     * @version 0.2.0
-     *
-     * @author KenichiroArai
-     *
      * @since 0.2.0
      */
     ENUM("列挙型", "enum", "列挙型", "^\\s*(public|private|protected)\\s+(enum)\\s+(?<elementName>\\w+).*"),
 
     /**
      * アノテーション定義
-     *
-     * @version 0.2.0
-     *
-     * @author KenichiroArai
-     *
-     * @since 0.2.0
      */
     ANNOTATION_DEFINITION("アノテーション定義", "annotation_definition", "アノテーション定義",
         "^\\s*(public|private|protected)\\s+@interface\\s+(?<elementName>\\w+).*"),
@@ -86,58 +62,30 @@ public enum JavaClassificationTypes implements KmgComTypes<String> {
      * <p>
      * Javadocのタグと区別するため、区分判定パターンで除外している。
      * </p>
-     *
-     * @version 0.2.0
-     *
-     * @author KenichiroArai
-     *
-     * @since 0.2.0
      */
     ANNOTATION_USAGE("アノテーション使用", "annotation_usage", "アノテーション使用",
         "^\\s*@(?!(author|since|version|param|return|throws|see|deprecated|Override))(?<elementName>\\w+).*"),
 
     /**
      * フィールド
-     *
-     * @version 0.2.0
-     *
-     * @author KenichiroArai
-     *
-     * @since 0.2.0
      */
     FIELD("フィールド", "field", "フィールド",
         "^\\s*((?:public|private|protected|static|final)\\s+)*([\\w<>\\[\\]\\s]+)\\s+(?<elementName>\\w+)\\s*(=.*)?;"),
 
     /**
      * メソッド
-     *
-     * @version 0.2.0
-     *
-     * @author KenichiroArai
-     *
-     * @since 0.2.0
      */
     METHOD("メソッド", "method", "メソッド",
         "^\\s*((?:public|private|protected|static|final|abstract|synchronized)\\s+)*([\\w<>\\[\\]]+\\s+)?(?<elementName>\\w+)\\s*\\(.*\\).*"),
 
     /**
      * コンストラクタ
-     *
-     * @version 0.2.0
-     *
-     * @author KenichiroArai
-     *
-     * @since 0.2.0
      */
     CONSTRUCTOR("コンストラクタ", "constructor", "コンストラクタ",
         "^\\s*(public|private|protected)\\s+(?<elementName>\\w+)\\s*\\(.*\\)\\s*\\{.*$"),
 
     /**
      * モジュール
-     *
-     * @version 0.2.0
-     *
-     * @author KenichiroArai
      *
      * @since 0.2.0
      */
@@ -166,6 +114,8 @@ public enum JavaClassificationTypes implements KmgComTypes<String> {
 
     /**
      * グループ名：要素名
+     *
+     * @since 0.2.0
      */
     private static final String GROUP_ELEMENT_NAME = "elementName";
 
@@ -216,10 +166,6 @@ public enum JavaClassificationTypes implements KmgComTypes<String> {
      * <p>
      * 但し、キーが存在しない場合は、指定無し（NONE）を返す。
      * </p>
-     *
-     * @author KenichiroArai
-     *
-     * @version 0.2.0
      *
      * @since 0.2.0
      *

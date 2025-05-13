@@ -24,33 +24,21 @@ public enum KmgCharsetTypes implements KmgComTypes<String> {
     /**
      * 指定無し
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     NONE("指定無し", null),
 
     /**
      * MS932
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     MS932("MS932", "MS932"),
 
     /**
      * UTF-8
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     UTF8("UTF-8", "UTF-8"),
 

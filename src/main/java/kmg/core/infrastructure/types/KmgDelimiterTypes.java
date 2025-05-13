@@ -24,187 +24,119 @@ public enum KmgDelimiterTypes implements KmgComTypes<String> {
     /**
      * 指定無し
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     NONE("指定無し", null),
 
     /**
      * ピリオド
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     PERIOD("ピリオド", "."),
 
     /**
      * カンマ
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     COMMA("カンマ", ","),
 
     /**
      * コロン
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     COLON("コロン", ":"),
 
     /**
      * バーティカルバー
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     VERTICAL_BAR("バーティカルバー", "|"),
 
     /**
      * アンダースコア
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     UNDERSCORE("アンダースコア", "_"),
 
     /**
      * スラッシュ
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     SLASH("スラッシュ", "/"),
 
     /**
      * ハイフン
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     HYPHEN("ハイフン", "-"),
 
     /**
      * 半角スペース
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     HALF_SPACE("半角スペース", KmgString.HALF_SPACE),
 
     /**
      * プラス
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     PLUS("プラス", "+"),
 
     /**
      * 全角コロン
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     ALL_COLON("全角コロン", "："),
 
     /**
      * 全角読点
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     ALL_IDEOGRAPHIC("全角読点", "、"),
 
     /**
      * 連続半角スペース
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     SERIES_HALF_SPACE("連続半角スペース", "\\s+"),
 
     /**
      * 改行
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     LINE_SEPARATOR("改行", KmgString.LINE_SEPARATOR),
 
     /**
      * 正規表現による改行
      *
-     * @author KenichiroArai
-     *
      * @since 0.2.0
-     *
-     * @version 0.2.0
      */
     REGEX_LINE_SEPARATOR("正規表現による改行", "\\r?\\n|\\r"),
 
     /**
      * 半角イコール
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     HALF_EQUAL("半角イコール", "="),
 
     /**
      * 半角アットマーク
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     HALF_AT_SIGN("半角アットマーク", "@"),
 

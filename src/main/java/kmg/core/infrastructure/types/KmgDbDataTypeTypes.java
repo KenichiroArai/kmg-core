@@ -27,121 +27,77 @@ public enum KmgDbDataTypeTypes implements KmgComTypes<String> {
     /**
      * 指定無し
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     NONE("指定無し", KmgString.EMPTY, null),
 
     /**
      * 4バイト整数
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     INTEGER("4バイト整数", "4バイト整数", Integer.class),
 
     /**
      * 8バイト整数
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     LONG("8バイト整数", "8バイト整数", Long.class),
 
     /**
      * 日付型
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     DATE("日付型", "日付型", LocalDate.class),
 
     /**
      * 日時型
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     TIME("日時型", "日時型", LocalDateTime.class),
 
     /**
      * 文字列型
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     STRING("文字列型", "文字列型", String.class),
 
     /**
      * 自動4バイト
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     SMALLSERIAL("自動4バイト", "自動4バイト", Integer.class),
 
     /**
      * 自動8バイト
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     SERIAL("自動8バイト", "自動8バイト", Long.class),
 
     /**
      * 4バイト実数
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     FLOAT("4バイト実数", "4バイト実数", Float.class),
 
     /**
      * 8バイト実数
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     DOUBLE("8バイト実数", "8バイト実数", Double.class),
 
     /**
      * 8バイト実数
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     BIG_DECIMAL("8バイト実数", "8バイト実数", BigDecimal.class),
 
