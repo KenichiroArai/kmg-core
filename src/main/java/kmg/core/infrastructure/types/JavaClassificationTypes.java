@@ -36,7 +36,8 @@ public enum JavaClassificationTypes implements KmgComTypes<String> {
      *
      * @since 0.2.0
      */
-    CLASS("クラス", "class", "クラス", "^\\s*(public|private|protected|abstract|final)\\s+(class)\\s+(?<elementName>\\w+).*"),
+    CLASS("クラス", "class", "クラス",
+        "^\\s*(?:(?:public|private|protected|abstract|final)\\s+)*class\\s+(?<elementName>\\w+)"),
 
     /**
      * インターフェース
