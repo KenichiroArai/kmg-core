@@ -94,7 +94,7 @@ public enum JavaClassificationTypes implements KmgComTypes<String> {
      * @since 0.2.0
      */
     METHOD("メソッド", "method", "メソッド",
-        "^\\s*((?:public|private|protected|static|final|abstract|synchronized)\\s+)*([\\w<>\\[\\]]+\\s+)?(?<elementName>\\w+)\\s*\\([^)]*\\)\\s*(?:\\{.*)?"),
+        "^\\s*((?:public|private|protected|static|final|abstract|synchronized)\\s+)*(?:<[^>]+>\\s+)?([\\w<>\\[\\]]+\\s+)?(?<elementName>\\w+)\\s*\\([^)]*\\)\\s*(?:\\{.*)?"),
 
     /**
      * コンストラクタ
