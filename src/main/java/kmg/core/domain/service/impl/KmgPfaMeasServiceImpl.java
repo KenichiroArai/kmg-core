@@ -92,10 +92,10 @@ public class KmgPfaMeasServiceImpl implements KmgPfaMeasService {
 
         /* ログの出力 */
         final KmgCoreLogMsgTypes logType     = KmgCoreLogMsgTypes.KMGCORE_LOG12001;
-        final Object[]               messageArgs = {
+        final Object[]           messageArgs = {
             this.name, this.kmgPfaMeasModel.getElapsedTime(), this.kmgPfaMeasModel.getTimeUnit().getUnitName(),
         };
-        final String                 msg         = KmgMessageUtils.getLogMessage(logType, messageArgs);
+        final String             msg         = KmgMessageUtils.getLogMessage(logType, messageArgs);
         this.logger.info(msg);
 
     }
@@ -139,17 +139,19 @@ public class KmgPfaMeasServiceImpl implements KmgPfaMeasService {
 
         /* ログの出力 */
         final KmgCoreLogMsgTypes logType     = KmgCoreLogMsgTypes.KMGCORE_LOG12002;
-        final Object[]               messageArgs = {
+        final Object[]           messageArgs = {
             this.name, msgContents, this.kmgPfaMeasModel.getElapsedTime(),
             this.kmgPfaMeasModel.getTimeUnit().getUnitName(),
         };
-        final String                 msg         = KmgMessageUtils.getLogMessage(logType, messageArgs);
+        final String             msg         = KmgMessageUtils.getLogMessage(logType, messageArgs);
         this.logger.error(msg, throwable);
 
     }
 
     /**
      * 名称を取得します。
+     *
+     * @since 0.1.0
      *
      * @return 名称
      */
@@ -179,11 +181,11 @@ public class KmgPfaMeasServiceImpl implements KmgPfaMeasService {
 
         /* ログの出力 */
         final KmgCoreLogMsgTypes logType     = KmgCoreLogMsgTypes.KMGCORE_LOG12003;
-        final Object[]               messageArgs = {
+        final Object[]           messageArgs = {
             this.name, msgContents, this.kmgPfaMeasModel.getElapsedTime(),
             this.kmgPfaMeasModel.getTimeUnit().getUnitName(),
         };
-        final String                 msg         = KmgMessageUtils.getLogMessage(logType, messageArgs);
+        final String             msg         = KmgMessageUtils.getLogMessage(logType, messageArgs);
         this.logger.info(msg);
 
     }
@@ -201,10 +203,10 @@ public class KmgPfaMeasServiceImpl implements KmgPfaMeasService {
 
         /* ログの出力 */
         final KmgCoreLogMsgTypes logType     = KmgCoreLogMsgTypes.KMGCORE_LOG12000;
-        final Object[]               messageArgs = {
+        final Object[]           messageArgs = {
             this.name,
         };
-        final String                 msg         = KmgMessageUtils.getLogMessage(logType, messageArgs);
+        final String             msg         = KmgMessageUtils.getLogMessage(logType, messageArgs);
         this.logger.info(msg);
 
         /* 測定開始 */
@@ -231,11 +233,11 @@ public class KmgPfaMeasServiceImpl implements KmgPfaMeasService {
 
         /* ログの出力 */
         final KmgCoreLogMsgTypes logType     = KmgCoreLogMsgTypes.KMGCORE_LOG12004;
-        final Object[]               messageArgs = {
+        final Object[]           messageArgs = {
             this.name, msgContents, this.kmgPfaMeasModel.getElapsedTime(),
             this.kmgPfaMeasModel.getTimeUnit().getUnitName(),
         };
-        final String                 msg         = KmgMessageUtils.getLogMessage(logType, messageArgs);
+        final String             msg         = KmgMessageUtils.getLogMessage(logType, messageArgs);
         this.logger.warn(msg);
 
     }
@@ -245,6 +247,8 @@ public class KmgPfaMeasServiceImpl implements KmgPfaMeasService {
      * <p>
      * 新しいKMG性能測定モデルを生成して返します。
      * </p>
+     *
+     * @since 0.1.0
      *
      * @return KMG性能測定モデル
      */
