@@ -102,7 +102,7 @@ public enum JavaClassificationTypes implements KmgComTypes<String> {
      * @since 0.2.0
      */
     CONSTRUCTOR("コンストラクタ", "constructor", "コンストラクタ",
-        "^\\s*(public|private|protected)?\\s*(?<elementName>\\w+)\\s*\\(.*\\)\\s*(?:\\{.*)?$"),
+        "^\\s*(public|private|protected)?\\s*(?<elementName>\\w+)\\s*\\([^)]*\\)\\s*(?:\\{.*)?$"),
 
     /**
      * モジュール
