@@ -1,0 +1,16 @@
+kmg.core.domain.service
+kmg.core.domain.service.impl
+kmg.core.domain.types
+kmg.core.infrastructure.common
+kmg.core.infrastructure.common.msg
+kmg.core.infrastructure.exception
+kmg.core.infrastructure.model
+kmg.core.infrastructure.model.impl
+kmg.core.infrastructure.model.val
+kmg.core.infrastructure.model.val.impl
+kmg.core.infrastructure.type
+kmg.core.infrastructure.types
+kmg.core.infrastructure.types.msg
+kmg.core.infrastructure.types.template
+kmg.core.infrastructure.utils
+kmg.core.test
