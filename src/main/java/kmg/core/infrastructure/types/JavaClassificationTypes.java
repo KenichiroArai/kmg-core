@@ -196,7 +196,7 @@ public enum JavaClassificationTypes implements KmgComTypes<String> {
      */
     public static JavaClassificationTypes getEnum(final String key) {
 
-        JavaClassificationTypes result = JavaClassificationTypes.VALUES_MAP.get(KmgJavaKeywordTypes.getEnum(key));
+        JavaClassificationTypes result = JavaClassificationTypes.VALUES_MAP.get(KmgJavaKeywordTypes.getEnum(key).get());
 
         if (result == null) {
 
