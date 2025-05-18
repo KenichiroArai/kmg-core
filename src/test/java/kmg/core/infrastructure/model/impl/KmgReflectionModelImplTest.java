@@ -694,7 +694,6 @@ public class KmgReflectionModelImplTest extends AbstractKmgTest {
         /* 準備 */
         final TestClass testObject = new TestClass() {
 
-            @SuppressWarnings("unused")
             private String privateTestMethod(final String param) {
 
                 final String result = KmgString.concat(param, "Test");
