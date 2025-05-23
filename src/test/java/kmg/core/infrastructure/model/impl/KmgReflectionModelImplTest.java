@@ -145,7 +145,7 @@ public class KmgReflectionModelImplTest extends AbstractKmgTest {
 
         /* 期待値の定義 */
         final String             expectedDomainMessage = String.format(
-            "フィールドの値の取得に失敗しました。フィールド名=[%s]、対象のクラス=[%s]、最後に取得したフィールド=[%s]", "publicField",
+            "[%s] フィールドの値の取得に失敗しました。フィールド名=[%s]、対象のクラス=[%s]、最後に取得したフィールド=[%s]", "KMGCORE_GEN11202", "publicField",
             "class kmg.core.infrastructure.model.impl.KmgReflectionModelImplTest$TestClass",
             "public java.lang.String kmg.core.infrastructure.model.impl.KmgReflectionModelImplTest$TestClass.publicField");
         final KmgCoreGenMsgTypes expectedMessageTypes  = KmgCoreGenMsgTypes.KMGCORE_GEN11202;
@@ -170,7 +170,7 @@ public class KmgReflectionModelImplTest extends AbstractKmgTest {
 
         /* 検証の準備 */
         /* 検証の実施 */
-        this.verifyKmgException(actualException, IllegalAccessException.class, expectedDomainMessage,
+        this.verifyKmgMsgException(actualException, IllegalAccessException.class, expectedDomainMessage,
             expectedMessageTypes);
 
     }

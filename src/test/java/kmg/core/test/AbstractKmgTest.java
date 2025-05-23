@@ -15,7 +15,9 @@ import kmg.core.infrastructure.exception.KmgMsgException;
  *
  * @version 0.2.0
  */
-@SuppressWarnings("nls")
+@SuppressWarnings({
+    "nls", "static-method",
+})
 public abstract class AbstractKmgTest {
 
     /**
@@ -42,7 +44,6 @@ public abstract class AbstractKmgTest {
      * @param expectedMessageTypes
      *                              期待するメッセージの種類
      */
-    @SuppressWarnings("static-method")
     protected void verifyKmgMsgException(final KmgMsgException actualException, final Class<?> expectedCauseClass,
         final String expectedDomainMessage, final KmgComGenMsgTypes expectedMessageTypes) {
 
