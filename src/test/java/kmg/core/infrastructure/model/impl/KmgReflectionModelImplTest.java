@@ -462,9 +462,9 @@ public class KmgReflectionModelImplTest extends AbstractKmgTest {
     public void testGetDeclaredMethods_errorSecurityException() throws KmgReflectionException {
 
         /* 期待値の定義 */
-        final String             expectedMessage       = "Test security exception from getDeclaredMethods";
-        final String             expectedDomainMessage = String.format("メソッドの取得に失敗しました。メソッド名=[%s]、対象のクラス=[%s]",
-            "testMethod", "class kmg.core.infrastructure.model.impl.KmgReflectionModelImplTest$TestClass");
+        final String             expectedMessage       = "Test security exception from getDeclaredMethods";                  //$NON-NLS-1$
+        final String             expectedDomainMessage = String.format("メソッドの取得に失敗しました。メソッド名=[%s]、対象のクラス=[%s]",              //$NON-NLS-1$
+            "testMethod", "class kmg.core.infrastructure.model.impl.KmgReflectionModelImplTest$TestClass");                  //$NON-NLS-1$ //$NON-NLS-2$
         final KmgCoreGenMsgTypes expectedMessageTypes  = KmgCoreGenMsgTypes.KMGCORE_GEN11203;
 
         /* 準備 */
@@ -482,7 +482,7 @@ public class KmgReflectionModelImplTest extends AbstractKmgTest {
 
         /* テスト対象の実行 */
         final KmgReflectionException actualException
-            = Assertions.assertThrows(KmgReflectionException.class, () -> testReflection.getMethod("testMethod"));
+            = Assertions.assertThrows(KmgReflectionException.class, () -> testReflection.getMethod("testMethod")); //$NON-NLS-1$
 
         /* 検証の準備 */
         final Throwable          actualCause         = actualException.getCause();
@@ -492,10 +492,10 @@ public class KmgReflectionModelImplTest extends AbstractKmgTest {
 
         /* 検証の実施 */
         Assertions.assertTrue(actualCause instanceof SecurityException,
-            "KmgReflectionExceptionの原因がSecurityExceptionであること");
-        Assertions.assertEquals(expectedMessage, actualMessage, "SecurityExceptionのメッセージが正しいこと");
-        Assertions.assertEquals(expectedDomainMessage, actualDomainMessage, "KmgReflectionExceptionのメッセージが正しいこと");
-        Assertions.assertEquals(expectedMessageTypes, actualMessageTypes, "メッセージの種類が正しいこと");
+            "KmgReflectionExceptionの原因がSecurityExceptionであること"); //$NON-NLS-1$
+        Assertions.assertEquals(expectedMessage, actualMessage, "SecurityExceptionのメッセージが正しいこと"); //$NON-NLS-1$
+        Assertions.assertEquals(expectedDomainMessage, actualDomainMessage, "KmgReflectionExceptionのメッセージが正しいこと"); //$NON-NLS-1$
+        Assertions.assertEquals(expectedMessageTypes, actualMessageTypes, "メッセージの種類が正しいこと"); //$NON-NLS-1$
 
     }
 
