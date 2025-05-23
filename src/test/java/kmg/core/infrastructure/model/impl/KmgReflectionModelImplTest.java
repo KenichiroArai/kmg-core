@@ -9,7 +9,10 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.mockito.junit.jupiter.MockitoSettings;
+import org.mockito.quality.Strictness;
 
+import kmg.core.infrastructure.common.msg.KmgComExcMsgTypes;
 import kmg.core.infrastructure.exception.KmgReflectionException;
 import kmg.core.infrastructure.type.KmgString;
 import kmg.core.infrastructure.types.msg.KmgCoreGenMsgTypes;
@@ -24,10 +27,11 @@ import kmg.core.test.AbstractKmgTest;
  *
  * @version 0.2.0
  */
+@ExtendWith(MockitoExtension.class)
+@MockitoSettings(strictness = Strictness.LENIENT)
 @SuppressWarnings({
     "nls",
 })
-@ExtendWith(MockitoExtension.class)
 public class KmgReflectionModelImplTest extends AbstractKmgTest {
 
     /**
@@ -462,9 +466,10 @@ public class KmgReflectionModelImplTest extends AbstractKmgTest {
     public void testGetDeclaredMethods_errorSecurityException() throws KmgReflectionException {
 
         /* 期待値の定義 */
-        final String             expectedMessage       = "Test security exception from getDeclaredMethods";                  //$NON-NLS-1$
-        final String             expectedDomainMessage = String.format("メソッドの取得に失敗しました。メソッド名=[%s]、対象のクラス=[%s]",              //$NON-NLS-1$
-            "testMethod", "class kmg.core.infrastructure.model.impl.KmgReflectionModelImplTest$TestClass");                  //$NON-NLS-1$ //$NON-NLS-2$
+        final String             expectedMessage       = "Test security exception from getDeclaredMethods";
+        final String             expectedDomainMessage = String.format("[%s] メソッドの取得に失敗しました。メソッド名=[%s]、対象のクラス=[%s]",
+            "KMGCORE_GEN11203", "testMethod",
+            "class kmg.core.infrastructure.model.impl.KmgReflectionModelImplTest$TestClass");
         final KmgCoreGenMsgTypes expectedMessageTypes  = KmgCoreGenMsgTypes.KMGCORE_GEN11203;
 
         /* 準備 */
@@ -482,20 +487,20 @@ public class KmgReflectionModelImplTest extends AbstractKmgTest {
 
         /* テスト対象の実行 */
         final KmgReflectionException actualException
-            = Assertions.assertThrows(KmgReflectionException.class, () -> testReflection.getMethod("testMethod")); //$NON-NLS-1$
+            = Assertions.assertThrows(KmgReflectionException.class, () -> testReflection.getMethod("testMethod"));
 
         /* 検証の準備 */
-        final Throwable          actualCause         = actualException.getCause();
-        final String             actualMessage       = actualCause.getMessage();
-        final String             actualDomainMessage = actualException.getMessage();
-        final KmgCoreGenMsgTypes actualMessageTypes  = actualException.getMessageTypes();
+        final Throwable         actualCause         = actualException.getCause();
+        final String            actualMessage       = actualCause.getMessage();
+        final String            actualDomainMessage = actualException.getMessage();
+        final KmgComExcMsgTypes actualMessageTypes  = actualException.getMessageTypes();
 
         /* 検証の実施 */
         Assertions.assertTrue(actualCause instanceof SecurityException,
-            "KmgReflectionExceptionの原因がSecurityExceptionであること"); //$NON-NLS-1$
-        Assertions.assertEquals(expectedMessage, actualMessage, "SecurityExceptionのメッセージが正しいこと"); //$NON-NLS-1$
-        Assertions.assertEquals(expectedDomainMessage, actualDomainMessage, "KmgReflectionExceptionのメッセージが正しいこと"); //$NON-NLS-1$
-        Assertions.assertEquals(expectedMessageTypes, actualMessageTypes, "メッセージの種類が正しいこと"); //$NON-NLS-1$
+            "KmgReflectionExceptionの原因がSecurityExceptionであること");
+        Assertions.assertEquals(expectedMessage, actualMessage, "SecurityExceptionのメッセージが正しいこと");
+        Assertions.assertEquals(expectedDomainMessage, actualDomainMessage, "KmgReflectionExceptionのメッセージが正しいこと");
+        Assertions.assertEquals(expectedMessageTypes, actualMessageTypes, "メッセージの種類が正しいこと");
 
     }
 
