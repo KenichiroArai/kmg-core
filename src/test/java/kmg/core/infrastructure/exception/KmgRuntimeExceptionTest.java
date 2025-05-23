@@ -71,7 +71,7 @@ public class KmgRuntimeExceptionTest {
         final Object[]           expectedMsgArgs  = {
             "テスト引数1", "テスト引数2"
         };
-        final String             expectedMessage  = "テスト引数1がありません。";
+        final String             expectedMessage  = "[KMGCORE_GEN11100] テスト引数1がありません。";
 
         /* テスト対象の実行 */
         final KmgRuntimeException testException = new KmgRuntimeException(expectedMsgTypes, expectedMsgArgs);

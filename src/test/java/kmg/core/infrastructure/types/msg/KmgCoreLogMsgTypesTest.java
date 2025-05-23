@@ -39,7 +39,7 @@ public class KmgCoreLogMsgTypesTest {
     public void testGet_normalBasicValue() {
 
         /* 期待値の定義 */
-        final String expected = "KMGCORE_LOG12000"; //$NON-NLS-1$
+        final String expected = "KMGCORE_LOG12000";
 
         /* 準備 */
         final KmgCoreLogMsgTypes testType = KmgCoreLogMsgTypes.KMGCORE_LOG12000;
@@ -48,7 +48,7 @@ public class KmgCoreLogMsgTypesTest {
         final String actual = testType.get();
 
         /* 検証の実施 */
-        Assertions.assertEquals(expected, actual, "取得値が一致しません"); //$NON-NLS-1$
+        Assertions.assertEquals(expected, actual, "取得値が一致しません");
 
     }
 
@@ -61,7 +61,7 @@ public class KmgCoreLogMsgTypesTest {
     public void testGetCode_normalBasicCode() {
 
         /* 期待値の定義 */
-        final String expected = "KMGCORE_LOG12000"; //$NON-NLS-1$
+        final String expected = "KMGCORE_LOG12000";
 
         /* 準備 */
         final KmgCoreLogMsgTypes testType = KmgCoreLogMsgTypes.KMGCORE_LOG12000;
@@ -70,7 +70,7 @@ public class KmgCoreLogMsgTypesTest {
         final String actual = testType.getCode();
 
         /* 検証の実施 */
-        Assertions.assertEquals(expected, actual, "取得値が一致しません"); //$NON-NLS-1$
+        Assertions.assertEquals(expected, actual, "取得値が一致しません");
 
     }
 
@@ -102,7 +102,7 @@ public class KmgCoreLogMsgTypesTest {
     public void testGetDetail_normalBasicDetail() {
 
         /* 期待値の定義 */
-        final String expected = "KMGCORE_LOG12000"; //$NON-NLS-1$
+        final String expected = "{0}：開始";
 
         /* 準備 */
         final KmgCoreLogMsgTypes testType = KmgCoreLogMsgTypes.KMGCORE_LOG12000;
@@ -111,7 +111,7 @@ public class KmgCoreLogMsgTypesTest {
         final String actual = testType.getDetail();
 
         /* 検証の実施 */
-        Assertions.assertEquals(expected, actual, "取得値が一致しません"); //$NON-NLS-1$
+        Assertions.assertEquals(expected, actual, "取得値が一致しません");
 
     }
 
@@ -124,7 +124,7 @@ public class KmgCoreLogMsgTypesTest {
     public void testGetDisplayName_normalBasicDisplayName() {
 
         /* 期待値の定義 */
-        final String expected = "KMGCORE_LOG12000"; //$NON-NLS-1$
+        final String expected = "{0}：開始";
 
         /* 準備 */
         final KmgCoreLogMsgTypes testType = KmgCoreLogMsgTypes.KMGCORE_LOG12000;
@@ -133,7 +133,7 @@ public class KmgCoreLogMsgTypesTest {
         final String actual = testType.getDisplayName();
 
         /* 検証の実施 */
-        Assertions.assertEquals(expected, actual, "取得値が一致しません"); //$NON-NLS-1$
+        Assertions.assertEquals(expected, actual, "取得値が一致しません");
 
     }
 
@@ -149,13 +149,13 @@ public class KmgCoreLogMsgTypesTest {
         final KmgCoreLogMsgTypes expected = KmgCoreLogMsgTypes.KMGCORE_LOG12000;
 
         /* 準備 */
-        final String key = "KMGCORE_LOG12000"; //$NON-NLS-1$
+        final String key = "KMGCORE_LOG12000";
 
         /* テスト対象の実行 */
         final KmgCoreLogMsgTypes actual = KmgCoreLogMsgTypes.getEnum(key);
 
         /* 検証の実施 */
-        Assertions.assertEquals(expected, actual, "取得値が一致しません"); //$NON-NLS-1$
+        Assertions.assertEquals(expected, actual, "取得値が一致しません");
 
     }
 
@@ -209,7 +209,7 @@ public class KmgCoreLogMsgTypesTest {
     public void testGetValue_normalBasicValue() {
 
         /* 期待値の定義 */
-        final String expected = "KMGCORE_LOG12000"; //$NON-NLS-1$
+        final String expected = "{0}：開始";
 
         /* 準備 */
         final KmgCoreLogMsgTypes testType = KmgCoreLogMsgTypes.KMGCORE_LOG12000;
@@ -218,7 +218,7 @@ public class KmgCoreLogMsgTypesTest {
         final String actual = testType.getValue();
 
         /* 検証の実施 */
-        Assertions.assertEquals(expected, actual, "取得値が一致しません"); //$NON-NLS-1$
+        Assertions.assertEquals(expected, actual, "取得値が一致しません");
 
     }
 
@@ -231,7 +231,7 @@ public class KmgCoreLogMsgTypesTest {
     public void testToString_normalKMGCORE_LOG12000() {
 
         /* 期待値の定義 */
-        final String expected = "KMGCORE_LOG12000"; //$NON-NLS-1$
+        final String expected = "KMGCORE_LOG12000";
 
         /* 準備 */
         final KmgCoreLogMsgTypes testType = KmgCoreLogMsgTypes.KMGCORE_LOG12000;
@@ -240,7 +240,7 @@ public class KmgCoreLogMsgTypesTest {
         final String actual = testType.toString();
 
         /* 検証の実施 */
-        Assertions.assertEquals(expected, actual, "取得値が一致しません"); //$NON-NLS-1$
+        Assertions.assertEquals(expected, actual, "取得値が一致しません");
 
     }
 
