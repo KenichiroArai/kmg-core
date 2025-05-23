@@ -1,12 +1,14 @@
-package kmg.core.domain.types;
+package kmg.core.infrastructure.types.msg;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import kmg.core.infrastructure.types.msg.KmgCoreGenMsgTypes;
-
 /**
  * KMG一般メッセージの種類のテスト<br>
+ * <p>
+ * Genは、Generalの略。<br>
+ * Msgは、Messageの略。
+ * </p>
  *
  * @author KenichiroArai
  *
@@ -17,14 +19,14 @@ import kmg.core.infrastructure.types.msg.KmgCoreGenMsgTypes;
 @SuppressWarnings({
     "nls", "static-method"
 })
-public class KmgCoreGenMessageTypesTest {
+public class KmgCoreGenMsgTypesTest {
 
     /**
      * デフォルトコンストラクタ<br>
      *
      * @since 0.1.0
      */
-    public KmgCoreGenMessageTypesTest() {
+    public KmgCoreGenMsgTypesTest() {
 
         // 処理なし
     }

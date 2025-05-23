@@ -1,12 +1,13 @@
-package kmg.core.domain.types;
+package kmg.core.infrastructure.types.msg;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import kmg.core.infrastructure.types.msg.KmgCoreLogMsgTypes;
-
 /**
  * KMGログメッセージの種類のテスト<br>
+ * <p>
+ * Msgは、Messageの略。
+ * </p>
  *
  * @author KenichiroArai
  *
@@ -17,14 +18,14 @@ import kmg.core.infrastructure.types.msg.KmgCoreLogMsgTypes;
 @SuppressWarnings({
     "nls", "static-method"
 })
-public class KmgCoreLogMessageTypesTest {
+public class KmgCoreLogMsgTypesTest {
 
     /**
      * デフォルトコンストラクタ<br>
      *
      * @since 0.1.0
      */
-    public KmgCoreLogMessageTypesTest() {
+    public KmgCoreLogMsgTypesTest() {
 
         // 処理なし
     }
