@@ -142,6 +142,160 @@ public class KmgPfaMeasServiceImplTest {
     }
 
     /**
+     * error(String) メソッドのテスト - 正常系:エラーメッセージが正しく出力されることの確認
+     *
+     * @since 0.2.0
+     */
+    @Test
+    public void testError_normalOutputErrorMessage() {
+
+        /* 期待値の定義 */
+        final String           expectedName        = "テスト測定";
+        final String           expectedMsgContents = "エラーメッセージ";
+        final double           expectedElapsedTime = 1.5;
+        final KmgTimeUnitTypes expectedTimeUnit    = KmgTimeUnitTypes.SECONDS;
+
+        // 期待されるログメッセージ
+        final KmgCoreLogMsgTypes logType            = KmgCoreLogMsgTypes.KMGCORE_LOG12002;
+        final Object[]           messageArgs        = {
+            expectedName, expectedMsgContents, expectedElapsedTime, expectedTimeUnit.getUnitName(),
+        };
+        final String             expectedLogMessage = KmgMessageUtils.getLogMessage(logType, messageArgs);
+
+        /* 準備 */
+        final Logger          mockLogger = Mockito.mock(Logger.class);
+        final KmgPfaMeasModel mockModel  = Mockito.mock(KmgPfaMeasModel.class);
+        Mockito.when(mockModel.getElapsedTime()).thenReturn(expectedElapsedTime);
+        Mockito.when(mockModel.getTimeUnit()).thenReturn(expectedTimeUnit);
+
+        final KmgPfaMeasServiceImpl testTarget = new KmgPfaMeasServiceImpl(expectedName, mockLogger) {
+
+            @Override
+            protected KmgPfaMeasModel createKmgPfaMeasModel() {
+
+                final KmgPfaMeasModel result = mockModel;
+                return result;
+
+            }
+        };
+
+        /* テスト対象の実行 */
+        testTarget.start();
+        testTarget.error(expectedMsgContents);
+
+        /* 検証の実施 */
+        Mockito.verify(mockModel).start();
+        Mockito.verify(mockModel).checkpoint();
+
+        // ログメッセージの検証
+        Mockito.verify(mockLogger).error(expectedLogMessage);
+
+    }
+
+    /**
+     * error(String, Throwable) メソッドのテスト - 正常系:エラーメッセージと例外が正しく出力されることの確認
+     *
+     * @since 0.2.0
+     */
+    @Test
+    public void testErrorWithThrowable_normalOutputErrorMessageAndThrowable() {
+
+        /* 期待値の定義 */
+        final String           expectedName        = "テスト測定";
+        final String           expectedMsgContents = "エラーメッセージ";
+        final double           expectedElapsedTime = 1.5;
+        final KmgTimeUnitTypes expectedTimeUnit    = KmgTimeUnitTypes.SECONDS;
+        final Throwable        expectedThrowable   = new RuntimeException("テスト例外");
+
+        // 期待されるログメッセージ
+        final KmgCoreLogMsgTypes logType            = KmgCoreLogMsgTypes.KMGCORE_LOG12002;
+        final Object[]           messageArgs        = {
+            expectedName, expectedMsgContents, expectedElapsedTime, expectedTimeUnit.getUnitName(),
+        };
+        final String             expectedLogMessage = KmgMessageUtils.getLogMessage(logType, messageArgs);
+
+        /* 準備 */
+        final Logger          mockLogger = Mockito.mock(Logger.class);
+        final KmgPfaMeasModel mockModel  = Mockito.mock(KmgPfaMeasModel.class);
+        Mockito.when(mockModel.getElapsedTime()).thenReturn(expectedElapsedTime);
+        Mockito.when(mockModel.getTimeUnit()).thenReturn(expectedTimeUnit);
+
+        final KmgPfaMeasServiceImpl testTarget = new KmgPfaMeasServiceImpl(expectedName, mockLogger) {
+
+            @Override
+            protected KmgPfaMeasModel createKmgPfaMeasModel() {
+
+                final KmgPfaMeasModel result = mockModel;
+                return result;
+
+            }
+        };
+
+        /* テスト対象の実行 */
+        testTarget.start();
+        testTarget.error(expectedMsgContents, expectedThrowable);
+
+        /* 検証の実施 */
+        Mockito.verify(mockModel).start();
+        Mockito.verify(mockModel).checkpoint();
+
+        // ログメッセージの検証
+        Mockito.verify(mockLogger).error(expectedLogMessage, expectedThrowable);
+
+    }
+
+    /**
+     * info(String) メソッドのテスト - 正常系:情報メッセージが正しく出力されることの確認
+     *
+     * @since 0.2.0
+     */
+    @Test
+    public void testInfo_normalOutputInfoMessage() {
+
+        /* 期待値の定義 */
+        final String           expectedName        = "テスト測定";
+        final String           expectedMsgContents = "情報メッセージ";
+        final double           expectedElapsedTime = 1.5;
+        final KmgTimeUnitTypes expectedTimeUnit    = KmgTimeUnitTypes.SECONDS;
+
+        // 期待されるログメッセージ
+        final KmgCoreLogMsgTypes logType            = KmgCoreLogMsgTypes.KMGCORE_LOG12003;
+        final Object[]           messageArgs        = {
+            expectedName, expectedMsgContents, expectedElapsedTime, expectedTimeUnit.getUnitName(),
+        };
+        final String             expectedLogMessage = KmgMessageUtils.getLogMessage(logType, messageArgs);
+
+        /* 準備 */
+        final Logger          mockLogger = Mockito.mock(Logger.class);
+        final KmgPfaMeasModel mockModel  = Mockito.mock(KmgPfaMeasModel.class);
+        Mockito.when(mockModel.getElapsedTime()).thenReturn(expectedElapsedTime);
+        Mockito.when(mockModel.getTimeUnit()).thenReturn(expectedTimeUnit);
+
+        final KmgPfaMeasServiceImpl testTarget = new KmgPfaMeasServiceImpl(expectedName, mockLogger) {
+
+            @Override
+            protected KmgPfaMeasModel createKmgPfaMeasModel() {
+
+                final KmgPfaMeasModel result = mockModel;
+                return result;
+
+            }
+        };
+
+        /* テスト対象の実行 */
+        testTarget.start();
+        testTarget.info(expectedMsgContents);
+
+        /* 検証の実施 */
+        Mockito.verify(mockModel).start();
+        Mockito.verify(mockModel).checkpoint();
+
+        // ログメッセージの検証
+        Mockito.verify(mockLogger).info(expectedLogMessage);
+
+    }
+
+    /**
      * start メソッドのテスト - 正常系:開始メッセージが正しく出力されることの確認
      *
      * @since 0.1.0
@@ -182,6 +336,57 @@ public class KmgPfaMeasServiceImplTest {
 
         // ログメッセージの検証
         Mockito.verify(mockLogger).info(expectedLogMessage);
+
+    }
+
+    /**
+     * warn(String) メソッドのテスト - 正常系:警告メッセージが正しく出力されることの確認
+     *
+     * @since 0.2.0
+     */
+    @Test
+    public void testWarn_normalOutputWarnMessage() {
+
+        /* 期待値の定義 */
+        final String           expectedName        = "テスト測定";
+        final String           expectedMsgContents = "警告メッセージ";
+        final double           expectedElapsedTime = 1.5;
+        final KmgTimeUnitTypes expectedTimeUnit    = KmgTimeUnitTypes.SECONDS;
+
+        // 期待されるログメッセージ
+        final KmgCoreLogMsgTypes logType            = KmgCoreLogMsgTypes.KMGCORE_LOG12004;
+        final Object[]           messageArgs        = {
+            expectedName, expectedMsgContents, expectedElapsedTime, expectedTimeUnit.getUnitName(),
+        };
+        final String             expectedLogMessage = KmgMessageUtils.getLogMessage(logType, messageArgs);
+
+        /* 準備 */
+        final Logger          mockLogger = Mockito.mock(Logger.class);
+        final KmgPfaMeasModel mockModel  = Mockito.mock(KmgPfaMeasModel.class);
+        Mockito.when(mockModel.getElapsedTime()).thenReturn(expectedElapsedTime);
+        Mockito.when(mockModel.getTimeUnit()).thenReturn(expectedTimeUnit);
+
+        final KmgPfaMeasServiceImpl testTarget = new KmgPfaMeasServiceImpl(expectedName, mockLogger) {
+
+            @Override
+            protected KmgPfaMeasModel createKmgPfaMeasModel() {
+
+                final KmgPfaMeasModel result = mockModel;
+                return result;
+
+            }
+        };
+
+        /* テスト対象の実行 */
+        testTarget.start();
+        testTarget.warn(expectedMsgContents);
+
+        /* 検証の実施 */
+        Mockito.verify(mockModel).start();
+        Mockito.verify(mockModel).checkpoint();
+
+        // ログメッセージの検証
+        Mockito.verify(mockLogger).warn(expectedLogMessage);
 
     }
 }
