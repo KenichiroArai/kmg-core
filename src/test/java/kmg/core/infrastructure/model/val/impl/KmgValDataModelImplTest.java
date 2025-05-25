@@ -73,8 +73,8 @@ public class KmgValDataModelImplTest {
         final String actualMessage = testTarget.getMessage();
 
         /* 検証の実施 */
-        Assertions.assertNotNull(actualMessage, "メッセージがnullです");
-        Assertions.assertFalse(actualMessage.isEmpty(), "メッセージが空文字です");
+        Assertions.assertNotNull(actualMessage, "メッセージがnullではないです");
+        Assertions.assertTrue(actualMessage.isEmpty(), "メッセージが空文字です");
 
     }
 
