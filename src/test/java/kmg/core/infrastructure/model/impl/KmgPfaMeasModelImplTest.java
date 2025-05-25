@@ -38,6 +38,39 @@ public class KmgPfaMeasModelImplTest {
     }
 
     /**
+     * checkpoint メソッドのテスト - 正常系:チェックポイント時間が正しく記録され、経過時間が計算されることの確認
+     *
+     * @since 0.2.0
+     */
+    @Test
+    public void testCheckpoint_normalRecordCheckpointTimeAndCalculateElapsedTime() {
+
+        /* 期待値の定義 */
+        final long             expectedStartTime      = 1000L;
+        final long             expectedCheckpointTime = 2000L;
+        final double           expectedElapsedTime    = 1000.0;
+        final KmgTimeUnitTypes expectedTimeUnit       = KmgTimeUnitTypes.NANOSECONDS;
+
+        /* 準備 */
+        final KmgPfaMeasModelImpl testTarget
+            = this.createKmgPfaMeasModelImpl(expectedStartTime, expectedCheckpointTime);
+
+        /* テスト対象の実行 */
+        testTarget.start();
+        testTarget.checkpoint();
+
+        /* 検証の準備 */
+        final double           actualElapsedTime = testTarget.getElapsedTime();
+        final KmgTimeUnitTypes actualTimeUnit    = testTarget.getTimeUnit();
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expectedElapsedTime, actualElapsedTime, KmgPfaMeasModelImplTest.DELTA,
+            "経過時間が期待値と一致すること");
+        Assertions.assertEquals(expectedTimeUnit, actualTimeUnit, "時間単位がナノ秒であること");
+
+    }
+
+    /**
      * end メソッドのテスト - 正常系:マイクロ秒の経過時間が正しく計算されることの確認
      *
      * @since 0.1.0
