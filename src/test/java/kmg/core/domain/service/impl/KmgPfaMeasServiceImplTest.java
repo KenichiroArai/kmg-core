@@ -187,8 +187,8 @@ public class KmgPfaMeasServiceImplTest {
         Mockito.verify(mockModel).start();
         Mockito.verify(mockModel).checkpoint();
 
-        // ログメッセージの検証
-        Mockito.verify(mockLogger).error(expectedLogMessage);
+        // ログメッセージの検証（start()によるinfo()呼び出しも発生するため、times()で明示的に指定）
+        Mockito.verify(mockLogger, Mockito.times(1)).error(expectedLogMessage, (Throwable) null);
 
     }
 
