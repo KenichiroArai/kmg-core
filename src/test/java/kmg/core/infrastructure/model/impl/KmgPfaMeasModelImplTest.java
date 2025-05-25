@@ -48,8 +48,8 @@ public class KmgPfaMeasModelImplTest {
         /* 期待値の定義 */
         final long             expectedStartTime      = 1000L;
         final long             expectedCheckpointTime = 2000L;
-        final double           expectedElapsedTime    = 1000.0;
-        final KmgTimeUnitTypes expectedTimeUnit       = KmgTimeUnitTypes.NANOSECONDS;
+        final double           expectedElapsedTime    = 1.0;
+        final KmgTimeUnitTypes expectedTimeUnit       = KmgTimeUnitTypes.MICROSECONDS;
 
         /* 準備 */
         final KmgPfaMeasModelImpl testTarget
@@ -66,7 +66,7 @@ public class KmgPfaMeasModelImplTest {
         /* 検証の実施 */
         Assertions.assertEquals(expectedElapsedTime, actualElapsedTime, KmgPfaMeasModelImplTest.DELTA,
             "経過時間が期待値と一致すること");
-        Assertions.assertEquals(expectedTimeUnit, actualTimeUnit, "時間単位がナノ秒であること");
+        Assertions.assertEquals(expectedTimeUnit, actualTimeUnit, "時間単位がマイクロ秒であること");
 
     }
 
