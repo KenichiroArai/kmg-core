@@ -30,7 +30,7 @@ import kmg.core.test.AbstractKmgTest;
 @ExtendWith(MockitoExtension.class)
 @MockitoSettings(strictness = Strictness.LENIENT)
 @SuppressWarnings({
-    "nls",
+    "nls", "static-method",
 })
 public class KmgReflectionModelImplTest extends AbstractKmgTest {
 
