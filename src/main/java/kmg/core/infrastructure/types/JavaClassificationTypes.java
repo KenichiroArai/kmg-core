@@ -8,7 +8,6 @@ import java.util.regex.Pattern;
 import kmg.core.infrastructure.common.KmgComTypes;
 import kmg.core.infrastructure.exception.KmgMsgException;
 import kmg.core.infrastructure.type.KmgString;
-import kmg.core.infrastructure.types.msg.KmgCoreGenMsgTypes;
 
 /**
  * Java区分の種類<br>
@@ -383,14 +382,6 @@ public enum JavaClassificationTypes implements KmgComTypes<String> {
 
         }
 
-        // NONEか
-        if (this == NONE) {
-            // NONEの場合
-
-            return result;
-
-        }
-
         // 区分判定パターンがnullか
         if (this.getClassificationPattern() == null) {
             // nullの場合
@@ -411,20 +402,7 @@ public enum JavaClassificationTypes implements KmgComTypes<String> {
         }
 
         // 要素名を設定する
-        try {
-
-            result = matcher.group(JavaClassificationTypes.GROUP_ELEMENT_NAME);
-
-        } catch (final IllegalArgumentException e) {
-
-            final KmgCoreGenMsgTypes msgTypes = KmgCoreGenMsgTypes.KMGCORE_GEN23000;
-            final Object[]           msgArgs  = {
-                text, this.getClassificationPattern(), JavaClassificationTypes.GROUP_ELEMENT_NAME,
-            };
-
-            throw new KmgMsgException(msgTypes, msgArgs, e);
-
-        }
+        result = matcher.group(JavaClassificationTypes.GROUP_ELEMENT_NAME);
 
         return result;
 
