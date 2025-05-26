@@ -113,6 +113,56 @@ public class KmgJavaKeywordTypesTest {
     }
 
     /**
+     * getEnum メソッドのテスト - 正常系:アクセス修飾子の取得
+     *
+     * @since 0.2.0
+     */
+    @Test
+    public void testGetEnum_normalAccessModifiers() {
+
+        /* 期待値の定義 */
+        final KmgJavaKeywordTypes expectedPublic    = KmgJavaKeywordTypes.PUBLIC;
+        final KmgJavaKeywordTypes expectedPrivate   = KmgJavaKeywordTypes.PRIVATE;
+        final KmgJavaKeywordTypes expectedProtected = KmgJavaKeywordTypes.PROTECTED;
+
+        /* テスト対象の実行 */
+        final KmgJavaKeywordTypes actualPublic    = KmgJavaKeywordTypes.getEnum("public");
+        final KmgJavaKeywordTypes actualPrivate   = KmgJavaKeywordTypes.getEnum("private");
+        final KmgJavaKeywordTypes actualProtected = KmgJavaKeywordTypes.getEnum("protected");
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expectedPublic, actualPublic, "publicアクセス修飾子が一致しません");
+        Assertions.assertEquals(expectedPrivate, actualPrivate, "privateアクセス修飾子が一致しません");
+        Assertions.assertEquals(expectedProtected, actualProtected, "protectedアクセス修飾子が一致しません");
+
+    }
+
+    /**
+     * getEnum メソッドのテスト - 正常系:データ型の取得
+     *
+     * @since 0.2.0
+     */
+    @Test
+    public void testGetEnum_normalDataTypes() {
+
+        /* 期待値の定義 */
+        final KmgJavaKeywordTypes expectedInt     = KmgJavaKeywordTypes.INT;
+        final KmgJavaKeywordTypes expectedString  = KmgJavaKeywordTypes.NONE;   // stringは予約語ではない
+        final KmgJavaKeywordTypes expectedBoolean = KmgJavaKeywordTypes.BOOLEAN;
+
+        /* テスト対象の実行 */
+        final KmgJavaKeywordTypes actualInt     = KmgJavaKeywordTypes.getEnum("int");
+        final KmgJavaKeywordTypes actualString  = KmgJavaKeywordTypes.getEnum("string");
+        final KmgJavaKeywordTypes actualBoolean = KmgJavaKeywordTypes.getEnum("boolean");
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expectedInt, actualInt, "intデータ型が一致しません");
+        Assertions.assertEquals(expectedString, actualString, "stringは予約語ではありません");
+        Assertions.assertEquals(expectedBoolean, actualBoolean, "booleanデータ型が一致しません");
+
+    }
+
+    /**
      * getEnum メソッドのテスト - 正常系:存在する値の取得
      *
      * @since 0.2.0
@@ -131,6 +181,31 @@ public class KmgJavaKeywordTypesTest {
 
         /* 検証の実施 */
         Assertions.assertEquals(expected, actual, "値が一致しません");
+
+    }
+
+    /**
+     * getEnum メソッドのテスト - 正常系:複数のキーワードの取得
+     *
+     * @since 0.2.0
+     */
+    @Test
+    public void testGetEnum_normalMultipleKeywords() {
+
+        /* 期待値の定義 */
+        final KmgJavaKeywordTypes expectedClass     = KmgJavaKeywordTypes.CLASS;
+        final KmgJavaKeywordTypes expectedInterface = KmgJavaKeywordTypes.INTERFACE;
+        final KmgJavaKeywordTypes expectedEnum      = KmgJavaKeywordTypes.ENUM;
+
+        /* テスト対象の実行 */
+        final KmgJavaKeywordTypes actualClass     = KmgJavaKeywordTypes.getEnum("class");
+        final KmgJavaKeywordTypes actualInterface = KmgJavaKeywordTypes.getEnum("interface");
+        final KmgJavaKeywordTypes actualEnum      = KmgJavaKeywordTypes.getEnum("enum");
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expectedClass, actualClass, "classキーワードが一致しません");
+        Assertions.assertEquals(expectedInterface, actualInterface, "interfaceキーワードが一致しません");
+        Assertions.assertEquals(expectedEnum, actualEnum, "enumキーワードが一致しません");
 
     }
 
@@ -238,81 +313,6 @@ public class KmgJavaKeywordTypesTest {
 
         /* 検証の実施 */
         Assertions.assertEquals(expected, actual, "文字列表現が一致しません");
-
-    }
-
-    /**
-     * getEnum メソッドのテスト - 正常系:複数のキーワードの取得
-     *
-     * @since 0.2.0
-     */
-    @Test
-    public void testGetEnum_normalMultipleKeywords() {
-
-        /* 期待値の定義 */
-        final KmgJavaKeywordTypes expectedClass     = KmgJavaKeywordTypes.CLASS;
-        final KmgJavaKeywordTypes expectedInterface = KmgJavaKeywordTypes.INTERFACE;
-        final KmgJavaKeywordTypes expectedEnum      = KmgJavaKeywordTypes.ENUM;
-
-        /* テスト対象の実行 */
-        final KmgJavaKeywordTypes actualClass     = KmgJavaKeywordTypes.getEnum("class");
-        final KmgJavaKeywordTypes actualInterface = KmgJavaKeywordTypes.getEnum("interface");
-        final KmgJavaKeywordTypes actualEnum      = KmgJavaKeywordTypes.getEnum("enum");
-
-        /* 検証の実施 */
-        Assertions.assertEquals(expectedClass, actualClass, "classキーワードが一致しません");
-        Assertions.assertEquals(expectedInterface, actualInterface, "interfaceキーワードが一致しません");
-        Assertions.assertEquals(expectedEnum, actualEnum, "enumキーワードが一致しません");
-
-    }
-
-    /**
-     * getEnum メソッドのテスト - 正常系:アクセス修飾子の取得
-     *
-     * @since 0.2.0
-     */
-    @Test
-    public void testGetEnum_normalAccessModifiers() {
-
-        /* 期待値の定義 */
-        final KmgJavaKeywordTypes expectedPublic    = KmgJavaKeywordTypes.PUBLIC;
-        final KmgJavaKeywordTypes expectedPrivate   = KmgJavaKeywordTypes.PRIVATE;
-        final KmgJavaKeywordTypes expectedProtected = KmgJavaKeywordTypes.PROTECTED;
-
-        /* テスト対象の実行 */
-        final KmgJavaKeywordTypes actualPublic    = KmgJavaKeywordTypes.getEnum("public");
-        final KmgJavaKeywordTypes actualPrivate   = KmgJavaKeywordTypes.getEnum("private");
-        final KmgJavaKeywordTypes actualProtected = KmgJavaKeywordTypes.getEnum("protected");
-
-        /* 検証の実施 */
-        Assertions.assertEquals(expectedPublic, actualPublic, "publicアクセス修飾子が一致しません");
-        Assertions.assertEquals(expectedPrivate, actualPrivate, "privateアクセス修飾子が一致しません");
-        Assertions.assertEquals(expectedProtected, actualProtected, "protectedアクセス修飾子が一致しません");
-
-    }
-
-    /**
-     * getEnum メソッドのテスト - 正常系:データ型の取得
-     *
-     * @since 0.2.0
-     */
-    @Test
-    public void testGetEnum_normalDataTypes() {
-
-        /* 期待値の定義 */
-        final KmgJavaKeywordTypes expectedInt     = KmgJavaKeywordTypes.INT;
-        final KmgJavaKeywordTypes expectedString  = KmgJavaKeywordTypes.NONE;   // stringは予約語ではない
-        final KmgJavaKeywordTypes expectedBoolean = KmgJavaKeywordTypes.BOOLEAN;
-
-        /* テスト対象の実行 */
-        final KmgJavaKeywordTypes actualInt     = KmgJavaKeywordTypes.getEnum("int");
-        final KmgJavaKeywordTypes actualString  = KmgJavaKeywordTypes.getEnum("string");
-        final KmgJavaKeywordTypes actualBoolean = KmgJavaKeywordTypes.getEnum("boolean");
-
-        /* 検証の実施 */
-        Assertions.assertEquals(expectedInt, actualInt, "intデータ型が一致しません");
-        Assertions.assertEquals(expectedString, actualString, "stringは予約語ではありません");
-        Assertions.assertEquals(expectedBoolean, actualBoolean, "booleanデータ型が一致しません");
 
     }
 }

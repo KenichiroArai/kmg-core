@@ -22,25 +22,45 @@ import kmg.core.infrastructure.types.msg.KmgCoreValMsgTypes;
 public class KmgValsModelImplTest {
 
     /**
-     * コンストラクタのテスト - 正常系：正常にインスタンスが作成される場合
+     * addData メソッドのテスト - 正常系：複数のデータが追加される場合
      */
     @Test
-    public void testConstructor_normal() {
+    public void testAddData_normalMultipleData() {
 
         /* 期待値の定義 */
-        final boolean expectedIsEmpty = true;
+        final int     expectedSize       = 3;
+        final boolean expectedIsEmpty    = false;
+        final boolean expectedIsNotEmpty = true;
+
+        /* 準備 */
+        final KmgValsModelImpl testTarget = new KmgValsModelImpl();
+        final KmgValDataModel  testData1  = new KmgValDataModelImpl(KmgCoreValMsgTypes.NONE, new Object[] {
+            "テストデータ1"
+        });
+        final KmgValDataModel  testData2  = new KmgValDataModelImpl(KmgCoreValMsgTypes.NONE, new Object[] {
+            "テストデータ2"
+        });
+        final KmgValDataModel  testData3  = new KmgValDataModelImpl(KmgCoreValMsgTypes.NONE, new Object[] {
+            "テストデータ3"
+        });
 
         /* テスト対象の実行 */
-        final KmgValsModelImpl testTarget = new KmgValsModelImpl();
+        testTarget.addData(testData1);
+        testTarget.addData(testData2);
+        testTarget.addData(testData3);
 
         /* 検証の準備 */
-        final boolean               actualIsEmpty = testTarget.isEmpty();
-        final List<KmgValDataModel> actualDatas   = testTarget.getDatas();
+        final List<KmgValDataModel> actualDatas      = testTarget.getDatas();
+        final boolean               actualIsEmpty    = testTarget.isEmpty();
+        final boolean               actualIsNotEmpty = testTarget.isNotEmpty();
 
         /* 検証の実施 */
-        Assertions.assertNotNull(testTarget, "インスタンスが作成されていません");
-        Assertions.assertEquals(expectedIsEmpty, actualIsEmpty, "初期状態で空でありません");
-        Assertions.assertNotNull(actualDatas, "データリストがnullです");
+        Assertions.assertEquals(expectedSize, actualDatas.size(), "データサイズが一致しません");
+        Assertions.assertEquals(expectedIsEmpty, actualIsEmpty, "空状態が正しくありません");
+        Assertions.assertEquals(expectedIsNotEmpty, actualIsNotEmpty, "非空状態が正しくありません");
+        Assertions.assertEquals(testData1, actualDatas.get(0), "1番目のデータが一致しません");
+        Assertions.assertEquals(testData2, actualDatas.get(1), "2番目のデータが一致しません");
+        Assertions.assertEquals(testData3, actualDatas.get(2), "3番目のデータが一致しません");
 
     }
 
@@ -104,45 +124,25 @@ public class KmgValsModelImplTest {
     }
 
     /**
-     * addData メソッドのテスト - 正常系：複数のデータが追加される場合
+     * コンストラクタのテスト - 正常系：正常にインスタンスが作成される場合
      */
     @Test
-    public void testAddData_normalMultipleData() {
+    public void testConstructor_normal() {
 
         /* 期待値の定義 */
-        final int     expectedSize       = 3;
-        final boolean expectedIsEmpty    = false;
-        final boolean expectedIsNotEmpty = true;
-
-        /* 準備 */
-        final KmgValsModelImpl testTarget = new KmgValsModelImpl();
-        final KmgValDataModel  testData1  = new KmgValDataModelImpl(KmgCoreValMsgTypes.NONE, new Object[] {
-            "テストデータ1"
-        });
-        final KmgValDataModel  testData2  = new KmgValDataModelImpl(KmgCoreValMsgTypes.NONE, new Object[] {
-            "テストデータ2"
-        });
-        final KmgValDataModel  testData3  = new KmgValDataModelImpl(KmgCoreValMsgTypes.NONE, new Object[] {
-            "テストデータ3"
-        });
+        final boolean expectedIsEmpty = true;
 
         /* テスト対象の実行 */
-        testTarget.addData(testData1);
-        testTarget.addData(testData2);
-        testTarget.addData(testData3);
+        final KmgValsModelImpl testTarget = new KmgValsModelImpl();
 
         /* 検証の準備 */
-        final List<KmgValDataModel> actualDatas      = testTarget.getDatas();
-        final boolean               actualIsEmpty    = testTarget.isEmpty();
-        final boolean               actualIsNotEmpty = testTarget.isNotEmpty();
+        final boolean               actualIsEmpty = testTarget.isEmpty();
+        final List<KmgValDataModel> actualDatas   = testTarget.getDatas();
 
         /* 検証の実施 */
-        Assertions.assertEquals(expectedSize, actualDatas.size(), "データサイズが一致しません");
-        Assertions.assertEquals(expectedIsEmpty, actualIsEmpty, "空状態が正しくありません");
-        Assertions.assertEquals(expectedIsNotEmpty, actualIsNotEmpty, "非空状態が正しくありません");
-        Assertions.assertEquals(testData1, actualDatas.get(0), "1番目のデータが一致しません");
-        Assertions.assertEquals(testData2, actualDatas.get(1), "2番目のデータが一致しません");
-        Assertions.assertEquals(testData3, actualDatas.get(2), "3番目のデータが一致しません");
+        Assertions.assertNotNull(testTarget, "インスタンスが作成されていません");
+        Assertions.assertEquals(expectedIsEmpty, actualIsEmpty, "初期状態で空でありません");
+        Assertions.assertNotNull(actualDatas, "データリストがnullです");
 
     }
 
@@ -335,6 +335,46 @@ public class KmgValsModelImplTest {
     }
 
     /**
+     * merge メソッドのテスト - 正常系：空のターゲットに空ではないモデルをマージする場合
+     */
+    @Test
+    public void testMerge_normalEmptyTargetWithData() {
+
+        /* 期待値の定義 */
+        final int expectedSize = 2;
+
+        /* 準備 */
+        final KmgValsModelImpl testTarget = new KmgValsModelImpl();
+
+        final KmgValsModel    testMergeModel = new KmgValsModelImpl();
+        final KmgValDataModel testData1      = new KmgValDataModelImpl(KmgCoreValMsgTypes.NONE, new Object[] {
+            "テストデータ1"
+        });
+        final KmgValDataModel testData2      = new KmgValDataModelImpl(KmgCoreValMsgTypes.NONE, new Object[] {
+            "テストデータ2"
+        });
+        testMergeModel.addData(testData1);
+        testMergeModel.addData(testData2);
+
+        /* テスト対象の実行 */
+        testTarget.merge(testMergeModel);
+
+        /* 検証の準備 */
+        final List<KmgValDataModel> actualDatas      = testTarget.getDatas();
+        final int                   actualSize       = actualDatas.size();
+        final boolean               actualIsEmpty    = testTarget.isEmpty();
+        final boolean               actualIsNotEmpty = testTarget.isNotEmpty();
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expectedSize, actualSize, "マージ後のサイズが正しくありません");
+        Assertions.assertFalse(actualIsEmpty, "マージ後に空状態になっています");
+        Assertions.assertTrue(actualIsNotEmpty, "マージ後に非空状態になっていません");
+        Assertions.assertEquals(testData1, actualDatas.get(0), "マージされたデータ1が正しくありません");
+        Assertions.assertEquals(testData2, actualDatas.get(1), "マージされたデータ2が正しくありません");
+
+    }
+
+    /**
      * merge メソッドのテスト - 正常系：データを含むモデルをマージする場合
      */
     @Test
@@ -372,46 +412,6 @@ public class KmgValsModelImplTest {
         Assertions.assertEquals(testData1, actualDatas.get(0), "元のデータが正しくありません");
         Assertions.assertEquals(testData2, actualDatas.get(1), "マージされたデータ1が正しくありません");
         Assertions.assertEquals(testData3, actualDatas.get(2), "マージされたデータ2が正しくありません");
-
-    }
-
-    /**
-     * merge メソッドのテスト - 正常系：空のターゲットに空ではないモデルをマージする場合
-     */
-    @Test
-    public void testMerge_normalEmptyTargetWithData() {
-
-        /* 期待値の定義 */
-        final int expectedSize = 2;
-
-        /* 準備 */
-        final KmgValsModelImpl testTarget = new KmgValsModelImpl();
-
-        final KmgValsModel    testMergeModel = new KmgValsModelImpl();
-        final KmgValDataModel testData1      = new KmgValDataModelImpl(KmgCoreValMsgTypes.NONE, new Object[] {
-            "テストデータ1"
-        });
-        final KmgValDataModel testData2      = new KmgValDataModelImpl(KmgCoreValMsgTypes.NONE, new Object[] {
-            "テストデータ2"
-        });
-        testMergeModel.addData(testData1);
-        testMergeModel.addData(testData2);
-
-        /* テスト対象の実行 */
-        testTarget.merge(testMergeModel);
-
-        /* 検証の準備 */
-        final List<KmgValDataModel> actualDatas      = testTarget.getDatas();
-        final int                   actualSize       = actualDatas.size();
-        final boolean               actualIsEmpty    = testTarget.isEmpty();
-        final boolean               actualIsNotEmpty = testTarget.isNotEmpty();
-
-        /* 検証の実施 */
-        Assertions.assertEquals(expectedSize, actualSize, "マージ後のサイズが正しくありません");
-        Assertions.assertFalse(actualIsEmpty, "マージ後に空状態になっています");
-        Assertions.assertTrue(actualIsNotEmpty, "マージ後に非空状態になっていません");
-        Assertions.assertEquals(testData1, actualDatas.get(0), "マージされたデータ1が正しくありません");
-        Assertions.assertEquals(testData2, actualDatas.get(1), "マージされたデータ2が正しくありません");
 
     }
 
