@@ -57,6 +57,7 @@ public class KmgPathUtilsTest extends AbstractKmgTest {
     /**
      * テストオブジェクト
      */
+    @SuppressWarnings("unused")
     private static class TestObj {
 
         /**
@@ -64,7 +65,6 @@ public class KmgPathUtilsTest extends AbstractKmgTest {
          *
          * @return シンプル名
          */
-        @SuppressWarnings("unused")
         public String getSimpleName() {
 
             final String result = "TestClass$$EnhancerBySpringCGLIB$$123456";
