@@ -244,14 +244,6 @@ public enum JavaClassificationTypes implements KmgComTypes<String> {
 
         for (final JavaClassificationTypes type : JavaClassificationTypes.values()) {
 
-            // NONEか
-            if (type == NONE) {
-                // NONEの場合
-
-                continue;
-
-            }
-
             // 区分判定パターンがnullか
             if (type.getClassificationPattern() == null) {
                 // nullの場合
