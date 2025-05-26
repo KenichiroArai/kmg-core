@@ -174,6 +174,154 @@ public class KmgMessageUtilsTest {
     }
 
     /**
+     * getExcMessage メソッドのテスト - 異常系:タイプがnullの場合
+     *
+     * @since 0.2.0
+     */
+    @Test
+    public void testGetExcMessage_errorNullType() {
+
+        // 期待値の定義
+        final String expectedMessage = KmgString.EMPTY;
+        // テスト対象の実行
+        final String actualMessage = KmgMessageUtils.getExcMessage(null);
+        // 検証の実施
+        Assertions.assertEquals(expectedMessage, actualMessage, "タイプがnullの場合は空文字が返却されること");
+
+    }
+
+    /**
+     * getExcMessage メソッドのテスト - 正常系:メッセージコード付きで返却される場合
+     *
+     * @since 0.2.0
+     */
+    @Test
+    public void testGetExcMessage_normal() {
+
+        // 期待値の定義
+        final String expectedMessage = "[KMGCORE_GEN11100] {0}がありません。";
+        // テスト対象の実行
+        final String actualMessage
+            = KmgMessageUtils.getExcMessage(kmg.core.infrastructure.types.msg.KmgCoreGenMsgTypes.KMGCORE_GEN11100);
+        // 検証の実施
+        Assertions.assertEquals(expectedMessage, actualMessage, "メッセージコード付きで返却されること");
+
+    }
+
+    /**
+     * getGenMessage(type) メソッドのテスト - 異常系:タイプがnullの場合
+     *
+     * @since 0.2.0
+     */
+    @Test
+    public void testGetGenMessage_errorNullType() {
+
+        // 期待値の定義
+        final String expectedMessage = KmgString.EMPTY;
+        // テスト対象の実行
+        final String actualMessage = KmgMessageUtils.getGenMessage(null);
+        // 検証の実施
+        Assertions.assertEquals(expectedMessage, actualMessage, "タイプがnullの場合は空文字が返却されること");
+
+    }
+
+    /**
+     * getGenMessage(type, args) メソッドのテスト - 異常系:タイプがnullの場合
+     *
+     * @since 0.2.0
+     */
+    @Test
+    public void testGetGenMessage_errorNullTypeWithArgs() {
+
+        // 期待値の定義
+        final String expectedMessage = KmgString.EMPTY;
+        // 準備
+        final Object[] testArgs = {
+            "テスト名"
+        };
+        // テスト対象の実行
+        final String actualMessage = KmgMessageUtils.getGenMessage(null, testArgs);
+        // 検証の実施
+        Assertions.assertEquals(expectedMessage, actualMessage, "タイプがnullの場合は空文字が返却されること");
+
+    }
+
+    /**
+     * getGenMessage(type) メソッドのテスト - 正常系:メッセージが返却される場合
+     *
+     * @since 0.2.0
+     */
+    @Test
+    public void testGetGenMessage_normal() {
+
+        // 期待値の定義
+        final String expectedMessage = "{0}がありません。";
+        // テスト対象の実行
+        final String actualMessage
+            = KmgMessageUtils.getGenMessage(kmg.core.infrastructure.types.msg.KmgCoreGenMsgTypes.KMGCORE_GEN11100);
+        // 検証の実施
+        Assertions.assertEquals(expectedMessage, actualMessage, "メッセージが返却されること");
+
+    }
+
+    /**
+     * getGenMessage(type, args) メソッドのテスト - 正常系:引数で置換される場合
+     *
+     * @since 0.2.0
+     */
+    @Test
+    public void testGetGenMessage_normalWithArgs() {
+
+        // 期待値の定義
+        final String expectedMessage = "テスト名がありません。";
+        // 準備
+        final Object[] testArgs = {
+            "テスト名"
+        };
+        // テスト対象の実行
+        final String actualMessage = KmgMessageUtils
+            .getGenMessage(kmg.core.infrastructure.types.msg.KmgCoreGenMsgTypes.KMGCORE_GEN11100, testArgs);
+        // 検証の実施
+        Assertions.assertEquals(expectedMessage, actualMessage, "引数で置換されたメッセージが返却されること");
+
+    }
+
+    /**
+     * getLogMessage(type) メソッドのテスト - 異常系:タイプがnullの場合
+     *
+     * @since 0.2.0
+     */
+    @Test
+    public void testGetLogMessage_errorNullType() {
+
+        // 期待値の定義
+        final String expectedMessage = KmgString.EMPTY;
+        // テスト対象の実行
+        final String actualMessage = KmgMessageUtils.getLogMessage(null);
+        // 検証の実施
+        Assertions.assertEquals(expectedMessage, actualMessage, "タイプがnullの場合は空文字が返却されること");
+
+    }
+
+    /**
+     * getLogMessage(type) メソッドのテスト - 正常系:メッセージコード付きで返却される場合
+     *
+     * @since 0.2.0
+     */
+    @Test
+    public void testGetLogMessage_normal() {
+
+        // 期待値の定義
+        final String expectedMessage = "[KMGCORE_LOG91100] {0}";
+        // テスト対象の実行
+        final String actualMessage
+            = KmgMessageUtils.getLogMessage(kmg.core.infrastructure.types.msg.KmgCoreLogMsgTypes.KMGCORE_LOG91100);
+        // 検証の実施
+        Assertions.assertEquals(expectedMessage, actualMessage, "メッセージコード付きで返却されること");
+
+    }
+
+    /**
      * getMessage メソッドのテスト - 異常系:messageArgsがnullの場合
      *
      * @since 0.1.0
