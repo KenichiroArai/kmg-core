@@ -55,6 +55,25 @@ public class KmgPathUtilsTest extends AbstractKmgTest {
     }
 
     /**
+     * テストオブジェクト
+     */
+    private static class TestObj {
+
+        /**
+         * シンプル名を返す。
+         *
+         * @return シンプル名
+         */
+        @SuppressWarnings("unused")
+        public String getSimpleName() {
+
+            final String result = "TestClass$$EnhancerBySpringCGLIB$$123456";
+            return result;
+
+        }
+    }
+
+    /**
      * デフォルトコンストラクタ<br>
      *
      * @since 0.1.0
@@ -669,16 +688,7 @@ public class KmgPathUtilsTest extends AbstractKmgTest {
         final String expected = "TestClass";
 
         /* 準備 */
-        final Class<?> testTarget = new Object() {
-
-            @Override
-            public String toString() {
-
-                final String result = "TestClass$$EnhancerBySpringCGLIB$$123456";
-                return result;
-
-            }
-        }.getClass();
+        final Class<?> testTarget = new TestClass().getClass();
 
         /* テスト対象の実行 */
         final String actual = KmgPathUtils.getSimpleClassName(testTarget);
