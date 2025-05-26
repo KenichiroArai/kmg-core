@@ -55,25 +55,6 @@ public class KmgPathUtilsTest extends AbstractKmgTest {
     }
 
     /**
-     * テストオブジェクト
-     */
-    @SuppressWarnings("unused")
-    private static class TestObj {
-
-        /**
-         * シンプル名を返す。
-         *
-         * @return シンプル名
-         */
-        public String getSimpleName() {
-
-            final String result = "TestClass$$EnhancerBySpringCGLIB$$123456";
-            return result;
-
-        }
-    }
-
-    /**
      * デフォルトコンストラクタ<br>
      *
      * @since 0.1.0
@@ -688,7 +669,11 @@ public class KmgPathUtilsTest extends AbstractKmgTest {
         final String expected = "TestClass";
 
         /* 準備 */
-        final Class<?> testTarget = new TestClass().getClass();
+        // 実際のプロキシクラス名を持つクラスを作成
+        class TestClass$$EnhancerBySpringCGLIB$$123456 {
+            // 処理なし
+        }
+        final Class<?> testTarget = TestClass$$EnhancerBySpringCGLIB$$123456.class;
 
         /* テスト対象の実行 */
         final String actual = KmgPathUtils.getSimpleClassName(testTarget);
