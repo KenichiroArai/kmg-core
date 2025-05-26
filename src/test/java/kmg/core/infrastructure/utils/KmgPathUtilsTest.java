@@ -607,4 +607,106 @@ public class KmgPathUtilsTest extends AbstractKmgTest {
         Assertions.assertEquals(expected, actual, "拡張子を除いたファイル名が返されるべき");
 
     }
+
+    /**
+     * getSimpleClassName メソッドのテスト - 異常系:nullの場合
+     *
+     * @since 0.2.0
+     */
+    @Test
+    public void testGetSimpleClassName_errorNull() {
+
+        /* 期待値の定義 */
+        final String expected = null;
+
+        /* 準備 */
+        final Class<?> testTarget = null;
+
+        /* テスト対象の実行 */
+        final String actual = KmgPathUtils.getSimpleClassName(testTarget);
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "nullの場合はnullを返すべき");
+
+    }
+
+    /**
+     * getSimpleClassName メソッドのテスト - 正常系:内部クラスの場合
+     *
+     * @since 0.2.0
+     */
+    @Test
+    public void testGetSimpleClassName_normalInnerClass() {
+
+        /* 期待値の定義 */
+        final String expected = "InnerClass";
+
+        /* 準備 */
+        final Class<?> testTarget = new Object() {
+
+            class InnerClass {
+                // 処理なし
+            }
+        }.new InnerClass().getClass();
+
+        /* テスト対象の実行 */
+        final String actual = KmgPathUtils.getSimpleClassName(testTarget);
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "内部クラスの場合、正しいクラス名が返されるべき");
+
+    }
+
+    /**
+     * getSimpleClassName メソッドのテスト - 正常系:プロキシクラスの場合
+     *
+     * @since 0.2.0
+     */
+    @Test
+    public void testGetSimpleClassName_normalProxyClass() {
+
+        /* 期待値の定義 */
+        final String expected = "TestClass";
+
+        /* 準備 */
+        final Class<?> testTarget = new Object() {
+
+            @Override
+            public String toString() {
+
+                final String result = "TestClass$$EnhancerBySpringCGLIB$$123456";
+                return result;
+
+            }
+        }.getClass();
+
+        /* テスト対象の実行 */
+        final String actual = KmgPathUtils.getSimpleClassName(testTarget);
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "プロキシクラスの場合、$$より前の部分が返されるべき");
+
+    }
+
+    /**
+     * getSimpleClassName メソッドのテスト - 正常系:通常のクラスの場合
+     *
+     * @since 0.2.0
+     */
+    @Test
+    public void testGetSimpleClassName_normalRegularClass() {
+
+        /* 期待値の定義 */
+        final String expected = "TestClass";
+
+        /* 準備 */
+        final Class<?> testTarget = TestClass.class;
+
+        /* テスト対象の実行 */
+        final String actual = KmgPathUtils.getSimpleClassName(testTarget);
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "通常のクラス名が返されるべき");
+
+    }
 }

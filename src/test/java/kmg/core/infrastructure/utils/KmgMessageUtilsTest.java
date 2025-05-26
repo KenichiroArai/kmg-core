@@ -199,7 +199,7 @@ public class KmgMessageUtilsTest {
     public void testGetExcMessage_normal() {
 
         // 期待値の定義
-        final String expectedMessage = "[KMGCORE_GEN11100] {0}がありません。";
+        final String expectedMessage = "{0}がありません。";
         // テスト対象の実行
         final String actualMessage
             = KmgMessageUtils.getExcMessage(kmg.core.infrastructure.types.msg.KmgCoreGenMsgTypes.KMGCORE_GEN11100);
@@ -312,7 +312,7 @@ public class KmgMessageUtilsTest {
     public void testGetLogMessage_normal() {
 
         // 期待値の定義
-        final String expectedMessage = "[KMGCORE_LOG91100] {0}";
+        final String expectedMessage = "{0}";
         // テスト対象の実行
         final String actualMessage
             = KmgMessageUtils.getLogMessage(kmg.core.infrastructure.types.msg.KmgCoreLogMsgTypes.KMGCORE_LOG91100);
