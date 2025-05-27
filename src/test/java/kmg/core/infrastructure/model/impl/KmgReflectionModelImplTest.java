@@ -57,6 +57,7 @@ public class KmgReflectionModelImplTest extends AbstractKmgTest {
          *
          * @since 0.1.0
          */
+        @SuppressWarnings("unused")
         private BigDecimal decimalField;
 
         /**
@@ -114,6 +115,7 @@ public class KmgReflectionModelImplTest extends AbstractKmgTest {
          *
          * @return パラメータに「Test」を追加した文字列
          */
+        @SuppressWarnings("unused")
         public String testMethod(final String param) {
 
             final String result = KmgString.concat(param, "Test");
@@ -704,6 +706,7 @@ public class KmgReflectionModelImplTest extends AbstractKmgTest {
         /* 準備 */
         final TestClass testObject = new TestClass() {
 
+            @SuppressWarnings("unused")
             private String privateTestMethod(final String param) {
 
                 final String result = KmgString.concat(param, "Test");

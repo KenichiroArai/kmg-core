@@ -283,7 +283,6 @@ public class KmgJavadocTagTypesTest {
     public void testGetEnum_semiNullValue() {
 
         /* 期待値の定義 */
-        final KmgJavadocTagTypes expected = KmgJavadocTagTypes.NONE;
 
         /* 準備 */
         final String testValue = null;
