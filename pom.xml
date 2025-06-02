@@ -16,7 +16,6 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <junit-jupiter.version>5.10.2</junit-jupiter.version>
-        <apache-poi.version>5.4.1</apache-poi.version>
         <mockito.version>5.11.0</mockito.version>
         <slf4j.version>2.0.17</slf4j.version>
     </properties>
@@ -34,18 +33,6 @@
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
             <version>${slf4j.version}</version>
-        </dependency>
-
-        <!-- POI -->
-        <dependency>
-            <groupId>org.apache.poi</groupId>
-            <artifactId>poi</artifactId>
-            <version>${apache-poi.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.poi</groupId>
-            <artifactId>poi-ooxml</artifactId>
-            <version>${apache-poi.version}</version>
         </dependency>
 
         <!-- テスト -->
