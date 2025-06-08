@@ -54,7 +54,7 @@ public abstract class AbstractKmgTest {
         final boolean           actualIsMatchMessageArgsCount = actualException.isMatchMessageArgsCount(); // 実際のメッセージ引数の数
 
         /* 検証の実施 */
-        Assertions.assertTrue(expectedCauseClass.isInstance(actualCause),
+        Assertions.assertInstanceOf(expectedCauseClass, actualCause,
             String.format("KmgDomainExceptionの原因が%sであること", expectedCauseClass.getSimpleName()));
         Assertions.assertEquals(expectedDomainMessage, actualDomainMessage, "KmgDomainExceptionのメッセージが正しいこと");
         Assertions.assertEquals(expectedMessageTypes, actualMessageTypes, "メッセージの種類が正しいこと");
