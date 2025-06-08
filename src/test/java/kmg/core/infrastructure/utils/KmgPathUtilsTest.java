@@ -161,15 +161,21 @@ public class KmgPathUtilsTest extends AbstractKmgTest {
     @Test
     public void testGetBinPath_normalValidClass() throws KmgMsgException {
 
+        /* 期待値の定義 */
+        final String expectedDirectoryName = "test-classes";
+
         /* 準備 */
         final Class<?> testTarget = TestClass.class;
 
         /* テスト対象の実行 */
         final Path actual = KmgPathUtils.getBinPath(testTarget);
 
+        /* 検証の準備 */
+        final String actualDirectoryName = actual.getFileName().toString();
+
         /* 検証の実施 */
         Assertions.assertNotNull(actual, "ビルドパスが返されるべき");
-        Assertions.assertTrue(actual.toString().endsWith("test-classes"), "test-classesディレクトリを指すべき");
+        Assertions.assertEquals(expectedDirectoryName, actualDirectoryName, "test-classesディレクトリを指すべき");
 
     }
 
@@ -184,15 +190,21 @@ public class KmgPathUtilsTest extends AbstractKmgTest {
     @Test
     public void testGetBinPath_normalValidObject() throws KmgMsgException {
 
+        /* 期待値の定義 */
+        final String expectedDirectoryName = "test-classes";
+
         /* 準備 */
         final Object testTarget = new KmgPathUtilsTest();
 
         /* テスト対象の実行 */
         final Path actual = KmgPathUtils.getBinPath(testTarget);
 
+        /* 検証の準備 */
+        final String actualDirectoryName = actual.getFileName().toString();
+
         /* 検証の実施 */
         Assertions.assertNotNull(actual, "ビルドパスが返されるべき");
-        Assertions.assertTrue(actual.toString().endsWith("test-classes"), "test-classesディレクトリを指すべき");
+        Assertions.assertEquals(expectedDirectoryName, actualDirectoryName, "test-classesディレクトリを指すべき");
 
     }
 
@@ -552,15 +564,21 @@ public class KmgPathUtilsTest extends AbstractKmgTest {
     @Test
     public void testGetCodeSourceLocation_normalValidClass() throws URISyntaxException {
 
+        /* 期待値の定義 */
+        final String expectedDirectoryName = "test-classes";
+
         /* 準備 */
         final Class<TestClass> testTarget = TestClass.class;
 
         /* テスト対象の実行 */
         final Path actual = KmgPathUtils.getCodeSourceLocation(testTarget);
 
+        /* 検証の準備 */
+        final String actualDirectoryName = actual.getFileName().toString();
+
         /* 検証の実施 */
         Assertions.assertNotNull(actual, "ビルドパスが返されるべき");
-        Assertions.assertTrue(actual.toString().endsWith("test-classes"), "test-classesディレクトリを指すべき");
+        Assertions.assertEquals(expectedDirectoryName, actualDirectoryName, "test-classesディレクトリを指すべき");
 
     }
 
