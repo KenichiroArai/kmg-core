@@ -500,7 +500,7 @@ public class KmgReflectionModelImplTest extends AbstractKmgTest {
         final KmgComExcMsgTypes actualMessageTypes  = actualException.getMessageTypes();
 
         /* 検証の実施 */
-        Assertions.assertTrue(actualCause instanceof SecurityException,
+        Assertions.assertInstanceOf(SecurityException.class, actualCause,
             "KmgReflectionExceptionの原因がSecurityExceptionであること");
         Assertions.assertEquals(expectedMessage, actualMessage, "SecurityExceptionのメッセージが正しいこと");
         Assertions.assertEquals(expectedDomainMessage, actualDomainMessage, "KmgReflectionExceptionのメッセージが正しいこと");
@@ -1011,7 +1011,7 @@ public class KmgReflectionModelImplTest extends AbstractKmgTest {
         final Throwable actualCause = actualException.getCause();
 
         /* 検証の実施 */
-        Assertions.assertTrue(actualCause instanceof IllegalArgumentException,
+        Assertions.assertInstanceOf(IllegalArgumentException.class, actualCause,
             "KmgReflectionExceptionの原因がIllegalArgumentExceptionであること");
         Assertions.assertEquals(expectedMessageTypes, actualException.getMessageTypes(), "メッセージの種類が正しいこと");
 
