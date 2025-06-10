@@ -11,10 +11,10 @@ import org.mockito.MockedStatic;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import kmg.core.domain.test.AbstractKmgTest;
 import kmg.core.infrastructure.exception.KmgMsgException;
 import kmg.core.infrastructure.model.KmgReflectionModel;
 import kmg.core.infrastructure.model.impl.KmgReflectionModelImpl;
+import kmg.core.infrastructure.test.AbstractKmgTest;
 import kmg.core.infrastructure.types.msg.KmgCoreGenMsgTypes;
 
 /**
