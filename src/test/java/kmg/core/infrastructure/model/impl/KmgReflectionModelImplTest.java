@@ -12,11 +12,11 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.mockito.junit.jupiter.MockitoSettings;
 import org.mockito.quality.Strictness;
 
+import kmg.core.domain.test.AbstractKmgTest;
 import kmg.core.infrastructure.common.msg.KmgComExcMsgTypes;
 import kmg.core.infrastructure.exception.KmgReflectionException;
 import kmg.core.infrastructure.type.KmgString;
 import kmg.core.infrastructure.types.msg.KmgCoreGenMsgTypes;
-import kmg.core.test.AbstractKmgTest;
 
 /**
  * KMGリフレクションモデル実装のテスト<br>

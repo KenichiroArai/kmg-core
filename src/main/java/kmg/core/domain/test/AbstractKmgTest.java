@@ -1,4 +1,4 @@
-package kmg.core.test;
+package kmg.core.domain.test;
 
 import org.junit.jupiter.api.Assertions;
 
@@ -11,7 +11,7 @@ import kmg.core.infrastructure.exception.KmgMsgException;
  *
  * @author KenichiroArai
  *
- * @since 0.1.0
+ * @since 0.2.0
  *
  * @version 0.2.0
  */
@@ -23,7 +23,7 @@ public abstract class AbstractKmgTest {
     /**
      * デフォルトコンストラクタ<br>
      *
-     * @since 0.1.0
+     * @since 0.2.0
      */
     public AbstractKmgTest() {
 
@@ -33,7 +33,7 @@ public abstract class AbstractKmgTest {
     /**
      * KMG例外の検証を行う<br>
      *
-     * @since 0.1.0
+     * @since 0.2.0
      *
      * @param actualException
      *                              実際の例外
