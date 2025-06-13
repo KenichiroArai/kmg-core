@@ -32,6 +32,9 @@ public abstract class AbstractKmgTest {
 
     /**
      * KMG例外の検証を行う<br>
+     * <p>
+     * 期待する原因のクラスがnullの場合は、nullであることを検証する。
+     * </p>
      *
      * @since 0.2.0
      *
@@ -47,6 +50,16 @@ public abstract class AbstractKmgTest {
     protected void verifyKmgMsgException(final KmgMsgException actualException, final Class<?> expectedCauseClass,
         final String expectedDomainMessage, final KmgComGenMsgTypes expectedMessageTypes) {
 
+        /* 期待する原因のクラスがnullか */
+        if (expectedCauseClass == null) {
+            // nullの場合
+
+            // 期待する原因のクラスがnullとして検証する
+            this.verifyKmgMsgException(actualException, expectedDomainMessage, expectedMessageTypes);
+            return;
+
+        }
+
         /* 検証の準備 */
         final Throwable         actualCause                   = actualException.getCause();                // 実際の例外の原因
         final String            actualDomainMessage           = actualException.getMessage();              // 実際のドメインメッセージ
@@ -56,6 +69,39 @@ public abstract class AbstractKmgTest {
         /* 検証の実施 */
         Assertions.assertInstanceOf(expectedCauseClass, actualCause,
             String.format("KmgDomainExceptionの原因が%sであること", expectedCauseClass.getSimpleName()));
+
+        Assertions.assertEquals(expectedDomainMessage, actualDomainMessage, "KmgDomainExceptionのメッセージが正しいこと");
+        Assertions.assertEquals(expectedMessageTypes, actualMessageTypes, "メッセージの種類が正しいこと");
+        Assertions.assertTrue(actualIsMatchMessageArgsCount, "メッセージ引数の数が一致していること");
+
+    }
+
+    /**
+     * KMG例外の検証を行う<br>
+     * <p>
+     * 実際の例外の原因のクラスがnullであることを検証する。
+     * </p>
+     *
+     * @since 0.2.0
+     *
+     * @param actualException
+     *                              実際の例外
+     * @param expectedDomainMessage
+     *                              期待するドメインメッセージ
+     * @param expectedMessageTypes
+     *                              期待するメッセージの種類
+     */
+    protected void verifyKmgMsgException(final KmgMsgException actualException, final String expectedDomainMessage,
+        final KmgComGenMsgTypes expectedMessageTypes) {
+
+        /* 検証の準備 */
+        final Throwable         actualCause                   = actualException.getCause();                // 実際の例外の原因
+        final String            actualDomainMessage           = actualException.getMessage();              // 実際のドメインメッセージ
+        final KmgComExcMsgTypes actualMessageTypes            = actualException.getMessageTypes();         // 実際のメッセージタイプ
+        final boolean           actualIsMatchMessageArgsCount = actualException.isMatchMessageArgsCount(); // 実際のメッセージ引数の数
+
+        /* 検証の実施 */
+        Assertions.assertNull(actualCause, "KmgDomainExceptionの原因がnullであること");
         Assertions.assertEquals(expectedDomainMessage, actualDomainMessage, "KmgDomainExceptionのメッセージが正しいこと");
         Assertions.assertEquals(expectedMessageTypes, actualMessageTypes, "メッセージの種類が正しいこと");
         Assertions.assertTrue(actualIsMatchMessageArgsCount, "メッセージ引数の数が一致していること");
