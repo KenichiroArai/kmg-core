@@ -6,7 +6,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import kmg.core.infrastructure.common.KmgComTypes;
-import kmg.core.infrastructure.exception.KmgMsgException;
 import kmg.core.infrastructure.type.KmgString;
 
 /**
@@ -367,11 +366,8 @@ public enum JavaClassificationTypes implements KmgComTypes<String> {
      *             判定対象の文字列
      *
      * @return 要素名
-     *
-     * @throws KmgMsgException
-     *                         KMGメッセージ例外
      */
-    public String getElementName(final String text) throws KmgMsgException {
+    public String getElementName(final String text) {
 
         String result = KmgString.EMPTY;
 
