@@ -8,6 +8,8 @@ import java.math.BigDecimal;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.ArgumentMatchers;
+import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.mockito.junit.jupiter.MockitoSettings;
 import org.mockito.quality.Strictness;
@@ -139,11 +141,11 @@ public class KmgReflectionModelImplTest extends AbstractKmgTest {
      *
      * @since 0.1.0
      *
-     * @throws KmgReflectionException
-     *                                KMGドメイン例外
+     * @throws Exception
+     *                   JUnit実行時の例外
      */
     @Test
-    public void testGet_errorGetValueIllegalAccessException() throws KmgReflectionException {
+    public void testGet_errorGetValueIllegalAccessException() throws Exception {
 
         /* 期待値の定義 */
         final String             expectedDomainMessage = String.format(
@@ -155,16 +157,15 @@ public class KmgReflectionModelImplTest extends AbstractKmgTest {
         /* 準備 */
         final TestClass testObject = new TestClass();
 
-        final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(testObject) {
+        // 例外インスタンスを先に作成
+        final IllegalAccessException testException = new IllegalAccessException();
 
-            @Override
-            protected Object getValue(final Field field, final Object targetObject)
-                throws SecurityException, IllegalAccessException {
+        // KmgReflectionModelImplのスパイを作成
+        final KmgReflectionModelImpl testReflection = Mockito.spy(new KmgReflectionModelImpl(testObject));
 
-                throw new IllegalAccessException();
-
-            }
-        };
+        // getValue メソッドが例外を投げるように設定（先に作成した例外を使用）
+        Mockito.doThrow(testException).when(testReflection).getValue(ArgumentMatchers.any(Field.class),
+            ArgumentMatchers.any(Object.class));
 
         /* テスト対象の実行 */
         final KmgReflectionException actualException
@@ -172,6 +173,7 @@ public class KmgReflectionModelImplTest extends AbstractKmgTest {
 
         /* 検証の準備 */
         /* 検証の実施 */
+        // TODO KenichiroArai 2025/06/18 IllegalAccessExceptionを期待値として定義する。他も同様に対応する。
         this.verifyKmgMsgException(actualException, IllegalAccessException.class, expectedDomainMessage,
             expectedMessageTypes);
 
