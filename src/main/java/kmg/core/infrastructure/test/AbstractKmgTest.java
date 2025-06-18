@@ -30,6 +30,8 @@ public abstract class AbstractKmgTest {
         // 処理なし
     }
 
+    // TODO KenichiroArai 2025/06/18 verifyKmgMsgExceptionを使用しているテストコードをすべて見直す
+
     /**
      * KMG例外の検証を行う<br>
      * <p>
