@@ -141,6 +141,7 @@ public class KmgPathUtilsTest extends AbstractKmgTest {
             mockedStatic.when(() -> KmgPathUtils.getBinPath(testTarget)).thenCallRealMethod();
 
             /* 検証の実施 */
+            // TODO KenichiroArai 2025/06/18 IllegalAccessExceptionを期待値として定義する。他も同様に対応する。
             final KmgMsgException actualException = Assertions.assertThrows(KmgMsgException.class,
                 () -> KmgPathUtils.getBinPath(testTarget), "URISyntaxExceptionが発生した場合、KmgMsgExceptionがスローされるべき");
             this.verifyKmgMsgException(actualException, URISyntaxException.class, expectedDomainMessage,
