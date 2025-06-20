@@ -155,7 +155,7 @@ public class KmgSqlPathModelImplTest extends AbstractKmgTest {
             = Assertions.assertThrows(KmgMsgException.class, () -> this.target.toSql());
 
         /* 検証の実施 */
-        // TODO KenichiroArai 2025/06/18 IllegalAccessExceptionを期待値として定義する。他も同様に対応する。
+        // TODO KenichiroArai 2025/06/21 Exceptionを期待値として定義する。他も同様に対応する。
         this.verifyKmgMsgException(actualException, java.nio.file.NoSuchFileException.class, expectedDomainMessage,
             expectedMessageTypes);
 

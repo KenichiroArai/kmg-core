@@ -173,7 +173,7 @@ public class KmgReflectionModelImplTest extends AbstractKmgTest {
 
         /* 検証の準備 */
         /* 検証の実施 */
-        // TODO KenichiroArai 2025/06/18 IllegalAccessExceptionを期待値として定義する。他も同様に対応する。
+        // TODO KenichiroArai 2025/06/21 Exceptionを期待値として定義する。他も同様に対応する。
         this.verifyKmgMsgException(actualException, IllegalAccessException.class, expectedDomainMessage,
             expectedMessageTypes);
 
@@ -217,7 +217,7 @@ public class KmgReflectionModelImplTest extends AbstractKmgTest {
 
         /* 検証の準備 */
         /* 検証の実施 */
-        // TODO KenichiroArai 2025/06/18 IllegalAccessExceptionを期待値として定義する。他も同様に対応する。
+        // TODO KenichiroArai 2025/06/21 Exceptionを期待値として定義する。他も同様に対応する。
         this.verifyKmgMsgException(actualException, SecurityException.class, expectedDomainMessage,
             expectedMessageTypes);
 
@@ -261,7 +261,7 @@ public class KmgReflectionModelImplTest extends AbstractKmgTest {
         /* 検証の準備 */
 
         /* 検証の実施 */
-        // TODO KenichiroArai 2025/06/18 IllegalAccessExceptionを期待値として定義する。他も同様に対応する。
+        // TODO KenichiroArai 2025/06/21 Exceptionを期待値として定義する。他も同様に対応する。
         this.verifyKmgMsgException(actualException, SecurityException.class, expectedDomainMessage,
             expectedMessageTypes);
 
@@ -606,7 +606,7 @@ public class KmgReflectionModelImplTest extends AbstractKmgTest {
             () -> testReflection.getMethod("testMethod", "Hello"));
 
         /* 検証の実施 */
-        // TODO KenichiroArai 2025/06/18 IllegalAccessExceptionを期待値として定義する。他も同様に対応する。
+        // TODO KenichiroArai 2025/06/21 Exceptionを期待値として定義する。他も同様に対応する。
         this.verifyKmgMsgException(actualException, IllegalAccessException.class, expectedDomainMessage,
             expectedMessageTypes);
 
@@ -648,7 +648,7 @@ public class KmgReflectionModelImplTest extends AbstractKmgTest {
             () -> testReflection.getMethod("testMethod", "Hello"));
 
         /* 検証の実施 */
-        // TODO KenichiroArai 2025/06/18 IllegalAccessExceptionを期待値として定義する。他も同様に対応する。
+        // TODO KenichiroArai 2025/06/21 Exceptionを期待値として定義する。他も同様に対応する。
         this.verifyKmgMsgException(actualException, IllegalArgumentException.class, expectedDomainMessage,
             expectedMessageTypes);
 
@@ -690,7 +690,7 @@ public class KmgReflectionModelImplTest extends AbstractKmgTest {
             () -> testReflection.getMethod("testMethod", "Hello"));
 
         /* 検証の実施 */
-        // TODO KenichiroArai 2025/06/18 IllegalAccessExceptionを期待値として定義する。他も同様に対応する。
+        // TODO KenichiroArai 2025/06/21 Exceptionを期待値として定義する。他も同様に対応する。
         this.verifyKmgMsgException(actualException, InvocationTargetException.class, expectedDomainMessage,
             expectedMessageTypes);
 
@@ -916,7 +916,7 @@ public class KmgReflectionModelImplTest extends AbstractKmgTest {
             () -> testReflection.getMethod("testMethod", "Hello"));
 
         /* 検証の実施 */
-        // TODO KenichiroArai 2025/06/18 IllegalAccessExceptionを期待値として定義する。他も同様に対応する。
+        // TODO KenichiroArai 2025/06/21 Exceptionを期待値として定義する。他も同様に対応する。
         this.verifyKmgMsgException(actualException, SecurityException.class, expectedDomainMessage,
             expectedMessageTypes);
 
@@ -988,7 +988,7 @@ public class KmgReflectionModelImplTest extends AbstractKmgTest {
             = Assertions.assertThrows(KmgReflectionException.class, () -> testReflection.set("publicField", "test"));
 
         /* 検証の実施 */
-        // TODO KenichiroArai 2025/06/18 IllegalAccessExceptionを期待値として定義する。他も同様に対応する。
+        // TODO KenichiroArai 2025/06/21 Exceptionを期待値として定義する。他も同様に対応する。
         this.verifyKmgMsgException(actualException, IllegalAccessException.class, expectedDomainMessage,
             expectedMessageTypes);
 
@@ -1062,7 +1062,7 @@ public class KmgReflectionModelImplTest extends AbstractKmgTest {
             () -> testReflection.set("publicField", "test value"));
 
         /* 検証の実施 */
-        // TODO KenichiroArai 2025/06/18 IllegalAccessExceptionを期待値として定義する。他も同様に対応する。
+        // TODO KenichiroArai 2025/06/21 Exceptionを期待値として定義する。他も同様に対応する。
         this.verifyKmgMsgException(actualException, SecurityException.class, expectedDomainMessage,
             expectedMessageTypes);
 
