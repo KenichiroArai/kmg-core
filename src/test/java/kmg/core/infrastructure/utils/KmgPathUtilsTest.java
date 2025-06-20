@@ -126,12 +126,14 @@ public class KmgPathUtilsTest extends AbstractKmgTest {
     public void testGetBinPath_errorThrowsURISyntaxException() throws Exception {
 
         /* 期待値の定義 */
+        final Class<?>           expectedCauseClass    = URISyntaxException.class;
         final String             expectedDomainMessage = String.format("[%s] クラスからビルドバスの取得に失敗しました。クラス=[%s]",
             "KMGCORE_GEN24000", "kmg.core.infrastructure.utils.KmgPathUtilsTest$TestClass");
         final KmgCoreGenMsgTypes expectedMessageTypes  = KmgCoreGenMsgTypes.KMGCORE_GEN24000;
 
         /* 準備 */
-        final Class<TestClass>   testTarget    = TestClass.class;
+        final Class<?> testTarget = TestClass.class;
+
         final URISyntaxException testException = new URISyntaxException("test", "Test URI Syntax Exception");
 
         try (MockedStatic<KmgPathUtils> mockedStatic = Mockito.mockStatic(KmgPathUtils.class)) {
@@ -141,10 +143,9 @@ public class KmgPathUtilsTest extends AbstractKmgTest {
             mockedStatic.when(() -> KmgPathUtils.getBinPath(testTarget)).thenCallRealMethod();
 
             /* 検証の実施 */
-            // TODO KenichiroArai 2025/06/21 Exceptionを期待値として定義する。他も同様に対応する。
             final KmgMsgException actualException = Assertions.assertThrows(KmgMsgException.class,
                 () -> KmgPathUtils.getBinPath(testTarget), "URISyntaxExceptionが発生した場合、KmgMsgExceptionがスローされるべき");
-            this.verifyKmgMsgException(actualException, URISyntaxException.class, expectedDomainMessage,
+            this.verifyKmgMsgException(actualException, expectedCauseClass, expectedDomainMessage,
                 expectedMessageTypes);
 
         }
