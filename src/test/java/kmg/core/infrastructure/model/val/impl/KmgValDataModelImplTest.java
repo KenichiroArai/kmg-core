@@ -3,7 +3,7 @@ package kmg.core.infrastructure.model.val.impl;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import kmg.core.infrastructure.common.msg.KmgComValMsgTypes;
+import kmg.core.infrastructure.cmn.msg.KmgComValMsgTypes;
 import kmg.core.infrastructure.types.msg.KmgCoreValMsgTypes;
 
 /**

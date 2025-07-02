@@ -1,6 +1,6 @@
 package kmg.core.infrastructure.model.val.impl;
 
-import kmg.core.infrastructure.common.msg.KmgComValMsgTypes;
+import kmg.core.infrastructure.cmn.msg.KmgComValMsgTypes;
 import kmg.core.infrastructure.model.val.KmgValDataModel;
 import kmg.core.infrastructure.utils.KmgMessageUtils;
 

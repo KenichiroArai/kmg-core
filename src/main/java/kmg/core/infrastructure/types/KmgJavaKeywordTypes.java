@@ -3,7 +3,7 @@ package kmg.core.infrastructure.types;
 import java.util.HashMap;
 import java.util.Map;
 
-import kmg.core.infrastructure.common.KmgComTypes;
+import kmg.core.infrastructure.cmn.KmgComTypes;
 
 /**
  * KMGJavaキーワードの種類<br>

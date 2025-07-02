@@ -1,4 +1,4 @@
-package kmg.core.infrastructure.common.msg;
+package kmg.core.infrastructure.cmn.msg;
 
 /**
  * KMG共通一般メッセージの種類のインタフェース

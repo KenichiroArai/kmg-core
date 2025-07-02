@@ -3,7 +3,7 @@ package kmg.core.infrastructure.types.msg;
 import java.util.HashMap;
 import java.util.Map;
 
-import kmg.core.infrastructure.common.msg.KmgComLogMsgTypes;
+import kmg.core.infrastructure.cmn.msg.KmgComLogMsgTypes;
 
 /**
  * KMGコアログメッセージの種類<br>

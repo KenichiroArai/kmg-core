@@ -1,6 +1,6 @@
 package kmg.core.infrastructure.exception;
 
-import kmg.core.infrastructure.common.msg.KmgComExcMsgTypes;
+import kmg.core.infrastructure.cmn.msg.KmgComExcMsgTypes;
 import kmg.core.infrastructure.utils.KmgMessageUtils;
 
 /**

@@ -1,4 +1,4 @@
-package kmg.core.infrastructure.common;
+package kmg.core.infrastructure.cmn;
 
 import java.util.function.Supplier;
 

@@ -3,7 +3,7 @@ package kmg.core.infrastructure.types.template;
 import java.util.HashMap;
 import java.util.Map;
 
-import kmg.core.infrastructure.common.KmgComTypes;
+import kmg.core.infrastructure.cmn.KmgComTypes;
 
 /**
  * KMGテンプレートの種類<br>

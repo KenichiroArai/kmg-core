@@ -1,6 +1,6 @@
-package kmg.core.infrastructure.common.msg;
+package kmg.core.infrastructure.cmn.msg;
 
-import kmg.core.infrastructure.common.KmgComTypes;
+import kmg.core.infrastructure.cmn.KmgComTypes;
 
 /**
  * KMG共通メッセージの種類のインタフェース
