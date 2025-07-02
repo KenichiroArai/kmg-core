@@ -3,8 +3,8 @@ package kmg.core.infrastructure.types.msg;
 import java.util.HashMap;
 import java.util.Map;
 
-import kmg.core.infrastructure.cmn.msg.KmgComExcMsgTypes;
-import kmg.core.infrastructure.cmn.msg.KmgComGenMsgTypes;
+import kmg.core.infrastructure.cmn.msg.KmgCmnExcMsgTypes;
+import kmg.core.infrastructure.cmn.msg.KmgCmnGenMsgTypes;
 
 /**
  * KMGコア一般メッセージの種類<br>
@@ -20,7 +20,7 @@ import kmg.core.infrastructure.cmn.msg.KmgComGenMsgTypes;
  * @version 0.2.0
  */
 @SuppressWarnings("nls")
-public enum KmgCoreGenMsgTypes implements KmgComGenMsgTypes, KmgComExcMsgTypes {
+public enum KmgCoreGenMsgTypes implements KmgCmnGenMsgTypes, KmgCmnExcMsgTypes {
 
     /* 定義：開始 */
 

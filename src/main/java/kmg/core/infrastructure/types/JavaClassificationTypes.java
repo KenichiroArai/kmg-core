@@ -5,7 +5,7 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import kmg.core.infrastructure.cmn.KmgComTypes;
+import kmg.core.infrastructure.cmn.KmgCmnTypes;
 import kmg.core.infrastructure.type.KmgString;
 
 /**
@@ -18,7 +18,7 @@ import kmg.core.infrastructure.type.KmgString;
  * @version 0.2.0
  */
 @SuppressWarnings("nls")
-public enum JavaClassificationTypes implements KmgComTypes<String> {
+public enum JavaClassificationTypes implements KmgCmnTypes<String> {
 
     /* 定義：開始 */
 

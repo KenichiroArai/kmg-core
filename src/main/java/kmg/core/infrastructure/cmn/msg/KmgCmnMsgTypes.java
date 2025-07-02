@@ -1,11 +1,11 @@
 package kmg.core.infrastructure.cmn.msg;
 
-import kmg.core.infrastructure.cmn.KmgComTypes;
+import kmg.core.infrastructure.cmn.KmgCmnTypes;
 
 /**
  * KMG共通メッセージの種類のインタフェース
  * <p>
- * Comは、Commonの略。<br>
+ * Cmnは、Commonの略。<br>
  * Msgは、Messageの略。
  * </p>
  *
@@ -15,7 +15,7 @@ import kmg.core.infrastructure.cmn.KmgComTypes;
  *
  * @version 0.2.0
  */
-public interface KmgComMsgTypes extends KmgComTypes<String> {
+public interface KmgCmnMsgTypes extends KmgCmnTypes<String> {
 
     /**
      * メッセージのキーを返す。<br>

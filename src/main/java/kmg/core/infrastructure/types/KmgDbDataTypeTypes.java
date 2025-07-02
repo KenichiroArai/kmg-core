@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
 
-import kmg.core.infrastructure.cmn.KmgComTypes;
+import kmg.core.infrastructure.cmn.KmgCmnTypes;
 import kmg.core.infrastructure.type.KmgString;
 
 /**
@@ -20,7 +20,7 @@ import kmg.core.infrastructure.type.KmgString;
  * @version 0.2.0
  */
 @SuppressWarnings("nls")
-public enum KmgDbDataTypeTypes implements KmgComTypes<String> {
+public enum KmgDbDataTypeTypes implements KmgCmnTypes<String> {
 
     /* 定義：開始 */
 

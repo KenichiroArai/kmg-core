@@ -1,6 +1,6 @@
 package kmg.core.infrastructure.exception;
 
-import kmg.core.infrastructure.cmn.msg.KmgComExcMsgTypes;
+import kmg.core.infrastructure.cmn.msg.KmgCmnExcMsgTypes;
 import kmg.core.infrastructure.utils.KmgMessageUtils;
 
 /**
@@ -26,7 +26,7 @@ public class KmgRuntimeException extends RuntimeException {
      *
      * @since 0.2.0
      */
-    private final KmgComExcMsgTypes messageTypes;
+    private final KmgCmnExcMsgTypes messageTypes;
 
     /**
      * 例外メッセージの引数
@@ -78,7 +78,7 @@ public class KmgRuntimeException extends RuntimeException {
      * @param messageTypes
      *                     メッセージの種類
      */
-    public KmgRuntimeException(final KmgComExcMsgTypes messageTypes) {
+    public KmgRuntimeException(final KmgCmnExcMsgTypes messageTypes) {
 
         this(messageTypes, null, null);
 
@@ -94,7 +94,7 @@ public class KmgRuntimeException extends RuntimeException {
      * @param messageArgs
      *                     メッセージの引数
      */
-    public KmgRuntimeException(final KmgComExcMsgTypes messageTypes, final Object[] messageArgs) {
+    public KmgRuntimeException(final KmgCmnExcMsgTypes messageTypes, final Object[] messageArgs) {
 
         this(messageTypes, messageArgs, null);
 
@@ -112,7 +112,7 @@ public class KmgRuntimeException extends RuntimeException {
      * @param cause
      *                     原因
      */
-    public KmgRuntimeException(final KmgComExcMsgTypes messageTypes, final Object[] messageArgs,
+    public KmgRuntimeException(final KmgCmnExcMsgTypes messageTypes, final Object[] messageArgs,
         final Throwable cause) {
 
         super(cause);
@@ -139,7 +139,7 @@ public class KmgRuntimeException extends RuntimeException {
      * @param cause
      *                     原因
      */
-    public KmgRuntimeException(final KmgComExcMsgTypes messageTypes, final Throwable cause) {
+    public KmgRuntimeException(final KmgCmnExcMsgTypes messageTypes, final Throwable cause) {
 
         this(messageTypes, null, cause);
 
@@ -223,9 +223,9 @@ public class KmgRuntimeException extends RuntimeException {
      *
      * @return メッセージの種類
      */
-    public KmgComExcMsgTypes getMessageTypes() {
+    public KmgCmnExcMsgTypes getMessageTypes() {
 
-        final KmgComExcMsgTypes result = this.messageTypes;
+        final KmgCmnExcMsgTypes result = this.messageTypes;
         return result;
 
     }

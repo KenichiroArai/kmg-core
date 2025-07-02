@@ -1,6 +1,6 @@
 package kmg.core.infrastructure.exception;
 
-import kmg.core.infrastructure.cmn.msg.KmgComExcMsgTypes;
+import kmg.core.infrastructure.cmn.msg.KmgCmnExcMsgTypes;
 import kmg.core.infrastructure.model.KmgReflectionModel;
 
 /**
@@ -38,7 +38,7 @@ public class KmgReflectionException extends KmgMsgException {
      * @param messageTypes
      *                           メッセージの種類
      */
-    public KmgReflectionException(final KmgReflectionModel kmgReflectionModel, final KmgComExcMsgTypes messageTypes) {
+    public KmgReflectionException(final KmgReflectionModel kmgReflectionModel, final KmgCmnExcMsgTypes messageTypes) {
 
         this(kmgReflectionModel, messageTypes, null, null);
 
@@ -56,7 +56,7 @@ public class KmgReflectionException extends KmgMsgException {
      * @param messageArgs
      *                           メッセージの引数
      */
-    public KmgReflectionException(final KmgReflectionModel kmgReflectionModel, final KmgComExcMsgTypes messageTypes,
+    public KmgReflectionException(final KmgReflectionModel kmgReflectionModel, final KmgCmnExcMsgTypes messageTypes,
         final Object[] messageArgs) {
 
         this(kmgReflectionModel, messageTypes, messageArgs, null);
@@ -77,7 +77,7 @@ public class KmgReflectionException extends KmgMsgException {
      * @param cause
      *                           原因
      */
-    public KmgReflectionException(final KmgReflectionModel kmgReflectionModel, final KmgComExcMsgTypes messageTypes,
+    public KmgReflectionException(final KmgReflectionModel kmgReflectionModel, final KmgCmnExcMsgTypes messageTypes,
         final Object[] messageArgs, final Throwable cause) {
 
         super(messageTypes, messageArgs, cause);
@@ -97,7 +97,7 @@ public class KmgReflectionException extends KmgMsgException {
      * @param cause
      *                           原因
      */
-    public KmgReflectionException(final KmgReflectionModel kmgReflectionModel, final KmgComExcMsgTypes messageTypes,
+    public KmgReflectionException(final KmgReflectionModel kmgReflectionModel, final KmgCmnExcMsgTypes messageTypes,
         final Throwable cause) {
 
         this(kmgReflectionModel, messageTypes, null, cause);

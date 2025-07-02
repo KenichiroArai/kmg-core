@@ -2,8 +2,8 @@ package kmg.core.infrastructure.test;
 
 import org.junit.jupiter.api.Assertions;
 
-import kmg.core.infrastructure.cmn.msg.KmgComExcMsgTypes;
-import kmg.core.infrastructure.cmn.msg.KmgComGenMsgTypes;
+import kmg.core.infrastructure.cmn.msg.KmgCmnExcMsgTypes;
+import kmg.core.infrastructure.cmn.msg.KmgCmnGenMsgTypes;
 import kmg.core.infrastructure.exception.KmgMsgException;
 
 /**
@@ -48,7 +48,7 @@ public abstract class AbstractKmgTest {
      *                              期待するメッセージの種類
      */
     protected void verifyKmgMsgException(final KmgMsgException actualException, final Class<?> expectedCauseClass,
-        final String expectedDomainMessage, final KmgComGenMsgTypes expectedMessageTypes) {
+        final String expectedDomainMessage, final KmgCmnGenMsgTypes expectedMessageTypes) {
 
         /* 期待する原因のクラスがnullか */
         if (expectedCauseClass == null) {
@@ -63,7 +63,7 @@ public abstract class AbstractKmgTest {
         /* 検証の準備 */
         final Throwable         actualCause                   = actualException.getCause();                // 実際の例外の原因
         final String            actualDomainMessage           = actualException.getMessage();              // 実際のドメインメッセージ
-        final KmgComExcMsgTypes actualMessageTypes            = actualException.getMessageTypes();         // 実際のメッセージタイプ
+        final KmgCmnExcMsgTypes actualMessageTypes            = actualException.getMessageTypes();         // 実際のメッセージタイプ
         final boolean           actualIsMatchMessageArgsCount = actualException.isMatchMessageArgsCount(); // 実際のメッセージ引数の数
 
         /* 検証の実施 */
@@ -92,12 +92,12 @@ public abstract class AbstractKmgTest {
      *                              期待するメッセージの種類
      */
     protected void verifyKmgMsgException(final KmgMsgException actualException, final String expectedDomainMessage,
-        final KmgComGenMsgTypes expectedMessageTypes) {
+        final KmgCmnGenMsgTypes expectedMessageTypes) {
 
         /* 検証の準備 */
         final Throwable         actualCause                   = actualException.getCause();                // 実際の例外の原因
         final String            actualDomainMessage           = actualException.getMessage();              // 実際のドメインメッセージ
-        final KmgComExcMsgTypes actualMessageTypes            = actualException.getMessageTypes();         // 実際のメッセージタイプ
+        final KmgCmnExcMsgTypes actualMessageTypes            = actualException.getMessageTypes();         // 実際のメッセージタイプ
         final boolean           actualIsMatchMessageArgsCount = actualException.isMatchMessageArgsCount(); // 実際のメッセージ引数の数
 
         /* 検証の実施 */

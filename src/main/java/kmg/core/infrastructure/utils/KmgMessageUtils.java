@@ -5,10 +5,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.ResourceBundle;
 
-import kmg.core.infrastructure.cmn.msg.KmgComExcMsgTypes;
-import kmg.core.infrastructure.cmn.msg.KmgComGenMsgTypes;
-import kmg.core.infrastructure.cmn.msg.KmgComLogMsgTypes;
-import kmg.core.infrastructure.cmn.msg.KmgComMsgTypes;
+import kmg.core.infrastructure.cmn.msg.KmgCmnExcMsgTypes;
+import kmg.core.infrastructure.cmn.msg.KmgCmnGenMsgTypes;
+import kmg.core.infrastructure.cmn.msg.KmgCmnLogMsgTypes;
+import kmg.core.infrastructure.cmn.msg.KmgCmnMsgTypes;
 import kmg.core.infrastructure.type.KmgString;
 
 /**
@@ -115,7 +115,7 @@ public final class KmgMessageUtils {
 
     /**
      * 例外用メッセージを取得する<br>
-     * メッセージタイプに対応するメッセージパターンを取得します。 このメソッドは {@link #getMessage(KmgComMsgTypes, Object[], boolean)} を
+     * メッセージタイプに対応するメッセージパターンを取得します。 このメソッドは {@link #getMessage(KmgCmnMsgTypes, Object[], boolean)} を
      * コード埋め込みフラグをtrueに設定して呼び出す便利メソッドです。
      *
      * @since 0.2.0
@@ -125,10 +125,10 @@ public final class KmgMessageUtils {
      *
      * @return メッセージ。メッセージコードが先頭に埋め込まれます（例：「[E001] エラーメッセージ」）。
      *
-     * @see #getMessage(KmgComMsgTypes, Object[], boolean)
-     * @see KmgComGenMsgTypes
+     * @see #getMessage(KmgCmnMsgTypes, Object[], boolean)
+     * @see KmgCmnGenMsgTypes
      */
-    public static String getExcMessage(final KmgComExcMsgTypes type) {
+    public static String getExcMessage(final KmgCmnExcMsgTypes type) {
 
         /* コード埋め込みフラグをfalseに設定して、メッセージを取得 */
         final String result = KmgMessageUtils.getMessage(type, null, true);
@@ -138,7 +138,7 @@ public final class KmgMessageUtils {
 
     /**
      * 例外用メッセージを取得する<br>
-     * メッセージタイプに対応するメッセージパターンを取得し、指定された引数で置換します。 このメソッドは {@link #getMessage(KmgComMsgTypes, Object[], boolean)} を
+     * メッセージタイプに対応するメッセージパターンを取得し、指定された引数で置換します。 このメソッドは {@link #getMessage(KmgCmnMsgTypes, Object[], boolean)} を
      * コード埋め込みフラグをtrueに設定して呼び出す便利メソッドです。
      *
      * @since 0.2.0
@@ -150,10 +150,10 @@ public final class KmgMessageUtils {
      *
      * @return メッセージ。メッセージコードが先頭に埋め込まれます（例：「[E001] エラーメッセージ」）。
      *
-     * @see #getMessage(KmgComMsgTypes, Object[], boolean)
-     * @see KmgComGenMsgTypes
+     * @see #getMessage(KmgCmnMsgTypes, Object[], boolean)
+     * @see KmgCmnGenMsgTypes
      */
-    public static String getExcMessage(final KmgComExcMsgTypes type, final Object[] args) {
+    public static String getExcMessage(final KmgCmnExcMsgTypes type, final Object[] args) {
 
         /* コード埋め込みフラグをfalseに設定して、メッセージを取得 */
         final String result = KmgMessageUtils.getMessage(type, args, true);
@@ -163,7 +163,7 @@ public final class KmgMessageUtils {
 
     /**
      * 一般メッセージを取得する<br>
-     * メッセージタイプに対応するメッセージパターンを取得します。 このメソッドは {@link #getMessage(KmgComMsgTypes, Object[], boolean)} を
+     * メッセージタイプに対応するメッセージパターンを取得します。 このメソッドは {@link #getMessage(KmgCmnMsgTypes, Object[], boolean)} を
      * コード埋め込みフラグをfalseに設定して呼び出す便利メソッドです。
      *
      * @since 0.2.0
@@ -173,7 +173,7 @@ public final class KmgMessageUtils {
      *
      * @return 指定されたタイプに対応するメッセージ文字列
      */
-    public static String getGenMessage(final KmgComGenMsgTypes type) {
+    public static String getGenMessage(final KmgCmnGenMsgTypes type) {
 
         /* コード埋め込みフラグをfalseに設定して、メッセージを取得 */
         final String result = KmgMessageUtils.getMessage(type, null, false);
@@ -184,7 +184,7 @@ public final class KmgMessageUtils {
 
     /**
      * 一般メッセージを取得する<br>
-     * メッセージタイプに対応するメッセージパターンを取得し、指定された引数で置換します。 このメソッドは {@link #getMessage(KmgComMsgTypes, Object[], boolean)} を
+     * メッセージタイプに対応するメッセージパターンを取得し、指定された引数で置換します。 このメソッドは {@link #getMessage(KmgCmnMsgTypes, Object[], boolean)} を
      * コード埋め込みフラグをfalseに設定して呼び出す便利メソッドです。
      *
      * @since 0.2.0
@@ -196,10 +196,10 @@ public final class KmgMessageUtils {
      *
      * @return メッセージ。メッセージコードは埋め込まれません。
      *
-     * @see #getMessage(KmgComMsgTypes, Object[], boolean)
-     * @see KmgComGenMsgTypes
+     * @see #getMessage(KmgCmnMsgTypes, Object[], boolean)
+     * @see KmgCmnGenMsgTypes
      */
-    public static String getGenMessage(final KmgComGenMsgTypes type, final Object[] messageArgs) {
+    public static String getGenMessage(final KmgCmnGenMsgTypes type, final Object[] messageArgs) {
 
         /* コード埋め込みフラグをfalseに設定して、メッセージを取得 */
         final String result = KmgMessageUtils.getMessage(type, messageArgs, false);
@@ -210,7 +210,7 @@ public final class KmgMessageUtils {
 
     /**
      * ログメッセージを取得する<br>
-     * メッセージタイプに対応するメッセージパターンを取得します。 このメソッドは {@link #getMessage(KmgComMsgTypes, Object[], boolean)} を
+     * メッセージタイプに対応するメッセージパターンを取得します。 このメソッドは {@link #getMessage(KmgCmnMsgTypes, Object[], boolean)} を
      * コード埋め込みフラグをtrueに設定して呼び出す便利メソッドです。
      *
      * @since 0.2.0
@@ -220,7 +220,7 @@ public final class KmgMessageUtils {
      *
      * @return 指定されたタイプに対応するメッセージ文字列（コードを埋め込み）
      */
-    public static String getLogMessage(final KmgComLogMsgTypes type) {
+    public static String getLogMessage(final KmgCmnLogMsgTypes type) {
 
         /* コード埋め込みフラグをtrueに設定して、メッセージを取得 */
         final String result = KmgMessageUtils.getMessage(type, null, true);
@@ -231,7 +231,7 @@ public final class KmgMessageUtils {
 
     /**
      * ログメッセージを取得する<br>
-     * メッセージタイプに対応するメッセージパターンを取得し、指定された引数で置換します。 このメソッドは {@link #getMessage(KmgComMsgTypes, Object[], boolean)} を
+     * メッセージタイプに対応するメッセージパターンを取得し、指定された引数で置換します。 このメソッドは {@link #getMessage(KmgCmnMsgTypes, Object[], boolean)} を
      * コード埋め込みフラグをtrueに設定して呼び出す便利メソッドです。
      *
      * @since 0.1.0
@@ -243,10 +243,10 @@ public final class KmgMessageUtils {
      *
      * @return メッセージ。メッセージコードが先頭に埋め込まれます（例：「[E001] エラーメッセージ」）。
      *
-     * @see #getMessage(KmgComMsgTypes, Object[], boolean)
-     * @see KmgComGenMsgTypes
+     * @see #getMessage(KmgCmnMsgTypes, Object[], boolean)
+     * @see KmgCmnGenMsgTypes
      */
-    public static String getLogMessage(final KmgComLogMsgTypes type, final Object[] messageArgs) {
+    public static String getLogMessage(final KmgCmnLogMsgTypes type, final Object[] messageArgs) {
 
         /* コード埋め込みフラグをtrueに設定して、メッセージを取得 */
         final String result = KmgMessageUtils.getMessage(type, messageArgs, true);
@@ -257,7 +257,7 @@ public final class KmgMessageUtils {
 
     /**
      * メッセージを取得する<br>
-     * メッセージタイプに対応するメッセージパターンを取得し、指定された引数で置換します。 このメソッドは {@link #getMessage(KmgComMsgTypes, Object[], boolean)} を
+     * メッセージタイプに対応するメッセージパターンを取得し、指定された引数で置換します。 このメソッドは {@link #getMessage(KmgCmnMsgTypes, Object[], boolean)} を
      * コード埋め込みフラグをfalseに設定して呼び出す便利メソッドです。
      *
      * @since 0.1.0
@@ -269,10 +269,10 @@ public final class KmgMessageUtils {
      *
      * @return メッセージ。メッセージコードは埋め込まれません。
      *
-     * @see #getMessage(KmgComMsgTypes, Object[], boolean)
-     * @see KmgComGenMsgTypes
+     * @see #getMessage(KmgCmnMsgTypes, Object[], boolean)
+     * @see KmgCmnGenMsgTypes
      */
-    public static String getMessage(final KmgComGenMsgTypes type, final Object[] messageArgs) {
+    public static String getMessage(final KmgCmnGenMsgTypes type, final Object[] messageArgs) {
 
         /* コード埋め込みフラグをfalseに設定して、メッセージを取得 */
         final String result = KmgMessageUtils.getMessage(type, messageArgs, false);
@@ -297,11 +297,11 @@ public final class KmgMessageUtils {
      *
      * @return メッセージ。メッセージパターンが空の場合は空文字列を返します。
      *
-     * @see KmgComGenMsgTypes
-     * @see #getMessagePattern(KmgComMsgTypes)
+     * @see KmgCmnGenMsgTypes
+     * @see #getMessagePattern(KmgCmnMsgTypes)
      * @see #checkMessageArgsCount(String, Object[])
      */
-    public static String getMessage(final KmgComMsgTypes type, final Object[] messageArgs,
+    public static String getMessage(final KmgCmnMsgTypes type, final Object[] messageArgs,
         final boolean codeEmbeddingFlag) {
 
         String       result         = KmgString.EMPTY;
@@ -395,7 +395,7 @@ public final class KmgMessageUtils {
      *
      * @return メッセージパターン。見つからない場合は空文字
      */
-    public static String getMessagePattern(final KmgComMsgTypes type) {
+    public static String getMessagePattern(final KmgCmnMsgTypes type) {
 
         String result = KmgString.EMPTY;
 

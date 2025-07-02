@@ -3,7 +3,7 @@ package kmg.core.infrastructure.cmn.msg;
 /**
  * KMG共通ログメッセージの種類のインタフェース
  * <p>
- * Comは、Commonの略。<br>
+ * Cmnは、Commonの略。<br>
  * Msgは、Messageの略。
  * </p>
  *
@@ -13,7 +13,7 @@ package kmg.core.infrastructure.cmn.msg;
  *
  * @version 0.2.0
  */
-public interface KmgComLogMsgTypes extends KmgComMsgTypes {
+public interface KmgCmnLogMsgTypes extends KmgCmnMsgTypes {
 
     // 処理なし
 

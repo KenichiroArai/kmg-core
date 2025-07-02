@@ -3,7 +3,7 @@ package kmg.core.infrastructure.cmn.msg;
 /**
  * KMG共通バリデーションメッセージの種類のインタフェース<br>
  * <p>
- * Comは、Commonの略。<br>
+ * Cmnは、Commonの略。<br>
  * Valは、Validationの略。<br>
  * Msgは、Messageの略。
  * </p>
@@ -14,7 +14,7 @@ package kmg.core.infrastructure.cmn.msg;
  *
  * @version 0.2.0
  */
-public interface KmgComValMsgTypes extends KmgComExcMsgTypes {
+public interface KmgCmnValMsgTypes extends KmgCmnExcMsgTypes {
 
     // 処理なし
 }

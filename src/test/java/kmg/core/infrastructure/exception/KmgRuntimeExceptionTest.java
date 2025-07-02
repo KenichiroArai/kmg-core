@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import kmg.core.infrastructure.cmn.msg.KmgComExcMsgTypes;
+import kmg.core.infrastructure.cmn.msg.KmgCmnExcMsgTypes;
 import kmg.core.infrastructure.types.msg.KmgCoreGenMsgTypes;
 
 /**
@@ -50,7 +50,7 @@ public class KmgRuntimeExceptionTest {
 
         /* 検証の準備 */
         final String            actualMessage  = testException.getMessage();
-        final KmgComExcMsgTypes actualMsgTypes = testException.getMessageTypes();
+        final KmgCmnExcMsgTypes actualMsgTypes = testException.getMessageTypes();
 
         /* 検証の実施 */
         Assertions.assertEquals(expectedMsgTypes, actualMsgTypes, "メッセージタイプが一致しません");
@@ -78,7 +78,7 @@ public class KmgRuntimeExceptionTest {
 
         /* 検証の準備 */
         final String            actualMessage  = testException.getMessage();
-        final KmgComExcMsgTypes actualMsgTypes = testException.getMessageTypes();
+        final KmgCmnExcMsgTypes actualMsgTypes = testException.getMessageTypes();
         final Object[]          actualMsgArgs  = testException.getMessageArgs();
 
         /* 検証の実施 */
@@ -106,7 +106,7 @@ public class KmgRuntimeExceptionTest {
 
         /* 検証の準備 */
         final String            actualMessage  = testException.getMessage();
-        final KmgComExcMsgTypes actualMsgTypes = testException.getMessageTypes();
+        final KmgCmnExcMsgTypes actualMsgTypes = testException.getMessageTypes();
         final Throwable         actualCause    = testException.getCause();
 
         /* 検証の実施 */

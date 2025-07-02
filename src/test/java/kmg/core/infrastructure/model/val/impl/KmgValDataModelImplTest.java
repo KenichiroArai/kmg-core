@@ -3,7 +3,7 @@ package kmg.core.infrastructure.model.val.impl;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import kmg.core.infrastructure.cmn.msg.KmgComValMsgTypes;
+import kmg.core.infrastructure.cmn.msg.KmgCmnValMsgTypes;
 import kmg.core.infrastructure.types.msg.KmgCoreValMsgTypes;
 
 /**
@@ -44,7 +44,7 @@ public class KmgValDataModelImplTest {
         final KmgValDataModelImpl testTarget = new KmgValDataModelImpl(expectedMsgTypes, expectedMsgArgs);
 
         /* 検証の準備 */
-        final KmgComValMsgTypes actualMsgTypes = testTarget.getMessageTypes();
+        final KmgCmnValMsgTypes actualMsgTypes = testTarget.getMessageTypes();
         final Object[]          actualMsgArgs  = testTarget.getMessageArgs();
         final String            actualMessage  = testTarget.getMessage();
 
@@ -114,7 +114,7 @@ public class KmgValDataModelImplTest {
         final KmgValDataModelImpl testTarget = new KmgValDataModelImpl(expectedMsgTypes, expectedMsgArgs);
 
         /* 検証の準備 */
-        final KmgComValMsgTypes actualMsgTypes = testTarget.getMessageTypes();
+        final KmgCmnValMsgTypes actualMsgTypes = testTarget.getMessageTypes();
 
         /* 検証の実施 */
         Assertions.assertNotNull(actualMsgTypes, "メッセージタイプがnullです");

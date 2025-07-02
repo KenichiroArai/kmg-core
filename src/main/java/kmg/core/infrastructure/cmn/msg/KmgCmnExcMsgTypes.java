@@ -1,10 +1,10 @@
 package kmg.core.infrastructure.cmn.msg;
 
 /**
- * KMG共通一般メッセージの種類のインタフェース
+ * KMG共通例外メッセージの種類のインタフェース
  * <p>
- * Comは、Commonの略。<br>
- * Genは、Generalの略。<br>
+ * Cmnは、Commonの略。<br>
+ * Excは、Exceptionの略。<br>
  * Msgは、Messageの略。
  * </p>
  *
@@ -14,7 +14,7 @@ package kmg.core.infrastructure.cmn.msg;
  *
  * @version 0.2.0
  */
-public interface KmgComGenMsgTypes extends KmgComMsgTypes {
+public interface KmgCmnExcMsgTypes extends KmgCmnMsgTypes {
 
     // 処理なし
 

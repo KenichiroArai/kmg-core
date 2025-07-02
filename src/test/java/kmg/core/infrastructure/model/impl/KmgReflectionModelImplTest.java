@@ -14,7 +14,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.mockito.junit.jupiter.MockitoSettings;
 import org.mockito.quality.Strictness;
 
-import kmg.core.infrastructure.cmn.msg.KmgComExcMsgTypes;
+import kmg.core.infrastructure.cmn.msg.KmgCmnExcMsgTypes;
 import kmg.core.infrastructure.exception.KmgReflectionException;
 import kmg.core.infrastructure.test.AbstractKmgTest;
 import kmg.core.infrastructure.type.KmgString;
@@ -498,7 +498,7 @@ public class KmgReflectionModelImplTest extends AbstractKmgTest {
         final Throwable         actualCause         = actualException.getCause();
         final String            actualMessage       = actualCause.getMessage();
         final String            actualDomainMessage = actualException.getMessage();
-        final KmgComExcMsgTypes actualMessageTypes  = actualException.getMessageTypes();
+        final KmgCmnExcMsgTypes actualMessageTypes  = actualException.getMessageTypes();
 
         /* 検証の実施 */
         Assertions.assertInstanceOf(SecurityException.class, actualCause,
