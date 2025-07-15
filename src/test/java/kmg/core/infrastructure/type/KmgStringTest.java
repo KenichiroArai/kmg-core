@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
  *
  * @since 0.1.0
  *
- * @version 0.1.0
+ * @version 0.2.0
  */
 @SuppressWarnings({
     "nls", "static-method"
@@ -502,6 +502,28 @@ public class KmgStringTest {
     }
 
     /**
+     * インスタンスメソッド - 正常系：isBlank
+     *
+     * @since 0.2.0
+     */
+    @Test
+    public void testInstance_normalIsBlank() {
+
+        /* 期待値の定義 */
+        final boolean expectedBlank    = true;
+        final boolean expectedNotBlank = false;
+
+        /* 準備 */
+        final KmgString blankString    = new KmgString("   \t\n  ");
+        final KmgString notBlankString = new KmgString("test");
+
+        /* テスト対象の実行と検証 */
+        Assertions.assertEquals(expectedBlank, blankString.isBlank(), "空白文字のみの場合、trueを返すべき");
+        Assertions.assertEquals(expectedNotBlank, notBlankString.isBlank(), "文字列がある場合、falseを返すべき");
+
+    }
+
+    /**
      * インスタンスメソッド - 正常系：isEmpty
      *
      * @since 0.1.0
@@ -524,6 +546,28 @@ public class KmgStringTest {
     }
 
     /**
+     * インスタンスメソッド - 正常系：isNotBlank
+     *
+     * @since 0.2.0
+     */
+    @Test
+    public void testInstance_normalIsNotBlank() {
+
+        /* 期待値の定義 */
+        final boolean expectedBlank    = false;
+        final boolean expectedNotBlank = true;
+
+        /* 準備 */
+        final KmgString blankString    = new KmgString("   \t\n  ");
+        final KmgString notBlankString = new KmgString("test");
+
+        /* テスト対象の実行と検証 */
+        Assertions.assertEquals(expectedBlank, blankString.isNotBlank(), "空白文字のみの場合、falseを返すべき");
+        Assertions.assertEquals(expectedNotBlank, notBlankString.isNotBlank(), "文字列がある場合、trueを返すべき");
+
+    }
+
+    /**
      * インスタンスメソッド - 正常系：isNotEmpty
      *
      * @since 0.1.0
@@ -542,6 +586,116 @@ public class KmgStringTest {
         /* テスト対象の実行と検証 */
         Assertions.assertEquals(expectedEmpty, emptyString.isNotEmpty(), "空文字の場合、falseを返すべき");
         Assertions.assertEquals(expectedNonEmpty, nonEmptyString.isNotEmpty(), "文字列がある場合、trueを返すべき");
+
+    }
+
+    /**
+     * isBlank メソッドのテスト - 異常系：nullの場合
+     *
+     * @since 0.2.0
+     */
+    @Test
+    public void testIsBlank_errorNull() {
+
+        /* 期待値の定義 */
+        final boolean expected = true;
+
+        /* 準備 */
+        final String target = null;
+
+        /* テスト対象の実行 */
+        final boolean actual = KmgString.isBlank(target);
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "nullの場合、trueを返すべき");
+
+    }
+
+    /**
+     * isBlank メソッドのテスト - 正常系：空文字の場合
+     *
+     * @since 0.2.0
+     */
+    @Test
+    public void testIsBlank_normalEmptyString() {
+
+        /* 期待値の定義 */
+        final boolean expected = true;
+
+        /* 準備 */
+        final String target = "";
+
+        /* テスト対象の実行 */
+        final boolean actual = KmgString.isBlank(target);
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "空文字の場合、trueを返すべき");
+
+    }
+
+    /**
+     * isBlank メソッドのテスト - 正常系：空白文字のみの場合
+     *
+     * @since 0.2.0
+     */
+    @Test
+    public void testIsBlank_normalWhitespaceOnly() {
+
+        /* 期待値の定義 */
+        final boolean expected = true;
+
+        /* 準備 */
+        final String target = "   \t\n\r  ";
+
+        /* テスト対象の実行 */
+        final boolean actual = KmgString.isBlank(target);
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "空白文字のみの場合、trueを返すべき");
+
+    }
+
+    /**
+     * isBlank メソッドのテスト - 準正常系：文字列が存在する場合
+     *
+     * @since 0.2.0
+     */
+    @Test
+    public void testIsBlank_semiExistString() {
+
+        /* 期待値の定義 */
+        final boolean expected = false;
+
+        /* 準備 */
+        final String target = "test";
+
+        /* テスト対象の実行 */
+        final boolean actual = KmgString.isBlank(target);
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "文字列がある場合、falseを返すべき");
+
+    }
+
+    /**
+     * isBlank メソッドのテスト - 準正常系：空白文字と文字が混在する場合
+     *
+     * @since 0.2.0
+     */
+    @Test
+    public void testIsBlank_semiMixedWhitespaceAndText() {
+
+        /* 期待値の定義 */
+        final boolean expected = false;
+
+        /* 準備 */
+        final String target = "  test  ";
+
+        /* テスト対象の実行 */
+        final boolean actual = KmgString.isBlank(target);
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "空白文字と文字が混在する場合、falseを返すべき");
 
     }
 
@@ -608,6 +762,116 @@ public class KmgStringTest {
 
         /* 検証の実施 */
         Assertions.assertEquals(expected, actual, "文字列がある場合、falseを返すべき");
+
+    }
+
+    /**
+     * isNotBlank メソッドのテスト - 異常系：nullの場合
+     *
+     * @since 0.2.0
+     */
+    @Test
+    public void testIsNotBlank_errorNull() {
+
+        /* 期待値の定義 */
+        final boolean expected = false;
+
+        /* 準備 */
+        final String target = null;
+
+        /* テスト対象の実行 */
+        final boolean actual = KmgString.isNotBlank(target);
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "nullの場合、falseを返すべき");
+
+    }
+
+    /**
+     * isNotBlank メソッドのテスト - 正常系：文字列が存在する場合
+     *
+     * @since 0.2.0
+     */
+    @Test
+    public void testIsNotBlank_normalExistString() {
+
+        /* 期待値の定義 */
+        final boolean expected = true;
+
+        /* 準備 */
+        final String target = "test";
+
+        /* テスト対象の実行 */
+        final boolean actual = KmgString.isNotBlank(target);
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "文字列がある場合、trueを返すべき");
+
+    }
+
+    /**
+     * isNotBlank メソッドのテスト - 正常系：空白文字と文字が混在する場合
+     *
+     * @since 0.2.0
+     */
+    @Test
+    public void testIsNotBlank_normalMixedWhitespaceAndText() {
+
+        /* 期待値の定義 */
+        final boolean expected = true;
+
+        /* 準備 */
+        final String target = "  test  ";
+
+        /* テスト対象の実行 */
+        final boolean actual = KmgString.isNotBlank(target);
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "空白文字と文字が混在する場合、trueを返すべき");
+
+    }
+
+    /**
+     * isNotBlank メソッドのテスト - 準正常系：空文字の場合
+     *
+     * @since 0.2.0
+     */
+    @Test
+    public void testIsNotBlank_semiEmptyString() {
+
+        /* 期待値の定義 */
+        final boolean expected = false;
+
+        /* 準備 */
+        final String target = "";
+
+        /* テスト対象の実行 */
+        final boolean actual = KmgString.isNotBlank(target);
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "空文字の場合、falseを返すべき");
+
+    }
+
+    /**
+     * isNotBlank メソッドのテスト - 準正常系：空白文字のみの場合
+     *
+     * @since 0.2.0
+     */
+    @Test
+    public void testIsNotBlank_semiWhitespaceOnly() {
+
+        /* 期待値の定義 */
+        final boolean expected = false;
+
+        /* 準備 */
+        final String target = "   \t\n\r  ";
+
+        /* テスト対象の実行 */
+        final boolean actual = KmgString.isNotBlank(target);
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "空白文字のみの場合、falseを返すべき");
 
     }
 

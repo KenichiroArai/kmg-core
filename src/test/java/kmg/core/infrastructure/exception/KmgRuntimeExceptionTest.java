@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import kmg.core.infrastructure.common.msg.KmgComExcMsgTypes;
+import kmg.core.infrastructure.cmn.msg.KmgCmnExcMsgTypes;
 import kmg.core.infrastructure.types.msg.KmgCoreGenMsgTypes;
 
 /**
@@ -43,14 +43,14 @@ public class KmgRuntimeExceptionTest {
 
         /* 期待値の定義 */
         final KmgCoreGenMsgTypes expectedMsgTypes = KmgCoreGenMsgTypes.KMGCORE_GEN11100;
-        final String                 expectedMessage  = "{0}がありません。";
+        final String             expectedMessage  = "{0}がありません。";
 
         /* テスト対象の実行 */
         final KmgRuntimeException testException = new KmgRuntimeException(expectedMsgTypes);
 
         /* 検証の準備 */
-        final String                actualMessage  = testException.getMessage();
-        final KmgComExcMsgTypes actualMsgTypes = testException.getMessageTypes();
+        final String            actualMessage  = testException.getMessage();
+        final KmgCmnExcMsgTypes actualMsgTypes = testException.getMessageTypes();
 
         /* 検証の実施 */
         Assertions.assertEquals(expectedMsgTypes, actualMsgTypes, "メッセージタイプが一致しません");
@@ -68,18 +68,18 @@ public class KmgRuntimeExceptionTest {
 
         /* 期待値の定義 */
         final KmgCoreGenMsgTypes expectedMsgTypes = KmgCoreGenMsgTypes.KMGCORE_GEN11100;
-        final Object[]               expectedMsgArgs  = {
+        final Object[]           expectedMsgArgs  = {
             "テスト引数1", "テスト引数2"
         };
-        final String                 expectedMessage  = "テスト引数1がありません。";
+        final String             expectedMessage  = "[KMGCORE_GEN11100] テスト引数1がありません。";
 
         /* テスト対象の実行 */
         final KmgRuntimeException testException = new KmgRuntimeException(expectedMsgTypes, expectedMsgArgs);
 
         /* 検証の準備 */
-        final String                actualMessage  = testException.getMessage();
-        final KmgComExcMsgTypes actualMsgTypes = testException.getMessageTypes();
-        final Object[]              actualMsgArgs  = testException.getMessageArgs();
+        final String            actualMessage  = testException.getMessage();
+        final KmgCmnExcMsgTypes actualMsgTypes = testException.getMessageTypes();
+        final Object[]          actualMsgArgs  = testException.getMessageArgs();
 
         /* 検証の実施 */
         Assertions.assertEquals(expectedMsgTypes, actualMsgTypes, "メッセージタイプが一致しません");
@@ -98,21 +98,128 @@ public class KmgRuntimeExceptionTest {
 
         /* 期待値の定義 */
         final KmgCoreGenMsgTypes expectedMsgTypes = KmgCoreGenMsgTypes.KMGCORE_GEN11100;
-        final String                 expectedMessage  = "{0}がありません。";
-        final Throwable              expectedCause    = new RuntimeException("テスト原因");
+        final String             expectedMessage  = "{0}がありません。";
+        final Throwable          expectedCause    = new RuntimeException("テスト原因");
 
         /* テスト対象の実行 */
         final KmgRuntimeException testException = new KmgRuntimeException(expectedMsgTypes, expectedCause);
 
         /* 検証の準備 */
-        final String                actualMessage  = testException.getMessage();
-        final KmgComExcMsgTypes actualMsgTypes = testException.getMessageTypes();
-        final Throwable             actualCause    = testException.getCause();
+        final String            actualMessage  = testException.getMessage();
+        final KmgCmnExcMsgTypes actualMsgTypes = testException.getMessageTypes();
+        final Throwable         actualCause    = testException.getCause();
 
         /* 検証の実施 */
         Assertions.assertEquals(expectedMsgTypes, actualMsgTypes, "メッセージタイプが一致しません");
         Assertions.assertEquals(expectedMessage, actualMessage, "メッセージが一致しません");
         Assertions.assertEquals(expectedCause, actualCause, "原因が一致しません");
+
+    }
+
+    /**
+     * メッセージ引数の数を取得するメソッドのテスト - 正常系：メッセージ引数がある場合
+     *
+     * @since 0.2.0
+     */
+    @Test
+    public void testGetMessageArgsCount_normal() {
+
+        /* 期待値の定義 */
+        final KmgCoreGenMsgTypes expectedMsgTypes = KmgCoreGenMsgTypes.KMGCORE_GEN11100;
+        final Object[]           expectedMsgArgs  = {
+            "テスト引数1", "テスト引数2"
+        };
+        final int                expectedCount    = 2;
+
+        /* テスト対象の実行 */
+        final KmgRuntimeException testException = new KmgRuntimeException(expectedMsgTypes, expectedMsgArgs);
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expectedCount, testException.getMessageArgsCount(), "メッセージ引数の数が一致しません");
+
+    }
+
+    /**
+     * メッセージパターンを取得するメソッドのテスト - 正常系
+     *
+     * @since 0.2.0
+     */
+    @Test
+    public void testGetMessagePattern_normal() {
+
+        /* 期待値の定義 */
+        final KmgCoreGenMsgTypes expectedMsgTypes = KmgCoreGenMsgTypes.KMGCORE_GEN11100;
+        final String             expectedPattern  = "{0}がありません。";
+
+        /* テスト対象の実行 */
+        final KmgRuntimeException testException = new KmgRuntimeException(expectedMsgTypes);
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expectedPattern, testException.getMessagePattern(), "メッセージパターンが一致しません");
+
+    }
+
+    /**
+     * メッセージパターンの引数の数を取得するメソッドのテスト - 正常系
+     *
+     * @since 0.2.0
+     */
+    @Test
+    public void testGetMessagePatternArgsCount_normal() {
+
+        /* 期待値の定義 */
+        final KmgCoreGenMsgTypes expectedMsgTypes = KmgCoreGenMsgTypes.KMGCORE_GEN11100;
+        final int                expectedCount    = 1;
+
+        /* テスト対象の実行 */
+        final KmgRuntimeException testException = new KmgRuntimeException(expectedMsgTypes);
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expectedCount, testException.getMessagePatternArgsCount(), "メッセージパターンの引数の数が一致しません");
+
+    }
+
+    /**
+     * メッセージ引数の数が一致しているかを取得するメソッドのテスト - 正常系：一致する場合
+     *
+     * @since 0.2.0
+     */
+    @Test
+    public void testIsMatchMessageArgsCount_normalMatch() {
+
+        /* 期待値の定義 */
+        final KmgCoreGenMsgTypes expectedMsgTypes = KmgCoreGenMsgTypes.KMGCORE_GEN11100;
+        final Object[]           expectedMsgArgs  = {
+            "テスト引数1"
+        };
+
+        /* テスト対象の実行 */
+        final KmgRuntimeException testException = new KmgRuntimeException(expectedMsgTypes, expectedMsgArgs);
+
+        /* 検証の実施 */
+        Assertions.assertTrue(testException.isMatchMessageArgsCount(), "メッセージ引数の数が一致しているはずです");
+
+    }
+
+    /**
+     * メッセージ引数の数が一致しているかを取得するメソッドのテスト - 正常系：一致しない場合
+     *
+     * @since 0.2.0
+     */
+    @Test
+    public void testIsMatchMessageArgsCount_normalNotMatch() {
+
+        /* 期待値の定義 */
+        final KmgCoreGenMsgTypes expectedMsgTypes = KmgCoreGenMsgTypes.KMGCORE_GEN11100;
+        final Object[]           expectedMsgArgs  = {
+            "テスト引数1", "テスト引数2"
+        };
+
+        /* テスト対象の実行 */
+        final KmgRuntimeException testException = new KmgRuntimeException(expectedMsgTypes, expectedMsgArgs);
+
+        /* 検証の実施 */
+        Assertions.assertFalse(testException.isMatchMessageArgsCount(), "メッセージ引数の数が一致していないはずです");
 
     }
 }

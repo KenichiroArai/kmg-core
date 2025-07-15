@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
 
-import kmg.core.infrastructure.common.KmgComTypes;
+import kmg.core.infrastructure.cmn.KmgCmnTypes;
 
 /**
  * KMG時間単位の種類<br>
@@ -16,62 +16,42 @@ import kmg.core.infrastructure.common.KmgComTypes;
  * @version 0.2.0
  */
 @SuppressWarnings("nls")
-public enum KmgTimeUnitTypes implements KmgComTypes<String> {
+public enum KmgTimeUnitTypes implements KmgCmnTypes<String> {
 
     /* 定義：開始 */
 
     /**
      * 指定無し
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     NONE("指定無し", null, "指定無し", BigDecimal.ZERO),
 
     /**
      * 秒
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     SECONDS("秒", "seconds", "秒", BigDecimal.ONE),
 
     /**
      * ミリ秒
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     MILLISECOND("ミリ秒", "millisecond,", "ミリ秒", new BigDecimal("0.001")),
 
     /**
      * マイクロ秒
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     MICROSECONDS("マイクロ秒", "microseconds", "マイクロ秒", new BigDecimal("0.000001")),
 
     /**
      * ナノ秒
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     NANOSECONDS("ナノ秒", "nanoseconds", "ナノ秒", new BigDecimal("0.000000001")),
 

@@ -17,15 +17,16 @@ import kmg.core.infrastructure.types.msg.KmgCoreGenMsgTypes;
  * </p>
  * <p>
  * 主な機能：
+ * </p>
  * <ul>
  * <li>クラスまたはオブジェクトからビルドパスを取得</li>
  * <li>クラスとファイル名から完全パスを生成</li>
  * <li>ファイルパスからファイル名のみを抽出</li>
  * <li>プロキシクラスやInner Classに対応したシンプルなクラス名の取得</li>
  * </ul>
- * </p>
  * <p>
  * 使用例：
+ * </p>
  *
  * <pre>
  *
@@ -38,7 +39,6 @@ import kmg.core.infrastructure.types.msg.KmgCoreGenMsgTypes;
  * // クラスとファイル名からフルパスを取得
  * Path fullPath = KmgPathUtils.getClassFullPath(MyClass.class, Paths.get("config.xml"));
  * </pre>
- * </p>
  *
  * @author KenichiroArai
  *
@@ -124,7 +124,7 @@ public final class KmgPathUtils {
         } catch (final URISyntaxException e) {
 
             final KmgCoreGenMsgTypes msgTypes = KmgCoreGenMsgTypes.KMGCORE_GEN24000;
-            final Object[]               msgArgs  = {
+            final Object[]           msgArgs  = {
                 zlass.getName()
             };
             throw new KmgMsgException(msgTypes, msgArgs, e);

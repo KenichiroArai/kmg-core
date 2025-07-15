@@ -1,6 +1,6 @@
 package kmg.core.infrastructure.exception;
 
-import kmg.core.infrastructure.common.msg.KmgComExcMsgTypes;
+import kmg.core.infrastructure.cmn.msg.KmgCmnExcMsgTypes;
 import kmg.core.infrastructure.utils.KmgMessageUtils;
 
 /**
@@ -26,7 +26,7 @@ public class KmgMsgException extends KmgException {
      *
      * @since 0.2.0
      */
-    private final KmgComExcMsgTypes messageTypes;
+    private final KmgCmnExcMsgTypes messageTypes;
 
     /**
      * 例外メッセージの引数
@@ -78,7 +78,7 @@ public class KmgMsgException extends KmgException {
      * @param messageTypes
      *                     メッセージの種類
      */
-    public KmgMsgException(final KmgComExcMsgTypes messageTypes) {
+    public KmgMsgException(final KmgCmnExcMsgTypes messageTypes) {
 
         this(messageTypes, null, null);
 
@@ -94,7 +94,7 @@ public class KmgMsgException extends KmgException {
      * @param messageArgs
      *                     メッセージの引数
      */
-    public KmgMsgException(final KmgComExcMsgTypes messageTypes, final Object[] messageArgs) {
+    public KmgMsgException(final KmgCmnExcMsgTypes messageTypes, final Object[] messageArgs) {
 
         this(messageTypes, messageArgs, null);
 
@@ -112,8 +112,7 @@ public class KmgMsgException extends KmgException {
      * @param cause
      *                     原因
      */
-    public KmgMsgException(final KmgComExcMsgTypes messageTypes, final Object[] messageArgs,
-        final Throwable cause) {
+    public KmgMsgException(final KmgCmnExcMsgTypes messageTypes, final Object[] messageArgs, final Throwable cause) {
 
         super(cause);
         this.messageTypes = messageTypes;
@@ -139,7 +138,7 @@ public class KmgMsgException extends KmgException {
      * @param cause
      *                     原因
      */
-    public KmgMsgException(final KmgComExcMsgTypes messageTypes, final Throwable cause) {
+    public KmgMsgException(final KmgCmnExcMsgTypes messageTypes, final Throwable cause) {
 
         this(messageTypes, null, cause);
 
@@ -223,9 +222,9 @@ public class KmgMsgException extends KmgException {
      *
      * @return メッセージの種類
      */
-    public KmgComExcMsgTypes getMessageTypes() {
+    public KmgCmnExcMsgTypes getMessageTypes() {
 
-        final KmgComExcMsgTypes result = this.messageTypes;
+        final KmgCmnExcMsgTypes result = this.messageTypes;
         return result;
 
     }

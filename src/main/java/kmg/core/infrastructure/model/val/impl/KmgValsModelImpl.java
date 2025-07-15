@@ -22,13 +22,13 @@ public class KmgValsModelImpl implements KmgValsModel {
 
     /**
      * データのリスト
+     *
+     * @since 0.2.0
      */
     private final List<KmgValDataModel> datas;
 
     /**
      * コンストラクタ
-     *
-     * @author KenichiroArai
      *
      * @since 0.2.0
      */
@@ -43,8 +43,6 @@ public class KmgValsModelImpl implements KmgValsModel {
      *
      * @param data
      *             追加するデータ
-     *
-     * @author KenichiroArai
      *
      * @since 0.2.0
      */
@@ -66,8 +64,6 @@ public class KmgValsModelImpl implements KmgValsModel {
     /**
      * データのリストを返す。
      *
-     * @author KenichiroArai
-     *
      * @since 0.2.0
      *
      * @return データのリスト
@@ -77,6 +73,51 @@ public class KmgValsModelImpl implements KmgValsModel {
 
         final List<KmgValDataModel> result = this.datas;
         return result;
+
+    }
+
+    /**
+     * データが空か。
+     *
+     * @since 0.2.0
+     *
+     * @return true：空、false：空ではない
+     */
+    @Override
+    public boolean isEmpty() {
+
+        final boolean result = this.datas.isEmpty();
+        return result;
+
+    }
+
+    /**
+     * データが空ではないか。
+     *
+     * @since 0.2.0
+     *
+     * @return true：空ではない、false：空である
+     */
+    @Override
+    public boolean isNotEmpty() {
+
+        final boolean result = !this.isEmpty();
+        return result;
+
+    }
+
+    /**
+     * KMGバリデーション集合モデルをマージする。
+     *
+     * @param valsModel
+     *                  KMGバリデーション集合モデル
+     *
+     * @since 0.2.0
+     */
+    @Override
+    public void merge(final KmgValsModel valsModel) {
+
+        valsModel.getDatas().forEach(this::addData);
 
     }
 

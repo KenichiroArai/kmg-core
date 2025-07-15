@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import kmg.core.infrastructure.common.KmgComTypes;
+import kmg.core.infrastructure.cmn.KmgCmnTypes;
 import kmg.core.infrastructure.type.KmgString;
 
 /**
@@ -18,14 +18,12 @@ import kmg.core.infrastructure.type.KmgString;
  * @version 0.2.0
  */
 @SuppressWarnings("nls")
-public enum KmgJavadocTagTypes implements KmgComTypes<String> {
+public enum KmgJavadocTagTypes implements KmgCmnTypes<String> {
 
     /* 定義：開始 */
 
     /**
      * 指定無し
-     *
-     * @author KenichiroArai
      *
      * @since 0.2.0
      */
@@ -33,8 +31,6 @@ public enum KmgJavadocTagTypes implements KmgComTypes<String> {
 
     /**
      * 著者
-     *
-     * @author KenichiroArai
      *
      * @since 0.2.0
      */
@@ -45,8 +41,6 @@ public enum KmgJavadocTagTypes implements KmgComTypes<String> {
     /**
      * バージョン
      *
-     * @author KenichiroArai
-     *
      * @since 0.2.0
      */
     VERSION("バージョン", "@version", "クラスやインタフェースのバージョンを示す",
@@ -55,8 +49,6 @@ public enum KmgJavadocTagTypes implements KmgComTypes<String> {
 
     /**
      * 参照
-     *
-     * @author KenichiroArai
      *
      * @since 0.2.0
      */
@@ -68,19 +60,15 @@ public enum KmgJavadocTagTypes implements KmgComTypes<String> {
     /**
      * シンス（導入バージョン）
      *
-     * @author KenichiroArai
-     *
      * @since 0.2.0
      */
     SINCE("シンス", "@since", "機能が導入されたバージョンを示す",
         Arrays.asList(JavaClassificationTypes.CLASS, JavaClassificationTypes.INTERFACE, JavaClassificationTypes.ENUM,
-            JavaClassificationTypes.ANNOTATION_USAGE, JavaClassificationTypes.METHOD, JavaClassificationTypes.FIELD,
-            JavaClassificationTypes.CONSTRUCTOR)),
+            JavaClassificationTypes.ENUM_CONST, JavaClassificationTypes.ANNOTATION_USAGE,
+            JavaClassificationTypes.METHOD, JavaClassificationTypes.FIELD, JavaClassificationTypes.CONSTRUCTOR)),
 
     /**
      * 非推奨
-     *
-     * @author KenichiroArai
      *
      * @since 0.2.0
      */
@@ -92,8 +80,6 @@ public enum KmgJavadocTagTypes implements KmgComTypes<String> {
     /**
      * パラメータ
      *
-     * @author KenichiroArai
-     *
      * @since 0.2.0
      */
     PARAM("パラメータ", "@param", "メソッドや構築子のパラメータについて説明する",
@@ -102,16 +88,12 @@ public enum KmgJavadocTagTypes implements KmgComTypes<String> {
     /**
      * 戻り値
      *
-     * @author KenichiroArai
-     *
      * @since 0.2.0
      */
     RETURN("戻り値", "@return", "メソッドの戻り値について説明する", Arrays.asList(JavaClassificationTypes.METHOD)),
 
     /**
      * 例外
-     *
-     * @author KenichiroArai
      *
      * @since 0.2.0
      */
@@ -121,8 +103,6 @@ public enum KmgJavadocTagTypes implements KmgComTypes<String> {
     /**
      * 例外（別名）
      *
-     * @author KenichiroArai
-     *
      * @since 0.2.0
      */
     EXCEPTION("例外（別名）", "@exception", "@throwsと同じ",
@@ -130,8 +110,6 @@ public enum KmgJavadocTagTypes implements KmgComTypes<String> {
 
     /**
      * シリアルデータ
-     *
-     * @author KenichiroArai
      *
      * @since 0.2.0
      */
@@ -141,8 +119,6 @@ public enum KmgJavadocTagTypes implements KmgComTypes<String> {
     /**
      * シリアルフィールド
      *
-     * @author KenichiroArai
-     *
      * @since 0.2.0
      */
     SERIAL_FIELD("シリアルフィールド", "@serialField", "ObjectStreamFieldコンポーネントを文書化する",
@@ -151,16 +127,12 @@ public enum KmgJavadocTagTypes implements KmgComTypes<String> {
     /**
      * 直列化可能
      *
-     * @author KenichiroArai
-     *
      * @since 0.2.0
      */
     SERIAL("直列化可能", "@serial", "直列化可能なクラスの非transientインスタンス変数を文書化する", Arrays.asList(JavaClassificationTypes.FIELD)),
 
     /**
      * 継承Doc
-     *
-     * @author KenichiroArai
      *
      * @since 0.2.0
      */
@@ -169,16 +141,12 @@ public enum KmgJavadocTagTypes implements KmgComTypes<String> {
     /**
      * コード
      *
-     * @author KenichiroArai
-     *
      * @since 0.2.0
      */
     CODE("コード", "{@code}", "コードサンプルを示す", Arrays.asList(JavaClassificationTypes.NONE)),
 
     /**
      * リンク
-     *
-     * @author KenichiroArai
      *
      * @since 0.2.0
      */
@@ -187,16 +155,12 @@ public enum KmgJavadocTagTypes implements KmgComTypes<String> {
     /**
      * リンクプレーン
      *
-     * @author KenichiroArai
-     *
      * @since 0.2.0
      */
     LINK_PLAIN("リンクプレーン", "{@linkplain}", "プレーンテキストフォントでリンクを表示する", Arrays.asList(JavaClassificationTypes.NONE)),
 
     /**
      * リテラル
-     *
-     * @author KenichiroArai
      *
      * @since 0.2.0
      */
@@ -205,8 +169,6 @@ public enum KmgJavadocTagTypes implements KmgComTypes<String> {
     /**
      * 値
      *
-     * @author KenichiroArai
-     *
      * @since 0.2.0
      */
     VALUE("値", "{@value}", "静的フィールドの値を表示する", Arrays.asList(JavaClassificationTypes.NONE)),
@@ -214,16 +176,12 @@ public enum KmgJavadocTagTypes implements KmgComTypes<String> {
     /**
      * ドキトート
      *
-     * @author KenichiroArai
-     *
      * @since 0.2.0
      */
     DOC_ROOT("ドキトート", "{@docRoot}", "ドキュメントルートへの相対パスを生成する", Arrays.asList(JavaClassificationTypes.NONE)),
 
     /**
      * 隠し
-     *
-     * @author KenichiroArai
      *
      * @since 0.2.0
      */
@@ -235,8 +193,6 @@ public enum KmgJavadocTagTypes implements KmgComTypes<String> {
     /**
      * 要約
      *
-     * @author KenichiroArai
-     *
      * @since 0.2.0
      */
     SUMMARY("要約", "@summary", "要約説明を提供する", Arrays.asList(JavaClassificationTypes.NONE)),
@@ -244,16 +200,12 @@ public enum KmgJavadocTagTypes implements KmgComTypes<String> {
     /**
      * インデックス
      *
-     * @author KenichiroArai
-     *
      * @since 0.2.0
      */
     INDEX("インデックス", "{@index}", "検索インデックスに項目を追加する", Arrays.asList(JavaClassificationTypes.NONE)),
 
     /**
      * 内部API
-     *
-     * @author KenichiroArai
      *
      * @since 0.2.0
      */
@@ -265,8 +217,6 @@ public enum KmgJavadocTagTypes implements KmgComTypes<String> {
     /**
      * 実装詳細
      *
-     * @author KenichiroArai
-     *
      * @since 0.2.0
      */
     IMPL_SPEC("実装詳細", "@implSpec", "実装に関する仕様を記述する",
@@ -275,8 +225,6 @@ public enum KmgJavadocTagTypes implements KmgComTypes<String> {
 
     /**
      * 実装ノート
-     *
-     * @author KenichiroArai
      *
      * @since 0.2.0
      */
@@ -287,8 +235,6 @@ public enum KmgJavadocTagTypes implements KmgComTypes<String> {
     /**
      * システムプロパティ
      *
-     * @author KenichiroArai
-     *
      * @since 0.2.0
      */
     SYSTEM_PROPERTY("システムプロパティ", "{@systemProperty}", "Javaシステムプロパティを参照する",
@@ -297,16 +243,12 @@ public enum KmgJavadocTagTypes implements KmgComTypes<String> {
     /**
      * スニペット
      *
-     * @author KenichiroArai
-     *
      * @since 0.2.0
      */
     SNIPPET("スニペット", "{@snippet}", "コードスニペットを挿入する", Arrays.asList(JavaClassificationTypes.NONE)),
 
     /**
      * 許可された宣言的アクセス
-     *
-     * @author KenichiroArai
      *
      * @since 0.2.0
      */
@@ -315,8 +257,6 @@ public enum KmgJavadocTagTypes implements KmgComTypes<String> {
     /**
      * 使用サービス
      *
-     * @author KenichiroArai
-     *
      * @since 0.2.0
      */
     USES("使用サービス", "@uses", "モジュールが使用するサービスを示す", Arrays.asList(JavaClassificationTypes.MODULE)),
@@ -324,13 +264,15 @@ public enum KmgJavadocTagTypes implements KmgComTypes<String> {
     /* 定義：終了 */
     ;
 
-    /** 種類のマップ */
+    /**
+     * 種類のマップ
+     *
+     * @since 0.2.0
+     */
     private static final Map<String, KmgJavadocTagTypes> VALUES_MAP = new HashMap<>();
 
     /**
      * Javadocタグのプレフィックス
-     *
-     * @author KenichiroArai
      *
      * @since 0.2.0
      */

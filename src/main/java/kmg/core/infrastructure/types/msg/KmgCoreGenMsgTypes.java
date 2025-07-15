@@ -3,8 +3,8 @@ package kmg.core.infrastructure.types.msg;
 import java.util.HashMap;
 import java.util.Map;
 
-import kmg.core.infrastructure.common.msg.KmgComExcMsgTypes;
-import kmg.core.infrastructure.common.msg.KmgComGenMsgTypes;
+import kmg.core.infrastructure.cmn.msg.KmgCmnExcMsgTypes;
+import kmg.core.infrastructure.cmn.msg.KmgCmnGenMsgTypes;
 
 /**
  * KMGコア一般メッセージの種類<br>
@@ -20,14 +20,12 @@ import kmg.core.infrastructure.common.msg.KmgComGenMsgTypes;
  * @version 0.2.0
  */
 @SuppressWarnings("nls")
-public enum KmgCoreGenMsgTypes implements KmgComGenMsgTypes, KmgComExcMsgTypes {
+public enum KmgCoreGenMsgTypes implements KmgCmnGenMsgTypes, KmgCmnExcMsgTypes {
 
     /* 定義：開始 */
 
     /**
      * 指定無し
-     *
-     * @author KenichiroArai
      *
      * @since 0.2.0
      */
@@ -36,16 +34,12 @@ public enum KmgCoreGenMsgTypes implements KmgComGenMsgTypes, KmgComExcMsgTypes {
     /**
      * {0}がありません。
      *
-     * @author KenichiroArai
-     *
      * @since 0.2.0
      */
     KMGCORE_GEN11100("{0}がありません。"),
 
     /**
      * フィールドの取得に失敗しました。フィールド名=[{0}]、対象のクラス=[{1}]、最後に取得したフィールド=[{2}]
-     *
-     * @author KenichiroArai
      *
      * @since 0.2.0
      */
@@ -54,16 +48,12 @@ public enum KmgCoreGenMsgTypes implements KmgComGenMsgTypes, KmgComExcMsgTypes {
     /**
      * フィールドの値の取得に失敗しました。フィールド名=[{0}]、対象のクラス=[{1}]、最後に取得したフィールド=[{2}]
      *
-     * @author KenichiroArai
-     *
      * @since 0.2.0
      */
     KMGCORE_GEN11201("フィールドの値の取得に失敗しました。フィールド名=[{0}]、対象のクラス=[{1}]、最後に取得したフィールド=[{2}]"),
 
     /**
      * フィールドの値の取得に失敗しました。フィールド名=[{0}]、対象のクラス=[{1}]、最後に取得したフィールド=[{2}]
-     *
-     * @author KenichiroArai
      *
      * @since 0.2.0
      */
@@ -72,16 +62,12 @@ public enum KmgCoreGenMsgTypes implements KmgComGenMsgTypes, KmgComExcMsgTypes {
     /**
      * メソッドの取得に失敗しました。メソッド名=[{0}]、対象のクラス=[{1}]
      *
-     * @author KenichiroArai
-     *
      * @since 0.2.0
      */
     KMGCORE_GEN11203("メソッドの取得に失敗しました。メソッド名=[{0}]、対象のクラス=[{1}]"),
 
     /**
      * メソッドの値の取得に失敗しました。メソッド名=[{0}]、対象のクラス=[{1}]
-     *
-     * @author KenichiroArai
      *
      * @since 0.2.0
      */
@@ -90,16 +76,12 @@ public enum KmgCoreGenMsgTypes implements KmgComGenMsgTypes, KmgComExcMsgTypes {
     /**
      * メソッドの値の取得に失敗しました。メソッド名=[{0}]、対象のクラス=[{1}]
      *
-     * @author KenichiroArai
-     *
      * @since 0.2.0
      */
     KMGCORE_GEN11205("メソッドの値の取得に失敗しました。メソッド名=[{0}]、対象のクラス=[{1}]"),
 
     /**
      * メソッドの値の取得に失敗しました。メソッド名=[{0}]、対象のクラス=[{1}]
-     *
-     * @author KenichiroArai
      *
      * @since 0.2.0
      */
@@ -108,16 +90,12 @@ public enum KmgCoreGenMsgTypes implements KmgComGenMsgTypes, KmgComExcMsgTypes {
     /**
      * メソッドの値の取得に失敗しました。メソッド名=[{0}]、対象のクラス=[{1}]
      *
-     * @author KenichiroArai
-     *
      * @since 0.2.0
      */
     KMGCORE_GEN11207("メソッドの値の取得に失敗しました。メソッド名=[{0}]、対象のクラス=[{1}]"),
 
     /**
      * フィールドの取得に失敗しました。フィールド名=[{0}]、対象のクラス=[{1}]、最後に取得したフィールド=[{2}]
-     *
-     * @author KenichiroArai
      *
      * @since 0.2.0
      */
@@ -126,8 +104,6 @@ public enum KmgCoreGenMsgTypes implements KmgComGenMsgTypes, KmgComExcMsgTypes {
     /**
      * フィールドの値の設定に失敗しました。フィールド名=[{0}]、対象のクラス=[{1}]、最後に取得したフィールド=[{2}]
      *
-     * @author KenichiroArai
-     *
      * @since 0.2.0
      */
     KMGCORE_GEN11210("フィールドの値の設定に失敗しました。フィールド名=[{0}]、対象のクラス=[{1}]、最後に取得したフィールド=[{2}]"),
@@ -135,16 +111,12 @@ public enum KmgCoreGenMsgTypes implements KmgComGenMsgTypes, KmgComExcMsgTypes {
     /**
      * フィールドの値の設定に失敗しました。フィールド名=[{0}]、対象のクラス=[{1}]、最後に取得したフィールド=[{2}]
      *
-     * @author KenichiroArai
-     *
      * @since 0.2.0
      */
     KMGCORE_GEN11211("フィールドの値の設定に失敗しました。フィールド名=[{0}]、対象のクラス=[{1}]、最後に取得したフィールド=[{2}]"),
 
     /**
      * クラスからビルドバスの取得に失敗しました。クラス=[{0}]
-     *
-     * @author KenichiroArai
      *
      * @since 0.2.0
      */

@@ -14,8 +14,8 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import kmg.core.infrastructure.exception.KmgMsgException;
 import kmg.core.infrastructure.model.KmgReflectionModel;
 import kmg.core.infrastructure.model.impl.KmgReflectionModelImpl;
+import kmg.core.infrastructure.test.AbstractKmgTest;
 import kmg.core.infrastructure.types.msg.KmgCoreGenMsgTypes;
-import kmg.core.test.AbstractKmgTest;
 
 /**
  * KMGパスユーティリティテスト<br>
@@ -126,12 +126,14 @@ public class KmgPathUtilsTest extends AbstractKmgTest {
     public void testGetBinPath_errorThrowsURISyntaxException() throws Exception {
 
         /* 期待値の定義 */
-        final String                 expectedDomainMessage = String.format("クラスからビルドバスの取得に失敗しました。クラス=[%s]",
-            "kmg.core.infrastructure.utils.KmgPathUtilsTest$TestClass");
+        final Class<?>           expectedCauseClass    = URISyntaxException.class;
+        final String             expectedDomainMessage = String.format("[%s] クラスからビルドバスの取得に失敗しました。クラス=[%s]",
+            "KMGCORE_GEN24000", "kmg.core.infrastructure.utils.KmgPathUtilsTest$TestClass");
         final KmgCoreGenMsgTypes expectedMessageTypes  = KmgCoreGenMsgTypes.KMGCORE_GEN24000;
 
         /* 準備 */
-        final Class<TestClass>   testTarget    = TestClass.class;
+        final Class<?> testTarget = TestClass.class;
+
         final URISyntaxException testException = new URISyntaxException("test", "Test URI Syntax Exception");
 
         try (MockedStatic<KmgPathUtils> mockedStatic = Mockito.mockStatic(KmgPathUtils.class)) {
@@ -143,7 +145,7 @@ public class KmgPathUtilsTest extends AbstractKmgTest {
             /* 検証の実施 */
             final KmgMsgException actualException = Assertions.assertThrows(KmgMsgException.class,
                 () -> KmgPathUtils.getBinPath(testTarget), "URISyntaxExceptionが発生した場合、KmgMsgExceptionがスローされるべき");
-            this.verifyKmgMsgException(actualException, URISyntaxException.class, expectedDomainMessage,
+            this.verifyKmgMsgException(actualException, expectedCauseClass, expectedDomainMessage,
                 expectedMessageTypes);
 
         }
@@ -161,15 +163,21 @@ public class KmgPathUtilsTest extends AbstractKmgTest {
     @Test
     public void testGetBinPath_normalValidClass() throws KmgMsgException {
 
+        /* 期待値の定義 */
+        final String expectedDirectoryName = "test-classes";
+
         /* 準備 */
         final Class<?> testTarget = TestClass.class;
 
         /* テスト対象の実行 */
         final Path actual = KmgPathUtils.getBinPath(testTarget);
 
+        /* 検証の準備 */
+        final String actualDirectoryName = actual.getFileName().toString();
+
         /* 検証の実施 */
         Assertions.assertNotNull(actual, "ビルドパスが返されるべき");
-        Assertions.assertTrue(actual.toString().endsWith("test-classes"), "test-classesディレクトリを指すべき");
+        Assertions.assertEquals(expectedDirectoryName, actualDirectoryName, "test-classesディレクトリを指すべき");
 
     }
 
@@ -184,15 +192,21 @@ public class KmgPathUtilsTest extends AbstractKmgTest {
     @Test
     public void testGetBinPath_normalValidObject() throws KmgMsgException {
 
+        /* 期待値の定義 */
+        final String expectedDirectoryName = "test-classes";
+
         /* 準備 */
         final Object testTarget = new KmgPathUtilsTest();
 
         /* テスト対象の実行 */
         final Path actual = KmgPathUtils.getBinPath(testTarget);
 
+        /* 検証の準備 */
+        final String actualDirectoryName = actual.getFileName().toString();
+
         /* 検証の実施 */
         Assertions.assertNotNull(actual, "ビルドパスが返されるべき");
-        Assertions.assertTrue(actual.toString().endsWith("test-classes"), "test-classesディレクトリを指すべき");
+        Assertions.assertEquals(expectedDirectoryName, actualDirectoryName, "test-classesディレクトリを指すべき");
 
     }
 
@@ -552,15 +566,21 @@ public class KmgPathUtilsTest extends AbstractKmgTest {
     @Test
     public void testGetCodeSourceLocation_normalValidClass() throws URISyntaxException {
 
+        /* 期待値の定義 */
+        final String expectedDirectoryName = "test-classes";
+
         /* 準備 */
         final Class<TestClass> testTarget = TestClass.class;
 
         /* テスト対象の実行 */
         final Path actual = KmgPathUtils.getCodeSourceLocation(testTarget);
 
+        /* 検証の準備 */
+        final String actualDirectoryName = actual.getFileName().toString();
+
         /* 検証の実施 */
         Assertions.assertNotNull(actual, "ビルドパスが返されるべき");
-        Assertions.assertTrue(actual.toString().endsWith("test-classes"), "test-classesディレクトリを指すべき");
+        Assertions.assertEquals(expectedDirectoryName, actualDirectoryName, "test-classesディレクトリを指すべき");
 
     }
 
@@ -605,6 +625,103 @@ public class KmgPathUtilsTest extends AbstractKmgTest {
 
         /* 検証の実施 */
         Assertions.assertEquals(expected, actual, "拡張子を除いたファイル名が返されるべき");
+
+    }
+
+    /**
+     * getSimpleClassName メソッドのテスト - 異常系:nullの場合
+     *
+     * @since 0.2.0
+     */
+    @Test
+    public void testGetSimpleClassName_errorNull() {
+
+        /* 期待値の定義 */
+        final String expected = null;
+
+        /* 準備 */
+        final Class<?> testTarget = null;
+
+        /* テスト対象の実行 */
+        final String actual = KmgPathUtils.getSimpleClassName(testTarget);
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "nullの場合はnullを返すべき");
+
+    }
+
+    /**
+     * getSimpleClassName メソッドのテスト - 正常系:内部クラスの場合
+     *
+     * @since 0.2.0
+     */
+    @Test
+    public void testGetSimpleClassName_normalInnerClass() {
+
+        /* 期待値の定義 */
+        final String expected = "InnerClass";
+
+        /* 準備 */
+        final Class<?> testTarget = new Object() {
+
+            class InnerClass {
+                // 処理なし
+            }
+        }.new InnerClass().getClass();
+
+        /* テスト対象の実行 */
+        final String actual = KmgPathUtils.getSimpleClassName(testTarget);
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "内部クラスの場合、正しいクラス名が返されるべき");
+
+    }
+
+    /**
+     * getSimpleClassName メソッドのテスト - 正常系:プロキシクラスの場合
+     *
+     * @since 0.2.0
+     */
+    @Test
+    public void testGetSimpleClassName_normalProxyClass() {
+
+        /* 期待値の定義 */
+        final String expected = "TestClass";
+
+        /* 準備 */
+        // 実際のプロキシクラス名を持つクラスを作成
+        class TestClass$$EnhancerBySpringCGLIB$$123456 {
+            // 処理なし
+        }
+        final Class<?> testTarget = TestClass$$EnhancerBySpringCGLIB$$123456.class;
+
+        /* テスト対象の実行 */
+        final String actual = KmgPathUtils.getSimpleClassName(testTarget);
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "プロキシクラスの場合、$$より前の部分が返されるべき");
+
+    }
+
+    /**
+     * getSimpleClassName メソッドのテスト - 正常系:通常のクラスの場合
+     *
+     * @since 0.2.0
+     */
+    @Test
+    public void testGetSimpleClassName_normalRegularClass() {
+
+        /* 期待値の定義 */
+        final String expected = "TestClass";
+
+        /* 準備 */
+        final Class<?> testTarget = TestClass.class;
+
+        /* テスト対象の実行 */
+        final String actual = KmgPathUtils.getSimpleClassName(testTarget);
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expected, actual, "通常のクラス名が返されるべき");
 
     }
 }

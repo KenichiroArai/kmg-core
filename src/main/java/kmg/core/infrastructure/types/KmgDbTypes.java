@@ -3,7 +3,7 @@ package kmg.core.infrastructure.types;
 import java.util.HashMap;
 import java.util.Map;
 
-import kmg.core.infrastructure.common.KmgComTypes;
+import kmg.core.infrastructure.cmn.KmgCmnTypes;
 import kmg.core.infrastructure.type.KmgString;
 import kmg.core.infrastructure.utils.KmgArrayUtils;
 
@@ -17,29 +17,21 @@ import kmg.core.infrastructure.utils.KmgArrayUtils;
  * @version 0.2.0
  */
 @SuppressWarnings("nls")
-public enum KmgDbTypes implements KmgComTypes<String> {
+public enum KmgDbTypes implements KmgCmnTypes<String> {
 
     /* 定義：開始 */
 
     /**
      * 指定無し
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     NONE("指定無し", null, null),
 
     /**
      * PostgreSQL
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     POSTGRE_SQL("PostgreSQL", "PostgreSQL", new String[] {
         "Postgres"
@@ -48,33 +40,21 @@ public enum KmgDbTypes implements KmgComTypes<String> {
     /**
      * MySQL
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     MYSQL("MySQL", "MySQL", null),
 
     /**
      * Oracle
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     ORACLE("Oracle", "Oracle", null),
 
     /**
      * SQL Server
      *
-     * @author KenichiroArai
-     *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     SQL_SERVER("SQL Server", "SQL Server", new String[] {
         "MS SQL"

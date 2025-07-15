@@ -1,6 +1,6 @@
 package kmg.core.infrastructure.model.val.impl;
 
-import kmg.core.infrastructure.common.msg.KmgComValMsgTypes;
+import kmg.core.infrastructure.cmn.msg.KmgCmnValMsgTypes;
 import kmg.core.infrastructure.model.val.KmgValDataModel;
 import kmg.core.infrastructure.utils.KmgMessageUtils;
 
@@ -18,19 +18,29 @@ import kmg.core.infrastructure.utils.KmgMessageUtils;
  */
 public class KmgValDataModelImpl implements KmgValDataModel {
 
-    /** メッセージの種類 */
-    private final KmgComValMsgTypes messageTypes;
+    /**
+     * メッセージの種類
+     *
+     * @since 0.2.0
+     */
+    private final KmgCmnValMsgTypes messageTypes;
 
-    /** メッセージの引数 */
+    /**
+     * メッセージの引数
+     *
+     * @since 0.2.0
+     */
     private final Object[] messageArgs;
 
-    /** メッセージ */
+    /**
+     * メッセージ
+     *
+     * @since 0.2.0
+     */
     private final String message;
 
     /**
      * コンストラクタ<br>
-     *
-     * @author KenichiroArai
      *
      * @since 0.2.0
      *
@@ -39,7 +49,7 @@ public class KmgValDataModelImpl implements KmgValDataModel {
      * @param messageArgs
      *                     メッセージの引数
      */
-    public KmgValDataModelImpl(final KmgComValMsgTypes messageTypes, final Object[] messageArgs) {
+    public KmgValDataModelImpl(final KmgCmnValMsgTypes messageTypes, final Object[] messageArgs) {
 
         this.messageTypes = messageTypes;
         this.messageArgs = messageArgs;
@@ -68,8 +78,6 @@ public class KmgValDataModelImpl implements KmgValDataModel {
     /**
      * メッセージの引数を返す<br>
      *
-     * @author KenichiroArai
-     *
      * @since 0.2.0
      *
      * @return メッセージの引数
@@ -85,16 +93,14 @@ public class KmgValDataModelImpl implements KmgValDataModel {
     /**
      * メッセージの種類を返す<br>
      *
-     * @author KenichiroArai
-     *
      * @since 0.2.0
      *
      * @return メッセージの種類
      */
     @Override
-    public KmgComValMsgTypes getMessageTypes() {
+    public KmgCmnValMsgTypes getMessageTypes() {
 
-        final KmgComValMsgTypes result = this.messageTypes;
+        final KmgCmnValMsgTypes result = this.messageTypes;
         return result;
 
     }

@@ -14,9 +14,9 @@ import org.mockito.quality.Strictness;
 
 import kmg.core.infrastructure.exception.KmgMsgException;
 import kmg.core.infrastructure.model.KmgReflectionModel;
+import kmg.core.infrastructure.test.AbstractKmgTest;
 import kmg.core.infrastructure.type.KmgString;
 import kmg.core.infrastructure.types.msg.KmgCoreGenMsgTypes;
-import kmg.core.test.AbstractKmgTest;
 
 /**
  * KMGSQLパスモデルテスト<br>
@@ -142,8 +142,9 @@ public class KmgSqlPathModelImplTest extends AbstractKmgTest {
     public void testToSql_errorFileNotFound() {
 
         /* 期待値の定義 */
-        final String                 expectedDomainMessage = KmgString
-            .concat(this.tempDir.resolve("not_exists.sql").toString(), "がありません。");
+        final Class<?>           expectedCauseClass    = java.nio.file.NoSuchFileException.class;
+        final String             expectedDomainMessage = KmgString.concat("[KMGCORE_GEN11100] ",
+            this.tempDir.resolve("not_exists.sql").toString(), "がありません。");
         final KmgCoreGenMsgTypes expectedMessageTypes  = KmgCoreGenMsgTypes.KMGCORE_GEN11100;
 
         /* 準備 */
@@ -155,8 +156,7 @@ public class KmgSqlPathModelImplTest extends AbstractKmgTest {
             = Assertions.assertThrows(KmgMsgException.class, () -> this.target.toSql());
 
         /* 検証の実施 */
-        this.verifyKmgMsgException(actualException, java.nio.file.NoSuchFileException.class, expectedDomainMessage,
-            expectedMessageTypes);
+        this.verifyKmgMsgException(actualException, expectedCauseClass, expectedDomainMessage, expectedMessageTypes);
 
     }
 

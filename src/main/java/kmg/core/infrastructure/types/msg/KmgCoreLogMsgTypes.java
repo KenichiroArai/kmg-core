@@ -3,7 +3,7 @@ package kmg.core.infrastructure.types.msg;
 import java.util.HashMap;
 import java.util.Map;
 
-import kmg.core.infrastructure.common.msg.KmgComLogMsgTypes;
+import kmg.core.infrastructure.cmn.msg.KmgCmnLogMsgTypes;
 
 /**
  * KMGコアログメッセージの種類<br>
@@ -18,14 +18,12 @@ import kmg.core.infrastructure.common.msg.KmgComLogMsgTypes;
  * @version 0.2.0
  */
 @SuppressWarnings("nls")
-public enum KmgCoreLogMsgTypes implements KmgComLogMsgTypes {
+public enum KmgCoreLogMsgTypes implements KmgCmnLogMsgTypes {
 
     /* 定義：開始 */
 
     /**
      * 指定無し
-     *
-     * @author KenichiroArai
      *
      * @since 0.2.0
      */
@@ -34,16 +32,12 @@ public enum KmgCoreLogMsgTypes implements KmgComLogMsgTypes {
     /**
      * {0}：開始
      *
-     * @author KenichiroArai
-     *
      * @since 0.2.0
      */
     KMGCORE_LOG12000("{0}：開始"),
 
     /**
      * {0}：終了。経過時間=[{1}{2}]
-     *
-     * @author KenichiroArai
      *
      * @since 0.2.0
      */
@@ -52,16 +46,12 @@ public enum KmgCoreLogMsgTypes implements KmgComLogMsgTypes {
     /**
      * {0}：{1}。経過時間=[{2}{3}]
      *
-     * @author KenichiroArai
-     *
      * @since 0.2.0
      */
     KMGCORE_LOG12002("{0}：{1}。経過時間=[{2}{3}]"),
 
     /**
      * {0}：{1}。経過時間=[{2}{3}]
-     *
-     * @author KenichiroArai
      *
      * @since 0.2.0
      */
@@ -70,16 +60,12 @@ public enum KmgCoreLogMsgTypes implements KmgComLogMsgTypes {
     /**
      * {0}：{1}。経過時間=[{2}{3}]
      *
-     * @author KenichiroArai
-     *
      * @since 0.2.0
      */
     KMGCORE_LOG12004("{0}：{1}。経過時間=[{2}{3}]"),
 
     /**
      * {0}
-     *
-     * @author KenichiroArai
      *
      * @since 0.2.0
      */
