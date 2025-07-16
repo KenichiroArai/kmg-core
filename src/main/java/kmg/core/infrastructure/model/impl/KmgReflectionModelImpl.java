@@ -333,17 +333,11 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
 
         } catch (final InvocationTargetException e) {
 
-            // InvocationTargetExceptionの元の例外をそのまま投げる
-            final Throwable cause = e.getCause();
-            if (cause != null) {
-                if (cause instanceof Exception) {
-                    throw (Exception) cause;
-                }
-                // Errorの場合はRuntimeExceptionでラップ
-                throw new RuntimeException(cause);
-            }
-            // 元の例外がnullの場合はInvocationTargetExceptionをそのまま投げる
-            throw e;
+            final KmgCoreGenMsgTypes msgTypes = KmgCoreGenMsgTypes.KMGCORE_GEN11207;
+            final Object[]           msgArgs  = {
+                methodName, targetClazz
+            };
+            throw new KmgReflectionException(this, msgTypes, msgArgs, e);
 
         }
 
