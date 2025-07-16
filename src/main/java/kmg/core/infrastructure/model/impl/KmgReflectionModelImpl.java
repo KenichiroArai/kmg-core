@@ -197,9 +197,11 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
      *
      * @throws KmgReflectionException
      *                                KMGリフレクション例外
+     * @throws Exception
+     *                               メソッド実行時に発生した元の例外
      */
     @Override
-    public Object getMethod(final String methodName, final Object... parameters) throws KmgReflectionException {
+    public Object getMethod(final String methodName, final Object... parameters) throws KmgReflectionException, Exception {
 
         Object result = null;
 
@@ -331,11 +333,17 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
 
         } catch (final InvocationTargetException e) {
 
-            final KmgCoreGenMsgTypes msgTypes = KmgCoreGenMsgTypes.KMGCORE_GEN11207;
-            final Object[]           msgArgs  = {
-                methodName, targetClazz
-            };
-            throw new KmgReflectionException(this, msgTypes, msgArgs, e);
+            // InvocationTargetExceptionの元の例外をそのまま投げる
+            final Throwable cause = e.getCause();
+            if (cause != null) {
+                if (cause instanceof Exception) {
+                    throw (Exception) cause;
+                }
+                // Errorの場合はRuntimeExceptionでラップ
+                throw new RuntimeException(cause);
+            }
+            // 元の例外がnullの場合はInvocationTargetExceptionをそのまま投げる
+            throw e;
 
         }
 
