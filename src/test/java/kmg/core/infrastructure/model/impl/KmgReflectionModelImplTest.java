@@ -15,6 +15,7 @@ import org.mockito.junit.jupiter.MockitoSettings;
 import org.mockito.quality.Strictness;
 
 import kmg.core.infrastructure.cmn.msg.KmgCmnExcMsgTypes;
+import kmg.core.infrastructure.exception.KmgMsgException;
 import kmg.core.infrastructure.exception.KmgReflectionException;
 import kmg.core.infrastructure.test.AbstractKmgTest;
 import kmg.core.infrastructure.type.KmgString;
@@ -591,7 +592,7 @@ public class KmgReflectionModelImplTest extends AbstractKmgTest {
 
             @Override
             protected Object invoke(final Method method, final Object targetObject, final Object... parameters)
-                throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+                throws IllegalAccessException {
 
                 throw new IllegalAccessException();
 
@@ -632,7 +633,7 @@ public class KmgReflectionModelImplTest extends AbstractKmgTest {
 
             @Override
             protected Object invoke(final Method method, final Object targetObject, final Object... parameters)
-                throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+                throws InvocationTargetException {
 
                 throw new IllegalArgumentException("Test illegal argument exception");
 
@@ -660,7 +661,6 @@ public class KmgReflectionModelImplTest extends AbstractKmgTest {
     public void testGetMethod_errorInvocationTargetException() throws Exception {
 
         /* 期待値の定義 */
-        final Class<?>           expectedCauseClass    = InvocationTargetException.class;
         final String             expectedDomainMessage = String.format("[%s] メソッドの値の取得に失敗しました。メソッド名=[%s]、対象のクラス=[%s]",
             "KMGCORE_GEN11207", "testMethod",
             "class kmg.core.infrastructure.model.impl.KmgReflectionModelImplTest$TestClass");
@@ -673,19 +673,22 @@ public class KmgReflectionModelImplTest extends AbstractKmgTest {
 
             @Override
             protected Object invoke(final Method method, final Object targetObject, final Object... parameters)
-                throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+                throws InvocationTargetException {
 
-                throw new InvocationTargetException(new RuntimeException("Test invocation target exception"));
+                throw new InvocationTargetException(
+                    new KmgMsgException(KmgCoreGenMsgTypes.KMGCORE_GEN11207, new Object[] {
+                        "testMethod", "class kmg.core.infrastructure.model.impl.KmgReflectionModelImplTest$TestClass"
+                }));
 
             }
         };
 
         /* テスト対象の実行 */
-        final KmgReflectionException actualException = Assertions.assertThrows(KmgReflectionException.class,
-            () -> testReflection.getMethod("testMethod", "Hello"));
+        final KmgMsgException actualException
+            = Assertions.assertThrows(KmgMsgException.class, () -> testReflection.getMethod("testMethod", "Hello"));
 
         /* 検証の実施 */
-        this.verifyKmgMsgException(actualException, expectedCauseClass, expectedDomainMessage, expectedMessageTypes);
+        this.verifyKmgMsgException(actualException, expectedDomainMessage, expectedMessageTypes);
 
     }
 
@@ -898,7 +901,7 @@ public class KmgReflectionModelImplTest extends AbstractKmgTest {
 
             @Override
             protected Object invoke(final Method method, final Object targetObject, final Object... parameters)
-                throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+                throws InvocationTargetException {
 
                 throw new SecurityException("Test security exception from invoke");
 
