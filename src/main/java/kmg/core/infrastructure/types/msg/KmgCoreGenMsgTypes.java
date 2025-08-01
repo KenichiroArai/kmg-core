@@ -87,6 +87,7 @@ public enum KmgCoreGenMsgTypes implements KmgCmnGenMsgTypes, KmgCmnExcMsgTypes {
      */
     KMGCORE_GEN11206("メソッドの値の取得に失敗しました。メソッド名=[{0}]、対象のクラス=[{1}]"),
 
+    // TODO KenichiroArai 2025/07/16 不要になる可能性があるチェックし、不要な削除する。
     /**
      * メソッドの値の取得に失敗しました。メソッド名=[{0}]、対象のクラス=[{1}]
      *
