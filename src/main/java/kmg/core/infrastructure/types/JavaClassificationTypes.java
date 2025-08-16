@@ -109,6 +109,13 @@ public enum JavaClassificationTypes implements KmgCmnTypes<String> {
      */
     MODULE("モジュール", "module", "モジュール", "^\\s*module\\s+(?<elementName>\\w+)\\s*\\{.*"),
 
+    /**
+     * パッケージ
+     *
+     * @since 0.2.0
+     */
+    PACKAGE("パッケージ", "package", "パッケージ", "^\\s*package\\s+(?<elementName>[\\w.]+)\\s*;"),
+
     /* 定義：終了 */
     ;
 
@@ -431,7 +438,8 @@ public enum JavaClassificationTypes implements KmgCmnTypes<String> {
         final boolean result = switch (this) {
 
             // Javadoc対象
-            case CLASS, INTERFACE, ENUM, ENUM_CONST, ANNOTATION_DEFINITION, FIELD, METHOD, CONSTRUCTOR, MODULE -> true;
+            case CLASS, INTERFACE, ENUM, ENUM_CONST, ANNOTATION_DEFINITION, FIELD, METHOD, CONSTRUCTOR, MODULE,
+                PACKAGE -> true;
 
             // Javadoc対象外
             case NONE, ANNOTATION_USAGE -> false;
