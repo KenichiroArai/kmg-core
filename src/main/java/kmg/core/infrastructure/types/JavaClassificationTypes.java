@@ -439,7 +439,7 @@ public enum JavaClassificationTypes implements KmgCmnTypes<String> {
 
             // Javadoc対象
             case CLASS, INTERFACE, ENUM, ENUM_CONST, ANNOTATION_DEFINITION, FIELD, METHOD, CONSTRUCTOR, MODULE,
-                PACKAGE -> true;
+                PACKAGE_INFO -> true;
 
             // Javadoc対象外
             case NONE, ANNOTATION_USAGE -> false;
