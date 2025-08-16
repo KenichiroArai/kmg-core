@@ -110,11 +110,11 @@ public enum JavaClassificationTypes implements KmgCmnTypes<String> {
     MODULE("モジュール", "module", "モジュール", "^\\s*module\\s+(?<elementName>\\w+)\\s*\\{.*"),
 
     /**
-     * パッケージ
+     * パッケージ情報
      *
      * @since 0.2.0
      */
-    PACKAGE("パッケージ", "package", "パッケージ", "^\\s*package\\s+(?<elementName>[\\w.]+)\\s*;"),
+    PACKAGE_INFO("パッケージ情報", "package-info", "パッケージ情報", "^\\s*package\\s+(?<elementName>[\\w.]+)\\s*;"),
 
     /* 定義：終了 */
     ;
