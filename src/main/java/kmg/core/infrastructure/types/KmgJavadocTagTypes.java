@@ -36,7 +36,7 @@ public enum KmgJavadocTagTypes implements KmgCmnTypes<String> {
      */
     AUTHOR("著者", "@author", "クラスやインタフェースの作成者を示す",
         Arrays.asList(JavaClassificationTypes.CLASS, JavaClassificationTypes.INTERFACE, JavaClassificationTypes.ENUM,
-            JavaClassificationTypes.ANNOTATION_USAGE)),
+            JavaClassificationTypes.ANNOTATION_USAGE, JavaClassificationTypes.PACKAGE_INFO)),
 
     /**
      * バージョン
@@ -45,7 +45,7 @@ public enum KmgJavadocTagTypes implements KmgCmnTypes<String> {
      */
     VERSION("バージョン", "@version", "クラスやインタフェースのバージョンを示す",
         Arrays.asList(JavaClassificationTypes.CLASS, JavaClassificationTypes.INTERFACE, JavaClassificationTypes.ENUM,
-            JavaClassificationTypes.ANNOTATION_USAGE)),
+            JavaClassificationTypes.ANNOTATION_USAGE, JavaClassificationTypes.PACKAGE_INFO)),
 
     /**
      * 参照
@@ -65,7 +65,8 @@ public enum KmgJavadocTagTypes implements KmgCmnTypes<String> {
     SINCE("シンス", "@since", "機能が導入されたバージョンを示す",
         Arrays.asList(JavaClassificationTypes.CLASS, JavaClassificationTypes.INTERFACE, JavaClassificationTypes.ENUM,
             JavaClassificationTypes.ENUM_CONST, JavaClassificationTypes.ANNOTATION_USAGE,
-            JavaClassificationTypes.METHOD, JavaClassificationTypes.FIELD, JavaClassificationTypes.CONSTRUCTOR)),
+            JavaClassificationTypes.METHOD, JavaClassificationTypes.FIELD, JavaClassificationTypes.CONSTRUCTOR,
+            JavaClassificationTypes.PACKAGE_INFO)),
 
     /**
      * 非推奨
