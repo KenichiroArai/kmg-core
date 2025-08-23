@@ -48,13 +48,14 @@ public abstract class AbstractKmgTest {
      */
     protected static Path getTestMethodPath(final Class<?> testClass, final String testMethodName) {
 
+        Path       result;
         final Path fqcnPath = KmgPathUtils.getFqcnPath(testClass);
         final Path testPath = AbstractKmgTest.TEST_RESOURCES.resolve(fqcnPath);
 
         final Path testMethodNamePath = Path.of(KmgString.snakeCase(testMethodName));
-        final Path testMethodPath     = testPath.resolve(testMethodNamePath);
+        result = testPath.resolve(testMethodNamePath);
 
-        return testMethodPath;
+        return result;
 
     }
 
