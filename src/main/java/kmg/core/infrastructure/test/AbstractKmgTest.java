@@ -1,5 +1,10 @@
 package kmg.core.infrastructure.test;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.List;
+
 import org.junit.jupiter.api.Assertions;
 
 import kmg.core.infrastructure.cmn.msg.KmgCmnExcMsgTypes;
@@ -19,6 +24,48 @@ import kmg.core.infrastructure.exception.KmgMsgException;
     "nls", "static-method",
 })
 public abstract class AbstractKmgTest {
+
+    /**
+     * ファイルの内容を確認し、デバッグ情報を出力する
+     *
+     * @param filePath
+     *                 確認対象のファイルパス
+     *
+     * @since 0.1.0
+     */
+    protected static void verifyFileContent(final Path filePath) {
+
+        System.out.println(String.format("FilePath: %s", filePath.toAbsolutePath()));
+
+        if (!Files.exists(filePath)) {
+
+            System.out.println("ファイルが存在しません。");
+            return;
+
+        }
+
+        List<String> lines;
+
+        try {
+
+            lines = Files.readAllLines(filePath);
+
+        } catch (final IOException e) {
+
+            e.printStackTrace();
+            return;
+
+        }
+        System.out.println("==== ファイルの内容 ====");
+
+        for (final String line : lines) {
+
+            System.out.println(line);
+
+        }
+        System.out.println("==== ここまで ====");
+
+    }
 
     /**
      * デフォルトコンストラクタ<br>
