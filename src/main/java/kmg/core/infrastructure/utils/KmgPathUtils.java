@@ -280,6 +280,55 @@ public final class KmgPathUtils {
     }
 
     /**
+     * クラスからフルパッケージとクラス名のパスを生成して返す<br>
+     * <p>
+     * クラスからパッケージ名とクラス名を取得し、パッケージ名をパス形式（/区切り）に変換し、 クラス名を小文字のアンスコ区切り（スネークケース）に変換して結合したパスを返す。<br>
+     * 例：パッケージ名に「com.sample」、クラス名に「SampleDao」の場合、「com/sample/sample_dao」を返す。<br>
+     * </p>
+     *
+     * @since 0.2.0
+     *
+     * @param zlass
+     *              クラス
+     *
+     * @return フルパッケージとクラス名のパス
+     */
+    public static Path getPackageAndClassNamePath(final Class<?> zlass) {
+
+        Path result = null;
+
+        if (zlass == null) {
+
+            return result;
+
+        }
+
+        final String packageName = zlass.getPackageName();
+        final String className   = KmgPathUtils.getSimpleClassName(zlass);
+
+        if (KmgString.isEmpty(className)) {
+
+            return result;
+
+        }
+
+        // クラス名をスネークケースに変換
+        final String snakeCaseClassName = KmgString.snakeCase(className);
+
+        // パッケージ名をパス形式に変換（.を/に変換）
+        final String packagePath
+            = packageName.replace(KmgPathUtils.FILE_EXTENSION_SEPARATOR, KmgPathUtils.PATH_SEPARATOR);
+
+        // パッケージパスとクラス名を結合
+        final String pathString = KmgString.concat(packagePath, KmgPathUtils.PATH_SEPARATOR_STR, snakeCaseClassName);
+
+        result = Paths.get(pathString);
+
+        return result;
+
+    }
+
+    /**
      * シンプルなクラス名を返す<br>
      * <p>
      * クラスのシンプルな名前を返す。<br>
