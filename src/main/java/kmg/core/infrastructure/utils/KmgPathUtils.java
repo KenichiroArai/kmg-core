@@ -280,9 +280,11 @@ public final class KmgPathUtils {
     }
 
     /**
-     * クラスからフルパッケージとクラス名のパスを生成して返す<br>
+     * FQCNのパスを取得する<br>
      * <p>
-     * クラスからパッケージ名とクラス名を取得し、パッケージ名をパス形式（/区切り）に変換し、 クラス名を小文字のアンスコ区切り（スネークケース）に変換して結合したパスを返す。<br>
+     * FQCN（Fully Qualified Class Name）、完全修飾クラス名を取得する。<br>
+     * クラスからパッケージ名とクラス名を取得し、パッケージ名をパス形式（/区切り）に変換し、<br>
+     * クラス名をスネークケースに変換して結合したパスを返す。<br>
      * 例：パッケージ名に「com.sample」、クラス名に「SampleDao」の場合、「com/sample/sample_dao」を返す。<br>
      * </p>
      *
@@ -291,9 +293,9 @@ public final class KmgPathUtils {
      * @param zlass
      *              クラス
      *
-     * @return フルパッケージとクラス名のパス
+     * @return FQCNパス
      */
-    public static Path getPackageAndClassNamePath(final Class<?> zlass) {
+    public static Path getFqcnPath(final Class<?> zlass) {
 
         Path result = null;
 
@@ -303,25 +305,20 @@ public final class KmgPathUtils {
 
         }
 
-        final String packageName = zlass.getPackageName();
-        final String className   = KmgPathUtils.getSimpleClassName(zlass);
-
-        if (KmgString.isEmpty(className)) {
-
-            return result;
-
-        }
+        // クラス名の取得
+        final String className = KmgPathUtils.getSimpleClassName(zlass);
 
         // クラス名をスネークケースに変換
         final String snakeCaseClassName = KmgString.snakeCase(className);
 
         // パッケージ名をパス形式に変換（.を/に変換）
         final String packagePath
-            = packageName.replace(KmgPathUtils.FILE_EXTENSION_SEPARATOR, KmgPathUtils.PATH_SEPARATOR);
+            = zlass.getPackageName().replace(KmgPathUtils.FILE_EXTENSION_SEPARATOR, KmgPathUtils.PATH_SEPARATOR);
 
         // パッケージパスとクラス名を結合
         final String pathString = KmgString.concat(packagePath, KmgPathUtils.PATH_SEPARATOR_STR, snakeCaseClassName);
 
+        // パスに変換する
         result = Paths.get(pathString);
 
         return result;
