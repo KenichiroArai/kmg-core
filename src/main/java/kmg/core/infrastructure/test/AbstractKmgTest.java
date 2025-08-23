@@ -25,6 +25,9 @@ import kmg.core.infrastructure.exception.KmgMsgException;
 })
 public abstract class AbstractKmgTest {
 
+    /** テストリソース */
+    protected static final Path TEST_RESOURCES = Path.of("src/test/resources");
+
     /**
      * ファイルの内容を確認し、デバッグ情報を出力する
      *
