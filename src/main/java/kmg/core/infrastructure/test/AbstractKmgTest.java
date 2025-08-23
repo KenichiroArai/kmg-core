@@ -6,10 +6,13 @@ import java.nio.file.Path;
 import java.util.List;
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.TestInfo;
 
 import kmg.core.infrastructure.cmn.msg.KmgCmnExcMsgTypes;
 import kmg.core.infrastructure.cmn.msg.KmgCmnGenMsgTypes;
 import kmg.core.infrastructure.exception.KmgMsgException;
+import kmg.core.infrastructure.type.KmgString;
+import kmg.core.infrastructure.utils.KmgPathUtils;
 
 /**
  * KMGのテストの抽象クラス<br>
@@ -27,6 +30,33 @@ public abstract class AbstractKmgTest {
 
     /** テストリソース */
     protected static final Path TEST_RESOURCES = Path.of("src/test/resources");
+
+    /**
+     * テストメソッドのパスを生成する<br>
+     * <p>
+     * テストクラスのFQCNパスとテストメソッド名から、テストリソースディレクトリ内のパスを生成します。
+     * </p>
+     *
+     * @since 0.2.0
+     *
+     * @param testClass
+     *                       テストクラス
+     * @param testMethodName
+     *                       テストメソッド名
+     *
+     * @return テストメソッドのパス
+     */
+    protected static Path getTestMethodPath(final Class<?> testClass, final String testMethodName) {
+
+        final Path fqcnPath = KmgPathUtils.getFqcnPath(testClass);
+        final Path testPath = AbstractKmgTest.TEST_RESOURCES.resolve(fqcnPath);
+
+        final Path testMethodNamePath = Path.of(KmgString.snakeCase(testMethodName));
+        final Path testMethodPath     = testPath.resolve(testMethodNamePath);
+
+        return testMethodPath;
+
+    }
 
     /**
      * ファイルの内容を確認し、デバッグ情報を出力する
@@ -78,6 +108,47 @@ public abstract class AbstractKmgTest {
     public AbstractKmgTest() {
 
         // 処理なし
+    }
+
+    /**
+     * 現在のテストメソッドのパスを生成する<br>
+     * <p>
+     * TestInfoから現在のテストメソッド名を取得し、テストリソースディレクトリ内のパスを生成します。
+     * </p>
+     *
+     * @since 0.2.0
+     *
+     * @param testInfo
+     *                 テスト情報
+     *
+     * @return テストメソッドのパス
+     */
+    protected Path getCurrentTestMethodPath(final TestInfo testInfo) {
+
+        final String testMethodName = testInfo.getTestMethod().get().getName();
+        final Path   result         = AbstractKmgTest.getTestMethodPath(this.getClass(), testMethodName);
+        return result;
+
+    }
+
+    /**
+     * テストメソッドのパスを生成する<br>
+     * <p>
+     * 現在のテストクラスとテストメソッド名から、テストリソースディレクトリ内のパスを生成します。
+     * </p>
+     *
+     * @since 0.2.0
+     *
+     * @param testMethodName
+     *                       テストメソッド名
+     *
+     * @return テストメソッドのパス
+     */
+    protected Path getTestMethodPath(final String testMethodName) {
+
+        final Path result = AbstractKmgTest.getTestMethodPath(this.getClass(), testMethodName);
+        return result;
+
     }
 
     /**
