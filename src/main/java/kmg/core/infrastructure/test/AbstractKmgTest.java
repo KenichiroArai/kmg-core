@@ -12,6 +12,7 @@ import kmg.core.infrastructure.cmn.msg.KmgCmnExcMsgTypes;
 import kmg.core.infrastructure.cmn.msg.KmgCmnGenMsgTypes;
 import kmg.core.infrastructure.exception.KmgMsgException;
 import kmg.core.infrastructure.type.KmgString;
+import kmg.core.infrastructure.types.KmgDelimiterTypes;
 import kmg.core.infrastructure.utils.KmgPathUtils;
 
 /**
@@ -55,6 +56,34 @@ public abstract class AbstractKmgTest {
         final Path testMethodNamePath = Path.of(KmgString.snakeCase(testMethodName));
         result = testPath.resolve(testMethodNamePath);
 
+        return result;
+
+    }
+
+    /**
+     * 改行文字を正規化する<br>
+     * <p>
+     * 文字列内の改行文字をシステムの改行文字に統一します。
+     * </p>
+     *
+     * @since 0.2.0
+     *
+     * @param text
+     *             正規化対象の文字列
+     *
+     * @return 正規化された文字列
+     */
+    protected static String normalizeLineSeparators(final String text) {
+
+        String result = text;
+
+        if (text == null) {
+
+            return result;
+
+        }
+
+        result = text.replaceAll(KmgDelimiterTypes.REGEX_LINE_SEPARATOR.get(), KmgString.LINE_SEPARATOR);
         return result;
 
     }
