@@ -54,7 +54,7 @@ public interface KmgReflectionModel {
      * @throws KmgReflectionException
      *                                KMGリフレクション例外
      * @throws Exception
-     *                               メソッド実行時に発生した元の例外
+     *                                メソッド実行時に発生した元の例外
      */
     Object getMethod(final String methodName, final Object... parameters) throws KmgReflectionException, Exception;
 
