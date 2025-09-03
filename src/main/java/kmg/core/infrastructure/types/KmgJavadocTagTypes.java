@@ -35,8 +35,9 @@ public enum KmgJavadocTagTypes implements KmgCmnTypes<String> {
      * @since 0.2.0
      */
     AUTHOR("著者", "@author", "クラスやインタフェースの作成者を示す",
-        Arrays.asList(JavaClassificationTypes.CLASS, JavaClassificationTypes.INTERFACE, JavaClassificationTypes.ENUM,
-            JavaClassificationTypes.ANNOTATION_USAGE, JavaClassificationTypes.PACKAGE_INFO)),
+        Arrays.asList(JavaClassificationTypes.CLASS, JavaClassificationTypes.INNER_CLASS,
+            JavaClassificationTypes.INTERFACE, JavaClassificationTypes.ENUM, JavaClassificationTypes.ANNOTATION_USAGE,
+            JavaClassificationTypes.PACKAGE_INFO)),
 
     /**
      * バージョン
@@ -53,9 +54,9 @@ public enum KmgJavadocTagTypes implements KmgCmnTypes<String> {
      * @since 0.2.0
      */
     SEE("参照", "@see", "関連する他のクラス、メソッド、フィールドへの参照を示す",
-        Arrays.asList(JavaClassificationTypes.CLASS, JavaClassificationTypes.INTERFACE, JavaClassificationTypes.ENUM,
-            JavaClassificationTypes.ANNOTATION_USAGE, JavaClassificationTypes.METHOD, JavaClassificationTypes.FIELD,
-            JavaClassificationTypes.CONSTRUCTOR)),
+        Arrays.asList(JavaClassificationTypes.CLASS, JavaClassificationTypes.INNER_CLASS,
+            JavaClassificationTypes.INTERFACE, JavaClassificationTypes.ENUM, JavaClassificationTypes.ANNOTATION_USAGE,
+            JavaClassificationTypes.METHOD, JavaClassificationTypes.FIELD, JavaClassificationTypes.CONSTRUCTOR)),
 
     /**
      * シンス（導入バージョン）
@@ -63,10 +64,10 @@ public enum KmgJavadocTagTypes implements KmgCmnTypes<String> {
      * @since 0.2.0
      */
     SINCE("シンス", "@since", "機能が導入されたバージョンを示す",
-        Arrays.asList(JavaClassificationTypes.CLASS, JavaClassificationTypes.INTERFACE, JavaClassificationTypes.ENUM,
-            JavaClassificationTypes.ENUM_CONST, JavaClassificationTypes.ANNOTATION_USAGE,
-            JavaClassificationTypes.METHOD, JavaClassificationTypes.FIELD, JavaClassificationTypes.CONSTRUCTOR,
-            JavaClassificationTypes.PACKAGE_INFO)),
+        Arrays.asList(JavaClassificationTypes.CLASS, JavaClassificationTypes.INNER_CLASS,
+            JavaClassificationTypes.INTERFACE, JavaClassificationTypes.ENUM, JavaClassificationTypes.ENUM_CONST,
+            JavaClassificationTypes.ANNOTATION_USAGE, JavaClassificationTypes.METHOD, JavaClassificationTypes.FIELD,
+            JavaClassificationTypes.CONSTRUCTOR, JavaClassificationTypes.PACKAGE_INFO)),
 
     /**
      * 非推奨
@@ -74,9 +75,9 @@ public enum KmgJavadocTagTypes implements KmgCmnTypes<String> {
      * @since 0.2.0
      */
     DEPRECATED("非推奨", "@deprecated", "非推奨の機能であることを示す",
-        Arrays.asList(JavaClassificationTypes.CLASS, JavaClassificationTypes.INTERFACE, JavaClassificationTypes.ENUM,
-            JavaClassificationTypes.ANNOTATION_USAGE, JavaClassificationTypes.METHOD, JavaClassificationTypes.FIELD,
-            JavaClassificationTypes.CONSTRUCTOR)),
+        Arrays.asList(JavaClassificationTypes.CLASS, JavaClassificationTypes.INNER_CLASS,
+            JavaClassificationTypes.INTERFACE, JavaClassificationTypes.ENUM, JavaClassificationTypes.ANNOTATION_USAGE,
+            JavaClassificationTypes.METHOD, JavaClassificationTypes.FIELD, JavaClassificationTypes.CONSTRUCTOR)),
 
     /**
      * パラメータ
@@ -187,9 +188,9 @@ public enum KmgJavadocTagTypes implements KmgCmnTypes<String> {
      * @since 0.2.0
      */
     HIDDEN("隠し", "@hidden", "ドキュメント生成から要素を除外する",
-        Arrays.asList(JavaClassificationTypes.CLASS, JavaClassificationTypes.INTERFACE, JavaClassificationTypes.ENUM,
-            JavaClassificationTypes.ANNOTATION_USAGE, JavaClassificationTypes.METHOD, JavaClassificationTypes.FIELD,
-            JavaClassificationTypes.CONSTRUCTOR)),
+        Arrays.asList(JavaClassificationTypes.CLASS, JavaClassificationTypes.INNER_CLASS,
+            JavaClassificationTypes.INTERFACE, JavaClassificationTypes.ENUM, JavaClassificationTypes.ANNOTATION_USAGE,
+            JavaClassificationTypes.METHOD, JavaClassificationTypes.FIELD, JavaClassificationTypes.CONSTRUCTOR)),
 
     /**
      * 要約
@@ -211,9 +212,9 @@ public enum KmgJavadocTagTypes implements KmgCmnTypes<String> {
      * @since 0.2.0
      */
     API_NOTE("内部API", "@apiNote", "APIに関する注意事項を記述する",
-        Arrays.asList(JavaClassificationTypes.CLASS, JavaClassificationTypes.INTERFACE, JavaClassificationTypes.ENUM,
-            JavaClassificationTypes.ANNOTATION_USAGE, JavaClassificationTypes.METHOD, JavaClassificationTypes.FIELD,
-            JavaClassificationTypes.CONSTRUCTOR)),
+        Arrays.asList(JavaClassificationTypes.CLASS, JavaClassificationTypes.INNER_CLASS,
+            JavaClassificationTypes.INTERFACE, JavaClassificationTypes.ENUM, JavaClassificationTypes.ANNOTATION_USAGE,
+            JavaClassificationTypes.METHOD, JavaClassificationTypes.FIELD, JavaClassificationTypes.CONSTRUCTOR)),
 
     /**
      * 実装詳細
@@ -221,8 +222,9 @@ public enum KmgJavadocTagTypes implements KmgCmnTypes<String> {
      * @since 0.2.0
      */
     IMPL_SPEC("実装詳細", "@implSpec", "実装に関する仕様を記述する",
-        Arrays.asList(JavaClassificationTypes.CLASS, JavaClassificationTypes.INTERFACE, JavaClassificationTypes.ENUM,
-            JavaClassificationTypes.ANNOTATION_USAGE, JavaClassificationTypes.METHOD)),
+        Arrays.asList(JavaClassificationTypes.CLASS, JavaClassificationTypes.INNER_CLASS,
+            JavaClassificationTypes.INTERFACE, JavaClassificationTypes.ENUM, JavaClassificationTypes.ANNOTATION_USAGE,
+            JavaClassificationTypes.METHOD)),
 
     /**
      * 実装ノート
@@ -230,8 +232,9 @@ public enum KmgJavadocTagTypes implements KmgCmnTypes<String> {
      * @since 0.2.0
      */
     IMPL_NOTE("実装ノート", "@implNote", "実装に関する注意事項を記述する",
-        Arrays.asList(JavaClassificationTypes.CLASS, JavaClassificationTypes.INTERFACE, JavaClassificationTypes.ENUM,
-            JavaClassificationTypes.ANNOTATION_USAGE, JavaClassificationTypes.METHOD)),
+        Arrays.asList(JavaClassificationTypes.CLASS, JavaClassificationTypes.INNER_CLASS,
+            JavaClassificationTypes.INTERFACE, JavaClassificationTypes.ENUM, JavaClassificationTypes.ANNOTATION_USAGE,
+            JavaClassificationTypes.METHOD)),
 
     /**
      * システムプロパティ
