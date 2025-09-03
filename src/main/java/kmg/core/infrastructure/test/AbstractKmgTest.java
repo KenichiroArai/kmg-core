@@ -29,7 +29,11 @@ import kmg.core.infrastructure.utils.KmgPathUtils;
 })
 public abstract class AbstractKmgTest {
 
-    /** テストリソース */
+    /**
+     * テストリソース
+     *
+     * @since 0.2.0
+     */
     protected static final Path TEST_RESOURCES = Path.of("src/test/resources");
 
     /**
@@ -94,7 +98,7 @@ public abstract class AbstractKmgTest {
      * @param filePath
      *                 確認対象のファイルパス
      *
-     * @since 0.1.0
+     * @since 0.2.0
      */
     protected static void verifyFileContent(final Path filePath) {
 
