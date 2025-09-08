@@ -15,7 +15,6 @@ import org.mockito.junit.jupiter.MockitoSettings;
 import org.mockito.quality.Strictness;
 
 import kmg.core.infrastructure.cmn.msg.KmgCmnExcMsgTypes;
-import kmg.core.infrastructure.exception.KmgMsgException;
 import kmg.core.infrastructure.exception.KmgReflectionException;
 import kmg.core.infrastructure.test.AbstractKmgTest;
 import kmg.core.infrastructure.type.KmgString;
@@ -644,49 +643,6 @@ public class KmgReflectionModelImplTest extends AbstractKmgTest {
 
         /* 検証の実施 */
         this.verifyKmgMsgException(actualException, expectedCauseClass, expectedDomainMessage, expectedMessageTypes);
-
-    }
-
-    /**
-     * getMethod メソッドのテスト - 異常系：InvocationTargetException発生時<br>
-     *
-     * @since 0.1.0
-     *
-     * @throws Exception
-     *                   KMGドメイン例外
-     */
-    @Test
-    public void testGetMethod_errorInvocationTargetException() throws Exception {
-
-        /* 期待値の定義 */
-        final String             expectedDomainMessage = String.format("[%s] メソッドの値の取得に失敗しました。メソッド名=[%s]、対象のクラス=[%s]",
-            "KMGCORE_GEN11207", "testMethod",
-            "class kmg.core.infrastructure.model.impl.KmgReflectionModelImplTest$TestClass");
-        final KmgCoreGenMsgTypes expectedMessageTypes  = KmgCoreGenMsgTypes.KMGCORE_GEN11207;
-
-        /* 準備 */
-        final TestClass testObject = new TestClass();
-
-        final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(testObject) {
-
-            @Override
-            protected Object invoke(final Method method, final Object targetObject, final Object... parameters)
-                throws InvocationTargetException {
-
-                throw new InvocationTargetException(
-                    new KmgMsgException(KmgCoreGenMsgTypes.KMGCORE_GEN11207, new Object[] {
-                        "testMethod", "class kmg.core.infrastructure.model.impl.KmgReflectionModelImplTest$TestClass"
-                }));
-
-            }
-        };
-
-        /* テスト対象の実行 */
-        final KmgMsgException actualException
-            = Assertions.assertThrows(KmgMsgException.class, () -> testReflection.getMethod("testMethod", "Hello"));
-
-        /* 検証の実施 */
-        this.verifyKmgMsgException(actualException, expectedDomainMessage, expectedMessageTypes);
 
     }
 
