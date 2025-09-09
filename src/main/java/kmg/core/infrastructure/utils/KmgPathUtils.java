@@ -280,6 +280,52 @@ public final class KmgPathUtils {
     }
 
     /**
+     * FQCNのパスを取得する<br>
+     * <p>
+     * FQCN（Fully Qualified Class Name）、完全修飾クラス名を取得する。<br>
+     * クラスからパッケージ名とクラス名を取得し、パッケージ名をパス形式（/区切り）に変換し、<br>
+     * クラス名をスネークケースに変換して結合したパスを返す。<br>
+     * 例：パッケージ名に「com.sample」、クラス名に「SampleDao」の場合、「com/sample/sample_dao」を返す。<br>
+     * </p>
+     *
+     * @since 0.2.0
+     *
+     * @param zlass
+     *              クラス
+     *
+     * @return FQCNパス
+     */
+    public static Path getFqcnPath(final Class<?> zlass) {
+
+        Path result = null;
+
+        if (zlass == null) {
+
+            return result;
+
+        }
+
+        // クラス名の取得
+        final String className = KmgPathUtils.getSimpleClassName(zlass);
+
+        // クラス名をスネークケースに変換
+        final String snakeCaseClassName = KmgString.snakeCase(className);
+
+        // パッケージ名をパス形式に変換（.を/に変換）
+        final String packagePath
+            = zlass.getPackageName().replace(KmgPathUtils.FILE_EXTENSION_SEPARATOR, KmgPathUtils.PATH_SEPARATOR);
+
+        // パッケージパスとクラス名を結合
+        final String pathString = KmgString.concat(packagePath, KmgPathUtils.PATH_SEPARATOR_STR, snakeCaseClassName);
+
+        // パスに変換する
+        result = Paths.get(pathString);
+
+        return result;
+
+    }
+
+    /**
      * シンプルなクラス名を返す<br>
      * <p>
      * クラスのシンプルな名前を返す。<br>

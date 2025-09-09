@@ -11,6 +11,8 @@ import kmg.core.infrastructure.types.msg.KmgCoreValMsgTypes;
  *
  * @author KenichiroArai
  *
+ * @version 0.2.0
+ *
  * @since 0.2.0
  */
 @SuppressWarnings({
@@ -20,11 +22,15 @@ public class KmgValDataModelImplTest {
 
     /**
      * テスト用のメッセージタイプ
+     *
+     * @since 0.2.0
      */
     private static final KmgCoreValMsgTypes TEST_MESSAGE_TYPE = KmgCoreValMsgTypes.NONE;
 
     /**
      * テスト用のメッセージ引数
+     *
+     * @since 0.2.0
      */
     private static final Object[] TEST_MESSAGE_ARGS = {
         "テスト引数"
@@ -32,6 +38,8 @@ public class KmgValDataModelImplTest {
 
     /**
      * コンストラクタのテスト - 正常系：正常にインスタンスが作成される場合
+     *
+     * @since 0.2.0
      */
     @Test
     public void testConstructor_normal() {
@@ -58,6 +66,8 @@ public class KmgValDataModelImplTest {
 
     /**
      * getMessage メソッドのテスト - 正常系：正常にメッセージが取得される場合
+     *
+     * @since 0.2.0
      */
     @Test
     public void testGetMessage_normal() {
@@ -80,6 +90,8 @@ public class KmgValDataModelImplTest {
 
     /**
      * getMessageArgs メソッドのテスト - 正常系：正常にメッセージ引数が取得される場合
+     *
+     * @since 0.2.0
      */
     @Test
     public void testGetMessageArgs_normal() {
@@ -102,6 +114,8 @@ public class KmgValDataModelImplTest {
 
     /**
      * getMessageTypes メソッドのテスト - 正常系：正常にメッセージタイプが取得される場合
+     *
+     * @since 0.2.0
      */
     @Test
     public void testGetMessageTypes_normal() {
