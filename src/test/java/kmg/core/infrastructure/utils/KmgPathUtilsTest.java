@@ -38,8 +38,6 @@ public class KmgPathUtilsTest extends AbstractKmgTest {
      * @author KenichiroArai
      *
      * @since 0.1.0
-     *
-     * @version 0.1.0
      */
     private static class TestClass {
 
@@ -94,11 +92,11 @@ public class KmgPathUtilsTest extends AbstractKmgTest {
      *
      * @since 0.1.0
      *
-     * @throws KmgMsgException
-     *                         KMGメッセージ例外
+     * @throws Exception
+     *                   KMGメッセージ例外
      */
     @Test
-    public void testGetBinPath_errorNullObject() throws KmgMsgException {
+    public void testGetBinPath_errorNullObject() throws Exception {
 
         /* 期待値の定義 */
         final Path expected = null;
@@ -157,11 +155,11 @@ public class KmgPathUtilsTest extends AbstractKmgTest {
      *
      * @since 0.1.0
      *
-     * @throws KmgMsgException
-     *                         KMGメッセージ例外
+     * @throws Exception
+     *                   KMGメッセージ例外
      */
     @Test
-    public void testGetBinPath_normalValidClass() throws KmgMsgException {
+    public void testGetBinPath_normalValidClass() throws Exception {
 
         /* 期待値の定義 */
         final String expectedDirectoryName = "test-classes";
@@ -186,11 +184,11 @@ public class KmgPathUtilsTest extends AbstractKmgTest {
      *
      * @since 0.1.0
      *
-     * @throws KmgMsgException
-     *                         KMGメッセージ例外
+     * @throws Exception
+     *                   KMGメッセージ例外
      */
     @Test
-    public void testGetBinPath_normalValidObject() throws KmgMsgException {
+    public void testGetBinPath_normalValidObject() throws Exception {
 
         /* 期待値の定義 */
         final String expectedDirectoryName = "test-classes";
@@ -215,11 +213,11 @@ public class KmgPathUtilsTest extends AbstractKmgTest {
      *
      * @since 0.1.0
      *
-     * @throws KmgMsgException
-     *                         KMGメッセージ例外
+     * @throws Exception
+     *                   例外
      */
     @Test
-    public void testGetClassFullPath_errorEmptyClassName() throws KmgMsgException {
+    public void testGetClassFullPath_errorEmptyClassName() throws Exception {
 
         /* 期待値の定義 */
         final Path expected = null;
@@ -245,11 +243,11 @@ public class KmgPathUtilsTest extends AbstractKmgTest {
      *
      * @since 0.1.0
      *
-     * @throws KmgMsgException
-     *                         KMGメッセージ例外
+     * @throws Exception
+     *                   KMGメッセージ例外
      */
     @Test
-    public void testGetClassFullPath_errorNullClass() throws KmgMsgException {
+    public void testGetClassFullPath_errorNullClass() throws Exception {
 
         /* 期待値の定義 */
         final Path expected = null;
@@ -271,11 +269,11 @@ public class KmgPathUtilsTest extends AbstractKmgTest {
      *
      * @since 0.1.0
      *
-     * @throws KmgMsgException
-     *                         KMGメッセージ例外
+     * @throws Exception
+     *                   KMGメッセージ例外
      */
     @Test
-    public void testGetClassFullPath_errorNullObject() throws KmgMsgException {
+    public void testGetClassFullPath_errorNullObject() throws Exception {
 
         /* 期待値の定義 */
         final Path expected = null;
@@ -297,11 +295,11 @@ public class KmgPathUtilsTest extends AbstractKmgTest {
      *
      * @since 0.1.0
      *
-     * @throws KmgMsgException
-     *                         KMGメッセージ例外
+     * @throws Exception
+     *                   例外
      */
     @Test
-    public void testGetClassFullPath_normalFullPathCombination() throws KmgMsgException {
+    public void testGetClassFullPath_normalFullPathCombination() throws Exception {
 
         /* 期待値の定義 */
         final Path binPath  = Paths.get("build/classes");
@@ -328,11 +326,11 @@ public class KmgPathUtilsTest extends AbstractKmgTest {
      *
      * @since 0.1.0
      *
-     * @throws KmgMsgException
-     *                         KMGメッセージ例外
+     * @throws Exception
+     *                   例外
      */
     @Test
-    public void testGetClassFullPath_normalNullBinPath() throws KmgMsgException {
+    public void testGetClassFullPath_normalNullBinPath() throws Exception {
 
         /* 期待値の定義 */
         final Path expected = Paths.get("/kmg/core/infrastructure/utils/test_class/test.txt");
@@ -358,11 +356,11 @@ public class KmgPathUtilsTest extends AbstractKmgTest {
      *
      * @since 0.1.0
      *
-     * @throws KmgMsgException
-     *                         KMGメッセージ例外
+     * @throws Exception
+     *                   KMGメッセージ例外
      */
     @Test
-    public void testGetClassFullPath_normalObjectIsClassInstance() throws KmgMsgException {
+    public void testGetClassFullPath_normalObjectIsClassInstance() throws Exception {
 
         /* 期待値の定義 */
         final Path binPath  = KmgPathUtils.getBinPath(TestClass.class);
@@ -386,11 +384,11 @@ public class KmgPathUtilsTest extends AbstractKmgTest {
      *
      * @since 0.1.0
      *
-     * @throws KmgMsgException
-     *                         KMGメッセージ例外
+     * @throws Exception
+     *                   KMGメッセージ例外
      */
     @Test
-    public void testGetClassFullPath_normalObjectIsNormalInstance() throws KmgMsgException {
+    public void testGetClassFullPath_normalObjectIsNormalInstance() throws Exception {
 
         /* 期待値の定義 */
         final Path binPath  = KmgPathUtils.getBinPath(TestClass.class);
@@ -414,11 +412,11 @@ public class KmgPathUtilsTest extends AbstractKmgTest {
      *
      * @since 0.1.0
      *
-     * @throws KmgMsgException
-     *                         KMGメッセージ例外
+     * @throws Exception
+     *                   例外
      */
     @Test
-    public void testGetClassFullPath_normalPackageNameConversion() throws KmgMsgException {
+    public void testGetClassFullPath_normalPackageNameConversion() throws Exception {
 
         /* 期待値の定義 */
         final Path binPath  = Paths.get("test-classes");
@@ -472,11 +470,11 @@ public class KmgPathUtilsTest extends AbstractKmgTest {
      *
      * @since 0.1.0
      *
-     * @throws KmgMsgException
-     *                         KMGメッセージ例外
+     * @throws Exception
+     *                   KMGメッセージ例外
      */
     @Test
-    public void testGetClassFullPath_normalValidObject() throws KmgMsgException {
+    public void testGetClassFullPath_normalValidObject() throws Exception {
 
         /* 期待値の定義 */
 
@@ -504,11 +502,11 @@ public class KmgPathUtilsTest extends AbstractKmgTest {
      *
      * @since 0.1.0
      *
-     * @throws KmgMsgException
-     *                         KMGメッセージ例外
+     * @throws Exception
+     *                   例外
      */
     @Test
-    public void testGetClassFullPath_semiClassNameWithDollar() throws KmgMsgException {
+    public void testGetClassFullPath_semiClassNameWithDollar() throws Exception {
 
         /* 期待値の定義 */
         final Path binPath  = Paths.get("test-classes");
