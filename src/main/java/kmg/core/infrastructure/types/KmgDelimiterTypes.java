@@ -127,6 +127,13 @@ public enum KmgDelimiterTypes implements KmgCmnTypes<String> {
     REGEX_LINE_SEPARATOR("正規表現による改行", "\\r?\\n|\\r"),
 
     /**
+     * タブ
+     *
+     * @since 0.2.0
+     */
+    TAB("タブ", "\t"),
+
+    /**
      * 半角イコール
      *
      * @since 0.1.0

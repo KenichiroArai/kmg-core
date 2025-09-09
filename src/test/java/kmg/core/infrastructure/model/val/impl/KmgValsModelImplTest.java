@@ -14,6 +14,8 @@ import kmg.core.infrastructure.types.msg.KmgCoreValMsgTypes;
  *
  * @author KenichiroArai
  *
+ * @version 0.2.0
+ *
  * @since 0.2.0
  */
 @SuppressWarnings({
@@ -23,6 +25,8 @@ public class KmgValsModelImplTest {
 
     /**
      * addData メソッドのテスト - 正常系：複数のデータが追加される場合
+     *
+     * @since 0.2.0
      */
     @Test
     public void testAddData_normalMultipleData() {
@@ -66,6 +70,8 @@ public class KmgValsModelImplTest {
 
     /**
      * addData メソッドのテスト - 正常系：正常にデータが追加される場合
+     *
+     * @since 0.2.0
      */
     @Test
     public void testAddData_normalValidData() {
@@ -99,6 +105,8 @@ public class KmgValsModelImplTest {
 
     /**
      * addData メソッドのテスト - 準正常系：nullデータが渡された場合
+     *
+     * @since 0.2.0
      */
     @Test
     public void testAddData_semiNullData() {
@@ -125,6 +133,8 @@ public class KmgValsModelImplTest {
 
     /**
      * コンストラクタのテスト - 正常系：正常にインスタンスが作成される場合
+     *
+     * @since 0.2.0
      */
     @Test
     public void testConstructor_normal() {
@@ -148,6 +158,8 @@ public class KmgValsModelImplTest {
 
     /**
      * getDatas メソッドのテスト - 正常系：空のリストが返される場合
+     *
+     * @since 0.2.0
      */
     @Test
     public void testGetDatas_normalEmptyList() {
@@ -172,6 +184,8 @@ public class KmgValsModelImplTest {
 
     /**
      * getDatas メソッドのテスト - 正常系：データが含まれるリストが返される場合
+     *
+     * @since 0.2.0
      */
     @Test
     public void testGetDatas_normalWithData() {
@@ -206,6 +220,8 @@ public class KmgValsModelImplTest {
 
     /**
      * isEmpty メソッドのテスト - 正常系：空の場合
+     *
+     * @since 0.2.0
      */
     @Test
     public void testIsEmpty_normalEmpty() {
@@ -229,6 +245,8 @@ public class KmgValsModelImplTest {
 
     /**
      * isEmpty メソッドのテスト - 正常系：空ではない場合
+     *
+     * @since 0.2.0
      */
     @Test
     public void testIsEmpty_normalNotEmpty() {
@@ -256,6 +274,8 @@ public class KmgValsModelImplTest {
 
     /**
      * isNotEmpty メソッドのテスト - 正常系：空の場合
+     *
+     * @since 0.2.0
      */
     @Test
     public void testIsNotEmpty_normalEmpty() {
@@ -279,6 +299,8 @@ public class KmgValsModelImplTest {
 
     /**
      * isNotEmpty メソッドのテスト - 正常系：空ではない場合
+     *
+     * @since 0.2.0
      */
     @Test
     public void testIsNotEmpty_normalNotEmpty() {
@@ -306,6 +328,8 @@ public class KmgValsModelImplTest {
 
     /**
      * merge メソッドのテスト - 正常系：空のモデルをマージする場合
+     *
+     * @since 0.2.0
      */
     @Test
     public void testMerge_normalEmptyModel() {
@@ -336,6 +360,8 @@ public class KmgValsModelImplTest {
 
     /**
      * merge メソッドのテスト - 正常系：空のターゲットに空ではないモデルをマージする場合
+     *
+     * @since 0.2.0
      */
     @Test
     public void testMerge_normalEmptyTargetWithData() {
@@ -376,6 +402,8 @@ public class KmgValsModelImplTest {
 
     /**
      * merge メソッドのテスト - 正常系：データを含むモデルをマージする場合
+     *
+     * @since 0.2.0
      */
     @Test
     public void testMerge_normalWithData() {
