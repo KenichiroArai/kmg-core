@@ -38,6 +38,14 @@ public enum JavaClassificationTypes implements KmgCmnTypes<String> {
         "^\\s*(?:(?:public|private|protected|abstract|final)\\s+)*class\\s+(?<elementName>\\w+)"),
 
     /**
+     * 内部クラス
+     *
+     * @since 0.2.0
+     */
+    INNER_CLASS("内部クラス", "inner_class", "内部クラス",
+        "^\\s*(?:(?:public|private|protected|abstract|final|static)\\s+)*class\\s+(?<elementName>\\w+)\\s*(?:extends\\s+\\w+\\s*)?(?:implements\\s+[^{]+)?\\s*\\{"),
+
+    /**
      * インターフェース
      *
      * @since 0.2.0
@@ -108,6 +116,13 @@ public enum JavaClassificationTypes implements KmgCmnTypes<String> {
      * @since 0.2.0
      */
     MODULE("モジュール", "module", "モジュール", "^\\s*module\\s+(?<elementName>\\w+)\\s*\\{.*"),
+
+    /**
+     * パッケージ情報
+     *
+     * @since 0.2.0
+     */
+    PACKAGE_INFO("パッケージ情報", "package-info", "パッケージ情報", "^\\s*package\\s+(?<elementName>[\\w.]+)\\s*;"),
 
     /* 定義：終了 */
     ;
@@ -431,7 +446,8 @@ public enum JavaClassificationTypes implements KmgCmnTypes<String> {
         final boolean result = switch (this) {
 
             // Javadoc対象
-            case CLASS, INTERFACE, ENUM, ENUM_CONST, ANNOTATION_DEFINITION, FIELD, METHOD, CONSTRUCTOR, MODULE -> true;
+            case CLASS, INNER_CLASS, INTERFACE, ENUM, ENUM_CONST, ANNOTATION_DEFINITION, FIELD, METHOD, CONSTRUCTOR,
+                MODULE, PACKAGE_INFO -> true;
 
             // Javadoc対象外
             case NONE, ANNOTATION_USAGE -> false;
