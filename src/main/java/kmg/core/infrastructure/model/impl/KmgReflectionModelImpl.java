@@ -45,7 +45,6 @@ public class KmgReflectionModelImpl implements KmgReflectionModel {
      * コンストラクタ<br>
      *
      * @since 0.1.0
-     * @since 1.0.0
      *
      * @param object
      *               対象オブジェクトのインスタンス
