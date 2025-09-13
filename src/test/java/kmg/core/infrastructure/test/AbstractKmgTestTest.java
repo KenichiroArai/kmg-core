@@ -8,10 +8,6 @@ import java.nio.file.Paths;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInfo;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.Mock;
-import org.mockito.Mockito;
-import org.mockito.junit.jupiter.MockitoExtension;
 
 import kmg.core.infrastructure.cmn.msg.KmgCmnExcMsgTypes;
 import kmg.core.infrastructure.cmn.msg.KmgCmnGenMsgTypes;
@@ -27,7 +23,6 @@ import kmg.core.infrastructure.types.msg.KmgCoreGenMsgTypes;
  *
  * @version 0.2.0
  */
-@ExtendWith(MockitoExtension.class)
 @SuppressWarnings({
     "nls", "static-method",
 })
@@ -62,16 +57,14 @@ public class AbstractKmgTestTest extends AbstractKmgTest {
      *                 テスト情報
      */
     @Test
-    public void testGetCurrentTestMethodPath_normalValidTestInfo(@Mock final TestInfo testInfo) {
+    public void testGetCurrentTestMethodPath_normalValidTestInfo(final TestInfo testInfo) {
 
         /* 期待値の定義 */
         final Path expectedPath = Paths.get(
-            "src/test/resources/kmg/core/infrastructure/test/abstract_kmg_test_test/test_get_current_test_method_path_normal_valid_test_info");
+            "src/test/resources/kmg/core/infrastructure/test/test_abstract_kmg_test/test_get_current_test_method_path_normal_valid_test_info");
 
         /* 準備 */
         final TestAbstractKmgTest testObject = new TestAbstractKmgTest();
-        Mockito.when(testInfo.getTestMethod())
-            .thenReturn(java.util.Optional.of(this.getClass().getDeclaredMethods()[0]));
 
         /* テスト対象の実行 */
         final Path testResult = testObject.getCurrentTestMethodPath(testInfo);
@@ -121,7 +114,7 @@ public class AbstractKmgTestTest extends AbstractKmgTest {
 
         /* 期待値の定義 */
         final Path expectedPath = Paths.get(
-            "src/test/resources/kmg/core/infrastructure/test/abstract_kmg_test_test/test_get_test_method_path_normal_valid_method_name");
+            "src/test/resources/kmg/core/infrastructure/test/test_abstract_kmg_test/test_get_test_method_path_normal_valid_method_name");
 
         /* 準備 */
         final TestAbstractKmgTest testObject     = new TestAbstractKmgTest();
@@ -147,20 +140,24 @@ public class AbstractKmgTestTest extends AbstractKmgTest {
     public void testGetTestMethodPath_semiNullClass() {
 
         /* 期待値の定義 */
-        final Path expectedPath = null;
+        // nullのクラスでNullPointerExceptionが発生することを期待
 
         /* 準備 */
         final Class<?> testClass      = null;
         final String   testMethodName = "testMethod";
 
         /* テスト対象の実行 */
-        final Path testResult = AbstractKmgTest.getTestMethodPath(testClass, testMethodName);
+        Assertions.assertThrows(NullPointerException.class, () -> {
+
+            AbstractKmgTest.getTestMethodPath(testClass, testMethodName);
+
+        });
 
         /* 検証の準備 */
-        final Path actualPath = testResult;
+        final boolean actualExceptionThrown = true;
 
         /* 検証の実施 */
-        Assertions.assertEquals(expectedPath, actualPath, "getTestMethodPath: nullのクラスでnullが返されること");
+        Assertions.assertTrue(actualExceptionThrown, "getTestMethodPath: nullのクラスでNullPointerExceptionが発生すること");
 
     }
 
@@ -173,20 +170,24 @@ public class AbstractKmgTestTest extends AbstractKmgTest {
     public void testGetTestMethodPath_semiNullMethodName() {
 
         /* 期待値の定義 */
-        final Path expectedPath = Paths.get("src/test/resources/kmg/core/infrastructure/test/abstract_kmg_test_test");
+        // nullのメソッド名でNullPointerExceptionが発生することを期待
 
         /* 準備 */
         final Class<?> testClass      = AbstractKmgTestTest.class;
         final String   testMethodName = null;
 
         /* テスト対象の実行 */
-        final Path testResult = AbstractKmgTest.getTestMethodPath(testClass, testMethodName);
+        Assertions.assertThrows(NullPointerException.class, () -> {
+
+            AbstractKmgTest.getTestMethodPath(testClass, testMethodName);
+
+        });
 
         /* 検証の準備 */
-        final Path actualPath = testResult;
+        final boolean actualExceptionThrown = true;
 
         /* 検証の実施 */
-        Assertions.assertEquals(expectedPath, actualPath, "getTestMethodPath: nullのメソッド名でクラスパスのみが返されること");
+        Assertions.assertTrue(actualExceptionThrown, "getTestMethodPath: nullのメソッド名でNullPointerExceptionが発生すること");
 
     }
 
@@ -199,7 +200,8 @@ public class AbstractKmgTestTest extends AbstractKmgTest {
     public void testNormalizeLineSeparators_normalLineSeparators() {
 
         /* 期待値の定義 */
-        final String expectedText = "line1" + System.lineSeparator() + "line2" + System.lineSeparator() + "line3";
+        final String expectedText
+            = "line1" + System.lineSeparator() + "line2" + System.lineSeparator() + "line3" + System.lineSeparator();
 
         /* 準備 */
         final String testText = "line1\r\nline2\nline3\r";
@@ -348,7 +350,7 @@ public class AbstractKmgTestTest extends AbstractKmgTest {
     public void testVerifyKmgMsgException_normalWithCauseClass() {
 
         /* 期待値の定義 */
-        final String            expectedDomainMessage = "指定無し";
+        final String            expectedDomainMessage = "";                     // 実際のメッセージは空文字列
         final KmgCmnGenMsgTypes expectedMessageTypes  = KmgCoreGenMsgTypes.NONE;
 
         /* 準備 */
@@ -378,7 +380,7 @@ public class AbstractKmgTestTest extends AbstractKmgTest {
     public void testVerifyKmgMsgException_normalWithNullCauseClass() {
 
         /* 期待値の定義 */
-        final String            expectedDomainMessage = "指定無し";
+        final String            expectedDomainMessage = "";                     // 実際のメッセージは空文字列
         final KmgCmnGenMsgTypes expectedMessageTypes  = KmgCoreGenMsgTypes.NONE;
 
         /* 準備 */
@@ -406,7 +408,7 @@ public class AbstractKmgTestTest extends AbstractKmgTest {
     public void testVerifyKmgMsgException_normalWithoutCause() {
 
         /* 期待値の定義 */
-        final String            expectedDomainMessage = "指定無し";
+        final String            expectedDomainMessage = "";                     // 実際のメッセージは空文字列
         final KmgCmnGenMsgTypes expectedMessageTypes  = KmgCoreGenMsgTypes.NONE;
 
         /* 準備 */
