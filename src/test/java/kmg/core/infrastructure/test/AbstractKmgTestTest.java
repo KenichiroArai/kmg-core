@@ -388,6 +388,8 @@ public class AbstractKmgTestTest extends AbstractKmgTest {
         } catch (final IOException e) {
 
             // 削除に失敗した場合は、そのままテストを続行
+            e.printStackTrace();
+
         }
 
         AbstractKmgTest.verifyFileContent(testFilePath);
@@ -465,6 +467,8 @@ public class AbstractKmgTestTest extends AbstractKmgTest {
         } catch (final IOException e) {
 
             // 削除に失敗した場合は、そのままテストを続行
+            e.printStackTrace();
+
         }
 
     }
@@ -591,6 +595,8 @@ public class AbstractKmgTestTest extends AbstractKmgTest {
         } catch (final IOException e) {
 
             // 削除に失敗した場合は、そのままテストを続行
+            e.printStackTrace();
+
         }
 
         AbstractKmgTest.verifyFileContent(testFilePath);
