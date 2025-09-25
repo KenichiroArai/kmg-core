@@ -647,6 +647,133 @@ public class KmgReflectionModelImplTest extends AbstractKmgTest {
     }
 
     /**
+     * getMethod メソッドのテスト - 異常系：InvocationTargetExceptionのcauseがErrorの場合<br>
+     *
+     * @since 0.2.0
+     *
+     * @throws Exception
+     *                   KMGドメイン例外
+     */
+    @Test
+    public void testGetMethod_errorInvocationTargetExceptionWithErrorCause() throws Exception {
+
+        /* 期待値の定義 */
+        final String expectedMessage = "Test error from method";
+
+        /* 準備 */
+        final TestClass testObject = new TestClass();
+
+        final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(testObject) {
+
+            @Override
+            protected Object invoke(final Method method, final Object targetObject, final Object... parameters)
+                throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+
+                final Error                     testError                 = new Error(expectedMessage);
+                final InvocationTargetException invocationTargetException = new InvocationTargetException(testError);
+                throw invocationTargetException;
+
+            }
+        };
+
+        /* テスト対象の実行 */
+        final RuntimeException actualException
+            = Assertions.assertThrows(RuntimeException.class, () -> testReflection.getMethod("testMethod", "Hello"));
+
+        /* 検証の準備 */
+        final Throwable actualCause = actualException.getCause();
+
+        /* 検証の実施 */
+        Assertions.assertInstanceOf(Error.class, actualCause,
+            "InvocationTargetExceptionのcauseがErrorの場合、RuntimeExceptionでラップされること");
+        Assertions.assertEquals(expectedMessage, actualCause.getMessage(), "Errorのメッセージが正しく保持されること");
+
+    }
+
+    /**
+     * getMethod メソッドのテスト - 異常系：InvocationTargetExceptionのcauseがExceptionの場合<br>
+     *
+     * @since 0.1.0
+     *
+     * @throws Exception
+     *                   KMGドメイン例外
+     */
+    @Test
+    public void testGetMethod_errorInvocationTargetExceptionWithExceptionCause() throws Exception {
+
+        /* 期待値の定義 */
+        final String expectedMessage = "Test exception from method";
+
+        /* 準備 */
+        final TestClass testObject = new TestClass();
+
+        final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(testObject) {
+
+            @Override
+            protected Object invoke(final Method method, final Object targetObject, final Object... parameters)
+                throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+
+                final RuntimeException          testException             = new RuntimeException(expectedMessage);
+                final InvocationTargetException invocationTargetException = new InvocationTargetException(
+                    testException);
+                throw invocationTargetException;
+
+            }
+        };
+
+        /* テスト対象の実行 */
+        final RuntimeException actualException
+            = Assertions.assertThrows(RuntimeException.class, () -> testReflection.getMethod("testMethod", "Hello"));
+
+        /* 検証の準備 */
+        final String actualMessage = actualException.getMessage();
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expectedMessage, actualMessage,
+            "InvocationTargetExceptionのcauseがExceptionの場合、そのまま投げられること");
+
+    }
+
+    /**
+     * getMethod メソッドのテスト - 異常系：InvocationTargetExceptionのcauseがnullの場合<br>
+     *
+     * @since 0.1.0
+     *
+     * @throws Exception
+     *                   KMGドメイン例外
+     */
+    @Test
+    public void testGetMethod_errorInvocationTargetExceptionWithNullCause() throws Exception {
+
+        /* 準備 */
+        final TestClass testObject = new TestClass();
+
+        final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(testObject) {
+
+            @Override
+            protected Object invoke(final Method method, final Object targetObject, final Object... parameters)
+                throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+
+                final InvocationTargetException invocationTargetException = new InvocationTargetException(null);
+                throw invocationTargetException;
+
+            }
+        };
+
+        /* テスト対象の実行 */
+        final InvocationTargetException actualException = Assertions.assertThrows(InvocationTargetException.class,
+            () -> testReflection.getMethod("testMethod", "Hello"));
+
+        /* 検証の準備 */
+        final Throwable actualCause = actualException.getCause();
+
+        /* 検証の実施 */
+        Assertions.assertNull(actualCause,
+            "InvocationTargetExceptionのcauseがnullの場合、InvocationTargetExceptionがそのまま投げられること");
+
+    }
+
+    /**
      * getMethod メソッドのテスト - 正常系：privateメソッドへのアクセス<br>
      *
      * @since 0.1.0
@@ -762,7 +889,7 @@ public class KmgReflectionModelImplTest extends AbstractKmgTest {
         final KmgReflectionModelImpl testReflection = new KmgReflectionModelImpl(testObject);
 
         /* テスト対象の実行 */
-        final Object testResult = testReflection.getMethod("testMethod", Integer.valueOf(123));
+        final Object testResult = testReflection.getMethod("testMethod", 123);
 
         /* 検証の準備 */
         final Object actualValue = testResult;
