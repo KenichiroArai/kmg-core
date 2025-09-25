@@ -1,5 +1,9 @@
 # kmg-core について
 
+[![Java](https://img.shields.io/badge/Java-21-orange.svg)](https://www.oracle.com/java/)
+[![Maven](https://img.shields.io/badge/Maven-3.x-blue.svg)](https://maven.apache.org/)
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+
 kmg-core（以降は、「KMG コア」と言う。）は、KMG シリーズの Java アプリケーション開発のための基盤となるコアです。
 
 特徴は、フレームワークなどを依存関係が少なく多くのプロジェクトで使用できるように構成されています。
