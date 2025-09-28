@@ -1,40 +1,15 @@
-# kmg-core ドキュメント
+# KMG コア（kmg-core） ドキュメント
 
 [![Java](https://img.shields.io/badge/Java-21-orange.svg)](https://www.oracle.com/java/)
 [![Maven](https://img.shields.io/badge/Maven-3.x-blue.svg)](https://maven.apache.org/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-kmg-core（以降は、「KMG コア」と言う。）は、KMG シリーズの Java アプリケーション開発のための基盤となるコアです。
-
-特徴は、フレームワークなどを依存関係が少なく多くのプロジェクトで使用できるように構成されています。
-
 ## 📋 目次
 
-- [プロジェクト概要](#-プロジェクト概要)
 - [クイックスタート](#-クイックスタート)
 - [ドキュメント](#-ドキュメント)
 - [API リファレンス](#-api-リファレンス)
 - [開発者向け情報](#-開発者向け情報)
-- [ライセンス](#-ライセンス)
-- [貢献について](#-貢献について)
-
-## 🎯 プロジェクト概要
-
-kmg-core は、Java アプリケーション開発のための基盤ライブラリです。以下の特徴を持ちます：
-
-- **軽量設計**: 依存関係を最小限に抑えた設計
-- **高品質**: 100% テストカバレッジを維持
-- **標準化**: 統一されたコーディング規約とメッセージ処理
-- **拡張性**: モジュール化された設計による柔軟な拡張
-
-**主要機能:**
-
-- 共通ユーティリティクラス群
-- 基本データ型の拡張機能
-- 標準化された型定義
-- 汎用的なメッセージ処理
-
-**バージョン:** 0.2.0
 
 ## 🚀 クイックスタート
 
@@ -88,27 +63,7 @@ List<String> list = KmgListUtils.createList("item1", "item2");
 
 ### 主要クラス
 
-#### ユーティリティクラス
-
-- `KmgArrayUtils` - 配列操作
-- `KmgListUtils` - リスト操作
-- `KmgMapUtils` - マップ操作
-- `KmgMessageUtils` - メッセージ処理
-- `KmgPathUtils` - パス操作
-- `KmgLocalDateUtils` - 日付操作
-- `KmgLocalDateTimeUtils` - 日時操作
-
-#### 型定義
-
-- `KmgTemplateTypes` - テンプレート型
-- `KmgDbTypes` - データベース関連型
-- `KmgCharsetTypes` - 文字セット型
-- `KmgTimeUnitTypes` - 時間単位型
-- `KmgDelimiterTypes` - 区切り文字型
-- `KmgDbDataTypeTypes` - データベースデータ型
-- `JavaClassificationTypes` - Java 分類型
-- `KmgJavadocTagTypes` - Javadoc タグ型
-- `KmgJavaKeywordTypes` - Java キーワード型
+詳細なクラス一覧については、[Javadoc API リファレンス](javadoc/index.html)を参照してください。
 
 ## 👨‍💻 開発者向け情報
 
@@ -119,21 +74,6 @@ List<String> list = KmgListUtils.createList("item1", "item2");
 - **JUnit**: 5.13.4
 - **Mockito**: 5.18.0
 - **SLF4J**: 2.0.17
-
-### ビルドツール
-
-- **Maven Compiler Plugin**: 3.12.1
-- **Maven Surefire Plugin**: 3.2.5（JUnit テストレポート用）
-- **JaCoCo Maven Plugin**: 0.8.11（カバレッジレポート用）
-
-### プロジェクト情報
-
-| 項目                | 値       |
-| ------------------- | -------- |
-| グループ ID         | kmg.core |
-| アーティファクト ID | kmg-core |
-| バージョン          | 0.2.0    |
-| エンコーディング    | UTF-8    |
 
 ### ビルド方法
 

@@ -1,4 +1,4 @@
-# kmg-core について
+# KMG コア（kmg-core）
 
 [![Java](https://img.shields.io/badge/Java-21-orange.svg)](https://www.oracle.com/java/)
 [![Maven](https://img.shields.io/badge/Maven-3.x-blue.svg)](https://maven.apache.org/)
@@ -96,7 +96,7 @@ mvn test
 
 ## リリース
 
-リリースプロセスの詳細については、[リリース手順](doc/RELEASE.md)を参照してください。
+リリースプロセスの詳細については、[リリース手順](docs/RELEASE.md)を参照してください。
 
 リリースは以下の 2 つの方法で実行できます：
 
