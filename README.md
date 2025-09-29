@@ -1,4 +1,4 @@
-# kmg-core について
+# KMG コア（kmg-core）
 
 [![Java](https://img.shields.io/badge/Java-21-orange.svg)](https://www.oracle.com/java/)
 [![Maven](https://img.shields.io/badge/Maven-3.x-blue.svg)](https://maven.apache.org/)
@@ -16,6 +16,13 @@ kmg-core（以降は、「KMG コア」と言う。）は、KMG シリーズの 
 - 基本データ型の拡張機能
 - 標準化された型定義
 - 汎用的なメッセージ処理
+
+## ドキュメント
+
+詳細なドキュメントは [docs/](docs/) ディレクトリに格納されています：
+
+- **操作手順書**: 各ツールの使用方法と実行手順
+- **設計書**: システム設計図とアーキテクチャ
 
 ## プロジェクト構成
 
@@ -55,7 +62,7 @@ kmg-core/
 │           │   ├── msg/    # メッセージ型テスト
 │           │   └── template/ # テンプレートテスト
 │           └── utils/       # ユーティリティテスト
-├── doc/                     # ドキュメント
+├── docs/                     # ドキュメント
 │   ├── RELEASE.md          # リリース手順
 │   └── メッセージ一覧.xlsx    # メッセージ定義
 └── pom.xml                 # Maven設定ファイル
@@ -96,7 +103,7 @@ mvn test
 
 ## リリース
 
-リリースプロセスの詳細については、[リリース手順](doc/RELEASE.md)を参照してください。
+リリースプロセスの詳細については、[リリース手順](docs/RELEASE.md)を参照してください。
 
 リリースは以下の 2 つの方法で実行できます：
 
