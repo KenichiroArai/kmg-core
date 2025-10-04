@@ -1,0 +1,15 @@
+# Dependabot設定ファイル
+# 依存関係の自動更新を管理するための設定
+
+version: 2
+
+updates:
+    # Mavenパッケージの依存関係更新設定
+    - package-ecosystem: "maven"
+      # プロジェクトルートディレクトリを対象とする
+      directory: "/"
+      schedule:
+          # 週次で依存関係の更新をチェック
+          interval: "weekly"
+      # 更新されたPRをdevelopブランチに対して作成
+      target-branch: "develop"
