@@ -69,6 +69,7 @@ jobs:
 
       - name: Dependency Review
         uses: actions/dependency-review-action@v3
+        if: github.event_name == 'pull_request'
         with:
           deny-licenses: AGPL-1.0-or-later
           # DependabotのPRに対してはより厳格なチェック
