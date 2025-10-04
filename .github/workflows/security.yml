@@ -1,14 +1,17 @@
 name: Security Alerts
 
 on:
-    # セキュリティアラートが作成された時
-    repository_vulnerability_alert:
-        types: [create, resolve]
-    # セキュリティアドバイザリが公開された時
-    security_advisory:
-        types: [published]
+    # スケジュール実行（毎日午前2時 UTC）
+    schedule:
+        - cron: "0 2 * * *"
     # 手動実行も可能
     workflow_dispatch:
+    # プッシュ時に実行
+    push:
+        branches: [main, master]
+    # プルリクエスト時に実行
+    pull_request:
+        branches: [main, master]
 
 permissions:
     contents: write
@@ -43,15 +46,37 @@ jobs:
                   path: target/dependency-check-report.html
                   retention-days: 30
 
-            - name: Comment on security issues
-              if: github.event_name == 'repository_vulnerability_alert'
+            - name: Check for security vulnerabilities
               run: |
-                  echo "セキュリティアラートが検出されました:"
-                  echo "パッケージ: ${{ github.event.alert.affected_package_name }}"
-                  echo "バージョン: ${{ github.event.alert.affected_package_version }}"
-                  echo "深刻度: ${{ github.event.alert.severity }}"
+                  echo "セキュリティスキャンの結果を確認中..."
+
+                  # セキュリティレポートの存在確認
+                  if [ -f "target/dependency-check-report.html" ]; then
+                      echo "セキュリティレポートが生成されました"
+
+                      # 脆弱性の数をカウント（簡易的な方法）
+                      VULNERABILITIES=$(grep -c "vulnerability" target/dependency-check-report.html || echo "0")
+                      echo "検出された脆弱性数: $VULNERABILITIES"
+
+                      if [ "$VULNERABILITIES" -gt 0 ]; then
+                          echo "⚠️ セキュリティ脆弱性が検出されました"
+                          echo "詳細はアーティファクトのセキュリティレポートを確認してください"
+                      else
+                          echo "✅ セキュリティ脆弱性は検出されませんでした"
+                      fi
+                  else
+                      echo "⚠️ セキュリティレポートが生成されませんでした"
+                  fi
+
+            - name: Notify on security issues
+              if: failure()
+              run: |
+                  echo "セキュリティスキャンで問題が発生しました"
+                  echo "ログを確認し、必要に応じて手動で調査してください"
 
                   # 必要に応じてSlackやメール通知を追加
-                  # curl -X POST -H 'Content-type: application/json' \
-                  #   --data '{"text":"セキュリティアラート: ${{ github.event.alert.affected_package_name }}"}' \
-                  #   ${{ secrets.SLACK_WEBHOOK_URL }}
+                  # if [ -n "${{ secrets.SLACK_WEBHOOK_URL }}" ]; then
+                  #   curl -X POST -H 'Content-type: application/json' \
+                  #     --data '{"text":"セキュリティスキャンでエラーが発生しました"}' \
+                  #     ${{ secrets.SLACK_WEBHOOK_URL }}
+                  # fi

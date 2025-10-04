@@ -18,9 +18,6 @@ updates:
     target-branch: "develop"
     # プルリクエストの設定
     open-pull-requests-limit: 10
-    # レビューアーの設定
-    reviewers:
-      - "dependabot[bot]"
     # ラベルの設定
     labels:
       - "dependencies"
