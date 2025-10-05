@@ -1,100 +1,49 @@
-# ほとんどのプロジェクトでは、このワークフローファイルを変更する必要はありません。
-# リポジトリにコミットするだけで十分です。
-#
-# 分析する言語セットをオーバーライドしたり、
-# カスタムクエリやビルドロジックを提供したりするために、
-# このファイルを変更したい場合があります。
-#
-# ******** 注意 ********
-# リポジトリ内の言語を検出しようとしました。
-# サポートされているCodeQL言語の正しいセットを持っていることを確認するために、
-# 以下で定義されている `language` マトリックスを確認してください。
-#
 name: "CodeQL Advanced"
 
 on:
-    push:
-        branches: ["develop"]
-    pull_request:
-        branches: ["develop"]
-    schedule:
-        - cron: "16 6 * * 3"
+  push:
+    branches: ["develop"]
+  pull_request:
+    branches: ["develop"]
+  schedule:
+    - cron: "16 6 * * 3"
 
 jobs:
-    analyze:
-        name: Analyze (${{ matrix.language }})
-        # ランナーサイズはCodeQL分析時間に影響します。詳細については、以下を参照してください：
-        #   - https://gh.io/recommended-hardware-resources-for-running-codeql
-        #   - https://gh.io/supported-runners-and-hardware-resources
-        #   - https://gh.io/using-larger-runners (GitHub.comのみ)
-        # 分析時間の改善のために、より大きなランナーやより多くのリソースを持つマシンの使用を検討してください。
-        runs-on: ${{ (matrix.language == 'swift' && 'macos-latest') || 'ubuntu-latest' }}
-        permissions:
-            # すべてのワークフローで必要
-            security-events: write
+  analyze:
+    name: Analyze Java
+    runs-on: ubuntu-latest
+    permissions:
+      security-events: write
+      packages: read
+      actions: read
+      contents: read
 
-            # 内部またはプライベートCodeQLパックを取得するために必要
-            packages: read
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - language: java-kotlin
+            build-mode: autobuild
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-            # プライベートリポジトリのワークフローでのみ必要
-            actions: read
-            contents: read
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          java-version: "21"
+          distribution: "temurin"
 
-        strategy:
-            fail-fast: false
-            matrix:
-                include:
-                    - language: actions
-                      build-mode: none
-                    - language: java-kotlin
-                      build-mode: none # このモードはJavaのみを分析します。Kotlinも分析するには、これを'autobuild'または'manual'に設定してください。
-                # CodeQLは'language'に対して以下の値キーワードをサポートします：'actions', 'c-cpp', 'csharp', 'go', 'java-kotlin', 'javascript-typescript', 'python', 'ruby', 'rust', 'swift'
-                # C、C++、またはその両方で書かれたコードを分析するには`c-cpp`を使用
-                # Java、Kotlin、またはその両方で書かれたコードを分析するには'java-kotlin'を使用
-                # JavaScript、TypeScript、またはその両方で書かれたコードを分析するには'javascript-typescript'を使用
-                # 分析される言語の変更や分析のビルドモードのカスタマイズについて詳しくは、
-                # https://docs.github.com/en/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning を参照してください。
-                # コンパイル言語を分析している場合は、その言語の'build-mode'を変更して、
-                # コードベースの分析方法をカスタマイズできます。https://docs.github.com/en/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/codeql-code-scanning-for-compiled-languages を参照してください。
-        steps:
-            - name: Checkout repository
-              uses: actions/checkout@v4
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v3
+        with:
+          languages: ${{ matrix.language }}
+          build-mode: ${{ matrix.build-mode }}
 
-            # `github/codeql-action/init`アクションを実行する前に、セットアップステップを追加してください。
-            # これには、コンパイラやランタイム（`actions/setup-node`など）のインストールなどのステップが含まれます。
-            # これは通常、手動ビルドでのみ必要です。
-            # - name: Setup runtime (example)
-            #   uses: actions/setup-example@v1
+      - name: Build with Maven
+        run: mvn clean compile -DskipTests
 
-            # スキャン用のCodeQLツールを初期化します。
-            - name: Initialize CodeQL
-              uses: github/codeql-action/init@v3
-              with:
-                  languages: ${{ matrix.language }}
-                  build-mode: ${{ matrix.build-mode }}
-                  # カスタムクエリを指定したい場合は、ここまたは設定ファイルで行うことができます。
-                  # デフォルトでは、ここにリストされたクエリは設定ファイルで指定されたものをオーバーライドします。
-                  # これらのクエリと設定ファイルのクエリの両方を使用するには、ここでのリストに"+"をプレフィックスとして付けます。
-
-                  # CodeQLのクエリパックの詳細については、以下を参照してください：https://docs.github.com/en/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning#using-queries-in-ql-packs
-                  # queries: security-extended,security-and-quality
-
-            # 分析している言語のいずれかで分析ステップが失敗し、
-            # 「コードを自動的にビルドできませんでした」というメッセージが表示された場合は、
-            # 上記のマトリックスを変更して、その言語のビルドモードを"manual"に設定してください。
-            # その後、このステップを変更してコードをビルドしてください。
-            # ℹ️ OSシェルを使用して実行するコマンドラインプログラム。
-            # 📚 詳細は https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun を参照してください。
-            - if: matrix.build-mode == 'manual'
-              shell: bash
-              run: |
-                  echo '分析している言語の1つ以上で「manual」ビルドモードを使用している場合は、' \
-                    'これをコードをビルドするコマンドに置き換えてください。例：'
-                  echo '  make bootstrap'
-                  echo '  make release'
-                  exit 1
-
-            - name: Perform CodeQL Analysis
-              uses: github/codeql-action/analyze@v3
-              with:
-                  category: "/language:${{matrix.language}}"
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v3
+        with:
+          category: "/language:${{matrix.language}}"
