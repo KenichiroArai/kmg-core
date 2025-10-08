@@ -8,10 +8,10 @@ on:
     workflow_dispatch:
     # プッシュ時に実行
     push:
-        branches: [main, master]
+        branches: [develop]
     # プルリクエスト時に実行
     pull_request:
-        branches: [main, master]
+        branches: [develop]
 
 permissions:
     contents: write
@@ -34,9 +34,11 @@ jobs:
                   cache: maven
 
             - name: Run security scan with Maven
+              env:
+                  NVD_API_KEY: ${{ secrets.NVD_API_KEY }}
               run: |
                   echo "セキュリティスキャンを実行中..."
-                  mvn org.owasp:dependency-check-maven:check
+                  mvn org.owasp:dependency-check-maven:check -Dnvd.api.key=${NVD_API_KEY}
                   echo "セキュリティスキャンが完了しました"
 
             - name: Upload security report
@@ -67,16 +69,3 @@ jobs:
                   else
                       echo "⚠️ セキュリティレポートが生成されませんでした"
                   fi
-
-            - name: Notify on security issues
-              if: failure()
-              run: |
-                  echo "セキュリティスキャンで問題が発生しました"
-                  echo "ログを確認し、必要に応じて手動で調査してください"
-
-                  # 必要に応じてSlackやメール通知を追加
-                  # if [ -n "${{ secrets.SLACK_WEBHOOK_URL }}" ]; then
-                  #   curl -X POST -H 'Content-type: application/json' \
-                  #     --data '{"text":"セキュリティスキャンでエラーが発生しました"}' \
-                  #     ${{ secrets.SLACK_WEBHOOK_URL }}
-                  # fi
