@@ -8,10 +8,10 @@ on:
     workflow_dispatch:
     # プッシュ時に実行
     push:
-        branches: [develop]
+        branches: [main, develop]
     # プルリクエスト時に実行
     pull_request:
-        branches: [develop]
+        branches: [main, develop]
 
 permissions:
     contents: write
