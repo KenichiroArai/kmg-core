@@ -173,7 +173,7 @@
                     <encoding>${project.build.sourceEncoding}</encoding>
                     <docencoding>${project.reporting.outputEncoding}</docencoding>
                     <charset>${project.reporting.outputEncoding}</charset>
-                    <show>protected</show>
+                    <show>private</show>
                     <nohelp>true</nohelp>
                     <additionalJOption>-Xdoclint:none</additionalJOption>
                 </configuration>
