@@ -64,7 +64,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: javadoc
-          path: target/site/apidocs/
+          path: docs/javadoc/
           retention-days: 7
 
       - name: Dependency Review

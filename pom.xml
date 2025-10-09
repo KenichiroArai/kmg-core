@@ -176,6 +176,8 @@
                     <show>private</show>
                     <nohelp>true</nohelp>
                     <additionalJOption>-Xdoclint:none</additionalJOption>
+                    <reportOutputDirectory>${project.basedir}/docs</reportOutputDirectory>
+                    <destDir>javadoc</destDir>
                 </configuration>
                 <executions>
                     <execution>
