@@ -6,7 +6,7 @@ import java.util.Map;
 import kmg.core.infrastructure.cmn.msg.KmgCmnValMsgTypes;
 
 /**
- * KMGコアログメッセージの種類<br>
+ * KMGコアバリデーションメッセージの種類<br>
  * <p>
  * Valは、Validationの略。<br>
  * Msgは、Messageの略。
@@ -16,7 +16,7 @@ import kmg.core.infrastructure.cmn.msg.KmgCmnValMsgTypes;
  *
  * @since 0.2.0
  *
- * @version 0.2.0
+ * @version 0.2.1
  */
 @SuppressWarnings("nls")
 public enum KmgCoreValMsgTypes implements KmgCmnValMsgTypes {

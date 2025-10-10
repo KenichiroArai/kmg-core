@@ -1,5 +1,8 @@
+kmg.core
+kmg.core.domain
 kmg.core.domain.service
 kmg.core.domain.service.impl
+kmg.core.infrastructure
 kmg.core.infrastructure.cmn
 kmg.core.infrastructure.cmn.msg
 kmg.core.infrastructure.exception

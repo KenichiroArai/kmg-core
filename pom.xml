@@ -6,7 +6,7 @@
 
     <groupId>kmg.core</groupId>
     <artifactId>kmg-core</artifactId>
-    <version>0.2.0</version>
+    <version>0.2.1</version>
     <name>kmg-core</name>
     <description>KMGコア</description>
 
@@ -173,9 +173,11 @@
                     <encoding>${project.build.sourceEncoding}</encoding>
                     <docencoding>${project.reporting.outputEncoding}</docencoding>
                     <charset>${project.reporting.outputEncoding}</charset>
-                    <show>protected</show>
+                    <show>private</show>
                     <nohelp>true</nohelp>
                     <additionalJOption>-Xdoclint:none</additionalJOption>
+                    <reportOutputDirectory>${project.basedir}/docs</reportOutputDirectory>
+                    <destDir>javadoc</destDir>
                 </configuration>
                 <executions>
                     <execution>
