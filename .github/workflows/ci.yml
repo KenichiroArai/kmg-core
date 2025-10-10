@@ -13,8 +13,6 @@ on:
 
 permissions:
   contents: write
-  actions: write
-  security-events: write
 
 jobs:
   build:
