@@ -26,8 +26,6 @@ updates:
     commit-message:
       prefix: "chore"
       include: "scope"
-    # バージョン更新の設定
-    versioning-strategy: "increase"
     # セキュリティ更新の優先度を上げる
     allow:
       - dependency-type: "all"
