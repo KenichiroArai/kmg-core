@@ -28,7 +28,7 @@ jobs:
           java-version: "21"
           distribution: "temurin"
           cache: maven
-          server-id: github
+          server-id: github-kmg-core
           settings-path: ${{ github.workspace }}
 
       # Maven設定の構成
