@@ -6,7 +6,7 @@
 
     <groupId>kmg.core</groupId>
     <artifactId>kmg-core</artifactId>
-    <version>0.2.3</version>
+    <version>0.2.4</version>
     <name>kmg-core</name>
     <description>KMGコア</description>
 
