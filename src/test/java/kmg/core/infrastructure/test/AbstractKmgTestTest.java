@@ -57,7 +57,7 @@ public class AbstractKmgTestTest extends AbstractKmgTest {
     public void testGetCurrentTestClassPath_normalValidClass() {
 
         /* 期待値の定義 */
-        final Path expectedPath = Paths.get("src/test/resources/kmg/core/infrastructure/test/abstract_kmg_test_test");
+        final Path expectedPath = Paths.get("src/test/resources/kmg/core/infrastructure/test/test_abstract_kmg_test");
 
         /* 準備 */
         final TestAbstractKmgTest testObject = new TestAbstractKmgTest();
