@@ -22,7 +22,7 @@ import kmg.core.infrastructure.utils.KmgPathUtils;
  *
  * @since 0.2.0
  *
- * @version 0.2.0
+ * @version 0.2.5
  */
 @SuppressWarnings({
     "nls", "static-method",
@@ -181,6 +181,45 @@ public abstract class AbstractKmgTest {
     protected Path getTestMethodPath(final String testMethodName) {
 
         final Path result = AbstractKmgTest.getTestMethodPath(this.getClass(), testMethodName);
+        return result;
+
+    }
+
+    /**
+     * 現在のテストクラスのパスを生成する<br>
+     * <p>
+     * 現在のテストクラスのFQCNパスから、テストリソースディレクトリ内のパスを生成します。
+     * </p>
+     *
+     * @since 0.2.5
+     *
+     * @return テストクラスのパス
+     */
+    protected Path getCurrentTestClassPath() {
+
+        final Path fqcnPath = KmgPathUtils.getFqcnPath(this.getClass());
+        final Path result   = AbstractKmgTest.TEST_RESOURCES.resolve(fqcnPath);
+        return result;
+
+    }
+
+    /**
+     * テストクラスのパスを生成する<br>
+     * <p>
+     * テストクラスのFQCNパスから、テストリソースディレクトリ内のパスを生成します。
+     * </p>
+     *
+     * @since 0.2.5
+     *
+     * @param testClass
+     *                  テストクラス
+     *
+     * @return テストクラスのパス
+     */
+    protected static Path getTestClassPath(final Class<?> testClass) {
+
+        final Path fqcnPath = KmgPathUtils.getFqcnPath(testClass);
+        final Path result   = AbstractKmgTest.TEST_RESOURCES.resolve(fqcnPath);
         return result;
 
     }
