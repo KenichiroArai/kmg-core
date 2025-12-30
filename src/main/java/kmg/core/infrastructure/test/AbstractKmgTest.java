@@ -37,6 +37,27 @@ public abstract class AbstractKmgTest {
     protected static final Path TEST_RESOURCES = Path.of("src/test/resources");
 
     /**
+     * テストクラスのパスを生成する<br>
+     * <p>
+     * テストクラスのFQCNパスから、テストリソースディレクトリ内のパスを生成します。
+     * </p>
+     *
+     * @since 0.2.5
+     *
+     * @param testClass
+     *                  テストクラス
+     *
+     * @return テストクラスのパス
+     */
+    protected static Path getTestClassPath(final Class<?> testClass) {
+
+        final Path fqcnPath = KmgPathUtils.getFqcnPath(testClass);
+        final Path result   = AbstractKmgTest.TEST_RESOURCES.resolve(fqcnPath);
+        return result;
+
+    }
+
+    /**
      * テストメソッドのパスを生成する<br>
      * <p>
      * テストクラスのFQCNパスとテストメソッド名から、テストリソースディレクトリ内のパスを生成します。
@@ -145,6 +166,24 @@ public abstract class AbstractKmgTest {
     }
 
     /**
+     * 現在のテストクラスのパスを生成する<br>
+     * <p>
+     * 現在のテストクラスのFQCNパスから、テストリソースディレクトリ内のパスを生成します。
+     * </p>
+     *
+     * @since 0.2.5
+     *
+     * @return テストクラスのパス
+     */
+    protected Path getCurrentTestClassPath() {
+
+        final Path fqcnPath = KmgPathUtils.getFqcnPath(this.getClass());
+        final Path result   = AbstractKmgTest.TEST_RESOURCES.resolve(fqcnPath);
+        return result;
+
+    }
+
+    /**
      * 現在のテストメソッドのパスを生成する<br>
      * <p>
      * TestInfoから現在のテストメソッド名を取得し、テストリソースディレクトリ内のパスを生成します。
@@ -181,45 +220,6 @@ public abstract class AbstractKmgTest {
     protected Path getTestMethodPath(final String testMethodName) {
 
         final Path result = AbstractKmgTest.getTestMethodPath(this.getClass(), testMethodName);
-        return result;
-
-    }
-
-    /**
-     * 現在のテストクラスのパスを生成する<br>
-     * <p>
-     * 現在のテストクラスのFQCNパスから、テストリソースディレクトリ内のパスを生成します。
-     * </p>
-     *
-     * @since 0.2.5
-     *
-     * @return テストクラスのパス
-     */
-    protected Path getCurrentTestClassPath() {
-
-        final Path fqcnPath = KmgPathUtils.getFqcnPath(this.getClass());
-        final Path result   = AbstractKmgTest.TEST_RESOURCES.resolve(fqcnPath);
-        return result;
-
-    }
-
-    /**
-     * テストクラスのパスを生成する<br>
-     * <p>
-     * テストクラスのFQCNパスから、テストリソースディレクトリ内のパスを生成します。
-     * </p>
-     *
-     * @since 0.2.5
-     *
-     * @param testClass
-     *                  テストクラス
-     *
-     * @return テストクラスのパス
-     */
-    protected static Path getTestClassPath(final Class<?> testClass) {
-
-        final Path fqcnPath = KmgPathUtils.getFqcnPath(testClass);
-        final Path result   = AbstractKmgTest.TEST_RESOURCES.resolve(fqcnPath);
         return result;
 
     }

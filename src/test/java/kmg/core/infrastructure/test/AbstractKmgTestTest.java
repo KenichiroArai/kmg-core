@@ -21,7 +21,7 @@ import kmg.core.infrastructure.types.msg.KmgCoreGenMsgTypes;
  *
  * @since 0.2.0
  *
- * @version 0.2.0
+ * @version 0.2.5
  */
 @SuppressWarnings({
     "nls", "static-method",
@@ -46,6 +46,31 @@ public class AbstractKmgTestTest extends AbstractKmgTest {
 
             // 処理なし
         }
+    }
+
+    /**
+     * getCurrentTestClassPath メソッドのテスト - 正常系:現在のテストクラスのパス生成
+     *
+     * @since 0.2.5
+     */
+    @Test
+    public void testGetCurrentTestClassPath_normalValidClass() {
+
+        /* 期待値の定義 */
+        final Path expectedPath = Paths.get("src/test/resources/kmg/core/infrastructure/test/abstract_kmg_test_test");
+
+        /* 準備 */
+        final TestAbstractKmgTest testObject = new TestAbstractKmgTest();
+
+        /* テスト対象の実行 */
+        final Path testResult = testObject.getCurrentTestClassPath();
+
+        /* 検証の準備 */
+        final Path actualPath = testResult;
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expectedPath, actualPath, "getCurrentTestClassPath: 現在のテストクラスのパスが正しく生成されること");
+
     }
 
     /**
@@ -74,6 +99,60 @@ public class AbstractKmgTestTest extends AbstractKmgTest {
 
         /* 検証の実施 */
         Assertions.assertEquals(expectedPath, actualPath, "getCurrentTestMethodPath: TestInfoからパスが正しく生成されること");
+
+    }
+
+    /**
+     * getTestClassPath メソッドのテスト - 正常系:正常なクラスでパス生成
+     *
+     * @since 0.2.5
+     */
+    @Test
+    public void testGetTestClassPath_normalValidClass() {
+
+        /* 期待値の定義 */
+        final Path expectedPath = Paths.get("src/test/resources/kmg/core/infrastructure/test/abstract_kmg_test_test");
+
+        /* 準備 */
+        final Class<?> testClass = AbstractKmgTestTest.class;
+
+        /* テスト対象の実行 */
+        final Path testResult = AbstractKmgTest.getTestClassPath(testClass);
+
+        /* 検証の準備 */
+        final Path actualPath = testResult;
+
+        /* 検証の実施 */
+        Assertions.assertEquals(expectedPath, actualPath, "getTestClassPath: 正常なクラスでパスが正しく生成されること");
+
+    }
+
+    /**
+     * getTestClassPath メソッドのテスト - 準正常系:nullのクラス
+     *
+     * @since 0.2.5
+     */
+    @Test
+    public void testGetTestClassPath_semiNullClass() {
+
+        /* 期待値の定義 */
+        // nullのクラスでNullPointerExceptionが発生することを期待
+
+        /* 準備 */
+        final Class<?> testClass = null;
+
+        /* テスト対象の実行 */
+        Assertions.assertThrows(NullPointerException.class, () -> {
+
+            AbstractKmgTest.getTestClassPath(testClass);
+
+        });
+
+        /* 検証の準備 */
+        final boolean actualExceptionThrown = true;
+
+        /* 検証の実施 */
+        Assertions.assertTrue(actualExceptionThrown, "getTestClassPath: nullのクラスでNullPointerExceptionが発生すること");
 
     }
 
