@@ -6,7 +6,7 @@
 
     <groupId>kmg.core</groupId>
     <artifactId>kmg-core</artifactId>
-    <version>0.2.5</version>
+    <version>0.2.6</version>
     <name>kmg-core</name>
     <description>KMGコア</description>
 
@@ -52,7 +52,6 @@
             <groupId>org.mockito</groupId>
             <artifactId>mockito-core</artifactId>
             <version>${mockito.version}</version>
-            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.mockito</groupId>

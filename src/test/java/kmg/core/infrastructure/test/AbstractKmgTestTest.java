@@ -8,11 +8,13 @@ import java.nio.file.Paths;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInfo;
+import org.mockito.MockedStatic;
 
 import kmg.core.infrastructure.cmn.msg.KmgCmnExcMsgTypes;
 import kmg.core.infrastructure.cmn.msg.KmgCmnGenMsgTypes;
 import kmg.core.infrastructure.exception.KmgMsgException;
 import kmg.core.infrastructure.types.msg.KmgCoreGenMsgTypes;
+import kmg.core.infrastructure.utils.KmgMessageUtils;
 
 /**
  * AbstractKmgTest クラスのテスト<br>
@@ -21,7 +23,7 @@ import kmg.core.infrastructure.types.msg.KmgCoreGenMsgTypes;
  *
  * @since 0.2.0
  *
- * @version 0.2.5
+ * @version 0.2.6
  */
 @SuppressWarnings({
     "nls", "static-method",
@@ -343,6 +345,140 @@ public class AbstractKmgTestTest extends AbstractKmgTest {
 
         /* 検証の実施 */
         Assertions.assertEquals(expectedText, actualText, "normalizeLineSeparators: nullの文字列でnullが返されること");
+
+    }
+
+    /**
+     * setupKmgMessageUtilsMock メソッドのテスト - 正常系:異なる引数でもモックが正しく動作する
+     *
+     * @since 0.2.6
+     */
+    @Test
+    public void testSetupKmgMessageUtilsMock_normalDifferentArguments() {
+
+        /* 期待値の定義 */
+        final String expectedExcMessage       = "";
+        final int    expectedMessageArgsCount = 0;
+
+        /* 準備 */
+        final TestAbstractKmgTest testObject = new TestAbstractKmgTest();
+
+        /* テスト対象の実行 */
+        try (MockedStatic<KmgMessageUtils> mockedKmgMessageUtils = testObject.setupKmgMessageUtilsMock()) {
+
+            /* 検証の準備 */
+            final KmgCmnExcMsgTypes testMessageType1    = KmgCoreGenMsgTypes.KMGCORE_GEN11100;
+            final KmgCmnExcMsgTypes testMessageType2    = KmgCoreGenMsgTypes.NONE;
+            final Object[]          testMessageArgs1    = null;
+            final Object[]          testMessageArgs2    = {};
+            final Object[]          testMessageArgs3    = {
+                "arg1"
+            };
+            final String            testMessagePattern1 = null;
+            final String            testMessagePattern2 = "";
+            final String            testMessagePattern3 = "test {0} {1} {2}";
+
+            // モック化されたgetExcMessageを異なる引数で呼び出す
+            final String actualExcMessage1 = KmgMessageUtils.getExcMessage(testMessageType1, testMessageArgs1);
+            final String actualExcMessage2 = KmgMessageUtils.getExcMessage(testMessageType2, testMessageArgs2);
+            final String actualExcMessage3 = KmgMessageUtils.getExcMessage(testMessageType1, testMessageArgs3);
+
+            // モック化されたgetMessageArgsCountを異なる引数で呼び出す
+            final int actualMessageArgsCount1 = KmgMessageUtils.getMessageArgsCount(testMessagePattern1);
+            final int actualMessageArgsCount2 = KmgMessageUtils.getMessageArgsCount(testMessagePattern2);
+            final int actualMessageArgsCount3 = KmgMessageUtils.getMessageArgsCount(testMessagePattern3);
+
+            /* 検証の実施 */
+            Assertions.assertEquals(expectedExcMessage, actualExcMessage1,
+                "setupKmgMessageUtilsMock: getExcMessage(null引数)が空文字列を返すこと");
+            Assertions.assertEquals(expectedExcMessage, actualExcMessage2,
+                "setupKmgMessageUtilsMock: getExcMessage(空配列)が空文字列を返すこと");
+            Assertions.assertEquals(expectedExcMessage, actualExcMessage3,
+                "setupKmgMessageUtilsMock: getExcMessage(引数あり)が空文字列を返すこと");
+            Assertions.assertEquals(expectedMessageArgsCount, actualMessageArgsCount1,
+                "setupKmgMessageUtilsMock: getMessageArgsCount(null)が0を返すこと");
+            Assertions.assertEquals(expectedMessageArgsCount, actualMessageArgsCount2,
+                "setupKmgMessageUtilsMock: getMessageArgsCount(空文字列)が0を返すこと");
+            Assertions.assertEquals(expectedMessageArgsCount, actualMessageArgsCount3,
+                "setupKmgMessageUtilsMock: getMessageArgsCount(パターンあり)が0を返すこと");
+
+        }
+
+    }
+
+    /**
+     * setupKmgMessageUtilsMock メソッドのテスト - 正常系:try-with-resourcesでモックが閉じられる
+     *
+     * @since 0.2.6
+     */
+    @Test
+    public void testSetupKmgMessageUtilsMock_normalMockClosed() {
+
+        /* 期待値の定義 */
+        // モックが閉じられた後は、実際のメソッドが呼び出されることを期待
+
+        /* 準備 */
+        final TestAbstractKmgTest testObject = new TestAbstractKmgTest();
+
+        /* テスト対象の実行 */
+        try (MockedStatic<KmgMessageUtils> mockedKmgMessageUtils = testObject.setupKmgMessageUtilsMock()) {
+
+            // モック化されたメソッドを呼び出す
+            final String actualExcMessage = KmgMessageUtils.getExcMessage(KmgCoreGenMsgTypes.NONE, new Object[] {});
+            Assertions.assertEquals("", actualExcMessage, "setupKmgMessageUtilsMock: モック内で空文字列を返すこと");
+
+        }
+
+        // モックが閉じられた後は、実際のメソッドが呼び出される
+        // ただし、実際のメソッドが呼び出されても例外が発生しないことを確認
+        final String actualExcMessage = KmgMessageUtils.getExcMessage(KmgCoreGenMsgTypes.NONE, new Object[] {});
+
+        /* 検証の準備 */
+        final boolean actualNoException = actualExcMessage != null;
+
+        /* 検証の実施 */
+        Assertions.assertTrue(actualNoException, "setupKmgMessageUtilsMock: モックが閉じられた後も例外が発生しないこと");
+
+    }
+
+    /**
+     * setupKmgMessageUtilsMock メソッドのテスト - 正常系:モックが正しく設定される
+     *
+     * @since 0.2.6
+     */
+    @Test
+    public void testSetupKmgMessageUtilsMock_normalMockSetup() {
+
+        /* 期待値の定義 */
+        final String expectedExcMessage       = "";
+        final int    expectedMessageArgsCount = 0;
+
+        /* 準備 */
+        final TestAbstractKmgTest testObject = new TestAbstractKmgTest();
+
+        /* テスト対象の実行 */
+        try (MockedStatic<KmgMessageUtils> mockedKmgMessageUtils = testObject.setupKmgMessageUtilsMock()) {
+
+            /* 検証の準備 */
+            final KmgCmnExcMsgTypes testMessageType    = KmgCoreGenMsgTypes.NONE;
+            final Object[]          testMessageArgs    = {
+                "arg1", "arg2"
+            };
+            final String            testMessagePattern = "test pattern {0} {1}";
+
+            // モック化されたgetExcMessageを呼び出す
+            final String actualExcMessage = KmgMessageUtils.getExcMessage(testMessageType, testMessageArgs);
+
+            // モック化されたgetMessageArgsCountを呼び出す
+            final int actualMessageArgsCount = KmgMessageUtils.getMessageArgsCount(testMessagePattern);
+
+            /* 検証の実施 */
+            Assertions.assertEquals(expectedExcMessage, actualExcMessage,
+                "setupKmgMessageUtilsMock: getExcMessageが空文字列を返すこと");
+            Assertions.assertEquals(expectedMessageArgsCount, actualMessageArgsCount,
+                "setupKmgMessageUtilsMock: getMessageArgsCountが0を返すこと");
+
+        }
 
     }
 
