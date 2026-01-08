@@ -7,12 +7,16 @@ import java.util.List;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.TestInfo;
+import org.mockito.ArgumentMatchers;
+import org.mockito.MockedStatic;
+import org.mockito.Mockito;
 
 import kmg.core.infrastructure.cmn.msg.KmgCmnExcMsgTypes;
 import kmg.core.infrastructure.cmn.msg.KmgCmnGenMsgTypes;
 import kmg.core.infrastructure.exception.KmgMsgException;
 import kmg.core.infrastructure.type.KmgString;
 import kmg.core.infrastructure.types.KmgDelimiterTypes;
+import kmg.core.infrastructure.utils.KmgMessageUtils;
 import kmg.core.infrastructure.utils.KmgPathUtils;
 
 /**
@@ -22,7 +26,7 @@ import kmg.core.infrastructure.utils.KmgPathUtils;
  *
  * @since 0.2.0
  *
- * @version 0.2.5
+ * @version 0.2.6
  */
 @SuppressWarnings({
     "nls", "static-method",
@@ -221,6 +225,33 @@ public abstract class AbstractKmgTest {
 
         final Path result = AbstractKmgTest.getTestMethodPath(this.getClass(), testMethodName);
         return result;
+
+    }
+
+    /**
+     * KmgMessageUtilsの静的メソッドをモック化する<br>
+     * <p>
+     * テストでKmgToolMsgExceptionなどの例外クラスのコンストラクタが呼び出される前に、 KmgMessageUtilsの静的メソッドをモック化することで、静的初期化ブロックの失敗を回避します。
+     * </p>
+     *
+     * @since 0.2.6
+     *
+     * @return MockedStatic&lt;KmgMessageUtils&gt; モック化されたKmgMessageUtils（try-with-resourcesで管理すること）
+     */
+    protected MockedStatic<KmgMessageUtils> setupKmgMessageUtilsMock() {
+
+        final MockedStatic<KmgMessageUtils> mockedKmgMessageUtils = Mockito.mockStatic(KmgMessageUtils.class);
+
+        // getExcMessageをモック化（任意の引数で空文字列を返す）
+        mockedKmgMessageUtils.when(
+            () -> KmgMessageUtils.getExcMessage(ArgumentMatchers.any(KmgCmnExcMsgTypes.class), ArgumentMatchers.any()))
+            .thenReturn("");
+
+        // getMessageArgsCountをモック化（任意の文字列で0を返す）
+        mockedKmgMessageUtils.when(() -> KmgMessageUtils.getMessageArgsCount(ArgumentMatchers.anyString()))
+            .thenReturn(0);
+
+        return mockedKmgMessageUtils;
 
     }
 
