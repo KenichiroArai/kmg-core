@@ -23,7 +23,7 @@ import kmg.core.infrastructure.utils.KmgMessageUtils;
  *
  * @since 0.2.0
  *
- * @version 0.2.6
+ * @version 0.2.7
  */
 @SuppressWarnings({
     "nls", "static-method",
@@ -600,10 +600,9 @@ public class AbstractKmgTestTest extends AbstractKmgTest {
 
             Files.delete(testFilePath);
 
-        } catch (final IOException e) {
+        } catch (@SuppressWarnings("unused") final IOException e) {
 
             // 削除に失敗した場合は、そのままテストを続行
-            e.printStackTrace();
 
         }
 
@@ -679,10 +678,9 @@ public class AbstractKmgTestTest extends AbstractKmgTest {
 
             Files.delete(testFilePath);
 
-        } catch (final IOException e) {
+        } catch (@SuppressWarnings("unused") final IOException e) {
 
             // 削除に失敗した場合は、そのままテストを続行
-            e.printStackTrace();
 
         }
 
@@ -807,10 +805,9 @@ public class AbstractKmgTestTest extends AbstractKmgTest {
 
             Files.delete(testFilePath);
 
-        } catch (final IOException e) {
+        } catch (@SuppressWarnings("unused") final IOException e) {
 
             // 削除に失敗した場合は、そのままテストを続行
-            e.printStackTrace();
 
         }
 

@@ -26,7 +26,7 @@ import kmg.core.infrastructure.utils.KmgPathUtils;
  *
  * @since 0.2.0
  *
- * @version 0.2.6
+ * @version 0.2.7
  */
 @SuppressWarnings({
     "nls", "static-method",
@@ -142,9 +142,8 @@ public abstract class AbstractKmgTest {
 
             lines = Files.readAllLines(filePath);
 
-        } catch (final IOException e) {
+        } catch (@SuppressWarnings("unused") final IOException e) {
 
-            e.printStackTrace();
             return;
 
         }
