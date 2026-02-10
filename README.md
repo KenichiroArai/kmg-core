@@ -1,6 +1,6 @@
 # KMG コア（kmg-core）
 
-[![Java](https://img.shields.io/badge/Java-21-orange.svg)](https://www.oracle.com/java/)
+[![Java](https://img.shields.io/badge/Java-25-orange.svg)](https://www.oracle.com/java/)
 [![Maven](https://img.shields.io/badge/Maven-3.x-blue.svg)](https://maven.apache.org/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
@@ -70,23 +70,23 @@ kmg-core/
 
 ## 開発環境
 
-- Java 21
+- Java 25
 - Maven 3.x
-- JUnit Jupiter 5.13.4
-- Mockito 5.18.0
+- JUnit Jupiter 6.0.2
+- Mockito 5.21.0
 - SLF4J 2.0.17
 
 ### ビルドツール
 
-- Maven Compiler Plugin 3.12.1
-- Maven Surefire Plugin 3.2.5（JUnit テストレポート用）
-- JaCoCo Maven Plugin 0.8.11（カバレッジレポート用）
+- Maven Compiler Plugin 3.14.1
+- Maven Surefire Plugin 3.5.4（JUnit テストレポート用）
+- JaCoCo Maven Plugin 0.8.14（カバレッジレポート用）
 
 ### プロジェクト情報
 
 - グループ ID: kmg.core
 - アーティファクト ID: kmg-core
-- バージョン: 0.2.2
+- バージョン: 0.3.0
 - エンコーディング: UTF-8
 
 ## ビルド方法

@@ -14,14 +14,24 @@ import kmg.core.infrastructure.types.msg.KmgCoreValMsgTypes;
  *
  * @author KenichiroArai
  *
- * @version 0.2.0
- *
  * @since 0.2.0
+ *
+ * @version 0.3.0
  */
 @SuppressWarnings({
     "nls", "static-method"
 })
 public class KmgValsModelImplTest {
+
+    /**
+     * デフォルトコンストラクタ
+     *
+     * @since 0.3.0
+     */
+    public KmgValsModelImplTest() {
+
+        // テストクラス用のデフォルトコンストラクタ
+    }
 
     /**
      * addData メソッドのテスト - 正常系：複数のデータが追加される場合
