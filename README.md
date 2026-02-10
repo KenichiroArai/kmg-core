@@ -78,7 +78,7 @@ kmg-core/
 
 ### ビルドツール
 
-- Maven Compiler Plugin 3.14.1
+- Maven Compiler Plugin 3.15.0
 - Maven Surefire Plugin 3.5.4（JUnit テストレポート用）
 - JaCoCo Maven Plugin 0.8.14（カバレッジレポート用）
 
