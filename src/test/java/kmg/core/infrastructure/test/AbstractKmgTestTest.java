@@ -23,7 +23,7 @@ import kmg.core.infrastructure.utils.KmgMessageUtils;
  *
  * @since 0.2.0
  *
- * @version 0.2.7
+ * @version 0.3.0
  */
 @SuppressWarnings({
     "nls", "static-method",
@@ -48,6 +48,16 @@ public class AbstractKmgTestTest extends AbstractKmgTest {
 
             // 処理なし
         }
+    }
+
+    /**
+     * デフォルトコンストラクタ<br>
+     *
+     * @since 0.3.0
+     */
+    public AbstractKmgTestTest() {
+
+        // 処理なし
     }
 
     /**

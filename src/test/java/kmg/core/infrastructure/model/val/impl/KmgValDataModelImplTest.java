@@ -11,9 +11,9 @@ import kmg.core.infrastructure.types.msg.KmgCoreValMsgTypes;
  *
  * @author KenichiroArai
  *
- * @version 0.2.0
- *
  * @since 0.2.0
+ *
+ * @version 0.3.0
  */
 @SuppressWarnings({
     "nls", "static-method"
@@ -35,6 +35,16 @@ public class KmgValDataModelImplTest {
     private static final Object[] TEST_MESSAGE_ARGS = {
         "テスト引数"
     };
+
+    /**
+     * デフォルトコンストラクタ
+     *
+     * @since 0.3.0
+     */
+    public KmgValDataModelImplTest() {
+
+        // テストクラス用のデフォルトコンストラクタ
+    }
 
     /**
      * コンストラクタのテスト - 正常系：正常にインスタンスが作成される場合
