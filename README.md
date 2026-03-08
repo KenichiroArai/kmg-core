@@ -73,7 +73,7 @@ kmg-core/
 - Java 25
 - Maven 3.x
 - JUnit Jupiter 6.0.2
-- Mockito 5.21.0
+- Mockito 5.22.0
 - SLF4J 2.0.17
 
 ### ビルドツール
