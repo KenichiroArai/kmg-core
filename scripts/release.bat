@@ -9,7 +9,7 @@ REM 前提条件：
 REM - GitHub アカウントを持っていること
 REM - リポジトリへのプッシュ権限があること
 REM - 以下がインストールされていること：
-REM   - Java 21
+REM   - Java 25
 REM   - Maven
 REM   - Git
 REM   - GitHub CLI（オプション：プルリクエストの自動作成に必要）
